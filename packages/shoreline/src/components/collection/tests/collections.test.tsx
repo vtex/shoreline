@@ -1,4 +1,4 @@
-import { describe, expect, test, render } from '@vtex/shoreline-test-utils'
+import { describe, expect, test, render, vi } from '@vtex/shoreline-test-utils'
 
 import { Collection, CollectionView } from '../index'
 
@@ -52,8 +52,28 @@ describe('collection', () => {
     ).toBeInTheDocument()
   })
 
-  test('status error', () => {
+  test('status error without action', () => {
     const { container } = render(<CollectionView status="error" />)
+
+    expect(
+      container.querySelector('[data-sl-collection-view]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-sl-collection-view-heading]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-sl-collection-view-description]')
+    ).not.toBeInTheDocument()
+
+    expect(
+      container.querySelector('[data-sl-collection-view-action]')
+    ).not.toBeInTheDocument()
+  })
+
+  test('status error with action', () => {
+    const { container } = render(
+      <CollectionView status="error" onError={vi.fn()} />
+    )
 
     expect(
       container.querySelector('[data-sl-collection-view]')
@@ -70,8 +90,28 @@ describe('collection', () => {
     ).toBeInTheDocument()
   })
 
-  test('status empty', () => {
+  test('status empty without action', () => {
     const { container } = render(<CollectionView status="empty" />)
+
+    expect(
+      container.querySelector('[data-sl-collection-view]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-sl-collection-view-heading]')
+    ).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-sl-collection-view-description]')
+    ).toBeInTheDocument()
+
+    expect(
+      container.querySelector('[data-sl-collection-view-action]')
+    ).not.toBeInTheDocument()
+  })
+
+  test('status empty with action', () => {
+    const { container } = render(
+      <CollectionView status="empty" onEmpty={vi.fn()} />
+    )
 
     expect(
       container.querySelector('[data-sl-collection-view]')

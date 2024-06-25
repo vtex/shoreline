@@ -99,6 +99,26 @@ export function Show() {
           <Pagination page={1} total={74} />
         </CollectionRow>
       </Collection>
+      {/* Error with action */}
+      <Collection>
+        <CollectionRow>
+          <Stack horizontal>
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </CollectionRow>
+        <CollectionView status="error" onError={() => alert('On empty action')}>
+          <div className="ready-view" />
+        </CollectionView>
+        <CollectionRow align="flex-end">
+          <Pagination page={1} total={74} />
+        </CollectionRow>
+      </Collection>
       {/* Empty */}
       <Collection>
         <CollectionRow>
@@ -113,6 +133,26 @@ export function Show() {
           <Pagination page={1} total={74} />
         </CollectionRow>
         <CollectionView status="empty">
+          <div className="ready-view" />
+        </CollectionView>
+        <CollectionRow align="flex-end">
+          <Pagination page={1} total={74} />
+        </CollectionRow>
+      </Collection>
+      {/* Empty with action */}
+      <Collection>
+        <CollectionRow>
+          <Stack horizontal>
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </CollectionRow>
+        <CollectionView status="empty" onEmpty={() => alert('On empty action')}>
           <div className="ready-view" />
         </CollectionView>
         <CollectionRow align="flex-end">
