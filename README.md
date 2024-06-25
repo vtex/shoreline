@@ -1,8 +1,12 @@
 <a href="https://shoreline.storybook.vtex.com" target="_blank"><img src="https://raw.githubusercontent.com/storybooks/brand/master/badge/badge-storybook.svg"></a>
 
-# 🌊 Shoreline <!-- omit in toc -->
+# 🌊 Shoreline
 
-Shoreline is a set of tools designed specifically to enhance the experience of designing and implementing apps for the VTEX Admin. The focus is on simplifying the application design, creation, coding, visualization, and QA processes.
+> [!NOTE] Currently available for internal usage at VTEX
+
+Shoreline is a set of tools designed specifically to enhance the experience of
+designing and implementing apps for the VTEX Admin. The focus is on simplifying
+the application design, creation, coding, visualization, and QA processes.
 
 - [Install and build dependencies](#install-and-build-dependencies)
 - [Run a command](#run-a-command)
@@ -25,4 +29,5 @@ pnpm dev:docs # [docs package] runs the docs website
 
 ## Contribute to this repo
 
-Pull requests are welcome, please check our [development guideline](https://shoreline.vtex.com/guides/engineering-contribution/development-guideline)!
+Pull requests are welcome, please check our
+[development guideline](https://shoreline.vtex.com/guides/engineering-contribution/development-guideline)!
