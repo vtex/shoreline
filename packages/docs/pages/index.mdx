@@ -9,6 +9,7 @@ import Image from 'next/image'
 import { Flex, Heading, Text, Button, Stack, IconArrowRight, Grid } from '@vtex/shoreline'
 
 <Flex direction="column" justify="flex-start" align='flex-start' gap="$space-6" className={styles.hero}>
+  <div className={styles.status}><span className={styles.statusDot} />Currently available for internal usage at VTEX</div>
   <Text className={styles.heading}>Build great experiences for merchants in the VTEX Admins.</Text>
   <Text className={styles.subtitle}>Shoreline is a Design System tailored for enhancing back-office experiences. The system provide design and coding tools and resources for an optimized development experience.</Text>
   <Button className={styles.button} size="large" asChild variant="primary">
@@ -17,7 +18,7 @@ import { Flex, Heading, Text, Button, Stack, IconArrowRight, Grid } from '@vtex/
 </Flex>
 
 <ImgCardGrid mb="7.5rem">
-  <ImgCard 
+  <ImgCard
     href="/foundations"
     title="Foundations"
     description="Fundamental design guidance for creating quality admin experiences"
@@ -25,7 +26,7 @@ import { Flex, Heading, Text, Button, Stack, IconArrowRight, Grid } from '@vtex/
       <img className={styles.image} src='assets/landing-foundations.webp' alt="feature foundations" />
     }
   />
-  <ImgCard 
+  <ImgCard
     href="/components"
     title="Components"
     description="Reusable elements and styles, packaged through code, for building admin interfaces"
@@ -33,7 +34,7 @@ import { Flex, Heading, Text, Button, Stack, IconArrowRight, Grid } from '@vtex/
       <img className={styles.image} src='assets/landing-components.webp' alt="feature components" />
     }
   />
-  <ImgCard 
+  <ImgCard
     href="/guides/getting-started"
     title="Guides"
     description="Learn how to use the Shoreline resources and how to contribute to evolve the system"
