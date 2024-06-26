@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.2...@vtex/shoreline@1.0.3) (2024-06-26)
+
+### Bug Fixes
+
+- **collection-view:** change to actions only appear if onError or onEmpty are passed ([ea3134e](https://github.com/vtex/shoreline/commit/ea3134e90dc1ad8e905980299be3b854da3b2558)), closes [#1652](https://github.com/vtex/shoreline/issues/1652)
+
 ## [1.0.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.1...@vtex/shoreline@1.0.2) (2024-06-25)
 
 **Note:** Version bump only for package @vtex/shoreline
