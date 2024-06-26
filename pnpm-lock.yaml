@@ -337,7 +337,7 @@ importers:
         specifier: 3.7.4
         version: 3.7.4(react@18.2.0)
       "@vtex/shoreline-utils":
-        specifier: ^1.0.5
+        specifier: ^1.0.6
         version: link:../utils
       react:
         specifier: ">=18"
@@ -429,7 +429,7 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       "@vtex/shoreline-utils":
-        specifier: ^1.0.5
+        specifier: ^1.0.6
         version: link:../utils
       react:
         specifier: ">=18"
