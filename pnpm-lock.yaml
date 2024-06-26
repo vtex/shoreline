@@ -308,8 +308,8 @@ importers:
   packages/shoreline:
     dependencies:
       '@ariakit/react':
-        specifier: 0.4.5
-        version: 0.4.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 0.4.7
+        version: 0.4.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@internationalized/date':
         specifier: 3.5.4
         version: 3.5.4
@@ -492,20 +492,20 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@ariakit/core@0.4.5':
-    resolution: {integrity: sha512-e294+bEcyzt/H/kO4fS5/czLAlkF7PY+Kul3q2z54VY+GGay8NlVs9UezAB7L4jUBlYRAXwp7/1Sq3R7b+MZ7w==}
+  '@ariakit/core@0.4.7':
+    resolution: {integrity: sha512-GUy/3ZY4kW1KdYHtMZRrRlj5FYbZTAyHlimxHI7Zs0xsC+kAzIf8lopnf67Y9IYLgEMr37KosIV7kwpkJpNs5Q==}
 
-  '@ariakit/react-core@0.4.5':
-    resolution: {integrity: sha512-ciTYPwpj/+mdA+EstveEnoygbx5e4PXQJxfkLKy4lkTkDJJUS9GcbYhdnIFJVUta6P1YFvzkIKo+/y9mcbMKJg==}
+  '@ariakit/react-core@0.4.7':
+    resolution: {integrity: sha512-OogUyQ20cxkRNRuqLI05JbmpR4Lr5HwhUIqnb/sipzt6bkg/3wCXEnUAjfxg3nPjLTMjJ8+ODWmPC9JMJTW/yg==}
     peerDependencies:
-      react: ^17.0.0 || ^18.0.0
-      react-dom: ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@ariakit/react@0.4.5':
-    resolution: {integrity: sha512-GUHxaOY1JZrJUHkuV20IY4NWcgknhqTQM0qCQcVZDCi+pJiWchUjTG+UyIr/Of02hU569qnQ7yovskCf+V3tNg==}
+  '@ariakit/react@0.4.7':
+    resolution: {integrity: sha512-uUruuCo1M0Nj2oq1nTwDfUlVTLuoI9xeHP75EkuXX46lg5hzE5vVWbSMO1D6MCy7UwrUx2Ts4IqxdKr97suTwQ==}
     peerDependencies:
-      react: ^17.0.0 || ^18.0.0
-      react-dom: ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
 
   '@aw-web-design/x-default-browser@1.4.126':
     resolution: {integrity: sha512-Xk1sIhyNC/esHGGVjL/niHLowM0csl/kFO5uawBy4IrWwy0o1G8LGt3jP6nmWGz+USxeeqbihAmp/oVZju6wug==}
@@ -11098,19 +11098,19 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@ariakit/core@0.4.5': {}
+  '@ariakit/core@0.4.7': {}
 
-  '@ariakit/react-core@0.4.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@ariakit/react-core@0.4.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@ariakit/core': 0.4.5
+      '@ariakit/core': 0.4.7
       '@floating-ui/dom': 1.6.5
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       use-sync-external-store: 1.2.0(react@18.2.0)
 
-  '@ariakit/react@0.4.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@ariakit/react@0.4.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@ariakit/react-core': 0.4.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@ariakit/react-core': 0.4.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
