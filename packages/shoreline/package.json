@@ -56,7 +56,7 @@
     "cssnano": "6.0.2",
     "fs-extra": "11.2.0",
     "lightningcss": "1.25.1",
-    "match-sorter": "6.3.1",
+    "match-sorter": "6.3.4",
     "react-hook-form": "7.48.2",
     "react-window": "1.8.10",
     "sucrase": " 3.35.0"
