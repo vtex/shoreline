@@ -84,7 +84,7 @@
     "stylelint": "^15.11.0",
     "stylelint-config-recommended": "^13.0.0",
     "stylelint-prettier": "^4.0.2",
-    "tslib": "2.6.2",
+    "tslib": "2.6.3",
     "tsup": "8.1.0",
     "turbo": "2.0.5",
     "typescript": "5.5.2",
