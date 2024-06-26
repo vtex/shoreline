@@ -1,6 +1,6 @@
 {
   "name": "next-14x",
-  "version": "0.3.34",
+  "version": "0.3.35",
   "private": true,
   "scripts": {
     "dev": "next dev",
