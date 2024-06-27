@@ -1,0 +1,63 @@
+# Best Practices
+
+Typography tokens are identified in Shoreline by the prefix `$text` and use the Inter font.
+
+The semantic tokens are intended for usage in specific scenarios, having a suffix that describe its purpose. They can also have a number when multiple tokens have similar usage but have different levels in the hierarchy of a container. For example `$text-display-1` and `$text-display-2`.
+
+The primitive tokens (`$font-weight`, `$font-size`, `$font-height`, and `$letter-spacing`) serve as the basis to compose the semantic tokens and their usage is restricted to code. The line heights are all multiples of 4, so that type is consistent with spacing values, creating a more balanced visual in the Admin.
+
+You will find only the semantic tokens in Figma, that is why we will describe only their usage below.
+
+## Display
+
+Display tokens are used in titles that introduce a page, a section, or subsections, or to highlight the most relevant numbers in a dashboard.
+
+![Display](public/assets/display.png)
+
+Use display tokens sparingly, so the hierarchy is clear, the interface is not heavy, and the information can be more dense. Display texts require more space around them.
+
+| Token         | Usage         |
+| :------------ | :---------- |
+| `$text-display-1`       | Page title, Important numerals in a dashboard. Pair with any other Display tokens or with `$text-body`.     |
+| `$text-display-2`       | Large container's title such as in a Modal. Pair with `$text-display-3`, `$text-display-4` or with `$text-body`.     |
+| `$text-display-3`       | Small container's title such as in a Form section and in a Card. Pair with `$text-display-4` or with `$text-body`.     |
+| `$text-display-4`       | Nested container's title such as a nested Card and a nested section.  Pair with `$text-body`.     |
+
+## Body
+
+The `$text-body` token is used in mostly all non-interactive or descriptive content. For example, paragraphs, descriptions, placeholders, table cells, input text, and form fields labels.
+
+They can be paired with any Display tokens, `$text-emphasis`, and `$text-caption`.
+
+![Body](public/assets/body.png)
+
+## Action
+
+The `$text-action` token should be used in the most relevant actions, such as Buttons, and in cells that identify rows that are clickable in a Table. They can be paired with `$text-body`.
+
+![Action](public/assets/action.png)
+
+## Emphasis
+
+The `$text-emphasis` token should be used sparingly in content that is non-interactive or descriptive and have a higher weight in a container, such as the Alert message or a Column name in a Table, or in actions that are less relevant than Buttons, such as Filters and Menu items.
+
+They can be paired with `$text-body`.
+
+![Emphasis](public/assets/emphasis.png)
+
+## Caption
+
+Caption tokens are used in content that is non-interactive, short and less relevant in a page. Use caption tokens sparingly, so it does not harm readability. The content that is more relevant to the user should always be `$text-body`.
+
+They can be paired with `$text-body`.
+
+![Caption](public/assets/caption.png)
+
+| Token         | Usage         |
+| :------------ | :---------- |
+| `$text-caption-1`       | Short text over a colored background, such as Tag and Tooltip     |
+| `$text-caption-2`       | Contextual information such as Help text and Error text in a form field     |
+
+
+
+
