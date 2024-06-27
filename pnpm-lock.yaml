@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@storybook/test':
         specifier: ^8.0.9
-        version: 8.1.5(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.12.8))(vitest@1.6.0(@types/node@20.12.8)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))
+        version: 8.1.5(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.14.9))(vitest@1.6.0(@types/node@20.14.9)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))
     devDependencies:
       '@biomejs/biome':
         specifier: 1.8.2
@@ -41,7 +41,7 @@ importers:
         version: 8.1.5(@types/react-dom@18.2.6)(@types/react@18.2.14)(encoding@0.1.13)(prettier@2.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@storybook/addon-interactions':
         specifier: ^8.0.9
-        version: 8.1.5(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.12.8))(vitest@1.6.0(@types/node@20.12.8)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))
+        version: 8.1.5(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.14.9))(vitest@1.6.0(@types/node@20.14.9)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))
       '@storybook/addon-links':
         specifier: ^8.0.9
         version: 8.1.5(react@18.2.0)
@@ -53,19 +53,19 @@ importers:
         version: 8.1.5(encoding@0.1.13)(prettier@2.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.5.2)
       '@storybook/react-vite':
         specifier: ^8.0.9
-        version: 8.1.5(encoding@0.1.13)(prettier@2.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.18.0)(typescript@5.5.2)(vite@5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0))
+        version: 8.1.5(encoding@0.1.13)(prettier@2.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.18.0)(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0))
       '@storybook/react-webpack5':
         specifier: ^8.0.9
         version: 8.1.5(@swc/core@1.5.24(@swc/helpers@0.5.11))(encoding@0.1.13)(esbuild@0.21.5)(prettier@2.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.5.2)
       '@storybook/test-runner':
         specifier: ^0.17.0
-        version: 0.17.0(@swc/helpers@0.5.11)(@types/node@20.12.8)(encoding@0.1.13)(prettier@2.8.8)
+        version: 0.17.0(@swc/helpers@0.5.11)(@types/node@20.14.9)(encoding@0.1.13)(prettier@2.8.8)
       '@storybook/theming':
         specifier: ^8.0.9
         version: 8.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@types/node':
-        specifier: 20.12.8
-        version: 20.12.8
+        specifier: 20.14.9
+        version: 20.14.9
       '@types/react':
         specifier: 18.2.14
         version: 18.2.14
@@ -74,7 +74,7 @@ importers:
         version: 18.2.6
       '@vitejs/plugin-react':
         specifier: 4.1.0
-        version: 4.1.0(vite@5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0))
+        version: 4.1.0(vite@5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0))
       '@vtex/shoreline-stylelint':
         specifier: workspace:*
         version: link:packages/stylelint
@@ -86,7 +86,7 @@ importers:
         version: 9.1.0
       commitizen:
         specifier: ^4.2.0
-        version: 4.3.0(@types/node@20.12.8)(typescript@5.5.2)
+        version: 4.3.0(@types/node@20.14.9)(typescript@5.5.2)
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2
@@ -152,10 +152,10 @@ importers:
         version: 5.5.2
       vite:
         specifier: 5.3.1
-        version: 5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0)
+        version: 5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0)
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.12.8)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0)
+        version: 1.6.0(@types/node@20.14.9)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0)
       wait-on:
         specifier: 7.2.0
         version: 7.2.0
@@ -222,8 +222,8 @@ importers:
         specifier: 11.0.1
         version: 11.0.1
       '@types/node':
-        specifier: 20.4.5
-        version: 20.4.5
+        specifier: 20.14.9
+        version: 20.14.9
 
   packages/docs:
     dependencies:
@@ -283,8 +283,8 @@ importers:
         specifier: 11.0.4
         version: 11.0.4
       '@types/node':
-        specifier: 20.12.7
-        version: 20.12.7
+        specifier: 20.14.9
+        version: 20.14.9
 
   packages/next:
     dependencies:
@@ -357,8 +357,8 @@ importers:
         specifier: 11.0.4
         version: 11.0.4
       '@types/node':
-        specifier: 20.11.6
-        version: 20.11.6
+        specifier: 20.14.9
+        version: 20.14.9
       '@types/react-window':
         specifier: 1.8.8
         version: 1.8.8
@@ -409,7 +409,7 @@ importers:
         version: 9.3.4
       '@testing-library/jest-dom':
         specifier: 6.4.6
-        version: 6.4.6(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.12.8))(vitest@0.34.6(jsdom@23.0.0)(lightningcss@1.25.1)(playwright@1.44.1)(terser@5.31.0))
+        version: 6.4.6(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.14.9))(vitest@0.34.6(jsdom@23.0.0)(lightningcss@1.25.1)(playwright@1.44.1)(terser@5.31.0))
       '@testing-library/react':
         specifier: 14.3.1
         version: 14.3.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -3524,17 +3524,11 @@ packages:
   '@types/node@18.19.34':
     resolution: {integrity: sha512-eXF4pfBNV5DAMKGbI02NnDtWrQ40hAN558/2vvS4gMpMIxaf6JmD7YjnZbq0Q9TDSSkKBamime8ewRoomHdt4g==}
 
-  '@types/node@20.11.6':
-    resolution: {integrity: sha512-+EOokTnksGVgip2PbYbr3xnR7kZigh4LbybAfBAw5BpnQ+FqBYUsvCEjYd70IXKlbohQ64mzEYmMtlWUY8q//Q==}
-
-  '@types/node@20.12.7':
-    resolution: {integrity: sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==}
-
   '@types/node@20.12.8':
     resolution: {integrity: sha512-NU0rJLJnshZWdE/097cdCBbyW1h4hEg0xpovcoAQYHl8dnEyp/NAOiE45pvc+Bd1Dt+2r94v2eGFpQJ4R7g+2w==}
 
-  '@types/node@20.4.5':
-    resolution: {integrity: sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==}
+  '@types/node@20.14.9':
+    resolution: {integrity: sha512-06OCtnTXtWOZBJlRApleWndH4JsRVs1pDCc8dLSQp+7PpUpX3ePdHyeNSFTeSe7FtKyQkrlPvHwJOW3SLd8Oyg==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -11842,7 +11836,7 @@ snapshots:
       '@commitlint/rules': 9.1.2
       '@commitlint/types': 9.1.2
 
-  '@commitlint/load@19.2.0(@types/node@20.12.8)(typescript@5.5.2)':
+  '@commitlint/load@19.2.0(@types/node@20.14.9)(typescript@5.5.2)':
     dependencies:
       '@commitlint/config-validator': 19.0.3
       '@commitlint/execute-rule': 19.0.0
@@ -11850,7 +11844,7 @@ snapshots:
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
       cosmiconfig: 9.0.0(typescript@5.5.2)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.12.8)(cosmiconfig@9.0.0(typescript@5.5.2))(typescript@5.5.2)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.14.9)(cosmiconfig@9.0.0(typescript@5.5.2))(typescript@5.5.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -12287,7 +12281,7 @@ snapshots:
   '@jest/console@29.7.0':
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       chalk: 4.1.2
       jest-message-util: 29.7.0
       jest-util: 29.7.0
@@ -12300,14 +12294,14 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       ci-info: 3.9.0
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.7.0
-      jest-config: 29.7.0(@types/node@20.12.8)
+      jest-config: 29.7.0(@types/node@20.14.9)
       jest-haste-map: 29.7.0
       jest-message-util: 29.7.0
       jest-regex-util: 29.6.3
@@ -12336,7 +12330,7 @@ snapshots:
     dependencies:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       jest-mock: 29.7.0
 
   '@jest/expect-utils@29.7.0':
@@ -12354,7 +12348,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       jest-message-util: 29.7.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
@@ -12376,7 +12370,7 @@ snapshots:
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
       '@jridgewell/trace-mapping': 0.3.25
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       chalk: 4.1.2
       collect-v8-coverage: 1.0.2
       exit: 0.1.2
@@ -12446,17 +12440,17 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       '@types/yargs': 17.0.32
       chalk: 4.1.2
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.3.1(typescript@5.5.2)(vite@5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0))':
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.3.1(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0))':
     dependencies:
       glob: 7.2.3
       glob-promise: 4.2.2(glob@7.2.3)
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.5.2)
-      vite: 5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0)
+      vite: 5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0)
     optionalDependencies:
       typescript: 5.5.2
 
@@ -13737,11 +13731,11 @@ snapshots:
     dependencies:
       '@storybook/global': 5.0.0
 
-  '@storybook/addon-interactions@8.1.5(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.12.8))(vitest@1.6.0(@types/node@20.12.8)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))':
+  '@storybook/addon-interactions@8.1.5(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.14.9))(vitest@1.6.0(@types/node@20.14.9)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))':
     dependencies:
       '@storybook/global': 5.0.0
       '@storybook/instrumenter': 8.1.5
-      '@storybook/test': 8.1.5(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.12.8))(vitest@1.6.0(@types/node@20.12.8)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))
+      '@storybook/test': 8.1.5(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.14.9))(vitest@1.6.0(@types/node@20.14.9)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))
       '@storybook/types': 8.1.5
       polished: 4.3.1
       ts-dedent: 2.2.0
@@ -13839,7 +13833,7 @@ snapshots:
       - prettier
       - supports-color
 
-  '@storybook/builder-vite@8.1.5(encoding@0.1.13)(prettier@2.8.8)(typescript@5.5.2)(vite@5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0))':
+  '@storybook/builder-vite@8.1.5(encoding@0.1.13)(prettier@2.8.8)(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0))':
     dependencies:
       '@storybook/channels': 8.1.5
       '@storybook/client-logger': 8.1.5
@@ -13858,7 +13852,7 @@ snapshots:
       fs-extra: 11.2.0
       magic-string: 0.30.10
       ts-dedent: 2.2.0
-      vite: 5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0)
+      vite: 5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0)
     optionalDependencies:
       typescript: 5.5.2
     transitivePeerDependencies:
@@ -14311,11 +14305,11 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@storybook/react-vite@8.1.5(encoding@0.1.13)(prettier@2.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.18.0)(typescript@5.5.2)(vite@5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0))':
+  '@storybook/react-vite@8.1.5(encoding@0.1.13)(prettier@2.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.18.0)(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.1(typescript@5.5.2)(vite@5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.1(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0))
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
-      '@storybook/builder-vite': 8.1.5(encoding@0.1.13)(prettier@2.8.8)(typescript@5.5.2)(vite@5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0))
+      '@storybook/builder-vite': 8.1.5(encoding@0.1.13)(prettier@2.8.8)(typescript@5.5.2)(vite@5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0))
       '@storybook/node-logger': 8.1.5
       '@storybook/react': 8.1.5(encoding@0.1.13)(prettier@2.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(typescript@5.5.2)
       '@storybook/types': 8.1.5
@@ -14326,7 +14320,7 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
       resolve: 1.22.8
       tsconfig-paths: 4.2.0
-      vite: 5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0)
+      vite: 5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0)
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - encoding
@@ -14418,7 +14412,7 @@ snapshots:
       - prettier
       - supports-color
 
-  '@storybook/test-runner@0.17.0(@swc/helpers@0.5.11)(@types/node@20.12.8)(encoding@0.1.13)(prettier@2.8.8)':
+  '@storybook/test-runner@0.17.0(@swc/helpers@0.5.11)(@types/node@20.14.9)(encoding@0.1.13)(prettier@2.8.8)':
     dependencies:
       '@babel/core': 7.24.6
       '@babel/generator': 7.24.6
@@ -14432,14 +14426,14 @@ snapshots:
       '@swc/core': 1.5.24(@swc/helpers@0.5.11)
       '@swc/jest': 0.2.36(@swc/core@1.5.24(@swc/helpers@0.5.11))
       expect-playwright: 0.8.0
-      jest: 29.7.0(@types/node@20.12.8)
+      jest: 29.7.0(@types/node@20.14.9)
       jest-circus: 29.7.0
       jest-environment-node: 29.7.0
       jest-junit: 16.0.0
-      jest-playwright-preset: 4.0.0(jest-circus@29.7.0)(jest-environment-node@29.7.0)(jest-runner@29.7.0)(jest@29.7.0(@types/node@20.12.8))
+      jest-playwright-preset: 4.0.0(jest-circus@29.7.0)(jest-environment-node@29.7.0)(jest-runner@29.7.0)(jest@29.7.0(@types/node@20.14.9))
       jest-runner: 29.7.0
       jest-serializer-html: 7.1.0
-      jest-watch-typeahead: 2.2.2(jest@29.7.0(@types/node@20.12.8))
+      jest-watch-typeahead: 2.2.2(jest@29.7.0(@types/node@20.14.9))
       playwright: 1.44.1
     transitivePeerDependencies:
       - '@swc/helpers'
@@ -14452,14 +14446,14 @@ snapshots:
       - supports-color
       - ts-node
 
-  '@storybook/test@8.1.5(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.12.8))(vitest@1.6.0(@types/node@20.12.8)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))':
+  '@storybook/test@8.1.5(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.14.9))(vitest@1.6.0(@types/node@20.14.9)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))':
     dependencies:
       '@storybook/client-logger': 8.1.5
       '@storybook/core-events': 8.1.5
       '@storybook/instrumenter': 8.1.5
       '@storybook/preview-api': 8.1.5
       '@testing-library/dom': 9.3.4
-      '@testing-library/jest-dom': 6.4.6(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.12.8))(vitest@1.6.0(@types/node@20.12.8)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))
+      '@testing-library/jest-dom': 6.4.6(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.14.9))(vitest@1.6.0(@types/node@20.14.9)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))
       '@testing-library/user-event': 14.5.2(@testing-library/dom@9.3.4)
       '@vitest/expect': 1.3.1
       '@vitest/spy': 1.6.0
@@ -14598,7 +14592,7 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/jest-dom@6.4.6(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.12.8))(vitest@0.34.6(jsdom@23.0.0)(lightningcss@1.25.1)(playwright@1.44.1)(terser@5.31.0))':
+  '@testing-library/jest-dom@6.4.6(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.14.9))(vitest@0.34.6(jsdom@23.0.0)(lightningcss@1.25.1)(playwright@1.44.1)(terser@5.31.0))':
     dependencies:
       '@adobe/css-tools': 4.4.0
       '@babel/runtime': 7.24.6
@@ -14610,10 +14604,10 @@ snapshots:
       redent: 3.0.0
     optionalDependencies:
       '@jest/globals': 29.7.0
-      jest: 29.7.0(@types/node@20.12.8)
+      jest: 29.7.0(@types/node@20.14.9)
       vitest: 0.34.6(jsdom@23.0.0)(lightningcss@1.25.1)(playwright@1.44.1)(terser@5.31.0)
 
-  '@testing-library/jest-dom@6.4.6(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.12.8))(vitest@1.6.0(@types/node@20.12.8)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))':
+  '@testing-library/jest-dom@6.4.6(@jest/globals@29.7.0)(jest@29.7.0(@types/node@20.14.9))(vitest@1.6.0(@types/node@20.14.9)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0))':
     dependencies:
       '@adobe/css-tools': 4.4.0
       '@babel/runtime': 7.24.6
@@ -14625,8 +14619,8 @@ snapshots:
       redent: 3.0.0
     optionalDependencies:
       '@jest/globals': 29.7.0
-      jest: 29.7.0(@types/node@20.12.8)
-      vitest: 1.6.0(@types/node@20.12.8)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0)
+      jest: 29.7.0(@types/node@20.14.9)
+      vitest: 1.6.0(@types/node@20.14.9)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0)
 
   '@testing-library/react@14.3.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
@@ -14699,7 +14693,7 @@ snapshots:
   '@types/body-parser@1.19.5':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/chai-subset@1.3.5':
     dependencies:
@@ -14709,16 +14703,16 @@ snapshots:
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/conventional-commits-parser@5.0.0':
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
     optional: true
 
   '@types/cross-spawn@6.0.6':
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/d3-scale-chromatic@3.0.3': {}
 
@@ -14766,7 +14760,7 @@ snapshots:
 
   '@types/express-serve-static-core@4.19.3':
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       '@types/qs': 6.9.15
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -14785,21 +14779,21 @@ snapshots:
   '@types/fs-extra@11.0.1':
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/fs-extra@11.0.4':
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/graceful-fs@4.1.9':
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/hast@2.3.10':
     dependencies:
@@ -14836,14 +14830,14 @@ snapshots:
 
   '@types/jsonfile@6.1.4':
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/katex@0.16.7': {}
 
   '@types/liftoff@4.0.3':
     dependencies:
       '@types/fined': 1.1.5
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/lodash@4.17.4': {}
 
@@ -14871,19 +14865,13 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@20.11.6':
-    dependencies:
-      undici-types: 5.26.5
-
-  '@types/node@20.12.7':
-    dependencies:
-      undici-types: 5.26.5
-
   '@types/node@20.12.8':
     dependencies:
       undici-types: 5.26.5
 
-  '@types/node@20.4.5': {}
+  '@types/node@20.14.9':
+    dependencies:
+      undici-types: 5.26.5
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -14920,19 +14908,19 @@ snapshots:
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/serve-static@1.15.7':
     dependencies:
       '@types/http-errors': 2.0.4
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       '@types/send': 0.17.4
 
   '@types/stack-utils@2.0.3': {}
 
   '@types/through@0.0.33':
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/unist@2.0.10': {}
 
@@ -14944,7 +14932,7 @@ snapshots:
 
   '@types/wait-on@5.3.4':
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -14994,14 +14982,14 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react@4.1.0(vite@5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0))':
+  '@vitejs/plugin-react@4.1.0(vite@5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0))':
     dependencies:
       '@babel/core': 7.24.6
       '@babel/plugin-transform-react-jsx-self': 7.24.6(@babel/core@7.24.6)
       '@babel/plugin-transform-react-jsx-source': 7.24.6(@babel/core@7.24.6)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0)
+      vite: 5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -16016,10 +16004,10 @@ snapshots:
 
   commander@8.3.0: {}
 
-  commitizen@4.3.0(@types/node@20.12.8)(typescript@5.5.2):
+  commitizen@4.3.0(@types/node@20.14.9)(typescript@5.5.2):
     dependencies:
       cachedir: 2.3.0
-      cz-conventional-changelog: 3.3.0(@types/node@20.12.8)(typescript@5.5.2)
+      cz-conventional-changelog: 3.3.0(@types/node@20.14.9)(typescript@5.5.2)
       dedent: 0.7.0
       detect-indent: 6.1.0
       find-node-modules: 2.1.3
@@ -16207,9 +16195,9 @@ snapshots:
     dependencies:
       layout-base: 1.0.2
 
-  cosmiconfig-typescript-loader@5.0.0(@types/node@20.12.8)(cosmiconfig@9.0.0(typescript@5.5.2))(typescript@5.5.2):
+  cosmiconfig-typescript-loader@5.0.0(@types/node@20.14.9)(cosmiconfig@9.0.0(typescript@5.5.2))(typescript@5.5.2):
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       cosmiconfig: 9.0.0(typescript@5.5.2)
       jiti: 1.21.0
       typescript: 5.5.2
@@ -16250,13 +16238,13 @@ snapshots:
       typescript: 5.5.2
     optional: true
 
-  create-jest@29.7.0(@types/node@20.12.8):
+  create-jest@29.7.0(@types/node@20.14.9):
     dependencies:
       '@jest/types': 29.6.3
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@20.12.8)
+      jest-config: 29.7.0(@types/node@20.14.9)
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -16398,16 +16386,16 @@ snapshots:
 
   cytoscape@3.29.2: {}
 
-  cz-conventional-changelog@3.3.0(@types/node@20.12.8)(typescript@5.5.2):
+  cz-conventional-changelog@3.3.0(@types/node@20.14.9)(typescript@5.5.2):
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.3.0(@types/node@20.12.8)(typescript@5.5.2)
+      commitizen: 4.3.0(@types/node@20.14.9)(typescript@5.5.2)
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.5
     optionalDependencies:
-      '@commitlint/load': 19.2.0(@types/node@20.12.8)(typescript@5.5.2)
+      '@commitlint/load': 19.2.0(@types/node@20.14.9)(typescript@5.5.2)
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -18917,7 +18905,7 @@ snapshots:
       '@jest/expect': 29.7.0
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       chalk: 4.1.2
       co: 4.6.0
       dedent: 1.5.3
@@ -18937,16 +18925,16 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
-  jest-cli@29.7.0(@types/node@20.12.8):
+  jest-cli@29.7.0(@types/node@20.14.9):
     dependencies:
       '@jest/core': 29.7.0
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@20.12.8)
+      create-jest: 29.7.0(@types/node@20.14.9)
       exit: 0.1.2
       import-local: 3.1.0
-      jest-config: 29.7.0(@types/node@20.12.8)
+      jest-config: 29.7.0(@types/node@20.14.9)
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -18956,7 +18944,7 @@ snapshots:
       - supports-color
       - ts-node
 
-  jest-config@29.7.0(@types/node@20.12.8):
+  jest-config@29.7.0(@types/node@20.14.9):
     dependencies:
       '@babel/core': 7.24.6
       '@jest/test-sequencer': 29.7.0
@@ -18981,7 +18969,7 @@ snapshots:
       slash: 3.0.0
       strip-json-comments: 3.1.1
     optionalDependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
@@ -19010,7 +18998,7 @@ snapshots:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       jest-mock: 29.7.0
       jest-util: 29.7.0
 
@@ -19020,7 +19008,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@types/graceful-fs': 4.1.9
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       anymatch: 3.1.3
       fb-watchman: 2.0.2
       graceful-fs: 4.2.11
@@ -19066,13 +19054,13 @@ snapshots:
   jest-mock@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       jest-util: 29.7.0
 
-  jest-playwright-preset@4.0.0(jest-circus@29.7.0)(jest-environment-node@29.7.0)(jest-runner@29.7.0)(jest@29.7.0(@types/node@20.12.8)):
+  jest-playwright-preset@4.0.0(jest-circus@29.7.0)(jest-environment-node@29.7.0)(jest-runner@29.7.0)(jest@29.7.0(@types/node@20.14.9)):
     dependencies:
       expect-playwright: 0.8.0
-      jest: 29.7.0(@types/node@20.12.8)
+      jest: 29.7.0(@types/node@20.14.9)
       jest-circus: 29.7.0
       jest-environment-node: 29.7.0
       jest-process-manager: 0.4.0
@@ -19133,7 +19121,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       chalk: 4.1.2
       emittery: 0.13.1
       graceful-fs: 4.2.11
@@ -19161,7 +19149,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       chalk: 4.1.2
       cjs-module-lexer: 1.3.1
       collect-v8-coverage: 1.0.2
@@ -19211,7 +19199,7 @@ snapshots:
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -19226,11 +19214,11 @@ snapshots:
       leven: 3.1.0
       pretty-format: 29.7.0
 
-  jest-watch-typeahead@2.2.2(jest@29.7.0(@types/node@20.12.8)):
+  jest-watch-typeahead@2.2.2(jest@29.7.0(@types/node@20.14.9)):
     dependencies:
       ansi-escapes: 6.2.1
       chalk: 5.3.0
-      jest: 29.7.0(@types/node@20.12.8)
+      jest: 29.7.0(@types/node@20.14.9)
       jest-regex-util: 29.6.3
       jest-watcher: 29.7.0
       slash: 5.1.0
@@ -19241,7 +19229,7 @@ snapshots:
     dependencies:
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.13.1
@@ -19250,23 +19238,23 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  jest@29.7.0(@types/node@20.12.8):
+  jest@29.7.0(@types/node@20.14.9):
     dependencies:
       '@jest/core': 29.7.0
       '@jest/types': 29.6.3
       import-local: 3.1.0
-      jest-cli: 29.7.0(@types/node@20.12.8)
+      jest-cli: 29.7.0(@types/node@20.14.9)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -23674,14 +23662,14 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite-node@0.34.6(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0):
+  vite-node@0.34.6(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0):
     dependencies:
       cac: 6.7.14
       debug: 4.3.5
       mlly: 1.7.0
       pathe: 1.1.2
       picocolors: 1.0.1
-      vite: 5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0)
+      vite: 5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -23692,13 +23680,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-node@1.6.0(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0):
+  vite-node@1.6.0(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0):
     dependencies:
       cac: 6.7.14
       debug: 4.3.5
       pathe: 1.1.2
       picocolors: 1.0.1
-      vite: 5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0)
+      vite: 5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -23709,24 +23697,24 @@ snapshots:
       - supports-color
       - terser
 
-  vite@5.0.13(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0):
+  vite@5.0.13(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0):
     dependencies:
       esbuild: 0.19.12
       postcss: 8.4.38
       rollup: 4.18.0
     optionalDependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       fsevents: 2.3.3
       lightningcss: 1.25.1
       terser: 5.31.0
 
-  vite@5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0):
+  vite@5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.38
       rollup: 4.18.0
     optionalDependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       fsevents: 2.3.3
       lightningcss: 1.25.1
       terser: 5.31.0
@@ -23735,7 +23723,7 @@ snapshots:
     dependencies:
       '@types/chai': 4.3.16
       '@types/chai-subset': 1.3.5
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       '@vitest/expect': 0.34.6
       '@vitest/runner': 0.34.6
       '@vitest/snapshot': 0.34.6
@@ -23754,8 +23742,8 @@ snapshots:
       strip-literal: 1.3.0
       tinybench: 2.8.0
       tinypool: 0.7.0
-      vite: 5.0.13(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0)
-      vite-node: 0.34.6(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0)
+      vite: 5.0.13(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0)
+      vite-node: 0.34.6(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0)
       why-is-node-running: 2.2.2
     optionalDependencies:
       jsdom: 23.0.0
@@ -23769,7 +23757,7 @@ snapshots:
       - supports-color
       - terser
 
-  vitest@1.6.0(@types/node@20.12.8)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0):
+  vitest@1.6.0(@types/node@20.14.9)(jsdom@23.0.0)(lightningcss@1.25.1)(terser@5.31.0):
     dependencies:
       '@vitest/expect': 1.6.0
       '@vitest/runner': 1.6.0
@@ -23788,11 +23776,11 @@ snapshots:
       strip-literal: 2.1.0
       tinybench: 2.8.0
       tinypool: 0.8.4
-      vite: 5.3.1(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0)
-      vite-node: 1.6.0(@types/node@20.12.8)(lightningcss@1.25.1)(terser@5.31.0)
+      vite: 5.3.1(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0)
+      vite-node: 1.6.0(@types/node@20.14.9)(lightningcss@1.25.1)(terser@5.31.0)
       why-is-node-running: 2.2.2
     optionalDependencies:
-      '@types/node': 20.12.8
+      '@types/node': 20.14.9
       jsdom: 23.0.0
     transitivePeerDependencies:
       - less
