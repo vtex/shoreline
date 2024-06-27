@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.8...@vtex/shoreline-utils@1.0.9) (2024-06-27)
+
+### Bug Fixes
+
+- **deps:** update dependency csstype to v3.1.3 ([629de66](https://github.com/vtex/shoreline/commit/629de66539af1a5d818d4746c2d2c32c9eaaff52))
+- **deps:** update dependency tiny-invariant to v1.3.3 ([946bf3a](https://github.com/vtex/shoreline/commit/946bf3a303ea80feafe53287a52f30c106f407b9))
+
 ## [1.0.8](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.7...@vtex/shoreline-utils@1.0.8) (2024-06-26)
 
 **Note:** Version bump only for package @vtex/shoreline-utils
