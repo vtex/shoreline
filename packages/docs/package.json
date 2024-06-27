@@ -22,7 +22,7 @@
     "@vtex/shoreline-utils": "workspace:*",
     "fs-extra": "11.2.0",
     "google": "link:@next/third-parties/google",
-    "next": "13.5.1",
+    "next": "13.5.6",
     "nextra": "2.13.4",
     "nextra-theme-docs": "2.13.4",
     "prettier": "3.2.5",
