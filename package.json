@@ -62,7 +62,7 @@
     "@storybook/theming": "^8.0.9",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
-    "@vitejs/plugin-react": "4.1.0",
+    "@vitejs/plugin-react": "4.3.1",
     "@vtex/shoreline-stylelint": "workspace:*",
     "@vtex/shoreline-test-utils": "workspace:*",
     "chromatic": "^9.1.0",
