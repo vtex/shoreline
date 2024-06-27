@@ -47,7 +47,7 @@
   "devDependencies": {
     "@faker-js/faker": "8.4.1",
     "@types/fs-extra": "11.0.4",
-    "@types/node": "20.11.6",
+    "@types/node": "20.14.9",
     "@types/react-window": "1.8.8",
     "@vtex/shoreline-css": "workspace:*",
     "browserslist": "4.23.1",
