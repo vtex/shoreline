@@ -1,0 +1,17 @@
+# Best Practices
+
+Radius tokens are identified in Shoreline by the prefix `$radius`. The prefix is followed by suffixes that are numbers (0, 1, 2, 3) that are agnostic to the token value, they just represent a crescent order. The only exception is the bigger one which the suffix is full. So, the smaller radius token name is `$radius-0` and the bigger is `$radius-full`.
+
+![Radius](public/assets/radius.png)
+
+## Usage
+
+The radius used in a component is related to its size and placement.
+
+| Token         | Usage         |
+| :------------ | :---------- |
+| `$radius-0`       | Page components (Header and Content) and Admin Navigation components (Topbar and Sidebar)     |
+| `$radius-1`       | Checkboxes and Buttons inside inputs     |
+| `$radius-2`       | Buttons, Inputs, Filters, Alerts, Toasts, Cards, and Popovers     |
+| `$radius-3`       | Modals     |
+| `$radius-full`       | Tags and Avatars     |
