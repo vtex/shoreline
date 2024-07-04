@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.10...@vtex/shoreline@1.0.11) (2024-07-04)
+
+### Bug Fixes
+
+- **date-picker:** change the radius of the calendar IconButton inside the input ([2523212](https://github.com/vtex/shoreline/commit/2523212d9eb8d8a261184afc10b6419ab01973a0)), closes [#1583](https://github.com/vtex/shoreline/issues/1583)
+
 ## [1.0.10](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.9...@vtex/shoreline@1.0.10) (2024-06-28)
 
 **Note:** Version bump only for package @vtex/shoreline
