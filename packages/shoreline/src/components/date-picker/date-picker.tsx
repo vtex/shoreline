@@ -55,6 +55,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
           <Bleed end="$space-2">
             <PopoverTrigger asChild>
               <IconButton
+                data-sl-date-picker-button
                 id={buttonProps.id}
                 label={buttonProps['aria-label']}
                 aria-describedby={buttonProps['aria-describedby']}
