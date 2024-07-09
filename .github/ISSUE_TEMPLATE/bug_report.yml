@@ -51,12 +51,11 @@ body:
     attributes:
       label: Package Manager
       options:
-        – - 
         - pnpm
         - npm
         - yarn
         - bun
-      default: -
+      default: 0
   - type: markdown
     attributes:
       value: Thanks for taking the time to fill out this bug report ✨
