@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.13...@vtex/shoreline@1.1.0) (2024-07-10)
+
+### Features
+
+- **icon:** add IconCounterClockwise ([e5472a9](https://github.com/vtex/shoreline/commit/e5472a9015e09ed6588146cf40a90f71ac16066b))
+
 ## [1.0.13](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.0.12...@vtex/shoreline@1.0.13) (2024-07-09)
 
 **Note:** Version bump only for package @vtex/shoreline
