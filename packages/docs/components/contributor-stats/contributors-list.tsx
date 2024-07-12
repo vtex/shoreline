@@ -1,26 +1,52 @@
-import useSWR from 'swr'
 import styles from './contributors.module.css'
-
-const fetcher = (url) => fetch(url).then((r) => r.json())
+import { contributors } from '../../__contributors__/stats'
+import {
+  Stack,
+  TooltipPopover,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@vtex/shoreline'
 
 export function ContributorList() {
-  const { data, error, isLoading } = useSWR('/api/contributors', fetcher)
-
-  if (error) return <div>failed to load</div>
-  if (isLoading) return <div>loading...</div>
-
-  console.log({ data })
-
   return (
     <div className={styles.container}>
-      {data?.data.map((contributor) => (
-        <img
-          key={contributor.username}
-          src={contributor.image}
-          alt={contributor.name}
-          className={styles.avatar}
-        />
-      ))}
+      {contributors.map((contributor) => {
+        const { stats } = contributor
+        return (
+          <TooltipProvider key={contributor.username}>
+            <TooltipTrigger asChild>
+              <div>
+                <img
+                  src={contributor.image}
+                  alt={contributor.name}
+                  className={styles.avatar}
+                />
+              </div>
+            </TooltipTrigger>
+            <TooltipPopover>
+              <Stack>
+                <p>reviews: {stats.reviews}</p>
+                <p>issues: {stats.issues}</p>
+                <p>assigns: {stats.assigns}</p>
+                <p>comments: {stats.comments}</p>
+                <p>pulls: {stats.pulls}</p>
+                <p>merged: {stats.merged}</p>
+              </Stack>
+            </TooltipPopover>
+          </TooltipProvider>
+        )
+      })}
     </div>
   )
 }
+
+/**
+ * stats: {
+      issues: 13,
+      assigns: 9,
+      comments: 18,
+      pulls: 70,
+      reviews: 81,
+      merged: 64,
+    },
+ */

@@ -11,10 +11,3 @@
   object-fit: contain;
   object-position: center;
 }
-
-.avatar:hover {
-  border: 0.375rem solid #eaf0f9;
-  width: 4.375rem;
-  height: 4.375rem;
-  cursor: pointer;
-}
