@@ -2,8 +2,10 @@ import { graphql } from '@octokit/graphql'
 import { Octokit } from '@octokit/rest'
 import path from 'node:path'
 import fse from 'fs-extra'
+import { format } from 'prettier'
 
-const outputDirectory = `${path.dirname('')}/__contributors__`
+const statsOutputDirectory = `${path.dirname('')}/__contributors__`
+const contributorsOutputDirectory = `${path.dirname('')}/pages/guides/contributor`
 const VTEX_ORG = 'vtex'
 const REPO_NAME = 'shoreline'
 const token = process.env.GITHUB_TOKEN
@@ -106,8 +108,6 @@ function filterIssuesByUser(username, issues = []) {
 
 const issues = await fetchAllIssues()
 
-console.log(filterIssuesByUser('lucasaarcoverde', issues))
-
 async function fetchRepositoryContributors() {
   try {
     const { data: contributors } = await octokit.repos.listContributors({
@@ -208,7 +208,6 @@ function filterPullsByUser(username, pulls = []) {
       pull.author.login !== username &&
       pull.createdAt >= startDate &&
       pull.participants.nodes.some((participant) => {
-        if (participant.login === username) console.log({ participant, pull })
         return participant.login === username
       })
     )
@@ -240,7 +239,16 @@ function getContributorStats(username) {
   const issuesStats = filterIssuesByUser(username, issues)
   const pullsStats = filterPullsByUser(username, pulls)
 
-  return { ...issuesStats, ...pullsStats }
+  const rate =
+    (issuesStats.issues +
+      issuesStats.assigns +
+      issuesStats.comments +
+      pullsStats.pulls +
+      pullsStats.reviews +
+      pullsStats.merged) /
+    6
+
+  return { ...issuesStats, ...pullsStats, rate }
 }
 
 async function main() {
@@ -252,17 +260,64 @@ async function main() {
     }
   })
 
-  fse.outputFile(
-    `${outputDirectory}/stats.js`,
-    JSON.stringify(stats),
-    (err) => {
-      if (err) {
-        console.log(err)
-      } else {
-        console.log('✅ Examples generated')
-      }
+  stats.sort((a, b) => b.stats.rate - a.stats.rate)
+
+  const code = `
+export const contributors = ${JSON.stringify(stats)}
+
+export function getContributor(username: string) {
+  return contributors.find((contributor) => contributor.username === username)
+}
+  `
+
+  const formattedCode = await format(code, {
+    parser: 'typescript',
+    semi: false,
+    singleQuote: true,
+  })
+
+  fse.outputFile(`${statsOutputDirectory}/stats.ts`, formattedCode, (err) => {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log('✅ Contributor stats generated')
     }
-  )
+  })
+
+  const contributorsPromises = contributors.map((contributor) => {
+    const mdxCode = `
+import { getContributor } from '../../../__contributors__/stats';
+
+# Contributor
+
+<ContributorStats contributor={getContributor("${contributor.username}")} />
+    `
+
+    return format(mdxCode, {
+      parser: 'mdx',
+      semi: false,
+      singleQuote: true,
+    })
+  })
+
+  const contributorsMDX = await Promise.all(contributorsPromises)
+
+  for (const i in contributors) {
+    const contributor = contributors[i]
+    const contributorMDX = contributorsMDX[i]
+
+    fse.outputFile(
+      `${contributorsOutputDirectory}/${contributor.username}.mdx`,
+      contributorMDX,
+      (err) => {
+        if (err) {
+          console.log(err)
+        } else {
+          console.log(`✅ ${contributor.username} page generated`)
+        }
+      }
+    )
+  }
 }
 
 main()
