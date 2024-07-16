@@ -1,13 +1,17 @@
+import { config } from 'dotenv'
+
 import { graphql } from '@octokit/graphql'
 import path from 'node:path'
 import fse from 'fs-extra'
 import { format } from 'prettier'
 
+config()
+
 const statsOutputDirectory = `${path.dirname('')}/__contributions__`
 const contributorsOutputDirectory = `${path.dirname('')}/pages/guides/contributor`
 const VTEX_ORG = 'vtex'
 const REPO_NAME = 'shoreline'
-const token = process.env.GITHUB_TOKEN
+const token = process.env.VTEX_GITHUB_BOT_TOKEN
 const startDate = new Date('2024-01-01T00:00:00Z').toISOString()
 
 const graphqlWithAuth = graphql.defaults({
@@ -301,6 +305,7 @@ function getIssuesOnFire() {
 async function main() {
   const stats = contributors.map((contributor) => {
     const stats = getContributorStats(contributor.username)
+
     return {
       ...contributor,
       stats,
@@ -310,7 +315,21 @@ async function main() {
   stats.sort((a, b) => b.stats.rate - a.stats.rate)
 
   const code = `
-export const contributors = ${JSON.stringify(stats)}
+export interface Contributor {
+  username: string
+  image: string
+  stats: {
+    issues: number
+    pulls: number
+    reviews: number
+    comments: number
+    merged: number
+    assigns: number
+    rate: number
+  }
+}
+
+export const contributors: Contributor[] = ${JSON.stringify(stats)}
 
 export function getContributor(username: string) {
   return contributors.find((contributor) => contributor.username === username)
@@ -325,7 +344,8 @@ const maintainers = [
 
 export function getContributors() {
   return contributors.filter(
-    (contributor) => !maintainers.includes(contributor.username)
+    (contributor) =>
+      !maintainers.includes(contributor.username) && contributor.stats.rate > 0
   )
 }
   `
@@ -347,7 +367,23 @@ export function getContributors() {
   const issuesOnFire = getIssuesOnFire()
 
   const issuesCode = `
-export const issuesOnFire = ${JSON.stringify(issuesOnFire)}
+interface Author {
+  login: string
+  avatarUrl: string
+}
+
+export interface Issue {
+  assignees: { nodes: Omit<Author, 'avatarUrl'>[] }
+  url: string
+  number: number
+  title: string
+  createdAt: string
+  author: Author
+  state: string
+  comments: { nodes: { author: Author }[] }
+}
+
+export const issuesOnFire: Issue[] = ${JSON.stringify(issuesOnFire)}
   `
 
   const formattedIssuesCode = await format(issuesCode, {
@@ -411,9 +447,3 @@ import { getContributor } from '../../../__contributions__/stats';
 }
 
 main()
-
-/**
- * @TODO
- * - Add possibility to customize range of dates
- * - Add this script to the build process
- */

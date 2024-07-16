@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from './contributions.module.css'
 import { Bleed, Button, Stack } from '@vtex/shoreline'
+import type { Contributor } from '../../__contributions__/stats'
 
 export function ContributorStats(props: ContributorStatsProps) {
   const {
@@ -52,17 +53,5 @@ const statsLabels = {
   reviews: 'PRs reviewed',
 }
 interface ContributorStatsProps {
-  contributor: {
-    username: string
-    image: string
-    stats: {
-      issues: number
-      pulls: number
-      reviews: number
-      comments: number
-      merged: number
-      assigns: number
-      rate: number
-    }
-  }
+  contributor: Contributor
 }

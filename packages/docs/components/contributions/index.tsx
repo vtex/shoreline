@@ -1,3 +1,3 @@
 export * from './contributors-list'
 export * from './contributor-stats'
-export * from './issues-on-fire'
+export * from './issues-list'

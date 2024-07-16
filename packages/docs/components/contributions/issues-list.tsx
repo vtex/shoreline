@@ -4,7 +4,7 @@ import { LinkBox, Stack } from '@vtex/shoreline'
 import { IconOpenIssue } from './icon-open-issue'
 import { IconChatCircle } from './icon-chat-circle'
 
-export function IssuesOnFire() {
+export function IssuesList() {
   return (
     <div className={styles.issuesContainer}>
       {issuesOnFire.map((issue) => {

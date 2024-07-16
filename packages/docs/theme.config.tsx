@@ -19,7 +19,7 @@ import { ImgCard, ImgCardGrid } from './components/img-card'
 import {
   ContributorList,
   ContributorStats,
-  IssuesOnFire,
+  IssuesList,
 } from './components/contributions'
 
 const docsTitle = 'Shoreline'
@@ -99,7 +99,7 @@ const config: DocsThemeConfig = {
     ImgCardGrid: ImgCardGrid as React.FC,
     ContributorList: ContributorList as React.FC,
     ContributorStats: ContributorStats as React.FC,
-    IssuesOnFire: IssuesOnFire as React.FC,
+    IssuesList: IssuesList as React.FC,
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
