@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from './contributions.module.css'
-import { Stack } from '@vtex/shoreline'
+import { Bleed, Button, Stack } from '@vtex/shoreline'
 
 export function ContributorStats(props: ContributorStatsProps) {
   const {
@@ -20,8 +20,13 @@ export function ContributorStats(props: ContributorStatsProps) {
         <div>@{username}</div>
       </div>
       <Stack className={styles.contributionsContainer} space="$space-8">
-        <p className={styles.contributionsLabel}>Contributions</p>
-        <Stack horizontal space="$space-4" className={styles.statsContainer}>
+        <div className={styles.contributionsHeader}>
+          <p className={styles.contributionsLabel}>Contributions</p>
+          <Bleed top="$space-2" bottom="$space-2" end="$space-2">
+            <Button disabled>2024</Button>
+          </Bleed>
+        </div>
+        <div className={styles.statsContainer}>
           {Object.keys(stats).map((stat) => {
             if (stat === 'rate') return null
 
@@ -32,7 +37,7 @@ export function ContributorStats(props: ContributorStatsProps) {
               </div>
             )
           })}
-        </Stack>
+        </div>
       </Stack>
     </Stack>
   )

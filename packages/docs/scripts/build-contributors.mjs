@@ -315,6 +315,19 @@ export const contributors = ${JSON.stringify(stats)}
 export function getContributor(username: string) {
   return contributors.find((contributor) => contributor.username === username)
 }
+
+const maintainers = [
+  'matheusps',
+  'davicostalf',
+  'lucasaarcoverde',
+  'beatrizmilhomem',
+]
+
+export function getContributors() {
+  return contributors.filter(
+    (contributor) => !maintainers.includes(contributor.username)
+  )
+}
   `
 
   const formattedCode = await format(code, {
