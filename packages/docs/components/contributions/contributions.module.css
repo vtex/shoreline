@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.contributorImage {
+  border-radius: 50%;
+  object-fit: contain;
+  object-position: center;
+  margin-bottom: 1rem;
+}
+
+.contributionsContainer {
+  border: var(--sl-border-base);
+  padding: var(--sl-space-8);
+  border-radius: var(--sl-radius-1);
+}
+
+.statsContainer[data-horizontal="true"] {
+  align-items: flex-start;
+}
+
+.contributionsLabel {
+  font: var(--sl-text-display-3-font);
+  letter-spacing: var(--sl-text-display-3-letter-spacing);
+}
+
+.statLabel {
+  color: #111729;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  letter-spacing: -0.02rem;
+  text-align: left;
+}
+
+.statValue {
+  color: #394150;
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 2.8125rem;
+  text-align: left;
+}
+
+.issuesContainer {
+  border: var(--sl-border-base);
+  border-radius: var(--sl-radius-1);
+}
+
+.issueContainer {
+  padding: var(--sl-space-5) var(--sl-space-4);
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.issueContainer:not(:last-child) {
+  border-bottom: var(--sl-border-base);
+}
+
+.issueContainer:hover {
+  background: var(--sl-bg-muted-hover);
+}
+
+.issueTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4375rem;
+  text-align: left;
+}
+
+.issueInfo {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  text-align: left;
+}
+
+.issueInfoContainer {
+  display: flex;
+  gap: var(--sl-space-2);
+}
+
+.issueComments {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4375rem;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #6c727f;
+}

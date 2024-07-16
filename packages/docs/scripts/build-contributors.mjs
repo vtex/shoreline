@@ -1,17 +1,15 @@
 import { graphql } from '@octokit/graphql'
-import { Octokit } from '@octokit/rest'
 import path from 'node:path'
 import fse from 'fs-extra'
 import { format } from 'prettier'
 
-const statsOutputDirectory = `${path.dirname('')}/__contributors__`
+const statsOutputDirectory = `${path.dirname('')}/__contributions__`
 const contributorsOutputDirectory = `${path.dirname('')}/pages/guides/contributor`
 const VTEX_ORG = 'vtex'
 const REPO_NAME = 'shoreline'
 const token = process.env.GITHUB_TOKEN
 const startDate = new Date('2024-01-01T00:00:00Z').toISOString()
 
-const octokit = new Octokit({ auth: token })
 const graphqlWithAuth = graphql.defaults({
   headers: {
     authorization: `token ${token}`,
@@ -40,15 +38,20 @@ async function fetchAllIssues() {
                   login
                 }
               }
+              url
+              number
               title
               createdAt
               author {
                 login
+                avatarUrl
               }
+              state
               comments(first: 100) {
                 nodes {
                   author {
                     login
+                    avatarUrl
                   }
                 }
               }
@@ -108,33 +111,6 @@ function filterIssuesByUser(username, issues = []) {
 
 const issues = await fetchAllIssues()
 
-async function fetchRepositoryContributors() {
-  try {
-    const { data: contributors } = await octokit.repos.listContributors({
-      owner: VTEX_ORG,
-      repo: REPO_NAME,
-      per_page: 100,
-    })
-
-    const formattedContributors = contributors.map((contributor) => ({
-      image: contributor.avatar_url ?? '',
-      username: contributor.login ?? '',
-    }))
-
-    const filteredContributors = formattedContributors.filter(
-      (contributor) =>
-        contributor.username && isHumanContributor(contributor.username)
-    )
-
-    return filteredContributors
-  } catch (error) {
-    console.error('Error fetching contributors:', error)
-    return []
-  }
-}
-
-const contributors = await fetchRepositoryContributors()
-
 async function fetchAllPullRequests() {
   let hasNextPage = true
   let endCursor = null
@@ -150,6 +126,7 @@ async function fetchAllPullRequests() {
               state
               author {
                 login
+                avatarUrl
               }
               createdAt
               closed
@@ -163,6 +140,7 @@ async function fetchAllPullRequests() {
                   body
                   author {
                     login
+                    avatarUrl
                   }
                 }
               }
@@ -198,6 +176,71 @@ async function fetchAllPullRequests() {
 
 const pulls = await fetchAllPullRequests()
 
+class ContributorsSet {
+  constructor() {
+    this.map = {}
+  }
+
+  add(contributor) {
+    if (!contributor || !this.isHumanContributor(contributor)) return
+
+    if (!this.map[contributor.username]) {
+      this.map[contributor.username] = contributor
+    }
+  }
+
+  isHumanContributor(contributor) {
+    const bots = [
+      'github-actions',
+      'changeset-bot',
+      'vtexgithubbot',
+      'netlify',
+      'vercel',
+      'dependabot',
+      'renovate',
+    ]
+    return !bots.includes(contributor.username)
+  }
+
+  toArray() {
+    return Object.values(this.map)
+  }
+}
+
+function getRepositoryContributors() {
+  const contributors = new ContributorsSet()
+
+  issues.forEach((issue) => {
+    contributors.add({
+      username: issue.author.login,
+      image: issue.author.avatarUrl,
+    })
+    issue.comments.nodes.forEach((comment) => {
+      contributors.add({
+        username: comment.author.login,
+        image: comment.author.avatarUrl,
+      })
+    })
+  })
+
+  pulls.forEach((pull) => {
+    contributors.add({
+      username: pull.author.login,
+      image: pull.author.avatarUrl,
+    })
+    pull.comments.nodes.forEach((comment) => {
+      contributors.add({
+        username: comment.author.login,
+        image: comment.author.avatarUrl,
+      })
+    })
+  })
+
+  return contributors.toArray()
+}
+
+const contributors = getRepositoryContributors()
+
 function filterPullsByUser(username, pulls = []) {
   const pullsCreatedByUser = pulls.filter(
     (pull) => pull.author.login === username && pull.createdAt >= startDate
@@ -227,14 +270,6 @@ function filterPullsByUser(username, pulls = []) {
   }
 }
 
-function isHumanContributor(username) {
-  return (
-    username !== 'dependabot[bot]' &&
-    username !== 'renovate[bot]' &&
-    username !== 'vtexgithubbot'
-  )
-}
-
 function getContributorStats(username) {
   const issuesStats = filterIssuesByUser(username, issues)
   const pullsStats = filterPullsByUser(username, pulls)
@@ -249,6 +284,18 @@ function getContributorStats(username) {
     6
 
   return { ...issuesStats, ...pullsStats, rate }
+}
+
+function getIssuesOnFire() {
+  issues.sort((a, b) => b.comments.nodes.length - a.comments.nodes.length)
+
+  const openedIssues = issues.filter((issue) => issue.state === 'OPEN')
+
+  openedIssues.sort((a, b) => b.comments.nodes.length - a.comments.nodes.length)
+
+  const issuesOnFire = openedIssues.slice(0, 4)
+
+  return issuesOnFire
 }
 
 async function main() {
@@ -284,11 +331,41 @@ export function getContributor(username: string) {
     }
   })
 
+  const issuesOnFire = getIssuesOnFire()
+
+  const issuesCode = `
+export const issuesOnFire = ${JSON.stringify(issuesOnFire)}
+  `
+
+  const formattedIssuesCode = await format(issuesCode, {
+    parser: 'typescript',
+    semi: false,
+    singleQuote: true,
+  })
+
+  fse.outputFile(
+    `${statsOutputDirectory}/issues.ts`,
+    formattedIssuesCode,
+    (err) => {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log('✅ Issues on fire generated')
+      }
+    }
+  )
+
   const contributorsPromises = contributors.map((contributor) => {
     const mdxCode = `
-import { getContributor } from '../../../__contributors__/stats';
+---
+toc: false
+---
+
+import { getContributor } from '../../../__contributions__/stats';
 
 # Contributor
+
+<br/>
 
 <ContributorStats contributor={getContributor("${contributor.username}")} />
     `
@@ -324,9 +401,6 @@ main()
 
 /**
  * @TODO
- * - Generate contributor page with stats
- * - Rank contributors by stats
- * - Remove inactive contributors
  * - Add possibility to customize range of dates
  * - Add this script to the build process
  */

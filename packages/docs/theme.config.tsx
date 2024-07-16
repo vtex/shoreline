@@ -16,8 +16,11 @@ import {
   ComponentSummaryGrid,
 } from './components/component-summary'
 import { ImgCard, ImgCardGrid } from './components/img-card'
-import { ContributorList } from './components/contributor-stats'
-import { ContributorStats } from './components/contributor-stats/contributor-stats'
+import {
+  ContributorList,
+  ContributorStats,
+  IssuesOnFire,
+} from './components/contributions'
 
 const docsTitle = 'Shoreline'
 const tagline = 'VTEX Design System for back-office experiences.'
@@ -96,6 +99,7 @@ const config: DocsThemeConfig = {
     ImgCardGrid: ImgCardGrid as React.FC,
     ContributorList: ContributorList as React.FC,
     ContributorStats: ContributorStats as React.FC,
+    IssuesOnFire: IssuesOnFire as React.FC,
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,

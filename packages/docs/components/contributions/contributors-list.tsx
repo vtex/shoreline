@@ -1,5 +1,5 @@
-import styles from './contributors.module.css'
-import { contributors } from '../../__contributors__/stats'
+import styles from './contributions.module.css'
+import { contributors } from '../../__contributions__/stats'
 import { Link } from '@vtex/shoreline'
 import NextLink from 'next/link'
 

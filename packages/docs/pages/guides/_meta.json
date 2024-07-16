@@ -10,7 +10,10 @@
     "title": "Contributing"
   },
   "contributing-introduction": "Introduction",
-  "contributor": "Activity",
+  "activity": "Activity",
+  "contributor": {
+    "display": "hidden"
+  },
   "how-to-contribute": "How to Contribute",
   "design": "Design",
   "code": "Code"
