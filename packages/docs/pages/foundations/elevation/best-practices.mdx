@@ -2,48 +2,48 @@
 
 Elevation tokens are divided in three types:
 
-- Focus Ring – Identified by the prefix `$focus-ring` followed by a suffix that indicates the the semantic value according to the colors guidelines (`base`, `accent`, or `critical`).
-- Shadow – Identified by the prefix `$shadow` followed by suffixes that are numbers that are agnostic to the token value, they just represent a crescent order.
-- Z-index – Identified by the prefix `$z` followed by suffixes that are numbers that are agnostic to the token value, they just represent a crescent order.
+- **Focus Ring:** Identified by the prefix `$focus-ring`, followed by a suffix that indicates the semantic value according to the [Color](https://shoreline.vtex.com/foundations/color/best-practices#surface) guidelines (base, accent, critical).
+- **Shadow:** Identified by the prefix `$shadow`, followed by numeric suffixes in a crescent order.
+- **Z-index:** Identified by the prefix `$z`, followed by numeric suffixes in a crescent order.
 
 ## Focus Ring
 
-Include focus states for merchants that prefer or require keyboard navigation (a web standard mentioned in the [rationale](https://shoreline.vtex.com/foundations/elevation/rationale)) and to highlight error states on form fields.
+As explained in the [rationale](https://shoreline.vtex.com/foundations/elevation/rationale), this is a web standard used in the focus state of interactive elements for users that prefer or require keyboard navigation.
 
 ![Focus Ring](public/assets/focus-ring.png)
 
-| Token         | Usage         |
-| :------------ | :---------- |
-| `$focus-ring-base`       | Focus ring of form fields, actions in neutral colors (Secondary and Tertiary Buttons, and items in a Menu), and popovers     |
-| `$focus-ring-accent`       | Focus ring of actions in accent color (Primary Buttons)     |
-| `$focus-ring-critical`       | Focus ring of form fields in error state and actions in critical colors (Critical Buttons and critical items in a Menu)     |
+| Token                  | Usage                                                                                                          |
+| :--------------------- | :------------------------------------------------------------------------------------------------------------- |
+| `$focus-ring-base`     | Form fields, actions in neutral colors (`secondary` and `tertiary` Buttons, and items in a Menu), and popovers |
+| `$focus-ring-accent`   | Actions in accent color (`primary` Buttons)                                                                    |
+| `$focus-ring-critical` | Form fields in an error state and actions in critical colors (Critical Buttons and critical items in a Menu)   |
 
 ## Shadow
 
-As mentioned in the [rationale](https://shoreline.vtex.com/foundations/elevation/rationale), use shadows to indicate that an element is over another and there is content hidden below it.
+As mentioned in the [rationale](https://shoreline.vtex.com/foundations/elevation/rationale), use these tokens to indicate that an element is over another and there is content hidden below it.
 
 ![Shadow](public/assets/shadow.png)
 
-| Token         | Usage         |
-| :------------ | :---------- |
-| `$shadow-1`       | Popovers     |
-| `$shadow-2`       | Modal, Drawer, and Toast     |
+| Token       | Usage                    |
+| :---------- | :----------------------- |
+| `$shadow-1` | Popovers                 |
+| `$shadow-2` | Modal, Drawer, and Toast |
 
 ## Z-index
 
-Z-index is the CSS property that controls the stacking order of elements on a page, measured along the z-axis. A higher z-index value means that an element will appear in front of another with a lower z-index value. Elements in the Admin are stacked as described below.
+This CSS property controls the stacking order of elements on a page, measured along a z-axis. An element with a higher z-index value appears in front of another with a lower z-index value. Elements in the Admin should be stacked as described below.
 
 ![Z-index](public/assets/z-index.png)
 
-| Token         | Usage         |
-| :------------ | :---------- |
-| `$z-1`       | Page Content, Page Header     |
-| `$z-2`       | Drawer Backdrop     |
-| `$z-3`       | Drawer     |
-| `$z-4`       | Modal Backdrop     |
-| `$z-5`       | Modal     |
-| `$z-6`       | Popover     |
-| `$z-7`       | Toast     |
-| `$z-8`       | *No scenarios mapped*     |
-| `$z-9`       | Tooltip     |
-| `$z-10`       | Floating contextual help     |
+| Token   | Usage                     |
+| :------ | :------------------------ |
+| `$z-1`  | Page Content, Page Header |
+| `$z-2`  | Drawer Backdrop           |
+| `$z-3`  | Drawer                    |
+| `$z-4`  | Modal Backdrop            |
+| `$z-5`  | Modal                     |
+| `$z-6`  | Popover                   |
+| `$z-7`  | Toast                     |
+| `$z-8`  | _No scenarios mapped_     |
+| `$z-9`  | Tooltip                   |
+| `$z-10` | Floating contextual help  |

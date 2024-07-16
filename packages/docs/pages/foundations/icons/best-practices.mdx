@@ -2,7 +2,7 @@
 
 Icons should communicate a message, so prioritize applying ones that are simple, easily recognizable, or well-established as conventions, and avoid metaphoric symbols.
 
-In Shoreline, they are identified by the prefix `Icon` and their naming convention is `Icon[IconName][Modifier]`. The IconName is always the same from the [Phosphor](https://phosphoricons.com/) library and the modifier can be related to weight or size. Since the default icons have a **Normal** size and an **Outline** weight, these modifiers won't be mentioned in their names. The modifiers **Fill** and **Small** are always specified. For example, the icon `IconTag` is normal and outlined, the icon `IconBellFill` is normal and filled, and the icon `IconCheckSmall` is small and outlined.
+In Shoreline, they are identified by the prefix `Icon` and their naming convention is `Icon[Name][Modifier]`. The name is always the same from the [Phosphor](https://phosphoricons.com/) library and the modifier can be related to its weight or size. Most icons have a `normal` size and an `outline` weight, so these modifiers won't be mentioned in their names. The modifiers `fill` and `small` are always specified. For example, the `IconTag` is normal and outlined, `IconBellFill` is normal and filled, and `IconCheckSmall` is small and outlined.
 
 ## Modifiers
 
@@ -10,22 +10,22 @@ In Shoreline, they are identified by the prefix `Icon` and their naming conventi
 
 ![Icons weight](public/assets/icons-weight.webp)
 
-- **Outline:** Used in interactive context, such as actions (Button, Search) and navigation (Sidebar sections). It has the default weight with a 1.5px stroke, that corresponds to the Light weight in the Phosphor library.
-- **Fill:** Used in non-interactive context, such as for informative purposes (Alerts and Toasts).
+- **Outline:** Default weight (1.5px stroke, light weight in Phosphor) used in interactive elements (Button, Search, Sidebar sections).
+- **Fill:** Used in non-interactive elements (Alerts, Toasts), for informative purposes.
 
 ### Size
 
 ![Icons size](public/assets/icons-size.webp)
 
-- **Normal:** Used in most scenarios, such as in a Button, Alert, Toast, and Sidebar sections. It is the default size, with a value of 20px.
-- **Small:** Used for affordance purposes, such as a caret in a Menu or Filter or an arrow on the right side of a label for external links. The size value is 16px.
+- **Normal:** Default size (20px) used in most scenarios (Button, Alert, Toast, Sidebar sections).
+- **Small:** In-line appropriate size (16px) used for affordance purposes (caret in a Menu or Filter, arrow for external links).
 
 ## Usage
 
-- Only modify the size of an icon when applying as an [Empty State](https://shoreline.vtex.com/components/empty-state) illustration, and keep the 1.5px stroke. Avoid modifying the size of an icon for any other scenario.
-- If you want to represent an action with an icon, use the [IconButton](https://shoreline.vtex.com/components/icon-button).
-- When applying color to an icon, follow the [Color](https://shoreline.vtex.com/foundations/color) guidelines. Do not change the color of an icon that is applied in components by default, such as in Buttons, Alerts, and Toasts.
+- Only modify the size of an icon when applying it as an [Empty State](https://shoreline.vtex.com/components/empty-state) illustration, maintaining the 1.5px stroke. Don't modify the size of an icon in other scenarios.
+- If you want to represent an action with only an icon and no visible label, use the [IconButton](https://shoreline.vtex.com/components/icon-button).
+- When applying color to an icon, follow the [Color](https://shoreline.vtex.com/foundations/color) guidelines. Don't change the color of icons inside components, such as Buttons, Alerts, and Toasts.
 
 ## New icons
 
-If you can't find an icon that fits your needs in the Shoreline – Icons library, follow the [contribution guidelines](https://shoreline.vtex.com/guides/processes) to request or propose a new icon. As mentioned in the rationale, we strongly discourage custom icons to avoid unnecessary inconsistencies, but if there are no solutions for your scenario in the Shoreline – Icons library or in the Phosphor library, start a discussion with a proposal for alignment.
+If there's no icon already in Shoreline that fits your needs, follow the [contribution guidelines](https://shoreline.vtex.com/guides/processes) to request or propose one. As mentioned in the [rationale](https://shoreline.vtex.com/foundations/icons/rationale), custom-designed icons are strongly discouraged to avoid inconsistency, but if there are no options in the Phosphor library we can start a discussion.

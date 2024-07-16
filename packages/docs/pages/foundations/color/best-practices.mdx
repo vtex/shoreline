@@ -1,6 +1,6 @@
 # Best Practices
 
-The color values used in Shoreline come from the Platform Foundations library and are the same in all VTEX products. These values can be accessed through the four types of tokens related to color in the system. The `$fg`, `$bg` and `$border` types identify **semantic** tokens, meaning they are intended for usage in specific scenarios. The `$color` type identifies **primitive** tokens that serve as the basis for the semantic tokens. These can be directly applied when no semantic token is appropriate, such as in custom components. 
+The color values used in Shoreline come from the Platform Foundations library and are the same in all VTEX products. These values can be accessed through the four types of tokens related to color in the system. The `$fg`, `$bg` and `$border` types identify **semantic tokens**, meaning they are intended for usage in specific scenarios. The `$color` type identifies **primitive tokens** that serve as the basis for the semantic tokens. These can be directly applied when no semantic token is appropriate, such as in custom components.
 
 It's important to understand the naming convention for each token since the name explains its meaning and how it should be used. Regarding color, primitive and semantic tokens are classified differently, as explained below.
 
@@ -18,7 +18,7 @@ All token names start with a basic classification that usually reflects the CSS 
 
 ![Primitive Color Hue](public/assets/color-hue.webp)
 
-Hue is the property that references the color family (such as red, blue, yellow, green, etc). There are nine color hues included in Shoreline besides gray. As explained in the rationale, this large breadth of color hues is intended to allow experimentation. Five hues (gray, blue, red, yellow, green) are already used by semantic tokens and, therefore, have a meaning attached, but the others (orange, teal, purple, pink, cyan) can be used freely. 
+Hue is the property that references the color family (such as red, blue, yellow, green, etc). There are nine color hues included in Shoreline besides gray. As explained in the rationale, this large breadth of color hues is intended to allow experimentation. Five hues (gray, blue, red, yellow, green) are already used by semantic tokens and, therefore, have a meaning attached, but the others (orange, teal, purple, pink, cyan) can be used freely.
 
 ### Tone
 
@@ -29,7 +29,7 @@ Tone refers to the luminosity of the color in a range that goes from lightest (1
 ## Semantic Colors
 
 ![Semantic Color Table](public/assets/color-semantic-table.webp)
-*The naming convention for semantic color tokens is very scalable. It allows for more tokens than currently exist since only tokens that have common use cases are created.*
+_The naming convention for semantic color tokens is very scalable. It allows for more tokens than currently exist since only tokens that have common use cases are created._
 
 The rationale explains that semantic tokens help design components with consistent visuals and behaviors. Color hues carry meaning and improve usability if applied consistently. That's why it's always better to use a semantic token if there's one that applies. Understanding their naming convention is the best way to become more proficient in applying them.
 
@@ -57,8 +57,8 @@ Semantic color tokens (`$fg`, `$bg`, `$border`) are then divided based on the me
 - **success:** Expresses that an action matched or surpassed expectations. This surface should be used only when no further actions are required since it implies something has already been done.
 - **informational:** Communicates a message that needs to be prominent but doesn't require the user’s immediate attention. This can be announcements, product invitations, and progress feedback.
 - **critical:** Conveys that an action failed due to a system or user error. These scenarios are stressful for users, so provide proper feedback by following the guidelines described in the components.
-- **accent:** The most important actions on a page should be placed on this surface, such as primary buttons and selected elements. Applying this surface sparingly is important so it can properly guide the user’s attention.
-- **muted:** Uses the same hue as the base surface but is subdued by default. Secondary actions are placed on this surface. It’s important to subdue elements sparingly to preserve cognitive load.
+- **accent:** The most important actions on a page should be placed on this surface, such as `primary` Buttons and selected elements. Applying this surface sparingly is important so it can properly guide the user’s attention.
+- **muted:** Uses the same hue as the base surface but is subdued by default. `secondary` actions are placed on this surface. It’s important to subdue elements sparingly to preserve cognitive load.
 
 ### Modifier
 
@@ -66,9 +66,9 @@ Semantic color tokens (`$fg`, `$bg`, `$border`) are then divided based on the me
 
 Surfaces have medium prominence by default, sometimes needing to be softened or intensified. Therefore, alternatives are offered.
 
-- **strong:** Shifts the token to a darker tone, increasing its prominence. Examples include the background of primary actions (`$bg-accent-strong`) and the border of form fields (`$border-base-strong`).
+- **strong:** Shifts the token to a darker tone, increasing its prominence. Examples include the background of `primary` actions (`$bg-accent-strong`) and the border of form fields (`$border-base-strong`).
 - **soft:** Reduces the prominence of a token by switching to a lighter color tone. The most common usage is for descriptions (`$fg-base-soft`).
-- **plain:** Used for interactive elements with a transparent background in their default state, such as tertiary actions (`$bg-muted-plain`).
+- **plain:** Used for interactive elements with a transparent background in their default state, such as `tertiary` actions (`$bg-muted-plain`).
 
 ### State
 
