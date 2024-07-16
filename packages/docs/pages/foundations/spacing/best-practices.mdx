@@ -1,6 +1,6 @@
 # Best Practices
 
-Spacing tokens are identified in Shoreline by the prefix `$space`. They can be followed by a suffix that is a number which is the space value in rems (or the value in pixels if multiplied by 4), for example the token for a 16px space is `$space-4`, or by the suffix `gap`, which is the default spacing between elements in a page.
+Spacing tokens are identified in Shoreline by the prefix `$space`, followed by numeric suffixes that represent the space value in rems (value in pixels divided by 4). For example, the token with a 16px value is `$space-4`. The only exception is the token `$space-gap`, that represents the default spacing between elements in a page.
 
 Spacing can be applied horizontally or vertically in any CSS property that receives a space value.
 
@@ -14,7 +14,7 @@ Spacing can be applied horizontally or vertically in any CSS property that recei
 - Elements with more spacing around them are usually perceived as having a higher relevance on the interface, for example, the spacing around an error state of a Collection.
 
 ![Space relationships](public/assets/space-relationships.png)
-*Example of spacing within a Checkbox group and between form sections.*
+_Spacing within a Checkbox group and between form sections._
 
 ### Visual rhythm
 
@@ -23,46 +23,45 @@ Spacing can be applied horizontally or vertically in any CSS property that recei
 - The rhythm can also help organize elements that may have different levels of importance, such as in a dashboard.
 
 ![Space visual rhythm](public/assets/space-visualrhythm.png)
-*Example of elements with the same level of importance.*
+_Spacing between elements with the same level of importance._
 
 ### Visual weight
 
 - The spacing scale can be applied horizontally or vertically. Depending on the visual weight of the element, sometimes using the same value on both axes doesn't result in a balanced composition. In these scenarios, it's necessary to optically adjust the spacing.
-- Observe if the components have a well-defined background (filled or with stroke) or not. For example, the spacing value between primary and secondary Buttons should be larger than the spacing value between two tertiary Buttons.
+- Observe if the components have a well-defined background (marked by a fill or stroke) or not. For example, the spacing value between `primary` and `secondary` Buttons should be larger than the spacing value between two `tertiary` Buttons.
 
 ![Space visual weight](public/assets/space-visualweight1.png)
-*Example of different spacing between components with filled background and without background.*
+_Different spacing between components with and without a well-defined background._
 
 ![Space visual weight](public/assets/space-visualweight2.png)
-*Example of optical adjustment with the horizontal padding larger than the vertical padding.*
+_Optical adjustment with the horizontal padding larger than the vertical padding._
 
 ### Density
 
-- Tighter spacing – more dense – increases the level of scannability for large sets of data, such as in a Table.
-- Looser spacing – less dense – increases the level of hierarchy or helps define groups within an interface, such as Form sections.
+- Tighter spacing, more dense: increases the level of scannability for large sets of data, such as in a Table.
+- Looser spacing, less dense: increases the level of hierarchy or helps define groups within an interface, such as Form sections.
 
 ![Space density](public/assets/space-density.png)
-*Examples of tighter and looser spacing.*
+_Tighter and looser spacing._
 
-### Examples 
+### Examples
 
-| Token         | Usage         |
-| :------------ | :---------- |
-| `$space-0`       | **Vertical:** <br/>- `$text-body` texts (Text + Text cell in Table) <br/>- `$text-action` text → $text-body text (Name + Text cell in Table) <br/>- `$text-caption` texts (Help Text and Error Text in fields)     |
-| `$space-5`       | **Vertical:** <br/>- `$text-body` text → `$text-caption` text (Label and Help Text in a single Checkbox)     |
-| `$space-1`       | **Vertical:** <br/>- Label → Input <br/>- Input → `$text-caption2` text (Help or Error Text) <br/>- Trigger → Popover (Menu, Filter, DatePicker) <br/><br/>**Horizontal:** <br/>- IconButtons `normal` (Admin Shell Topbar, DatePicker input buttons)     |
-| `$space-2`       | **Vertical:** <br/>- Buttons `normal` (Empty State small) <br/><br/>**Horizontal:** <br/>- Control → Label (Checkbox, Radio) <br/>- Icon → Short text (Search) <br/>- Normal Actions with a background (Buttons `normal`) <br/>- Large Actions without a background (Tab List)     |
-| `$space-3`       | **Vertical:** <br/>- Control Fields Group → `$text-caption2` text (Checkbox Group or Radio Group help text) <br/>- Content paddings top and bottom in narrow containers 120 - 239px <br/>- Content padding-top in Pages without tabs in screens < 380px <br/><br/>**Horizontal:** <br/>- Label → Control Fields (Checkbox Group, Radio Group) <br/>- Icon → Long Text (Toast, Alert) <br/>- Page Title → Tag Large (Page Header) |
-| `$space-4`       | - The value of `$space-gap` <br/>- Content paddings in containers 120 - 239px <br/><br/>**Vertical:** <br/>- Controls in a group (Checkbox Group or Radio Group) <br/>- Content padding-top in Pages without tabs in screens 380 - 559px |
-| `$space-5`       | **Horizontal:** <br/>- Controls in a group (Checkbox Group or Radio Group) <br/><br/>**Vertical:** <br/>- Fields in a form section <br/>- Content padding-top in Pages without tabs in screens > 560px <br/>- Content paddings top and bottom in narrow containers 240 - 379px |
-| `$space-6`       | - Content paddings in containers 240 - 379px <br/><br/>**Vertical:** <br/>- Form section title → Fields <br/>- Content paddings top and bottom in narrow containers 380 - 559px |
-| `$space-7`       | - Content paddings in containers 380 - 559px <br/><br/>**Vertical:** <br/>- Content paddings top and bottom in narrow containers 560 - 799px |
-| `$space-8`       | - Content paddings in containers 560 - 799px <br/><br/>**Vertical:** <br/>- Content paddings top and bottom in narrow containers 800 - 1600px |
-| `$space-10`      | - Content paddings in containers 800 - 1600px <br/><br/>**Vertical and Horizontal:** <br/>- Toast bottom and right margins |
-| `$space-12`      | **Vertical:** <br/>- Content padding-bottom in Pages in screens < 560px |
-| `$space-16`      | **Vertical:** <br/>- Form sections |
-| `$space-20`      | **Vertical:** <br/>- Content padding-bottom in Pages in screens > 560px |
-| `$space-24`      | *No scenarios mapped.* |
-| `$space-28`      | *No scenarios mapped.* |
-| `$space-32`      | *No scenarios mapped.* |
-
+| Token       | Usage                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$space-0`  | **Vertical:** <br/>- `$text-body` texts (Text + Text cell in Table) <br/>- `$text-action` text → $text-body text (Name + Text cell in Table) <br/>- `$text-caption` texts (Help Text and Error Text in fields)                                                                                                                                                                                                                   |
+| `$space-5`  | **Vertical:** <br/>- `$text-body` text → `$text-caption` text (Label and Help Text in a single Checkbox)                                                                                                                                                                                                                                                                                                                         |
+| `$space-1`  | **Vertical:** <br/>- Label → Input <br/>- Input → `$text-caption2` text (Help or Error Text) <br/>- Trigger → Popover (Menu, Filter, DatePicker) <br/><br/>**Horizontal:** <br/>- IconButtons `normal` (Admin Shell Topbar, DatePicker input buttons)                                                                                                                                                                            |
+| `$space-2`  | **Vertical:** <br/>- Buttons `normal` (Empty State small) <br/><br/>**Horizontal:** <br/>- Control → Label (Checkbox, Radio) <br/>- Icon → Short text (Search) <br/>- Normal Actions with a background (Buttons `normal`) <br/>- Large Actions without a background (Tab List)                                                                                                                                                   |
+| `$space-3`  | **Vertical:** <br/>- Control Fields Group → `$text-caption2` text (Checkbox Group or Radio Group help text) <br/>- Content paddings top and bottom in narrow containers 120 - 239px <br/>- Content padding-top in Pages without tabs in screens < 380px <br/><br/>**Horizontal:** <br/>- Label → Control Fields (Checkbox Group, Radio Group) <br/>- Icon → Long Text (Toast, Alert) <br/>- Page Title → Tag Large (Page Header) |
+| `$space-4`  | **Vertical and Horizontal:** <br/> - The value of `$space-gap` <br/>- Content paddings in containers 120 - 239px <br/><br/>**Vertical:** <br/>- Controls in a group (Checkbox Group or Radio Group) <br/>- Content padding-top in Pages without tabs in screens 380 - 559px                                                                                                                                                      |
+| `$space-5`  | **Horizontal:** <br/>- Controls in a group (Checkbox Group or Radio Group) <br/><br/>**Vertical:** <br/>- Fields in a form section <br/>- Content padding-top in Pages without tabs in screens > 560px <br/>- Content paddings top and bottom in narrow containers 240 - 379px                                                                                                                                                   |
+| `$space-6`  | **Vertical and Horizontal:** <br/> - Content paddings in containers 240 - 379px <br/><br/>**Vertical:** <br/>- Form section title → Fields <br/>- Content paddings top and bottom in narrow containers 380 - 559px                                                                                                                                                                                                               |
+| `$space-7`  | **Vertical and Horizontal:** <br/> - Content paddings in containers 380 - 559px <br/><br/>**Vertical:** <br/>- Content paddings top and bottom in narrow containers 560 - 799px                                                                                                                                                                                                                                                  |
+| `$space-8`  | **Vertical and Horizontal:** <br/> - Content paddings in containers 560 - 799px <br/><br/>**Vertical:** <br/>- Content paddings top and bottom in narrow containers 800 - 1600px                                                                                                                                                                                                                                                 |
+| `$space-10` | **Vertical and Horizontal:** <br/> - Content paddings in containers 800 - 1600px <br/><br/>**Vertical and Horizontal:** <br/>- Toast bottom and right margins                                                                                                                                                                                                                                                                    |
+| `$space-12` | **Vertical:** <br/>- Content padding-bottom in Pages in screens < 560px                                                                                                                                                                                                                                                                                                                                                          |
+| `$space-16` | **Vertical:** <br/>- Form sections                                                                                                                                                                                                                                                                                                                                                                                               |
+| `$space-20` | **Vertical:** <br/>- Content padding-bottom in Pages in screens > 560px                                                                                                                                                                                                                                                                                                                                                          |
+| `$space-24` | _No scenarios mapped._                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `$space-28` | _No scenarios mapped._                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `$space-32` | _No scenarios mapped._                                                                                                                                                                                                                                                                                                                                                                                                           |
