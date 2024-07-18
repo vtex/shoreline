@@ -22,7 +22,7 @@
 .contributionsContainer {
   border: var(--sl-border-base);
   padding: var(--sl-space-8);
-  border-radius: var(--sl-radius-1);
+  border-radius: var(--sl-radius-3);
 }
 
 .contributionsHeader {
@@ -62,7 +62,7 @@
 
 .issuesContainer {
   border: var(--sl-border-base);
-  border-radius: var(--sl-radius-1);
+  border-radius: var(--sl-radius-3);
 }
 
 .issueContainer {
@@ -70,6 +70,17 @@
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  border-radius: 0;
+}
+
+.issueContainer:first-child {
+  border-top-left-radius: var(--sl-radius-3);
+  border-top-right-radius: var(--sl-radius-3);
+}
+
+.issueContainer:last-child {
+  border-bottom-left-radius: var(--sl-radius-3);
+  border-bottom-right-radius: var(--sl-radius-3);
 }
 
 .issueContainer:not(:last-child) {
@@ -83,7 +94,7 @@
 .issueTitle {
   font-size: 1rem;
   font-weight: 500;
-  line-height: 1.4375rem;
+  line-height: 1rem;
   text-align: left;
 }
 

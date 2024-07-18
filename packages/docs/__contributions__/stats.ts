@@ -1,16 +1,30 @@
-export const contributors = [
+export interface Contributor {
+  username: string
+  image: string
+  stats: {
+    issues: number
+    pulls: number
+    reviews: number
+    comments: number
+    merged: number
+    assigns: number
+    rate: number
+  }
+}
+
+export const contributors: Contributor[] = [
   {
     username: 'matheusps',
     image:
       'https://avatars.githubusercontent.com/u/6964311?u=dab11b9f9e4b1b7eb66d86d0f4bf1e0c0d55d3bd&v=4',
     stats: {
       issues: 13,
-      assigns: 9,
-      comments: 19,
-      pulls: 71,
-      reviews: 91,
-      merged: 65,
-      rate: 44.666666666666664,
+      assigns: 8,
+      comments: 20,
+      pulls: 72,
+      reviews: 102,
+      merged: 66,
+      rate: 46.833333333333336,
     },
   },
   {
@@ -36,9 +50,9 @@ export const contributors = [
       assigns: 3,
       comments: 6,
       pulls: 27,
-      reviews: 60,
+      reviews: 62,
       merged: 25,
-      rate: 20.5,
+      rate: 20.833333333333332,
     },
   },
   {
@@ -46,13 +60,13 @@ export const contributors = [
     image:
       'https://avatars.githubusercontent.com/u/84085258?u=24adfd51781b0d3b86e4fff8f2aabcba8afaa7cc&v=4',
     stats: {
-      issues: 10,
+      issues: 18,
       assigns: 1,
-      comments: 12,
+      comments: 16,
       pulls: 25,
-      reviews: 14,
+      reviews: 15,
       merged: 24,
-      rate: 14.333333333333334,
+      rate: 16.5,
     },
   },
   {
@@ -74,13 +88,13 @@ export const contributors = [
     image:
       'https://avatars.githubusercontent.com/u/8797476?u=209f606081b76c9e4afce6812d94ca789b213ed3&v=4',
     stats: {
-      issues: 3,
+      issues: 4,
       assigns: 0,
-      comments: 5,
-      pulls: 3,
-      reviews: 5,
-      merged: 3,
-      rate: 3.1666666666666665,
+      comments: 8,
+      pulls: 4,
+      reviews: 6,
+      merged: 4,
+      rate: 4.333333333333333,
     },
   },
   {
@@ -140,6 +154,20 @@ export const contributors = [
     },
   },
   {
+    username: 'felipepowlist',
+    image:
+      'https://avatars.githubusercontent.com/u/64273940?u=ef5500dc49b6caaaf57a0f81d887b8ce9d97d351&v=4',
+    stats: {
+      issues: 1,
+      assigns: 1,
+      comments: 2,
+      pulls: 0,
+      reviews: 0,
+      merged: 0,
+      rate: 0.6666666666666666,
+    },
+  },
+  {
     username: 'danilomcampos',
     image:
       'https://avatars.githubusercontent.com/u/55562946?u=c50b24ae43572090963ccc9b6ae4a2549485e374&v=4',
@@ -154,13 +182,13 @@ export const contributors = [
     },
   },
   {
-    username: 'felipepowlist',
+    username: 'Luizfmcosta',
     image:
-      'https://avatars.githubusercontent.com/u/64273940?u=ef5500dc49b6caaaf57a0f81d887b8ce9d97d351&v=4',
+      'https://avatars.githubusercontent.com/u/131171714?u=3a57726e05e7a9bf9abb736a5dcaea748ad85924&v=4',
     stats: {
       issues: 1,
-      assigns: 0,
-      comments: 1,
+      assigns: 1,
+      comments: 0,
       pulls: 0,
       reviews: 0,
       merged: 0,
@@ -238,13 +266,27 @@ export const contributors = [
     },
   },
   {
-    username: 'Luizfmcosta',
+    username: 'malu-viana',
     image:
-      'https://avatars.githubusercontent.com/u/131171714?u=3a57726e05e7a9bf9abb736a5dcaea748ad85924&v=4',
+      'https://avatars.githubusercontent.com/u/90862160?u=54e7a2458bc76b500106dfaea9c09ef0cc548fc8&v=4',
     stats: {
-      issues: 1,
+      issues: 0,
       assigns: 0,
-      comments: 0,
+      comments: 1,
+      pulls: 0,
+      reviews: 0,
+      merged: 0,
+      rate: 0.16666666666666666,
+    },
+  },
+  {
+    username: 'elleenvs-d',
+    image:
+      'https://avatars.githubusercontent.com/u/175859727?u=dc01f450f095de3af29fbc2d16dc1c2bf3653861&v=4',
+    stats: {
+      issues: 0,
+      assigns: 0,
+      comments: 1,
       pulls: 0,
       reviews: 0,
       merged: 0,
@@ -587,6 +629,7 @@ const maintainers = [
 
 export function getContributors() {
   return contributors.filter(
-    (contributor) => !maintainers.includes(contributor.username)
+    (contributor) =>
+      !maintainers.includes(contributor.username) && contributor.stats.rate > 0
   )
 }

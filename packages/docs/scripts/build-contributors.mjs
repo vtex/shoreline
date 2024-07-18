@@ -20,7 +20,7 @@ const graphqlWithAuth = graphql.defaults({
   },
 })
 
-const pageSize = 100 // Number of issues per page
+const pageSize = 100
 
 async function fetchAllIssues() {
   let hasNextPage = true
@@ -113,8 +113,6 @@ function filterIssuesByUser(username, issues = []) {
   }
 }
 
-const issues = await fetchAllIssues()
-
 async function fetchAllPullRequests() {
   let hasNextPage = true
   let endCursor = null
@@ -178,7 +176,31 @@ async function fetchAllPullRequests() {
   return allPullRequests
 }
 
-const pulls = await fetchAllPullRequests()
+function filterPullsByUser(username, pulls = []) {
+  const pullsCreatedByUser = pulls.filter(
+    (pull) => pull.author.login === username && pull.createdAt >= startDate
+  )
+
+  const pullsReviewedByUser = pulls.filter((pull) => {
+    return (
+      pull.author.login !== username &&
+      pull.createdAt >= startDate &&
+      pull.participants.nodes.some((participant) => {
+        return participant.login === username
+      })
+    )
+  })
+
+  const pullsMergedByUser = pullsCreatedByUser.filter(
+    (pull) => pull.state === 'MERGED'
+  )
+
+  return {
+    pulls: pullsCreatedByUser.length,
+    reviews: pullsReviewedByUser.length,
+    merged: pullsMergedByUser.length,
+  }
+}
 
 class ContributorsSet {
   constructor() {
@@ -211,7 +233,7 @@ class ContributorsSet {
   }
 }
 
-function getRepositoryContributors() {
+function getRepositoryContributors(issues, pulls) {
   const contributors = new ContributorsSet()
 
   issues.forEach((issue) => {
@@ -243,38 +265,7 @@ function getRepositoryContributors() {
   return contributors.toArray()
 }
 
-const contributors = getRepositoryContributors()
-
-function filterPullsByUser(username, pulls = []) {
-  const pullsCreatedByUser = pulls.filter(
-    (pull) => pull.author.login === username && pull.createdAt >= startDate
-  )
-
-  const pullsReviewedByUser = pulls.filter((pull) => {
-    return (
-      pull.author.login !== username &&
-      pull.createdAt >= startDate &&
-      pull.participants.nodes.some((participant) => {
-        return participant.login === username
-      })
-    )
-  })
-
-  const pullsMergedByUser = pulls.filter(
-    (pull) =>
-      pull.author.login === username &&
-      pull.createdAt >= startDate &&
-      pull.state === 'MERGED'
-  )
-
-  return {
-    pulls: pullsCreatedByUser.length,
-    reviews: pullsReviewedByUser.length,
-    merged: pullsMergedByUser.length,
-  }
-}
-
-function getContributorStats(username) {
+function getContributorStats(username, issues, pulls) {
   const issuesStats = filterIssuesByUser(username, issues)
   const pullsStats = filterPullsByUser(username, pulls)
 
@@ -290,7 +281,7 @@ function getContributorStats(username) {
   return { ...issuesStats, ...pullsStats, rate }
 }
 
-function getIssuesOnFire() {
+function getIssuesOnFire(issues) {
   issues.sort((a, b) => b.comments.nodes.length - a.comments.nodes.length)
 
   const openedIssues = issues.filter((issue) => issue.state === 'OPEN')
@@ -303,8 +294,13 @@ function getIssuesOnFire() {
 }
 
 async function main() {
+  const pulls = await fetchAllPullRequests()
+  const issues = await fetchAllIssues()
+
+  const contributors = getRepositoryContributors(issues, pulls)
+  const issuesOnFire = getIssuesOnFire(issues)
   const stats = contributors.map((contributor) => {
-    const stats = getContributorStats(contributor.username)
+    const stats = getContributorStats(contributor.username, issues, pulls)
 
     return {
       ...contributor,
@@ -314,6 +310,9 @@ async function main() {
 
   stats.sort((a, b) => b.stats.rate - a.stats.rate)
 
+  /**
+   * Generate contributors stats file
+   */
   const code = `
 export interface Contributor {
   username: string
@@ -364,8 +363,9 @@ export function getContributors() {
     }
   })
 
-  const issuesOnFire = getIssuesOnFire()
-
+  /**
+   * Generate issues stats file
+   */
   const issuesCode = `
 interface Author {
   login: string
@@ -404,6 +404,9 @@ export const issuesOnFire: Issue[] = ${JSON.stringify(issuesOnFire)}
     }
   )
 
+  /**
+   * Generate contributor page files
+   */
   const contributorsPromises = contributors.map((contributor) => {
     const mdxCode = `
 ---

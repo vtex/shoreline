@@ -10,9 +10,17 @@
     "title": "Contributing"
   },
   "contributing-introduction": "Introduction",
-  "activity": "Activity",
+  "activity": {
+    "title": "Activity",
+    "theme": {
+      "layout": "full"
+    }
+  },
   "contributor": {
-    "display": "hidden"
+    "display": "hidden",
+    "theme": {
+      "layout": "full"
+    }
   },
   "how-to-contribute": "How to Contribute",
   "design": "Design",

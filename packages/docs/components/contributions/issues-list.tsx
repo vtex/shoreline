@@ -1,8 +1,9 @@
 import styles from './contributions.module.css'
 import { issuesOnFire } from '../../__contributions__/issues'
-import { LinkBox, Stack } from '@vtex/shoreline'
+import { Stack } from '@vtex/shoreline'
 import { IconOpenIssue } from './icon-open-issue'
 import { IconChatCircle } from './icon-chat-circle'
+import Link from 'next/link'
 
 export function IssuesList() {
   return (
@@ -11,16 +12,17 @@ export function IssuesList() {
         const createdAt = new Date(issue.createdAt)
 
         return (
-          <LinkBox
+          <Link
             href={issue.url}
             target="_blank"
             key={issue.title}
             className={styles.issueContainer}
+            rel="noreferrer"
           >
             <div className={styles.issueInfoContainer}>
-              <IconOpenIssue />
+              <IconOpenIssue aria-label="Icon indicating that the GitHub issue is open" />
               <Stack space="$space-1">
-                <h2 className={styles.issueTitle}>{issue.title}</h2>
+                <span className={styles.issueTitle}>{issue.title}</span>
                 <p className={styles.issueInfo}>
                   #{issue.number} opened {formatDateLabel(createdAt)} by{' '}
                   {issue.author.login}
@@ -28,10 +30,10 @@ export function IssuesList() {
               </Stack>
             </div>
             <div className={styles.issueComments}>
-              <IconChatCircle />
+              <IconChatCircle aria-label="Icon to indicate that the number below represent the comments" />
               <p>{issue.comments.nodes.length}</p>
             </div>
-          </LinkBox>
+          </Link>
         )
       })}
     </div>
