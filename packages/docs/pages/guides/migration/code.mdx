@@ -1,0 +1,530 @@
+# Code Migration
+
+In this documentation you can find information about what changed from `@vtex/admin-ui@0latest` to `@vtex/shoreline` package.
+
+## Alert
+
+* The `action` property doesn’t exist anymore. Now you must add the action by hand using the `Button` component
+* the variant property values has changed from `'info' | 'positive' | 'warning' | 'critical'` to ` 'informational' | 'success' | 'critical' | 'warning'`
+
+**Before**
+```jsx
+<Alert
+  variant="warning"
+  action={{
+    children: 'See order',
+    onClick: () => alert('Order #123'),
+  }}
+>
+  <Text variant="body">Action as button</Text>
+  <Button variant="tertiary" onClick={() => alert('Clicked')}>
+    Action
+  </Button>
+</Alert>
+```
+
+**After**
+```jsx
+<Alert variant="warning">
+  <Text variant="body">Action as button</Text>
+  <Button variant="tertiary" onClick={() => alert('Clicked')}>
+    Action
+  </Button>
+</Alert>
+```
+
+## Bleed
+
+* the properties `left` and `right` are now `start` and `end`.
+
+**After**
+```jsx
+<Bleed left="" right="" bottom="" top="">
+  ...
+</Bleed>
+```
+
+**After**
+```jsx
+<Bleed start="" end="" bottom="" top="">
+  ...
+</Bleed>
+```
+
+
+## Button
+
+* the `variant` property values has changed from `primary | secondary | tertiary | critical |criticalSecondary |criticalTertiary | neutralTertiary` to `'primary' | 'secondary' | 'tertiary' | 'critical' | 'criticalTertiary'`
+* The `icon` and `iconPosition` doesn’t exist, now you must use `IconButton` component.
+
+
+**Before**
+```jsx
+<Button icon={<IconPlus />} iconPosition="start">
+  Create item
+</Button>
+```
+**After**
+```jsx
+<IconButton label={label}>
+  <IconPlus />
+  Create item
+</IconButton>
+```
+
+## Center
+
+There are no changes.
+
+## Checkbox
+
+* `helpText`, `errorText`, and `error` are now implemented using the `Field` component. You can check the `Field` documentation for detailed info.
+* The `label` property was replaced by the `children`.
+* The `state` property no longer exists, you must use the `checked` and `onChange` combination in order to control the checkbox state. The `indeterminate` property was also added to represent this state.
+
+**Before**
+```jsx
+const state = useCheckboxState()
+
+<Checkbox label="" errorText="" error state={state} helpText="" />
+```
+
+**After**
+``` jsx
+<Field error>
+  <Checkbox onChange={} checked>Label</Checkbox>
+  <FieldDescription />
+  <FieldError />
+</Field>
+```
+
+
+## DataView
+
+This component was replaced by the `Collection` component.
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+## Divider
+
+There are no changes.
+
+## ContextualHelp
+
+We've introduced the ContextualHelp component which is represented by a question mark trigger that is positioned next to
+an element and displays its definition when clicked.
+
+## EmptyState
+
+It renders a styled empty state area. This component can be used combined with the `Collections` or `Filter` component
+
+## Field
+
+This component helps to implement form fields and it’s used combined with form components such as: `Checkbox`, `Input`, `Textarea`, `Radio`, etc.
+
+**Before**
+```jsx
+<Input
+  value={}
+  onChange={}
+  label=""
+  errorText=""
+  error
+  helpText=""
+/>
+```
+
+**After**
+``` jsx
+<Field error>
+  <Input
+    value={}
+    onChange={}
+    label=""
+    errorText=""
+    error
+    helpText=""
+  />
+  <FieldDescription />
+  <FieldError />
+</Field>
+```
+
+## Filter
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+**Before**
+
+```jsx
+const filterState = useFilterState()
+
+<>
+  <FilterDisclosure state={filterState}>Status</FilterDisclosure>
+
+  <FilterPopover state={filterState}>
+    <FilterListbox>
+      <FilterOptionRadio id="#1" label="Full" />
+      <FilterOptionRadio id="#2" label="Empty" />
+      <FilterOptionRadio id="#3" label="Half full" />
+    </FilterListbox>
+    <FilterFooter />
+  </FilterPopover>
+</>
+```
+
+**After**
+
+```jsx
+const [status, setStatus] = useState<string>('Experimental')
+
+<Filter label="Status" value={status} setValue={setStatus}>
+  <FilterItem value="Stable">Stable</FilterItem>
+  <FilterItem value="Experimental">Experimental</FilterItem>
+  <FilterItem value="Deprecated">Deprecated</FilterItem>
+</Filter>
+```
+
+## Flex
+
+There are no changes.
+
+## Grid
+
+There are no changes.
+
+## Heading
+
+We've removed this component, now you must use specific components such as `ModalHeading` and `PageHeading` on their context.
+You can check their documentation for detailed information.
+
+## TextInput
+
+* The name has changed from `TextInput` to `Input`
+* `label`, `helpText`, and `errorText` are now implemented using the `Field` component. You can check the `Field` documentation for detailed info.
+
+## Label
+
+* We’ve added the `optional` property that indicates whether the form field is optional or not.
+
+## Anchor
+
+* The name has changed from `Anchor` to `Link`
+
+## Menu
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+**Before**
+```jsx
+const state = useMenuState()
+
+<MenuButton state={state} />
+<Menu state={state}>
+  <MenuItem label="Create" icon={<IconPlus />} />
+  <MenuItem label="Edit" icon={<IconPencil />} />
+  <MenuItem label="Download" icon={<IconArrowLineDown />} />
+</Menu>
+```
+
+**After**
+```jsx
+// default
+<Menu label="Open">
+  <MenuItem>New Tab</MenuItem>
+  <MenuItem>New Item</MenuItem>
+  <MenuSeparator />
+  <MenuItem>Downloads</MenuItem>
+</Menu>
+
+// composition
+<MenuProvider>
+  <MenuTrigger asChild>
+    <Button>Open</Button>
+  </MenuTrigger>
+  <MenuPopover>
+    <MenuItem>New Tab</MenuItem>
+    <MenuItem>New Item</MenuItem>
+    <MenuSeparator />
+    <MenuItem>Downloads</MenuItem>
+  </MenuPopover>
+</MenuProvider>
+
+```
+
+## Modal
+
+We split the Modal component into two components:
+
+`ConfirmationModal`: allow merchants to confirm an action through an overlay window that opens on top of the current page.
+`Modal`: allow users to view content that demands attention through an overlay window that opens on top of the current page.
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+## Page
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+## Pagination
+
+* The pagination doesn’t have the `usePaginationState` hook anymore and now the state values should be passed as props
+
+**Before**
+```jsx
+const state = usePaginationState({ pageSize: 5, total: 35 })
+
+<Pagination state={state} />
+```
+
+**After**
+```jsx
+const [page, setPage] = useState({ page: 1 })
+
+<Pagination
+  page={pagination.page}
+  onPageChange={(page) => {
+    setPage(page)
+  }}
+  total={35}
+  size={5}
+ />
+```
+
+## Radio
+
+* `helpText`, `errorText`, and `error` are now implemented using the `Field` component. You can check the `Field` documentation for detailed info.
+* The `label` property was replaced by the `children`. Now to add a label to the Radio you must pass it as a children.
+* The property `direction` has changed to a `horizontal` which is a boolean prop and by default the direction is `vertical`.
+
+**Before**
+```jsx
+const state = useRadioState({ defaultValue: 'disabled' })
+
+<RadioGroup state={state} label="Accounts" direction="column">
+  <Radio
+     label="Accounts are disabled"
+     value="disabled"
+  />
+  <Radio
+    label="Accounts are optional"
+    value="optional"
+  />
+</RadioGroup>
+```
+
+**After**
+``` jsx
+const [value, setValue] = useState<string>()
+const state = useRadioState({
+  value,
+  setValue: setValue as any,
+})
+
+<RadioGroup state={state} label="Accounts" direction="column">
+  <Radio value="disabled">Accounts are disabled</Radio>
+  <Radio value="optional">Accounts are optional</Radio>
+</RadioGroup>
+```
+
+## Search
+
+* The search can’t be disabled anymore.
+* The `useSearchState` no longer exists and the state should be handled by the user.
+
+## Select
+
+* `label`, `helpText`, `errorText`, and `error` are now implemented using the `Field` component. You can check the `Field` documentation for detailed info.
+
+**Before**
+
+```jsx
+<Select label="Accounts" helpText="" error errorText="">
+  <option value="disabled">Accounts are disabled</option>
+  <option value="optional">Accounts are optional</option>
+</Select>
+```
+
+**After**
+
+```jsx
+<Field error>
+  <Label>Accounts</Label>
+  <Select helpText="">
+    <option value="disabled">Accounts are disabled</option>
+    <option value="optional">Accounts are optional</option>
+  </Select>
+  <FieldDescription />
+  <FieldError />
+</Field>
+```
+
+## Skeleton
+
+There are no changes.
+
+## Spinner
+
+There are no changes.
+
+## Stack
+
+* The property `direction` has changed to a `horizontal` which is a boolean prop and by default the direction is `vertical`.
+
+**Before**
+
+```jsx
+<Stack direction="row">...</Stack>
+```
+
+**After**
+```jsx
+<Stack horizontal>...</Stack>
+```
+
+## Tab
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+**Before**
+```jsx
+const state = useTabState()
+
+<>
+  <TabList state={state}>
+    <Tab>Tab 1</Tab>
+    <Tab>Tab 2</Tab>
+  </TabList>
+  <TabPanel state={state} />
+  <TabPanel state={state} />
+</>
+```
+
+**After**
+``` jsx
+<TabProvider>
+  <TabList>
+    <Tab>Tab 1</Tab>
+    <Tab>Tab 2</Tab>
+  </TabList>
+  <TabPanel />
+  <TabPanel />
+</TabProvider>
+```
+
+## Table
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+## Tag
+
+* The `label` property no longer exist and now you must pass the label as the `Tag` children.
+
+**Before**
+
+``` jsx
+<Tag label="Short text" />
+```
+
+**After**
+
+``` jsx
+<Tag>Short text</Tag>
+```
+
+## Text
+
+* The `tone` property no longer exists, you must set the text color by applying css to it.
+* The variant value has changed from `'pageTitle' | 'title1' | 'title2'  | 'action1' | 'action2' | 'display' | 'body' | 'detail'` to ` 'context' | 'body' | 'action' | 'emphasis' | 'caption1' | 'caption2' | 'display1' | 'display2' | 'display3' | 'display4'`
+
+## TextArea
+
+* `label`, `helpText`, and `errorText` are now implemented using the `Field` component. You can check the `Field` documentation for detailed info.
+
+## Tooltip
+
+* Now the Tooltip can be used as an uncontrolled component and it’s not necessary to define its state every time you use it.
+* The `text` property was renamed to `label`.
+
+**Before**
+```jsx
+const [visible, setVisible] = useState(false)
+
+<Tooltip text="Tooltip text">...</Tooltip>
+```
+**After**
+```jsx
+// uncontrolled
+<Tooltip label="Tooltip text">...</Tooltip>
+
+// controlled
+const [open, setOpen] = useState(false)
+
+<Tooltip open={} setOpen={} label="Tooltip text">...</Tooltip>
+
+// composition
+<TooltipProvider>
+  <TooltipTrigger asChild>
+    <button>i</button>
+  </TooltipTrigger>
+  <TooltipPopover>
+    <TooltipArrow />
+    Tooltip text
+  </TooltipPopover>
+</TooltipProvider>
+```
+
+## Toast
+
+There are several changes in the component API, we’d recommend you to check the documentation before doing the migration.
+
+## VisuallyHidden
+
+There are no changes.
+
+## New components
+* ConfirmationModal
+* ContextualHelp
+* EmptyState
+* IconButton
+* Popover
+* Field
+
+### Layout
+* Content
+
+### Date
+* Calendar
+* DateField
+* DatePicker
+* DateRangePicker
+* DateSegment
+* RangeCalendar
+* TimeInput
+
+### Primitives
+* AccessibleIcon
+* Clickable
+* Combobox
+* LinkBox
+* Select (Custom select)
+* Virtual
+
+## Components renamed
+* `Anchor` -> `Link`
+* `DataView` -> `Collections`
+
+## Components without replacements
+* Avatar
+* BulkActions
+* Card
+* Collapsible
+* Columns
+* Dropdown
+* Form
+* Inline
+* List
+* NumberInput
+* Paragraph
+* Switch
+* Toolbar
+
