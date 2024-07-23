@@ -1,0 +1,137 @@
+# Forms
+
+## Form Fields
+
+Single input components in Shoreline don't have labels or help messages by default, in order to build a field to be used on a form you must use the [Field](/components/field/api-reference) compound components set.
+
+### Labels and help text
+
+In order to be accessible, fields in a form should have labels, and in use cases where we want to provide more information fields must have helper text. In Shoreline you can use `Label` and `FieldDescription` to add those elements to a field.
+
+```tsx
+<Field>
+  <Label>Label</Label>
+  <InputElement />
+  <FieldDescription>Short description</FieldDescription>
+</Field>
+```
+
+### Indicating error
+
+Some fields might have error states when a value is invalid. You can use `FieldError` and the `error` prop in `Field` to indicate a form error.
+
+Since `Field` provides context to its children components `FieldError` won't be rendered when the error prop is set to false.
+
+```tsx
+<Field error>
+  <Label>Label</Label>
+  <InputElement />
+  <FieldError>Short description</FieldError>
+</Field>
+```
+
+## State
+
+Shoreline doesn't currently offer state management for forms, you may choose your prefered method of state handling and validation.
+
+### Controlled
+
+Here's an example of a simple controlled form.
+
+```tsx
+export function Controlled() {
+  const [value, setValue] = useState('')
+  const [error, setError] = useState(false)
+
+  let onSubmit = (e) => {
+    e.preventDefault()
+    setError(false)
+
+
+    if (value === ''){
+      setError(true)
+    }
+
+    // perform submit action on backend
+  }
+
+  return (
+    <Stack>
+      <form onSubmit={onSubmit}>
+        <Field error={error}>
+          <Label>Poem</Label>
+          <Textarea name="poem" value={value} onChange={setValue} />
+          <FieldDescription>Write a poem</FieldDescription>
+          <FieldError>You must write something</FieldError>
+        </Field>
+        <Button type="submit" variant="primary">
+          Submit
+        </Button>
+      </form>
+    </Stack>
+  )
+}
+
+```
+
+### Uncontrolled
+
+```tsx
+export function Uncontrolled() {
+
+  return (
+    <Stack>
+      <form>
+        <Field>
+          <Label>Poem</Label>
+          <Textarea name="poem" />
+          <FieldDescription>Write a poem</FieldDescription>
+        </Field>
+        <Button type="submit" variant="primary">
+          Submit
+        </Button>
+      </form>
+    </Stack>
+  )
+}
+```
+
+## Examples
+
+Examples of component structure for some common field use cases.
+
+### Text field
+
+```tsx
+<Field>
+  <Label>Text</Label>
+  <Input />
+  <FieldDescription>Short description</FieldDescription>
+  <FieldError>Error Message</FieldError>
+</Field>
+```
+
+### TextArea field
+
+```tsx
+<Field>
+  <Label>Multiline input</Label>
+  <Textarea />
+  <FieldDescription>Short description</FieldDescription>
+  <FieldError>Error Message</FieldError>
+</Field>
+```
+
+### TextArea with char counter
+
+```tsx
+<Field>
+  <Label>Textarea with counter</Label>
+  <Textarea value={value} onChange={setValue} maxLength={120} />
+  <Flex justify="space-between">
+    <FieldDescription>Short description</FieldDescription>
+    <FieldCharCounter count={String(value).length} limit={120} />
+  </Flex>
+  <FieldError>Error Message</FieldError>
+</Field>
+```
