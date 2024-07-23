@@ -197,9 +197,9 @@ export const presetSunrise: ShorelineConfig = {
         pressed: '$color-blue-12',
       },
       critical: {
-        '*': '$color-red-9',
-        hover: '$color-red-10',
-        pressed: '$color-red-11',
+        '*': '$color-red-10',
+        hover: '$color-red-11',
+        pressed: '$color-red-12',
       },
     },
     bg: {
@@ -247,14 +247,14 @@ export const presetSunrise: ShorelineConfig = {
       critical: {
         '*': '$color-red-1',
         plain: {
-          '*': 'color-mix(in srgb, $color-red-9 0%, transparent)',
-          hover: 'color-mix(in srgb, $color-red-9 5%, transparent)',
-          pressed: 'color-mix(in srgb, $color-red-9 10%, transparent)',
+          '*': 'color-mix(in srgb, $color-red-10 0%, transparent)',
+          hover: 'color-mix(in srgb, $color-red-10 5%, transparent)',
+          pressed: 'color-mix(in srgb, $color-red-10 10%, transparent)',
         },
         strong: {
-          '*': '$color-red-9',
-          hover: '$color-red-10',
-          pressed: '$color-red-11',
+          '*': '$color-red-10',
+          hover: '$color-red-11',
+          pressed: '$color-red-12',
         },
       },
     },
