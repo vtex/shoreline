@@ -1,7 +1,7 @@
 {
   "name": "@vtex/shoreline-next",
   "description": "Nextjs-aware Shoreline components",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
