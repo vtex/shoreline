@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "npm run gen:examples && npm run gen:props && next dev",
-    "build-docs": "npm --prefix ../../ run build && npm run gen:examples && npm run gen:props && next build",
+    "build-docs": "npm --prefix ../../ run build && npm run gen:contributors && npm run gen:examples && npm run gen:props && next build",
     "start": "next start",
     "gen:examples": "node ./scripts/build-examples.mjs",
-    "gen:props": "node ./scripts/build-props.mjs"
+    "gen:props": "node ./scripts/build-props.mjs",
+    "gen:contributors": "node ./scripts/build-contributors.mjs"
   },
   "devDependencies": {
     "@types/fs-extra": "11.0.4",
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^14.1.0",
+    "@octokit/graphql": "^8.1.1",
     "@sentry/nextjs": "^7.103.0",
     "@tanstack/react-table": "8.17.3",
     "@vtex/shoreline": "workspace:*",
@@ -30,6 +32,7 @@
     "react-dom": "18.2.0",
     "react-markdown": "9.0.1",
     "shiki": "1.3.0",
+    "swr": "^2.2.5",
     "ts-morph": "22.0.0"
   },
   "browserslist": {
