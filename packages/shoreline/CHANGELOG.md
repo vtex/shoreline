@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.1.8...@vtex/shoreline@1.1.9) (2024-07-25)
+
+### Bug Fixes
+
+- increases one tone ([f31a655](https://github.com/vtex/shoreline/commit/f31a655b6b689f79f4a52ffe67b5fe81c89fb13d))
+
 ## [1.1.8](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.1.7...@vtex/shoreline@1.1.8) (2024-07-24)
 
 **Note:** Version bump only for package @vtex/shoreline
