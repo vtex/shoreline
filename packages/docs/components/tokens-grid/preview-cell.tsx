@@ -6,7 +6,7 @@ import type { CSSProperties } from '@vtex/shoreline-utils'
 import styles from './preview-cell.module.css'
 
 export function PreviewCell(props: PreviewCellProps) {
-  const { foundation, token, ...restProps } = props
+  const { foundation, value, variable, ...restProps } = props
 
   return (
     <Cell {...restProps} data-type="preview">
@@ -14,9 +14,9 @@ export function PreviewCell(props: PreviewCellProps) {
         data-foundation={foundation}
         style={
           {
-            '--preview-cell-token-value': token.value,
-            '--preview-cell-text-letter-spacing': `var(${token.variable}-letter-spacing)`,
-            '--preview-cell-text-font': `var(${token.variable}-font)`,
+            '--preview-cell-token-value': value,
+            '--preview-cell-text-letter-spacing': `var(${variable}-letter-spacing)`,
+            '--preview-cell-text-font': `var(${variable}-font)`,
           } as CSSProperties
         }
         className={styles.previewCell}
@@ -27,11 +27,7 @@ export function PreviewCell(props: PreviewCellProps) {
 
 interface PreviewCellProps extends ComponentPropsWithoutRef<'div'> {
   foundation: Foundation
-  token: Token
-}
 
-interface Token {
   value: string
   variable: string
-  name: string
 }
