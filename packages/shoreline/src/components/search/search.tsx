@@ -5,6 +5,10 @@ import { IconMagnifyingGlassSmall, IconXCircle } from '../../icons'
 import { useId, useMergeRef } from '@vtex/shoreline-utils'
 import { Spinner } from '../spinner'
 import { VisuallyHidden } from '../visually-hidden'
+import { createMessageHook } from '../locale'
+import { messages } from './messages'
+
+const useMessage = createMessageHook(messages)
 
 /**
  * Search is a text input that users can type to narrow down a Collection. Use Filters if values can be classified in predefined options.
@@ -17,7 +21,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
     const {
       disabled = false,
       loading = false,
-      placeholder = 'Search',
+      placeholder,
       className,
       value,
       onClear,
@@ -25,6 +29,8 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
       defaultValue,
       ...inputProps
     } = props
+
+    const getMessage = useMessage(placeholder ? { placeholder } : undefined)
 
     const id = useId(defaultId)
 
@@ -55,12 +61,12 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
           ref={useMergeRef(ref, forwardedRef)}
           disabled={disabled}
           value={value}
-          placeholder={placeholder}
+          placeholder={getMessage('placeholder')}
           defaultValue={defaultValue}
           {...inputProps}
         />
         <VisuallyHidden>
-          <label htmlFor={id}>{placeholder}</label>
+          <label htmlFor={id}>{getMessage('placeholder')}</label>
         </VisuallyHidden>
         {!disabled &&
         (value || defaultValue) &&
