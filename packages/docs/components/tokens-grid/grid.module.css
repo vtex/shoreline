@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 5rem;
+  grid-template-columns: 2fr 2fr 5rem;
 }
 
 .grid[data-foundation='breakpoint'] {
@@ -8,13 +8,13 @@
 }
 
 .grid[data-foundation='elevation'] {
-  grid-template-columns: 2fr 2fr 3fr 5rem;
+  grid-template-columns: 2fr 3fr 5rem;
 }
 
 .grid[data-foundation='space'] {
-  grid-template-columns: 2fr 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
 }
 
 .grid[data-foundation='radius'] {
-  grid-template-columns: 2fr 2fr 1fr 5rem;
+  grid-template-columns: 2fr 1fr 5rem;
 }

@@ -23,26 +23,24 @@ export function TokensGrid(props: TokensTableProps) {
       className={styles.grid}
     >
       <Head>Token</Head>
-      <Head>CSS Variable</Head>
       <Head>Value</Head>
       {foundation === 'breakpoint' ? null : <Head>Preview</Head>}
       {getFoundationTokens(foundation).map((token) => {
         const {
-          name,
           variable,
           value,
           foundation: resolvedFoundation,
         } = getTokenValues(token, foundation)
 
         return (
-          <Fragment key={name}>
-            <TokenCell>{name}</TokenCell>
-            <Cell>{variable}</Cell>
+          <Fragment key={variable}>
+            <TokenCell>{variable}</TokenCell>
             <Cell>{value}</Cell>
             {foundation === 'breakpoint' ? null : (
               <PreviewCell
                 foundation={resolvedFoundation}
-                token={{ name, variable, value }}
+                variable={variable}
+                value={value}
               />
             )}
           </Fragment>

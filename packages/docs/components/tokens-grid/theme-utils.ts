@@ -45,13 +45,10 @@ function sanitizeTypographyTokens(tokens: string[]) {
 export function getTokenValues(token: string, foundation: Foundation) {
   const resolvedFoundation = resolveFoundation(token, foundation)
 
-  const name = token.replace(tokenPrefix, '$')
-
   const value =
     resolvedFoundation === 'text' ? getTextValue(token) : theme[token]
 
   return {
-    name,
     variable: token,
     value,
     foundation: resolvedFoundation,
