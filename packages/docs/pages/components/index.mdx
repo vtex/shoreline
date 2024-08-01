@@ -1,35 +1,40 @@
 # Components
 
-import { allComponentsList, allLayoutsList, allPrimitivesList } from '../../utils/all-components-list'
-import { pascalCase } from '@vtex/shoreline'
+import {
+  allComponentsList,
+  allLayoutsList,
+  allPrimitivesList,
+} from "../../utils/all-components-list";
+import { pascalCase } from "@vtex/shoreline";
 
 <ComponentSummaryGrid mt="var(--sl-space-4)">
-  {allComponentsList.map(component => (
-    <ComponentSummary 
-      key={component}
-      name={component}
-    />
-  ))}
+  {allComponentsList.map((component) => {
+    let href = `/components/${component}`;
+    if (component === "checkbox-group") {
+      href = `/components/checkbox/${component}`;
+    } else if (component === "radio-group") {
+      href = `/components/radio/${component}`;
+    }
+    return <ComponentSummary key={component} name={component} href={href} />;
+  })}
 </ComponentSummaryGrid>
 
 ## Layouts
 
 <ComponentSummaryGrid mt="var(--sl-space-4)">
-  {allLayoutsList.map(component => (
-    <ComponentSummary 
-      key={component}
-      name={component}
-    />
+  {allLayoutsList.map((component) => (
+    <ComponentSummary key={component} name={component} />
   ))}
 </ComponentSummaryGrid>
 
 ## Primitives
 
 <ComponentSummaryGrid mt="var(--sl-space-4)">
-  {allPrimitivesList.map(component => (
-    <ComponentSummary 
-      key={component}
-      name={component}
-    />
-  ))}
+  {allPrimitivesList.map((component) => {
+    let href = `/components/${component}`;
+    if (component === "combobox-input") {
+      href = `/components/combobox/${component}`;
+    }
+    return <ComponentSummary key={component} name={component} href={href} />;
+  })}
 </ComponentSummaryGrid>
