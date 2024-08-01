@@ -7,15 +7,17 @@ export default {
     value: {
       control: 'text',
     },
-    placeholder: {
-      control: 'text',
-      default: 'Change me',
+    messages: {
+      control: 'object',
     },
     disabled: { control: 'boolean', default: false },
     loading: { control: 'boolean', default: false },
   },
   parameters: {
     chromatic: { disableSnapshot: true },
+  },
+  args: {
+    messages: { placeholder: 'Change me' },
   },
 }
 
