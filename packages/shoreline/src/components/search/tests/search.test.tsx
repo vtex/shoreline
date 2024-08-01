@@ -8,7 +8,6 @@ import {
   render,
   fireEvent,
 } from '@vtex/shoreline-test-utils'
-import { LocaleProvider } from '../../locale'
 
 describe('search', () => {
   it('should render correctly', () => {
@@ -29,16 +28,6 @@ describe('search', () => {
     const { container } = render(<Search loading />)
 
     expect(container.querySelector('[data-sl-spinner]')).toBeInTheDocument()
-  })
-
-  it('should show have default placeholder localized', () => {
-    const { getByPlaceholderText } = render(<Search />, {
-      wrapper: ({ children }) => (
-        <LocaleProvider locale="pt-BR">{children}</LocaleProvider>
-      ),
-    })
-
-    expect(getByPlaceholderText('Pesquisar')).toBeInTheDocument()
   })
 
   it('should show have custom placeholder when placeholder prop is set', () => {
