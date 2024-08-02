@@ -14,7 +14,7 @@ export function Show() {
   const [value, setValue] = useState('')
 
   return (
-    <Stack>
+    <Stack fluid>
       <Field>
         <Label>Simple</Label>
         <Input />
