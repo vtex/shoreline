@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.12](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.1.11...@vtex/shoreline@1.1.12) (2024-08-02)
+
+### Bug Fixes
+
+- **field:** fix width style ([cd6883b](https://github.com/vtex/shoreline/commit/cd6883b5144372a74471617ab66bf5c8d51d2cd0)), closes [#1787](https://github.com/vtex/shoreline/issues/1787)
+
 ## [1.1.11](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.1.10...@vtex/shoreline@1.1.11) (2024-07-31)
 
 **Note:** Version bump only for package @vtex/shoreline
