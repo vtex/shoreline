@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.1.12...@vtex/shoreline@1.2.0) (2024-08-02)
+
+### Bug Fixes
+
+- **search:** add traslation for default placeholder of search component ([2b79f5d](https://github.com/vtex/shoreline/commit/2b79f5df38245cdc9c8ee13d0e5732200367d2c6))
+
+### Features
+
+- **search:** change placeholder to be customized by messages prop ([0472bb6](https://github.com/vtex/shoreline/commit/0472bb65e2213b008eb832336a13dffad9234eb4))
+
 ## [1.1.12](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.1.11...@vtex/shoreline@1.1.12) (2024-08-02)
 
 ### Bug Fixes
