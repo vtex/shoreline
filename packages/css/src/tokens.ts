@@ -15,26 +15,37 @@ export function tokens(args: TokensArgs) {
 
   const code = readFileSync(inputFile)
 
-  const tokens = transformTokens({
+  const [css, js] = transformTokens({
     code,
     useCascadeLayers,
     browserslistQuery,
   })
 
   if (emitFile) {
-    const outputFile = `${outdir}/tokens${
+    const outputCSSFile = `${outdir}/tokens${
       useCascadeLayers ? '' : '-unlayered'
     }.css`
 
     try {
-      outputFileSync(outputFile, tokens.code)
-      console.log(`✅ Generated ${outputFile}`)
+      outputFileSync(outputCSSFile, css.code)
+      console.log(`✅ Generated ${outputCSSFile}`)
+    } catch (e) {
+      console.log('🚨 Failed to compile styles')
+    }
+
+    const outputJsonFile = `${outdir}/tokens${
+      useCascadeLayers ? '' : '-unlayered'
+    }.json`
+
+    try {
+      outputFileSync(outputJsonFile, JSON.stringify(js))
+      console.log(`✅ Generated ${outputJsonFile}`)
     } catch (e) {
       console.log('🚨 Failed to compile styles')
     }
   }
 
-  return tokens
+  return css
 }
 
 export interface TokensArgs extends Omit<TransformTokensArgs, 'code'> {

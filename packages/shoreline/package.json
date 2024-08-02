@@ -18,6 +18,7 @@
       "types": "./dist/index.d.ts"
     },
     "./css": "./dist/themes/sunrise/styles.css",
+    "./tokens/json": "./dist/themes/sunrise/tokens.json",
     "./css/unlayered": "./dist/themes/sunrise/styles-unlayered.css",
     "./themes/sunrise": "./dist/themes/sunrise/styles.css",
     "./themes/sunrise/unlayered": "./dist/themes/sunrise/styles-unlayered.css"

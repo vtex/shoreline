@@ -1,5 +1,11 @@
+import { constants, camelCase } from '@vtex/shoreline-utils'
 import browserslist from 'browserslist'
-import { transform, browserslistToTargets } from 'lightningcss'
+import { formatHex } from 'culori'
+import {
+  transform,
+  browserslistToTargets,
+  type TokenOrValue,
+} from 'lightningcss'
 
 export function transformTokens(args: TransformTokensArgs) {
   const {
@@ -10,7 +16,9 @@ export function transformTokens(args: TransformTokensArgs) {
 
   const targets = browserslistToTargets(browserslist(browserslistQuery))
 
-  const result = transform({
+  const tokensJs: Record<string, string> = {}
+
+  const lightningResult = transform({
     filename: 'styles.css',
     code: code,
     targets,
@@ -22,6 +30,11 @@ export function transformTokens(args: TransformTokensArgs) {
       },
     },
     visitor: {
+      DeclarationExit: {
+        custom({ name, value }) {
+          tokensJs[toJsProp(name)] = value.map(stringifyValue).join('')
+        },
+      },
       Rule: {
         custom: {
           theme(rule) {
@@ -49,7 +62,70 @@ export function transformTokens(args: TransformTokensArgs) {
     },
   })
 
-  return result
+  return [lightningResult, tokensJs]
+}
+
+function toJsProp(str: string) {
+  return camelCase(String(str).replace(/--sl-/gi, ''))
+}
+
+function stringifyValue(tkov: TokenOrValue): string {
+  switch (tkov.type) {
+    case 'length':
+      return `${tkov.value.value}${tkov.value.unit}`
+    case 'token':
+      if (
+        tkov.value.type === 'ident' ||
+        tkov.value.type === 'number' ||
+        tkov.value.type === 'string' ||
+        tkov.value.type === 'delim'
+      ) {
+        // identifiers are passed through
+        return String(tkov.value.value)
+      }
+      if (tkov.value.type === 'white-space') {
+        return constants.whiteSpace
+      }
+      if (tkov.value.type === 'percentage') {
+        // css percentages
+        return `${Math.floor(Number(tkov.value.value) * 100)}%`
+      }
+      if (tkov.value.type === 'comma') {
+        return ','
+      }
+
+      return ''
+    case 'color': {
+      const { type, ...rest } = tkov.value as unknown as ColorIdent
+
+      if (type === 'rgb') {
+        const raw = `rgba(${rest.r}, ${rest.g}, ${rest.b}, ${rest.alpha})`
+        return formatHex(raw) ?? ''
+      }
+
+      return ''
+    }
+    case 'var': {
+      return `var(${tkov.value.name.ident})`
+    }
+    case 'function': {
+      return `${tkov.value.name}(${tkov.value.arguments
+        .map((argument) => {
+          return stringifyValue(argument)
+        })
+        .join('')})`
+    }
+    default:
+      return ''
+  }
+}
+
+interface ColorIdent {
+  type: string
+  r: number
+  g: number
+  b: number
+  alpha: number
 }
 
 export interface TransformTokensArgs {

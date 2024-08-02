@@ -7,10 +7,7 @@ function main() {
   build()
 
   watch('**/*.css', {
-    ignored: [
-      'dist/themes/sunrise/styles.css',
-      'dist/themes/sunrise/styles-unlayered.css',
-    ],
+    ignored: ['dist/**'],
     ignoreInitial: false,
   }).on('change', (path) => {
     build()
