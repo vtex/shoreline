@@ -1,3 +1,2 @@
-# files:
-#   - source: /packages/admin-ui/src/search/messages/en.json
-#     translation: /%original_path%/%two_letters_code%.%file_extension%
+- source: /packages/shoreline/components/*/messages/en.json
+    translation: /%original_path%/%two_letters_code%.%file_extension%
