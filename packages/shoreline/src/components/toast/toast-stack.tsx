@@ -6,7 +6,7 @@ import { ToastAppear } from './toast-appear'
 import { Toast } from './toast'
 
 /**
- * Toasts can appear at any time to provide instant feedback on actions. They are usually temporary, but can also require the user to dismiss.
+ * Toast Stacks can appear at any time to provide several instant feedback on actions. They are usually temporary, but can also require the user to dismiss.
  * @status stable
  * @example
  * <ToastStack />
