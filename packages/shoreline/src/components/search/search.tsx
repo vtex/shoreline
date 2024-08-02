@@ -5,26 +5,34 @@ import { IconMagnifyingGlassSmall, IconXCircle } from '../../icons'
 import { useId, useMergeRef } from '@vtex/shoreline-utils'
 import { Spinner } from '../spinner'
 import { VisuallyHidden } from '../visually-hidden'
+import { createMessageHook } from '../locale'
+import { messages } from './messages'
+
+const useMessage = createMessageHook(messages)
 
 /**
  * Search is a text input that users can type to narrow down a Collection. Use Filters if values can be classified in predefined options.
  * @status stable
  * @example
- * <Search placeholder="Search" />
+ * <Search />
  */
 export const Search = forwardRef<HTMLInputElement, SearchProps>(
   function Search(props, forwardedRef) {
     const {
       disabled = false,
       loading = false,
-      placeholder = 'Search',
+      messages,
       className,
       value,
       onClear,
+      placeholder: deprecatedPlaceholder,
       id: defaultId,
       defaultValue,
       ...inputProps
     } = props
+
+    const getMessage = useMessage(messages)
+    const placeholder = deprecatedPlaceholder ?? getMessage('placeholder')
 
     const id = useId(defaultId)
 
@@ -90,6 +98,21 @@ export interface SearchOptions {
    * @default undefined
    */
   onClear?: () => void
+  /**
+   * Object containing all messages to be displayed in the search input
+   */
+  messages?: {
+    /**
+     * Input placeholder text.
+     */
+    placeholder?: string
+  }
+  /**
+   * @deprecated
+   * You must use the messages property to override the placeholder label.
+   */
+  placeholder?: string
 }
 
-export type SearchProps = SearchOptions & ComponentPropsWithoutRef<'input'>
+export type SearchProps = SearchOptions &
+  Omit<ComponentPropsWithoutRef<'input'>, 'placeholder'>
