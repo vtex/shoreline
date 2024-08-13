@@ -30,6 +30,7 @@ export default {
       description: 'Trigger variant',
     },
     iconOnly: { control: 'boolean' },
+    disabled: { conntrol: 'boolean' },
   },
   args: {
     size: 'normal',
@@ -37,6 +38,7 @@ export default {
     type: 'menu',
     variant: 'secondary',
     iconOnly: false,
+    disabled: false,
   },
   parameters: {
     chromatic: { disableSnapshot: true },

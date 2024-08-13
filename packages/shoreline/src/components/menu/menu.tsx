@@ -4,7 +4,7 @@ import { MenuPopover } from './menu-popover'
 import type { MenuProviderOptions } from './menu-provider'
 import { MenuProvider } from './menu-provider'
 import { MenuTrigger } from './menu-trigger'
-import type { ButtonOptions } from '../button'
+import type { ButtonProps } from '../button'
 import { Button } from '../button'
 import { IconCaretDownSmall, IconDotsThreeVertical } from '../../icons'
 import { IconButton } from '../icon-button'
@@ -32,6 +32,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
       defaultOpen,
       store,
       placement,
+      disabled,
       ...domProps
     } = props
 
@@ -46,7 +47,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
           store={store}
           placement={placement}
         >
-          <MenuTrigger asChild>
+          <MenuTrigger disabled={disabled} asChild>
             {iconOnly ? (
               <IconButton label={label} variant={variant} size={size}>
                 {Icon}
@@ -79,7 +80,7 @@ function getIcon(type: MenuProps['type'] = 'menu') {
   }
 }
 
-type InheritedOptions = Pick<ButtonOptions, 'variant' | 'size'> &
+type InheritedOptions = Pick<ButtonProps, 'variant' | 'size' | 'disabled'> &
   Pick<
     MenuProviderOptions,
     'open' | 'setOpen' | 'defaultOpen' | 'store' | 'placement'
