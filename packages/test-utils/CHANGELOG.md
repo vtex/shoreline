@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.28](https://github.com/vtex/shoreline/compare/@vtex/shoreline-test-utils@1.0.27...@vtex/shoreline-test-utils@1.0.28) (2024-08-14)
+
+**Note:** Version bump only for package @vtex/shoreline-test-utils
+
 ## [1.0.27](https://github.com/vtex/shoreline/compare/@vtex/shoreline-test-utils@1.0.26...@vtex/shoreline-test-utils@1.0.27) (2024-08-02)
 
 **Note:** Version bump only for package @vtex/shoreline-test-utils

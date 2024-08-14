@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.2.0...@vtex/shoreline@1.2.1) (2024-08-14)
+
+### Bug Fixes
+
+- **menu:** add disabled property ([2919d9a](https://github.com/vtex/shoreline/commit/2919d9ab17e15d47673a672b3a743796f7ce876d))
+
 # [1.2.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.1.12...@vtex/shoreline@1.2.0) (2024-08-02)
 
 ### Bug Fixes
