@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.2.1...@vtex/shoreline@1.3.0) (2024-08-16)
+
+### Features
+
+- **confirmation-modal:** add disabled prop ([ed1ee65](https://github.com/vtex/shoreline/commit/ed1ee65a25c564f758f2fc27dc65b0bac6adf390))
+
 ## [1.2.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.2.0...@vtex/shoreline@1.2.1) (2024-08-14)
 
 ### Bug Fixes
