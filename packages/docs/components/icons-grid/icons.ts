@@ -111,11 +111,11 @@ const iconsInfo = [
   },
   {
     name: 'ChartBar',
-    description: 'graph; performance; metrics; data; stats; report',
+    description: 'graph; performance; metrics; data; stats; report; dashboard',
   },
   {
     name: 'ChartLineUp',
-    description: 'graph; performance; metrics; data; stats; report; growth',
+    description: 'graph; performance; metrics; data; stats; report; dashboard; growth',
   },
   {
     name: 'ChatText',
