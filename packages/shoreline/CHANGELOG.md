@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.3.0...@vtex/shoreline@1.4.0) (2024-08-16)
+
+### Features
+
+- **confirmation-modal:** add critical prop ([0925ddc](https://github.com/vtex/shoreline/commit/0925ddc5ae17ca7d28385507c0cbd665caeecc7e))
+
 # [1.3.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.2.1...@vtex/shoreline@1.3.0) (2024-08-16)
 
 ### Features
