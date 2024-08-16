@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "@ariakit/react": "0.4.7",
-    "@internationalized/date": "3.5.4",
+    "@internationalized/date": "3.5.5",
     "@react-aria/calendar": "3.5.8",
     "@react-aria/checkbox": "3.14.3",
     "@react-aria/datepicker": "3.10.1",
