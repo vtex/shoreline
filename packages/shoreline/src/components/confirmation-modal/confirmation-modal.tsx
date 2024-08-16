@@ -49,6 +49,7 @@ export const ConfirmationModal = forwardRef<
     onCancel,
     locale = 'en-US',
     messages,
+    disabled = false,
     ...otherProps
   } = props
 
@@ -83,6 +84,7 @@ export const ConfirmationModal = forwardRef<
           size="large"
           variant="primary"
           aria-label={confirm}
+          disabled={disabled}
         >
           {confirm}
         </Button>
@@ -109,6 +111,11 @@ export interface ConfirmationModalOptions {
    * @default false
    */
   open?: boolean
+  /**
+   * Whether the confirm actions is disabled.
+   * @default false
+   */
+  disabled?: boolean
   /**
    * The BCP47 language code for the locale.
    * @link https://www.ietf.org/rfc/bcp/bcp47.txt
