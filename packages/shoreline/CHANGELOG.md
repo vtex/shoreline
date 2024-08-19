@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.4.0...@vtex/shoreline@1.5.0) (2024-08-19)
+
+### Bug Fixes
+
+- **icon:** add export for IconChatCircle and iconCounterClockwise ([75b0c50](https://github.com/vtex/shoreline/commit/75b0c5032e76c75480b9de84b2627e63ad7e8a6d))
+
+### Features
+
+- **icon:** add IconChatCircle ([dbc29e2](https://github.com/vtex/shoreline/commit/dbc29e2de471c8d334a7084624fac76ee566320c))
+
 # [1.4.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.3.0...@vtex/shoreline@1.4.0) (2024-08-16)
 
 ### Features
