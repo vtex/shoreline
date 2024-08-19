@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.5.0...@vtex/shoreline@1.5.1) (2024-08-19)
+
+### Bug Fixes
+
+- add height property to input component ([97216ad](https://github.com/vtex/shoreline/commit/97216ad2487a6cfd8564a01e9409a54c936f8936))
+
 # [1.5.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.4.0...@vtex/shoreline@1.5.0) (2024-08-19)
 
 ### Bug Fixes
