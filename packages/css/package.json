@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@types/fs-extra": "11.0.1",
-    "@types/node": "20.14.9"
+    "@types/node": "20.16.1"
   },
   "dependencies": {
     "@vtex/shoreline-utils": "workspace:*",
