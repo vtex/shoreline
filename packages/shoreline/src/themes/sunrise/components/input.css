@@ -53,6 +53,7 @@
     padding-left: var(--sl-space-4);
     padding-right: var(--sl-space-4);
     width: 100%;
+    height: 100%;
     border: none;
     background-color: unset;
     &:focus {
