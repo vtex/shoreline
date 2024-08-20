@@ -18,7 +18,7 @@
     "clean": "sh scripts/clean.sh && pnpm i && pnpm build",
     "format": "prettier --write \"packages/**/*.{ts,js,tsx,jsx,json}\" \"examples/**/*.{ts,js,tsx,jsx,json}\"",
     "lint": "biome check .",
-    "lint-fix": "biome check --apply .",
+    "lint-fix": "biome check --write .",
     "commit": "cz",
     "dev:styles": "npm --prefix packages/shoreline run dev",
     "dev:storybook": "concurrently -p [{name}] -n storybook,shoreline \"pnpm storybook dev -p 6006\" \"pnpm run dev:styles\"",
@@ -42,7 +42,7 @@
     "commitlint": "commitlint --edit"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.2",
+    "@biomejs/biome": "1.8.3",
     "@chromatic-com/storybook": "^1",
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
@@ -93,7 +93,7 @@
     "wait-on": "7.2.0"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,json}": "biome check --apply .",
+    "*.{ts,tsx,js,jsx,json}": "biome check --write .",
     "*.css": "stylelint \"**/*.css\" --fix"
   },
   "config": {
