@@ -8,7 +8,8 @@
     "start": "next start",
     "gen:examples": "node ./scripts/build-examples.mjs",
     "gen:props": "node ./scripts/build-props.mjs",
-    "gen:contributors": "node ./scripts/build-contributors.mjs"
+    "gen:contributors": "node ./scripts/build-contributors.mjs",
+    "gen:challenge-results": "node ./scripts/build-challenge-results.mjs"
   },
   "devDependencies": {
     "@types/fs-extra": "11.0.4",
