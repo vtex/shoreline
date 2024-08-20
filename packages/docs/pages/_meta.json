@@ -18,5 +18,14 @@
   "foundations": {
     "title": "Foundations",
     "type": "page"
+  },
+  "eng-onsite-2024": {
+    "display": "hidden",
+    "theme": {
+      "sidebar": false,
+      "pagination": false,
+      "toc": false,
+      "breadcrumb": false
+    }
   }
 }
