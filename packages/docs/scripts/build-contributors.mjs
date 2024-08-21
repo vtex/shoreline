@@ -190,7 +190,7 @@ export interface Issue {
   createdAt: string
   author: Author
   state: string
-  comments: { nodes: { author: Author }[] }
+  comments: { nodes: { author: Author, createdAt?: string }[] }
 }
 
 export const issuesOnFire: Issue[] = ${JSON.stringify(issuesOnFire)}
