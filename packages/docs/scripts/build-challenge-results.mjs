@@ -11,7 +11,7 @@ import {
 config()
 
 const statsOutputDirectory = `${path.dirname('')}/__contributions__`
-const startDate = new Date('2024-07-22T12:00:00Z').toISOString()
+const startDate = new Date('2024-08-22T12:00:00Z').toISOString()
 
 function getStats(issues, pulls) {
   const contributors = getContributors(issues, pulls)
@@ -41,15 +41,18 @@ function getStats(issues, pulls) {
     })
     .filter((contributor) => contributor.stats.rate > 0)
 
-  participantsStats.sort((a, b) => b.stats.rate - a.stats.rate)
+  const comments = participantsStats.reduce(
+    (acc, contributor) => contributor.stats.comments + acc,
+    0
+  )
 
   return {
     participantsStats: participantsStats,
     participants: contributors.length,
     issues: resolvedIssues.length,
     pulls: resolvedPulls.length,
-    completedPulls: resolvedPulls.filter((pull) => pull.state === 'MERGED')
-      .length,
+    merged: resolvedPulls.filter((pull) => pull.state === 'MERGED').length,
+    comments,
   }
 }
 
@@ -75,17 +78,13 @@ function getParticipantStats(username, issues, pulls) {
 
   const stats = {
     pulls: pullsCreatedByUser.length,
-    completed: pullsMerged.length,
+    merged: pullsMerged.length,
     issues: issuesCreatedByUser.length,
     comments: issuesCommentedByUser.length,
   }
 
   const rate =
-    (stats.pulls * 2 +
-      stats.completed * 3 +
-      stats.comments +
-      stats.issues * 2) /
-    4
+    stats.pulls * 2 + stats.merged * 3 + stats.comments + stats.issues * 2
 
   return { ...stats, rate }
 }
@@ -107,7 +106,7 @@ export interface Contributor {
     issues: number
     pulls: number
     comments: number
-    completed: number
+    merged: number
     rate: number
   }
 }
@@ -117,13 +116,17 @@ export interface ChallengeStats {
   participants: number
   issues: number
   pulls: number
-  completedPulls: number
+  merged: number
+  comments: number
 }
 
 export const stats: ChallengeStats = ${JSON.stringify(stats)}
 
-export function getContributor(username: string) {
-  return stats.participantsStats.find((participant) => participant.username === username)
+export function getWinners() {
+  const winners = getContributors()
+  winners.sort((a, b) => b.stats.rate - a.stats.rate)
+
+  return winners.slice(0, 3)
 }
 
 const maintainers = [

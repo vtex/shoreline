@@ -19,6 +19,16 @@
   margin-bottom: 1rem;
 }
 
+.revealButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 6.25rem;
+  border-radius: 0.75rem;
+  background: #f9f5fd;
+}
+
 .contributionsContainer {
   border: var(--sl-border-base);
   padding: var(--sl-space-8);
@@ -36,6 +46,16 @@
   grid-template-columns: repeat(3, 1fr);
   gap: var(--sl-space-8) var(--sl-space-20);
   width: 100%;
+}
+
+.contributionsList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sl-space-8) var(--sl-space-20);
+  width: 100%;
+  border: var(--sl-border-base);
+  padding: var(--sl-space-8);
+  border-radius: var(--sl-radius-3);
 }
 
 .contributionsLabel {

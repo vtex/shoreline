@@ -27,5 +27,14 @@
       "toc": false,
       "breadcrumb": false
     }
+  },
+  "eng-onsite-2024-results": {
+    "display": "hidden",
+    "theme": {
+      "sidebar": false,
+      "pagination": false,
+      "toc": false,
+      "breadcrumb": false
+    }
   }
 }

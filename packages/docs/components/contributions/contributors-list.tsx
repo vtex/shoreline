@@ -3,11 +3,21 @@ import { getContributors } from '../../__contributions__/stats'
 import { Link } from '@vtex/shoreline'
 import NextLink from 'next/link'
 import Image from 'next/image'
+import { useState } from 'react'
 
-export function ContributorList() {
-  return (
+export function ContributorList<T extends { image: string; username: string }>(
+  props: ContributorListProps<T>
+) {
+  const { contributors = getContributors(), hidden = false } = props
+  const [isHidden, setHidden] = useState(hidden)
+
+  return isHidden ? (
+    <button className={styles.revealButton} onClick={() => setHidden(false)}>
+      Reveal winners!
+    </button>
+  ) : (
     <div className={styles.container}>
-      {getContributors().map((contributor) => {
+      {contributors.map((contributor) => {
         return (
           <div key={contributor.username}>
             <Link asChild>
@@ -26,4 +36,9 @@ export function ContributorList() {
       })}
     </div>
   )
+}
+
+interface ContributorListProps<T> {
+  contributors: Array<T>
+  hidden?: boolean
 }

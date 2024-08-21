@@ -20,6 +20,7 @@ import {
   ContributorList,
   ContributorStats,
   IssuesList,
+  ContributionList,
 } from './components/contributions'
 
 const docsTitle = 'Shoreline'
@@ -100,6 +101,7 @@ const config: DocsThemeConfig = {
     ContributorList: ContributorList as React.FC,
     ContributorStats: ContributorStats as React.FC,
     IssuesList: IssuesList as React.FC,
+    ContributionList: ContributionList as React.FC,
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,

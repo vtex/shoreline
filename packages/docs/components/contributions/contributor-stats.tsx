@@ -20,6 +20,7 @@ export function ContributorStats(props: ContributorStatsProps) {
         />
         <div>@{username}</div>
       </div>
+
       <Stack className={styles.contributionsContainer} space="$space-8">
         <div className={styles.contributionsHeader}>
           <p className={styles.contributionsLabel}>Contributions</p>
