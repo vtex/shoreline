@@ -13,30 +13,49 @@ config()
 const statsOutputDirectory = `${path.dirname('')}/__contributions__`
 const startDate = new Date('2024-07-22T12:00:00Z').toISOString()
 
-function getStats(contributors, issues, pulls) {
-  const participantsStats = contributors.map((contributor) => {
-    const stats = getParticipantStats(contributor.username, issues, pulls)
+function getStats(issues, pulls) {
+  const contributors = getContributors(issues, pulls)
 
-    return {
-      ...contributor,
-      stats,
-    }
-  })
+  const resolvedPulls = pulls.filter(
+    (pull) =>
+      pull.createdAt >= startDate && isHumanContributor(pull.author.login)
+  )
+
+  const resolvedIssues = issues.filter(
+    (issue) =>
+      issue.createdAt >= startDate && isHumanContributor(issue.author.login)
+  )
+
+  const participantsStats = contributors
+    .map((contributor) => {
+      const stats = getParticipantStats(
+        contributor.username,
+        issues,
+        resolvedPulls
+      )
+
+      return {
+        ...contributor,
+        stats,
+      }
+    })
+    .filter((contributor) => contributor.stats.rate > 0)
 
   participantsStats.sort((a, b) => b.stats.rate - a.stats.rate)
 
   return {
     participantsStats: participantsStats,
     participants: contributors.length,
-    issues: issues.length,
-    pulls: pulls.length,
-    completedPulls: pulls.filter((pull) => pull.state === 'MERGED').length,
+    issues: resolvedIssues.length,
+    pulls: resolvedPulls.length,
+    completedPulls: resolvedPulls.filter((pull) => pull.state === 'MERGED')
+      .length,
   }
 }
 
 function getParticipantStats(username, issues, pulls) {
   const pullsCreatedByUser = pulls.filter(
-    (pull) => pull.author.login === username && pull.createdAt >= startDate
+    (pull) => pull.author.login === username
   )
 
   const issuesCreatedByUser = issues.filter(
@@ -44,19 +63,19 @@ function getParticipantStats(username, issues, pulls) {
   )
 
   const issuesCommentedByUser = issues.filter((issue) => {
-    return (
-      issue.createdAt >= startDate &&
-      issue.comments.nodes.some((comment) => comment.author.login === username)
+    return issue.comments.nodes.some(
+      (comment) =>
+        comment.author.login === username && comment.createdAt >= startDate
     )
   })
 
-  const pullsMergedByUser = pullsCreatedByUser.filter(
+  const pullsMerged = pullsCreatedByUser.filter(
     (pull) => pull.state === 'MERGED'
   )
 
   const stats = {
     pulls: pullsCreatedByUser.length,
-    completed: pullsMergedByUser.length,
+    completed: pullsMerged.length,
     issues: issuesCreatedByUser.length,
     comments: issuesCommentedByUser.length,
   }
@@ -75,18 +94,7 @@ async function main() {
   const pulls = await fetchAllPullRequests()
   const issues = await fetchAllIssues()
 
-  const resolvedPulls = pulls.filter(
-    (pull) =>
-      pull.createdAt >= startDate && isHumanContributor(pull.author.login)
-  )
-  const resolvedIssues = issues.filter(
-    (issue) =>
-      issue.createdAt >= startDate && isHumanContributor(issue.author.login)
-  )
-
-  const contributors = getContributors(resolvedIssues, resolvedPulls)
-
-  const stats = getStats(contributors, resolvedIssues, resolvedPulls)
+  const stats = getStats(issues, pulls)
 
   /**
    * Generate contributors stats file
@@ -104,10 +112,18 @@ export interface Contributor {
   }
 }
 
-export const contributors: Contributor[] = ${JSON.stringify(stats)}
+export interface ChallengeStats {
+  participantsStats: Contributor[]
+  participants: number
+  issues: number
+  pulls: number
+  completedPulls: number
+}
+
+export const stats: ChallengeStats = ${JSON.stringify(stats)}
 
 export function getContributor(username: string) {
-  return contributors.find((contributor) => contributor.username === username)
+  return stats.participantsStats.find((participant) => participant.username === username)
 }
 
 const maintainers = [
@@ -118,9 +134,9 @@ const maintainers = [
 ]
 
 export function getContributors() {
-  return contributors.filter(
-    (contributor) =>
-      !maintainers.includes(contributor.username) && contributor.stats.rate > 0
+  return stats.participantsStats.filter(
+    (participant) =>
+      !maintainers.includes(participant.username) && participant.stats.rate > 0
   )
 }
   `

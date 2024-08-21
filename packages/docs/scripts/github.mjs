@@ -45,6 +45,7 @@ export async function fetchAllIssues(repo = REPO_NAME, org = VTEX_ORG) {
               state
               comments(first: 100) {
                 nodes {
+                  createdAt
                   author {
                     login
                     avatarUrl
@@ -105,6 +106,7 @@ export async function fetchAllPullRequests(repo = REPO_NAME, org = VTEX_ORG) {
               }
               comments(first: 100) {
                 nodes {
+                  createdAt
                   body
                   author {
                     login
