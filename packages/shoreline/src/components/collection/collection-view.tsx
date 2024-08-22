@@ -1,3 +1,5 @@
+import type { ComponentPropsWithoutRef } from 'react'
+import { forwardRef } from 'react'
 import {
   IconMagnifyingGlass,
   IconPlus,
@@ -5,8 +7,6 @@ import {
   IconProhibit,
   IconWarningCircle,
 } from '../../icons'
-import type { ComponentPropsWithoutRef } from 'react'
-import { forwardRef } from 'react'
 import { Button } from '../button'
 import {
   EmptyState,
