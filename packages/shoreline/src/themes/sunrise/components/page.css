@@ -11,7 +11,7 @@
 }
 
 [data-sl-page-header-container] {
-  :where(button) {
+  :where([data-sl-button]):not([data-sl-icon-button]) {
     min-width: 6.25rem;
   }
 

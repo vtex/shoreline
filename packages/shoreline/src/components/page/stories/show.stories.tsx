@@ -14,6 +14,7 @@ import { Tag } from '../../tag'
 import { Stack } from '../../stack'
 import { IconArrowLeft } from '../../../icons'
 import { Flex } from '../../flex'
+import { Menu, MenuItem } from '../../menu'
 
 export default {
   title: 'components/page',
@@ -110,11 +111,19 @@ export function Show() {
               <PageHeading>Title</PageHeading>
               <Tag variant="secondary">Short text</Tag>
             </Flex>
-            <Bleed top="$space-2" bottom="$space-2">
-              <Button variant="primary" size="large">
-                Submit
-              </Button>
-            </Bleed>
+            <Stack space="$space-4" horizontal>
+              <Bleed top="$space-2" bottom="$space-2">
+                <Button variant="primary" size="large">
+                  Submit
+                </Button>
+              </Bleed>
+              <Bleed top="$space-2" bottom="$space-2">
+                <Menu label="Actions" type="actions" iconOnly size="large">
+                  <MenuItem>New Tab</MenuItem>
+                  <MenuItem>New Item</MenuItem>
+                </Menu>
+              </Bleed>
+            </Stack>
           </PageHeaderRow>
         </PageHeader>
         <PageContent layout="standard">
