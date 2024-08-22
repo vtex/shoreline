@@ -30,7 +30,7 @@ export function Toast(props: ToastProps) {
     children,
     loading,
     onDismiss,
-    ariaProps,
+    ...restProps
   } = props
 
   const icon = loading ? <Spinner /> : getIcon(variant)
@@ -40,7 +40,7 @@ export function Toast(props: ToastProps) {
       data-sl-toast
       data-loading={loading}
       data-variant={variant}
-      {...ariaProps}
+      {...restProps}
     >
       <div data-sl-toast-icon-container>{icon}</div>
       <div data-sl-toast-container>{renderChildren(children)}</div>
