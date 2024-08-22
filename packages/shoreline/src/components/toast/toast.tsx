@@ -1,5 +1,6 @@
 import type { MouseEventHandler, ReactNode } from 'react'
 import { Children, isValidElement } from 'react'
+import type { ToastOptions } from 'react-hot-toast'
 import { toast as hotToast } from 'react-hot-toast/headless'
 import {
   IconCheckCircleFill,
@@ -23,12 +24,24 @@ import { Button } from '../button'
  * <Toast variant="success">Success!</Toast>
  */
 export function Toast(props: ToastProps) {
-  const { id, variant = 'informational', children, loading, onDismiss } = props
+  const {
+    id,
+    variant = 'informational',
+    children,
+    loading,
+    onDismiss,
+    ariaProps,
+  } = props
 
   const icon = loading ? <Spinner /> : getIcon(variant)
 
   return (
-    <div data-sl-toast data-loading={loading} data-variant={variant}>
+    <div
+      data-sl-toast
+      data-loading={loading}
+      data-variant={variant}
+      {...ariaProps}
+    >
       <div data-sl-toast-icon-container>{icon}</div>
       <div data-sl-toast-container>{renderChildren(children)}</div>
       <Bleed top="$space-2" end="$space-2" bottom="$space-2">
@@ -112,4 +125,5 @@ interface ToastProps {
    */
   duration?: number
   loading?: boolean
+  ariaProps: ToastOptions['ariaProps']
 }
