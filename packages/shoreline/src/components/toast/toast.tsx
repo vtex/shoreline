@@ -1,6 +1,9 @@
-import type { MouseEventHandler, ReactNode } from 'react'
+import type {
+  ComponentPropsWithoutRef,
+  MouseEventHandler,
+  ReactNode,
+} from 'react'
 import { Children, isValidElement } from 'react'
-import type { ToastOptions } from 'react-hot-toast'
 import { toast as hotToast } from 'react-hot-toast/headless'
 import {
   IconCheckCircleFill,
@@ -10,12 +13,12 @@ import {
   IconXCircleFill,
 } from '../../icons'
 
-import { Spinner } from '../spinner'
 import { Bleed } from '../bleed'
+import { Button } from '../button'
+import { IconButton } from '../icon-button'
+import { Spinner } from '../spinner'
 import { Text } from '../text'
 import type { ToastVariant } from './toast-types'
-import { IconButton } from '../icon-button'
-import { Button } from '../button'
 
 /**
  * Toasts can appear at any time to provide instant feedback on actions. They are usually temporary, but can also require the user to dismiss.
@@ -101,7 +104,7 @@ function getIcon(variant: ToastVariant = 'informational') {
   }
 }
 
-interface ToastProps {
+interface ToastProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Toast variant
    * @default 'informational'
@@ -125,5 +128,4 @@ interface ToastProps {
    */
   duration?: number
   loading?: boolean
-  ariaProps: ToastOptions['ariaProps']
 }
