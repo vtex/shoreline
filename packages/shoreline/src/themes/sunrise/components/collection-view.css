@@ -5,11 +5,14 @@
 
 [data-sl-collection-view] {
   min-height: 23.75rem;
-  
+
   &:not([data-sl-collection-view-ready]) {
     display: flex;
     justify-items: center;
-    align-items: center;  
+    align-items: center;
   }
 }
 
+[data-sl-collection-view-heading] {
+  text-align: center;
+}
