@@ -227,6 +227,86 @@ export function Show() {
           <Pagination page={1} total={74} />
         </CollectionRow>
       </Collection>
+      {/* Error custom messages */}
+      <Collection>
+        <CollectionRow>
+          <Stack horizontal space="$space-3">
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </CollectionRow>
+        <CollectionView
+          status="error"
+          messages={{
+            'error-heading': 'Error fetching products',
+            'error-action': 'Retry',
+          }}
+          onError={() => alert('On error action')}
+        >
+          <div className="ready-view" />
+        </CollectionView>
+        <CollectionRow align="flex-end">
+          <Pagination page={1} total={74} />
+        </CollectionRow>
+      </Collection>
+      {/* Unauthorized custom messages */}
+      <Collection>
+        <CollectionRow>
+          <Stack horizontal space="$space-3">
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </CollectionRow>
+        <CollectionView
+          status="unauthorized"
+          messages={{
+            'unauthorized-heading': 'Unauthorized Access',
+            'unauthorized-description':
+              'You do not have permission to view this content',
+          }}
+        >
+          <div className="ready-view" />
+        </CollectionView>
+        <CollectionRow align="flex-end">
+          <Pagination page={1} total={74} />
+        </CollectionRow>
+      </Collection>
+      {/* Not found custom messages */}
+      <Collection>
+        <CollectionRow>
+          <Stack horizontal space="$space-3">
+            <Search />
+            <Filter label="Status">
+              <FilterItem value="Stable">Stable</FilterItem>
+              <FilterItem value="Experimental">Experimental</FilterItem>
+              <FilterItem value="Deprecated">Deprecated</FilterItem>
+            </Filter>
+          </Stack>
+          <Pagination page={1} total={74} />
+        </CollectionRow>
+        <CollectionView
+          status="not-found"
+          messages={{
+            'not-found-heading': 'No products found',
+            'not-found-description': 'No products match your search criteria',
+          }}
+        >
+          <div className="ready-view" />
+        </CollectionView>
+        <CollectionRow align="flex-end">
+          <Pagination page={1} total={74} />
+        </CollectionRow>
+      </Collection>
     </Stack>
   )
 }
