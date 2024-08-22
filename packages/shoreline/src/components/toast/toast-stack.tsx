@@ -53,6 +53,7 @@ export function ToastStack(props: ToastStackProps) {
               id={t.id}
               loading={t.type === 'loading'}
               variant={(t as any).variant as any}
+              ariaProps={toastOptions?.ariaProps || t.ariaProps}
             >
               {(t as any).message}
             </Toast>
