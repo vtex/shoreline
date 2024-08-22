@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.5.5...@vtex/shoreline@1.5.6) (2024-08-22)
+
+### Bug Fixes
+
+- **collection-view:** add empty custom messages storie ([fd44e9a](https://github.com/vtex/shoreline/commit/fd44e9aa283eaa5ae94c60a8f74ee5b01f0f3e1b))
+- **collection-view:** add error, unauthorized and not found custom messages stories ([2064993](https://github.com/vtex/shoreline/commit/2064993a742ebb67c050a8adac95886673d6e658))
+- **collection-view:** heading aligment to the center ([85d8b45](https://github.com/vtex/shoreline/commit/85d8b45c32705281a0a4de75e9f08032bdec2636))
+- set style on dedicated file ([4639a35](https://github.com/vtex/shoreline/commit/4639a3555671d1bf07ca645e2e6777f5d940c501))
+
 ## [1.5.5](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.5.4...@vtex/shoreline@1.5.5) (2024-08-22)
 
 **Note:** Version bump only for package @vtex/shoreline
