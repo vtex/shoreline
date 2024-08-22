@@ -1,9 +1,9 @@
-import './stories.css'
-import { CollectionView, Collection, CollectionRow } from '../index'
-import { Search } from '../../search'
-import { Pagination } from '../../pagination'
 import { Filter, FilterItem } from '../../filter'
+import { Pagination } from '../../pagination'
+import { Search } from '../../search'
 import { Stack } from '../../stack'
+import { Collection, CollectionRow, CollectionView } from '../index'
+import './stories.css'
 
 export default {
   title: 'components/collection',
@@ -199,7 +199,7 @@ export function Show() {
           <Pagination page={1} total={74} />
         </CollectionRow>
       </Collection>
-      {/* Custom label */}
+      {/* Empty custom messages */}
       <Collection>
         <CollectionRow>
           <Stack horizontal space="$space-3">
@@ -213,8 +213,13 @@ export function Show() {
           <Pagination page={1} total={74} />
         </CollectionRow>
         <CollectionView
-          status="ready"
-          messages={{ 'empty-action': 'Create product' }}
+          status="empty"
+          messages={{
+            'empty-heading': 'No products created inside this category yet.',
+            'empty-description': 'Use the button below to create a new product',
+            'empty-action': 'Create product',
+          }}
+          onEmpty={() => alert('On empty action')}
         >
           <div className="ready-view" />
         </CollectionView>
