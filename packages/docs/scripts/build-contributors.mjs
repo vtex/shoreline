@@ -294,6 +294,14 @@ function getIssuesOnFire(issues) {
 }
 
 async function main() {
+  if (!token) {
+    console.log('⚠️  Missing Github token')
+    console.log(
+      'To run this script locally you must create a .env file with the VTEX_GITHUB_BOT_TOKEN which gives access to the public_repo scope'
+    )
+    return
+  }
+
   const pulls = await fetchAllPullRequests()
   const issues = await fetchAllIssues()
 
