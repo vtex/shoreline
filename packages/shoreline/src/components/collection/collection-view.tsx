@@ -1,3 +1,5 @@
+import type { ComponentPropsWithoutRef } from 'react'
+import { forwardRef } from 'react'
 import {
   IconMagnifyingGlass,
   IconPlus,
@@ -5,8 +7,6 @@ import {
   IconProhibit,
   IconWarningCircle,
 } from '../../icons'
-import type { ComponentPropsWithoutRef } from 'react'
-import { forwardRef } from 'react'
 import { Button } from '../button'
 import {
   EmptyState,
@@ -74,7 +74,12 @@ export const CollectionView = forwardRef<HTMLDivElement, CollectionViewProps>(
           <EmptyStateIllustration data-sl-collection-view-illustration>
             {getIcon(status)}
           </EmptyStateIllustration>
-          <Heading data-sl-collection-view-heading>{heading}</Heading>
+          <Heading
+            data-sl-collection-view-heading
+            style={{ textAlign: 'center' }}
+          >
+            {heading}
+          </Heading>
           {description && (
             <Text data-sl-collection-view-description>{description}</Text>
           )}
