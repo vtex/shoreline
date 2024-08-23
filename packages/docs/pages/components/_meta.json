@@ -33,6 +33,15 @@
   "toast": "Toast",
   "tooltip": "Tooltip",
 
+  "Date": { "type": "separator", "title": "Date" },
+  "calendar": "Calendar",
+  "date-field": "DateField",
+  "date-picker": "DatePicker",
+  "date-range-picker": "DateRangePicker",
+  "date-segment": "DateSegment",
+  "range-calendar": "RangeCalendar",
+  "time-input": "TimeInput",
+
   "Primitives": { "type": "separator", "title": "Primitives" },
   "accessible-icon": "AccessibleIcon",
   "clickable": "Clickable",
@@ -48,14 +57,5 @@
   "content": "Content",
   "flex": "Flex",
   "grid": "Grid",
-  "stack": "Stack",
-
-  "Date": { "type": "separator", "title": "Date" },
-  "calendar": "Calendar",
-  "date-field": "DateField",
-  "date-picker": "DatePicker",
-  "date-range-picker": "DateRangePicker",
-  "date-segment": "DateSegment",
-  "range-calendar": "RangeCalendar",
-  "time-input": "TimeInput"
+  "stack": "Stack"
 }
