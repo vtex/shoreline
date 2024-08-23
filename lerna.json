@@ -5,7 +5,7 @@
   "loglevel": "success",
   "command": {
     "publish": {
-      "allowBranch": ["main", "dev"],
+      "allowBranch": ["main", "dev", "chore/test-major"],
       "conventionalCommits": true,
       "message": "chore(release): publish [skip ci]"
     }
