@@ -35,6 +35,6 @@
     "@vtex/shoreline-utils": "workspace:*",
     "browserslist": "4.23.1",
     "fs-extra": "11.1.1",
-    "lightningcss": "1.25.1"
+    "lightningcss": "1.26.0"
   }
 }
