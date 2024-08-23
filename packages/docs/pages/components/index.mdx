@@ -11,7 +11,9 @@ import { pascalCase } from "@vtex/shoreline";
   {allComponentsList.map((component) => {
     console.log(component);
     let href = `/components/${component}`;
-    if (component === "radio-group") {
+    if (component === "checkbox-group") {
+      href = `/components/checkbox/${component}`;
+    } else if (component === "radio-group") {
       href = `/components/radio/${component}`;
     }
     return <ComponentSummary key={component} name={component} href={href} />;

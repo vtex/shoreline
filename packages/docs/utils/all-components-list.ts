@@ -2,6 +2,7 @@ export const allComponentsList = [
   'alert',
   'button',
   'checkbox',
+  'checkbox-group',
   'collection',
   'confirmation-modal',
   'contextual-help',
