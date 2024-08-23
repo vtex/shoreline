@@ -117,6 +117,7 @@ const files = [
   getPath('components', 'tag', 'tag'),
   getPath('components', 'text', 'text'),
   getPath('components', 'textarea', 'textarea'),
+  getPath('components', 'toast', 'toast'),
   getPath('components', 'toast', 'toast-stack'),
   getPath('components', 'tooltip', 'tooltip'),
   getPath('components', 'tooltip', 'tooltip-trigger'),
