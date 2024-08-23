@@ -29,7 +29,11 @@ import { pascalCase } from "@vtex/shoreline";
 ## Primitives
 
 <ComponentSummaryGrid mt="var(--sl-space-4)">
-  {allPrimitivesList.map((component) => (
-    <ComponentSummary key={component} name={component} />
-  ))}
+  {allPrimitivesList.map((component) => {
+    let href = `/components/${component}`;
+    if (component === "combobox-input") {
+      href = `/components/combobox/${component}`;
+    }
+    return <ComponentSummary key={component} name={component} href={href} />;
+  })}
 </ComponentSummaryGrid>
