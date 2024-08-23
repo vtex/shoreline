@@ -50,7 +50,7 @@
     "@types/node": "20.14.9",
     "@types/react-window": "1.8.8",
     "@vtex/shoreline-css": "workspace:*",
-    "browserslist": "4.23.1",
+    "browserslist": "4.23.3",
     "chokidar": "3.6.0",
     "concurrently": "8.2.2",
     "cssnano": "6.0.2",
