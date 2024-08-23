@@ -31,7 +31,7 @@ export const allComponentsList = [
   'text',
   'textarea',
   'time-input',
-  'toast-stack',
+  'toast',
   'tooltip',
 ]
 
