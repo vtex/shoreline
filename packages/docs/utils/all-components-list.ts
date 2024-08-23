@@ -21,6 +21,7 @@ export const allComponentsList = [
   'pagination',
   'popover',
   'radio',
+  'radio-group',
   'search',
   'select',
   'skeleton',
