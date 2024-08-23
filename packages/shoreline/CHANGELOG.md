@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.5.6...@vtex/shoreline@1.6.0) (2024-08-23)
+
+### Bug Fixes
+
+- **filter:** add disabled prop to the filter trigger ([ae67e2d](https://github.com/vtex/shoreline/commit/ae67e2d0e14f8cf7c9527240027c8e5527deaf2c))
+- **page:** change selector that changes button width to be more specific ([bb79f8f](https://github.com/vtex/shoreline/commit/bb79f8f75267822665111869dc7e9ed0b9236f41)), closes [#1830](https://github.com/vtex/shoreline/issues/1830)
+
+### Features
+
+- **filter:** add disabled storie ([0b02573](https://github.com/vtex/shoreline/commit/0b02573c24575117fa07f0f2a346445f83de6362))
+
 ## [1.5.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.5.5...@vtex/shoreline@1.5.6) (2024-08-22)
 
 ### Bug Fixes
