@@ -38,7 +38,7 @@ export function FilterProvider<Value extends string | string[] = string>(
 
   const filterStore = useSelectStore({
     value,
-    setValue: setValue as any,
+    setValue,
     defaultValue,
   })
 
