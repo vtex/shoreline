@@ -25,6 +25,7 @@ export const toast = {
   promise(promise: Promise<any>, messages: ToastPromiseMessages) {
     return toastFactory.promise(promise, messages)
   },
+  dismiss: toastFactory.dismiss,
 }
 
 function getOptions(variant: ToastVariant): any {
