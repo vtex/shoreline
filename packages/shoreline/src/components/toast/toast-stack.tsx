@@ -2,8 +2,8 @@ import type { CSSProperties } from 'react'
 import type { DefaultToastOptions } from 'react-hot-toast/headless'
 import { useToaster } from 'react-hot-toast/headless'
 
-import { ToastAppear } from './toast-appear'
 import { Toast } from './toast'
+import { ToastAppear } from './toast-appear'
 
 /**
  * Toasts can appear at any time to provide instant feedback on actions. They are usually temporary, but can also require the user to dismiss.
@@ -53,6 +53,8 @@ export function ToastStack(props: ToastStackProps) {
               id={t.id}
               loading={t.type === 'loading'}
               variant={(t as any).variant as any}
+              {...t.ariaProps}
+              {...toastOptions?.ariaProps}
             >
               {(t as any).message}
             </Toast>
