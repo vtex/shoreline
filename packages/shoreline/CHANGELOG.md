@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.6.1...@vtex/shoreline@1.6.2) (2024-08-26)
+
+### Bug Fixes
+
+- **toast-stack:** pass custom ariaProps to the Toast component ([fbaa132](https://github.com/vtex/shoreline/commit/fbaa1325e5f1059516513772255d8627f3621a5d)), closes [#1536](https://github.com/vtex/shoreline/issues/1536)
+- **toast:** add the missing ariaProps ([de9925c](https://github.com/vtex/shoreline/commit/de9925c438a531b91a953ad389048116845c5937))
+- use desconstructing pattern ([67db9f9](https://github.com/vtex/shoreline/commit/67db9f981abb63435137bc2bdb917935b18f4eab))
+
 ## [1.6.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.6.0...@vtex/shoreline@1.6.1) (2024-08-26)
 
 **Note:** Version bump only for package @vtex/shoreline
