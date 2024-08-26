@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.7.1...@vtex/shoreline@1.7.2) (2024-08-26)
+
+### Bug Fixes
+
+- **tab:** color to selected tab ([19ac822](https://github.com/vtex/shoreline/commit/19ac822086cdc0ba2325d416e39ee5ddb23a405f)), closes [#1849](https://github.com/vtex/shoreline/issues/1849)
+
 ## [1.7.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.7.0...@vtex/shoreline@1.7.1) (2024-08-26)
 
 **Note:** Version bump only for package @vtex/shoreline
