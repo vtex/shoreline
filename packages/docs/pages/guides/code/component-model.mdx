@@ -82,10 +82,10 @@ function Search(props) {
 
 ### Provide overwriting capability
 
-In most cases, it is necessary to allow the user of the component to override the internal messages.
+Some cases require the user to override the internal messages.
 
-You do this by adding a property called `messages` and passing as argument to `useMessage`.
-The `messages` type must contain the same keys used in your files from `messages` folder.
+You do this by adding a property called `messages` and passing it as an argument to the `useMessage` hook.
+The `messages` type must contain the same keys defined in your files from the `messages` folder.
 
 ```tsx
 import { createMessageHook } from '@vtex/shoreline'
