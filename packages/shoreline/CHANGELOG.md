@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.6.2...@vtex/shoreline@1.7.0) (2024-08-26)
+
+### Bug Fixes
+
+- **toast-function:** pass dismiss method from lib ([44ce881](https://github.com/vtex/shoreline/commit/44ce881d1849af8fc72ef48d1464feb18b3974f0))
+
+### Features
+
+- **skeleton:** add width and height props to set the skeleton size ([ef9ff16](https://github.com/vtex/shoreline/commit/ef9ff167e10d905cf6a513b6bf5a1102807d993b)), closes [#1829](https://github.com/vtex/shoreline/issues/1829)
+
 ## [1.6.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.6.1...@vtex/shoreline@1.6.2) (2024-08-26)
 
 ### Bug Fixes
