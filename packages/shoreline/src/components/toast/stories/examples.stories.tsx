@@ -1,6 +1,6 @@
-import { ToastStack, toast } from '../index'
-import { Stack } from '../../stack'
 import { Button } from '../../button'
+import { Stack } from '../../stack'
+import { ToastStack, toast } from '../index'
 
 export default {
   title: 'components/toast',
@@ -56,6 +56,21 @@ export function ToastFunction() {
         }}
       >
         Promise
+      </Button>
+      <Button
+        onClick={() => {
+          toast.dismiss()
+        }}
+      >
+        Cleanup all
+      </Button>
+      <Button
+        onClick={() => {
+          const id = toast.loading('Loading...')
+          setTimeout(() => toast.dismiss(id), 2000)
+        }}
+      >
+        Cleanup loading toast after 2 seconds!
       </Button>
     </Stack>
   )
