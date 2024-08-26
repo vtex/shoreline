@@ -60,7 +60,7 @@ Create a new folder `messages` under the component folder. This is where you wil
 ```json
 // messages/en.json file
 {
-  "admin/search-label": "Search"
+  "search-label": "Search"
 }
 ```
 
@@ -76,9 +76,44 @@ const useMessage = createMessageHook(messages)
 function Search(props) {
   const getMessage = useMessage()
 
-  return <input placeholder={getMessage('admin/search-label')} {...props}/>
+  return <input placeholder={getMessage('search-label')} {...props}/>
 }
 ```
+
+### Provide overwriting capability
+
+Some cases require the user to override the internal messages.
+
+You do this by adding a property called `messages` and passing it as an argument to the `useMessage` hook.
+The `messages` type must contain the same keys defined in your files from the `messages` folder.
+
+```tsx
+import { createMessageHook } from '@vtex/shoreline'
+
+const useMessage = createMessageHook(messages)
+
+function Search(props) {
+  const { messages } = props
+  const getMessage = useMessage(messages)
+
+  return <input placeholder={getMessage('search-label')} {...props}/>
+}
+
+interface SearchOptions {
+  /**
+   * Search internal messages
+   */
+  messages?: SearchMessages
+}
+
+export type SearchProps = SearchOptions & ComponentPropsWithoutRef<'input'>
+
+type SearchMessages = {
+  'search-label'?: string
+}
+
+```
+
 
 </Steps>
 
