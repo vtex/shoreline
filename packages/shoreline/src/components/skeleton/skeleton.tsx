@@ -1,3 +1,4 @@
+import { type CSSProperty, style } from '@vtex/shoreline-utils'
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef } from 'react'
 
@@ -9,13 +10,24 @@ import { forwardRef } from 'react'
  */
 export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
   function Skeleton(props, ref) {
-    const { shape = 'rect', ...otherProps } = props
+    const {
+      shape = 'rect',
+      width = '100%',
+      height = '100%',
+      style: styleObject = {},
+      ...otherProps
+    } = props
 
     return (
       <div
         data-sl-skeleton
         data-sl-skeleton-shape={shape}
         ref={ref}
+        style={style({
+          '--sl-skeleton-width': width,
+          '--sl-skeleton-height': height,
+          ...styleObject,
+        })}
         {...otherProps}
       />
     )
@@ -28,6 +40,16 @@ export interface SkeletonOptions {
    * @default rect
    */
   shape?: 'circle' | 'rect'
+  /**
+   * CSS width
+   * @default '100%'
+   */
+  width?: CSSProperty.Width
+  /**
+   * CSS height
+   * @default '100%'
+   */
+  height?: CSSProperty.Height
 }
 
 export type SkeletonProps = SkeletonOptions & ComponentPropsWithoutRef<'div'>
