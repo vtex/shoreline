@@ -12,18 +12,23 @@ config()
 
 const statsOutputDirectory = `${path.dirname('')}/__contributions__`
 const startDate = new Date('2024-08-22T12:00:00Z').toISOString()
+const endDate = new Date('2024-08-28T17:00:00Z').toISOString()
 
 function getStats(issues, pulls) {
   const contributors = getContributors(issues, pulls)
 
   const resolvedPulls = pulls.filter(
     (pull) =>
-      pull.createdAt >= startDate && isHumanContributor(pull.author.login)
+      pull.createdAt >= startDate &&
+      pull.createdAt <= endDate &&
+      isHumanContributor(pull.author.login)
   )
 
   const resolvedIssues = issues.filter(
     (issue) =>
-      issue.createdAt >= startDate && isHumanContributor(issue.author.login)
+      issue.createdAt >= startDate &&
+      issue.createdAt <= endDate &&
+      isHumanContributor(issue.author.login)
   )
 
   const participantsStats = contributors
@@ -48,7 +53,7 @@ function getStats(issues, pulls) {
 
   return {
     participantsStats: participantsStats,
-    participants: contributors.length,
+    participants: participantsStats.length,
     issues: resolvedIssues.length,
     pulls: resolvedPulls.length,
     merged: resolvedPulls.filter((pull) => pull.state === 'MERGED').length,
@@ -62,13 +67,18 @@ function getParticipantStats(username, issues, pulls) {
   )
 
   const issuesCreatedByUser = issues.filter(
-    (issue) => issue.author.login === username && issue.createdAt >= startDate
+    (issue) =>
+      issue.author.login === username &&
+      issue.createdAt >= startDate &&
+      issue.createdAt <= endDate
   )
 
   const issuesCommentedByUser = issues.filter((issue) => {
     return issue.comments.nodes.some(
       (comment) =>
-        comment.author.login === username && comment.createdAt >= startDate
+        comment.author.login === username &&
+        comment.createdAt >= startDate &&
+        comment.createdAt <= endDate
     )
   })
 
@@ -123,7 +133,7 @@ export interface ChallengeStats {
 export const stats: ChallengeStats = ${JSON.stringify(stats)}
 
 export function getWinners() {
-  const winners = getContributors()
+  const winners = getContributors().filter((participant) => !maintainers.includes(participant.username))
   winners.sort((a, b) => b.stats.rate - a.stats.rate)
 
   return winners.slice(0, 3)
@@ -137,10 +147,7 @@ const maintainers = [
 ]
 
 export function getContributors() {
-  return stats.participantsStats.filter(
-    (participant) =>
-      !maintainers.includes(participant.username) && participant.stats.rate > 0
-  )
+  return stats.participantsStats
 }
   `
 
