@@ -9,7 +9,6 @@ import { pascalCase } from "@vtex/shoreline";
 
 <ComponentSummaryGrid mt="var(--sl-space-4)">
   {allComponentsList.map((component) => {
-    console.log(component);
     let href = `/components/${component}`;
     if (component === "checkbox-group") {
       href = `/components/checkbox/${component}`;
