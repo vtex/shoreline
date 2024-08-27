@@ -11,6 +11,8 @@ import {
 
 config()
 
+const token = process.env.VTEX_GITHUB_BOT_TOKEN
+
 const statsOutputDirectory = `${path.dirname('')}/__contributions__`
 const contributorsOutputDirectory = `${path.dirname('')}/pages/guides/contributor`
 const startDate = new Date('2024-01-01T00:00:00Z').toISOString()
