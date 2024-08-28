@@ -134,4 +134,28 @@ describe('create-message-hook', () => {
 
     expect(getByText('4 of {pages}')).toBeInTheDocument()
   })
+
+  it("gets dynamic message when isn't a isolated word", () => {
+    const messages = {
+      'en-US': {
+        selectAll: 'Select all ({n})',
+      },
+    }
+
+    const useMessage = createMessageHook(messages)
+
+    const hook = renderHook(() => useMessage(), {
+      wrapper: ({ children }) => (
+        <LocaleProvider locale="en-US">{children}</LocaleProvider>
+      ),
+    })
+
+    const { getByText } = render(
+      <LocaleProvider locale="en-US">
+        <div>{hook.result.current('selectAll', { n: 142 })}</div>
+      </LocaleProvider>
+    )
+
+    expect(getByText('Select all (142)')).toBeInTheDocument()
+  })
 })
