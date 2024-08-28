@@ -25,7 +25,7 @@ export const stats: ChallengeStats = {
       username: 'lafray',
       image:
         'https://avatars.githubusercontent.com/u/36760180?u=66a13423e65c88a3fc82201a20ba4282a1f5224a&v=4',
-      stats: { pulls: 9, merged: 6, issues: 3, comments: 12, rate: 54 },
+      stats: { pulls: 9, merged: 7, issues: 3, comments: 12, rate: 57 },
     },
     {
       username: 'riccoutinho',
@@ -38,11 +38,6 @@ export const stats: ChallengeStats = {
       image:
         'https://avatars.githubusercontent.com/u/20579226?u=22c79f6ca441ee1d933d5b59326348295b6a9844&v=4',
       stats: { pulls: 3, merged: 1, issues: 0, comments: 6, rate: 15 },
-    },
-    {
-      username: 'caineblood',
-      image: 'https://avatars.githubusercontent.com/u/79236147?v=4',
-      stats: { pulls: 0, merged: 0, issues: 0, comments: 1, rate: 1 },
     },
     {
       username: 'vaporwavie',
@@ -104,11 +99,11 @@ export const stats: ChallengeStats = {
       stats: { pulls: 0, merged: 0, issues: 0, comments: 1, rate: 1 },
     },
   ],
-  participants: 14,
+  participants: 13,
   issues: 20,
   pulls: 19,
-  merged: 12,
-  comments: 49,
+  merged: 13,
+  comments: 48,
 }
 
 export function getWinners() {
