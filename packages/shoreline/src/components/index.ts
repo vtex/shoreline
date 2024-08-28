@@ -243,7 +243,7 @@ export type {
 export { Tag } from './tag'
 export type { TagProps } from './tag'
 export { Text } from './text'
-export type { TextProps } from './text'
+export type { TextProps, TextOptions } from './text'
 export { Textarea } from './textarea'
 export type { TextareaProps } from './textarea'
 export { ToastStack, toast } from './toast'
