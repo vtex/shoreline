@@ -2,6 +2,7 @@ export const allComponentsList = [
   'alert',
   'button',
   'checkbox',
+  'checkbox-group',
   'collection',
   'confirmation-modal',
   'contextual-help',
@@ -21,6 +22,7 @@ export const allComponentsList = [
   'pagination',
   'popover',
   'radio',
+  'radio-group',
   'search',
   'select',
   'skeleton',
@@ -31,7 +33,7 @@ export const allComponentsList = [
   'text',
   'textarea',
   'time-input',
-  'toast-stack',
+  'toast',
   'tooltip',
 ]
 
