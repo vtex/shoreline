@@ -1,6 +1,9 @@
 [data-sl-text] {
+  --sl-text-color: var(--sl-fg-base);
+
   overflow-wrap: break-word;
   text-wrap: pretty;
+  color: var(--sl-text-color);
 
   &[data-variant='body'] {
     font: var(--sl-text-body-font);
