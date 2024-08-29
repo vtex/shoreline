@@ -40,7 +40,6 @@ export interface TextOptions {
    * @default var(--sl-fg-base)
    */
   color?: string
-
   /**
    * Text variant
    * @default 'context'
