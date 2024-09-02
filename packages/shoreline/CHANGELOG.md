@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.7.4...@vtex/shoreline@1.8.0) (2024-09-02)
+
+### Features
+
+- **text:** add `color` prop support ([019f3a7](https://github.com/vtex/shoreline/commit/019f3a7559532eb66f0264dd5175f79de8f146b2))
+
 ## [1.7.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.7.3...@vtex/shoreline@1.7.4) (2024-08-28)
 
 **Note:** Version bump only for package @vtex/shoreline
