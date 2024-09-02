@@ -17,6 +17,9 @@ export function Show() {
       <Text variant="display3">Display 3</Text>
       <Text variant="display4">Display 4</Text>
       <Text variant="emphasis">Emphasis</Text>
+      <Text variant="body" color="#FF0000">
+        Custom Color
+      </Text>
     </Stack>
   )
 }
