@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.8.1...@vtex/shoreline@1.8.2) (2024-09-06)
+
+### Bug Fixes
+
+- **table:** backgroup color change in hover and selection update ([8c1353f](https://github.com/vtex/shoreline/commit/8c1353f755dcac19ad8c4cb718131eda604636d7)), closes [#1926](https://github.com/vtex/shoreline/issues/1926)
+
 ## [1.8.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.8.0...@vtex/shoreline@1.8.1) (2024-09-06)
 
 ### Bug Fixes
