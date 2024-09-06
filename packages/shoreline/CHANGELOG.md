@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.8.0...@vtex/shoreline@1.8.1) (2024-09-06)
+
+### Bug Fixes
+
+- **create-message-hook:** dynamic values is not a isolated word ([a69bfea](https://github.com/vtex/shoreline/commit/a69bfeadd7262d2c1a5932b24a1ee2550fddf11d)), closes [#1896](https://github.com/vtex/shoreline/issues/1896)
+
 # [1.8.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.7.4...@vtex/shoreline@1.8.0) (2024-09-02)
 
 ### Features
