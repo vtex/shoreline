@@ -86,7 +86,7 @@
   }
 }
 
-[data-sl-table-row] [data-selected='true'] {
+[data-sl-table-row][data-selected='true'] {
   [data-sl-table-cell] {
     background: var(--sl-bg-accent);
   }
@@ -138,7 +138,7 @@
   }
 }
 
-[data-sl-table-row] [data-dim-on-hover='true']:hover {
+[data-sl-table-row][data-dim-on-hover='true']:hover {
   &[data-selected='false'] {
     [data-sl-table-cell] {
       background: var(--sl-bg-base-soft);
