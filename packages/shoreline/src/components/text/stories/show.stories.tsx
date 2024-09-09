@@ -20,6 +20,9 @@ export function Show() {
       <Text variant="body" color="#FF0000">
         Custom Color
       </Text>
+      <div style={{ color: 'var(--sl-fg-base-soft)' }}>
+        <Text>Custom color from parent</Text>
+      </div>
     </Stack>
   )
 }
