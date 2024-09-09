@@ -42,6 +42,9 @@ export interface TextOptions {
   color?: string
   /**
    * Text variant
+   *
+   * The "context" variant simulates the default behavior of a span,
+   * where the font settings when not specified are the same as the parent element.
    * @default 'context'
    */
   variant?:
