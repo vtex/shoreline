@@ -71,7 +71,7 @@
     "@react-aria/i18n": "3.11.1",
     "@react-aria/interactions": "3.21.3",
     "@react-stately/calendar": "3.5.1",
-    "@react-stately/datepicker": "3.9.4",
+    "@react-stately/datepicker": "3.10.2",
     "@react-stately/toggle": "3.7.4",
     "@vtex/shoreline-utils": "^1.0.50",
     "react-hot-toast": "2.4.1"
