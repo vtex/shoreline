@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.8.3...@vtex/shoreline@1.8.4) (2024-09-10)
+
+### Bug Fixes
+
+- **text:** change default color to inherit ([832571a](https://github.com/vtex/shoreline/commit/832571ae16eba8ca57555bd7f898391d67a88dc0)), closes [#1931](https://github.com/vtex/shoreline/issues/1931)
+
 ## [1.8.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.8.2...@vtex/shoreline@1.8.3) (2024-09-09)
 
 ### Bug Fixes
