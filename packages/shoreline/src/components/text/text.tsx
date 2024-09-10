@@ -11,7 +11,7 @@ export const Text = forwardRef(function Text(props: TextProps, ref: any) {
   const {
     children,
     variant = 'context',
-    color = 'var(--sl-fg-base)',
+    color = 'inherit',
     style: styleObject = {},
     ...otherProps
   } = props
@@ -37,7 +37,7 @@ export const Text = forwardRef(function Text(props: TextProps, ref: any) {
 export interface TextOptions {
   /**
    * Text color
-   * @default var(--sl-fg-base)
+   * @default inherit
    */
   color?: string
   /**
