@@ -6,9 +6,17 @@ The `@vtex/shoreline-ts-table` has `@tanstack/react-table` as peer dependency.
 
 ```sh npm2yarn copy
 npm i @tanstack/react-table @vtex/shoreline-ts-table
-``` 
+```
 
 <Preview name="ts-table" />
+
+## Examples
+
+### Column Widths
+
+The `columnWidths` prop can be used to define variable or fixed widths to the table columns. The table is a [grid layout](https://developer.mozilla.org/en-US/docs/Web/CSS/grid), and this `columnWidths` represents the [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) property of the grid. The Array is joined to form a rule, for example: `['minmax(100px, 1fr)', 'auto', '150px']` becomes `grid-template-columns: minmax(100px, 1fr) auto auto;`
+
+<Preview name="ts-table-column-widths" />
 
 ## Required props
 
