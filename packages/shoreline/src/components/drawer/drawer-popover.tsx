@@ -5,7 +5,7 @@ import { Container } from '../content'
 
 export const DrawerPopover = forwardRef<HTMLDivElement, DrawerPopoverProps>(
   function DrawerPopover(props, ref) {
-    const { children, size = 'small', ...rest } = props
+    const { children, size = 'medium', ...rest } = props
 
     return (
       <Vaul.Portal>
@@ -13,6 +13,7 @@ export const DrawerPopover = forwardRef<HTMLDivElement, DrawerPopoverProps>(
           data-size={size}
           data-sl-drawer-popover
           ref={ref}
+          asChild
           {...rest}
         >
           <Container data-sl-drawer-container>{children}</Container>

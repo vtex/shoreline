@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { DrawerProvider } from '../drawer-provider'
 import { Button } from '../../button'
 import { DrawerTrigger } from '../drawer-trigger'
@@ -16,13 +15,13 @@ export default {
   title: 'components/drawer',
 }
 
-export function Base() {
+export function LongText() {
   return (
     <DrawerProvider>
       <DrawerTrigger asChild>
         <Button variant="primary">Open</Button>
       </DrawerTrigger>
-      <DrawerPopover size="small">
+      <DrawerPopover>
         <DrawerHeader>
           <DrawerHeading>Drawer Heading</DrawerHeading>
           <DrawerDismiss />
@@ -174,37 +173,5 @@ export function Base() {
         </DrawerFooter>
       </DrawerPopover>
     </DrawerProvider>
-  )
-}
-
-export function Controlled() {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <>
-      <Button onClick={() => setOpen((o) => !o)}>Open</Button>
-      <DrawerProvider open={open} onOpenChange={setOpen}>
-        <DrawerPopover size="small">
-          <DrawerHeader>
-            <DrawerHeading>Olha esse drawer méo 💙</DrawerHeading>
-          </DrawerHeader>
-          <DrawerContent>
-            <Text variant="body">
-              Nam id quam a risus blandit blandit. Vivamus luctus leo id nulla
-              sodales lacinia. Morbi id faucibus ex. Integer venenatis elit
-              diam, tempor sollicitudin massa porttitor quis. Nullam purus diam,
-              aliquet quis enim quis, consectetur sagittis massa. Class aptent
-              taciti sociosqu ad litora torquent per conubia nostra, per
-              inceptos himenaeos. Maecenas id nisi varius, euismod mauris vel,
-              dapibus lectus. Integer elementum egestas enim sed egestas.
-              Curabitur nec nibh dictum, convallis risus vel, feugiat sapien.
-              Mauris vitae est id ligula bibendum sodales. Sed faucibus
-              fringilla diam, in lobortis leo porta et. Pellentesque bibendum
-              diam quis quam commodo, at porta arcu egestas.
-            </Text>
-          </DrawerContent>
-        </DrawerPopover>
-      </DrawerProvider>
-    </>
   )
 }

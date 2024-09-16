@@ -34,7 +34,8 @@
   --size-small: 400px;
   --size-medium: 560px;
   --size-large: 840px;
-  display: flex;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   position: fixed;
   z-index: 50;
   height: auto;
