@@ -49,6 +49,26 @@ export type { ContextualHelpProps } from './contextual-help'
 export { Divider } from './divider'
 export type { DividerProps } from './divider'
 export {
+  DrawerContent,
+  DrawerDismiss,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerHeading,
+  DrawerPopover,
+  DrawerProvider,
+  DrawerTrigger,
+} from './drawer'
+export type {
+  DrawerContentProps,
+  DrawerDismissProps,
+  DrawerFooterProps,
+  DrawerHeaderProps,
+  DrawerHeadingProps,
+  DrawerPopoverProps,
+  DrawerProviderProps,
+  DrawerTriggerProps,
+} from './drawer'
+export {
   EmptyState,
   EmptyStateActions,
   EmptyStateIllustration,
