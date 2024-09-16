@@ -7,6 +7,7 @@
   "confirmation-modal": "ConfirmationModal",
   "contextual-help": "ContextualHelp",
   "divider": "Divider",
+  "drawer": "Drawer",
   "empty-state": "EmptyState",
   "field": "Field",
   "filter": "Filter",
