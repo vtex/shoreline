@@ -1,6 +1,9 @@
 import type { ComponentProps, ComponentPropsWithoutRef } from 'react'
 import { Drawer as Vaul } from 'vaul'
 
+/**
+ * Drawer's state provider
+ */
 export function DrawerProvider(props: DrawerProviderProps) {
   const { children, open, onClose, onOpenChange, ...rest } = props
 

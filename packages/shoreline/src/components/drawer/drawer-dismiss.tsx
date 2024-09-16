@@ -9,6 +9,15 @@ import { IconButton } from '../icon-button'
 
 /**
  * Drawer's dismiss action
+ * @example
+ * <DrawerProvider>
+ *  <DrawerPopover>
+ *    <DrawerHeader>
+ *      <DrawerHeading>Heading</DrawerHeading>
+ *      <DrawerDismiss />
+ *    </DrawerHeader>
+ *  </DrawerPopover>
+ * </DrawerProvider>
  */
 export const DrawerDismiss = forwardRef<HTMLButtonElement, DrawerDismissProps>(
   function DrawerDismiss(props, ref) {

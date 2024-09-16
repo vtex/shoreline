@@ -6,6 +6,15 @@ import { Content } from '../content'
 
 /**
  * Drawer's footer container
+ * @example
+ * <DrawerProvider>
+ *  <DrawerPopover>
+ *    <DrawerFooter>
+ *      <Button>...</Button>
+ *      <Button>...</Button>
+ *    </DrawerFooter>
+ *  </DrawerPopover>
+ * </DrawerProvider>
  */
 export const DrawerFooter = forwardRef<HTMLDivElement, DrawerFooterProps>(
   function DrawerFooter(props, ref) {

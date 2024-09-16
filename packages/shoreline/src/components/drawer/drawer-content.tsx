@@ -3,6 +3,14 @@ import { forwardRef, type ComponentPropsWithoutRef } from 'react'
 
 /**
  * Drawer's content
+ * @example
+ * <DrawerProvider>
+ *  <DrawerPopover>
+ *    <DrawerContent>
+ *      The drawer content goes here
+ *    <DrawerContent>
+ *  </DrawerPopover>
+ * </DrawerProvider>
  */
 export const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>(
   function DrawerContent(props: DrawerContentProps, ref) {
