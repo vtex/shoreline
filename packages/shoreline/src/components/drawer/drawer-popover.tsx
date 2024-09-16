@@ -36,7 +36,11 @@ export const DrawerPopover = forwardRef<HTMLDivElement, DrawerPopoverProps>(
 
 export interface DrawerPopoverOptions {
   children: ReactNode
-  size?: 'small' | 'medium' | 'large'
+  /**
+   * Popover width
+   * @default 'medium'
+   */
+  size?: 'small' | 'medium'
 }
 
 export type DrawerPopoverProps = DrawerPopoverOptions &

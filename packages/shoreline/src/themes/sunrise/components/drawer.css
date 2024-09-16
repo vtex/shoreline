@@ -1,5 +1,5 @@
 :where(:root){
-  /** new shadow */
+  /** TODO: Add new CSS shadow */
   --shadow-elevation-medium-right: -0.1px 0.1px 0.2px hsl(0deg 0% 63% / 0.36),
     -0.4px 0.3px 0.6px -0.8px hsl(0deg 0% 63% / 0.36),
     -1px 0.8px 1.4px -1.7px hsl(0deg 0% 63% / 0.36),
@@ -25,15 +25,10 @@
   }
 }
 
-[data-sl-drawer-title] {
-  /* margin-block-end: var(--sl-space-gap); */
-}
-
 [data-sl-drawer-popover] {
   --size: var(--size-small);
   --size-small: 400px;
   --size-medium: 560px;
-  --size-large: 840px;
   display: grid;
   grid-template-rows: auto 1fr auto;
   position: fixed;
@@ -52,10 +47,6 @@
   --size: var(--size-medium);
 }
 
-[data-sl-drawer-popover][data-size="large"] {
-  --size: var(--size-large);
-}
-
 [data-sl-drawer-popover][vaul-drawer-direction="right"] {
   flex-direction: row;
   top: 0;
@@ -67,7 +58,6 @@
 }
 
 [data-sl-drawer-container] {
-  /* padding: var(--sl-space-7) var(--sl-space-8); */
   overflow: auto;
   width: 100%;
 }
