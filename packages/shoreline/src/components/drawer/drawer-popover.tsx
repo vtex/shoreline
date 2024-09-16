@@ -25,9 +25,7 @@ export const DrawerPopover = forwardRef<HTMLDivElement, DrawerPopoverProps>(
     return (
       <Vaul.Portal>
         <Vaul.Content data-size={size} data-sl-drawer-popover ref={ref} asChild>
-          <Container data-sl-drawer-container {...rest}>
-            {children}
-          </Container>
+          <Container {...rest}>{children}</Container>
         </Vaul.Content>
       </Vaul.Portal>
     )

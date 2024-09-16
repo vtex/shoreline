@@ -1,9 +1,39 @@
-:where(:root){
-  /** TODO: Add new CSS shadow */
-  --shadow-elevation-medium-right: -0.1px 0.1px 0.2px hsl(0deg 0% 63% / 0.36),
+[data-sl-drawer-popover] {
+  --size: var(--size-medium);
+  --size-small: 400px;
+  --size-medium: 560px;
+  --sl-drawer-shadow: -0.1px 0.1px 0.2px hsl(0deg 0% 63% / 0.36),
     -0.4px 0.3px 0.6px -0.8px hsl(0deg 0% 63% / 0.36),
     -1px 0.8px 1.4px -1.7px hsl(0deg 0% 63% / 0.36),
     -2.5px 1.9px 3.5px -2.5px hsl(0deg 0% 63% / 0.36);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: fixed;
+  z-index: 50;
+  height: auto;
+  background-color: var(--sl-bg-base);
+  overflow: auto;
+  width: 100%;
+}
+
+[data-sl-drawer-popover][data-size="small"] {
+  --size: var(--size-small);
+  --sl-drawer-footer-button-min-width: auto;
+  --sl-drawer-footer-button-width: 100%;
+}
+
+[data-sl-drawer-popover][data-size="medium"] {
+  --size: var(--size-medium);
+}
+
+[data-sl-drawer-popover][vaul-drawer-direction="right"] {
+  flex-direction: row;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: var(--sl-drawer-shadow);
+  border-left: var(--sl-border-base);
+  width: var(--size);
 }
 
 [data-sl-drawer-header] {
@@ -25,41 +55,8 @@
   }
 }
 
-[data-sl-drawer-popover] {
-  --size: var(--size-small);
-  --size-small: 400px;
-  --size-medium: 560px;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  position: fixed;
-  z-index: 50;
-  height: auto;
-  background-color: var(--sl-bg-base);
-}
-
-[data-sl-drawer-popover][data-size="small"] {
-  --size: var(--size-small);
-  --sl-drawer-footer-button-min-width: auto;
-  --sl-drawer-footer-button-width: 100%;
-}
-
-[data-sl-drawer-popover][data-size="medium"] {
-  --size: var(--size-medium);
-}
-
-[data-sl-drawer-popover][vaul-drawer-direction="right"] {
-  flex-direction: row;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  box-shadow: var(--shadow-elevation-medium-right);
-  border-left: var(--sl-border-base);
-  width: var(--size);
-}
-
-[data-sl-drawer-container] {
-  overflow: auto;
-  width: 100%;
+[data-sl-drawer-content] {
+  padding-top: calc(var(--sl-content-space-vertical) * -1);
 }
 
 [data-sl-drawer-footer] {
