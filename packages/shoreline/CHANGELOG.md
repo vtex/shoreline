@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.8.6...@vtex/shoreline@1.9.0) (2024-09-16)
+
+### Bug Fixes
+
+- **drawer:** positioning ([0195cf5](https://github.com/vtex/shoreline/commit/0195cf59a2ad84a8d7d7db67ff3aef043f7b7e2a))
+- **drawer:** remove unused css rules ([005f877](https://github.com/vtex/shoreline/commit/005f87774ecd1a94535b0b1af18c3b37c9345475))
+- **drawer:** reproduce figma design ([67a55c1](https://github.com/vtex/shoreline/commit/67a55c1105798817b4ac25c8d390110d728349a0))
+- **drawer:** use rems instead of px ([bf9c3dc](https://github.com/vtex/shoreline/commit/bf9c3dcb10a935062c4ea7f7a410873d843cf03b))
+
+### Features
+
+- **drawer:** create component ([f4990d7](https://github.com/vtex/shoreline/commit/f4990d71c7db9a3099d3af97dad6625a7c754592))
+
 ## [1.8.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.8.5...@vtex/shoreline@1.8.6) (2024-09-11)
 
 **Note:** Version bump only for package @vtex/shoreline

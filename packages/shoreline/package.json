@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline",
-  "version": "1.8.6",
+  "version": "1.9.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -73,7 +73,7 @@
     "@react-stately/calendar": "3.5.1",
     "@react-stately/datepicker": "3.9.4",
     "@react-stately/toggle": "3.7.4",
-    "@vtex/shoreline-utils": "^1.0.52",
+    "@vtex/shoreline-utils": "^1.0.53",
     "react-hot-toast": "2.4.1",
     "vaul": "0.9.2"
   }
