@@ -1,7 +1,7 @@
 [data-sl-drawer-popover] {
   --size: var(--size-medium);
-  --size-small: 400px;
-  --size-medium: 560px;
+  --size-small: 25rem;
+  --size-medium: 35rem;
   --sl-drawer-shadow: -0.1px 0.1px 0.2px hsl(0deg 0% 63% / 0.36),
     -0.4px 0.3px 0.6px -0.8px hsl(0deg 0% 63% / 0.36),
     -1px 0.8px 1.4px -1.7px hsl(0deg 0% 63% / 0.36),
