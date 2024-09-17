@@ -356,32 +356,32 @@ export const presetSunrise: ShorelineConfig = {
       },
       action: {
         font: '$font-weight-semibold $font-size-2 / $line-height-2 $font-family-sans',
-        'letter-spacing': '$letter-spacing-2',
+        'letter-spacing': '$letter-spacing-1',
       },
       emphasis: {
         font: '$font-weight-medium $font-size-2 / $line-height-2 $font-family-sans',
-        'letter-spacing': '$letter-spacing-2',
+        'letter-spacing': '$letter-spacing-1',
       },
       body: {
         font: '$font-weight-regular $font-size-2 / $line-height-2 $font-family-sans',
-        'letter-spacing': '$letter-spacing-2',
+        'letter-spacing': '$letter-spacing-1',
       },
       display: {
         4: {
           font: '$font-weight-regular $font-size-3 / $line-height-3 $font-family-sans',
-          'letter-spacing': '$letter-spacing-3',
+          'letter-spacing': '$letter-spacing-1',
         },
         3: {
           font: '$font-weight-semibold $font-size-3 / $line-height-3 $font-family-sans',
-          'letter-spacing': '$letter-spacing-3',
+          'letter-spacing': '$letter-spacing-1',
         },
         2: {
           font: '$font-weight-semibold $font-size-4 / $line-height-4 $font-family-sans',
-          'letter-spacing': '$letter-spacing-4',
+          'letter-spacing': '$letter-spacing-1',
         },
         1: {
           font: '$font-weight-semibold $font-size-5 / $line-height-5 $font-family-sans',
-          'letter-spacing': '$letter-spacing-4',
+          'letter-spacing': '$letter-spacing-1',
         },
       },
     },
