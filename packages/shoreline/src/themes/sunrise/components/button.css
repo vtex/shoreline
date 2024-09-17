@@ -10,6 +10,7 @@
   cursor: pointer;
   appearance: button;
   text-decoration: none;
+  min-width: 6.25rem;
 
   &:focus {
     outline: none;
