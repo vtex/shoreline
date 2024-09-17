@@ -313,24 +313,24 @@
     --text-caption-2-letter-spacing: var(--letter-spacing-1);
     --text-action-font: var(--font-weight-semibold) var(--font-size-2) /
       var(--line-height-2) var(--font-family-sans);
-    --text-action-letter-spacing: var(--letter-spacing-2);
+    --text-action-letter-spacing: var(--letter-spacing-1);
     --text-emphasis-font: var(--font-weight-medium) var(--font-size-2) /
       var(--line-height-2) var(--font-family-sans);
-    --text-emphasis-letter-spacing: var(--letter-spacing-2);
+    --text-emphasis-letter-spacing: var(--letter-spacing-1);
     --text-body-font: var(--font-weight-regular) var(--font-size-2) /
       var(--line-height-2) var(--font-family-sans);
-    --text-body-letter-spacing: var(--letter-spacing-2);
+    --text-body-letter-spacing: var(--letter-spacing-1);
     --text-display-1-font: var(--font-weight-semibold) var(--font-size-5) /
       var(--line-height-5) var(--font-family-sans);
-    --text-display-1-letter-spacing: var(--letter-spacing-4);
+    --text-display-1-letter-spacing: var(--letter-spacing-1);
     --text-display-2-font: var(--font-weight-semibold) var(--font-size-4) /
       var(--line-height-4) var(--font-family-sans);
-    --text-display-2-letter-spacing: var(--letter-spacing-4);
+    --text-display-2-letter-spacing: var(--letter-spacing-1);
     --text-display-3-font: var(--font-weight-semibold) var(--font-size-3) /
       var(--line-height-3) var(--font-family-sans);
-    --text-display-3-letter-spacing: var(--letter-spacing-3);
+    --text-display-3-letter-spacing: var(--letter-spacing-1);
     --text-display-4-font: var(--font-weight-regular) var(--font-size-3) /
       var(--line-height-3) var(--font-family-sans);
-    --text-display-4-letter-spacing: var(--letter-spacing-3);
+    --text-display-4-letter-spacing: var(--letter-spacing-1);
   }
 }
