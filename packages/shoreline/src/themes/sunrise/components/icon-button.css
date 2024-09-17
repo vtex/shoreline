@@ -1,4 +1,5 @@
 [data-sl-icon-button] {
+  min-width: auto;
   width: var(--sl-element-height);
 
   & [data-sl-button-content] > [data-sl-icon]:first-child,
