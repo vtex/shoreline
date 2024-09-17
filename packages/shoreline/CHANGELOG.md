@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.0...@vtex/shoreline@1.9.1) (2024-09-17)
+
+### Bug Fixes
+
+- **button:** add min-width ([ca327bd](https://github.com/vtex/shoreline/commit/ca327bd85a21f13a6c54960fc172d7e9a3a94eea))
+- **icon-button:** define auto min-width ([bc66cbb](https://github.com/vtex/shoreline/commit/bc66cbb36f25a33666fe8c3af9dc016c9d045cf7))
+
 # [1.9.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.8.6...@vtex/shoreline@1.9.0) (2024-09-16)
 
 ### Bug Fixes
