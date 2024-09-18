@@ -30,8 +30,8 @@ export const DrawerDismiss = forwardRef<HTMLButtonElement, DrawerDismissProps>(
         label="close"
         asChild
         size={size}
-        {...otherProps}
         ref={ref}
+        {...otherProps}
       >
         <Vaul.Close>
           <IconX />
