@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.2...@vtex/shoreline@1.9.3) (2024-09-19)
+
+### Bug Fixes
+
+- **ts-table:** css to ts-table virtualize ([956762e](https://github.com/vtex/shoreline/commit/956762ed4da65ab78746b1a3ddc0d5bbe44a641b))
+
 ## [1.9.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.1...@vtex/shoreline@1.9.2) (2024-09-17)
 
 **Note:** Version bump only for package @vtex/shoreline
