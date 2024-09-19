@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.3...@vtex/shoreline@1.9.4) (2024-09-19)
+
+### Bug Fixes
+
+- **drawer:** add design rule for safe mobile screens ([482b6d3](https://github.com/vtex/shoreline/commit/482b6d3bcadde256885b39a29a4657ca14443e19))
+- **drawer:** figma design ([2c1dddf](https://github.com/vtex/shoreline/commit/2c1dddf150de6589adc31e79555a9defcf2c3cba))
+- **drawer:** spacing ([0684cf3](https://github.com/vtex/shoreline/commit/0684cf3a760f1fa99d9dd95a4fa7e28e28b0cc1e))
+
 ## [1.9.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.2...@vtex/shoreline@1.9.3) (2024-09-19)
 
 ### Bug Fixes
