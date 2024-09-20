@@ -1,4 +1,4 @@
-import { Content } from '../content'
+import { Content, type ContentOptions } from '../content'
 import { forwardRef, type ComponentPropsWithoutRef } from 'react'
 
 /**
@@ -24,4 +24,7 @@ export const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>(
   }
 )
 
-export type DrawerContentProps = ComponentPropsWithoutRef<'div'>
+export type DrawerContentOptions = Omit<ContentOptions, 'narrow'>
+
+export type DrawerContentProps = DrawerContentOptions &
+  ComponentPropsWithoutRef<'div'>

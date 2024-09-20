@@ -1,7 +1,7 @@
-import { forwardRef } from 'react'
+import { type ComponentPropsWithoutRef, forwardRef } from 'react'
 import { Drawer as Vaul } from 'vaul'
-import type { HeadingProps } from '../heading'
 import { Heading } from '../heading'
+import type { HeadingOptions } from '../heading'
 
 /**
  * Drawer's heading
@@ -27,4 +27,7 @@ export const DrawerHeading = forwardRef<HTMLDivElement, DrawerHeadingProps>(
   }
 )
 
-export type DrawerHeadingProps = Omit<HeadingProps, 'variant'>
+export type DrawerHeadingOptions = Omit<HeadingOptions, 'variant'>
+
+export type DrawerHeadingProps = DrawerHeadingOptions &
+  ComponentPropsWithoutRef<'h1'>

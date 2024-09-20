@@ -1,5 +1,5 @@
-import { Content } from '../content'
-import type { ComponentPropsWithoutRef } from 'react'
+import { Content, type ContentOptions } from '../content'
+import { forwardRef, type ComponentPropsWithoutRef } from 'react'
 
 /**
  * Drawer's header container
@@ -13,12 +13,17 @@ import type { ComponentPropsWithoutRef } from 'react'
  *  </DrawerPopover>
  * </DrawerProvider>
  */
-export function DrawerHeader(props: DrawerHeaderProps) {
-  return (
-    <Content narrow asChild>
-      <header data-sl-drawer-header {...props} />
-    </Content>
-  )
-}
+export const DrawerHeader = forwardRef<HTMLDivElement, DrawerHeaderProps>(
+  function DrawerHeader(props, ref) {
+    return (
+      <Content narrow asChild>
+        <header data-sl-drawer-header ref={ref} {...props} />
+      </Content>
+    )
+  }
+)
 
-export type DrawerHeaderProps = ComponentPropsWithoutRef<'header'>
+export type DrawerHeaderOptions = Omit<ContentOptions, 'narrow' | 'asChild'>
+
+export type DrawerHeaderProps = DrawerHeaderOptions &
+  ComponentPropsWithoutRef<'header'>

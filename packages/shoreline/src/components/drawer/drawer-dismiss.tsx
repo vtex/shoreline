@@ -21,16 +21,16 @@ import { IconButton } from '../icon-button'
  */
 export const DrawerDismiss = forwardRef<HTMLButtonElement, DrawerDismissProps>(
   function DrawerDismiss(props, ref) {
-    const { children, size = 'large', ...otherProps } = props
+    const { children, label = 'Close', ...otherProps } = props
 
     return (
       <IconButton
         data-sl-modal-dismiss
         variant="tertiary"
-        label="close"
         asChild
-        size={size}
+        size="large"
         ref={ref}
+        label={label}
         {...otherProps}
       >
         <Vaul.Close>
@@ -41,7 +41,9 @@ export const DrawerDismiss = forwardRef<HTMLButtonElement, DrawerDismissProps>(
   }
 )
 
-export type DrawerDismissOptions = Pick<IconButtonOptions, 'size'>
+export type DrawerDismissOptions = Partial<
+  Pick<IconButtonOptions, 'loading' | 'label'>
+>
 
 export type DrawerDismissProps = DrawerDismissOptions &
   ComponentProps<typeof Vaul.Close>
