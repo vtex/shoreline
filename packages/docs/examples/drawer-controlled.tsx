@@ -24,6 +24,9 @@ export default function Example() {
 
     setLoading(true)
 
+    // This promise simulates a call to an API.
+    // Using the controlled apporach of the Drawer
+    // is particullary useful in programmatic dispatch scenarios.
     await new Promise((resolve) => {
       setTimeout(resolve, 3000)
     })
@@ -40,7 +43,7 @@ export default function Example() {
       <DrawerProvider open={open} onOpenChange={setOpen}>
         <DrawerPopover>
           <DrawerHeader>
-            <DrawerHeading>Drawer Heading</DrawerHeading>
+            <DrawerHeading>Controlled Drawer</DrawerHeading>
             <DrawerDismiss />
           </DrawerHeader>
           <DrawerContent>
