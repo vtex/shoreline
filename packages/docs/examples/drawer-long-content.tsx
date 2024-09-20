@@ -23,7 +23,7 @@ export default function Example() {
           <DrawerDismiss />
         </DrawerHeader>
         <DrawerContent>
-          <DecorativeBox height="20rem" color="blue" />
+          <DecorativeBox height="100rem" color="blue" />
         </DrawerContent>
         <DrawerFooter>
           <Button onClick={() => null} size="large">

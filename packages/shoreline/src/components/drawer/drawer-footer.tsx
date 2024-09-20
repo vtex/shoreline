@@ -18,17 +18,15 @@ import { Content } from '../content'
  */
 export const DrawerFooter = forwardRef<HTMLDivElement, DrawerFooterProps>(
   function DrawerFooter(props, ref) {
-    const { children, ...otherProps } = props
-
     return (
-      <Content data-sl-drawer-footer narrow ref={ref} {...otherProps}>
-        {children}
+      <Content data-sl-drawer-footer narrow asChild>
+        <footer ref={ref} {...props} />
       </Content>
     )
   }
 )
 
-export type DrawerFooterOptions = Omit<ContentOptions, 'narrow'>
+export type DrawerFooterOptions = Omit<ContentOptions, 'narrow' | 'asChild'>
 
 export type DrawerFooterProps = DrawerFooterOptions &
   ComponentPropsWithoutRef<'div'>

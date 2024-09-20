@@ -15,11 +15,11 @@ export default function Example() {
   return (
     <DrawerProvider>
       <DrawerTrigger asChild>
-        <Button>Open</Button>
+        <Button>Open small drawer</Button>
       </DrawerTrigger>
-      <DrawerPopover>
+      <DrawerPopover size="small">
         <DrawerHeader>
-          <DrawerHeading>Drawer Heading</DrawerHeading>
+          <DrawerHeading>Small Drawer</DrawerHeading>
           <DrawerDismiss />
         </DrawerHeader>
         <DrawerContent>

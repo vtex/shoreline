@@ -1,20 +1,82 @@
 # Drawer
 
-Comming soon
-
-{/* <ComponentDescription name="drawer-provider" />
+<ComponentDescription>Drawer displays content related to a minor job within a page's main job. It does not block interactions outside the overlay, allowing users to interact with content.</ComponentDescription>
 
 <Preview name="drawer" />
 
-## Optional props
+## Anatomy
 
-<PropsDocs name="drawer-provider" />
+![Drawer anatomy](/assets/drawer-anatomy.png)
+
+The Drawer is a composition of several components:
+
+| Component | Description |
+| --- | --- |
+| [DrawerProvider](/components/drawer/drawer-provider) | Provides the state to all Drawer components |
+| [DrawerTrigger](/components/drawer/drawer-trigger) | A composition-first component that toggles the [DrawerPopover](/components/drawer/drawer-popover) |
+| [DrawerPopover](/components/drawer/drawer-popover) | Popover box of the Drawer |
+| [DrawerHeader](/components/drawer/drawer-header) | The fixed Header |
+| [DrawerHeading](/components/drawer/drawer-heading) | The title of the Drawer |
+| [DrawerDismiss](/components/drawer/drawer-dismiss) | Dismisses the [DrawerPopover](/components/drawer/drawer-popover) |
+| [DrawerContent](/components/drawer/drawer-content) | Main content inside of the [DrawerPopover](/components/drawer/drawer-popover) |
+| [DrawerFooter](/components/drawer/drawer-footer) | The fixed Footer mainly used for actions |
+
+
+The example code below, illustrates how these components interact with each other:
+
+```jsx
+function Anatomy() {
+  return (
+    <DrawerProvider>
+      <DrawerTrigger asChild>
+        <Button>Open</Button>
+      </DrawerTrigger>
+      <DrawerPopover>
+        <DrawerHeader>
+          <DrawerHeading>Drawer Heading</DrawerHeading>
+          <DrawerDismiss />
+        </DrawerHeader>
+        <DrawerContent>
+          Content goes here
+        </DrawerContent>
+        <DrawerFooter>
+          <Button size="large">
+            Label
+          </Button>
+          <Button variant="primary" size="large">
+            Label
+          </Button>
+        </DrawerFooter>
+      </DrawerPopover>
+    </DrawerProvider>
+  )
+}
+```
+
+## Examples
+
+### Controlled
+
+The `open` and `onChangeOpen` props of [DrawerProvider](/components/drawer/drawer-provider) are used to control the [DrawerPopover](/components/drawer/drawer-popover) open state.
+
+<Preview name="drawer-controlled" />
+
+### Long content
+
+The [DrawerContent](/components/drawer/drawer-content) adds a scrollbar for long content.
+
+<Preview name="drawer-long-content" />
+
+### Small size
+
+The [DrawerPopover](/components/drawer/drawer-popover) has either a `small` or `medium`(default) size.
+
+<Preview name="drawer-small" />
 
 ## Related components
 
 <ComponentSummaryGrid>
   <ComponentSummary name="modal" />
   <ComponentSummary name="toast" />
-  <ComponentSummary name="alert" />
   <ComponentSummary name="contextual-help" />
-</ComponentSummaryGrid> */}
+</ComponentSummaryGrid>
