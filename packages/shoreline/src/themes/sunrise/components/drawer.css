@@ -22,7 +22,7 @@
     --size: var(--size-medium);
   }
 
-  &[vaul-drawer-direction="right"] {
+  &[data-vaul-drawer-direction="right"] {
     flex-direction: row;
     top: 0;
     right: 0;
