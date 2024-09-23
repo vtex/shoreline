@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.5...@vtex/shoreline@1.9.6) (2024-09-23)
+
+### Bug Fixes
+
+- **drawer:** fix layout shift ([67dbc49](https://github.com/vtex/shoreline/commit/67dbc49f443b208f70d0f4cdcd3457b762ae6304))
+
 ## [1.9.5](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.4...@vtex/shoreline@1.9.5) (2024-09-20)
 
 **Note:** Version bump only for package @vtex/shoreline
