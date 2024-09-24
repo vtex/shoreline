@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.8](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.7...@vtex/shoreline@1.9.8) (2024-09-24)
+
+### Bug Fixes
+
+- update letter spacing ([9cf8729](https://github.com/vtex/shoreline/commit/9cf87293fd17ed3cec748ef6e9845c153c44c6e9))
+
 ## [1.9.7](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.6...@vtex/shoreline@1.9.7) (2024-09-24)
 
 ### Bug Fixes
