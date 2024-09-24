@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import { forwardRef } from 'react'
 import type { PopoverProviderProps } from '../popover'
 import { PopoverProvider, PopoverTrigger, Popover } from '../popover'
-import { Button } from '../button'
+import { IconButton } from '../icon-button'
 import { Container, Content } from '../content'
 
 /**
@@ -38,9 +38,9 @@ export const ContextualHelp = forwardRef<HTMLDivElement, ContextualHelpProps>(
           placement={placement}
         >
           <PopoverTrigger asChild>
-            <Button data-sl-contextual-help-trigger aria-label={label}>
+            <IconButton data-sl-contextual-help-trigger label={label}>
               <div data-sl-contextual-help-trigger-bg>?</div>
-            </Button>
+            </IconButton>
           </PopoverTrigger>
           <Popover
             data-sl-contextual-help-popover
