@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.7](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.6...@vtex/shoreline@1.9.7) (2024-09-24)
+
+### Bug Fixes
+
+- **contextual-help:** change to use IconButton instance of Button ([021ce96](https://github.com/vtex/shoreline/commit/021ce96a72659209f34c1395240ccc5c27b7b93b)), closes [#1967](https://github.com/vtex/shoreline/issues/1967)
+
 ## [1.9.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.5...@vtex/shoreline@1.9.6) (2024-09-23)
 
 ### Bug Fixes
