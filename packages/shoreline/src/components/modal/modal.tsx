@@ -3,6 +3,7 @@ import { forwardRef } from 'react'
 import { Dialog } from '@ariakit/react'
 
 import { Container } from '../content'
+import { style } from '@vtex/shoreline-utils'
 
 /**
  * Modal displays content related to a minor job within a page's main job. It demands complete attention and blocks interactions outside the overlay.
@@ -30,7 +31,13 @@ import { Container } from '../content'
  */
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(
   function Modal(props, ref) {
-    const { children, portal = true, size = 'medium', ...otherProps } = props
+    const {
+      children,
+      portal = true,
+      size = 'medium',
+      style: styleOverride,
+      ...otherProps
+    } = props
 
     return (
       <Dialog
@@ -39,6 +46,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
         backdrop={<div data-sl-modal-backdrop />}
         portal={portal}
         data-size={size}
+        style={style({ zIndex: 'var(--sl-z-4)', ...styleOverride })}
         {...otherProps}
       >
         <Container data-sl-modal-container>{children}</Container>
