@@ -88,7 +88,7 @@
 
   &[data-visible='true'] {
     opacity: 1;
-    z-index: calc(9999 - var(--sl-toast-index));
+    z-index: calc(var(--sl-z-7) - var(--sl-toast-index));
     > * {
       pointer-events: auto;
     }
@@ -104,7 +104,7 @@
 [data-sl-toast-stack] {
   --sl-c-toast-default-offset: var(--sl-space-10);
   position: fixed;
-  z-index: 9999;
+  z-index: var(--sl-z-7);
   top: var(--sl-c-toast-default-offset);
   left: var(--sl-c-toast-default-offset);
   right: var(--sl-c-toast-default-offset);
