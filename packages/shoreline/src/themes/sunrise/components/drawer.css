@@ -8,7 +8,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   position: fixed;
-  z-index: 50;
+  z-index: var(--sl-z-3);
   height: auto;
   overflow: hidden auto;
 
