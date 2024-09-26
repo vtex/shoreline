@@ -97,7 +97,7 @@
   }
 
   [data-sl-select-popover] {
-    z-index: var(--z-10);
+    z-index: var(--sl-z-6);
     display: flex;
     max-height: min(var(--popover-available-height, 18.75rem), 18.75rem);
     flex-direction: column;

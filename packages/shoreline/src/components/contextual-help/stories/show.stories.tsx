@@ -4,6 +4,8 @@ import { ContextualHelp } from '../index'
 import { Text } from '../../text'
 import { Stack } from '../../stack'
 import './stories.css'
+import { Button } from '@ariakit/react'
+import { Modal, ModalContent, ModalHeader, ModalHeading } from '../../modal'
 
 export default {
   title: 'components/contextual-help',
@@ -27,6 +29,7 @@ const placementOptions: Placement[] = [
 
 export function Show() {
   const [open, setOpen] = useState(true)
+  const [modalOpen, setModalOpen] = useState(false)
 
   return (
     <div className="ch-examples">
@@ -132,6 +135,32 @@ export function Show() {
             </Text>
           </Stack>
         </ContextualHelp>
+      </Stack>
+      <Stack className="ch-decorative-box ch-bg-purple">
+        <Text variant="display1">Inside a modal</Text>
+        <Button onClick={() => setModalOpen(true)}>Open modal</Button>
+        <Modal onClose={() => setModalOpen(false)} open={modalOpen}>
+          <ModalHeader>
+            <Stack horizontal>
+              <ModalHeading>Modal Header</ModalHeading>
+              <ContextualHelp label="modal help">
+                I'm visible inside a modal
+              </ContextualHelp>
+            </Stack>
+          </ModalHeader>
+          <ModalContent>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit
+            scelerisque mauris pellentesque pulvinar pellentesque habitant morbi
+            tristique senectus. Morbi tristique senectus et netus et. Nec
+            tincidunt praesent semper feugiat nibh sed pulvinar proin gravida.
+            Morbi tristique senectus et netus et malesuada fames ac. Ultricies
+            leo integer malesuada nunc vel risus commodo viverra maecenas. Nunc
+            congue nisi vitae suscipit tellus mauris a diam maecenas. Dui
+            accumsan sit amet nulla facilisi morbi tempus. Venenatis lectus
+            magna fringilla urna.
+          </ModalContent>
+        </Modal>
       </Stack>
     </div>
   )

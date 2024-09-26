@@ -36,6 +36,7 @@
   --sl-contextual-help-popover-max-height: 27.5rem;
   --sl-contextual-help-popover-width: 21.375rem;
 
+  z-index: var(--sl-z-10);
   min-height: var(--sl-contextual-help-popover-min-height);
   max-height: var(--sl-contextual-help-popover-max-height);
   width: var(--sl-contextual-help-popover-width);
