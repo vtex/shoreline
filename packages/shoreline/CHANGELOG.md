@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.10](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.9...@vtex/shoreline@1.9.10) (2024-09-26)
+
+### Bug Fixes
+
+- **contextual-help:** change popover z index to z-10 ([ef008e7](https://github.com/vtex/shoreline/commit/ef008e70b5d38b7f82d0a1cca20ea005aa7cda7c)), closes [#1970](https://github.com/vtex/shoreline/issues/1970)
+- **drawer:** change z index to z-3 ([ad85d3b](https://github.com/vtex/shoreline/commit/ad85d3bcb141d3f57f59a20dc071543046af6338)), closes [#1971](https://github.com/vtex/shoreline/issues/1971)
+- **menu:** change popover z index to z-6 ([1821fc1](https://github.com/vtex/shoreline/commit/1821fc1235bacc81bc0b27c4c1c0ab08db805b11)), closes [#1935](https://github.com/vtex/shoreline/issues/1935)
+- **modal:** change modal z index to z-5 and modal backdrop z index to z-4 ([57e6027](https://github.com/vtex/shoreline/commit/57e6027ff24e2db8b4cb9ffd63ab044ca22c820d)), closes [#1971](https://github.com/vtex/shoreline/issues/1971)
+- **radio/checkbox:** remove unecessary position=relative ([7a58546](https://github.com/vtex/shoreline/commit/7a5854643bf7d4268726bcba71e5dbff38b98667)), closes [#1839](https://github.com/vtex/shoreline/issues/1839)
+- **select:** change popover z index to z-6 ([8c6b78d](https://github.com/vtex/shoreline/commit/8c6b78d8b92d54e299b53de2cf46ccb72490f495)), closes [#1971](https://github.com/vtex/shoreline/issues/1971) [#1839](https://github.com/vtex/shoreline/issues/1839)
+- **toast:** change z index to z-7 ([82bb7a9](https://github.com/vtex/shoreline/commit/82bb7a9b561c57a5536f00a7b0b45375e69e8964)), closes [#1971](https://github.com/vtex/shoreline/issues/1971) [#1925](https://github.com/vtex/shoreline/issues/1925)
+- **tooltip:** change tooltipo popover z index to z-9 ([cd2acb2](https://github.com/vtex/shoreline/commit/cd2acb2cdec96fbcd2a08166450d2c9f8675d7fb)), closes [#1971](https://github.com/vtex/shoreline/issues/1971)
+
 ## [1.9.9](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.8...@vtex/shoreline@1.9.9) (2024-09-25)
 
 **Note:** Version bump only for package @vtex/shoreline
