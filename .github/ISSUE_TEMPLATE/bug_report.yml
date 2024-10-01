@@ -3,10 +3,10 @@ description: Report a problem with Shoreline
 labels: ['bug', 'status: pending']
 body:
   - type: textarea
-    id: summary
+    id: problem
     attributes:
-      label: Summary
-      description: Provide a short description of the problem.
+      label: Problem
+      description: Describe the problem and explain the current behavior. If applicable, add screenshots/videos to help explain the problem.
     validations:
       required: true
   - type: textarea
@@ -14,17 +14,6 @@ body:
     attributes:
       label: Expected behavior
       description: A clear and concise description of what you expected to happen.
-  - type: textarea
-    id: current-behavior
-    attributes:
-      label: Current behavior
-      description: Describe what happens instead of the expected behavior. If applicable, add screenshots/videos to help explain the problem.
-      value: |
-        Wrap animated gifs/videos in a details tag:
-        <details>
-          <summary>Summary of your gif(s)</summary>
-          <img src="..." alt="Description of what the gif shows">
-        </details>
   - type: input
     id: reproducible-example
     attributes:
@@ -49,7 +38,6 @@ body:
         - '@vtex/shoreline'
         - '@vtex/shoreline-ts-table'
         - '@vtex/shoreline-stylelint'
-        - '@vtex/shoreline-icons'
   - type: textarea
     id: packages-version
     attributes:

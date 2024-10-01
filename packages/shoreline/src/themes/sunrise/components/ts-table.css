@@ -2,7 +2,7 @@
   width: 100%;
 
   &[data-virtualize='true'] {
-    height: 31.25rem;
+    max-height: 31.25rem;
     overflow-y: auto;
   }
 }

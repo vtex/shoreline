@@ -1,12 +1,12 @@
+import type { ComponentPropsWithoutRef } from 'react'
+import { forwardRef } from 'react'
 import {
   IconMagnifyingGlass,
   IconPlus,
   IconPlusCircle,
   IconProhibit,
   IconWarningCircle,
-} from '@vtex/shoreline-icons'
-import type { ComponentPropsWithoutRef } from 'react'
-import { forwardRef } from 'react'
+} from '../../icons'
 import { Button } from '../button'
 import {
   EmptyState,
@@ -57,19 +57,14 @@ export const CollectionView = forwardRef<HTMLDivElement, CollectionViewProps>(
       )
     }
 
+    const handleActionByStatus: Record<string, (() => void) | undefined> = {
+      error: onError,
+      empty: onEmpty,
+    }
+    const handleAction = handleActionByStatus[status]
     const heading = getMessage(`${status}-heading`)
     const description = getMessage(`${status}-description`)
-    const action = getMessage(`${status}-action`)
-
-    function handleAction() {
-      switch (status) {
-        case 'error':
-          return onError?.()
-
-        case 'empty':
-          return onEmpty?.()
-      }
-    }
+    const action = handleAction && getMessage(`${status}-action`)
 
     const actionVariant = status === 'empty' ? 'primary' : 'secondary'
 

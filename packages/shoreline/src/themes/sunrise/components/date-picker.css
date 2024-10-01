@@ -28,7 +28,7 @@
     border: var(--sl-border-base-strong-hover);
   }
 
-  &[data-error='true'] {
+  &[data-error="true"] {
     border: var(--sl-border-critical-strong);
 
     &:hover {
@@ -40,7 +40,7 @@
     }
   }
 
-  &[data-disabled='true'] {
+  &[data-disabled="true"] {
     border: var(--sl-border-base-disabled);
     color: var(--sl-fg-base-disabled);
     background-color: var(--sl-bg-base-disabled);
@@ -49,4 +49,8 @@
   &:focus {
     outline: none;
   }
+}
+
+[data-sl-date-picker-button] {
+  border-radius: var(--sl-radius-1);
 }

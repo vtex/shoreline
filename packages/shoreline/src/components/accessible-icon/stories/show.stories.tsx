@@ -1,4 +1,4 @@
-import { IconTrash } from '@vtex/shoreline-icons'
+import { IconTrash } from '../../../icons'
 
 import { AccessibleIcon } from '../index'
 

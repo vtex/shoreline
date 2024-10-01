@@ -58,18 +58,12 @@ function get(
 
   if (!variables) return localizedMessage
 
-  const dynamicMessage = localizedMessage
-    .split(' ')
-    .map((word) => {
-      const isDynamicWord = word.startsWith('{') && word.endsWith('}')
-
-      if (!isDynamicWord) return word
-
-      const dynamicValue = word.slice(1, -1)
-
-      return variables[dynamicValue] ?? word
-    })
-    .join(' ')
+  const dynamicMessage = Object.entries(variables).reduce(
+    (acc, [key, value]) => {
+      return acc.replace(new RegExp(`{${key}}`, 'g'), String(value))
+    },
+    localizedMessage
+  )
 
   return dynamicMessage
 }

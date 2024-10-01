@@ -1,4 +1,8 @@
-import type { MouseEventHandler, ReactNode } from 'react'
+import type {
+  ComponentPropsWithoutRef,
+  MouseEventHandler,
+  ReactNode,
+} from 'react'
 import { Children, isValidElement } from 'react'
 import { toast as hotToast } from 'react-hot-toast/headless'
 import {
@@ -7,14 +11,14 @@ import {
   IconWarningCircleFill,
   IconX,
   IconXCircleFill,
-} from '@vtex/shoreline-icons'
+} from '../../icons'
 
-import { Spinner } from '../spinner'
 import { Bleed } from '../bleed'
+import { Button } from '../button'
+import { IconButton } from '../icon-button'
+import { Spinner } from '../spinner'
 import { Text } from '../text'
 import type { ToastVariant } from './toast-types'
-import { IconButton } from '../icon-button'
-import { Button } from '../button'
 
 /**
  * Toasts can appear at any time to provide instant feedback on actions. They are usually temporary, but can also require the user to dismiss.
@@ -23,12 +27,24 @@ import { Button } from '../button'
  * <Toast variant="success">Success!</Toast>
  */
 export function Toast(props: ToastProps) {
-  const { id, variant = 'informational', children, loading, onDismiss } = props
+  const {
+    id,
+    variant = 'informational',
+    children,
+    loading,
+    onDismiss,
+    ...restProps
+  } = props
 
   const icon = loading ? <Spinner /> : getIcon(variant)
 
   return (
-    <div data-sl-toast data-loading={loading} data-variant={variant}>
+    <div
+      data-sl-toast
+      data-loading={loading}
+      data-variant={variant}
+      {...restProps}
+    >
       <div data-sl-toast-icon-container>{icon}</div>
       <div data-sl-toast-container>{renderChildren(children)}</div>
       <Bleed top="$space-2" end="$space-2" bottom="$space-2">
@@ -88,7 +104,7 @@ function getIcon(variant: ToastVariant = 'informational') {
   }
 }
 
-interface ToastProps {
+interface ToastProps extends ComponentPropsWithoutRef<'div'> {
   /**
    * Toast variant
    * @default 'informational'

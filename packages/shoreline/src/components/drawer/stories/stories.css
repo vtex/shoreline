@@ -1,0 +1,3 @@
+.long-text p {
+  margin-block-end: var(--sl-space-3);
+}

@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline",
-  "version": "1.0.0-rc.83",
+  "version": "1.9.10",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -23,7 +23,7 @@
     "./themes/sunrise/unlayered": "./dist/themes/sunrise/styles-unlayered.css"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
@@ -45,24 +45,24 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@faker-js/faker": "8.3.1",
+    "@faker-js/faker": "8.4.1",
     "@types/fs-extra": "11.0.4",
-    "@types/node": "20.11.6",
+    "@types/node": "20.14.9",
     "@types/react-window": "1.8.8",
     "@vtex/shoreline-css": "workspace:*",
-    "browserslist": "4.23.0",
+    "browserslist": "4.23.1",
     "chokidar": "3.6.0",
     "concurrently": "8.2.2",
     "cssnano": "6.0.2",
     "fs-extra": "11.2.0",
-    "lightningcss": "1.25.0",
-    "match-sorter": "6.3.1",
+    "lightningcss": "1.25.1",
+    "match-sorter": "6.3.4",
     "react-hook-form": "7.48.2",
     "react-window": "1.8.10",
     "sucrase": " 3.35.0"
   },
   "dependencies": {
-    "@ariakit/react": "0.4.5",
+    "@ariakit/react": "0.4.7",
     "@internationalized/date": "3.5.4",
     "@react-aria/calendar": "3.5.8",
     "@react-aria/checkbox": "3.14.3",
@@ -73,8 +73,8 @@
     "@react-stately/calendar": "3.5.1",
     "@react-stately/datepicker": "3.9.4",
     "@react-stately/toggle": "3.7.4",
-    "@vtex/shoreline-icons": "^1.0.0-rc.83",
-    "@vtex/shoreline-utils": "^1.0.0-rc.83",
-    "react-hot-toast": "2.4.1"
+    "@vtex/shoreline-utils": "^1.0.63",
+    "react-hot-toast": "2.4.1",
+    "vaul": "0.9.4"
   }
 }

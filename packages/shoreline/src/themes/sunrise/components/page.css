@@ -11,10 +11,6 @@
 }
 
 [data-sl-page-header-container] {
-  :where(button) {
-    min-width: 6.25rem;
-  }
-
   [data-sl-page-header] {
     display: flex;
     flex-direction: column;

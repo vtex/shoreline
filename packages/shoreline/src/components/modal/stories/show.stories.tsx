@@ -10,7 +10,7 @@ import {
 import './stories.css'
 import { Button } from '../../button'
 import { Bleed } from '../../bleed'
-import { IconImageSquareFill } from '@vtex/shoreline-icons'
+import { IconImageSquareFill } from '../../../icons'
 import { Tag } from '../../tag'
 import { Stack } from '../../stack'
 

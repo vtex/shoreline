@@ -21,7 +21,6 @@
 
 [data-sl-checkbox-input] {
   flex-shrink: 0;
-  position: relative;
   background: var(--sl-bg-base);
   width: var(--sl-checkbox-size);
   height: var(--sl-checkbox-size);

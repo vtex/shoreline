@@ -9,7 +9,7 @@ import { VisuallyHidden } from '../visually-hidden'
 
 import { useFieldContext } from '../field'
 import type { DateValue } from '@react-aria/calendar'
-import { IconCalendarBlank } from '@vtex/shoreline-icons'
+import { IconCalendarBlank } from '../../icons'
 
 import { Calendar } from '../calendar'
 import { DateField } from '../date-field'
@@ -55,6 +55,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
           <Bleed end="$space-2">
             <PopoverTrigger asChild>
               <IconButton
+                data-sl-date-picker-button
                 id={buttonProps.id}
                 label={buttonProps['aria-label']}
                 aria-describedby={buttonProps['aria-describedby']}

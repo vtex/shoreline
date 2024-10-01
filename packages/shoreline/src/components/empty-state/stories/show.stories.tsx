@@ -4,7 +4,7 @@ import { EmptyState, EmptyStateActions, EmptyStateIllustration } from '../index'
 import { Button } from '../../button'
 import { Heading } from '../../heading'
 import { Text } from '../../text'
-import { IconWarningCircle } from '@vtex/shoreline-icons'
+import { IconWarningCircle } from '../../../icons'
 
 export default {
   title: 'components/empty-state',

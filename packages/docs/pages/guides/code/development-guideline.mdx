@@ -1,0 +1,184 @@
+import { Steps } from "nextra/components";
+
+# Development guideline
+
+Before starting the development be sure to install and build the project dependencies.
+
+```bash
+pnpm i && pnpm build
+```
+
+## Implement a component
+
+<Steps>
+
+### Generate from template
+
+We have a command that generates all the necessary files to kick off the component development. To use it just run the following command.
+
+```sh
+pnpm gen:component
+```
+
+### Run storybook
+
+We use [Storybook](https://storybook.js.org/) as a playground to help in the development process of components in Shoreline. It's really helpful since you can see all changes applied in the story. To use it just run the following command.
+
+```sh
+pnpm dev:storybook
+```
+
+### Development
+
+You can follow the [Component model guideline](/guides/code/component-model) as a guidance to develop your component. There you will understand how to structure your component, whether they have state, composition, or just a simple component.
+
+</Steps>
+
+## Write Storybook stories
+
+You can check [our guideline](/guides/code/storybook-guideline) to understand how to write Storybook stories for Shoreline components.
+
+## Write documentation
+
+You can check [our guideline](/guides/code/documentation-guideline) to understand how to write Shoreline's documentation.
+
+## Write tests
+
+You can check [our guideline](/guides/code/test-guideline) to understand how to write Shoreline's tests.
+
+## Commit convention
+
+We follow [semantic versioning](https://semver.org/) which means that we release patch versions for bug fixes, minor version for features and major for breaking changes.
+
+Our release workflow is automated and to help us following best practices during development we use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) which adds a semantic pattern to commit messages representing the kind of change you are applying, whether is a bug, feature, breaking change or another type of change.
+
+You can benefit of that by running the following command
+
+```sh
+pnpm commit
+```
+
+## Open a Pull Request
+
+When you are in a good shape to open a PR and want to get feedback from the team you can push your commits to the remote branch and open a PR.
+Our CI/CD will run all the tests and checks to ensure that your code is good to be merged.
+
+<Steps>
+
+### Commit your changes
+
+To do so, go to your terminal and run:
+
+```sh
+git add -A
+pnpm commit
+```
+
+**Commit tip**
+
+As said in the previous section, we use conventional commits to help us understand the kind of change you are applying.
+When you run the `pnpm commit` command you will be prompted to write a commit message following the pattern used in the Shoreline.
+
+### Push your changes
+
+After your changes are committed, run:
+
+```sh
+git push -u origin { YOUR_BRANCH_NAME }
+```
+
+### Open the pull request on Github
+
+In the browser, navigate to [Shoreline](https://github.com/vtex/shoreline/compare) and click the button that reads Compare & pull request.
+
+Then you can fill in the PR template and click the button that reads Create pull request.
+
+### Update your pull request
+
+Stay up to date with your pull request, as the team will review it and give you feedback on your changes.
+
+- To make changes to your PR, just push new commits to the branch and they will be automatically added to the PR, the steps are the same as above, the only difference is that you
+  don't need to run `git push -u origin { YOUR_BRANCH_NAME }` again, instead you just need to run `git push`.
+- To resolve conflicts, you need to rebase your branch with the main branch.
+
+**Rebase tip**
+
+When you open a PR, it's possible that the main branch has changed since you started your work. In this case, you will
+need to rebase your branch with the main branch to ensure that your changes are up to date.
+
+To do so, follow the steps below:
+
+1. Checkout to the main branch and pull the latest changes:
+
+```sh
+git checkout main
+git pull
+```
+
+2. Checkout to your branch and rebase it with the main branch:
+
+```sh
+git checkout { YOUR_BRANCH_NAME }
+git rebase main
+```
+
+3. If there are conflicts, resolve them in your code editor and continue the rebase:
+
+```sh
+git add .
+git rebase --continue
+```
+
+4. Push the changes to your branch:
+
+```sh
+git push -f
+```
+
+### Pull request approval
+
+Once your PR is approved, it will be merged to the main branch by a Shoreline maintainer.
+
+</Steps>
+
+## How does our CI/CD work?
+
+We use GitHub Actions to run our CI/CD. We have a robust workflow that runs every time a:
+
+1. PR is opened
+2. PR is merged to the `main` branch
+
+These workflows ensure that our code is always up to date and that we are not introducing any unexpected issues to our packages, as well as automates the process of generating the docs site, publishing new versions of our packages to NPM and deploying our storybook stories to Chromatic. Vercel takes care of deploying our docs website on a pipeline that runs in parallel with ours.
+
+### Pull Request workflow
+
+Our [Pull Request workflow](.github/workflows/pr.yml) runs the following steps:
+
+1. Validates the PR title according to semantic commit rules to ensure that we are able to generate release notes from it
+2. Builds all packages, ensuring their build is ok
+3. Lints all JavaScript, TypeScript, and CSS files
+4. Runs unit tests for all packages
+5. Run interaction tests for all components
+6. Publishes the components package to Chromatic, which in turn will run visual tests
+
+### Release workflow
+
+Our [Release workflow](.github/workflows/release.yml) runs the following steps:
+
+1. Builds all packages, ensuring their build is ok
+2. Stores the build artifacts on a temporary cache
+3. Publishes the components package to Chromatic
+4. Publishes all publishable packages to NPM
+5. Generates a release note
+
+## Usefull commands
+
+- `pnpm test` which runs all the tests in the repository.
+- `pnpm test watch` to run tests in watch mode.
+- `pnpm dev:docs` which runs the documentation site.
+- `pnpm build:docs` which builds the docs package.
+- `pnpm dev:storybook` which runs the storybook.
+- `pnpm build:storybook` which builds the storybook package.
+- `pnpm format` which runs prettier and formats the code.
+- `pnpm lint` which runs the eslint and stylelint in the code.
+- `pnpm commit` which runs the commit using the commit convention.

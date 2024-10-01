@@ -17,6 +17,12 @@ export function Show() {
       <Text variant="display3">Display 3</Text>
       <Text variant="display4">Display 4</Text>
       <Text variant="emphasis">Emphasis</Text>
+      <Text variant="body" color="#FF0000">
+        Custom Color
+      </Text>
+      <div style={{ color: 'var(--sl-fg-base-soft)' }}>
+        <Text>Custom color from parent</Text>
+      </div>
     </Stack>
   )
 }

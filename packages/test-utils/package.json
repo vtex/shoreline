@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-test-utils",
-  "version": "1.0.0-rc.83",
+  "version": "1.0.63",
   "description": "Shoreline test utilities",
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
@@ -24,7 +24,7 @@
     }
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=20"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
@@ -38,9 +38,9 @@
     "vitest": "0.34.6"
   },
   "dependencies": {
-    "@testing-library/dom": "9.3.3",
-    "@testing-library/jest-dom": "6.1.4",
-    "@testing-library/react": "14.1.2",
-    "@testing-library/user-event": "14.5.1"
+    "@testing-library/dom": "9.3.4",
+    "@testing-library/jest-dom": "6.4.6",
+    "@testing-library/react": "14.3.1",
+    "@testing-library/user-event": "14.5.2"
   }
 }

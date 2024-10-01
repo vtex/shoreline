@@ -4,7 +4,7 @@ import {
   IconWarningCircleFill,
   IconX,
   IconXCircleFill,
-} from '@vtex/shoreline-icons'
+} from '../../icons'
 import type { ComponentPropsWithoutRef, MouseEventHandler } from 'react'
 import { forwardRef } from 'react'
 

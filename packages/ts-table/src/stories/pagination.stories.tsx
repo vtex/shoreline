@@ -4,7 +4,7 @@ import {
   IconDotsThreeVertical,
   IconPencil,
   IconTrash,
-} from '@vtex/shoreline-icons'
+} from '@vtex/shoreline'
 import type { ColumnDef } from '@tanstack/react-table'
 import { faker } from '@faker-js/faker'
 import {

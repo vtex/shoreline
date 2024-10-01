@@ -31,7 +31,9 @@ describe('search', () => {
   })
 
   it('should show have custom placeholder when placeholder prop is set', () => {
-    const { getByPlaceholderText } = render(<Search placeholder="Buscar" />)
+    const { getByPlaceholderText } = render(
+      <Search messages={{ placeholder: 'Buscar' }} />
+    )
 
     expect(getByPlaceholderText('Buscar')).toBeInTheDocument()
   })

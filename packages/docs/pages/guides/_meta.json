@@ -1,18 +1,28 @@
 {
   "getting-started": "Getting Started",
-  "layouts": "Layouts",
   "state-management": "State Management",
   "styling": "Styling",
-  "theming": "Theming",
   "composition": "Composition",
   "forms": "Forms",
-  "design-migration": "Design Migration",
+  "migration": "Admin UI Migration",
   "-- Contributing": {
     "type": "separator",
     "title": "Contributing"
   },
   "contributing-introduction": "Introduction",
-  "processes": "Processes",
-  "design-contribution": "Design Contribution",
-  "engineering-contribution": "Engineering Contribution"
+  "activity": {
+    "title": "Activity",
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "contributor": {
+    "display": "hidden",
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "how-to-contribute": "How to Contribute",
+  "design": "Design",
+  "code": "Code"
 }

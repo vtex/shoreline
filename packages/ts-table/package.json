@@ -1,7 +1,7 @@
 {
   "name": "@vtex/shoreline-ts-table",
   "description": "Shoreline implementation of @tanstack/react-table",
-  "version": "1.0.0-rc.83",
+  "version": "1.0.63",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -20,7 +20,7 @@
     }
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=20"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
@@ -37,22 +37,21 @@
   },
   "peerDependencies": {
     "@tanstack/react-table": ">=8",
-    "@vtex/shoreline": "0.x",
+    "@vtex/shoreline": ">=1",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
-    "@faker-js/faker": "8.3.1",
-    "@tanstack/react-table": "8.10.7",
+    "@faker-js/faker": "8.4.1",
+    "@tanstack/react-table": "8.17.3",
     "@types/react-window": "1.8.8",
     "@vtex/shoreline": "workspace:*",
-    "match-sorter": "6.3.1",
+    "match-sorter": "6.3.4",
     "react-window": "1.8.10"
   },
   "dependencies": {
-    "@tanstack/react-table": "8.10.7",
+    "@tanstack/react-table": "8.17.3",
     "@tanstack/react-virtual": "3.0.1",
-    "@vtex/shoreline-icons": "^1.0.0-rc.83",
-    "@vtex/shoreline-utils": "^1.0.0-rc.83"
+    "@vtex/shoreline-utils": "^1.0.63"
   }
 }

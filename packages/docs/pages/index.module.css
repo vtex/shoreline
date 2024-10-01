@@ -49,3 +49,24 @@
   transform: scale(1.1);
   transform-origin: top left;
 }
+
+.status {
+  display: flex;
+  flex-direction: row;
+  gap: var(--sl-space-2);
+  background-color: var(--sl-bg-informational);
+  align-items: center;
+  padding: var(--sl-space-1) var(--sl-space-2);
+  color: #6c727f;
+  border-radius: 1rem;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.28px;
+}
+
+.statusDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--sl-fg-accent);
+}

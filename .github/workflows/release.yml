@@ -13,20 +13,20 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
-          fetch-depth: 25
+          fetch-depth: 0
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 9.4.0
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
@@ -56,57 +56,21 @@ jobs:
 
       - name: Publish to Chromatic
         id: publish-to-chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: build:storybook:ci
           exitOnceUploaded: true
           exitZeroOnChanges: true
+          onlyChanged: true
 
       - name: Publish
         run: |
           if git log -1 --pretty=%B | grep -q "\[skip-ci\]"; then
             exit 0
           fi
-          pnpm lerna publish --preid rc --dist-tag rc --yes --force-publish --no-verify-access --conventional-commits --create-release github
+          pnpm lerna publish --yes --force-publish --no-private --conventional-commits --create-release github
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           GH_TOKEN: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
           HUSKY: 0
-
-  docs:
-    name: Docs generator
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
-          fetch-depth: 25
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'pnpm'
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Configure CI Git User
-        run: bash ./scripts/configure-git-user.sh
-        env:
-          GIT_USERS: ${{ secrets.GIT_USERS }}
-          GIT_EMAILS: ${{ secrets.GIT_EMAILS }}
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build-artifacts

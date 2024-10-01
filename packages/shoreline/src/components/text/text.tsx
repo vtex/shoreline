@@ -1,14 +1,20 @@
-import type { AnyObject } from '@vtex/shoreline-utils'
+import { type AnyObject, style } from '@vtex/shoreline-utils'
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef } from 'react'
 
 /**
  * Text component
  * @example
- * <Text variant="context">Hello world</Text>
+ * <Text variant="context" color="#000000">Hello world</Text>
  */
 export const Text = forwardRef(function Text(props: TextProps, ref: any) {
-  const { children, variant = 'context', ...otherProps } = props
+  const {
+    children,
+    variant = 'context',
+    color = 'inherit',
+    style: styleObject = {},
+    ...otherProps
+  } = props
 
   const Element = props.as || 'span'
 
@@ -17,6 +23,10 @@ export const Text = forwardRef(function Text(props: TextProps, ref: any) {
       data-sl-text
       ref={ref}
       data-variant={variant}
+      style={style({
+        '--sl-text-color': color,
+        ...styleObject,
+      })}
       {...(otherProps as AnyObject)}
     >
       {children}
@@ -26,7 +36,15 @@ export const Text = forwardRef(function Text(props: TextProps, ref: any) {
 
 export interface TextOptions {
   /**
+   * Text color
+   * @default inherit
+   */
+  color?: string
+  /**
    * Text variant
+   *
+   * The "context" variant simulates the default behavior of a span,
+   * where the font settings when not specified are the same as the parent element.
    * @default 'context'
    */
   variant?:

@@ -4,11 +4,5 @@
     "declarationDir": "declarations"
   },
   "include": ["./src"],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "**/*.test.*",
-    "**/*.stories.*",
-    "**/*test-utils*"
-  ]
+  "exclude": ["node_modules", "dist"]
 }

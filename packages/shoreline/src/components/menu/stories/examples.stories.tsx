@@ -1,4 +1,4 @@
-import { IconCaretDownSmall } from '@vtex/shoreline-icons'
+import { IconCaretDownSmall } from '../../../icons'
 
 import {
   MenuItem,

@@ -1,11 +1,11 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef } from 'react'
-import type { FilterProviderProps } from './filter-provider'
-import { FilterProvider } from './filter-provider'
-import { FilterTrigger } from './filter-trigger'
+import { FilterList } from './filter-list'
 import type { FilterPopoverProps } from './filter-popover'
 import { FilterPopover } from './filter-popover'
-import { FilterList } from './filter-list'
+import type { FilterProviderProps } from './filter-provider'
+import { FilterProvider } from './filter-provider'
+import { FilterTrigger, type FilterTriggerProps } from './filter-trigger'
 
 /**
  * Filters represent criteria that users can choose to narrow down a Collection. They can include single or multiple selection.
@@ -27,6 +27,7 @@ export const Filter = forwardRef<HTMLDivElement, FilterProps>(
       setSearchValue,
       defaultSearchValue,
       messages,
+      disabled,
       ...otherProps
     } = props
 
@@ -40,7 +41,7 @@ export const Filter = forwardRef<HTMLDivElement, FilterProps>(
           setSearchValue={setSearchValue}
           defaultSearchValue={defaultSearchValue}
         >
-          <FilterTrigger>{label}</FilterTrigger>
+          <FilterTrigger disabled={disabled}>{label}</FilterTrigger>
           <FilterPopover messages={messages}>
             <FilterList>{children}</FilterList>
           </FilterPopover>
@@ -59,7 +60,8 @@ type InheritedOptions = Pick<
   | 'setSearchValue'
   | 'defaultSearchValue'
 > &
-  Pick<FilterPopoverProps, 'messages'>
+  Pick<FilterPopoverProps, 'messages'> &
+  Pick<FilterTriggerProps, 'disabled'>
 
 export interface FilterOptions extends InheritedOptions {
   /**

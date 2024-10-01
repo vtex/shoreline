@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import { forwardRef } from 'react'
 import { SelectItemCheck as ItemCheck } from '@ariakit/react'
-import { IconCheckSmall } from '@vtex/shoreline-icons'
+import { IconCheckSmall } from '../../icons'
 
 /**
  * Check indicator of the SelectItem

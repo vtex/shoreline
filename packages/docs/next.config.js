@@ -4,14 +4,15 @@ const withNextra = require('nextra')({
 })
 
 module.exports = withNextra({
-  redirects: async () => {
-    return [
+  images: {
+    remotePatterns: [
       {
-        source: '/raccoon/:slug',
-        destination: 'https://admin-platform.vtex.com/raccoon/getting-started',
-        permanent: true,
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+        port: '',
+        pathname: '/**/**',
       },
-    ]
+    ],
   },
 })
 

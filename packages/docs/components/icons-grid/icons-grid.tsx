@@ -1,15 +1,17 @@
-import { Fragment, type ComponentPropsWithoutRef } from 'react'
+import type { ComponentPropsWithoutRef } from 'react'
 import type { CSSProperties } from '@vtex/shoreline-utils'
+import * as SlPackage from '@vtex/shoreline'
 
-import { icons, names } from './icons'
 import { IconCard } from './icon-card'
 import { variables } from '../../shoreline/theme'
 import styles from './icons-grid.module.css'
 
-export function IconsGrid(props: IconsGridProps) {
-  const { children, variant = 'default', ...restProps } = props
+const iconNames = Object.keys(SlPackage).filter(
+  (item) => item.startsWith('Icon') && item !== 'IconButton'
+)
 
-  const resolvedIcons = resolveIcons(variant)
+export function IconsGrid(props: IconsGridProps) {
+  const { children, ...restProps } = props
 
   return (
     <div
@@ -17,14 +19,14 @@ export function IconsGrid(props: IconsGridProps) {
       style={variables as CSSProperties}
       {...restProps}
     >
-      {resolvedIcons.map((icon) => {
-        const Icon = icons[icon]
+      {iconNames.map((icon) => {
+        const Component = SlPackage[icon]
 
-        if (!icon) return <Fragment key={icon} />
+        if (!Component) return null
 
         return (
           <IconCard name={icon} key={icon}>
-            <Icon />
+            <Component />
           </IconCard>
         )
       })}
@@ -32,24 +34,4 @@ export function IconsGrid(props: IconsGridProps) {
   )
 }
 
-interface IconsGridProps extends ComponentPropsWithoutRef<'div'> {
-  variant?: 'default' | 'fill' | 'small'
-}
-
-type IconVariant = 'default' | 'fill' | 'small'
-
-function resolveIcons(variant: IconVariant): string[] {
-  if (variant === 'small' || variant === 'fill') {
-    return names.filter((icon) => {
-      const lowerIcon = icon.toLowerCase()
-
-      return lowerIcon.includes(variant)
-    })
-  }
-
-  return names.filter((icon) => {
-    const lowerIcon = icon.toLowerCase()
-
-    return !lowerIcon.includes('fill') && !lowerIcon.includes('small')
-  })
-}
+type IconsGridProps = ComponentPropsWithoutRef<'div'>

@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.38](https://github.com/vtex/shoreline/compare/next-14x@0.3.37...next-14x@0.3.38) (2024-06-26)
+
+**Note:** Version bump only for package next-14x
+
+## [0.3.37](https://github.com/vtex/shoreline/compare/next-14x@0.3.36...next-14x@0.3.37) (2024-06-26)
+
+**Note:** Version bump only for package next-14x
+
+## [0.3.36](https://github.com/vtex/shoreline/compare/next-14x@0.3.35...next-14x@0.3.36) (2024-06-26)
+
+**Note:** Version bump only for package next-14x
+
+## [0.3.35](https://github.com/vtex/shoreline/compare/next-14x@0.3.34...next-14x@0.3.35) (2024-06-26)
+
+**Note:** Version bump only for package next-14x
+
+## [0.3.34](https://github.com/vtex/shoreline/compare/next-14x@0.3.33...next-14x@0.3.34) (2024-06-26)
+
+**Note:** Version bump only for package next-14x
+
+## [0.3.33](https://github.com/vtex/shoreline/compare/next-14x@0.3.32...next-14x@0.3.33) (2024-06-25)
+
+**Note:** Version bump only for package next-14x
+
+## [0.3.32](https://github.com/vtex/shoreline/compare/next-14x@0.3.31...next-14x@0.3.32) (2024-06-21)
+
+**Note:** Version bump only for package next-14x
+
+## [0.3.31](https://github.com/vtex/shoreline/compare/next-14x@0.3.30...next-14x@0.3.31) (2024-06-21)
+
+**Note:** Version bump only for package next-14x
+
+## [0.3.30](https://github.com/vtex/shoreline/compare/next-14x@0.3.29...next-14x@0.3.30) (2024-06-21)
+
+**Note:** Version bump only for package next-14x
+
+## [0.3.29](https://github.com/vtex/shoreline/compare/next-14x@0.3.28...next-14x@0.3.29) (2024-06-18)
+
+**Note:** Version bump only for package next-14x
+
+## [0.3.28](https://github.com/vtex/shoreline/compare/next-14x@0.3.27...next-14x@0.3.28) (2024-06-13)
+
+### Bug Fixes
+
+- **examples:** package versions ([77c71b4](https://github.com/vtex/shoreline/commit/77c71b444067bfe9e881738a877027c20f7cd7f6))
+
 ## [0.3.27](https://github.com/vtex/shoreline/compare/next-14x@0.3.26...next-14x@0.3.27) (2024-06-12)
 
 **Note:** Version bump only for package next-14x

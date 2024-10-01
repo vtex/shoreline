@@ -1,5 +1,5 @@
 name: Proposal
-description: Propose an idea for this project.
+description: Submit a solution you have already designed.
 labels: ['proposal', 'status: pending']
 body:
   - type: textarea

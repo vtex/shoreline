@@ -1,5 +1,5 @@
-import { FilterListSkeleton, FilterItem, Filter } from '../index'
 import { Stack } from '../../stack'
+import { Filter, FilterItem, FilterListSkeleton } from '../index'
 
 export default {
   title: 'components/filter',
@@ -26,6 +26,12 @@ export function Show() {
 
       <Filter label="Loading example">
         <FilterListSkeleton />
+      </Filter>
+
+      <Filter label="Disabled" disabled>
+        <FilterItem value="Stable">Stable</FilterItem>
+        <FilterItem value="Experimental">Experimental</FilterItem>
+        <FilterItem value="Deprecated">Deprecated</FilterItem>
       </Filter>
     </Stack>
   )

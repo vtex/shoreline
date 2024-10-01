@@ -1,7 +1,7 @@
 [data-sl-field] {
   display: inline-flex;
   flex-direction: column;
-  width: fit-content;
+  min-width: fit-content;
 
   &[data-space='normal'] {
     gap: var(--sl-space-1);

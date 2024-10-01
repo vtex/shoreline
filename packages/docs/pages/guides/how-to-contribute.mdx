@@ -1,0 +1,184 @@
+# How to contribute
+
+You can contribute in several ways, depending on your interest and bandwidth.
+Whether you want to volunteer for existing work or just submit an idea or report
+a bug, there are processes to follow. Learn about them here.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning" emoji="⚠️">
+  Don't post any screenshots from app pages in GitHub issues. Always post a link for the Figma file or workspace that can be accessed only by other people from VTEX.
+</Callout>
+
+## GitHub
+
+### Issues
+
+GitHub is where contributions will happen. Access the Shoreline [issues list](https://github.com/vtex/shoreline/issues) to have a general view of what is happening and create new issues. Learn how to view and create issues in the video below.
+
+<br/>
+<video src="/assets/gh-creating-issues.mp4" width="1512" height="945" controls></video>
+
+### Project
+
+Access the Shoreline [project](https://github.com/orgs/vtex/projects/61/views/1) to have a view of the existing issues organized by status, and also filtered views for Design tasks and Dev tasks.
+
+![GitHub Project](/assets/project.png)
+
+- **No status:** Issues that still don't have any discussion.
+- **Discussing:** Issues that have any discussions going on, including defining solutions in design or code. Check the issue [labels](https://github.com/vtex/shoreline/labels) to understand the nature of the discussion ([bug](https://shoreline.vtex.com/guides/how-to-contribute#bug-report), [proposal](https://shoreline.vtex.com/guides/how-to-contribute#proposal), [idea](https://shoreline.vtex.com/guides/how-to-contribute#idea), or [question and feedback](https://shoreline.vtex.com/guides/how-to-contribute#question--feedback)), its subject, and if designer or developer inputs are needed.
+- **Backlog:** Issues in which the discussion was concluded, a maintainer approved the solution, and they are ready to be implemented by anyone who volunteers. Feel free to reach out to the maintainers through the GitHub issue if you want to volunteer. Keep in mind that when taking a task from the backlog, you are responsible for it. Make sure to communicate with the maintainers if you have any questions or need help.
+- **Active:** Issues for which someone has already volunteered to implement the solution and is already working on the tasks.
+- **Done:** Issues that a maintainer reviewed, approved the changes, and merged the PR.
+
+## Bug report
+
+Reporting a bug means that you’ve found a potential problem with the library, in
+Figma or code, and want to share it with the community or even propose a solution
+for it.
+
+![Bug report flow](/assets/bug-report.png)
+
+import { Steps } from 'nextra/components'
+
+<Steps>
+
+### Open an issue
+
+Use the [bug report template](https://github.com/vtex/shoreline/issues/new/choose) and answer questions like what is the context, the problem you are facing, and the evidence you have. If you already
+have a potential solution to this problem don’t forget to share it. Don't worry
+if you aren’t sure about the issue! Share it and start a discussion as early
+as possible.
+
+For bug fixes in Figma, propose a solution by creating a branch in the library
+with the name _Fix [Component or Icon name]_.
+
+### Discussion
+
+Get feedback through comments on the GitHub issue, on Figma, or by attending office hours. As you make progress, make sure to update your issue.
+
+### Definition
+
+As the discussions and refinements occur, your issue can be classified by a maintainer as valid to
+be resolved or not. If it is valid, these are the following steps:
+
+- **Figma bugs:** Prepare the handoff following the
+  [guidelines](https://shoreline.vtex.com/guides/design/handoff-requirements) and post the files in the issue. A maintainer will review, approve, and merge the component or icon branch in the Figma library.
+- **Code bugs:** A maintainer will review and approve the solution.
+
+When the issue is in great shape and includes the necessary information and/or files to be implemented, it will be moved to the [Backlog](https://github.com/orgs/vtex/projects/61) column by a maintainer.
+
+</Steps>
+
+## Proposal
+
+Submitting a proposal means that you've already created a solution for a problem and want to share it with the community.
+
+![Proposal flow](/assets/feature-proposal.png)
+
+Your proposal can have two origins:
+- **You have already created a solution for your context needs and want to start a discussion
+about it.** Remember to question yourself before submitting the proposal if the
+solution brings significant value to Shoreline and its users.
+- **You find an existing issue with a `design wanted` or `dev wanted` label and
+volunteer yourself to work on it.** Before moving on with volunteering, ask
+yourself if you're clear on the scope of the project, if the task is feasible for
+you to do, and if you would need to collaborate with someone else. Feel free to
+ask any questions!
+
+If everything is clear, move on with submitting your proposal.
+
+<Steps>
+
+### Open an issue
+
+Use the [proposal template](https://github.com/vtex/shoreline/issues/new/choose) and answer questions like the problem you
+are solving, your solution, and the references you had. If the proposal is
+related to an existing issue, remember to mention it. Don't worry if your proposal
+is not finalized yet! Share it and start a discussion as early as possible.
+
+For proposals in Figma, create a branch in the library
+with the name _Add [Component or Icon name]_ or _Update [Component or Icon name]_.
+
+### Discussion
+
+You can get feedback through comments on the GitHub issue or by attending office hours.
+As you make progress, make sure to update your issue.
+
+### Definition
+
+As the discussions and refinements occur, your issue can be classified by a maintainer as valid to
+be resolved or not. If it is valid, these are the following steps:
+
+- **Design proposal:** Prepare the handoff following the
+  [guidelines](https://shoreline.vtex.com/guides/design/handoff-requirements) and post the files in the issue. A maintainer will review, approve, and merge the component or icon branch in the Figma library.
+- **Code proposal:** A maintainer will review and approve the solution.
+
+When the issue is in great shape and includes the necessary information and/or files to be implemented, it will be moved to the [Backlog](https://github.com/orgs/vtex/projects/61) column by a maintainer.
+
+</Steps>
+
+## Idea
+
+Submitting an idea means that you just want to suggest an enhancement to Shoreline.
+
+![Idea flow](/assets/idea.png)
+
+<Steps>
+
+### Open an issue
+
+Use the [idea](https://github.com/vtex/shoreline/issues/new/choose) template and answer questions about the feature
+like what is the context, how can we benefit from it, and the rationale behind it.
+If you already have a potential solution to this issue don’t forget to share it.
+Don't worry if you aren’t sure about the issue! Share it and start a discussion as early
+as possible.
+
+### Discussion
+
+You can get feedback through comments on the GitHub issue or by attending office hours. Make sure to share
+all the necessary information about the feature so the community can help giving
+insights and sharing their context as well. As you make progress, make sure to
+update your issue.
+
+### Definition
+
+As the discussions and refinements occur, your issue can be classified as valid to
+be resolved or not.
+
+If the issue is classified as valid by a maintainer and needs a design or code proposal, it will be tagged as `design wanted` or `dev wanted` and a volunteer will be responsible for starting a [proposal flow](https://shoreline.vtex.com/guides/processes#submit-a-proposal).
+
+</Steps>
+
+## Question & Feedback
+
+Asking a question or sending a feedback means that you have something to share with
+maintainers or the community that probably is bothering you. Feel free to reach
+us anytime you need!
+
+![Question and Feedback flow](/assets/question-feedback.png)
+
+<Steps>
+
+### Open an issue
+
+Use the [question template](https://github.com/vtex/shoreline/issues/new/choose) and answer important questions about your submission
+like how we can help, what have you tried, and any additional information. Don't
+be shy! Share it and start a discussion as early as possible.
+
+### Discussion
+
+You can get feedback through comments on the GitHub issue or by attending office hours. Make sure to share
+all the necessary information about the feature so the community can help giving
+insights and sharing their context as well. As you make progress, make sure to
+update your issue.
+
+### Definition
+
+The idea here is that your issue act as a forum for discussion and resource for
+others that might have the same question. If the issue is resolved, a maintainer
+will close it.
+
+Your question or feedback can be used as a reference for an idea for enhancement or potential bug fix. Then, it will follow the processes according to its nature.
+
+</Steps>

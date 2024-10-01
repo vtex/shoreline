@@ -3,6 +3,278 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.63](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.62...@vtex/shoreline-next@1.0.63) (2024-09-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.62](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.61...@vtex/shoreline-next@1.0.62) (2024-09-25)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.61](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.60...@vtex/shoreline-next@1.0.61) (2024-09-24)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.60](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.59...@vtex/shoreline-next@1.0.60) (2024-09-24)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.59](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.58...@vtex/shoreline-next@1.0.59) (2024-09-23)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.58](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.57...@vtex/shoreline-next@1.0.58) (2024-09-20)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.57](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.56...@vtex/shoreline-next@1.0.57) (2024-09-19)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.56](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.55...@vtex/shoreline-next@1.0.56) (2024-09-19)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.55](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.54...@vtex/shoreline-next@1.0.55) (2024-09-17)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.54](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.53...@vtex/shoreline-next@1.0.54) (2024-09-17)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.53](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.52...@vtex/shoreline-next@1.0.53) (2024-09-16)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.52](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.51...@vtex/shoreline-next@1.0.52) (2024-09-11)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.51](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.50...@vtex/shoreline-next@1.0.51) (2024-09-11)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.50](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.49...@vtex/shoreline-next@1.0.50) (2024-09-10)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.49](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.48...@vtex/shoreline-next@1.0.49) (2024-09-09)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.48](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.47...@vtex/shoreline-next@1.0.48) (2024-09-06)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.47](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.46...@vtex/shoreline-next@1.0.47) (2024-09-06)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.46](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.45...@vtex/shoreline-next@1.0.46) (2024-09-02)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.45](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.44...@vtex/shoreline-next@1.0.45) (2024-08-28)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.44](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.43...@vtex/shoreline-next@1.0.44) (2024-08-28)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.43](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.42...@vtex/shoreline-next@1.0.43) (2024-08-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.42](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.41...@vtex/shoreline-next@1.0.42) (2024-08-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.41](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.40...@vtex/shoreline-next@1.0.41) (2024-08-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.40](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.39...@vtex/shoreline-next@1.0.40) (2024-08-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.39](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.38...@vtex/shoreline-next@1.0.39) (2024-08-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.38](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.37...@vtex/shoreline-next@1.0.38) (2024-08-23)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.37](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.36...@vtex/shoreline-next@1.0.37) (2024-08-22)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.36](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.35...@vtex/shoreline-next@1.0.36) (2024-08-22)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.35](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.34...@vtex/shoreline-next@1.0.35) (2024-08-22)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.34](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.33...@vtex/shoreline-next@1.0.34) (2024-08-20)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.33](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.32...@vtex/shoreline-next@1.0.33) (2024-08-20)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.32](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.31...@vtex/shoreline-next@1.0.32) (2024-08-19)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.31](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.30...@vtex/shoreline-next@1.0.31) (2024-08-19)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.30](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.29...@vtex/shoreline-next@1.0.30) (2024-08-16)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.29](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.28...@vtex/shoreline-next@1.0.29) (2024-08-16)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.28](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.27...@vtex/shoreline-next@1.0.28) (2024-08-14)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.27](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.26...@vtex/shoreline-next@1.0.27) (2024-08-02)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.26](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.25...@vtex/shoreline-next@1.0.26) (2024-08-02)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.25](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.24...@vtex/shoreline-next@1.0.25) (2024-07-31)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.24](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.23...@vtex/shoreline-next@1.0.24) (2024-07-30)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.23](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.22...@vtex/shoreline-next@1.0.23) (2024-07-25)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.22](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.21...@vtex/shoreline-next@1.0.22) (2024-07-24)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.21](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.20...@vtex/shoreline-next@1.0.21) (2024-07-24)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.20](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.19...@vtex/shoreline-next@1.0.20) (2024-07-23)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.19](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.18...@vtex/shoreline-next@1.0.19) (2024-07-23)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.18](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.17...@vtex/shoreline-next@1.0.18) (2024-07-23)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.17](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.16...@vtex/shoreline-next@1.0.17) (2024-07-16)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.16](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.15...@vtex/shoreline-next@1.0.16) (2024-07-15)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.15](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.14...@vtex/shoreline-next@1.0.15) (2024-07-10)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.14](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.13...@vtex/shoreline-next@1.0.14) (2024-07-10)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.13](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.12...@vtex/shoreline-next@1.0.13) (2024-07-09)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.12](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.11...@vtex/shoreline-next@1.0.12) (2024-07-04)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.11](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.10...@vtex/shoreline-next@1.0.11) (2024-07-04)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.10](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.9...@vtex/shoreline-next@1.0.10) (2024-06-28)
+
+### Bug Fixes
+
+- **deps:** update nextjs monorepo ([2a8909e](https://github.com/vtex/shoreline/commit/2a8909eeb756531db98b911c6251f1c7b9b28cd3))
+
+## [1.0.9](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.8...@vtex/shoreline-next@1.0.9) (2024-06-27)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.8](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.7...@vtex/shoreline-next@1.0.8) (2024-06-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.7](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.6...@vtex/shoreline-next@1.0.7) (2024-06-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.5...@vtex/shoreline-next@1.0.6) (2024-06-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.5](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.4...@vtex/shoreline-next@1.0.5) (2024-06-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.3...@vtex/shoreline-next@1.0.4) (2024-06-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.2...@vtex/shoreline-next@1.0.3) (2024-06-26)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.1...@vtex/shoreline-next@1.0.2) (2024-06-25)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+## [1.0.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.0...@vtex/shoreline-next@1.0.1) (2024-06-21)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+# [1.0.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.0-rc.86...@vtex/shoreline-next@1.0.0) (2024-06-21)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+# [1.0.0-rc.86](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.0-rc.85...@vtex/shoreline-next@1.0.0-rc.86) (2024-06-21)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
+# [1.0.0-rc.85](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.0-rc.84...@vtex/shoreline-next@1.0.0-rc.85) (2024-06-18)
+
+### Bug Fixes
+
+- **tsconfig:** fix stories jsx-runtime ([7e1a895](https://github.com/vtex/shoreline/commit/7e1a895b8db8788a48d7869c0e37b882969790b0))
+
+# [1.0.0-rc.84](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.0-rc.83...@vtex/shoreline-next@1.0.0-rc.84) (2024-06-13)
+
+**Note:** Version bump only for package @vtex/shoreline-next
+
 # [1.0.0-rc.83](https://github.com/vtex/shoreline/compare/@vtex/shoreline-next@1.0.0-rc.82...@vtex/shoreline-next@1.0.0-rc.83) (2024-06-12)
 
 **Note:** Version bump only for package @vtex/shoreline-next

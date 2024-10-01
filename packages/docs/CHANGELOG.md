@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.6...@shoreline/docs@1.0.7) (2024-06-26)
+
+**Note:** Version bump only for package @shoreline/docs
+
+## [1.0.6](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.5...@shoreline/docs@1.0.6) (2024-06-26)
+
+**Note:** Version bump only for package @shoreline/docs
+
+## [1.0.5](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.4...@shoreline/docs@1.0.5) (2024-06-26)
+
+**Note:** Version bump only for package @shoreline/docs
+
+## [1.0.4](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.3...@shoreline/docs@1.0.4) (2024-06-26)
+
+**Note:** Version bump only for package @shoreline/docs
+
+## [1.0.3](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.2...@shoreline/docs@1.0.3) (2024-06-26)
+
+**Note:** Version bump only for package @shoreline/docs
+
+## [1.0.2](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.1...@shoreline/docs@1.0.2) (2024-06-25)
+
+**Note:** Version bump only for package @shoreline/docs
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.0.1](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0...@shoreline/docs@1.0.1) (2024-06-21)
+
+**Note:** Version bump only for package @shoreline/docs
+
+# [1.0.0](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.86...@shoreline/docs@1.0.0) (2024-06-21)
+
+**Note:** Version bump only for package @shoreline/docs
+
+# [1.0.0-rc.86](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.85...@shoreline/docs@1.0.0-rc.86) (2024-06-21)
+
+**Note:** Version bump only for package @shoreline/docs
+
+# [1.0.0-rc.85](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.84...@shoreline/docs@1.0.0-rc.85) (2024-06-18)
+
+**Note:** Version bump only for package @shoreline/docs
+
+# [1.0.0-rc.84](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.83...@shoreline/docs@1.0.0-rc.84) (2024-06-13)
+
+**Note:** Version bump only for package @shoreline/docs
+
 # [1.0.0-rc.83](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.82...@shoreline/docs@1.0.0-rc.83) (2024-06-12)
 
 **Note:** Version bump only for package @shoreline/docs
@@ -83,7 +132,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **lint:** apply biome lint ([bb36ea3](https://github.com/vtex/shoreline/commit/bb36ea3e6545f31ae6c4c9e90a2d1fec348689db))
+- **lint:** apply biome lint
+  ([bb36ea3](https://github.com/vtex/shoreline/commit/bb36ea3e6545f31ae6c4c9e90a2d1fec348689db))
 
 # [1.0.0-rc.63](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.62...@shoreline/docs@1.0.0-rc.63) (2024-05-03)
 
@@ -93,9 +143,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **shoreline:** join shoreline components, date, and primitives ([0055a83](https://github.com/vtex/shoreline/commit/0055a83c517692a25b5e1377577be0cbf20c42e9))
-- **shoreline:** merge components into shoreline ([2757752](https://github.com/vtex/shoreline/commit/2757752071178d67d9bcf1ab2026c139f3d8cc65))
-- **sunrise:** remove package ([d33e549](https://github.com/vtex/shoreline/commit/d33e549f52ef1ddfc53f9363c4d28f73bfb3fdde))
+- **shoreline:** join shoreline components, date, and primitives
+  ([0055a83](https://github.com/vtex/shoreline/commit/0055a83c517692a25b5e1377577be0cbf20c42e9))
+- **shoreline:** merge components into shoreline
+  ([2757752](https://github.com/vtex/shoreline/commit/2757752071178d67d9bcf1ab2026c139f3d8cc65))
+- **sunrise:** remove package
+  ([d33e549](https://github.com/vtex/shoreline/commit/d33e549f52ef1ddfc53f9363c4d28f73bfb3fdde))
 
 # [1.0.0-rc.61](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.60...@shoreline/docs@1.0.0-rc.61) (2024-04-30)
 
@@ -109,25 +162,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **slot:** remove component ([9768cee](https://github.com/vtex/shoreline/commit/9768cee984897b57e92b21b82395b20e4c1a42a1))
+- **slot:** remove component
+  ([9768cee](https://github.com/vtex/shoreline/commit/9768cee984897b57e92b21b82395b20e4c1a42a1))
 
 # [1.0.0-rc.58](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.57...@shoreline/docs@1.0.0-rc.58) (2024-04-30)
 
 ### Features
 
-- **collection-row:** create new component and replace slot usages ([b3f95a3](https://github.com/vtex/shoreline/commit/b3f95a337c1b2c3b67b89987c2a789b6aca39702))
+- **collection-row:** create new component and replace slot usages
+  ([b3f95a3](https://github.com/vtex/shoreline/commit/b3f95a337c1b2c3b67b89987c2a789b6aca39702))
 
 # [1.0.0-rc.57](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.56...@shoreline/docs@1.0.0-rc.57) (2024-04-26)
 
 ### Features
 
-- **empty-state:** add EmptyStateActions and EmptyStateIllustration components ([5159630](https://github.com/vtex/shoreline/commit/51596302e4211d6a58e22507fabb985be350697d))
+- **empty-state:** add EmptyStateActions and EmptyStateIllustration components
+  ([5159630](https://github.com/vtex/shoreline/commit/51596302e4211d6a58e22507fabb985be350697d))
 
 # [1.0.0-rc.56](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.55...@shoreline/docs@1.0.0-rc.56) (2024-04-24)
 
 ### Features
 
-- **sunrise:** replace border-radius token by radius ([5b30d50](https://github.com/vtex/shoreline/commit/5b30d5035bfd51c7715d2151e7d4a70772e329b2))
+- **sunrise:** replace border-radius token by radius
+  ([5b30d50](https://github.com/vtex/shoreline/commit/5b30d5035bfd51c7715d2151e7d4a70772e329b2))
 
 # [1.0.0-rc.55](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.54...@shoreline/docs@1.0.0-rc.55) (2024-04-24)
 
@@ -225,7 +282,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **primitives:** remove virtual, move useVirtualizerModal to ts-table ([f9daaa8](https://github.com/vtex/shoreline/commit/f9daaa86f954650a0be489e2aa12fa24a51401bc))
+- **primitives:** remove virtual, move useVirtualizerModal to ts-table
+  ([f9daaa8](https://github.com/vtex/shoreline/commit/f9daaa86f954650a0be489e2aa12fa24a51401bc))
 
 # [1.0.0-rc.31](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.30...@shoreline/docs@1.0.0-rc.31) (2024-04-12)
 
@@ -283,8 +341,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **raccoon:** support multiple subsections ([58ff028](https://github.com/vtex/shoreline/commit/58ff0286386a6f6204a71b5a7917736d22778f6e))
-
 # [1.0.0-rc.17](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.16...@shoreline/docs@1.0.0-rc.17) (2024-03-15)
 
 **Note:** Version bump only for package @shoreline/docs
@@ -305,7 +361,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **docs:** add sentry to monitor application ([4c95315](https://github.com/vtex/shoreline/commit/4c9531593d88a2407b4f5e0423ff4d5573012ecd))
+- **docs:** add sentry to monitor application
+  ([4c95315](https://github.com/vtex/shoreline/commit/4c9531593d88a2407b4f5e0423ff4d5573012ecd))
 
 # [1.0.0-rc.12](https://github.com/vtex/shoreline/compare/@shoreline/docs@1.0.0-rc.11...@shoreline/docs@1.0.0-rc.12) (2024-03-01)
 
@@ -363,7 +420,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **sunrise:** create sunrise theme extracted from arpoador ([5988220](https://github.com/vtex/shoreline/commit/5988220f9812cce176eba60470c85b605008fbdb))
+- **sunrise:** create sunrise theme extracted from arpoador
+  ([5988220](https://github.com/vtex/shoreline/commit/5988220f9812cce176eba60470c85b605008fbdb))
 
 ## [0.11.14](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.11.13...@shoreline/next-docs@0.11.14) (2024-02-07)
 
@@ -425,14 +483,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- implement collection qa ([228dbed](https://github.com/vtex/shoreline/commit/228dbed8042ec39e9d38b56fe2b96eba6d03d93d))
+- implement collection qa
+  ([228dbed](https://github.com/vtex/shoreline/commit/228dbed8042ec39e9d38b56fe2b96eba6d03d93d))
 
 # [0.10.0](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.9.10...@shoreline/next-docs@0.10.0) (2024-01-25)
 
 ### Features
 
-- **arpoador:** create arpoador theme package & delete styles package ([92d8f96](https://github.com/vtex/shoreline/commit/92d8f96a179f6964b29b62c66f91a1a28e89fbee))
-- **arpoador:** merge tokens and preset ([58c68e4](https://github.com/vtex/shoreline/commit/58c68e4bd5bdb169692e0195cd659a6a20758748))
+- **arpoador:** create arpoador theme package & delete styles package
+  ([92d8f96](https://github.com/vtex/shoreline/commit/92d8f96a179f6964b29b62c66f91a1a28e89fbee))
+- **arpoador:** merge tokens and preset
+  ([58c68e4](https://github.com/vtex/shoreline/commit/58c68e4bd5bdb169692e0195cd659a6a20758748))
 
 ## [0.9.10](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.9.9...@shoreline/next-docs@0.9.10) (2024-01-24)
 
@@ -478,7 +539,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- rename base surface ([0bb5bf0](https://github.com/vtex/shoreline/commit/0bb5bf0d61992bf14296672aadd6b8992374a48f))
+- rename base surface
+  ([0bb5bf0](https://github.com/vtex/shoreline/commit/0bb5bf0d61992bf14296672aadd6b8992374a48f))
 
 ## [0.8.3](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.8.2...@shoreline/next-docs@0.8.3) (2024-01-17)
 
@@ -496,12 +558,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **docs:** duplicate api reference entries ([e7a7f01](https://github.com/vtex/shoreline/commit/e7a7f0198bd3a8aaf8a6ada9dbc00fa2cf369d6b))
-- minor doc improvements ([f45ea7a](https://github.com/vtex/shoreline/commit/f45ea7ab2a9cab7a98fc39bee18191f18343cc29))
+- **docs:** duplicate api reference entries
+  ([e7a7f01](https://github.com/vtex/shoreline/commit/e7a7f0198bd3a8aaf8a6ada9dbc00fa2cf369d6b))
+- minor doc improvements
+  ([f45ea7a](https://github.com/vtex/shoreline/commit/f45ea7ab2a9cab7a98fc39bee18191f18343cc29))
 
 ### Features
 
-- **text:** make text styless by default ([b1e45d7](https://github.com/vtex/shoreline/commit/b1e45d74decb71611ca3f32c7079c5659bea6f24))
+- **text:** make text styless by default
+  ([b1e45d7](https://github.com/vtex/shoreline/commit/b1e45d74decb71611ca3f32c7079c5659bea6f24))
 
 ## [0.7.51](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.7.50...@shoreline/next-docs@0.7.51) (2024-01-11)
 
@@ -699,7 +764,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **docs:** duplicate api reference entries ([e7a7f01](https://github.com/vtex/shoreline/commit/e7a7f0198bd3a8aaf8a6ada9dbc00fa2cf369d6b))
+- **docs:** duplicate api reference entries
+  ([e7a7f01](https://github.com/vtex/shoreline/commit/e7a7f0198bd3a8aaf8a6ada9dbc00fa2cf369d6b))
 
 ## [0.7.2](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.7.1...@shoreline/next-docs@0.7.2) (2024-01-08)
 
@@ -713,7 +779,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **text:** make text styless by default ([b1e45d7](https://github.com/vtex/shoreline/commit/b1e45d74decb71611ca3f32c7079c5659bea6f24))
+- **text:** make text styless by default
+  ([b1e45d7](https://github.com/vtex/shoreline/commit/b1e45d74decb71611ca3f32c7079c5659bea6f24))
 
 ## [0.6.4](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.6.3...@shoreline/next-docs@0.6.4) (2024-01-03)
 
@@ -735,7 +802,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **styles:** add no-layer ([65a20a4](https://github.com/vtex/shoreline/commit/65a20a403a0c31a44eed9b1f8a2fce472d92f170))
+- **styles:** add no-layer
+  ([65a20a4](https://github.com/vtex/shoreline/commit/65a20a403a0c31a44eed9b1f8a2fce472d92f170))
 
 ## [0.5.10](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.5.9...@shoreline/next-docs@0.5.10) (2023-12-28)
 
@@ -761,7 +829,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- lint ([411d426](https://github.com/vtex/shoreline/commit/411d42685b619ddb4a33ee1b52060dd36b5f6d59))
+- lint
+  ([411d426](https://github.com/vtex/shoreline/commit/411d42685b619ddb4a33ee1b52060dd36b5f6d59))
 
 ## [0.5.4](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.5.3...@shoreline/next-docs@0.5.4) (2023-12-22)
 
@@ -783,12 +852,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- add component images ([3d23829](https://github.com/vtex/shoreline/commit/3d23829c3bbe16b8517678e538a726c533998a78))
-- add required href prop ([b8d746e](https://github.com/vtex/shoreline/commit/b8d746e4eceda8c619d2aff14de4bac65018be7a))
-- more yet more content ([7401634](https://github.com/vtex/shoreline/commit/74016349146fe13417398d35fff57d5a25b671bc))
-- move content ([3624898](https://github.com/vtex/shoreline/commit/3624898cc40a64b2c3a5d842076dfc3831b35ade))
-- move more content ([5f9b52a](https://github.com/vtex/shoreline/commit/5f9b52a672266906e4a9cbd77c6db0869192dc84))
-- rename tag image ([03126bc](https://github.com/vtex/shoreline/commit/03126bc08f4511776d4673bbf8d341523d34522a))
+- add component images
+  ([3d23829](https://github.com/vtex/shoreline/commit/3d23829c3bbe16b8517678e538a726c533998a78))
+- add required href prop
+  ([b8d746e](https://github.com/vtex/shoreline/commit/b8d746e4eceda8c619d2aff14de4bac65018be7a))
+- more yet more content
+  ([7401634](https://github.com/vtex/shoreline/commit/74016349146fe13417398d35fff57d5a25b671bc))
+- move content
+  ([3624898](https://github.com/vtex/shoreline/commit/3624898cc40a64b2c3a5d842076dfc3831b35ade))
+- move more content
+  ([5f9b52a](https://github.com/vtex/shoreline/commit/5f9b52a672266906e4a9cbd77c6db0869192dc84))
+- rename tag image
+  ([03126bc](https://github.com/vtex/shoreline/commit/03126bc08f4511776d4673bbf8d341523d34522a))
 
 ## [0.4.2](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.4.1...@shoreline/next-docs@0.4.2) (2023-12-21)
 
@@ -802,7 +877,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- component overview page ([145a8e6](https://github.com/vtex/shoreline/commit/145a8e63743f463815efee6a5e27c5c2984e4abe))
+- component overview page
+  ([145a8e6](https://github.com/vtex/shoreline/commit/145a8e63743f463815efee6a5e27c5c2984e4abe))
 
 ## [0.3.8](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.3.7...@shoreline/next-docs@0.3.8) (2023-12-19)
 
@@ -840,7 +916,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- generate docs with handlebars ([8095e52](https://github.com/vtex/shoreline/commit/8095e5245b4fd4d9aaf90c6213854ea39453bcd3))
+- generate docs with handlebars
+  ([8095e52](https://github.com/vtex/shoreline/commit/8095e5245b4fd4d9aaf90c6213854ea39453bcd3))
 
 ## [0.2.12](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.2.11...@shoreline/next-docs@0.2.12) (2023-12-13)
 
@@ -894,17 +971,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **lading:** add font face ([61f0d06](https://github.com/vtex/shoreline/commit/61f0d0625bcc83db5d93de2e6712ca608638f586))
+- **lading:** add font face
+  ([61f0d06](https://github.com/vtex/shoreline/commit/61f0d0625bcc83db5d93de2e6712ca608638f586))
 
 ### Features
 
-- **docs:** add landing page ([69eb911](https://github.com/vtex/shoreline/commit/69eb91150b0a7b7dee7c052295daabdd7124476c))
+- **docs:** add landing page
+  ([69eb911](https://github.com/vtex/shoreline/commit/69eb91150b0a7b7dee7c052295daabdd7124476c))
 
 ## [0.1.5](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.1.4...@shoreline/next-docs@0.1.5) (2023-11-23)
 
 ### Bug Fixes
 
-- **lint:** fix issues ([d40d441](https://github.com/vtex/shoreline/commit/d40d4411ab0a9e1898a5538d8f4e68a8c1924d16))
+- **lint:** fix issues
+  ([d40d441](https://github.com/vtex/shoreline/commit/d40d4411ab0a9e1898a5538d8f4e68a8c1924d16))
 
 ## [0.1.4](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.1.3...@shoreline/next-docs@0.1.4) (2023-11-13)
 
@@ -926,20 +1006,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **lint:** erros while building ([e507ceb](https://github.com/vtex/shoreline/commit/e507ceb10bce0a80ad304b7040f281a8aab932c3))
+- **lint:** erros while building
+  ([e507ceb](https://github.com/vtex/shoreline/commit/e507ceb10bce0a80ad304b7040f281a8aab932c3))
 
 ### Features
 
-- forward routing from nextjs to vtex io as nextjs error fallback ([b04be4b](https://github.com/vtex/shoreline/commit/b04be4bae9d20124443e762c661d7719cdb3d22d))
-- **raccoon-next:** add router component ([4d6f68f](https://github.com/vtex/shoreline/commit/4d6f68f3425ab70b459d7caee11d1b4ff8e8bcf4))
-- **raccoon-next:** delegate nextjs routing to io ([12a9026](https://github.com/vtex/shoreline/commit/12a90269e5e0f02a15567a2bc0eb1744ca6c74ea))
+- forward routing from nextjs to vtex io as nextjs error fallback
+  ([b04be4b](https://github.com/vtex/shoreline/commit/b04be4bae9d20124443e762c661d7719cdb3d22d))
 
 ## [0.0.1-dev.25](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.24...@shoreline/next-docs@0.0.1-dev.25) (2023-10-09)
 
 ### Features
-
-- **raccoon-next:** add router component ([3cb4ebf](https://github.com/vtex/shoreline/commit/3cb4ebf800f94f5be5cc06be0f4de00655a600a5))
-- **raccoon-next:** delegate nextjs routing to io ([35269a1](https://github.com/vtex/shoreline/commit/35269a1c4c0bee243c46a4cfec0d71f76a2f9bff))
 
 ## [0.0.1-dev.24](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.23...@shoreline/next-docs@0.0.1-dev.24) (2023-10-06)
 
@@ -953,13 +1030,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **components:** configure shoreline tokens ([05c4017](https://github.com/vtex/shoreline/commit/05c4017bf369ec31f0e0cd3d4a0b80a961a0889d))
+- **components:** configure shoreline tokens
+  ([05c4017](https://github.com/vtex/shoreline/commit/05c4017bf369ec31f0e0cd3d4a0b80a961a0889d))
 
 ## [0.0.1-dev.21](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.20...@shoreline/next-docs@0.0.1-dev.21) (2023-09-28)
 
 ### Features
 
-- **spinner:** add component ([1e259cf](https://github.com/vtex/shoreline/commit/1e259cf6d4c22b4077a7003de9e3b903bb488db8))
+- **spinner:** add component
+  ([1e259cf](https://github.com/vtex/shoreline/commit/1e259cf6d4c22b4077a7003de9e3b903bb488db8))
 
 ## [0.0.1-dev.20](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.19...@shoreline/next-docs@0.0.1-dev.20) (2023-09-25)
 
@@ -985,7 +1064,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **theme:** remove prefix customization from shoreline config definition ([3e305ca](https://github.com/vtex/shoreline/commit/3e305ca62253e4e6e7cc3383d8f263b7ad3985a2))
+- **theme:** remove prefix customization from shoreline config definition
+  ([3e305ca](https://github.com/vtex/shoreline/commit/3e305ca62253e4e6e7cc3383d8f263b7ad3985a2))
 
 ## [0.0.1-dev.14](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.13...@shoreline/next-docs@0.0.1-dev.14) (2023-08-16)
 
@@ -1002,8 +1082,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## [0.0.1-dev.11](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.10...@shoreline/next-docs@0.0.1-dev.11) (2023-08-15)
 
 ### Features
-
-- **raccoon:** add io-proxy ([c47abba](https://github.com/vtex/shoreline/commit/c47abba3e3cb9352eeb0aae074254c933048a8f3))
 
 ## [0.0.1-dev.10](https://github.com/vtex/shoreline/compare/@shoreline/next-docs@0.0.1-dev.9...@shoreline/next-docs@0.0.1-dev.10) (2023-08-11)
 
@@ -1049,4 +1127,5 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **docs:** poc next-docs ([cc1eb59](https://github.com/vtex/admin-ui/commit/cc1eb59b0a74cca2f9b4dd456b3df2de7cb8614d))
+- **docs:** poc next-docs
+  ([cc1eb59](https://github.com/vtex/admin-ui/commit/cc1eb59b0a74cca2f9b4dd456b3df2de7cb8614d))

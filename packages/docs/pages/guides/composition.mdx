@@ -1,0 +1,77 @@
+# Composition
+
+Sometimes it might be necessary to use the behaviour of a component on another one. For example you might need a button to behave as a link, or you might want a `div` with some component's functionality. Composable components are made to enable that.
+
+In Shoreline the concept of "composable" components are those that support a boolean property called `asChild`. When set to `true`, this property enables the component to extend its behavior to its child components. That allows the component to keep it's original features, but render as something different.
+
+## Extending Component Behavior
+
+Composable components, by definition, possess a prop named `asChild`. When this property is set to `true`, it alters the behavior of the component. Instead of rendering in the usual manner, it renders its `children` and injects its internal props into them.
+
+Here is an example of using a composable component, rendering it as a `div`:
+
+```jsx
+<Component asChild>
+  <div {...myProps}>...</div>
+</Component>
+```
+
+This results in rendering analogous to:
+
+```jsx
+<div {...myProps} {...injectedComponentProps}></div>
+```
+
+## Usage Example
+
+An illustrative example is provided using the `MenuTrigger` component, which is composable. It can be rendered as a button or any other clickable element:
+
+```jsx
+function ComposabilityExample() {
+  return (
+    <MenuProvider>
+      <MenuTrigger asChild>
+        <Button>Open</Button>
+      </MenuTrigger>
+      <MenuPopover>
+        {...}
+      </MenuPopover>
+    </MenuProvider>
+  )
+}
+```
+
+## Requirements for Child Components
+
+To be cloned and extended, custom components must be extensible. All components in Shoreline adhere to this requirement and can be used as children for composable components. The criteria for a component to be extensible include:
+
+1. Forward a Ref: Components need to forward a [ref](https://react.dev/reference/react/forwardRef).
+2. Forward Received Props: Components must forward the props they receive.
+
+### Extensible Component Example
+
+Here is an example of an extensible component:
+
+```
+const CustomComponent = forwardRef((props, ref) => {
+  const { name, ...otherProps } = props
+
+  return (
+    <div {...otherProps} ref={ref}>
+      {name}
+    </div>
+  )
+})
+```
+
+This component successfully forwards a ref and ensures that all received props are also forwarded. This adherence to extensibility makes it compatible as a child for composable components in the Shoreline library.
+
+## Availability in Shoreline
+
+### Not all components are composable
+
+The composition feature will not be present in every component of Shoreline. This decision was made to keep the simplicity of most components, only components where the use case is relevant will be composable. When available, the feature will be documented.
+
+### Compability of child components
+
+All Shoreline components are inherently designed to be compatible with composable components. This means that any component within Shoreline can seamlessly be used as a child for composable components, providing a high degree of flexibility and modularity in component composition.
