@@ -12,7 +12,7 @@ import ReactECharts from 'echarts-for-react'
 import type * as echarts from 'echarts'
 
 import { defaultTheme } from './theme/themes'
-import type { ChartConfig } from './types/chart'
+import type { ChartConfig, ChartLoadingConfig } from './types/chart'
 import { getChartOptions } from './utils/chart'
 import { canUseDOM } from '@vtex/shoreline-utils'
 
@@ -26,6 +26,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       option,
       settings,
       loading = false,
+      loadingConfig = null,
       chartConfig,
       style,
       ...otherProps
@@ -60,18 +61,18 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       }
     }, [handleResize, canUseDOM])
 
-    if (loading) return <div>loading...</div>
-
     return (
       <div data-sl-chart {...otherProps}>
         <ReactECharts
           ref={chartRef}
           theme={defaultTheme}
           option={chartOptions}
-          style={style}
+          style={{ minWidth: 290, width: '100%', ...style }}
           opts={{
             renderer: 'svg',
           }}
+          showLoading={loading}
+          loadingOption={loadingConfig}
         />
       </div>
     )
@@ -92,6 +93,11 @@ export interface ChartsOptions {
    * @default false
    */
   loading?: boolean
+  /**
+   * Options for customize the chart loading
+   * @default false
+   */
+  loadingConfig?: ChartLoadingConfig
   /**
    * Configs containing type of chart and its variants, each variant is a pre-defined chart style for each type
    * @default default

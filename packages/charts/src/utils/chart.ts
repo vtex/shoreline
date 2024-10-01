@@ -2,13 +2,14 @@ import type { EChartsOption, SeriesOption } from 'echarts'
 import { CHART_STYLES } from '../theme/chartStyles'
 import type { ChartConfig } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
+import { cloneDeep } from 'lodash'
 
 export const buildDefaultSerie = (
   serie: SeriesOption | SeriesOption[],
   defaultStyle: EChartsOption
 ): SeriesOption => {
-  const seriesClone = structuredClone(serie)
-  const defaultStylesClone = structuredClone(defaultStyle.series)
+  const seriesClone = cloneDeep(serie)
+  const defaultStylesClone = cloneDeep(defaultStyle.series)
   const serieMerged = merge(defaultStylesClone, seriesClone) as SeriesOption
 
   return serieMerged
