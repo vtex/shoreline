@@ -42,7 +42,8 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",
+    "typescript": ">=5"
   },
   "devDependencies": {
     "@faker-js/faker": "8.4.1",
@@ -62,7 +63,7 @@
     "sucrase": " 3.35.0"
   },
   "dependencies": {
-    "@ariakit/react": "0.4.7",
+    "@ariakit/react": "0.4.11",
     "@internationalized/date": "3.5.4",
     "@react-aria/calendar": "3.5.8",
     "@react-aria/checkbox": "3.14.3",
