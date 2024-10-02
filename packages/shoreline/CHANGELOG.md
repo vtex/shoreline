@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.12](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.11...@vtex/shoreline@1.9.12) (2024-10-02)
+
+### Bug Fixes
+
+- **toast:** add font style to data-sl-toast ([94c863e](https://github.com/vtex/shoreline/commit/94c863e53a060e355c8c0a369010b4960c95ab14)), closes [#1978](https://github.com/vtex/shoreline/issues/1978)
+
 ## [1.9.11](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.10...@vtex/shoreline@1.9.11) (2024-10-02)
 
 **Note:** Version bump only for package @vtex/shoreline
