@@ -1,10 +1,20 @@
 {
+  "-- Designing": {
+    "type": "separator",
+    "title": "Designing"
+  },
+  "figma-libraries": "Figma Libraries",
+  "design-migration": "Admin UI Migration",
+  "-- Developing": {
+    "type": "separator",
+    "title": "Developing"
+  },
   "getting-started": "Getting Started",
   "state-management": "State Management",
   "styling": "Styling",
   "composition": "Composition",
   "forms": "Forms",
-  "migration": "Admin UI Migration",
+  "code-migration": "Admin UI Migration",
   "-- Contributing": {
     "type": "separator",
     "title": "Contributing"
