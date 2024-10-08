@@ -22,7 +22,13 @@ import { useStore } from '@vtex/shoreline-utils'
  * <DatePicker />
  */
 export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
-  const { className, id: defaultId, error: defaultError, ...domProps } = props
+  const {
+    className,
+    id: defaultId,
+    error: defaultError,
+    portal = true,
+    ...domProps
+  } = props
   const state = useDatePickerState(domProps)
   const ref = useRef(null)
   const anchorRef = useRef<HTMLDivElement>(null)
@@ -68,6 +74,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
         </div>
       </div>
       <Popover
+        portal={portal}
         getAnchorRect={() => {
           if (anchorRef?.current) {
             return anchorRef.current.getBoundingClientRect()
@@ -92,6 +99,11 @@ export interface DatePickerOptions<T extends DateValue>
    * Wether has error
    */
   error?: boolean
+  /**
+   * Should activate portal
+   * @default true
+   */
+  portal?: boolean
 }
 
 export type DatePickerProps<T extends DateValue> = DatePickerOptions<T>
