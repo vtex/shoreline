@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.12...@vtex/shoreline@1.10.0) (2024-10-09)
+
+### Features
+
+- add portal option to DatePicker, MenuPopover, and Popover components ([10fa6c8](https://github.com/vtex/shoreline/commit/10fa6c8de3c631d3d5b850e203597ab0e5226b7e))
+
 ## [1.9.12](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.11...@vtex/shoreline@1.9.12) (2024-10-02)
 
 ### Bug Fixes

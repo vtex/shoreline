@@ -346,7 +346,7 @@ importers:
         specifier: 3.7.4
         version: 3.7.4(react@18.2.0)
       "@vtex/shoreline-utils":
-        specifier: ^1.0.65
+        specifier: ^1.0.66
         version: link:../utils
       react:
         specifier: ">=18"
@@ -444,7 +444,7 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       "@vtex/shoreline-utils":
-        specifier: ^1.0.65
+        specifier: ^1.0.66
         version: link:../utils
       react:
         specifier: ">=18"
@@ -9250,6 +9250,7 @@ packages:
         integrity: sha512-aaCpf2JqqKesMFGgmRPessmVKjcGXqdlAYLLC3THM8t5nBRZRQ+st5WM/hoJXkdioEXLLbXgclUpM0TXo5HX5Q==,
       }
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
