@@ -8,7 +8,7 @@ import { Menu } from '@ariakit/react'
  */
 export const MenuPopover = forwardRef<HTMLDivElement, MenuPopoverProps>(
   function MenuPopover(props, ref) {
-    const { children, asChild = false, ...otherProps } = props
+    const { children, asChild = false, portal = true, ...otherProps } = props
 
     return (
       <Menu
@@ -16,7 +16,7 @@ export const MenuPopover = forwardRef<HTMLDivElement, MenuPopoverProps>(
         ref={ref}
         render={asChild && (children as any)}
         gutter={4}
-        portal
+        portal={portal}
         {...otherProps}
       >
         {children}
@@ -31,6 +31,11 @@ export interface MenuPopoverOptions {
    * @default false
    */
   asChild?: boolean
+  /**
+   * Should activate portal
+   * @default true
+   */
+  portal?: boolean
 }
 
 export type MenuPopoverProps = MenuPopoverOptions &
