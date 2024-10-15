@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.10.3...@vtex/shoreline@1.11.0) (2024-10-15)
+
+### Features
+
+- **clickable:** add only immediate prop ([ab0b903](https://github.com/vtex/shoreline/commit/ab0b9035e578534409cf1fd08238364cf0301f37)), closes [#1963](https://github.com/vtex/shoreline/issues/1963)
+
 ## [1.10.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.10.2...@vtex/shoreline@1.10.3) (2024-10-11)
 
 **Note:** Version bump only for package @vtex/shoreline
