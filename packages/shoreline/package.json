@@ -76,6 +76,6 @@
     "@react-stately/toggle": "3.7.4",
     "@vtex/shoreline-utils": "^1.0.70",
     "react-hot-toast": "2.4.1",
-    "vaul": "0.9.4"
+    "vaul": "0.9.9"
   }
 }
