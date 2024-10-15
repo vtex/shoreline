@@ -73,7 +73,7 @@
     "@react-aria/interactions": "3.22.3",
     "@react-stately/calendar": "3.5.5",
     "@react-stately/datepicker": "3.10.3",
-    "@react-stately/toggle": "3.7.4",
+    "@react-stately/toggle": "3.7.8",
     "@vtex/shoreline-utils": "^1.0.70",
     "react-hot-toast": "2.4.1",
     "vaul": "0.9.4"
