@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.0...@vtex/shoreline@1.11.1) (2024-10-16)
+
+### Bug Fixes
+
+- pass disabled to native input ([5331d9e](https://github.com/vtex/shoreline/commit/5331d9e447350a177c12a65e7c0c7f9b47c37cfe))
+
 # [1.11.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.10.3...@vtex/shoreline@1.11.0) (2024-10-15)
 
 ### Features
