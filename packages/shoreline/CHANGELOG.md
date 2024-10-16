@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.1...@vtex/shoreline@1.11.2) (2024-10-16)
+
+### Bug Fixes
+
+- **menu:** use the primary, secondary, and tertiary props ([daee9be](https://github.com/vtex/shoreline/commit/daee9be73ea5cf1ad8203338adbc3cda30a2ccf6))
+
 ## [1.11.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.0...@vtex/shoreline@1.11.1) (2024-10-16)
 
 ### Bug Fixes
