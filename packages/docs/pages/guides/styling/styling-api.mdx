@@ -1,15 +1,15 @@
-import { Tab, Tabs } from 'nextra-theme-docs'
+import { Tabs } from 'nextra/components'
 
 # Styling API
 
-The architecture defined in the components is based on the [data-attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) pattern. 
+The architecture defined in the components is based on the [data-attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) pattern.
 This allows you to style the components using the `data-attributes` in your CSS.
 
 > Make sure you understand data-attributes before continuing.
 
 ## Data Attributes
 
-Every component has its unique data-attribute for styling. It follows the pattern `data-sl-{component-name}`, where `sl` stands for Shoreline. 
+Every component has its unique data-attribute for styling. It follows the pattern `data-sl-{component-name}`, where `sl` stands for Shoreline.
 
 ```jsx
 import { Flex } from '@vtex/shoreline'
@@ -17,7 +17,7 @@ import '@vtex/shoreline/css'
 
 export default function App() {
   return (
-    <Flex>Flex container</Flex> 
+    <Flex>Flex container</Flex>
   )
 }
 ```
@@ -26,20 +26,20 @@ In the component implementation it looks something like this:
 
 <Tabs items={['Flex.tsx', 'Flex.css']}>
 
-<Tab>
+<Tabs.Tab>
 
 ```tsx
 export function Flex(props) {
   const { children, ...restProps } = props
   return (
-    <div data-sl-flex {restProps}>{children}</div> 
+    <div data-sl-flex {restProps}>{children}</div>
   )
 }
 ```
 
-</Tab>
+</Tabs.Tab>
 
-<Tab>
+<Tabs.Tab>
 
 
 ```css
@@ -49,7 +49,7 @@ export function Flex(props) {
 }
 ```
 
-</Tab>
+</Tabs.Tab>
 
 </Tabs>
 
@@ -72,21 +72,21 @@ In the component implementation it looks something like this:
 
 <Tabs items={['Button.tsx', 'Button.css']}>
 
-<Tab>
+<Tabs.Tab>
 
 ```jsx
 export function Button(props) {
   const { children, size, ...restProps } = props
 
   return (
-    <button data-sl-button data-size={size} {...restProps}>{children}</button> 
+    <button data-sl-button data-size={size} {...restProps}>{children}</button>
   )
 }
 ```
 
-</Tab>
+</Tabs.Tab>
 
-<Tab>
+<Tabs.Tab>
 
 ```css
 [data-sl-button] {
@@ -96,7 +96,7 @@ export function Button(props) {
 }
 ```
 
-</Tab>
+</Tabs.Tab>
 
 </Tabs>
 
@@ -113,27 +113,27 @@ If necessary to override or apply style to this variant, you can do it like this
 
 ## Local variables
 
-Sometimes you need to apply a style that is not a variant, but a dynamic value. You can do it by using local variables. 
-For example, the `Stack` component has the `space` prop which can receive a `token` value and any `space unit` value. 
+Sometimes you need to apply a style that is not a variant, but a dynamic value. You can do it by using local variables.
+For example, the `Stack` component has the `space` prop which can receive a `token` value and any `space unit` value.
 To handle this scenario we implement a local variable called `--sl-stack-space` and use it to apply the desired space between the children of the component.
 
 <Tabs items={['Stack.tsx', 'Stack.css']}>
 
-<Tab>
+<Tabs.Tab>
 
 ```jsx
 export function Stack(props) {
   const { children, space, ...restProps } = props
 
   return (
-    <div data-sl-stack style={{ '--sl-stack-space': space }} {...restProps}>{children}</div> 
+    <div data-sl-stack style={{ '--sl-stack-space': space }} {...restProps}>{children}</div>
   )
 }
 ```
 
-</Tab>
+</Tabs.Tab>
 
-<Tab>
+<Tabs.Tab>
 
 ```css
 [data-sl-stack] {
@@ -143,6 +143,6 @@ export function Stack(props) {
 }
 ```
 
-</Tab>
+</Tabs.Tab>
 
 </Tabs>

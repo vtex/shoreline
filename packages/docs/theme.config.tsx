@@ -27,11 +27,6 @@ const tagline = 'VTEX Design System for back-office experiences.'
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
-  useNextSeoProps() {
-    return {
-      titleTemplate: `%s - ${docsTitle}`,
-    }
-  },
   head() {
     const { frontMatter } = useConfig()
     const title = frontMatter?.title || docsTitle
@@ -79,7 +74,7 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/vtex/shoreline/packages/docs',
   footer: {
-    text: tagline,
+    content: tagline,
   },
   darkMode: false,
   nextThemes: {
