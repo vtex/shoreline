@@ -16,19 +16,19 @@ All token names start with a basic classification that usually reflects the CSS 
 
 ### Hue
 
-![Primitive Color Hue](public/assets/color-hue.webp)
+![Primitive Color Hue](/assets/color-hue.webp)
 
 Hue is the property that references the color family (such as red, blue, yellow, green, etc). There are nine color hues included in Shoreline besides gray. As explained in the rationale, this large breadth of color hues is intended to allow experimentation. Five hues (gray, blue, red, yellow, green) are already used by semantic tokens and, therefore, have a meaning attached, but the others (orange, teal, purple, pink, cyan) can be used freely.
 
 ### Tone
 
-![Primitive Color Tone](public/assets/color-tone.webp)
+![Primitive Color Tone](/assets/color-tone.webp)
 
 Tone refers to the luminosity of the color in a range that goes from lightest (1) to darkest (13). The only exception is white, which is $color-gray-0. When choosing a color tone, consider that not all combinations work since, for accessibility reasons, there must be enough contrast between the foreground and background.
 
 ## Semantic Colors
 
-![Semantic Color Table](public/assets/color-semantic-table.webp)
+![Semantic Color Table](/assets/color-semantic-table.webp)
 _The naming convention for semantic color tokens is very scalable. It allows for more tokens than currently exist since only tokens that have common use cases are created._
 
 The rationale explains that semantic tokens help design components with consistent visuals and behaviors. Color hues carry meaning and improve usability if applied consistently. That's why it's always better to use a semantic token if there's one that applies. Understanding their naming convention is the best way to become more proficient in applying them.
@@ -37,7 +37,7 @@ When reading the name of a semantic color token (`$fg`, `$bg`, `$border`), consi
 
 ### Type
 
-![Semantic Color Type](public/assets/color-type.webp)
+![Semantic Color Type](/assets/color-type.webp)
 
 All token names start with a basic classification that usually reflects the CSS property to which the values apply. Color tokens, in particular, have so many applications that they are divided into three primary categories.
 
@@ -47,7 +47,7 @@ All token names start with a basic classification that usually reflects the CSS 
 
 ### Surface
 
-![Semantic Color Surface](public/assets/color-surface.webp)
+![Semantic Color Surface](/assets/color-surface.webp)
 
 Semantic color tokens (`$fg`, `$bg`, `$border`) are then divided based on the meaning they imply. Elements should adopt a single surface (and modifier, when applicable) to communicate semantics and aid usability.
 
@@ -62,7 +62,7 @@ Semantic color tokens (`$fg`, `$bg`, `$border`) are then divided based on the me
 
 ### Modifier
 
-![Semantic Color Modifier](public/assets/color-modifier.webp)
+![Semantic Color Modifier](/assets/color-modifier.webp)
 
 Surfaces have medium prominence by default, sometimes needing to be softened or intensified. Therefore, alternatives are offered.
 
@@ -72,7 +72,7 @@ Surfaces have medium prominence by default, sometimes needing to be softened or 
 
 ### State
 
-![Semantic Color State](public/assets/color-state.webp)
+![Semantic Color State](/assets/color-state.webp)
 
 Tokens used in interactive elements, such as buttons or form fields, need to react to user actions, and this feedback usually relies on color. It’s worth noting that the default state is omitted from the token name.
 

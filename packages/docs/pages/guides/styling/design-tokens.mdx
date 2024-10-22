@@ -1,4 +1,4 @@
-import { Tab, Tabs } from 'nextra-theme-docs'
+import { Tabs } from 'nextra/components'
 
 # Design Tokens
 
@@ -56,7 +56,7 @@ So, an example of declaration and usage is:
 
 <Tabs items={['declaration.css', 'usage.css', 'usage.tsx']}>
 
-<Tab>
+<Tabs.Tab>
 
 > We cover `@layer` in detail on the [Cascade Layers](./cascade-layers) page.
 
@@ -68,9 +68,9 @@ So, an example of declaration and usage is:
 }
 ```
 
-</Tab>
+</Tabs.Tab>
 
-<Tab>
+<Tabs.Tab>
 
 ```css
 .my-component {
@@ -78,9 +78,9 @@ So, an example of declaration and usage is:
 }
 ```
 
-</Tab>
+</Tabs.Tab>
 
-<Tab>
+<Tabs.Tab>
 
 ```tsx
 <div
@@ -90,7 +90,7 @@ So, an example of declaration and usage is:
 />
 ```
 
-</Tab>
+</Tabs.Tab>
 
 </Tabs>
 
