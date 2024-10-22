@@ -3,11 +3,11 @@
   flex-direction: column;
   min-width: fit-content;
 
-  &[data-space='normal'] {
+  &[data-space="normal"] {
     gap: var(--sl-space-1);
   }
 
-  &[data-space='large'] {
+  &[data-space="large"] {
     gap: var(--sl-space-3);
   }
 }

@@ -4,7 +4,7 @@
 
   display: flex;
 
-  &[data-horizontal='false'] {
+  &[data-horizontal="false"] {
     flex-direction: column;
     justify-content: flex-start;
     align-items: var(--sl-stack-align);
@@ -17,13 +17,13 @@
       margin-block-start: var(--sl-stack-space);
     }
 
-    &[data-fluid='true'] {
+    &[data-fluid="true"] {
       align-items: unset;
       justify-content: unset;
     }
   }
 
-  &[data-horizontal='true'] {
+  &[data-horizontal="true"] {
     flex-direction: row;
     align-items: center;
     justify-content: var(--sl-stack-align);

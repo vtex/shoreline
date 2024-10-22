@@ -28,19 +28,19 @@
     border-radius: var(--sl-radius-3);
   }
 
-  &[data-size='small'] {
+  &[data-size="small"] {
     --sl-modal-width: var(--sl-modal-small-width);
     --sl-footer-button-min-width: auto;
     --sl-modal-footer-button-width: 100%;
     --sl-modal-header-padding: var(--sl-modal-header-padding-small);
     --sl-modal-content-space-top: 1rem;
   }
-  &[data-size='medium'] {
+  &[data-size="medium"] {
     --sl-modal-width: var(--sl-modal-medium-width);
     --sl-modal-header-padding: var(--sl-modal-header-padding-medium);
     --sl-modal-content-space-top: 1.5rem;
   }
-  &[data-size='large'] {
+  &[data-size="large"] {
     --sl-modal-width: var(--sl-modal-large-width);
     --sl-modal-header-padding: var(--sl-modal-header-padding-large);
     --sl-modal-content-space-top: 1.75rem;

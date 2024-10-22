@@ -20,7 +20,7 @@
     }
 
     &:is(:hover, :focus-visible),
-    &[aria-expanded='true'] {
+    &[aria-expanded="true"] {
       background: transparent;
 
       [data-sl-contextual-help-trigger-bg] {
