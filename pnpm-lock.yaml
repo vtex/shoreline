@@ -299,8 +299,8 @@ importers:
         specifier: 3.5.6
         version: 3.5.6
       '@react-aria/calendar':
-        specifier: 3.5.12
-        version: 3.5.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 3.5.13
+        version: 3.5.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/checkbox':
         specifier: 3.14.7
         version: 3.14.7(react@18.3.1)
@@ -2454,8 +2454,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@react-aria/calendar@3.5.12':
-    resolution: {integrity: sha512-C8VRjRwEVPaGoCtjOlC0lb3mVSz4ajbal8jfvcbp7LOqCcmOVTUbiM7EPTy60EfZRanFNSp2D1ZstEZDU+cqsg==}
+  '@react-aria/calendar@3.5.13':
+    resolution: {integrity: sha512-BJV5IwIH4UPDa6/HRTOBcM1wC+/6p823VrbocV9mr+rt5cCnuh+cqcCQKqUSEbfaTMPrmabjBuEaQIvqjLRYUA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
@@ -2488,6 +2488,11 @@ packages:
 
   '@react-aria/interactions@3.22.3':
     resolution: {integrity: sha512-RRUb/aG+P0IKTIWikY/SylB6bIbLZeztnZY2vbe7RAG5MgVaCgn5HQ45SI15GlTmhsFG8CnF6slJsUFJiNHpbQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+
+  '@react-aria/interactions@3.22.4':
+    resolution: {integrity: sha512-E0vsgtpItmknq/MJELqYJwib+YN18Qag8nroqwjk1qOnBa9ROIkUhWJerLi1qs5diXq9LHKehZDXRlwPvdEFww==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
 
@@ -12344,18 +12349,18 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.11
 
-  '@react-aria/calendar@3.5.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@react-aria/calendar@3.5.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@internationalized/date': 3.5.6
       '@react-aria/i18n': 3.12.3(react@18.3.1)
-      '@react-aria/interactions': 3.22.3(react@18.3.1)
+      '@react-aria/interactions': 3.22.4(react@18.3.1)
       '@react-aria/live-announcer': 3.4.0
       '@react-aria/utils': 3.25.3(react@18.3.1)
       '@react-stately/calendar': 3.5.5(react@18.3.1)
       '@react-types/button': 3.10.0(react@18.3.1)
       '@react-types/calendar': 3.4.10(react@18.3.1)
       '@react-types/shared': 3.25.0(react@18.3.1)
-      '@swc/helpers': 0.5.11
+      '@swc/helpers': 0.5.13
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
@@ -12435,6 +12440,14 @@ snapshots:
       '@swc/helpers': 0.5.11
       react: 18.3.1
 
+  '@react-aria/interactions@3.22.4(react@18.3.1)':
+    dependencies:
+      '@react-aria/ssr': 3.9.6(react@18.3.1)
+      '@react-aria/utils': 3.25.3(react@18.3.1)
+      '@react-types/shared': 3.25.0(react@18.3.1)
+      '@swc/helpers': 0.5.13
+      react: 18.3.1
+
   '@react-aria/label@3.7.12(react@18.3.1)':
     dependencies:
       '@react-aria/utils': 3.25.3(react@18.3.1)
@@ -12444,7 +12457,7 @@ snapshots:
 
   '@react-aria/live-announcer@3.4.0':
     dependencies:
-      '@swc/helpers': 0.5.11
+      '@swc/helpers': 0.5.13
 
   '@react-aria/spinbutton@3.6.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
