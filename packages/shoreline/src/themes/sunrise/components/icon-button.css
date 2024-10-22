@@ -7,14 +7,14 @@
     margin: var(--sl-space-0);
   }
 
-  &[data-size='normal'] {
+  &[data-size="normal"] {
     --sl-element-space-top: var(--sl-space-2);
     --sl-element-space-bottom: var(--sl-space-2);
     --sl-element-space-right: var(--sl-space-2);
     --sl-element-space-left: var(--sl-space-2);
   }
 
-  &[data-size='large'] {
+  &[data-size="large"] {
     --sl-element-space-top: var(--sl-space-3);
     --sl-element-space-bottom: var(--sl-space-3);
     --sl-element-space-right: var(--sl-space-3);

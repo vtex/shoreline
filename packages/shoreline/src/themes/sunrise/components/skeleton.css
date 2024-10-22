@@ -26,17 +26,17 @@
   &::after {
     animation: sl-keyframes-pulse 2s ease-in-out 0.5s infinite;
     background: var(--sl-bg-muted-pressed);
-    content: '';
+    content: "";
     position: absolute;
     bottom: var(--sl-space-0);
     left: var(--sl-space-0);
     right: var(--sl-space-0);
     top: var(--sl-space-0);
   }
-  &[data-sl-skeleton-shape='rect'] {
+  &[data-sl-skeleton-shape="rect"] {
     border-radius: var(--sl-radius-1);
   }
-  &[data-sl-skeleton-shape='circle'] {
+  &[data-sl-skeleton-shape="circle"] {
     border-radius: var(--sl-radius-full);
   }
 }

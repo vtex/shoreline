@@ -1,7 +1,7 @@
 [data-sl-ts-table] {
   width: 100%;
 
-  &[data-virtualize='true'] {
+  &[data-virtualize="true"] {
     max-height: 31.25rem;
     overflow-y: auto;
   }

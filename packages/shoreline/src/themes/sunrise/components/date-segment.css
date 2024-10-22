@@ -9,7 +9,7 @@
     background: var(--sl-bg-accent-hover);
   }
 
-  &[data-placeholder='true'] {
+  &[data-placeholder="true"] {
     color: var(--sl-fg-base-soft);
   }
 }
