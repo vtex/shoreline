@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.2...@vtex/shoreline@1.11.3) (2024-10-22)
+
+### Bug Fixes
+
+- **shoreline:** avoid infinite loops on the dev script ([bbc29b2](https://github.com/vtex/shoreline/commit/bbc29b29eab5b7a767ce4feeecc9327e9ad08d38))
+
 ## [1.11.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.1...@vtex/shoreline@1.11.2) (2024-10-16)
 
 ### Bug Fixes
