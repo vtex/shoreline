@@ -2,7 +2,6 @@
   "name": "@vtex/shoreline",
   "version": "1.11.7",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "publishConfig": {
     "access": "public",
@@ -29,8 +28,8 @@
     "prebuild": "rm -rf dist",
     "dev": "concurrently \"tsup --watch\" \"pnpm run dev:css\"",
     "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\"",
-    "build:css": "node -r sucrase/register src/scripts/build-css.ts",
-    "dev:css": "node -r sucrase/register src/scripts/dev-css.ts"
+    "build:css": "npx tsx src/scripts/build-css.ts",
+    "dev:css": "npx tsx src/scripts/dev-css.ts"
   },
   "repository": {
     "directory": "packages/shoreline",
@@ -56,8 +55,7 @@
     "fs-extra": "11.2.0",
     "match-sorter": "6.3.4",
     "react-hook-form": "7.48.2",
-    "react-window": "1.8.10",
-    "sucrase": " 3.35.0"
+    "react-window": "1.8.10"
   },
   "dependencies": {
     "@ariakit/react": "0.4.13",
@@ -73,6 +71,7 @@
     "@react-stately/toggle": "3.7.4",
     "@vtex/shoreline-utils": "^1.0.77",
     "react-hot-toast": "2.4.1",
+    "tsx": "^4.19.1",
     "vaul": "0.9.4"
   }
 }

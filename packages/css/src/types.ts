@@ -20,3 +20,17 @@ export interface ShorelineConfig {
    */
   tokens?: Record<string, any>
 }
+
+interface PropsDeclaration {
+  name: string
+  value: string
+  description?: string
+}
+
+export interface TokenConfig {
+  [key: string]: {
+    name: string
+    description?: string
+    tokens: PropsDeclaration[]
+  }
+}

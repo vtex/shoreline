@@ -1,7 +1,10 @@
 import browserslist from 'browserslist'
 import { bundle as __bundle, browserslistToTargets } from 'lightningcss'
 import { outputFileSync } from 'fs-extra'
-import { tokens, type TokensArgs } from './tokens'
+import ora from 'ora'
+import { transformTokens } from './transform-tokens'
+import type { TokensArgs } from './transform-tokens'
+import type { TokenConfig } from './types'
 
 const layerStatement = '@layer sl-reset, sl-base, sl-tokens, sl-components;'
 
@@ -10,17 +13,19 @@ const layerStatement = '@layer sl-reset, sl-base, sl-tokens, sl-components;'
  */
 export function bundle(args: BundleArgs) {
   const {
-    inputFile,
     outdir,
-    tokensFile,
+    tokens,
+    inputFile,
     useCascadeLayers = true,
     browserslistQuery = 'last 1 versions',
   } = args
 
+  const spinner = ora('Bundling css').start()
+
   const targets = browserslistToTargets(browserslist(browserslistQuery))
 
-  const { code: tokensCode } = tokens({
-    inputFile: tokensFile,
+  const tokensCode = transformTokens({
+    tokens,
     emitFile: true,
     outdir,
     useCascadeLayers,
@@ -31,22 +36,6 @@ export function bundle(args: BundleArgs) {
     filename: inputFile,
     targets,
     minify: false,
-    customAtRules: {
-      theme: {
-        prelude: '<custom-ident>',
-        body: 'style-block',
-      },
-    },
-    visitor: {
-      Rule: {
-        custom: {
-          theme() {
-            // theme is not bundled with
-            throw new Error('Do not import tokens into your bundle')
-          },
-        },
-      },
-    },
   })
 
   try {
@@ -58,13 +47,14 @@ export function bundle(args: BundleArgs) {
       outputFile,
       Buffer.from(
         useCascadeLayers
-          ? `${layerStatement}\n\n${tokensCode.toString()}\n\n${bundledCode.toString()}`
-          : `${tokensCode.toString()}\n\n${bundledCode.toString()}`
+          ? `${layerStatement}\n\n${tokensCode}\n\n${bundledCode.toString()}`
+          : `${tokensCode}\n\n${bundledCode.toString()}`
       )
     )
-    console.log(`✅ Generated ${outputFile}`)
+
+    spinner.succeed(`Generated ${outputFile}`)
   } catch (e) {
-    console.log('🚨 Failed to compile styles')
+    spinner.fail('Failed to bundle css')
   }
 }
 
@@ -72,5 +62,9 @@ export interface BundleArgs extends Omit<TokensArgs, 'emitFile'> {
   /**
    * file contaning the tokens
    */
-  tokensFile: string
+  tokens: TokenConfig
+  /**
+   * file to bundle
+   */
+  inputFile: string
 }
