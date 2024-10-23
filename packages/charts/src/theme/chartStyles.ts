@@ -1,4 +1,9 @@
-export const BAR_CHART_LEGEND_DEFAULT_STYLE = {
+import type { EChartsOption } from 'echarts'
+import type { DefaultChartStyles } from '../types/chart'
+import type { EChartsInstance } from 'echarts-for-react'
+import { defaultSpinnerColor } from './colors'
+
+export const BAR_CHART_LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   orient: 'horizontal',
   left: '3%',
   bottom: 0,
@@ -9,14 +14,15 @@ export const BAR_CHART_LEGEND_DEFAULT_STYLE = {
   itemGap: 20,
 }
 
-export const BAR_CHART_GRID_DEFAULT_STYLE = {
-  left: '5%',
-  right: '0%',
+export const BAR_CHART_GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
+  left: 'auto',
+  right: '0',
   top: '10%',
   bottom: '10%',
+  containLabel: true,
 }
 
-export const CHART_STYLES: any = {
+export const CHART_STYLES: DefaultChartStyles = {
   bar: {
     default: {
       xAxis: {
@@ -29,9 +35,11 @@ export const CHART_STYLES: any = {
         type: 'bar',
       },
       barGap: '20%',
-      barCategoryGap: '50%',
+      barCategoryGap: '55%',
       legend: BAR_CHART_LEGEND_DEFAULT_STYLE,
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
+      barMaxWidth: 60,
+      barMinWidth: 15,
     },
     horizontal: {
       xAxis: {
@@ -41,9 +49,11 @@ export const CHART_STYLES: any = {
         type: 'category',
       },
       barGap: '20%',
-      barCategoryGap: '50%',
+      barCategoryGap: '55%',
       legend: BAR_CHART_LEGEND_DEFAULT_STYLE,
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
+      barMaxWidth: 60,
+      barMinWidth: 15,
       series: {
         type: 'bar',
         itemStyle: {
@@ -54,5 +64,13 @@ export const CHART_STYLES: any = {
   },
   line: {
     default: {},
+    base: {},
   },
+}
+
+export const DEFAULT_LOADING_SPINNER: EChartsInstance['showLoading'] = {
+  text: '',
+  spinnerRadius: 10,
+  lineWidth: 3,
+  color: defaultSpinnerColor,
 }

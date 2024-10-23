@@ -1,3 +1,5 @@
+import type { EChartsOption } from 'echarts'
+
 export type BarChartVariants = 'default' | 'horizontal'
 
 export type LineChartVariants = 'default' | 'base'
@@ -12,4 +14,8 @@ export type ChartLoadingConfig = {
   color?: string
   textColor?: string
   fontSize?: number
+}
+export type DefaultChartStyles = {
+  bar: Record<BarChartVariants, EChartsOption>
+  line: Record<LineChartVariants, EChartsOption>
 }

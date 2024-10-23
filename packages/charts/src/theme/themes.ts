@@ -1,22 +1,7 @@
-import { BASE, CATEGORICAL } from './colors'
+import { defaultChartColorConfig, defaultColorPreset } from './colors'
 
 export const defaultTheme = {
-  color: [
-    CATEGORICAL.primary,
-    CATEGORICAL.secondary,
-    CATEGORICAL.tertiary,
-    CATEGORICAL.quaternary,
-    CATEGORICAL.quinary,
-    CATEGORICAL.senary,
-    CATEGORICAL.septenary,
-    CATEGORICAL.octonary,
-    CATEGORICAL.nonary,
-    CATEGORICAL.denary,
-    CATEGORICAL.undenary,
-    CATEGORICAL.duodenary,
-    CATEGORICAL.ternary,
-    CATEGORICAL.fourteen,
-  ],
+  color: defaultColorPreset,
   categoryAxis: {
     axisTick: {
       show: false,
@@ -24,27 +9,24 @@ export const defaultTheme = {
     axisLine: {
       show: true,
       lineStyle: {
-        color: BASE.lineColor,
+        color: defaultChartColorConfig.lineColor,
       },
     },
     axisLabel: {
-      color: BASE.textSoft,
+      color: defaultChartColorConfig.textSoft,
     },
   },
   valueAxis: {
     type: 'value',
     axisLine: {
-      show: true,
-      lineStyle: {
-        color: BASE.lineColor,
-      },
+      show: false,
     },
     axisLabel: {
-      color: BASE.textSoft,
+      color: defaultChartColorConfig.textSoft,
     },
     splitLine: {
       lineStyle: {
-        color: BASE.bgLineColor,
+        color: defaultChartColorConfig.bgLineColor,
         width: 1,
       },
     },

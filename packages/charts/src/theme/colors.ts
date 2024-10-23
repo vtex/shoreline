@@ -1,22 +1,20 @@
-export const CATEGORICAL = {
-  primary: '#014592',
-  secondary: '#9C56F3',
-  tertiary: '#0D504D',
-  quaternary: '#CA226A',
-  quinary: '#F95D47',
-  senary: '#5C12B6',
-  septenary: '#08A822',
-  octonary: '#EF5997',
-  nonary: '#157BF4',
-  denary: '#B18D01',
-  undenary: '#013A5E',
-  duodenary: '#01A29B;',
-  ternary: '#B24D01',
-  fourteen: '#720000',
+import { presetSunrise } from '@vtex/shoreline'
+import { parseTokens } from '@vtex/shoreline-utils'
+
+export const colors = parseTokens({
+  tokens: presetSunrise?.tokens?.color ?? {},
+})
+
+export const defaultColorPreset = [
+  colors['--sl-blue-8'],
+  colors['--sl-orange-6'],
+  colors['--sl-purple-9'],
+]
+
+export const defaultChartColorConfig = {
+  lineColor: colors['--sl-gray-6'],
+  textSoft: colors['--sl-gray-9'],
+  bgLineColor: colors['--sl-gray-3'],
 }
 
-export const BASE = {
-  lineColor: '#ADADAD',
-  textSoft: '#707070',
-  bgLineColor: '#EBEBEB',
-}
+export const defaultSpinnerColor = colors['--sl-blue-8']

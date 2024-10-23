@@ -8,13 +8,14 @@ import {
   useCallback,
 } from 'react'
 import type { EChartsOption, SetOptionOpts } from 'echarts'
-import ReactECharts from 'echarts-for-react'
+import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import type * as echarts from 'echarts'
 
 import { defaultTheme } from './theme/themes'
-import type { ChartConfig, ChartLoadingConfig } from './types/chart'
+import type { ChartConfig } from './types/chart'
 import { getChartOptions } from './utils/chart'
 import { canUseDOM } from '@vtex/shoreline-utils'
+import { DEFAULT_LOADING_SPINNER } from './theme/chartStyles'
 
 /**
  * Render a Shoreline Chart with echarts
@@ -26,7 +27,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       option,
       settings,
       loading = false,
-      loadingConfig = null,
+      loadingConfig = DEFAULT_LOADING_SPINNER,
       chartConfig,
       style,
       ...otherProps
@@ -97,7 +98,7 @@ export interface ChartsOptions {
    * Options for customize the chart loading
    * @default false
    */
-  loadingConfig?: ChartLoadingConfig
+  loadingConfig?: EChartsInstance['showLoading']
   /**
    * Configs containing type of chart and its variants, each variant is a pre-defined chart style for each type
    * @default default

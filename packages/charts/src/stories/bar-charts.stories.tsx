@@ -1,140 +1,119 @@
-import React from 'react'
 import { Chart } from '../index'
 import { compactNumber } from '../utils/format'
+import type { StoryObj } from '@storybook/react/*'
 
 export default {
   title: 'Charts/bar',
+  component: Chart,
 }
 
-export function Basic() {
-  return (
-    <Chart
-      option={{
-        xAxis: {
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        },
-        series: [{ data: [1, 2, 3, 4, 5, 6, 7] }],
-      }}
-      chartConfig={{ type: 'bar' }}
-      style={{ height: 550 }}
-    />
-  )
-}
+type Story = StoryObj<typeof Chart>
 
-export function LoadingCustom() {
-  const [loading, setLoading] = React.useState(true)
-  const [data, setData] = React.useState<{
-    series: { data: number[] }[]
-    labels: string[]
-  }>({
-    series: [{ data: [] }],
-    labels: [],
-  })
-
-  setTimeout(() => {
-    setLoading(false)
-    setData({
+export const Basic: Story = {
+  args: {
+    option: {
+      xAxis: {
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      },
       series: [{ data: [1, 2, 3, 4, 5, 6, 7] }],
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    })
-  }, 5000)
-
-  return (
-    <Chart
-      option={{
-        xAxis: {
-          data: data.labels,
-        },
-        series: data.series,
-      }}
-      chartConfig={{ type: 'bar' }}
-      style={{ height: 550 }}
-      loading={loading}
-      loadingConfig={{
-        text: 'Carregando...',
-      }}
-    />
-  )
+    },
+    chartConfig: { type: 'bar' },
+    style: { height: 550 },
+  },
 }
 
-export function BasicMultiSeries() {
-  return (
-    <Chart
-      option={{
-        xAxis: {
-          data: ['Mon', 'Tue', 'Wed'],
+export const Loading: Story = {
+  render: (args) => {
+    const { option, chartConfig, loading } = args
+
+    return (
+      <Chart
+        option={option}
+        chartConfig={chartConfig}
+        style={{ height: 550 }}
+        loading={loading}
+      />
+    )
+  },
+  args: {
+    option: {
+      xAxis: {
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      },
+      series: [{ data: [1, 2, 3, 4, 5, 6, 7] }],
+    },
+    chartConfig: { type: 'bar' },
+    style: { height: 550 },
+    loading: true,
+  },
+}
+export const MultiSeries: Story = {
+  args: {
+    option: {
+      xAxis: {
+        data: ['Mon', 'Tue', 'Wed'],
+      },
+      series: [
+        { data: [3, 2, 3, 4], name: 'Series 1' },
+        { data: [1, 4, 2, 3], name: 'Series 2' },
+        { data: [2, 1, 4, 1], name: 'Series 3' },
+      ],
+    },
+    chartConfig: { type: 'bar' },
+    style: { height: 550 },
+  },
+}
+export const WithHugeNumbers: Story = {
+  args: {
+    option: {
+      xAxis: {
+        data: ['Mon', 'Tue', 'Wed'],
+      },
+      yAxis: {
+        axisLabel: {
+          formatter: (value: number) => compactNumber(value),
         },
-        series: [
-          { data: [3, 2, 3], name: 'Series 1' },
-          { data: [1, 4, 2], name: 'Series 2' },
-          { data: [2, 1, 4], name: 'Series 3' },
-        ],
-      }}
-      chartConfig={{ type: 'bar' }}
-      style={{ height: 550 }}
-    />
-  )
+      },
+      series: [
+        {
+          data: [12344441, 62346346, 97346346],
+          name: 'Series 1',
+        },
+      ],
+    },
+    chartConfig: { type: 'bar' },
+    style: { height: 550 },
+  },
 }
 
-export function HugeNumbers() {
-  const numbers = [12344441, 62346346, 97346346]
-
-  return (
-    <Chart
-      option={{
-        xAxis: {
-          data: ['Mon', 'Tue', 'Wed'],
-        },
-        yAxis: {
-          axisLabel: {
-            formatter: (value) => compactNumber(value),
-          },
-        },
-        series: [
-          {
-            data: numbers,
-            name: 'Series 1',
-          },
-        ],
-      }}
-      chartConfig={{ type: 'bar' }}
-      style={{ height: 550 }}
-    />
-  )
+export const Horizontal: Story = {
+  args: {
+    option: {
+      xAxis: {
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Test'],
+      },
+      series: [
+        { data: [1, 2, 3, 4, 5, 6, 7, 8] },
+        { data: [1, 4, 2, 1, 4, 3, 5, 9] },
+      ],
+    },
+    chartConfig: { type: 'bar', variant: 'horizontal' },
+    style: { height: 550 },
+  },
 }
 
-export function Horizontal() {
-  return (
-    <Chart
-      option={{
-        xAxis: {
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        },
-        series: [
-          { data: [1, 2, 3, 4, 5, 6, 7] },
-          { data: [1, 4, 2, 1, 4, 3, 5] },
-        ],
-      }}
-      chartConfig={{ type: 'bar', variant: 'horizontal' }}
-      style={{ height: 550 }}
-    />
-  )
-}
-
-export function MultiType() {
-  return (
-    <Chart
-      option={{
-        xAxis: {
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        },
-        series: [
-          { data: [1, 2, 3, 4, 5, 6, 7] },
-          { data: [1, 4, 2, 1, 4, 3, 5], type: 'line' },
-        ],
-      }}
-      chartConfig={{ type: 'bar', variant: 'default' }}
-      style={{ height: 550 }}
-    />
-  )
+export const MultiType: Story = {
+  args: {
+    option: {
+      xAxis: {
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      },
+      series: [
+        { data: [1, 2, 3, 4, 5, 6, 7] },
+        { data: [1, 4, 2, 1, 4, 3, 5], type: 'line' },
+      ],
+    },
+    chartConfig: { type: 'bar', variant: 'default' },
+    style: { height: 550 },
+  },
 }
