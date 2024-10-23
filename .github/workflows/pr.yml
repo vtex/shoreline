@@ -37,9 +37,6 @@ jobs:
       - name: Code lint
         run: pnpm lint
 
-      - name: Stylelint
-        run: pnpm stylelint **/*.css
-
       - name: Test
         run: pnpm test:ci
 

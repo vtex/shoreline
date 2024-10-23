@@ -45,12 +45,18 @@ export const Clickable = forwardRef<HTMLDivElement, ClickableProps>(
 )
 
 function shouldBubble(event: ExtendedMouseEvent): boolean {
-  return !!event?.target?.getAttribute('data-sl-clickable-bubble')
+  const shouldBubbleEvent = !!event.target.getAttribute('data-should-bubble')
+  event.target.removeAttribute('data-should-bubble')
+
+  return shouldBubbleEvent
 }
 
-interface ExtendedMouseEvent extends Omit<React.MouseEvent<any>, 'target'> {
+export interface ExtendedMouseEvent
+  extends Omit<React.MouseEvent<any>, 'target'> {
   target: React.MouseEvent<any>['target'] & {
+    setAttribute: (qualifiedName: string, value: string) => void
     getAttribute: (attribute: string) => any
+    removeAttribute: (attribute: string) => void
   }
 }
 

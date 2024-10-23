@@ -43,7 +43,7 @@
     align-items: flex-start;
   }
 
-  &[data-variant='informational'] {
+  &[data-variant="informational"] {
     background: var(--sl-bg-informational);
     border: var(--sl-border-informational);
 
@@ -52,7 +52,7 @@
     }
   }
 
-  &[data-variant='success'] {
+  &[data-variant="success"] {
     background: var(--sl-bg-success);
     border: var(--sl-border-success);
 
@@ -61,7 +61,7 @@
     }
   }
 
-  &[data-variant='critical'] {
+  &[data-variant="critical"] {
     background: var(--sl-bg-critical);
     border: var(--sl-border-critical);
 
@@ -70,7 +70,7 @@
     }
   }
 
-  &[data-variant='warning'] {
+  &[data-variant="warning"] {
     background: var(--sl-bg-warning);
     border: var(--sl-border-warning);
 

@@ -4,7 +4,7 @@
   letter-spacing: var(--sl-text-body-letter-spacing);
 }
 
-[data-sl-pagination-label][data-loading='true'] {
+[data-sl-pagination-label][data-loading="true"] {
   width: 4.125rem;
   height: 1.25rem;
 }

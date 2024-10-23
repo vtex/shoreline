@@ -3,6 +3,84 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.7](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.6...@vtex/shoreline@1.11.7) (2024-10-23)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.5...@vtex/shoreline@1.11.6) (2024-10-22)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.5](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.4...@vtex/shoreline@1.11.5) (2024-10-22)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+## [1.11.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.3...@vtex/shoreline@1.11.4) (2024-10-22)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+## [1.11.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.2...@vtex/shoreline@1.11.3) (2024-10-22)
+
+### Bug Fixes
+
+- **shoreline:** avoid infinite loops on the dev script ([bbc29b2](https://github.com/vtex/shoreline/commit/bbc29b29eab5b7a767ce4feeecc9327e9ad08d38))
+
+## [1.11.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.1...@vtex/shoreline@1.11.2) (2024-10-16)
+
+### Bug Fixes
+
+- **menu:** use the primary, secondary, and tertiary props ([daee9be](https://github.com/vtex/shoreline/commit/daee9be73ea5cf1ad8203338adbc3cda30a2ccf6))
+
+## [1.11.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.0...@vtex/shoreline@1.11.1) (2024-10-16)
+
+### Bug Fixes
+
+- pass disabled to native input ([5331d9e](https://github.com/vtex/shoreline/commit/5331d9e447350a177c12a65e7c0c7f9b47c37cfe))
+
+# [1.11.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.10.3...@vtex/shoreline@1.11.0) (2024-10-15)
+
+### Features
+
+- **clickable:** add only immediate prop ([ab0b903](https://github.com/vtex/shoreline/commit/ab0b9035e578534409cf1fd08238364cf0301f37)), closes [#1963](https://github.com/vtex/shoreline/issues/1963)
+
+## [1.10.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.10.2...@vtex/shoreline@1.10.3) (2024-10-11)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+## [1.10.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.10.1...@vtex/shoreline@1.10.2) (2024-10-10)
+
+### Bug Fixes
+
+- **date-range-picker:** update react-aria and fix types ([5a3ac60](https://github.com/vtex/shoreline/commit/5a3ac60cd985c5e3b0452ae32fcc2abb8f461fc6))
+
+## [1.10.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.10.0...@vtex/shoreline@1.10.1) (2024-10-10)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+# [1.10.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.12...@vtex/shoreline@1.10.0) (2024-10-09)
+
+### Features
+
+- add portal option to DatePicker, MenuPopover, and Popover components ([10fa6c8](https://github.com/vtex/shoreline/commit/10fa6c8de3c631d3d5b850e203597ab0e5226b7e))
+
+## [1.9.12](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.11...@vtex/shoreline@1.9.12) (2024-10-02)
+
+### Bug Fixes
+
+- **toast:** add font style to data-sl-toast ([94c863e](https://github.com/vtex/shoreline/commit/94c863e53a060e355c8c0a369010b4960c95ab14)), closes [#1978](https://github.com/vtex/shoreline/issues/1978)
+
+## [1.9.11](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.10...@vtex/shoreline@1.9.11) (2024-10-02)
+
+**Note:** Version bump only for package @vtex/shoreline
+
 ## [1.9.10](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.9...@vtex/shoreline@1.9.10) (2024-09-26)
 
 ### Bug Fixes

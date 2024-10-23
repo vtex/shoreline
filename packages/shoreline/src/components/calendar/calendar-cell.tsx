@@ -24,11 +24,18 @@ export function CalendarCell(props: CalendarCellProps) {
     isFocused,
   } = useCalendarCell({ date }, store.state, ref)
 
-  const isSelectionStart = isRangeCalendar(store.state)
-    ? isSameDay(date, store.state?.highlightedRange?.start)
+  if (!store) {
+    return null
+  }
+
+  const canUseSelection =
+    isRangeCalendar(store.state) && store.state.highlightedRange
+
+  const isSelectionStart = canUseSelection
+    ? isSameDay(date, store.state.highlightedRange.start)
     : isSelected
 
-  const isSelectionEnd = isRangeCalendar(store.state)
+  const isSelectionEnd = canUseSelection
     ? isSameDay(date, store.state.highlightedRange.end)
     : isSelected
 

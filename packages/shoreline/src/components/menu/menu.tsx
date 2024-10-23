@@ -23,7 +23,7 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
       children,
       label,
       asChild = false,
-      variant = 'secondary',
+      variant = 'tertiary',
       type = 'menu',
       iconOnly = false,
       size = 'normal',
@@ -80,7 +80,7 @@ function getIcon(type: MenuProps['type'] = 'menu') {
   }
 }
 
-type InheritedOptions = Pick<ButtonProps, 'variant' | 'size' | 'disabled'> &
+type InheritedOptions = Pick<ButtonProps, 'size' | 'disabled'> &
   Pick<
     MenuProviderOptions,
     'open' | 'setOpen' | 'defaultOpen' | 'store' | 'placement'
@@ -106,6 +106,11 @@ export interface MenuOptions extends InheritedOptions {
    * @default false
    */
   iconOnly?: boolean
+  /**
+   * Change between color combinations.
+   * @default 'tertiary'
+   */
+  variant?: 'primary' | 'secondary' | 'tertiary'
 }
 
 export type MenuProps = MenuOptions & ComponentPropsWithoutRef<'div'>

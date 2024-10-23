@@ -9,7 +9,7 @@ The component is simple in construction and less complex to use. We provide the 
 - Select the instance, click on the more options menu, and then choose Detach instance.
 
 import { Callout } from 'nextra/components'
- 
+
 <Callout type="warning" emoji="💡">
   Make sure to use the smaller components, such as Columns and Cells, and keep them linked. This way, we ensure consistency across Admin tables.
 </Callout>
@@ -17,7 +17,7 @@ import { Callout } from 'nextra/components'
 ## 2. Define the Table Header
 
 import { Steps } from 'nextra/components'
- 
+
 <Steps>
 ### Adjust the Header props
 
@@ -31,10 +31,10 @@ import { Steps } from 'nextra/components'
   The columns for those props should maintain their original width. When configuring column resizing, these should always be fixed.
 </Callout>
 
-![Table Header Props](public/assets/table-figma-header.webp)
- 
+![Table Header Props](/assets/table-figma-header.webp)
+
 ### Define the number of columns
- 
+
 - Detach the component.
 - Hide or delete unnecessary columns, or add more columns.
 - Configure the resizing in the most suitable way for responsiveness.
@@ -53,7 +53,7 @@ import { Steps } from 'nextra/components'
 | `contextual help`           |   Defines if there's a Contextual Help besides the column label.               |
 | `label` |   Edits the column label.            |
 
-![Table Columns Props](public/assets/table-figma-columns.webp)
+![Table Columns Props](/assets/table-figma-columns.webp)
 
 ### Create a local component
 
@@ -75,7 +75,7 @@ After creating a local header component, replace it in the Table that is already
 
 Expandable variants include a placeholder for content. Create a local component with your content and then replace the placeholder, respecting the paddings already applied. Currently, any content can be included within an expanding row, even another table.
 
-![Table Rows Props](public/assets/table-figma-rows.webp)
+![Table Rows Props](/assets/table-figma-rows.webp)
 
 ### Define the number of columns
 
@@ -126,7 +126,7 @@ The minimum height of the row always respects the minimum height of the cells, a
 
 The Table component already includes a layer called Rows with auto layout. Replace the rows components that already exist in the Table for your local row component. Delete or add the necessary rows.
 
-![Add Rows](public/assets/table-figma-addrows.webp)
+![Add Rows](/assets/table-figma-addrows.webp)
 
 ### Create a local component
 

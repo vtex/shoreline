@@ -27,7 +27,7 @@
     box-shadow: var(--sl-focus-ring-base);
   }
 
-  &[data-error='true'] {
+  &[data-error="true"] {
     border: var(--sl-border-critical-strong);
     &:hover {
       border: var(--sl-border-critical-strong-hover);
@@ -37,13 +37,13 @@
     }
   }
 
-  &[data-disabled='true'] {
+  &[data-disabled="true"] {
     border: var(--sl-border-base-disabled);
     background-color: var(--sl-bg-base-disabled);
     color: var(--sl-fg-base-disabled);
   }
 
-  &[data-resizable='true'] {
+  &[data-resizable="true"] {
     resize: vertical;
   }
 

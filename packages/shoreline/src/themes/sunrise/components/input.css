@@ -18,7 +18,7 @@
     border: var(--sl-border-base-strong-hover);
   }
 
-  &[data-error='true'] {
+  &[data-error="true"] {
     border: var(--sl-border-critical-strong);
 
     &:hover {
@@ -30,7 +30,7 @@
     }
   }
 
-  &[data-disabled='true'] {
+  &[data-disabled="true"] {
     border: var(--sl-border-base-disabled);
     color: var(--sl-fg-base-disabled);
     background-color: var(--sl-bg-base-disabled);
@@ -40,11 +40,11 @@
     padding: var(--sl-space-3) var(--sl-space-4);
     height: 100%;
 
-    &[data-type='prefix'] {
+    &[data-type="prefix"] {
       border-right: var(--sl-border-base);
     }
 
-    &[data-type='suffix'] {
+    &[data-type="suffix"] {
       border-left: var(--sl-border-base);
     }
   }

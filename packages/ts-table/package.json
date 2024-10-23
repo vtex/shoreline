@@ -1,7 +1,7 @@
 {
   "name": "@vtex/shoreline-ts-table",
   "description": "Shoreline implementation of @tanstack/react-table",
-  "version": "1.0.63",
+  "version": "1.0.77",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -38,8 +38,8 @@
   "peerDependencies": {
     "@tanstack/react-table": ">=8",
     "@vtex/shoreline": ">=1",
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": ">=18.3",
+    "react-dom": ">=18.3"
   },
   "devDependencies": {
     "@faker-js/faker": "8.4.1",
@@ -52,6 +52,6 @@
   "dependencies": {
     "@tanstack/react-table": "8.17.3",
     "@tanstack/react-virtual": "3.0.1",
-    "@vtex/shoreline-utils": "^1.0.63"
+    "@vtex/shoreline-utils": "^1.0.77"
   }
 }

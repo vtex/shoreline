@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.77](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.76...@vtex/shoreline-utils@1.0.77) (2024-10-23)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+
+
+
+
+## [1.0.76](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.75...@vtex/shoreline-utils@1.0.76) (2024-10-22)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+
+
+
+
+## [1.0.75](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.74...@vtex/shoreline-utils@1.0.75) (2024-10-22)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+## [1.0.74](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.73...@vtex/shoreline-utils@1.0.74) (2024-10-22)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+## [1.0.73](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.72...@vtex/shoreline-utils@1.0.73) (2024-10-22)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+## [1.0.72](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.71...@vtex/shoreline-utils@1.0.72) (2024-10-16)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+## [1.0.71](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.70...@vtex/shoreline-utils@1.0.71) (2024-10-16)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+## [1.0.70](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.69...@vtex/shoreline-utils@1.0.70) (2024-10-15)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+## [1.0.69](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.68...@vtex/shoreline-utils@1.0.69) (2024-10-11)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+## [1.0.68](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.67...@vtex/shoreline-utils@1.0.68) (2024-10-10)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+## [1.0.67](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.66...@vtex/shoreline-utils@1.0.67) (2024-10-10)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+## [1.0.66](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.65...@vtex/shoreline-utils@1.0.66) (2024-10-09)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+## [1.0.65](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.64...@vtex/shoreline-utils@1.0.65) (2024-10-02)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
+## [1.0.64](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.63...@vtex/shoreline-utils@1.0.64) (2024-10-02)
+
+**Note:** Version bump only for package @vtex/shoreline-utils
+
 ## [1.0.63](https://github.com/vtex/shoreline/compare/@vtex/shoreline-utils@1.0.62...@vtex/shoreline-utils@1.0.63) (2024-09-26)
 
 **Note:** Version bump only for package @vtex/shoreline-utils

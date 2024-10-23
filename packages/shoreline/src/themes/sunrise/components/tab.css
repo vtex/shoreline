@@ -28,7 +28,7 @@
     color: var(--sl-fg-muted-hover);
   }
 
-  &[aria-selected='true'] {
+  &[aria-selected="true"] {
     border-color: var(--sl-bg-accent-strong);
 
     & > [data-sl-tab-content] {
