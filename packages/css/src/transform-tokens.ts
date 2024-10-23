@@ -1,66 +1,68 @@
+import { outputFileSync } from 'fs-extra'
 import browserslist from 'browserslist'
 import { transform, browserslistToTargets } from 'lightningcss'
+import ora from 'ora'
 
-export function transformTokens(args: TransformTokensArgs) {
+import type { TokenConfig } from './types'
+import { getCssString } from './get-css-string'
+
+/**
+ * Transform shoreline tokens
+ */
+export function transformTokens(args: TokensArgs): string {
   const {
-    code,
-    useCascadeLayers = true,
+    tokens,
+    outdir,
     browserslistQuery = 'last 1 versions',
+    useCascadeLayers = true,
+    emitFile = false,
   } = args
 
-  const targets = browserslistToTargets(browserslist(browserslistQuery))
+  const spinner = ora('Transforming tokens').start()
 
-  const result = transform({
+  const css = transform({
     filename: 'styles.css',
-    code: code,
-    targets,
+    code: Buffer.from(getCssString(tokens)),
+    targets: browserslistToTargets(browserslist(browserslistQuery)),
     minify: false,
-    customAtRules: {
-      theme: {
-        prelude: '<custom-ident>',
-        body: 'style-block',
-      },
-    },
-    visitor: {
-      Rule: {
-        custom: {
-          theme(rule) {
-            const prefixedRoot = JSON.parse(
-              JSON.stringify(rule.body.value).replace(/--/gi, '--sl-')
-            )
-
-            if (!useCascadeLayers) {
-              return prefixedRoot
-            }
-
-            return [
-              {
-                type: 'layer-block',
-                value: {
-                  name: ['sl-tokens'],
-                  loc: rule.loc,
-                  rules: prefixedRoot,
-                },
-              },
-            ]
-          },
-        },
-      },
-    },
   })
 
-  return result
+  const code = css.code.toString()
+
+  if (emitFile) {
+    const outputFile = `${outdir}/tokens${
+      useCascadeLayers ? '' : '-unlayered'
+    }.css`
+
+    try {
+      outputFileSync(outputFile, code)
+      spinner.succeed(`Generated ${outputFile}`)
+    } catch (e) {
+      spinner.fail('Transformation failed')
+    }
+  }
+
+  spinner.succeed('Finished')
+
+  return code
 }
 
-export interface TransformTokensArgs {
+export interface TokensArgs {
   /**
-   * code to transform
+   * token configuration
    */
-  code: Buffer
+  tokens: TokenConfig
+  /**
+   * output directory
+   */
+  outdir: string
+  /**
+   * wether the tokens.css is emited
+   */
+  emitFile?: boolean
   /**
    * css support query
    * @default 'last 1 versions'
-   *
    */
   browserslistQuery?: string | string[]
   /**
