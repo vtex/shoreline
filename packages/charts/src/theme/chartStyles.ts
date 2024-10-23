@@ -5,7 +5,7 @@ import { defaultSpinnerColor } from './colors'
 
 export const BAR_CHART_LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   orient: 'horizontal',
-  left: '3%',
+  left: '10rem',
   bottom: 0,
   align: 'left',
   itemWidth: 16,

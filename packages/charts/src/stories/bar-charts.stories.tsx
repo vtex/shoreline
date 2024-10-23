@@ -1,11 +1,12 @@
 import { Chart } from '../index'
 import { compactNumber } from '../utils/format'
-import type { StoryObj } from '@storybook/react/*'
+import type { StoryObj } from '@storybook/react'
 
-export default {
+const Bar = {
   title: 'Charts/bar',
   component: Chart,
 }
+export default Bar
 
 type Story = StoryObj<typeof Chart>
 
