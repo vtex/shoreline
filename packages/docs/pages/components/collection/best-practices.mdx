@@ -57,3 +57,11 @@ Read the EmptyState documentation for more information.
 - **No items have been created or received:** Hide elements that are unnecessary in this state such as any Search, Filter, and Pagination.
 - **The search works but no results match the terms:** Keep the Search, Filters, and any Buttons active, and disable both Paginations.
 - **Items fail to load or the search fails to return results:** Keep the Search and Filters active, and disable both Paginations. Disable any other button that can't be triggered while in this state.
+
+### Updating content
+
+- The content on a page should only be updated after an explicit action taken by the user.
+
+- In a listing, if the user tries to access a page that does not exist, either by typing the page number directly into the URL (e.g., ?page=5) or refreshing the page, the system should redirect them to the last available page and display a temporary yellow toast message informing that the page does not exist.
+
+- If the user tries to access an item from a listing that has been deleted, they should be redirected back to the listing and see a temporary yellow toast message informing that the item is no longer available.
