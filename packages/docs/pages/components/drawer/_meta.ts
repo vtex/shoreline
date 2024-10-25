@@ -1,4 +1,5 @@
 export default {
+  'best-practices': 'Best Practices',
   'drawer-content': 'DrawerContent',
   'drawer-dismiss': 'DrawerDismiss',
   'drawer-footer': 'DrawerFooter',
