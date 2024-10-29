@@ -1,0 +1,43 @@
+# Best Practices
+
+## Properties
+
+### Size
+
+| Value | Usage |
+| --- | --- |
+| `small` | Less dense content such as short messages or forms with only a few fields. |
+| `medium` | More dense content such as long messages, lists, visual data, and longer forms. |
+
+### Title
+
+- When the Drawer contains a form, the Title should include a verb in the infinitive and an object. For example, Edit metadata. When possible, reuse the label of the action that triggered the Drawer.
+- When the Drawer only displays information that can be interactive or not, such as links, visual data, or item details, the Title should describe the content. For example, Help or Excessive permissions.
+- Use sentence case, but capitalize proper nouns.
+- Don't use punctuation, more than three words, or personal pronouns.
+
+### Content
+Drawers allow users to interact with content outside the overlay. Include in a Drawer content that is related to a minor job within the main job of a Page that doesn't demand complete attention and block the user flow. For example, minor jobs can be filling out a small form before performing an action (e.g. to edit SKU metadata) or viewing additional information (e.g. details of a security finding).
+
+## Position
+
+- **Drawer in relation to the Page:** By default, the Drawer appears from the right of the page and at full height. Don't customize this behavior.
+- **Content in a Drawer:** Any content inside the Drawer should respect its margins.
+- **Actions in a Drawer:** Position the main actions of a Drawer in its Footer. For example, the action that submits the form.
+
+## Behavior
+
+### Opening
+
+- A Drawer should always be triggered by a user action, such as pressing a Button or a list item.
+- Don't open a Modal automatically after a page loads.
+
+### Closing
+
+- By default, a drawer always includes a Close button in the header. When there's an action to submit the form in the footer, also include a Cancel action to its left that has the same effect as the Close button. Don't customize this behavior.
+- When the Drawer contains a list for the user to select a single option, pressing the option should submit the selection and close the Modal. Don't require a separate submit action.
+
+### Scrolling
+
+When the Drawer reaches its maximum height it starts to have a vertical scroll. Prefer to make the content brief and avoid scroll.
+
