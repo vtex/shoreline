@@ -2,7 +2,7 @@ name: Vercel Preview Deployment
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-  VTEX_GITHUB_BOT_TOKEN: ${{ secrets.VTEX_GITHUB_BOT_TOKEN }}
+  VTEX_GITHUB_BOT_TOKEN: ${{ secrets.DOC_GH_TOKEN }}
 on:
   push:
     branches-ignore:

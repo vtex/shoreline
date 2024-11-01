@@ -14,9 +14,7 @@ const REPO_NAME = "shoreline";
 const token = process.env.VTEX_GITHUB_BOT_TOKEN ?? "";
 const startDate = new Date("2024-01-01T00:00:00Z").toISOString();
 
-if (!token) {
-	console.log("Github token invalid!");
-}
+console.log(`${!token ? "Invalid" : "Valid"} Github token!`);
 
 const graphqlWithAuth = graphql.defaults({
 	headers: {
@@ -329,39 +327,42 @@ async function main() {
 	 */
 	const code = `
 export interface Contributor {
-  username: string
-  image: string
-  stats: {
-    issues: number
-    pulls: number
-    reviews: number
-    comments: number
-    merged: number
-    assigns: number
-    rate: number
-  }
+	username: string;
+	image: string;
+	stats: {
+		issues: number;
+		pulls: number;
+		reviews: number;
+		comments: number;
+		merged: number;
+		assigns: number;
+		rate: number;
+	};
 }
 
-export const contributors: Contributor[] = ${JSON.stringify(stats)}
+export const contributors: Contributor[] = $
+{
+	JSON.stringify(stats);
+}
 
 export function getContributor(username: string) {
   return contributors.find((contributor) => contributor.username === username)
 }
 
 const maintainers = [
-  'matheusps',
-  'davicostalf',
-  'lucasaarcoverde',
-  'beatrizmilhomem',
-]
+	"matheusps",
+	"davicostalf",
+	"lucasaarcoverde",
+	"beatrizmilhomem",
+];
 
 export function getContributors() {
-  return contributors.filter(
-    (contributor) =>
-      !maintainers.includes(contributor.username) && contributor.stats.rate > 0
-  )
+	return contributors.filter(
+		(contributor) =>
+			!maintainers.includes(contributor.username) && contributor.stats.rate > 0,
+	);
 }
-  `;
+`;
 
 	const formattedCode = await format(code, {
 		parser: "typescript",
@@ -369,18 +370,24 @@ export function getContributors() {
 		singleQuote: true,
 	});
 
-	fse.outputFile(`${statsOutputDirectory}/stats.ts`, formattedCode, (err) => {
-		if (err) {
-			console.log(err);
-		} else {
-			console.log("✅ Contributor stats generated");
-		}
-	});
+	fse.outputFile(`;
+$;
+{
+	statsOutputDirectory;
+}
+/    (),,.=>C`aaddeeefmoorrrsssttttt{;
+	if (err) {
+		console.log(err);
+	} else {
+		console.log("✅ Contributor stats generated");
+	}
+}
+)
 
-	/**
-	 * Generate issues stats file
-	 */
-	const issuesCode = `
+/**
+ * Generate issues stats file
+ */
+const issuesCode = `
 interface Author {
   login: string
   avatarUrl: string
@@ -400,29 +407,29 @@ export interface Issue {
 export const issuesOnFire: Issue[] = ${JSON.stringify(issuesOnFire)}
   `;
 
-	const formattedIssuesCode = await format(issuesCode, {
-		parser: "typescript",
-		semi: false,
-		singleQuote: true,
-	});
+const formattedIssuesCode = await format(issuesCode, {
+	parser: "typescript",
+	semi: false,
+	singleQuote: true,
+});
 
-	fse.outputFile(
-		`${statsOutputDirectory}/issues.ts`,
-		formattedIssuesCode,
-		(err) => {
-			if (err) {
-				console.log(err);
-			} else {
-				console.log("✅ Issues on fire generated");
-			}
-		},
-	);
+fse.outputFile(
+	`${statsOutputDirectory}/issues.ts`,
+	formattedIssuesCode,
+	(err) => {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log("✅ Issues on fire generated");
+		}
+	},
+);
 
-	/**
-	 * Generate contributor page files
-	 */
-	const contributorsPromises = contributors.map((contributor) => {
-		const mdxCode = `
+/**
+ * Generate contributor page files
+ */
+const contributorsPromises = contributors.map((contributor) => {
+	const mdxCode = `
 ---
 toc: false
 ---
@@ -436,31 +443,31 @@ import { getContributor } from '../../../__contributions__/stats';
 <ContributorStats contributor={getContributor("${contributor.username}")} />
     `;
 
-		return format(mdxCode, {
-			parser: "mdx",
-			semi: false,
-			singleQuote: true,
-		});
+	return format(mdxCode, {
+		parser: "mdx",
+		semi: false,
+		singleQuote: true,
 	});
+});
 
-	const contributorsMDX = await Promise.all(contributorsPromises);
+const contributorsMDX = await Promise.all(contributorsPromises);
 
-	for (const i in contributors) {
-		const contributor = contributors[i];
-		const contributorMDX = contributorsMDX[i];
+for (const i in contributors) {
+	const contributor = contributors[i];
+	const contributorMDX = contributorsMDX[i];
 
-		fse.outputFile(
-			`${contributorsOutputDirectory}/${contributor.username}.mdx`,
-			contributorMDX,
-			(err) => {
-				if (err) {
-					console.log(err);
-				} else {
-					console.log(`✅ ${contributor.username} page generated`);
-				}
-			},
-		);
-	}
+	fse.outputFile(
+		`${contributorsOutputDirectory}/${contributor.username}.mdx`,
+		contributorMDX,
+		(err) => {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log(`✅ ${contributor.username} page generated`);
+			}
+		},
+	);
+}
 }
 
-main();
+main()
