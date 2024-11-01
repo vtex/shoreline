@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "npm run gen:examples && npm run gen:props && next dev",
-		"build-docs": "echo $VTEX_GITHUB_BOT_TOKEN && npm --prefix ../../ run build && npm run gen:contributors && npm run gen:examples && npm run gen:props && next build",
+		"build-docs": "npm --prefix ../../ run build && npm run gen:contributors && npm run gen:examples && npm run gen:props && next build",
 		"start": "next start",
 		"gen:examples": "node ./scripts/build-examples.mjs",
 		"gen:props": "node ./scripts/build-props.mjs",
