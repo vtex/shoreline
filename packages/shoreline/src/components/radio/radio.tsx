@@ -10,9 +10,9 @@ import { Label } from '../label'
  * @status stable
  * @example
  * <RadioGroup label="Radio group">
- *  <Radio value="1">Option 1</Radio>
+ *  <Radio value="1" description="This is a test">Option 1</Radio>
  *  <Radio value="2">Option 2</Radio>
- *  <Radio value="3">Option 3</Radio>
+ *  <Radio value="3" description="Lorem ipsum">Option 3</Radio>
  * </RadioGroup>
  */
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
