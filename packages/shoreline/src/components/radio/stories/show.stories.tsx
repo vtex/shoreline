@@ -21,9 +21,9 @@ export function Show() {
         </Radio>
       </RadioGroup>
       <RadioGroup label="Vertical radio group" errorText="Something is wrong">
-        <Radio value="opt1">Pen</Radio>
+        <Radio value="opt1" description="this is a test">Pen</Radio>
         <Radio value="opt2">Pineapple</Radio>
-        <Radio value="opt3">Apple</Radio>
+        <Radio value="opt3" description="lorem ipsum">Apple</Radio>
         <Radio value="opt4">Another pen</Radio>
       </RadioGroup>
       <RadioGroup label="Horizontal radio group" horizontal>
