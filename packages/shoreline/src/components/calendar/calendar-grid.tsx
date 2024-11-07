@@ -24,8 +24,8 @@ export function CalendarGrid(props: CalendarGridProps) {
     <table data-sl-calendar-grid {...gridProps}>
       <thead data-sl-calendar-grid-header {...headerProps}>
         <tr>
-          {weekDays.map((day) => (
-            <th key={day}>{day}</th>
+          {weekDays.map((day, index) => (
+            <th key={`${day}=${index}`}>{day}</th>
           ))}
         </tr>
       </thead>
