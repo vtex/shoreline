@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.11](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.10...@vtex/shoreline@1.11.11) (2024-11-07)
+
+
+### Bug Fixes
+
+* **calendar-grid:** change key used in week days mapping ([af78a7d](https://github.com/vtex/shoreline/commit/af78a7dad3eeff61617919023afda66fa4a318f4)), closes [#2041](https://github.com/vtex/shoreline/issues/2041)
+
+
+
+
+
 ## [1.11.10](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.9...@vtex/shoreline@1.11.10) (2024-10-29)
 
 **Note:** Version bump only for package @vtex/shoreline
