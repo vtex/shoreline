@@ -10,7 +10,7 @@ import { forwardRef } from 'react'
 export const Tag = forwardRef<HTMLDivElement, TagProps>(
   function Tag(props, ref) {
     const {
-      variant = 'primary',
+      variant = 'secondary',
       size = 'normal',
       color = 'gray',
       children,
