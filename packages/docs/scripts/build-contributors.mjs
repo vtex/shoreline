@@ -14,6 +14,8 @@ const REPO_NAME = 'shoreline'
 const token = process.env.VTEX_GITHUB_BOT_TOKEN
 const startDate = new Date('2024-01-01T00:00:00Z').toISOString()
 
+console.log(`${!token ? 'Invalid' : 'Valid'} Github token!`)
+
 const graphqlWithAuth = graphql.defaults({
   headers: {
     authorization: `token ${token}`,
@@ -339,7 +341,24 @@ export interface Contributor {
 export const contributors: Contributor[] = ${JSON.stringify(stats)}
 
 export function getContributor(username: string) {
-  return contributors.find((contributor) => contributor.username === username)
+	const emptyContributor = {
+		username: "",
+		image: "",
+		stats: {
+			issues: 0,
+			assigns: 0,
+			comments: 0,
+			pulls: 0,
+			reviews: 0,
+			merged: 0,
+			rate: 0,
+		},
+	};
+
+	return (
+		contributors.find((contributor) => contributor.username === username) ??
+		emptyContributor
+	);
 }
 
 const maintainers = [
