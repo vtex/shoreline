@@ -8,6 +8,8 @@ import {
 } from '@vtex/shoreline-test-utils'
 import { Chart } from '../chart'
 import { BAR_CHART_DATA } from './__fixtures__/chartData'
+// biome-ignore lint/correctness/noUnusedImports: <explanation>
+import React from 'react'
 
 describe('@vtex.shoreline-charts bar chart tests', () => {
   test('renders the bar chart with correct data', async () => {

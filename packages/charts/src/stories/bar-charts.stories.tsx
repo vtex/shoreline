@@ -1,3 +1,5 @@
+// biome-ignore lint/correctness/noUnusedImports: <explanation>
+import React from 'react'
 import { Chart } from '../index'
 import { compactNumber } from '../utils/format'
 import type { StoryObj } from '@storybook/react'
