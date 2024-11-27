@@ -1,0 +1,20 @@
+# Components
+
+import {
+  allComponentsList,
+  allLayoutsList,
+  allPrimitivesList,
+} from "../../utils/all-components-list";
+import { pascalCase } from "@vtex/shoreline";
+
+<ComponentSummaryGrid mt="var(--sl-space-4)">
+  {allComponentsList.map((component) => {
+    let href = `/components/${component}`;
+    if (component === "checkbox-group") {
+      href = `/components/checkbox/${component}`;
+    } else if (component === "radio-group") {
+      href = `/components/radio/${component}`;
+    }
+    return <ComponentSummary key={component} name={component} href={href} />;
+  })}
+</ComponentSummaryGrid>

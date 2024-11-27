@@ -218,6 +218,9 @@ importers:
       '@vtex/shoreline':
         specifier: workspace:*
         version: link:../shoreline
+      '@vtex/shoreline-charts':
+        specifier: workspace:*
+        version: link:../charts
       '@vtex/shoreline-ts-table':
         specifier: workspace:*
         version: link:../ts-table

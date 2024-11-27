@@ -11,11 +11,11 @@ import type { EChartsOption, SetOptionOpts } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import type * as echarts from 'echarts'
 
-import { defaultTheme } from './theme/themes'
-import type { ChartConfig } from './types/chart'
-import { getChartOptions } from './utils/chart'
+import { defaultTheme } from '../../theme/themes'
+import type { ChartConfig } from '../../types/chart'
+import { getChartOptions } from '../../utils/chart'
 import { canUseDOM } from '@vtex/shoreline-utils'
-import { DEFAULT_LOADING_SPINNER } from './theme/chartStyles'
+import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
 
 /**
  * Render a Shoreline Chart with echarts
@@ -51,7 +51,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       if (chartRef.current) {
         chartRef.current.getEchartsInstance().resize()
       }
-    }, [])
+    }, [chartRef])
 
     useEffect(() => {
       if (!canUseDOM) return
