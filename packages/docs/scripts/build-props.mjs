@@ -159,7 +159,14 @@ const files = [
   /**
    * Charts
    */
-  getPath('charts', 'components', 'chart', 'chart'),
+]
+
+const chart = getPath('charts', 'components', 'chart', 'chart')
+const chartVariants = [
+  {
+    type: 'Bar',
+    description: 'teste',
+  },
 ]
 
 let tsCode = `
@@ -180,6 +187,23 @@ async function main() {
 
       tsCode += `
       "${kebabCase(ref?.name)}": ${JSON.stringify(ref)},
+      `
+    }
+  })
+  chartVariants.forEach((chartVariant) => {
+    const ref = getReferences(chart)[0]
+    if (ref) {
+      const displayName = chartVariant.type
+      const refName = `${ref?.name}-${chartVariant.type}`
+      const newRef = {
+        ...ref,
+        name: displayName,
+        description: chartVariant.description,
+      }
+      refs[kebabCase(refName)] = newRef
+
+      tsCode += `
+      "${kebabCase(refName)}": ${JSON.stringify(newRef)},
       `
     }
   })

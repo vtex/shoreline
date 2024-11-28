@@ -63,17 +63,19 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
     }, [handleResize, canUseDOM])
 
     return (
-      <div data-sl-chart {...otherProps}>
+      <div data-sl-chart>
         <ReactECharts
           ref={chartRef}
           theme={defaultTheme}
           option={chartOptions}
-          style={{ minWidth: 290, width: '100%', ...style }}
+          style={{ minWidth: 290, ...style }}
           opts={{
             renderer: 'svg',
           }}
           showLoading={loading}
           loadingOption={loadingConfig}
+          onChartReady={(instance) => instance.resize()}
+          {...otherProps}
         />
       </div>
     )

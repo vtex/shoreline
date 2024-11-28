@@ -6,7 +6,7 @@ import {
   waitFor,
   screen,
 } from '@vtex/shoreline-test-utils'
-import { Chart } from '../chart'
+import { Chart } from '../components/chart'
 import { BAR_CHART_DATA } from './__fixtures__/chartData'
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
 import React from 'react'
