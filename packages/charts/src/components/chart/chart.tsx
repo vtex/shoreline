@@ -84,7 +84,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
 
 export interface ChartsOptions {
   /**
-   * Echarts options
+   * Echarts options for the chart
    */
   option: EChartsOption
   /**
