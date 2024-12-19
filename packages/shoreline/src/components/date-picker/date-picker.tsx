@@ -32,14 +32,15 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
   const state = useDatePickerState(domProps)
   const ref = useRef(null)
   const anchorRef = useRef<HTMLDivElement>(null)
-  const { groupProps, labelProps, fieldProps, buttonProps, calendarProps } =
-    useDatePicker(domProps, state, ref)
 
   const store = useFieldContext()
   const { id: contextId, error: contextError } = useStore(store, (s) => s)
 
   const id = defaultId || contextId
   const error = defaultError || contextError
+
+  const { groupProps, labelProps, fieldProps, buttonProps, calendarProps } =
+    useDatePicker({ ...domProps, id }, state, ref)
 
   return (
     <PopoverProvider

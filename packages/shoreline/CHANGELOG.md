@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.12](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.11...@vtex/shoreline@1.11.12) (2024-11-07)
+
+
+### Bug Fixes
+
+* **data-picker:** change to id from groupProps not override id from field context ([dc00550](https://github.com/vtex/shoreline/commit/dc00550d17d8d3a41269d4f4d903c2b6722d657c)), closes [#2039](https://github.com/vtex/shoreline/issues/2039)
+* **data-range-picker:** change to id from groupProps not override id from field context ([1c78e6f](https://github.com/vtex/shoreline/commit/1c78e6fcf75afa45ff7b47008ca8d953d278bfd3)), closes [#2039](https://github.com/vtex/shoreline/issues/2039)
+
+
+
+
+
+## [1.11.11](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.10...@vtex/shoreline@1.11.11) (2024-11-07)
+
+
+### Bug Fixes
+
+* **calendar-grid:** change key used in week days mapping ([af78a7d](https://github.com/vtex/shoreline/commit/af78a7dad3eeff61617919023afda66fa4a318f4)), closes [#2041](https://github.com/vtex/shoreline/issues/2041)
+
+
+
+
+
+## [1.11.10](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.9...@vtex/shoreline@1.11.10) (2024-10-29)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.9](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.8...@vtex/shoreline@1.11.9) (2024-10-29)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.8](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.7...@vtex/shoreline@1.11.8) (2024-10-24)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
 ## [1.11.7](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.6...@vtex/shoreline@1.11.7) (2024-10-23)
 
 **Note:** Version bump only for package @vtex/shoreline
