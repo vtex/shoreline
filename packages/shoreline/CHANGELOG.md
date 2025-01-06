@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.13](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.12...@vtex/shoreline@1.11.13) (2025-01-06)
+
+
+### Bug Fixes
+
+* **data-picker:** update style when field is disabled ([c687c6c](https://github.com/vtex/shoreline/commit/c687c6c9631f372dd1ada1aa86d1ac7ef8920e70)), closes [#2048](https://github.com/vtex/shoreline/issues/2048)
+* **data-range-picker:** update style when field is disabled ([6bb77c8](https://github.com/vtex/shoreline/commit/6bb77c862a4dd9d2983b39ad1005f38a1392d8bf)), closes [#2048](https://github.com/vtex/shoreline/issues/2048)
+
+
+
+
+
 ## [1.11.12](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.11...@vtex/shoreline@1.11.12) (2024-11-07)
 
 
