@@ -40,10 +40,15 @@
     }
   }
 
-  &[data-disabled="true"] {
+  &[aria-disabled="true"] {
     border: var(--sl-border-base-disabled);
     color: var(--sl-fg-base-disabled);
     background-color: var(--sl-bg-base-disabled);
+
+    &:focus-within {
+      box-shadow: none;
+      border: var(--sl-border-base-disabled);
+    }
   }
 
   &:focus {
