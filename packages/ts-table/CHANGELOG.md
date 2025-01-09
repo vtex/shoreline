@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.84](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.83...@vtex/shoreline-ts-table@1.0.84) (2025-01-09)
+
+
+### Bug Fixes
+
+* **ts-table:** interaction between getSelectionColumn and Virtualization ([f15d572](https://github.com/vtex/shoreline/commit/f15d5720602af1a833cd03c348860a76623b83b3))
+
+
+
+
+
 ## [1.0.83](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.82...@vtex/shoreline-ts-table@1.0.83) (2025-01-06)
 
 **Note:** Version bump only for package @vtex/shoreline-ts-table

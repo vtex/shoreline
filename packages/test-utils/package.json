@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-test-utils",
-  "version": "1.0.83",
+  "version": "1.0.84",
   "description": "Shoreline test utilities",
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
