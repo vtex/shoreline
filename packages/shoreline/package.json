@@ -64,7 +64,7 @@
     "@internationalized/date": "3.5.6",
     "@react-aria/calendar": "3.5.12",
     "@react-aria/checkbox": "3.14.7",
-    "@react-aria/datepicker": "3.11.3",
+    "@react-aria/datepicker": "3.13.0",
     "@react-aria/focus": "3.18.3",
     "@react-aria/i18n": "3.12.3",
     "@react-aria/interactions": "3.22.3",
