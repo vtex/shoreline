@@ -249,8 +249,8 @@ importers:
         specifier: 3.5.12
         version: 3.5.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/checkbox':
-        specifier: 3.14.7
-        version: 3.14.7(react@18.3.1)
+        specifier: 3.15.1
+        version: 3.15.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/datepicker':
         specifier: 3.11.3
         version: 3.11.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2293,10 +2293,11 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
 
-  '@react-aria/checkbox@3.14.7':
-    resolution: {integrity: sha512-aqVxXcr/8P7pQ7R34DlJX2SdBvWtHof9lLTVBY/9tgMplcKIoVBdlVUYPtqWxT3tGan+rruPQHbzTx8zJRFJyg==}
+  '@react-aria/checkbox@3.15.1':
+    resolution: {integrity: sha512-ETgsMDZ0IZzRXy/OVlGkazm8T+PcMHoTvsxp0c+U82c8iqdITA+VJ615eBPOQh6OkkYIIn4cRn/e+69RmGzXng==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
   '@react-aria/datepicker@3.11.3':
     resolution: {integrity: sha512-HwGxDctFry5ew3Cu7gWpUVodaCg//V6NCihSRjLvnW/TWG+UFLzTafxTqqm8eRbicT3DJlXCLOUPk8Ek0txW6A==}
@@ -2308,6 +2309,18 @@ packages:
     resolution: {integrity: sha512-WKUElg+5zS0D3xlVn8MntNnkzJql2J6MuzAMP8Sv5WTgFDse/XGR842dsxPTIyKKdrWVCRegCuwa4m3n/GzgJw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+
+  '@react-aria/focus@3.19.1':
+    resolution: {integrity: sha512-bix9Bu1Ue7RPcYmjwcjhB14BMu2qzfJ3tMQLqDc9pweJA66nOw8DThy3IfVr8Z7j2PHktOLf9kcbiZpydKHqzg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
+  '@react-aria/form@3.0.12':
+    resolution: {integrity: sha512-8uvPYEd3GDyGt5NRJIzdWW1Ry5HLZq37vzRZKUW8alZ2upFMH3KJJG55L9GP59KiF6zBrYBebvI/YK1Ye1PE1g==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
   '@react-aria/form@3.0.9':
     resolution: {integrity: sha512-9M6IfC5t47G19c8roHWnkKd275BrECTzyTsc4rzf5OepJfHfG4evST6x+4gGOFYi8soC9XoQdJl4TRh/mft+gw==}
@@ -2324,10 +2337,22 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
 
+  '@react-aria/interactions@3.23.0':
+    resolution: {integrity: sha512-0qR1atBIWrb7FzQ+Tmr3s8uH5mQdyRH78n0krYaG8tng9+u1JlSi8DGRSaC9ezKyNB84m7vHT207xnHXGeJ3Fg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
   '@react-aria/label@3.7.12':
     resolution: {integrity: sha512-u9xT90lAlgb7xiv+p0md9QwCHz65XL7tjS5e29e88Rs3ptkv3aQubTqxVOUTEwzbNUT4A1QqTjUm1yfHewIRUw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+
+  '@react-aria/label@3.7.14':
+    resolution: {integrity: sha512-EN1Md2YvcC4sMqBoggsGYUEGlTNqUfJZWzduSt29fbQp1rKU2KlybTe+TWxKq/r2fFd+4JsRXxMeJiwB3w2AQA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
   '@react-aria/live-announcer@3.4.0':
     resolution: {integrity: sha512-VBxEdMq2SbtRbNTQNcDR2G6E3lEl5cJSBiHTTO8Ln1AL76LiazrylIXGgoktqzCfRQmyq0v8CHk1cNKDU9mvJg==}
@@ -2344,25 +2369,38 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
 
-  '@react-aria/toggle@3.10.8':
-    resolution: {integrity: sha512-N6WTgE8ByMYY+ZygUUPGON2vW5NrxwU91H98+Nozl+Rq6ZYR2fD9i8oRtLtrYPxjU2HmaFwDyQdWvmMJZuDxig==}
+  '@react-aria/ssr@3.9.7':
+    resolution: {integrity: sha512-GQygZaGlmYjmYM+tiNBA5C6acmiDWF52Nqd40bBp0Znk4M4hP+LTmI0lpI1BuKMw45T8RIhrAsICIfKwZvi2Gg==}
+    engines: {node: '>= 12'}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
+  '@react-aria/toggle@3.10.11':
+    resolution: {integrity: sha512-J3jO3KJiUbaYVDEpeXSBwqcyKxpi9OreiHRGiaxb6VwB+FWCj7Gb2WKajByXNyfs8jc6kX9VUFaXa7jze60oEQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
   '@react-aria/utils@3.25.3':
     resolution: {integrity: sha512-PR5H/2vaD8fSq0H/UB9inNbc8KDcVmW6fYAfSWkkn+OAdhTTMVKqXXrZuZBWyFfSD5Ze7VN6acr4hrOQm2bmrA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
 
+  '@react-aria/utils@3.27.0':
+    resolution: {integrity: sha512-p681OtApnKOdbeN8ITfnnYqfdHS0z7GE+4l8EXlfLnr70Rp/9xicBO6d2rU+V/B3JujDw2gPWxYKEnEeh0CGCw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
   '@react-stately/calendar@3.5.5':
     resolution: {integrity: sha512-HzaiDRhrmaYIly8hRsjjIrydLkldiw1Ws6T/130NLQOt+VPwRW/x0R+nil42mA9LZ6oV0XN0NpmG5tn7TaKRGw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
 
-  '@react-stately/checkbox@3.6.9':
-    resolution: {integrity: sha512-JrY3ecnK/SSJPxw+qhGhg3YV4e0CpUcPDrVwY3mSiAE932DPd19xr+qVCknJ34H7JYYt/q0l2z0lmgPnl96RTg==}
+  '@react-stately/checkbox@3.6.11':
+    resolution: {integrity: sha512-jApdBis+Q1sXLivg+f7krcVaP/AMMMiQcVqcz5gwxlweQN+dRZ/NpL0BYaDOuGc26Mp0lcuVaET3jIZeHwtyxA==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
   '@react-stately/datepicker@3.10.3':
     resolution: {integrity: sha512-6PJW1QMwk6BQMktV9L6DA4f2rfAdLfbq3iTNLy4qxd5IfNPLMUZiJGGTj+cuqx0WcEl+q5irp+YhKBpbmhPZHg==}
@@ -2374,6 +2412,11 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
 
+  '@react-stately/form@3.1.1':
+    resolution: {integrity: sha512-qavrz5X5Mdf/Q1v/QJRxc0F8UTNEyRCNSM1we/nnF7GV64+aYSDLOtaRGmzq+09RSwo1c8ZYnIkK5CnwsPhTsQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
   '@react-stately/overlays@3.6.11':
     resolution: {integrity: sha512-usuxitwOx4FbmOW7Og4VM8R8ZjerbHZLLbFaxZW7pWLs7Ypway1YhJ3SWcyNTYK7NEk4o602kSoU6MSev1Vgag==}
     peerDependencies:
@@ -2384,15 +2427,20 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
 
-  '@react-stately/toggle@3.7.8':
-    resolution: {integrity: sha512-ySOtkByvIY54yIu8IZ4lnvomQA0H+/mkZnd6T5fKN3tjvIzHmkUk3TAPmNInUxHX148tSW6mWwec0xvjYqEd6w==}
+  '@react-stately/toggle@3.8.1':
+    resolution: {integrity: sha512-MVpe79ghVQiwLmVzIPhF/O/UJAUc9B+ZSylVTyJiEPi0cwhbkKGQv9thOF0ebkkRkace5lojASqUAYtSTZHQJA==}
     peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
   '@react-stately/utils@3.10.4':
     resolution: {integrity: sha512-gBEQEIMRh5f60KCm7QKQ2WfvhB2gLUr9b72sqUdIZ2EG+xuPgaIlCBeSicvjmjBvYZwOjoOEnmIkcx2GHp/HWw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+
+  '@react-stately/utils@3.10.5':
+    resolution: {integrity: sha512-iMQSGcpaecghDIh3mZEpZfoFH3ExBwTtuBEcvZ2XnGzCgQjeYXcMdIUwAfVQLXFTdHUHGF6Gu6/dFrYsCzySBQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
   '@react-types/button@3.10.0':
     resolution: {integrity: sha512-rAyU+N9VaHLBdZop4zasn8IDwf9I5Q1EzHUKMtzIFf5aUlMUW+K460zI/l8UESWRSWAXK9/WPSXGxfcoCEjvAA==}
@@ -2408,6 +2456,11 @@ packages:
     resolution: {integrity: sha512-fvZrlQmlFNsYHZpl7GVmyYQlKdUtO5MczMSf8z3TlSiCb5Kl3ha9PsZgLhJqGuVnzB2ArIBz0eZrYa3k0PhcpA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+
+  '@react-types/checkbox@3.9.1':
+    resolution: {integrity: sha512-0x/KQcipfNM9Nvy6UMwYG25roRLvsiqf0J3woTYylNNWzF+72XT0iI5FdJkE3w2wfa0obmSoeq4WcbFREQrH/A==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
   '@react-types/datepicker@3.8.3':
     resolution: {integrity: sha512-Y4qfPRBB6uzocosCOWSYMuwiZ3YXwLWQYiFB4KCglkvHyltbNz76LgoBEnclYA5HjwosIk4XywiXvHSYry8JnQ==}
@@ -2428,6 +2481,11 @@ packages:
     resolution: {integrity: sha512-OZSyhzU6vTdW3eV/mz5i6hQwQUhkRs7xwY2d1aqPvTdMe0+2cY7Fwp45PAiwYLEj73i9ro2FxF9qC4DvHGSCgQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
+
+  '@react-types/shared@3.27.0':
+    resolution: {integrity: sha512-gvznmLhi6JPEf0bsq7SwRYTHAKKq/wcmKqFez9sRdbED+SPMUmK5omfZ6w3EwUFQHbYUa4zPBYedQ7Knv70RMw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
   '@rollup/plugin-commonjs@26.0.1':
     resolution: {integrity: sha512-UnsKoZK6/aGIH6AdkptXhNvhaqftcjq3zZdT+LY5Ftms6JR06nADcDsYp5hTU9E2lbJUEOhdlY5J4DNTneM+jQ==}
@@ -12061,20 +12119,21 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@react-aria/checkbox@3.14.7(react@18.3.1)':
+  '@react-aria/checkbox@3.15.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@react-aria/form': 3.0.9(react@18.3.1)
-      '@react-aria/interactions': 3.22.3(react@18.3.1)
-      '@react-aria/label': 3.7.12(react@18.3.1)
-      '@react-aria/toggle': 3.10.8(react@18.3.1)
-      '@react-aria/utils': 3.25.3(react@18.3.1)
-      '@react-stately/checkbox': 3.6.9(react@18.3.1)
-      '@react-stately/form': 3.0.6(react@18.3.1)
-      '@react-stately/toggle': 3.7.8(react@18.3.1)
-      '@react-types/checkbox': 3.8.4(react@18.3.1)
-      '@react-types/shared': 3.25.0(react@18.3.1)
-      '@swc/helpers': 0.5.11
+      '@react-aria/form': 3.0.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-aria/interactions': 3.23.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-aria/label': 3.7.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-aria/toggle': 3.10.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-aria/utils': 3.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-stately/checkbox': 3.6.11(react@18.3.1)
+      '@react-stately/form': 3.1.1(react@18.3.1)
+      '@react-stately/toggle': 3.8.1(react@18.3.1)
+      '@react-types/checkbox': 3.9.1(react@18.3.1)
+      '@react-types/shared': 3.27.0(react@18.3.1)
+      '@swc/helpers': 0.5.13
       react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@react-aria/datepicker@3.11.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -12108,6 +12167,26 @@ snapshots:
       clsx: 2.1.1
       react: 18.3.1
 
+  '@react-aria/focus@3.19.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-aria/interactions': 3.23.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-aria/utils': 3.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-types/shared': 3.27.0(react@18.3.1)
+      '@swc/helpers': 0.5.13
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  '@react-aria/form@3.0.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-aria/interactions': 3.23.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-aria/utils': 3.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-stately/form': 3.1.1(react@18.3.1)
+      '@react-types/shared': 3.27.0(react@18.3.1)
+      '@swc/helpers': 0.5.13
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@react-aria/form@3.0.9(react@18.3.1)':
     dependencies:
       '@react-aria/interactions': 3.22.3(react@18.3.1)
@@ -12137,12 +12216,29 @@ snapshots:
       '@swc/helpers': 0.5.11
       react: 18.3.1
 
+  '@react-aria/interactions@3.23.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-aria/ssr': 3.9.7(react@18.3.1)
+      '@react-aria/utils': 3.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-types/shared': 3.27.0(react@18.3.1)
+      '@swc/helpers': 0.5.13
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@react-aria/label@3.7.12(react@18.3.1)':
     dependencies:
       '@react-aria/utils': 3.25.3(react@18.3.1)
       '@react-types/shared': 3.25.0(react@18.3.1)
       '@swc/helpers': 0.5.11
       react: 18.3.1
+
+  '@react-aria/label@3.7.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-aria/utils': 3.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-types/shared': 3.27.0(react@18.3.1)
+      '@swc/helpers': 0.5.13
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@react-aria/live-announcer@3.4.0':
     dependencies:
@@ -12164,16 +12260,22 @@ snapshots:
       '@swc/helpers': 0.5.11
       react: 18.3.1
 
-  '@react-aria/toggle@3.10.8(react@18.3.1)':
+  '@react-aria/ssr@3.9.7(react@18.3.1)':
     dependencies:
-      '@react-aria/focus': 3.18.3(react@18.3.1)
-      '@react-aria/interactions': 3.22.3(react@18.3.1)
-      '@react-aria/utils': 3.25.3(react@18.3.1)
-      '@react-stately/toggle': 3.7.8(react@18.3.1)
-      '@react-types/checkbox': 3.8.4(react@18.3.1)
-      '@react-types/shared': 3.25.0(react@18.3.1)
-      '@swc/helpers': 0.5.11
+      '@swc/helpers': 0.5.13
       react: 18.3.1
+
+  '@react-aria/toggle@3.10.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-aria/focus': 3.19.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-aria/interactions': 3.23.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-aria/utils': 3.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-stately/toggle': 3.8.1(react@18.3.1)
+      '@react-types/checkbox': 3.9.1(react@18.3.1)
+      '@react-types/shared': 3.27.0(react@18.3.1)
+      '@swc/helpers': 0.5.13
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@react-aria/utils@3.25.3(react@18.3.1)':
     dependencies:
@@ -12184,6 +12286,16 @@ snapshots:
       clsx: 2.1.1
       react: 18.3.1
 
+  '@react-aria/utils@3.27.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-aria/ssr': 3.9.7(react@18.3.1)
+      '@react-stately/utils': 3.10.5(react@18.3.1)
+      '@react-types/shared': 3.27.0(react@18.3.1)
+      '@swc/helpers': 0.5.13
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@react-stately/calendar@3.5.5(react@18.3.1)':
     dependencies:
       '@internationalized/date': 3.5.6
@@ -12193,13 +12305,13 @@ snapshots:
       '@swc/helpers': 0.5.11
       react: 18.3.1
 
-  '@react-stately/checkbox@3.6.9(react@18.3.1)':
+  '@react-stately/checkbox@3.6.11(react@18.3.1)':
     dependencies:
-      '@react-stately/form': 3.0.6(react@18.3.1)
-      '@react-stately/utils': 3.10.4(react@18.3.1)
-      '@react-types/checkbox': 3.8.4(react@18.3.1)
-      '@react-types/shared': 3.25.0(react@18.3.1)
-      '@swc/helpers': 0.5.11
+      '@react-stately/form': 3.1.1(react@18.3.1)
+      '@react-stately/utils': 3.10.5(react@18.3.1)
+      '@react-types/checkbox': 3.9.1(react@18.3.1)
+      '@react-types/shared': 3.27.0(react@18.3.1)
+      '@swc/helpers': 0.5.13
       react: 18.3.1
 
   '@react-stately/datepicker@3.10.3(react@18.3.1)':
@@ -12220,6 +12332,12 @@ snapshots:
       '@swc/helpers': 0.5.11
       react: 18.3.1
 
+  '@react-stately/form@3.1.1(react@18.3.1)':
+    dependencies:
+      '@react-types/shared': 3.27.0(react@18.3.1)
+      '@swc/helpers': 0.5.13
+      react: 18.3.1
+
   '@react-stately/overlays@3.6.11(react@18.3.1)':
     dependencies:
       '@react-stately/utils': 3.10.4(react@18.3.1)
@@ -12234,16 +12352,22 @@ snapshots:
       '@swc/helpers': 0.5.11
       react: 18.3.1
 
-  '@react-stately/toggle@3.7.8(react@18.3.1)':
+  '@react-stately/toggle@3.8.1(react@18.3.1)':
     dependencies:
-      '@react-stately/utils': 3.10.4(react@18.3.1)
-      '@react-types/checkbox': 3.8.4(react@18.3.1)
-      '@swc/helpers': 0.5.11
+      '@react-stately/utils': 3.10.5(react@18.3.1)
+      '@react-types/checkbox': 3.9.1(react@18.3.1)
+      '@react-types/shared': 3.27.0(react@18.3.1)
+      '@swc/helpers': 0.5.13
       react: 18.3.1
 
   '@react-stately/utils@3.10.4(react@18.3.1)':
     dependencies:
       '@swc/helpers': 0.5.11
+      react: 18.3.1
+
+  '@react-stately/utils@3.10.5(react@18.3.1)':
+    dependencies:
+      '@swc/helpers': 0.5.13
       react: 18.3.1
 
   '@react-types/button@3.10.0(react@18.3.1)':
@@ -12260,6 +12384,11 @@ snapshots:
   '@react-types/checkbox@3.8.4(react@18.3.1)':
     dependencies:
       '@react-types/shared': 3.25.0(react@18.3.1)
+      react: 18.3.1
+
+  '@react-types/checkbox@3.9.1(react@18.3.1)':
+    dependencies:
+      '@react-types/shared': 3.27.0(react@18.3.1)
       react: 18.3.1
 
   '@react-types/datepicker@3.8.3(react@18.3.1)':
@@ -12282,6 +12411,10 @@ snapshots:
       react: 18.3.1
 
   '@react-types/shared@3.25.0(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+
+  '@react-types/shared@3.27.0(react@18.3.1)':
     dependencies:
       react: 18.3.1
 
