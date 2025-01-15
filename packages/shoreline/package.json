@@ -67,7 +67,7 @@
     "@react-aria/datepicker": "3.11.3",
     "@react-aria/focus": "3.18.3",
     "@react-aria/i18n": "3.12.3",
-    "@react-aria/interactions": "3.22.3",
+    "@react-aria/interactions": "3.23.0",
     "@react-stately/calendar": "3.5.5",
     "@react-stately/datepicker": "3.10.3",
     "@react-stately/toggle": "3.7.4",
