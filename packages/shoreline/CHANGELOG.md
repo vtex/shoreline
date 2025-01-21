@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.15](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.14...@vtex/shoreline@1.11.15) (2025-01-21)
+
+
+### Bug Fixes
+
+* svg props ([6ba4ab2](https://github.com/vtex/shoreline/commit/6ba4ab21508948cdd9fd2a9c0c1a932630c8e8fe))
+
+
+
+
+
 ## [1.11.14](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.13...@vtex/shoreline@1.11.14) (2025-01-09)
 
 
