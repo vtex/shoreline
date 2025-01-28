@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.16](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.15...@vtex/shoreline@1.11.16) (2025-01-28)
+
+
+### Bug Fixes
+
+* **filter-clear:** disable clear button when value is empty array ([ad094ff](https://github.com/vtex/shoreline/commit/ad094ff537b0e213b4a65e3730b0680bd00f7c96))
+
+
+
+
+
 ## [1.11.15](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.14...@vtex/shoreline@1.11.15) (2025-01-21)
 
 
