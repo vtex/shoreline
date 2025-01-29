@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.17](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.16...@vtex/shoreline@1.11.17) (2025-01-29)
+
+
+### Bug Fixes
+
+* change typo on flex stylesheet ([6474010](https://github.com/vtex/shoreline/commit/6474010c9fad6f1d2817632da7bbd0f5957006e5))
+
+
+
+
+
 ## [1.11.16](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.15...@vtex/shoreline@1.11.16) (2025-01-28)
 
 

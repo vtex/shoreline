@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.87](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.86...@vtex/shoreline-ts-table@1.0.87) (2025-01-29)
+
+**Note:** Version bump only for package @vtex/shoreline-ts-table
+
+
+
+
+
 ## [1.0.86](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.85...@vtex/shoreline-ts-table@1.0.86) (2025-01-28)
 
 **Note:** Version bump only for package @vtex/shoreline-ts-table
