@@ -13,7 +13,7 @@
   order: var(--sl-flex-order, 0);
   flex-direction: var(--sl-flex-direction, column);
   flex-grow: var(--sl-flex-grow, 0);
-  flex-wrap: var(--sl-flex-wrapm, nowrap);
+  flex-wrap: var(--sl-flex-wrap, nowrap);
   flex-shrink: var(--sl-flex-shrink, 1);
   flex-basis: var(--sl-flex-basis, auto);
   justify-content: var(--sl-flex-justify, flex-start);
