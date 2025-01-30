@@ -66,7 +66,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
     const id = defaultId || contextId
 
     return (
-      <div data-sl-select>
+      <div data-sl-select className={className}>
         <SelectProvider store={select}>
           <SelectTrigger
             data-sl-select-button
