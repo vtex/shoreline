@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.18](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.17...@vtex/shoreline@1.11.18) (2025-01-30)
+
+
+### Bug Fixes
+
+* **select:** add missing className to select div ([da64546](https://github.com/vtex/shoreline/commit/da64546542d37ab71bdb5b8d9faca6bc75cdfe19))
+
+
+
+
+
 ## [1.11.17](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.16...@vtex/shoreline@1.11.17) (2025-01-29)
 
 
