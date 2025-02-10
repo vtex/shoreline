@@ -3,6 +3,7 @@ import type { DefaultChartStyles } from '../types/chart'
 import type { EChartsInstance } from 'echarts-for-react'
 import { defaultSpinnerColor } from './colors'
 import { getTooltipStaticString } from '../components/tooltip'
+import { merge } from '@vtex/shoreline-utils'
 
 const TOOLTIP_OPTIONS: EChartsOption['tooltip'] = {
   trigger: 'item',
@@ -74,8 +75,20 @@ export const CHART_STYLES: DefaultChartStyles = {
     },
   },
   line: {
-    default: {},
-    base: {},
+    default: {
+      xAxis: { splitLine: { show: true } },
+      yAxis: { type: 'value' },
+      series: {
+        type: 'line',
+        smooth: true,
+        showSymbol: false, // desliga as bolinhas
+      },
+      legend: { bottom: 'bottom', left: 'left', icon: 'roundRect' },
+      tooltip: merge(TOOLTIP_OPTIONS, { trigger: 'axis', order: 'valueDesc' }), // order não funfa por causa da nossa implementação do texto da tooltip
+      // Deve ter um jeito melhor sem fazer merge
+      grid: BAR_CHART_GRID_DEFAULT_STYLE,
+    },
+    // base: {}, // não acho que era pra isso ser um variant
   },
 }
 
