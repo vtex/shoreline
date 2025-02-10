@@ -2,12 +2,12 @@ import type { EChartsOption } from 'echarts'
 
 export type BarChartVariants = 'default' | 'horizontal'
 
-export type LineChartVariants = 'default' | 'base'
+export type LineChartVariants = 'default' //| 'base'
 
 export type LineChartConfig = { type: 'line'; variant?: LineChartVariants }
 export type BarChartConfig = { type: 'bar'; variant?: BarChartVariants }
 
-export type ChartConfig = BarChartConfig | BarChartConfig
+export type ChartConfig = BarChartConfig | LineChartConfig
 
 export type ChartLoadingConfig = {
   text?: string
