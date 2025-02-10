@@ -68,7 +68,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
           ref={chartRef}
           theme={defaultTheme}
           option={chartOptions}
-          style={{ minWidth: 290, ...style }}
+          style={{ minWidth: 300, minHeight: 200, ...style }}
           opts={{
             renderer: 'svg',
           }}
