@@ -7,7 +7,7 @@ import {
   type ComponentPropsWithRef,
   useCallback,
 } from 'react'
-import type { EChartsOption, SetOptionOpts } from 'echarts'
+import type { EChartsOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import type * as echarts from 'echarts'
 
@@ -25,7 +25,6 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
   function Charts(props, ref) {
     const {
       option,
-      settings,
       loading = false,
       loadingConfig = DEFAULT_LOADING_SPINNER,
       chartConfig,
@@ -81,16 +80,11 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
     )
   }
 )
-
 export interface ChartsOptions {
   /**
    * Echarts options for the chart
    */
   option: EChartsOption
-  /**
-   * Echarts settings
-   */
-  settings?: SetOptionOpts
   /**
    * Wether is loading
    * @default false
