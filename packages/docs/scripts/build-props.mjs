@@ -167,6 +167,10 @@ const chartVariants = [
     type: 'Bar',
     description: 'teste',
   },
+  {
+    type: 'Line',
+    description: 'teste',
+  },
 ]
 
 let tsCode = `

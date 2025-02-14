@@ -56,4 +56,4 @@ export const allPrimitivesList = [
   'visually-hidden',
 ]
 
-export const allChartsList = ['bar']
+export const allChartsList = ['bar', 'line']
