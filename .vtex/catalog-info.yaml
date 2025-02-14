@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: shoreline
+  description: VTEX Design System for back-office experiences.
+  annotations:
+    vtex.com/janus-acronym: ""
+    vtex.com/o11y-os-index: ""
+    grafana/dashboard-selector: ""
+    github.com/project-slug: vtex/shoreline
+    backstage.io/techdocs-ref: dir:../
+spec:
+  system: admin
+  lifecycle: stable
+  owner: admin
+  type: library
