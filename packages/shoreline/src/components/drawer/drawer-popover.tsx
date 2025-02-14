@@ -56,6 +56,11 @@ export interface DrawerPopoverOptions {
    * @default 'medium'
    */
   size?: 'small' | 'medium'
+  /**
+   * Children composition
+   * @default false
+   */
+  asChild?: boolean
 }
 
 export type DrawerPopoverProps = DrawerPopoverOptions &
