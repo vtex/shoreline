@@ -7,7 +7,7 @@ import {
   screen,
 } from '@vtex/shoreline-test-utils'
 import { Chart } from '../components/chart'
-import { BAR_CHART_DATA } from './__fixtures__/chartData'
+import { BAR_CHART_DATA, LINE_CHART_DATA } from './__fixtures__/chartData'
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
 import React from 'react'
 
@@ -34,6 +34,39 @@ describe('@vtex.shoreline-charts bar chart tests', () => {
     )
 
     BAR_CHART_DATA.series.dayNumbers.forEach((value) =>
+      waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
+    )
+  })
+})
+
+describe('@vtex.shoreline-charts line chart test', () => {
+  test('renders the line chart with correct data', async () => {
+    const { container } = render(
+      <Chart
+        option={{
+          xAxis: {
+            data: LINE_CHART_DATA.xAxis.weekdays,
+          },
+          series: { data: LINE_CHART_DATA.series.dayNumbers },
+        }}
+        chartConfig={{
+          type: 'line',
+        }}
+      />
+    )
+
+    const divChartContainer = container.querySelector('[data-sl-chart]')
+    await waitFor(() => expect(divChartContainer).toBeInTheDocument())
+
+    LINE_CHART_DATA.xAxis.weekdays.forEach((value) =>
+      waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
+    )
+
+    LINE_CHART_DATA.series.dayNumbers.forEach((value) =>
+      waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
+    )
+
+    LINE_CHART_DATA.xAxis.weekdays.forEach((value) =>
       waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
     )
   })
