@@ -71,3 +71,36 @@ describe('@vtex.shoreline-charts line chart test', () => {
     )
   })
 })
+
+describe('@vtex.shoreline-charts line chart test', () => {
+  test('renders the line chart with millions of points and check if they are all there', async () => {
+    const { container } = render(
+      <Chart
+        option={{
+          xAxis: {
+            data: LINE_CHART_DATA.xAxis.weekdays,
+          },
+          series: { data: LINE_CHART_DATA.series.dayNumbers1milion },
+        }}
+        chartConfig={{
+          type: 'line',
+        }}
+      />
+    )
+
+    const divChartContainer = container.querySelector('[data-sl-chart]')
+    await waitFor(() => expect(divChartContainer).toBeInTheDocument())
+
+    LINE_CHART_DATA.xAxis.weekdays.forEach((value) =>
+      waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
+    )
+
+    LINE_CHART_DATA.series.dayNumbers1milion.forEach((value) =>
+      waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
+    )
+
+    LINE_CHART_DATA.xAxis.weekdays.forEach((value) =>
+      waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
+    )
+  })
+})
