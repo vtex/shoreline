@@ -56,7 +56,7 @@
     "fs-extra": "11.2.0",
     "match-sorter": "6.3.4",
     "react-hook-form": "7.48.2",
-    "react-window": "1.8.10",
+    "react-window": "1.8.11",
     "sucrase": " 3.35.0"
   },
   "dependencies": {
