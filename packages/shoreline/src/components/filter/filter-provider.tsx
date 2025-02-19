@@ -1,10 +1,9 @@
-import type React from 'react'
+import type { Dispatch, ReactNode } from 'react'
 import { useEffect } from 'react'
-import type { ReactNode } from 'react'
 import { ComboboxProvider } from '../combobox'
 
-import { SelectProvider, useSelectStore } from '../select'
 import { PopoverProvider, usePopoverStore } from '../popover'
+import { SelectProvider, useSelectStore } from '../select'
 import { FilterContext } from './filter-context'
 
 /**
@@ -15,7 +14,9 @@ import { FilterContext } from './filter-context'
  *   <FilterPopover>...</FilterPopover>
  * </FilterProvider>
  */
-export function FilterProvider(props: FilterProviderProps) {
+export function FilterProvider<Value extends string | string[] = string>(
+  props: FilterProviderProps<Value>
+) {
   const {
     children,
     open,
@@ -37,7 +38,7 @@ export function FilterProvider(props: FilterProviderProps) {
 
   const filterStore = useSelectStore({
     value,
-    setValue: setValue as any,
+    setValue,
     defaultValue,
   })
 
@@ -77,7 +78,9 @@ export function FilterProvider(props: FilterProviderProps) {
   )
 }
 
-export interface FilterProviderOptions {
+export interface FilterProviderOptions<
+  Value extends string | string[] = string,
+> {
   /**
    * Children of FilterProvider
    */
@@ -109,17 +112,16 @@ export interface FilterProviderOptions {
   /**
    * Filter value
    */
-  value?: string | string[]
+  value?: Value
   /**
    * Callback to set the filter value
    */
-  setValue?:
-    | React.Dispatch<React.SetStateAction<string>>
-    | React.Dispatch<React.SetStateAction<string[]>>
+  setValue?: Dispatch<Value>
   /**
    * Filter default value
    */
-  defaultValue?: string | string[]
+  defaultValue?: Value
 }
 
-export type FilterProviderProps = FilterProviderOptions
+export type FilterProviderProps<Value extends string | string[] = string> =
+  FilterProviderOptions<Value>
