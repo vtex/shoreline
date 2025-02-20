@@ -116,8 +116,7 @@ export interface ChartOptions {
    */
   renderer?: 'svg' | 'canvas'
   /**
-   * Overrides default shoreline theme. Used to set colors and other visual things.
-   * See [docs](https://echarts.apache.org/handbook/en/concepts/style/)
+   * Overrides default shoreline theme.
    * @default defaultTheme
    */
   theme?: Dictionary<any> | string
