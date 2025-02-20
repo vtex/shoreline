@@ -7,6 +7,8 @@ import { format } from 'prettier'
 const outputDirectory = `${dirname('')}/__props__`
 const outputFile = 'index.ts'
 
+const chartFile = getPath('charts', 'components', 'chart', 'chart')
+
 const files = [
   /**
    * Primitives
@@ -159,17 +161,24 @@ const files = [
   /**
    * Charts
    */
+  chartFile,
 ]
 
-const chart = getPath('charts', 'components', 'chart', 'chart')
 const chartVariants = [
   {
     type: 'Bar',
-    description: 'teste',
+    description:
+      'Bar charts use vertical or horizontal data markers to compare individual values. You can use them to compare discrete data or show trends over time.',
   },
   {
     type: 'Line',
-    description: 'teste',
+    description:
+      'Line charts use a series of connected data points to visualize changes and trends over a continuous period. They are ideal for tracking progress, fluctuations, or patterns over time.',
+  },
+  {
+    type: 'Area',
+    description:
+      'A line chart with some stuff below it. Really pretty. Lorem ipsum and all that, this need to be a bit longer still, there we go.',
   },
 ]
 
@@ -195,7 +204,7 @@ async function main() {
     }
   })
   chartVariants.forEach((chartVariant) => {
-    const ref = getReferences(chart)[0]
+    const ref = getReferences(chartFile)[0]
     if (ref) {
       const displayName = chartVariant.type
       const refName = `${ref?.name}-${chartVariant.type}`

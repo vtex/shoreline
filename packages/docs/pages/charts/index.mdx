@@ -1,13 +1,13 @@
-# Components
+# Chart
 
-import {
-  allChartsList
-} from "../../utils/all-components-list";
-import { pascalCase } from "@vtex/shoreline";
+<ComponentDescription name="chart"/>
 
-<ComponentSummaryGrid mt="var(--sl-space-4)">
-  {allChartsList.map((component) => {
-    let href = `/charts/${component}`;
-    return <ComponentSummary key={component} name={`chart-${component}`} href={href} />;
-  })}
-</ComponentSummaryGrid>
+## Examples
+<Preview name="chart-bar"/>
+<Preview name="chart-multi-type"/>
+
+## Required props
+<PropsDocs name="chart" required/>
+
+## Optional props
+<PropsDocs name="chart"/>

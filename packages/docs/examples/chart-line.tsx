@@ -4,7 +4,6 @@ export default function Example() {
   return (
     <Chart
       chartConfig={{ type: 'line' }}
-      style={{ height: 550 }}
       option={{
         xAxis: {
           data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],

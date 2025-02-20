@@ -1,4 +1,6 @@
 export default {
-  index: { title: 'All Charts', theme: { layout: 'full' } },
+  index: { title: 'Chart Overview', theme: { layout: 'full' } },
   bar: 'Bar Chart',
+  line: 'Line Chart',
+  area: 'Area Chart',
 }
