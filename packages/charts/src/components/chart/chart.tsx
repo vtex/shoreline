@@ -16,6 +16,7 @@ import type { ChartConfig } from '../../types/chart'
 import { getChartOptions } from '../../utils/chart'
 import { canUseDOM } from '@vtex/shoreline-utils'
 import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
+import type { Dictionary } from 'lodash'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -41,6 +42,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       chartConfig,
       style,
       renderer = 'svg',
+      theme = defaultTheme,
       ...otherProps
     } = props
 
@@ -77,7 +79,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       <div data-sl-chart>
         <ReactECharts
           ref={chartRef}
-          theme={defaultTheme}
+          theme={theme}
           option={chartOptions}
           style={{ minWidth: 300, minHeight: 200, ...style }}
           opts={{
@@ -113,7 +115,12 @@ export interface ChartOptions {
    * @default svg
    */
   renderer?: 'svg' | 'canvas'
-  // theme:
+  /**
+   * Overrides default shoreline theme. Used to set colors and other visual things.
+   * See [docs](https://echarts.apache.org/handbook/en/concepts/style/)
+   * @default defaultTheme
+   */
+  theme: Dictionary<any> | string
   /**
    * Wether is loading
    * @default false
