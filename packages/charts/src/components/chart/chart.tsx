@@ -120,7 +120,7 @@ export interface ChartOptions {
    * See [docs](https://echarts.apache.org/handbook/en/concepts/style/)
    * @default defaultTheme
    */
-  theme: Dictionary<any> | string
+  theme?: Dictionary<any> | string
   /**
    * Wether is loading
    * @default false

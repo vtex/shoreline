@@ -3,4 +3,5 @@ export default {
   bar: 'Bar Chart',
   line: 'Line Chart',
   area: 'Area Chart',
+  general: 'General Examples',
 }
