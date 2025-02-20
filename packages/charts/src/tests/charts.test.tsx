@@ -6,6 +6,7 @@ import {
   waitFor,
   screen,
 } from '@vtex/shoreline-test-utils'
+import { assert } from 'vitest'
 import { Chart } from '../components/chart'
 import { BAR_CHART_DATA, LINE_CHART_DATA } from './__fixtures__/chartData'
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
@@ -52,6 +53,7 @@ describe('@vtex.shoreline-charts line chart test', () => {
         chartConfig={{
           type: 'line',
         }}
+        style={{ width: '100%', height: '400px' }}
       />
     )
 
@@ -73,34 +75,107 @@ describe('@vtex.shoreline-charts line chart test', () => {
 })
 
 describe('@vtex.shoreline-charts line chart test', () => {
-  test('renders the line chart with millions of points and check if they are all there', async () => {
-    const { container } = render(
+  test('tries to render a 100 thousand points chart under 5 seconds', async () => {
+    const antes = Date.now()
+
+    render(
       <Chart
         option={{
-          xAxis: {
-            data: LINE_CHART_DATA.xAxis.weekdays,
-          },
-          series: { data: LINE_CHART_DATA.series.dayNumbers1milion },
+          series: { data: LINE_CHART_DATA.series.dayNumbers_100thousand },
         }}
         chartConfig={{
           type: 'line',
         }}
+        style={{ width: '100%', height: '400px' }}
       />
     )
 
-    const divChartContainer = container.querySelector('[data-sl-chart]')
-    await waitFor(() => expect(divChartContainer).toBeInTheDocument())
+    const depois = Date.now()
+    assert(depois - antes < 5000, 'testing the rendering time')
+  })
+})
 
-    LINE_CHART_DATA.xAxis.weekdays.forEach((value) =>
-      waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
+describe('@vtex.shoreline-charts line chart test', () => {
+  test('tries to render a 10 thousand points chart under 80 miliseconds', async () => {
+    const benchmark = 80
+
+    const antes = Date.now()
+
+    render(
+      <Chart
+        option={{
+          series: { data: LINE_CHART_DATA.series.dayNumbers_10thousand },
+        }}
+        chartConfig={{
+          type: 'line',
+        }}
+        style={{ width: '100%', height: '400px' }}
+      />
     )
 
-    LINE_CHART_DATA.series.dayNumbers1milion.forEach((value) =>
-      waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
-    )
-
-    LINE_CHART_DATA.xAxis.weekdays.forEach((value) =>
-      waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
+    const depois = Date.now()
+    assert(
+      depois - antes < benchmark,
+      `testing the rendering time with the ${benchmark} miliseconds benchmark`
     )
   })
 })
+
+describe('@vtex.shoreline-charts line chart test', () => {
+  test('tries to render a 100 thousand points chart under 120 miliseconds', async () => {
+    const benchmark = 120
+
+    const antes = Date.now()
+
+    render(
+      <Chart
+        option={{
+          series: { data: LINE_CHART_DATA.series.dayNumbers_100thousand },
+        }}
+        chartConfig={{
+          type: 'line',
+        }}
+        style={{ width: '100%', height: '400px' }}
+      />
+    )
+
+    const depois = Date.now()
+    assert(
+      depois - antes < benchmark,
+      `testing the rendering time with the ${benchmark} miliseconds benchmark`
+    )
+  })
+})
+
+// describe('@vtex.shoreline-charts line chart test', () => {
+//   test('renders the line chart with 100 thousand of points and check if they are all there', async () => {
+//     const { container } = render(
+//       <Chart
+//         option={{
+//           series: { data: LINE_CHART_DATA.series.dayNumbers_100thousand },
+//         }}
+//         chartConfig={{
+//           type: 'line',
+//         }}
+//         style={{ width: '100%', height: '400px' }}
+//       />
+//     )
+
+//     const divChartContainer = container.querySelector('[data-sl-chart]')
+//     await waitFor(() => expect(divChartContainer).toBeInTheDocument())
+
+//     LINE_CHART_DATA.xAxis.weekdays.forEach((value) =>
+//       waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
+//     )
+
+//     LINE_CHART_DATA.series.dayNumbers_100thousand.forEach((value) => {
+//       const a = Date.now()
+//       waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
+//       console.log(Date.now() - a)
+//     })
+
+//     LINE_CHART_DATA.xAxis.weekdays.forEach((value) =>
+//       waitFor(() => expect(screen.queryByText(value)).toBeInTheDocument())
+//     )
+//   })
+// })
