@@ -18,8 +18,19 @@ import { canUseDOM } from '@vtex/shoreline-utils'
 import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
 
 /**
- * Render a Shoreline Chart with echarts
+ * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
  * @see https://echarts.apache.org/en/index.html
+ * @example
+ * <Chart
+      chartConfig={{ type: 'bar', variant: 'default' }}
+      option={{
+        xAxis: {
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        },
+        series: [{ data: [1, 2, 3, 4, 5, 6, 7] }],
+      }}
+      style={{ height: 550 }}
+    />
  */
 export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
   function Charts(props, ref) {
@@ -29,6 +40,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       loadingConfig = DEFAULT_LOADING_SPINNER,
       chartConfig,
       style,
+      renderer = 'svg',
       ...otherProps
     } = props
 
@@ -69,7 +81,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
           option={chartOptions}
           style={{ minWidth: 300, minHeight: 200, ...style }}
           opts={{
-            renderer: 'svg',
+            renderer: renderer,
           }}
           showLoading={loading}
           loadingOption={loadingConfig}
@@ -80,26 +92,38 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
     )
   }
 )
-export interface ChartsOptions {
+export interface ChartOptions {
   /**
-   * Echarts options for the chart
+   * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
+   * @default default
+   * @example {type:"bar", variant:"horizontal"}
+   */
+  chartConfig: ChartConfig
+  /**
+   * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
+   *
+   * Includes the data that the chart will use and more advanced or specific configuration.
    */
   option: EChartsOption
+  /**
+   * Whether to render the chart as a SVG or Canvas. Both are about equally as fast,
+   * but SVGs have 'perfect' image quality.
+   *
+   * Canvas is required if the chart is meant to be downloaded as a png or jpg, as SVG-rendered charts can only be exported as SVG.
+   * @default svg
+   */
+  renderer?: 'svg' | 'canvas'
+  // theme:
   /**
    * Wether is loading
    * @default false
    */
   loading?: boolean
   /**
-   * Options for customize the chart loading
+   * Echarts showLoading options, see [docs]("https://echarts.apache.org/en/api.html#echartsInstance.showLoading)
    * @default false
    */
   loadingConfig?: EChartsInstance['showLoading']
-  /**
-   * Configs containing type of chart and its variants, each variant is a pre-defined chart style for each type
-   * @default default
-   */
-  chartConfig: ChartConfig
 }
 
-export type ChartProps = ChartsOptions & ComponentPropsWithRef<'div'>
+export type ChartProps = ChartOptions & ComponentPropsWithRef<'div'>
