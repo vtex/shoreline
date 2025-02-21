@@ -3,10 +3,17 @@ import type { DefaultChartStyles } from '../types/chart'
 import type { EChartsInstance } from 'echarts-for-react'
 import { defaultSpinnerColor } from './colors'
 import { getTooltipStaticString } from '../components/tooltip'
-import { merge } from '@vtex/shoreline-utils'
 
 const TOOLTIP_OPTIONS: EChartsOption['tooltip'] = {
   trigger: 'item',
+  borderWidth: 1,
+  borderColor: 'var(--sl-color-gray-4)',
+  formatter: (params) => {
+    return getTooltipStaticString(params)
+  },
+}
+const LINE_TOOLTIP_OPTIONS: EChartsOption['tooltip'] = {
+  trigger: 'axis',
   borderWidth: 1,
   borderColor: 'var(--sl-color-gray-4)',
   formatter: (params) => {
@@ -84,7 +91,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         showSymbol: false, // desliga as bolinhas
       },
       legend: { bottom: 'bottom', left: 'left', icon: 'roundRect' },
-      tooltip: merge(TOOLTIP_OPTIONS, { trigger: 'axis', order: 'valueDesc' }), // order não funfa por causa da nossa implementação do texto da tooltip
+      tooltip: LINE_TOOLTIP_OPTIONS, // order não funfa por causa da nossa implementação do texto da tooltip
       // Deve ter um jeito melhor sem fazer merge
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
     },
