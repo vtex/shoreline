@@ -16,6 +16,7 @@ export const defaultChartColorConfig = {
   lineColor: colors['--sl-gray-6'],
   textSoft: colors['--sl-gray-9'],
   bgLineColor: colors['--sl-gray-3'],
+  zoomBoxColor: colors['--sl-pink-4'],
 }
 
 export const defaultSpinnerColor = colors['--sl-blue-8']
