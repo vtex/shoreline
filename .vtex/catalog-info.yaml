@@ -9,6 +9,7 @@ metadata:
     grafana/dashboard-selector: ""
     github.com/project-slug: vtex/shoreline
     backstage.io/techdocs-ref: dir:../
+    vtex.com/application-id: GDD93V8D
 spec:
   system: admin
   lifecycle: stable
