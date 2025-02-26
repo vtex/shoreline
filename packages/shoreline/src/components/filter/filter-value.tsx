@@ -1,5 +1,6 @@
+import { useSelectContext } from '@ariakit/react'
 import type { ComponentPropsWithoutRef } from 'react'
-import { forwardRef } from 'react'
+import { forwardRef, useCallback } from 'react'
 import { useFilterContext } from './filter-context'
 
 const valueSeparator = ': '
@@ -13,14 +14,25 @@ export const FilterValue = forwardRef<HTMLSpanElement, FilterValueProps>(
     const filter = useFilterContext()
     const value = filter?.useState('value')
 
-    const isArray = Array.isArray(value)
-    const isLongArray = isArray && value.length > 1
+    const valueIsArray = Array.isArray(value)
+    const valueIsMultiSelected = valueIsArray && value.length > 1
+
+    const selectContext = useSelectContext()
+    const items = selectContext?.useState('items')
+
+    const getValueText = useCallback(
+      () =>
+        items?.find((item) =>
+          valueIsArray ? item.value === value[0] : item.value === value
+        )?.element?.innerText,
+      [value, valueIsArray, items]
+    )
 
     return (
       <span data-sl-filter-value ref={ref} {...props}>
         {value && value.length > 0 && valueSeparator}
-        {isArray ? value[0] : value}
-        {isLongArray && `${countPrefix}${value.length - 1}`}
+        {getValueText()}
+        {valueIsMultiSelected && `${countPrefix}${value.length - 1}`}
       </span>
     )
   }
