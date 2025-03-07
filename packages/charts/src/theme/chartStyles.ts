@@ -39,6 +39,8 @@ export const BAR_CHART_GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
   containLabel: true,
 }
 
+export const DEFAULT_DELAY_FUNCTION = (idx: number) => idx * 20
+
 export const CHART_STYLES: DefaultChartStyles = {
   bar: {
     default: {
@@ -58,6 +60,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       barMaxWidth: 60,
       barMinWidth: 15,
       tooltip: TOOLTIP_OPTIONS,
+      animationDelay: DEFAULT_DELAY_FUNCTION,
     },
     horizontal: {
       xAxis: {
@@ -73,6 +76,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       barMaxWidth: 60,
       barMinWidth: 15,
       tooltip: TOOLTIP_OPTIONS,
+      animationDelay: DEFAULT_DELAY_FUNCTION,
       series: {
         type: 'bar',
         itemStyle: {
@@ -88,14 +92,12 @@ export const CHART_STYLES: DefaultChartStyles = {
       series: {
         type: 'line',
         smooth: true,
-        showSymbol: false, // desliga as bolinhas
+        showSymbol: false,
       },
-      legend: { bottom: 'bottom', left: 'left', icon: 'roundRect' },
-      tooltip: LINE_TOOLTIP_OPTIONS, // order não funfa por causa da nossa implementação do texto da tooltip
-      // Deve ter um jeito melhor sem fazer merge
+      legend: BAR_CHART_LEGEND_DEFAULT_STYLE,
+      tooltip: LINE_TOOLTIP_OPTIONS,
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
     },
-    // base: {}, // não acho que era pra isso ser um variant
   },
 }
 
