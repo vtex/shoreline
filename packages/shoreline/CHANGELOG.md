@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.22](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.21...@vtex/shoreline@1.11.22) (2025-03-10)
+
+
+### Bug Fixes
+
+* **drawer-popover:** properly pass `asChild` as a valid prop ([77f85b2](https://github.com/vtex/shoreline/commit/77f85b2017c7af848effac2eb97a7d4586a181a0))
+
+
+
+
+
 ## [1.11.21](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.20...@vtex/shoreline@1.11.21) (2025-03-06)
 
 **Note:** Version bump only for package @vtex/shoreline
