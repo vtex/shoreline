@@ -56,7 +56,13 @@ export default function Example() {
         />
       </CollectionRow>
 
-      <Table>
+      <Table
+        columnWidths={[
+          'minmax(min-content, auto)',
+          'minmax(min-content, auto)',
+          'minmax(min-content, auto)',
+        ]}
+      >
         <TableHeader>
           <TableRow>
             <TableHeaderCell>ID</TableHeaderCell>
