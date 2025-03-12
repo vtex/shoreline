@@ -88,7 +88,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
           }}
           showLoading={loading}
           loadingOption={loadingConfig}
-          onChartReady={(instance) => instance.resize()}
+          // onChartReady={(instance) => instance.resize()}
           {...otherProps}
         />
       </div>
