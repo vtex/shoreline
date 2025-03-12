@@ -13,5 +13,5 @@ metadata:
 spec:
   system: admin
   lifecycle: stable
-  owner: admin
+  owner: te-0009
   type: library
