@@ -12,14 +12,7 @@ const TOOLTIP_OPTIONS: EChartsOption['tooltip'] = {
     return getTooltipStaticString(params)
   },
 }
-const LINE_TOOLTIP_OPTIONS: EChartsOption['tooltip'] = {
-  trigger: 'axis',
-  borderWidth: 1,
-  borderColor: 'var(--sl-color-gray-4)',
-  formatter: (params) => {
-    return getTooltipStaticString(params)
-  },
-}
+
 export const BAR_CHART_LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   orient: 'horizontal',
   left: 'auto',
@@ -95,7 +88,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         showSymbol: false,
       },
       legend: BAR_CHART_LEGEND_DEFAULT_STYLE,
-      tooltip: LINE_TOOLTIP_OPTIONS,
+      tooltip: { ...TOOLTIP_OPTIONS, trigger: 'axis' },
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
     },
   },
