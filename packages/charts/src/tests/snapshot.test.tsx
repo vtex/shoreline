@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import renderer from 'react-test-renderer'
 import { Chart } from '../components'
-import React from 'react'
 
 describe('Snapshot de Gráficos de Linha', () => {
   it('Snapshot - Basic', () => {

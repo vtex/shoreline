@@ -16,6 +16,7 @@ export const ChartsCompositor = forwardRef<
 
   const chartOptions: EChartsOption = useMemo(() => {
     const series = []
+
     for (let i = 0; i < charts.length; i++) {
       const serie = charts[i]
       series.push(getDataFromChart(serie))
