@@ -1,6 +1,6 @@
 import type { EChartsOption, SeriesOption } from 'echarts'
 import { CHART_STYLES } from '../theme/chartStyles'
-import type { ChartConfig } from '../types/chart'
+import type { ChartConfig, MultiChart } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
 import { cloneDeep } from 'lodash'
 
@@ -47,4 +47,16 @@ export const getChartOptions = (
   const mergedOptions = merge(defaultRest, rest)
 
   return { ...mergedOptions, series: formattedSeries }
+}
+
+export const getDataFromChart = (multi: MultiChart) => {
+  const chartStyleType = CHART_STYLES[multi.config.type]
+  const defaultStyle = multi.config.variant
+    ? chartStyleType[variant]
+    : chartStyleType.default
+
+  const serieFinal = cloneDeep(defaultStyle.series)
+  serieFinal.data = multi.serie.data
+
+  return serieFinal
 }

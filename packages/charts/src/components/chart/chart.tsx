@@ -56,6 +56,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
     })
 
     const chartOptions: EChartsOption = useMemo(() => {
+      if (chartConfig === 'multitype') return option
       const { type, variant } = chartConfig
       return getChartOptions(option, type, variant) || option
     }, [option, chartConfig])
@@ -100,7 +101,7 @@ export interface ChartOptions {
    * @default default
    * @example {type:"bar", variant:"horizontal"}
    */
-  chartConfig: ChartConfig
+  chartConfig: ChartConfig | 'multitype'
   /**
    * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
    *

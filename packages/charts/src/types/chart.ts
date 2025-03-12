@@ -1,4 +1,9 @@
-import type { EChartsOption } from 'echarts'
+import type { EChartsOption, SeriesOption } from 'echarts'
+
+export type MultiChart = {
+  serie: SeriesOption
+  config: ChartConfig
+}
 
 export type BarChartVariants = 'default' | 'horizontal'
 
