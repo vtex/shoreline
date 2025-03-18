@@ -42,9 +42,7 @@ export const getChartOptions = (
     : chartStyleType.default
 
   const { series: defaultSeries, ...defaultRest } = defaultStyle
-  console.log(series)
   const formattedSeries = formatSeries(series, defaultStyle)
-  console.log(formatSeries)
 
   const mergedOptions = merge(defaultRest, rest)
   if (
@@ -54,7 +52,6 @@ export const getChartOptions = (
   ) {
     normalizeBarData(formattedSeries) // border radius for negative bars fix
   }
-  console.log(formatSeries)
   return { ...mergedOptions, series: formattedSeries }
 }
 

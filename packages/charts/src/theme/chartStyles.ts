@@ -4,7 +4,7 @@ import type { EChartsInstance } from 'echarts-for-react'
 import { defaultSpinnerColor } from './colors'
 import { getTooltipStaticString } from '../components/tooltip'
 
-const TOOLTIP_OPTIONS: EChartsOption['tooltip'] = {
+const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
   trigger: 'item',
   borderWidth: 1,
   borderColor: 'var(--sl-color-gray-4)',
@@ -52,7 +52,11 @@ export const CHART_STYLES: DefaultChartStyles = {
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
       barMaxWidth: 60,
       barMinWidth: 15,
-      tooltip: TOOLTIP_OPTIONS,
+      tooltip: {
+        ...BASE_TOOLTIP_OPIONS,
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' },
+      },
       animationDelay: DEFAULT_DELAY_FUNCTION,
     },
     horizontal: {
@@ -68,7 +72,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
       barMaxWidth: 60,
       barMinWidth: 15,
-      tooltip: TOOLTIP_OPTIONS,
+      tooltip: BASE_TOOLTIP_OPIONS,
       animationDelay: DEFAULT_DELAY_FUNCTION,
       series: {
         type: 'bar',
@@ -88,7 +92,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         showSymbol: false,
       },
       legend: BAR_CHART_LEGEND_DEFAULT_STYLE,
-      tooltip: { ...TOOLTIP_OPTIONS, trigger: 'axis' },
+      tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
     },
   },
