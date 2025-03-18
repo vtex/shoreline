@@ -1,9 +1,10 @@
-import type { EChartsOption, SeriesOption } from 'echarts'
+import type { BarSeriesOption, EChartsOption, SeriesOption } from 'echarts'
 import { CHART_STYLES } from '../theme/chartStyles'
 import type { ChartConfig, MultiChart } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
 import { cloneDeep } from 'lodash'
 import { defaultTheme } from '../theme/themes'
+import { isDate } from 'node:util/types'
 
 export const buildDefaultSerie = (
   serie: SeriesOption | SeriesOption[],
@@ -86,26 +87,28 @@ export function normalizeBarData(series: SeriesOption | SeriesOption[]): void {
   }
 }
 
-function normalizeData(
-  data: (number | { value: number; itemStyle: any })[]
-): void {
+function normalizeData(data: BarSeriesOption['data']): void {
+  if (typeof data === 'undefined') return
+
   const defaultBorder = defaultTheme.bar.itemStyle.borderRadius
   const invertedBorderRadius = [0, 0, defaultBorder[0], defaultBorder[1]]
 
   data.forEach((v, index) => {
-    if (typeof v === 'number') {
+    if (
+      typeof v === 'string' ||
+      isDate(v) ||
+      Array.isArray(v) || // We could allow this case, but i don't think we allow arrays of arrays anywhere
+      v === null ||
+      typeof v === 'undefined'
+    ) {
+    } else if (typeof v === 'number') {
       data[index] =
         v > 0
           ? v
           : { value: v, itemStyle: { borderRadius: invertedBorderRadius } }
-    } else {
-      data[index] =
-        v.value > 0
-          ? v
-          : {
-              value: v.value,
-              itemStyle: { borderRadius: invertedBorderRadius, ...v.itemStyle },
-            }
+    } else if (typeof v.value === 'number' && v.value < 0) {
+      v.itemStyle ??= {} // is it undefined? if it is assign an empty object to it
+      v.itemStyle.borderRadius = invertedBorderRadius
     }
   })
 }
