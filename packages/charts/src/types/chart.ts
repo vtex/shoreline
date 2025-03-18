@@ -7,7 +7,7 @@ export type MultiChart = {
 
 export type BarChartVariants = 'default' | 'horizontal'
 
-export type LineChartVariants = 'default' //| 'base'
+export type LineChartVariants = 'default'
 
 export type LineChartConfig = { type: 'line'; variant?: LineChartVariants }
 export type BarChartConfig = { type: 'bar'; variant?: BarChartVariants }

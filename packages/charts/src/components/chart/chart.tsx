@@ -55,12 +55,6 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       return undefined
     })
 
-    const chartOptions: EChartsOption = useMemo(() => {
-      if (chartConfig === 'multitype') return option
-      const { type, variant } = chartConfig
-      return getChartOptions(option, type, variant) || option
-    }, [option, chartConfig])
-
     const handleResize = useCallback(() => {
       if (chartRef.current) {
         chartRef.current.getEchartsInstance().resize()
@@ -75,6 +69,11 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
         window.removeEventListener('resize', handleResize)
       }
     }, [handleResize, canUseDOM])
+
+    const chartOptions: EChartsOption = useMemo(() => {
+      const { type, variant } = chartConfig
+      return getChartOptions(option, type, variant) || option
+    }, [option, chartConfig])
 
     return (
       <div data-sl-chart>
@@ -101,7 +100,7 @@ export interface ChartOptions {
    * @default default
    * @example {type:"bar", variant:"horizontal"}
    */
-  chartConfig: ChartConfig | 'multitype'
+  chartConfig: ChartConfig
   /**
    * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
    *
