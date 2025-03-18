@@ -120,3 +120,31 @@ export const MultiType: Story = {
     style: { height: 550 },
   },
 }
+const data2: (number | object)[] = []
+const data1: number[] = []
+
+for (let i = 0; i < 50; i++) {
+  data1.push((Math.sin(i / 5) * (i / 5 - 10) + i / 6) * 5)
+  data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5)
+}
+export const Animation: Story = {
+  args: {
+    option: {
+      series: [
+        { data: data1, name: 'Default animation' },
+        {
+          data: data2,
+          name: 'Custom animation',
+          animationDelay: (idx) => idx * 50,
+          animationEasing: 'elasticInOut',
+        },
+      ],
+      title: {
+        text: 'Reload animation by clicking on the legend',
+        left: 'center',
+      },
+    },
+    chartConfig: { type: 'bar', variant: 'default' },
+    style: { height: 550 },
+  },
+}
