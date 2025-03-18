@@ -80,7 +80,7 @@ export const CHART_STYLES: DefaultChartStyles = {
   },
   line: {
     default: {
-      xAxis: { splitLine: { show: true } },
+      xAxis: { splitLine: { show: true }, type: 'category' },
       yAxis: { type: 'value' },
       series: {
         type: 'line',

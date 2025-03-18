@@ -49,14 +49,31 @@ export const getChartOptions = (
   return { ...mergedOptions, series: formattedSeries }
 }
 
-export const getDataFromChart = (multi: MultiChart) => {
+export const getDataToMultichart = (multi: MultiChart): SeriesOption => {
   const chartStyleType = CHART_STYLES[multi.config.type]
   const defaultStyle = multi.config.variant
-    ? chartStyleType[variant]
+    ? chartStyleType[multi.config.variant]
     : chartStyleType.default
 
-  const serieFinal = cloneDeep(defaultStyle.series)
-  serieFinal.data = multi.serie.data
+  const serieFinal = merge(defaultStyle.series, multi.serie) as SeriesOption
 
   return serieFinal
+}
+
+export const getTooltipMultitype = (
+  tooltip: ChartConfig
+): EChartsOption['tooltip'] => {
+  return tooltip.variant
+    ? CHART_STYLES[tooltip.type][tooltip.variant].tooltip
+    : CHART_STYLES[tooltip.type].default.tooltip
+}
+
+export const getBackgroundMultitype = (
+  background: ChartConfig
+): EChartsOption => {
+  const typ = CHART_STYLES[background.type]
+
+  const style = background.variant ? typ[background.variant] : typ.default
+
+  return style
 }

@@ -10,7 +10,6 @@ import {
 import type { EChartsOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import type * as echarts from 'echarts'
-
 import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig } from '../../types/chart'
 import { getChartOptions } from '../../utils/chart'
@@ -56,9 +55,11 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
     })
 
     const chartOptions: EChartsOption = useMemo(() => {
-      if (chartConfig === 'multitype') return option
-      const { type, variant } = chartConfig
-      return getChartOptions(option, type, variant) || option
+      if (chartConfig) {
+        const { type, variant } = chartConfig
+        return getChartOptions(option, type, variant) || option
+      }
+      return option
     }, [option, chartConfig])
 
     const handleResize = useCallback(() => {
@@ -98,10 +99,11 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
 export interface ChartOptions {
   /**
    * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
+   * If is not passed it doesn't affect the options that is being passed
    * @default default
    * @example {type:"bar", variant:"horizontal"}
    */
-  chartConfig: ChartConfig | 'multitype'
+  chartConfig?: ChartConfig
   /**
    * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
    *
