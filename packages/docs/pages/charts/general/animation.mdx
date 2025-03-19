@@ -10,3 +10,8 @@ Easing receives a string indicating the [easing function](https://echarts.apache
 `animationDelay` and the others set the delay for when a point is added or removed. To change these properties for updated points we add the 'Update' suffix.
 
 Generally update animations should be shorter.
+
+## Performance
+Animations are automatically disabled when a certain threshold of points is passed, so as to not hinder performance.
+
+In _options_ `animationThreshold` configures this threshold, while `animation:false` turns any animation off.

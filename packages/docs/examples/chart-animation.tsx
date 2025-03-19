@@ -12,6 +12,8 @@ export default function Example() {
   return (
     <Chart
       option={{
+        barGap: 0,
+        catgoryGap: 0,
         series: [
           { data: data1, name: 'Default animation' },
           {
