@@ -21,7 +21,7 @@ export const Basic: Story = {
       series: [{ data: [1, 2, 3, 4, 5, 6, 7] }],
     },
     chartConfig: { type: 'bar' },
-    style: { height: 550 },
+    // style: { height: 300 },
   },
 }
 
@@ -33,7 +33,7 @@ export const Loading: Story = {
       <Chart
         option={option}
         chartConfig={chartConfig}
-        style={{ height: 550 }}
+        // style={{ height: 300 }}
         loading={loading}
       />
     )
@@ -46,7 +46,7 @@ export const Loading: Story = {
       series: [{ data: [1, 2, 3, 4, 5, 6, 7] }],
     },
     chartConfig: { type: 'bar' },
-    style: { height: 550 },
+    // style: { height: 300 },
     loading: true,
   },
 }
@@ -63,7 +63,7 @@ export const MultiSeries: Story = {
       ],
     },
     chartConfig: { type: 'bar' },
-    style: { height: 550 },
+    // style: { height: 300 },
   },
 }
 export const WithHugeNumbers: Story = {
@@ -85,7 +85,7 @@ export const WithHugeNumbers: Story = {
       ],
     },
     chartConfig: { type: 'bar' },
-    style: { height: 550 },
+    // style: { height: 300 },
   },
 }
 
@@ -101,7 +101,7 @@ export const Horizontal: Story = {
       ],
     },
     chartConfig: { type: 'bar', variant: 'horizontal' },
-    style: { height: 550 },
+    // style: { height: 300 },
   },
 }
 
@@ -117,7 +117,7 @@ export const MultiType: Story = {
       ],
     },
     chartConfig: { type: 'bar', variant: 'default' },
-    style: { height: 550 },
+    // style: { height: 300 },
   },
 }
 const data2: (number | object)[] = []
@@ -145,6 +145,6 @@ export const Animation: Story = {
       },
     },
     chartConfig: { type: 'bar', variant: 'default' },
-    style: { height: 550 },
+    // style: { height: 300 },
   },
 }
