@@ -4,7 +4,7 @@ export default function Example() {
   return (
     <Search
       messages={{
-        placeholder: 'Find products...',
+        placeholder: 'Search products or categories',
       }}
     />
   )
