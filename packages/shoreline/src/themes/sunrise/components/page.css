@@ -46,15 +46,15 @@
       var(--sl-page-content-space-horizontal)
       var(--sl-page-content-space-bottom);
 
-    &[data-layout='wide'] {
+    &[data-layout="wide"] {
       --sl-page-layout: var(--sl-page-layout-wide);
     }
 
-    &[data-layout='standard'] {
+    &[data-layout="standard"] {
       --sl-page-layout: var(--sl-page-layout-standard);
     }
 
-    &[data-layout='narrow'] {
+    &[data-layout="narrow"] {
       --sl-page-layout: var(--sl-page-layout-narrow);
     }
 

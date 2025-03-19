@@ -15,14 +15,14 @@ import { Popover as BasePopover } from '@ariakit/react'
  */
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
   function Popover(props, ref) {
-    const { children, asChild = false, ...otherProps } = props
+    const { children, asChild = false, portal = true, ...otherProps } = props
 
     return (
       <BasePopover
         data-sl-popover
         ref={ref}
         render={asChild && (children as any)}
-        portal
+        portal={portal}
         gutter={4}
         {...otherProps}
       >
@@ -38,6 +38,11 @@ export interface PopoverOptions extends Pick<BaseProps, 'getAnchorRect'> {
    * @default false
    */
   asChild?: boolean
+  /**
+   * Should activate portal
+   * @default true
+   */
+  portal?: boolean
 }
 
 export type PopoverProps = PopoverOptions & ComponentPropsWithoutRef<'div'>

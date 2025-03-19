@@ -48,12 +48,12 @@
     }
   }
 
-  &[data-disabled='true'] {
+  &[data-disabled="true"] {
     border: var(--sl-border-base-disabled);
     background-color: var(--sl-bg-base-disabled);
     color: var(--sl-fg-base-disabled);
 
-    &:not([data-loading='true']) {
+    &:not([data-loading="true"]) {
       & > [data-sl-pre-icon] {
         color: inherit;
       }

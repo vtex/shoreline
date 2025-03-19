@@ -24,12 +24,12 @@
   display: inline-flex;
 }
 
-.tag[data-color='purple'] {
+.tag[data-color="purple"] {
   --color: #6847ba;
   --background: #6847ba14;
 }
 
-.tag[data-color='green'] {
+.tag[data-color="green"] {
   --color: #458443;
   --background: #45844314;
 }

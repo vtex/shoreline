@@ -47,3 +47,18 @@ export function Locale() {
     </LocaleProvider>
   )
 }
+
+export function Disabled() {
+  const now = today(getLocalTimeZone())
+
+  return (
+    <Field>
+      <Label>Date</Label>
+      <DateRangePicker
+        value={{ start: now, end: now.add({ days: 2 }) }}
+        isDisabled
+      />
+      <FieldDescription>The event starting date</FieldDescription>
+    </Field>
+  )
+}

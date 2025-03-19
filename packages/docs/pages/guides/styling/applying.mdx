@@ -1,5 +1,5 @@
 
-import { Tab, Tabs } from 'nextra-theme-docs'
+import { Tabs } from 'nextra/components'
 
 # Applying Styles
 
@@ -25,7 +25,7 @@ function Example() {
 
 <Tabs items={['usage.css', 'usage.tsx']}>
 
-<Tab>
+<Tabs.Tab>
 
 ```css
 [data-example] {
@@ -33,9 +33,9 @@ function Example() {
 }
 ```
 
-</Tab>
+</Tabs.Tab>
 
-<Tab>
+<Tabs.Tab>
 
 ```jsx
 import '@vtex/shoreline-theme-sunrise/css'
@@ -48,7 +48,7 @@ function Example() {
 }
 ```
 
-</Tab>
+</Tabs.Tab>
 
 </Tabs>
 

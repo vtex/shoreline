@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline",
-  "version": "1.9.10",
+  "version": "1.11.23",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -41,39 +41,37 @@
     "url": "https://github.com/vtex/shoreline/issues"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": ">=18.3",
+    "react-dom": ">=18.3",
+    "typescript": ">=5"
   },
   "devDependencies": {
     "@faker-js/faker": "8.4.1",
+    "@parcel/watcher": "2.4.1",
     "@types/fs-extra": "11.0.4",
     "@types/node": "20.14.9",
     "@types/react-window": "1.8.8",
     "@vtex/shoreline-css": "workspace:*",
-    "browserslist": "4.23.1",
-    "chokidar": "3.6.0",
     "concurrently": "8.2.2",
-    "cssnano": "6.0.2",
     "fs-extra": "11.2.0",
-    "lightningcss": "1.25.1",
     "match-sorter": "6.3.4",
     "react-hook-form": "7.48.2",
     "react-window": "1.8.10",
     "sucrase": " 3.35.0"
   },
   "dependencies": {
-    "@ariakit/react": "0.4.7",
-    "@internationalized/date": "3.5.4",
-    "@react-aria/calendar": "3.5.8",
-    "@react-aria/checkbox": "3.14.3",
-    "@react-aria/datepicker": "3.10.1",
-    "@react-aria/focus": "3.17.1",
-    "@react-aria/i18n": "3.11.1",
-    "@react-aria/interactions": "3.21.3",
-    "@react-stately/calendar": "3.5.1",
-    "@react-stately/datepicker": "3.9.4",
+    "@ariakit/react": "0.4.13",
+    "@internationalized/date": "3.5.6",
+    "@react-aria/calendar": "3.5.12",
+    "@react-aria/checkbox": "3.14.7",
+    "@react-aria/datepicker": "3.11.3",
+    "@react-aria/focus": "3.18.3",
+    "@react-aria/i18n": "3.12.3",
+    "@react-aria/interactions": "3.22.3",
+    "@react-stately/calendar": "3.5.5",
+    "@react-stately/datepicker": "3.10.3",
     "@react-stately/toggle": "3.7.4",
-    "@vtex/shoreline-utils": "^1.0.63",
+    "@vtex/shoreline-utils": "^1.0.93",
     "react-hot-toast": "2.4.1",
     "vaul": "0.9.4"
   }

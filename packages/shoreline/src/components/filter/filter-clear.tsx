@@ -26,12 +26,19 @@ function useFilterClear() {
   const selectValue = select?.useState('value') ?? ''
   const filterValue = filter?.useState('value') ?? ''
 
+  const isSelectValueEmpty = Array.isArray(selectValue)
+    ? selectValue.length === 0
+    : !selectValue
+  const isFilterValueEmpty = Array.isArray(filterValue)
+    ? filterValue.length === 0
+    : !filterValue
+
   return {
     onClick() {
       filter?.setValue(reset)
       select?.setValue(reset)
     },
-    disabled: !selectValue && !filterValue,
+    disabled: isSelectValueEmpty && isFilterValueEmpty,
   }
 }
 

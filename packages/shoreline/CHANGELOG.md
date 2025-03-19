@@ -3,6 +3,241 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.23](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.22...@vtex/shoreline@1.11.23) (2025-03-12)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.22](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.21...@vtex/shoreline@1.11.22) (2025-03-10)
+
+
+### Bug Fixes
+
+* **drawer-popover:** properly pass `asChild` as a valid prop ([77f85b2](https://github.com/vtex/shoreline/commit/77f85b2017c7af848effac2eb97a7d4586a181a0))
+
+
+
+
+
+## [1.11.21](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.20...@vtex/shoreline@1.11.21) (2025-03-06)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.20](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.19...@vtex/shoreline@1.11.20) (2025-02-25)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.19](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.18...@vtex/shoreline@1.11.19) (2025-02-14)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.18](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.17...@vtex/shoreline@1.11.18) (2025-01-30)
+
+
+### Bug Fixes
+
+* **select:** add missing className to select div ([da64546](https://github.com/vtex/shoreline/commit/da64546542d37ab71bdb5b8d9faca6bc75cdfe19))
+
+
+
+
+
+## [1.11.17](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.16...@vtex/shoreline@1.11.17) (2025-01-29)
+
+
+### Bug Fixes
+
+* change typo on flex stylesheet ([6474010](https://github.com/vtex/shoreline/commit/6474010c9fad6f1d2817632da7bbd0f5957006e5))
+
+
+
+
+
+## [1.11.16](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.15...@vtex/shoreline@1.11.16) (2025-01-28)
+
+
+### Bug Fixes
+
+* **filter-clear:** disable clear button when value is empty array ([ad094ff](https://github.com/vtex/shoreline/commit/ad094ff537b0e213b4a65e3730b0680bd00f7c96))
+
+
+
+
+
+## [1.11.15](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.14...@vtex/shoreline@1.11.15) (2025-01-21)
+
+
+### Bug Fixes
+
+* svg props ([6ba4ab2](https://github.com/vtex/shoreline/commit/6ba4ab21508948cdd9fd2a9c0c1a932630c8e8fe))
+
+
+
+
+
+## [1.11.14](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.13...@vtex/shoreline@1.11.14) (2025-01-09)
+
+
+### Bug Fixes
+
+* **ts-table:** interaction between getSelectionColumn and Virtualization ([f15d572](https://github.com/vtex/shoreline/commit/f15d5720602af1a833cd03c348860a76623b83b3))
+
+
+
+
+
+## [1.11.13](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.12...@vtex/shoreline@1.11.13) (2025-01-06)
+
+
+### Bug Fixes
+
+* **data-picker:** update style when field is disabled ([c687c6c](https://github.com/vtex/shoreline/commit/c687c6c9631f372dd1ada1aa86d1ac7ef8920e70)), closes [#2048](https://github.com/vtex/shoreline/issues/2048)
+* **data-range-picker:** update style when field is disabled ([6bb77c8](https://github.com/vtex/shoreline/commit/6bb77c862a4dd9d2983b39ad1005f38a1392d8bf)), closes [#2048](https://github.com/vtex/shoreline/issues/2048)
+
+
+
+
+
+## [1.11.12](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.11...@vtex/shoreline@1.11.12) (2024-11-07)
+
+
+### Bug Fixes
+
+* **data-picker:** change to id from groupProps not override id from field context ([dc00550](https://github.com/vtex/shoreline/commit/dc00550d17d8d3a41269d4f4d903c2b6722d657c)), closes [#2039](https://github.com/vtex/shoreline/issues/2039)
+* **data-range-picker:** change to id from groupProps not override id from field context ([1c78e6f](https://github.com/vtex/shoreline/commit/1c78e6fcf75afa45ff7b47008ca8d953d278bfd3)), closes [#2039](https://github.com/vtex/shoreline/issues/2039)
+
+
+
+
+
+## [1.11.11](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.10...@vtex/shoreline@1.11.11) (2024-11-07)
+
+
+### Bug Fixes
+
+* **calendar-grid:** change key used in week days mapping ([af78a7d](https://github.com/vtex/shoreline/commit/af78a7dad3eeff61617919023afda66fa4a318f4)), closes [#2041](https://github.com/vtex/shoreline/issues/2041)
+
+
+
+
+
+## [1.11.10](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.9...@vtex/shoreline@1.11.10) (2024-10-29)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.9](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.8...@vtex/shoreline@1.11.9) (2024-10-29)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.8](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.7...@vtex/shoreline@1.11.8) (2024-10-24)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.7](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.6...@vtex/shoreline@1.11.7) (2024-10-23)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.6](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.5...@vtex/shoreline@1.11.6) (2024-10-22)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.11.5](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.4...@vtex/shoreline@1.11.5) (2024-10-22)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+## [1.11.4](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.3...@vtex/shoreline@1.11.4) (2024-10-22)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+## [1.11.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.2...@vtex/shoreline@1.11.3) (2024-10-22)
+
+### Bug Fixes
+
+- **shoreline:** avoid infinite loops on the dev script ([bbc29b2](https://github.com/vtex/shoreline/commit/bbc29b29eab5b7a767ce4feeecc9327e9ad08d38))
+
+## [1.11.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.1...@vtex/shoreline@1.11.2) (2024-10-16)
+
+### Bug Fixes
+
+- **menu:** use the primary, secondary, and tertiary props ([daee9be](https://github.com/vtex/shoreline/commit/daee9be73ea5cf1ad8203338adbc3cda30a2ccf6))
+
+## [1.11.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.0...@vtex/shoreline@1.11.1) (2024-10-16)
+
+### Bug Fixes
+
+- pass disabled to native input ([5331d9e](https://github.com/vtex/shoreline/commit/5331d9e447350a177c12a65e7c0c7f9b47c37cfe))
+
+# [1.11.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.10.3...@vtex/shoreline@1.11.0) (2024-10-15)
+
+### Features
+
+- **clickable:** add only immediate prop ([ab0b903](https://github.com/vtex/shoreline/commit/ab0b9035e578534409cf1fd08238364cf0301f37)), closes [#1963](https://github.com/vtex/shoreline/issues/1963)
+
+## [1.10.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.10.2...@vtex/shoreline@1.10.3) (2024-10-11)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+## [1.10.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.10.1...@vtex/shoreline@1.10.2) (2024-10-10)
+
+### Bug Fixes
+
+- **date-range-picker:** update react-aria and fix types ([5a3ac60](https://github.com/vtex/shoreline/commit/5a3ac60cd985c5e3b0452ae32fcc2abb8f461fc6))
+
+## [1.10.1](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.10.0...@vtex/shoreline@1.10.1) (2024-10-10)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+# [1.10.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.12...@vtex/shoreline@1.10.0) (2024-10-09)
+
+### Features
+
+- add portal option to DatePicker, MenuPopover, and Popover components ([10fa6c8](https://github.com/vtex/shoreline/commit/10fa6c8de3c631d3d5b850e203597ab0e5226b7e))
+
+## [1.9.12](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.11...@vtex/shoreline@1.9.12) (2024-10-02)
+
+### Bug Fixes
+
+- **toast:** add font style to data-sl-toast ([94c863e](https://github.com/vtex/shoreline/commit/94c863e53a060e355c8c0a369010b4960c95ab14)), closes [#1978](https://github.com/vtex/shoreline/issues/1978)
+
+## [1.9.11](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.10...@vtex/shoreline@1.9.11) (2024-10-02)
+
+**Note:** Version bump only for package @vtex/shoreline
+
 ## [1.9.10](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.9.9...@vtex/shoreline@1.9.10) (2024-09-26)
 
 ### Bug Fixes

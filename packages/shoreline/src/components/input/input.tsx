@@ -58,6 +58,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             _setValue(e.target.value)
           }
           id={id}
+          disabled={disabled}
           {...otherProps}
         />
         {suffix && (

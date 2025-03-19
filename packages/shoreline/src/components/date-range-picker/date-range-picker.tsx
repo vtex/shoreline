@@ -28,6 +28,13 @@ export function DateRangePicker<T extends DateValue>(
   const state = useDateRangePickerState(domProps)
   const ref = useRef(null)
   const anchorRef = useRef<HTMLDivElement>(null)
+
+  const store = useFieldContext()
+  const { id: contextId, error: contextError } = useStore(store, (s) => s)
+
+  const id = defaultId || contextId
+  const error = defaultError || contextError
+
   const {
     groupProps,
     labelProps,
@@ -35,13 +42,7 @@ export function DateRangePicker<T extends DateValue>(
     endFieldProps,
     buttonProps,
     calendarProps,
-  } = useDateRangePicker(domProps, state, ref)
-
-  const store = useFieldContext()
-  const { id: contextId, error: contextError } = useStore(store, (s) => s)
-
-  const id = defaultId || contextId
-  const error = defaultError || contextError
+  } = useDateRangePicker({ ...domProps, id }, state, ref)
 
   return (
     <PopoverProvider
@@ -52,7 +53,6 @@ export function DateRangePicker<T extends DateValue>(
       <div ref={anchorRef} data-sl-date-range-picker>
         <div {...labelProps} />
         <div
-          id={id}
           data-sl-date-range-picker-input
           {...groupProps}
           ref={ref}
@@ -71,6 +71,7 @@ export function DateRangePicker<T extends DateValue>(
                 aria-describedby={buttonProps['aria-describedby']}
                 variant="tertiary"
                 data-sl-date-range-picker-icon-button
+                disabled={buttonProps.isDisabled}
               >
                 <IconCalendarBlank />
               </IconButton>

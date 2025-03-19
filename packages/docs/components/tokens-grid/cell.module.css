@@ -9,6 +9,6 @@
   white-space: pre-line;
 }
 
-.cell[data-type='preview'] {
+.cell[data-type="preview"] {
   padding-right: var(--sl-space-0);
 }

@@ -1,22 +1,26 @@
-import { watch } from 'chokidar'
+import { subscribe } from '@parcel/watcher'
 import { build } from './build-css'
+import path from 'node:path'
 
-function main() {
-  console.log('Watching CSS files')
+console.log('👀 Watching CSS files')
 
-  build()
+/**
+ * We must trigger the first build to avoid errors
+ */
+build()
 
-  watch('**/*.css', {
-    ignored: [
-      'dist/themes/sunrise/styles.css',
-      'dist/themes/sunrise/styles-unlayered.css',
-    ],
-    ignoreInitial: false,
-  }).on('change', (path) => {
+const themesPath = path.join(__dirname, '../themes/')
+
+subscribe(themesPath, (err, events) => {
+  if (err) {
+    console.error(err)
+  }
+
+  const shouldTriggerBuild = events.some(
+    ({ type }) => type === 'update' || type === 'create' || type === 'delete'
+  )
+
+  if (shouldTriggerBuild) {
     build()
-
-    console.log(`File ${path} has been changed`)
-  })
-}
-
-main()
+  }
+})

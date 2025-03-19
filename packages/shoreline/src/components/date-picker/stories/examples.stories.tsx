@@ -65,3 +65,13 @@ export function AsField() {
     </Field>
   )
 }
+
+export function Disabled() {
+  return (
+    <Field>
+      <Label>Date</Label>
+      <DatePicker value={today(getLocalTimeZone())} isDisabled />
+      <FieldDescription>The event starting date</FieldDescription>
+    </Field>
+  )
+}

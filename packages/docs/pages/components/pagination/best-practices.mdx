@@ -23,6 +23,12 @@ Show a loading Pagination when the list is loading, since the number of results 
 - **Returning after creating an item:** When the user has just created an item and returns to the listing, they should go to the first page with updated results.
 - **Returning after editing an item:** When the user has just edited an item and returns to the listing, they should see a list with the same items as before, but with the edited item updated.
 
+### Updating content
+
+- The content on a page should only be updated after an explicit action taken by the user.
+- In a listing, if the user tries to access a page that does not exist, either by typing the page number directly into the URL (e.g., ?page=5) or refreshing the page, the system should redirect them to the last available page and display a temporary yellow toast message informing that the page does not exist.
+- If the user tries to access an item from a listing that has been deleted, they should be redirected back to the listing and see a temporary yellow toast message informing that the item is no longer available.
+
 ### Returning after navigating
 
 The complete search query, which includes the filters, the current page, and the search terms, should be reflected in the URL. This allows the user to easily return to the customized view and easily share it. Don’t use local storage or cookies to store the query.
