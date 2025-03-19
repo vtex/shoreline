@@ -103,7 +103,7 @@ export interface ChartOptions {
    * @default default
    * @example {type:"bar", variant:"horizontal"}
    */
-  chartConfig?: ChartConfig
+  chartConfig: ChartConfig | null
   /**
    * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
    *

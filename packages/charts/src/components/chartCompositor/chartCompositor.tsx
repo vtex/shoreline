@@ -46,7 +46,7 @@ export const ChartsCompositor = forwardRef<
 
   return (
     <Chart
-      chartConfig={{ type: 'bar', variant: 'default' }}
+      chartConfig={null}
       option={chartOptions}
       style={{ height: 550 }}
       ref={ref}

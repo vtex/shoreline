@@ -2,9 +2,8 @@ import type { BarSeriesOption, EChartsOption, SeriesOption } from 'echarts'
 import { CHART_STYLES } from '../theme/chartStyles'
 import type { ChartConfig, MultiChart } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
-import { cloneDeep } from 'lodash'
+import { cloneDeep, isDate } from 'lodash'
 import { defaultTheme } from '../theme/themes'
-import { isDate } from 'node:util/types'
 
 export const buildDefaultSerie = (
   serie: SeriesOption | SeriesOption[],
