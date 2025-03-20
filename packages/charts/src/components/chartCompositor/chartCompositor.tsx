@@ -36,12 +36,14 @@ export const ChartsCompositor = forwardRef<
     if (tooltip) finalOptions.tooltip = getTooltipMultitype(tooltip) // passes the tooltip selected to the chart
 
     if (background) {
-      const backgroundConfig = getBackgroundMultitype(background) // gets the background config and passes each of it to the chart component
-      finalOptions.xAxis = backgroundConfig.xAxis
-      finalOptions.yAxis = backgroundConfig.yAxis
+      const { xAxis, yAxis } = getBackgroundMultitype(background) // gets the background config and passes each of it to the chart component
+      finalOptions.xAxis = xAxis
+      finalOptions.yAxis = yAxis
     }
 
-    finalOptions = merge(options, finalOptions)
+    if (options) {
+      finalOptions = merge(options, finalOptions)
+    }
 
     return finalOptions
   }, [charts, tooltip, background])
@@ -60,25 +62,26 @@ export const ChartsCompositor = forwardRef<
 export interface ChartsCompositorOptions {
   /**
    * The data that will be render by the multitype chart, each of it contains
-   * a SerieOption from Echarts and the ChartConfig that will be applied to the data
-   *
-   * @example { serie: { data: [1,2,3] }, config: { type: "bar", "horizontal" } }
+   * a SerieOption from Echarts and the ChartConfig that will be applied to the data.
+   * @example { serie: { data: [1,2,3] }, config: { type: "bar", variant: "horizontal" } }
    */
   charts: MultiChart[]
   /**
    * Config the background style, setting acording each kind of line.
-   * @example 'line' | 'bar'
+   * @example { type: 'line' }
    */
   background: ChartConfig
   /**
-   * Defines which type of tooltip is going to be used by the chart
-   * @example 'line' | 'bar'
+   * Defines which type of tooltip is going to be used by the chart.
+   * @example { type: "bar", variant: "horizontal" }
    */
   tooltip: ChartConfig
   /**
-   * Lets the user passes more options to the charts
+   * Merges the passed options to the final options.
+   * It doesn't allow passing the props 'series', 'xAxis', 'yAxis', and 'toolbox',
+   * since they should be selected using other props from this component.
    */
-  options?: EChartsOption
+  options?: Omit<EChartsOption, 'series' | 'xAxis' | 'yAxis' | 'tooltip'>
 }
 
 export type ChartCompositorProps = ChartsCompositorOptions &

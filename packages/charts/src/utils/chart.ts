@@ -113,6 +113,11 @@ function normalizeData(data: BarSeriesOption['data']): void {
   })
 }
 
+/**
+ * Returns the tooltip config according to the ChartConfig passed.
+ * @param tooltip ChartConfig that will be used to select.
+ * @returns EChartsOption['tooltip']
+ */
 export const getTooltipMultitype = (
   tooltip: ChartConfig
 ): EChartsOption['tooltip'] => {
@@ -121,12 +126,17 @@ export const getTooltipMultitype = (
     : CHART_STYLES[tooltip.type].default.tooltip
 }
 
+/**
+ * Returns an object containing the xAxis and yAxis props, according to the ChartConfig passed in param.
+ * @param background ChartConfig
+ * @returns Object containing xAxis, and yAxis props.
+ */
 export const getBackgroundMultitype = (
   background: ChartConfig
-): EChartsOption => {
+): { xAxis: EChartsOption['xAxis']; yAxis: EChartsOption['yAxis'] } => {
   const typ = CHART_STYLES[background.type]
 
   const style = background.variant ? typ[background.variant] : typ.default
 
-  return style
+  return { xAxis: style.xAxis, yAxis: style.yAxis }
 }
