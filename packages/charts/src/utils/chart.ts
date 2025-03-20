@@ -54,7 +54,11 @@ export const getChartOptions = (
   }
   return { ...mergedOptions, series: formattedSeries }
 }
-
+/**
+ * Returns the SeriesOption with the options passed and the config
+ * @param multi MultiChart config that will be used to pass
+ * @returns SeriesOption correct
+ */
 export const getDataToMultichart = (multi: MultiChart): SeriesOption => {
   const chartStyleType = CHART_STYLES[multi.config.type]
   const defaultStyle = multi.config.variant

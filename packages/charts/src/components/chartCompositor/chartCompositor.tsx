@@ -14,34 +14,36 @@ export const ChartsCompositor = forwardRef<
   echarts.EChartsType | undefined,
   ChartCompositorProps
 >(function ChartCompositor(props, ref) {
-  const { charts, background, tooltip, ...otherProps } = props
+  const { charts, background, tooltip, options, ...otherProps } = props
 
   const chartOptions: EChartsOption = useMemo(() => {
-    let options: EChartsOption = {} // creates an EChartOption object that will be filled u
+    let finalOptions: EChartsOption = {} // creates an EChartOption object that will be filled u
     const series: SeriesOption[] = []
     for (let i = 0; i < charts.length; i++) {
       const serie = charts[i]
       series.push(getDataToMultichart(serie)) // process the series object that will be passaed to the options object
 
-      options = merge(
-        options,
+      finalOptions = merge(
+        finalOptions,
         CHART_STYLES[serie.config.type].default
       ) as EChartsOption // takes the default options of each type of graphic passes to the options
       // why make this ? the options has many attributes that can be made for each chart separatly
       // and doing this makes the chart compositor has all the attributes it needs to make the correct
       // chart for each type
     }
-    options.series = series
+    finalOptions.series = series
 
-    if (tooltip) options.tooltip = getTooltipMultitype(tooltip) // passes the tooltip selected to the chart
+    if (tooltip) finalOptions.tooltip = getTooltipMultitype(tooltip) // passes the tooltip selected to the chart
 
     if (background) {
       const backgroundConfig = getBackgroundMultitype(background) // gets the background config and passes each of it to the chart component
-      options.xAxis = backgroundConfig.xAxis
-      options.yAxis = backgroundConfig.yAxis
+      finalOptions.xAxis = backgroundConfig.xAxis
+      finalOptions.yAxis = backgroundConfig.yAxis
     }
 
-    return options
+    finalOptions = merge(options, finalOptions)
+
+    return finalOptions
   }, [charts, tooltip, background])
 
   return (
@@ -73,6 +75,10 @@ export interface ChartsCompositorOptions {
    * @example 'line' | 'bar'
    */
   tooltip: ChartConfig
+  /**
+   * Lets the user passes more options to the charts
+   */
+  options?: EChartsOption
 }
 
 export type ChartCompositorProps = ChartsCompositorOptions &
