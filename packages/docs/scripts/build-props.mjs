@@ -162,6 +162,7 @@ const files = [
    * Charts
    */
   chartFile,
+  getPath('charts', 'component', 'charts-compositor', 'chart-compositor'),
 ]
 
 const chartVariants = [

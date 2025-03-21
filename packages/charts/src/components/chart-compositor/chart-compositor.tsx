@@ -10,7 +10,7 @@ import {
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
 
-export const ChartsCompositor = forwardRef<
+export const ChartCompositor = forwardRef<
   echarts.EChartsType | undefined,
   ChartCompositorProps
 >(function ChartCompositor(props, ref) {

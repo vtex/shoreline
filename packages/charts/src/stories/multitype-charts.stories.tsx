@@ -1,12 +1,12 @@
 import type { StoryObj } from '@storybook/react'
-import { ChartsCompositor } from '../index'
+import { ChartCompositor } from '../index'
 
 export default {
   title: 'Charts/multitype',
-  component: ChartsCompositor,
+  component: ChartCompositor,
 }
 
-type Story = StoryObj<typeof ChartsCompositor>
+type Story = StoryObj<typeof ChartCompositor>
 
 export const Testing: Story = {
   args: {
