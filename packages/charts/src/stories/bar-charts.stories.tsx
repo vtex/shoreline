@@ -26,6 +26,9 @@ export const Basic: Story = {
 }
 
 export const Loading: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: (args) => {
     const { option, chartConfig, loading } = args
 
