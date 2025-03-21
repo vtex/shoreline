@@ -76,7 +76,7 @@ describe('@vtex.shoreline-charts line chart test', () => {
 
 describe('@vtex.shoreline-charts line chart test', () => {
   test('tries to render a 100 thousand points chart under 5 seconds', async () => {
-    const antes = Date.now()
+    const after = Date.now()
 
     render(
       <Chart
@@ -90,8 +90,8 @@ describe('@vtex.shoreline-charts line chart test', () => {
       />
     )
 
-    const depois = Date.now()
-    assert(depois - antes < 5000, 'testing the rendering time')
+    const before = Date.now()
+    assert(before - after < 5000, 'testing the rendering time')
   })
 })
 
@@ -99,7 +99,7 @@ describe('@vtex.shoreline-charts line chart test', () => {
   test('tries to render a 10 thousand points chart under 80 miliseconds', async () => {
     const benchmark = 80
 
-    const antes = Date.now()
+    const after = Date.now()
 
     render(
       <Chart
@@ -113,9 +113,9 @@ describe('@vtex.shoreline-charts line chart test', () => {
       />
     )
 
-    const depois = Date.now()
+    const before = Date.now()
     assert(
-      depois - antes < benchmark,
+      before - after < benchmark,
       `testing the rendering time with the ${benchmark} miliseconds benchmark`
     )
   })
@@ -125,7 +125,7 @@ describe('@vtex.shoreline-charts line chart test', () => {
   test('tries to render a 100 thousand points chart under 120 miliseconds', async () => {
     const benchmark = 120
 
-    const antes = Date.now()
+    const after = Date.now()
 
     render(
       <Chart
@@ -139,9 +139,9 @@ describe('@vtex.shoreline-charts line chart test', () => {
       />
     )
 
-    const depois = Date.now()
+    const before = Date.now()
     assert(
-      depois - antes < benchmark,
+      before - after < benchmark,
       `testing the rendering time with the ${benchmark} miliseconds benchmark`
     )
   })
