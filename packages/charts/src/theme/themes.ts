@@ -35,5 +35,17 @@ export const defaultTheme = {
     itemStyle: {
       borderRadius: [4, 4, 0, 0],
     },
+    barMaxWidth: '60%',
+    barMinWidth: '30%',
+    barGap: '1%',
+    barCategoryGap: '15%',
+    emphasis: {
+      focus: 'series',
+    },
+    blur: {
+      itemStyle: {
+        opacity: 0.4,
+      },
+    },
   },
 }

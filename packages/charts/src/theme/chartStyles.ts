@@ -34,17 +34,10 @@ export const BAR_CHART_GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
 
 export const DEFAULT_DELAY_FUNCTION = (idx: number) => idx * 20
 
+// if you're looking for a certain feature in a chart and don't find it here, check themes.js
 export const CHART_STYLES: DefaultChartStyles = {
   bar: {
     default: {
-      emphasis: {
-        focus: 'series',
-      },
-      blur: {
-        itemStyle: {
-          opacity: 0.4,
-        },
-      },
       xAxis: {
         type: 'category',
       },
@@ -54,12 +47,8 @@ export const CHART_STYLES: DefaultChartStyles = {
       series: {
         type: 'bar',
       },
-      barGap: '1%',
-      barCategoryGap: '15%',
       legend: BAR_CHART_LEGEND_DEFAULT_STYLE,
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
-      barMaxWidth: '60%',
-      barMinWidth: '30%',
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         trigger: 'axis',
@@ -74,20 +63,20 @@ export const CHART_STYLES: DefaultChartStyles = {
       yAxis: {
         type: 'category',
       },
-      barGap: '20%',
-      barCategoryGap: '55%',
-      legend: BAR_CHART_LEGEND_DEFAULT_STYLE,
-      grid: BAR_CHART_GRID_DEFAULT_STYLE,
-      barMaxWidth: 60,
-      barMinWidth: 15,
-      tooltip: BASE_TOOLTIP_OPIONS,
-      animationDelay: DEFAULT_DELAY_FUNCTION,
       series: {
         type: 'bar',
         itemStyle: {
           borderRadius: [0, 4, 4, 0],
         },
       },
+      legend: BAR_CHART_LEGEND_DEFAULT_STYLE,
+      grid: BAR_CHART_GRID_DEFAULT_STYLE,
+      tooltip: {
+        ...BASE_TOOLTIP_OPIONS,
+        trigger: 'axis',
+        axisPointer: { type: 'shadow' },
+      },
+      animationDelay: DEFAULT_DELAY_FUNCTION,
     },
   },
   line: {
