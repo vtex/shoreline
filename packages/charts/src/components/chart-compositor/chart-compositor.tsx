@@ -12,8 +12,7 @@ import {
 import { merge } from '@vtex/shoreline-utils'
 
 /**
- * Used to make charts in different types.
- * Select the configs and pass the data with the data configs and the chart will be done the way is specified.
+ * Used to make charts with multiple different types.
  * @status stable
  * @example
  * <ChartCompositor
@@ -32,11 +31,11 @@ export const ChartCompositor = forwardRef<
   const { charts, background, tooltip, options, ...otherProps } = props
 
   const chartOptions: EChartsOption = useMemo(() => {
-    let finalOptions: EChartsOption = {} // creates an EChartOption object that will be filled u
+    let finalOptions: EChartsOption = {}
     const series: SeriesOption[] = []
     for (let i = 0; i < charts.length; i++) {
       const serie = charts[i]
-      series.push(getDataToMultichart(serie)) // process the series object that will be passaed to the options object
+      series.push(getDataToMultichart(serie))
 
       finalOptions = merge(
         finalOptions,

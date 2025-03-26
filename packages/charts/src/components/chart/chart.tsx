@@ -55,29 +55,19 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       return undefined
     })
     const chartOptions: EChartsOption = useMemo(() => {
-      if (chartConfig) {
-        const { type, variant } = chartConfig
-        const hook = defaultHooks.get('bar-default') // to floppando aqui
-        // console.log(`oi default hooks ${JSON.stringify(defaultHooks)}`)
-        if (typeof hook !== 'undefined') {
-          seriesHooks.push(...hook)
-        }
-
-        return getChartOptions(option, type, variant) || option
-      }
-      return option
-    }, [option, chartConfig])
-
-    useEffect(() => {
       const series = option.series
-      console.log(`hooking baby${seriesHooks}`)
-      if (typeof series !== 'undefined') {
-        seriesHooks.forEach((fn) => {
-          applySeriesHook(series, fn)
-        })
+      if (!chartConfig || typeof series === 'undefined') {
+        return option
       }
-    }, [option.series, chartConfig, seriesHooks])
-    console.log(JSON.stringify(option.series))
+      const { type, variant } = chartConfig
+      const hook = defaultHooks.get('bar-default') // to floppando aqui
+      // console.log(`oi default hooks ${JSON.stringify(defaultHooks)}`)
+      if (typeof hook !== 'undefined') {
+        seriesHooks.push(...hook)
+      }
+      seriesHooks.forEach((fn) => applySeriesHook(series, fn))
+      return getChartOptions(option, type, variant) || option
+    }, [option, chartConfig, seriesHooks])
 
     const handleResize = useCallback(() => {
       if (chartRef.current) {
