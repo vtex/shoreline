@@ -16,8 +16,5 @@ export const Testing: Story = {
     ],
     background: { type: 'bar' },
     tooltip: { type: 'line' },
-    options: {
-      dataZoom: {},
-    },
   },
 }
