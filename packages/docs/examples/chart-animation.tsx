@@ -1,6 +1,6 @@
 import { Chart } from '@vtex/shoreline-charts'
 
-const data2: (number | object)[] = []
+const data2: number[] = []
 const data1: number[] = []
 
 for (let i = 0; i < 25; i++) {

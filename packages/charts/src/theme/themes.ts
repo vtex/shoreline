@@ -39,13 +39,5 @@ export const defaultTheme = {
     barMinWidth: '30%',
     barGap: '1%',
     barCategoryGap: '15%',
-    emphasis: {
-      focus: 'series',
-    },
-    blur: {
-      itemStyle: {
-        opacity: 0.4,
-      },
-    },
   },
 }

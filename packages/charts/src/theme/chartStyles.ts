@@ -3,6 +3,7 @@ import type { DefaultChartStyles } from '../types/chart'
 import type { EChartsInstance } from 'echarts-for-react'
 import { defaultSpinnerColor } from './colors'
 import { getTooltipStaticString } from '../components/tooltip'
+import { normalizeBarData } from '../utils/chart'
 
 const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
   trigger: 'item',
@@ -13,7 +14,7 @@ const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
   },
 }
 
-export const BAR_CHART_LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
+export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   orient: 'horizontal',
   left: 'auto',
   bottom: 0,
@@ -47,12 +48,20 @@ export const CHART_STYLES: DefaultChartStyles = {
       series: {
         type: 'bar',
       },
-      legend: BAR_CHART_LEGEND_DEFAULT_STYLE,
+      legend: LEGEND_DEFAULT_STYLE,
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         trigger: 'axis',
         axisPointer: { type: 'shadow' },
+      },
+      emphasis: {
+        focus: 'series',
+      },
+      blur: {
+        itemStyle: {
+          opacity: 0.4,
+        },
       },
       animationDelay: DEFAULT_DELAY_FUNCTION,
     },
@@ -69,12 +78,20 @@ export const CHART_STYLES: DefaultChartStyles = {
           borderRadius: [0, 4, 4, 0],
         },
       },
-      legend: BAR_CHART_LEGEND_DEFAULT_STYLE,
+      legend: LEGEND_DEFAULT_STYLE,
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         trigger: 'axis',
         axisPointer: { type: 'shadow' },
+      },
+      emphasis: {
+        focus: 'series',
+      },
+      blur: {
+        itemStyle: {
+          opacity: 0.4,
+        },
       },
       animationDelay: DEFAULT_DELAY_FUNCTION,
     },
@@ -88,7 +105,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         smooth: true,
         showSymbol: false,
       },
-      legend: BAR_CHART_LEGEND_DEFAULT_STYLE,
+      legend: LEGEND_DEFAULT_STYLE,
       tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
       grid: BAR_CHART_GRID_DEFAULT_STYLE,
     },
@@ -101,3 +118,7 @@ export const DEFAULT_LOADING_SPINNER: EChartsInstance['showLoading'] = {
   lineWidth: 3,
   color: defaultSpinnerColor,
 }
+
+const _defaultHooks: Map<string, CallableFunction[]> = new Map()
+_defaultHooks.set('bar-default', [normalizeBarData])
+export const defaultHooks = _defaultHooks

@@ -12,9 +12,9 @@ import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import type * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig } from '../../types/chart'
-import { getChartOptions } from '../../utils/chart'
+import { applySeriesHook, getChartOptions } from '../../utils/chart'
 import { canUseDOM } from '@vtex/shoreline-utils'
-import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
+import { DEFAULT_LOADING_SPINNER, defaultHooks } from '../../theme/chartStyles'
 import type { Dictionary } from 'lodash'
 
 /**
@@ -42,6 +42,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       style,
       renderer = 'svg',
       theme = defaultTheme,
+      seriesHooks = [],
       ...otherProps
     } = props
 
@@ -53,14 +54,30 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       }
       return undefined
     })
-
     const chartOptions: EChartsOption = useMemo(() => {
       if (chartConfig) {
         const { type, variant } = chartConfig
+        const hook = defaultHooks.get('bar-default') // to floppando aqui
+        // console.log(`oi default hooks ${JSON.stringify(defaultHooks)}`)
+        if (typeof hook !== 'undefined') {
+          seriesHooks.push(...hook)
+        }
+
         return getChartOptions(option, type, variant) || option
       }
       return option
     }, [option, chartConfig])
+
+    useEffect(() => {
+      const series = option.series
+      console.log(`hooking baby${seriesHooks}`)
+      if (typeof series !== 'undefined') {
+        seriesHooks.forEach((fn) => {
+          applySeriesHook(series, fn)
+        })
+      }
+    }, [option.series, chartConfig, seriesHooks])
+    console.log(JSON.stringify(option.series))
 
     const handleResize = useCallback(() => {
       if (chartRef.current) {
@@ -110,6 +127,10 @@ export interface ChartOptions {
    * Includes the data that the chart will use and more advanced or specific configuration.
    */
   option: EChartsOption
+  /**
+   * TODO
+   */
+  seriesHooks?: CallableFunction[]
   /**
    * Whether to render the chart as a SVG or Canvas. Both are about equally as fast,
    * but SVGs have 'perfect' image quality.

@@ -7,6 +7,7 @@ import {
   getBackgroundMultitype,
   getDataToMultichart,
   getTooltipMultitype,
+  normalizeBarData,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
 
@@ -54,6 +55,7 @@ export const ChartCompositor = forwardRef<
       option={chartOptions}
       style={{ height: 550 }}
       ref={ref}
+      seriesHooks={[normalizeBarData]}
       {...otherProps}
     />
   )

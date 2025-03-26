@@ -50,10 +50,11 @@ export const getChartOptions = (
     variant === 'default' &&
     typeof formattedSeries !== 'undefined'
   ) {
-    normalizeBarData(formattedSeries) // border radius for negative bars fix
+    // applySeriesHook(formattedSeries, normalizeBarData)
   }
   return { ...mergedOptions, series: formattedSeries }
 }
+
 /**
  * Returns the SeriesOption with the options passed and the config
  * @param multi MultiChart config that will be used to pass
@@ -70,24 +71,28 @@ export const getDataToMultichart = (multi: MultiChart): SeriesOption => {
   return serieFinal
 }
 
+export function applySeriesHook(
+  series: SeriesOption | SeriesOption[],
+  fn: CallableFunction
+): void {
+  console.log(JSON.stringify(series))
+  console.log(`aplying hooks:${fn.name}`)
+  if (Array.isArray(series)) {
+    for (const v of series) {
+      fn(v.data)
+    }
+  } else {
+    fn(series.data)
+  }
+  console.log(JSON.stringify(series))
+}
 /**
  * Fix required so that bars with negative values don't render
  * upside down.
  *
  * **Will change series data** but will leave styling alone (except for border radius).
- * @param series
  */
-export function normalizeBarData(series: SeriesOption | SeriesOption[]): void {
-  if (Array.isArray(series)) {
-    for (const v of series) {
-      normalizeData(v.data as number[])
-    }
-  } else {
-    normalizeData(series.data as number[])
-  }
-}
-
-function normalizeData(data: BarSeriesOption['data']): void {
+export function normalizeBarData(data: BarSeriesOption['data']): void {
   if (typeof data === 'undefined') return
 
   const defaultBorder = defaultTheme.bar.itemStyle.borderRadius
