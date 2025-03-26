@@ -4,5 +4,5 @@ export default {
   line: 'Line Chart',
   area: 'Area Chart',
   general: 'General Examples',
-  composer: 'Chart Composer',
+  compositor: 'Chart Compositor',
 }

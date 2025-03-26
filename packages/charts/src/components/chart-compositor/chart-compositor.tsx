@@ -11,6 +11,20 @@ import {
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
 
+/**
+ * Used to make charts in different types.
+ * Select the configs and pass the data with the data configs and the chart will be done the way is specified.
+ * @status stable
+ * @example
+ * <ChartCompositor
+ *   charts={[
+ *     { serie: { data: [1, 2, 3, 4, 5] }, config: { type: 'bar' } },
+ *     { serie: { data: [1, 3, 2, 5, 4] }, config: { type: 'line' } },
+ *   ]}
+ *   background={{ type: 'bar' }}
+ *   tooltip={{ type: 'line' }}
+ * />
+ */
 export const ChartCompositor = forwardRef<
   echarts.EChartsType | undefined,
   ChartCompositorProps
@@ -61,7 +75,7 @@ export const ChartCompositor = forwardRef<
   )
 })
 
-export interface ChartsCompositorOptions {
+export interface ChartCompositorOptions {
   /**
    * The data that will be render by the multitype chart, each of it contains
    * a SerieOption from Echarts and the ChartConfig that will be applied to the data.
@@ -86,6 +100,6 @@ export interface ChartsCompositorOptions {
   options?: Omit<EChartsOption, 'series' | 'xAxis' | 'yAxis' | 'tooltip'>
 }
 
-export type ChartCompositorProps = ChartsCompositorOptions &
+export type ChartCompositorProps = ChartCompositorOptions &
   Omit<ChartOptions, 'chartConfig' | 'option'> &
   ComponentPropsWithRef<'div'>
