@@ -24,7 +24,6 @@ export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   padding: 0,
   itemGap: 20,
   icon: 'roundRect',
-  selectedMode: false,
 }
 
 export const BAR_CHART_GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
