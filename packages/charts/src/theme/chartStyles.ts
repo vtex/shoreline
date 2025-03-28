@@ -23,6 +23,8 @@ export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   itemHeight: 16,
   padding: 0,
   itemGap: 20,
+  icon: 'roundRect',
+  selectedMode: false,
 }
 
 export const BAR_CHART_GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
@@ -55,14 +57,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         trigger: 'axis',
         axisPointer: { type: 'shadow' },
       },
-      emphasis: {
-        focus: 'series',
-      },
-      blur: {
-        itemStyle: {
-          opacity: 0.4,
-        },
-      },
+
       animationDelay: DEFAULT_DELAY_FUNCTION,
     },
     horizontal: {
@@ -85,20 +80,13 @@ export const CHART_STYLES: DefaultChartStyles = {
         trigger: 'axis',
         axisPointer: { type: 'shadow' },
       },
-      emphasis: {
-        focus: 'series',
-      },
-      blur: {
-        itemStyle: {
-          opacity: 0.4,
-        },
-      },
+
       animationDelay: DEFAULT_DELAY_FUNCTION,
     },
   },
   line: {
     default: {
-      xAxis: { splitLine: { show: true }, type: 'category' },
+      xAxis: { type: 'category' },
       yAxis: { type: 'value' },
       series: {
         type: 'line',
