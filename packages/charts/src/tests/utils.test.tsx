@@ -54,7 +54,6 @@ describe('Normalize bar data tests', () => {
       { data: [1, 4, -6, 8, -12] },
     ]
     normalizeBarData(series3)
-    console.log(JSON.stringify(series3))
     expect(series3).toStrictEqual([
       {
         data: [
