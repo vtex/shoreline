@@ -75,8 +75,6 @@ export function applySeriesHook(
   series: SeriesOption | SeriesOption[],
   fn: CallableFunction
 ): void {
-  console.log(JSON.stringify(series))
-  console.log(`aplying hooks:${fn.name}`)
   if (Array.isArray(series)) {
     for (const v of series) {
       fn(v.data)
@@ -84,7 +82,6 @@ export function applySeriesHook(
   } else {
     fn(series.data)
   }
-  console.log(JSON.stringify(series))
 }
 /**
  * Fix required so that bars with negative values don't render

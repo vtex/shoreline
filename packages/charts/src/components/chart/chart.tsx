@@ -75,6 +75,28 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       }
     }, [chartRef])
 
+    const checkBoxLegend = useCallback((params: any) => {
+      if (!chartRef.current) return
+      params.selected[params.name] = !params.selected[params.name] // we flip the one that was selected, so that it represent the state of the legend before the user clicked it
+
+      const notSelected: [string, boolean][] = []
+      const selected: [string, boolean][] = []
+      Object.entries(params.selected).forEach((v) => {
+        if (v[1]) {
+          selected.push(v as [string, boolean])
+        } else {
+          notSelected.push(v as [string, boolean])
+        }
+      })
+
+      const chart = chartRef.current.getEchartsInstance()
+      if (notSelected.length === 0) {
+        chart.dispatchAction({ type: 'legendInverseSelect' })
+      } else if (selected.length === 1 && selected[0][0] === params.name) {
+        chart.dispatchAction({ type: 'legendAllSelect' })
+      }
+    }, [])
+
     useEffect(() => {
       if (!canUseDOM) return
 
@@ -97,6 +119,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
           showLoading={loading}
           loadingOption={loadingConfig}
           // onChartReady={(instance) => instance.resize()}
+          onEvents={{ legendselectchanged: checkBoxLegend }}
           {...otherProps}
         />
       </div>
