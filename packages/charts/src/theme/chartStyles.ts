@@ -106,6 +106,9 @@ export const DEFAULT_LOADING_SPINNER: EChartsInstance['showLoading'] = {
   color: defaultSpinnerColor,
 }
 
-const _defaultHooks: Map<string, CallableFunction[]> = new Map()
-_defaultHooks.set('bar-default', [normalizeBarData])
-export const defaultHooks = _defaultHooks
+// const _defaultHooks: Map<string, CallableFunction[]> = new Map()
+// _defaultHooks.set('bar-default', [normalizeBarData])
+export const defaultHooks: Map<string, CallableFunction[]> = new Map().set(
+  'bar-default',
+  [normalizeBarData]
+)

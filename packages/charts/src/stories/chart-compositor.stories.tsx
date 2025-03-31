@@ -16,6 +16,9 @@ export const Testing: Story = {
     ],
     background: { type: 'bar' },
     tooltip: { type: 'line' },
+    options: {
+      xAxis: { type: 'category', data: ['mon', 'tue', 'wed', 'thu', 'fri'] },
+    },
   },
 }
 

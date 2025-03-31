@@ -2,7 +2,6 @@ import type { EChartsOption, SeriesOption } from 'echarts'
 import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
 import type { ChartConfig, MultiChart } from '../../types/chart'
 import { Chart, type ChartOptions } from '../chart/chart'
-import { CHART_STYLES } from '../../theme/chartStyles'
 import {
   getBackgroundMultitype,
   getDataToMultichart,
@@ -30,36 +29,37 @@ export const ChartCompositor = forwardRef<
 >(function ChartCompositor(props, ref) {
   const { charts, background, tooltip, options, ...otherProps } = props
 
-  const chartOptions: EChartsOption = useMemo(() => {
-    let finalOptions: EChartsOption = {}
+  const seriesOptions: EChartsOption['series'] = useMemo(() => {
     const series: SeriesOption[] = []
+
     for (let i = 0; i < charts.length; i++) {
       const serie = charts[i]
       series.push(getDataToMultichart(serie))
-
-      finalOptions = merge(
-        finalOptions,
-        CHART_STYLES[serie.config.type].default
-      ) as EChartsOption // takes the default options of each type of graphic passes to the options
-      // why make this ? the options has many attributes that can be made for each chart separatly
-      // and doing this makes the chart compositor has all the attributes it needs to make the correct
-      // chart for each type
-    }
-    finalOptions.series = series
-
-    if (tooltip) finalOptions.tooltip = getTooltipMultitype(tooltip) // passes the tooltip selected to the chart
-
-    if (background) {
-      const { xAxis, yAxis } = getBackgroundMultitype(background) // gets the background config and passes each of it to the chart component
-      finalOptions.xAxis = xAxis
-      finalOptions.yAxis = yAxis
     }
 
-    if (options) {
-      finalOptions = merge(options, finalOptions)
-    }
+    return series
+  }, [charts])
 
-    return finalOptions
+  const tooltipOptions: EChartsOption['tooltip'] = useMemo(() => {
+    return getTooltipMultitype(tooltip)
+  }, [tooltip])
+
+  const backgroundOptions: {
+    xAxis: EChartsOption['xAxis']
+    yAxis: EChartsOption['yAxis']
+  } = useMemo(() => {
+    return getBackgroundMultitype(background)
+  }, [background])
+
+  const chartOptions: EChartsOption = useMemo(() => {
+    const finalOptions: EChartsOption = {}
+
+    finalOptions.series = seriesOptions
+    finalOptions.tooltip = tooltipOptions
+    finalOptions.xAxis = backgroundOptions.xAxis
+    finalOptions.yAxis = backgroundOptions.yAxis
+
+    return options ? merge(options, finalOptions) : finalOptions
   }, [charts, tooltip, background])
 
   return (
@@ -96,7 +96,7 @@ export interface ChartCompositorOptions {
    * It doesn't allow passing the props 'series', 'xAxis', 'yAxis', and 'toolbox',
    * since they should be selected using other props from this component.
    */
-  options?: Omit<EChartsOption, 'series' | 'xAxis' | 'yAxis' | 'tooltip'>
+  options?: EChartsOption
 }
 
 export type ChartCompositorProps = ChartCompositorOptions &

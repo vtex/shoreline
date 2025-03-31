@@ -10,7 +10,7 @@ import { ChartCompositor } from '../components'
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
 import React from 'react'
 
-describe('@vtex.shoreline-charts chart compositor testes', () => {
+describe('@vtex.shoreline-charts chart compositor tests', () => {
   test('make sure the data is correct', async () => {
     const data1 = [1, 2, 3, 4, 5]
     const data2 = [1, 3, 2, 5, 4]
@@ -38,3 +38,7 @@ describe('@vtex.shoreline-charts chart compositor testes', () => {
     })
   })
 })
+
+// describe('@vtex.shoreline-charts chart compositor', () => {
+//   test('trying render the 10 thousand points chart under 80 miliseconds')
+// })
