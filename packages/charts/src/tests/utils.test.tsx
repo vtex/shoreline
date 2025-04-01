@@ -1,5 +1,5 @@
 import type { SeriesOption } from 'echarts'
-import { normalizeBarData } from '../utils/chart'
+import { applySeriesHook, normalizeBarData } from '../utils/chart'
 import { describe, expect, it } from '@vtex/shoreline-test-utils'
 import { defaultTheme } from '../theme/themes'
 
@@ -11,7 +11,7 @@ const invertedBorderRadius = {
 describe('Normalize bar data tests', () => {
   it('Series is 1 object:', () => {
     const series1: SeriesOption = { data: [10, -2, 3, 4, -6] }
-    normalizeBarData(series1)
+    applySeriesHook(series1, normalizeBarData)
     expect(series1).toStrictEqual({
       data: [
         10,
@@ -25,7 +25,7 @@ describe('Normalize bar data tests', () => {
 
   it('Series is an array of objects of type {data: number[]}', () => {
     const series2 = [{ data: [10, -2, 3, 4, -6] }, { data: [1, 4, 6, 8, -12] }]
-    normalizeBarData(series2)
+    applySeriesHook(series2, normalizeBarData)
     expect(series2).toStrictEqual([
       {
         data: [
@@ -53,7 +53,7 @@ describe('Normalize bar data tests', () => {
       },
       { data: [1, 4, -6, 8, -12] },
     ]
-    normalizeBarData(series3)
+    applySeriesHook(series3, normalizeBarData)
     expect(series3).toStrictEqual([
       {
         data: [
