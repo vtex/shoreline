@@ -12,9 +12,9 @@ import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import type * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig } from '../../types/chart'
-import { applySeriesHook, getChartOptions } from '../../utils/chart'
+import { getChartOptions } from '../../utils/chart'
 import { canUseDOM } from '@vtex/shoreline-utils'
-import { DEFAULT_LOADING_SPINNER, defaultHooks } from '../../theme/chartStyles'
+import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
 import type { Dictionary } from 'lodash'
 
 /**
@@ -60,12 +60,12 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
         return option
       }
       const { type, variant } = chartConfig
-      const hook = defaultHooks.get('bar-default') // to floppando aqui
-      // console.log(`oi default hooks ${JSON.stringify(defaultHooks)}`)
-      if (typeof hook !== 'undefined') {
-        seriesHooks.push(...hook)
-      }
-      seriesHooks.forEach((fn) => applySeriesHook(series, fn))
+      // const hook = defaultHooks.get('bar-default') // to floppando aqui
+      // // console.log(`oi default hooks ${JSON.stringify(defaultHooks)}`)
+      // if (typeof hook !== 'undefined') {
+      //   seriesHooks.push(...hook)
+      // }
+      // seriesHooks.forEach((fn) => applySeriesHook(series, fn))
       return getChartOptions(option, type, variant) || option
     }, [option, chartConfig, seriesHooks])
 

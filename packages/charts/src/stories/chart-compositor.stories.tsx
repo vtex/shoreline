@@ -1,8 +1,9 @@
 import type { StoryObj } from '@storybook/react'
 import { ChartCompositor } from '../index'
+import { CHART_COMPOSITOR_DATA } from '../tests/__fixtures__/chartData'
 
 export default {
-  title: 'Charts/multitype',
+  title: 'Charts/chart-compositor',
   component: ChartCompositor,
 }
 
@@ -19,6 +20,27 @@ export const Testing: Story = {
     options: {
       xAxis: { type: 'category', data: ['mon', 'tue', 'wed', 'thu', 'fri'] },
     },
+  },
+}
+
+export const LargeNumbers: Story = {
+  args: {
+    charts: [
+      {
+        serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+        config: { type: 'line' },
+      },
+      {
+        serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+        config: { type: 'bar' },
+      },
+      {
+        serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+        config: { type: 'bar' },
+      },
+    ],
+    background: { type: 'bar' },
+    tooltip: { type: 'line' },
   },
 }
 
