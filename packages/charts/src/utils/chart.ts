@@ -72,16 +72,24 @@ export const getDataToMultichart = (multi: MultiChart): SeriesOption => {
 }
 
 export function applySeriesHook(
+  series: SeriesOption[],
+  fn: CallableFunction
+): SeriesOption[]
+export function applySeriesHook(
+  series: SeriesOption,
+  fn: CallableFunction
+): SeriesOption
+export function applySeriesHook(
   series: SeriesOption | SeriesOption[],
   fn: CallableFunction
-): void {
+): SeriesOption | SeriesOption[] {
   if (Array.isArray(series)) {
-    for (const v of series) {
-      fn(v.data)
-    }
-  } else {
-    fn(series.data)
+    return series.map((v: any) => {
+      return { data: fn(v.data) }
+    })
   }
+  const data = series.data as any
+  return { data: fn(data) }
 }
 /**
  * Fix required so that bars with negative values don't render
@@ -89,13 +97,13 @@ export function applySeriesHook(
  *
  * **Will change series data** but will leave styling alone (except for border radius).
  */
-export function normalizeBarData(data: BarSeriesOption['data']): void {
-  if (typeof data === 'undefined') return
+export function normalizeBarData(data: BarSeriesOption['data']): SeriesOption {
+  if (typeof data === 'undefined') return {}
 
   const defaultBorder = defaultTheme.bar.itemStyle.borderRadius
   const invertedBorderRadius = [0, 0, defaultBorder[0], defaultBorder[1]]
 
-  data.forEach((v, index) => {
+  return data.map((v) => {
     if (
       typeof v === 'string' ||
       isDate(v) ||
@@ -103,16 +111,23 @@ export function normalizeBarData(data: BarSeriesOption['data']): void {
       v === null ||
       typeof v === 'undefined'
     ) {
-    } else if (typeof v === 'number') {
-      data[index] =
-        v > 0
-          ? v
-          : { value: v, itemStyle: { borderRadius: invertedBorderRadius } }
-    } else if (typeof v.value === 'number' && v.value < 0) {
-      v.itemStyle ??= {} // is it undefined? if it is assign an empty object to it
-      v.itemStyle.borderRadius = invertedBorderRadius
+      return v
     }
-  })
+    if (typeof v === 'number') {
+      return v > 0
+        ? v
+        : { value: v, itemStyle: { borderRadius: invertedBorderRadius } }
+    }
+    if (typeof v.value === 'number' && v.value < 0) {
+      const out = { ...v }
+      out.itemStyle ??= {}
+      out.itemStyle.borderRadius = invertedBorderRadius
+      return out
+      // biome-ignore lint/style/noUselessElse: <To remove "Not all code paths return a value" warning, which is incorrect here because every variant of v is covered and returns>
+    } else {
+      return v
+    }
+  }) as SeriesOption // a BarOption is a SeriesOption but there's nothing directly expressing that relation so TS thinks it's wrong
 }
 
 /**

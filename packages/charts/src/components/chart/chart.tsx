@@ -38,7 +38,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       option,
       loading = false,
       loadingConfig = DEFAULT_LOADING_SPINNER,
-      chartConfig,
+      chartConfig = { type: 'bar', variant: 'horizontal' },
       style,
       renderer = 'svg',
       theme = defaultTheme,
@@ -129,9 +129,10 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
 export interface ChartOptions {
   /**
    * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
-   * If is not passed it doesn't affect the options that is being passed
-   * @default default
-   * @example {type:"bar", variant:"horizontal"}
+   *
+   * **null** means that nothing will be done to the options, and the chart will be rendered as-is.
+   * @default {type:"bar", variant:"horizontal"}
+   * @example { type:"line" }
    */
   chartConfig: ChartConfig | null
   /**
