@@ -16,7 +16,7 @@ export default function Example() {
         <Search />
         <Pagination page={1} total={74} />
       </CollectionRow>
-      <CollectionRow>
+      <CollectionRow justify="flex-start">
         <Filter label="Status">
           <FilterItem value="Stable">Stable</FilterItem>
           <FilterItem value="Experimental">Experimental</FilterItem>
