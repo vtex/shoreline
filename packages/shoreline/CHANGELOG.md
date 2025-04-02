@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.25](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.24...@vtex/shoreline@1.11.25) (2025-04-02)
+
+
+### Bug Fixes
+
+* **tag:** change tag height to fit its content ([dd9d67b](https://github.com/vtex/shoreline/commit/dd9d67baade8290dca37225ebde2f4b0f3b96fa2))
+
+
+
+
+
 ## [1.11.24](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.23...@vtex/shoreline@1.11.24) (2025-03-27)
 
 **Note:** Version bump only for package @vtex/shoreline
