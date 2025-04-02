@@ -52,7 +52,7 @@ export default function Example() {
       <TabProvider>
         <PageHeader>
           <PageHeaderRow>
-            <Flex>
+            <Flex align="center">
               <Bleed top="$space-2" bottom="$space-2">
                 <IconButton
                   label="Return"
