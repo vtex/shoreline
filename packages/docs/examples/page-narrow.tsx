@@ -13,22 +13,26 @@ import {
   TabList,
   Tab,
   TabPanel,
+  PageHeaderRow,
 } from '@vtex/shoreline'
 
 export default function Example() {
   return (
-    <Page>
-      <PageHeader>
-        <PageHeading>Account Settings</PageHeading>
-      </PageHeader>
-      <TabProvider>
+    <TabProvider>
+      <Page>
+        <PageHeader>
+          <PageHeaderRow>
+            <PageHeading>Account Settings</PageHeading>
+          </PageHeaderRow>
+          <PageHeaderRow>
+            <TabList>
+              <Tab>Personal Information</Tab>
+              <Tab>Company Details</Tab>
+              <Tab>Security</Tab>
+            </TabList>
+          </PageHeaderRow>
+        </PageHeader>
         <PageContent layout="narrow">
-          <TabList>
-            <Tab>Personal Information</Tab>
-            <Tab>Company Details</Tab>
-            <Tab>Security</Tab>
-          </TabList>
-
           <TabPanel>
             <Table
               columnWidths={[
@@ -125,7 +129,7 @@ export default function Example() {
             </Table>
           </TabPanel>
         </PageContent>
-      </TabProvider>
-    </Page>
+      </Page>
+    </TabProvider>
   )
 }

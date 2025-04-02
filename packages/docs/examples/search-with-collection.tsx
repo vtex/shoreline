@@ -82,7 +82,7 @@ export default function Example() {
       </Table>
 
       {filteredItems.length > 0 && (
-        <CollectionRow align="flex-end">
+        <CollectionRow justify="flex-end">
           <Pagination
             page={currentPage}
             onPageChange={(page) => setCurrentPage(page)}

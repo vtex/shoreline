@@ -28,7 +28,7 @@ export default function Example() {
       <TabProvider>
         <PageHeader>
           <PageHeaderRow>
-            <PageHeading>Page with Tabs</PageHeading>
+            <PageHeading>Products</PageHeading>
           </PageHeaderRow>
           <PageHeaderRow>
             <TabList>
@@ -82,7 +82,7 @@ export default function Example() {
                   </TableBody>
                 </Table>
               </CollectionView>
-              <CollectionRow align="flex-end">
+              <CollectionRow justify="flex-end">
                 <Pagination page={1} total={74} />
               </CollectionRow>
             </Collection>

@@ -174,7 +174,7 @@ export default function Example() {
                   </TableBody>
                 </Table>
               </CollectionView>
-              <CollectionRow align="flex-end">
+              <CollectionRow justify="flex-end">
                 <Pagination page={1} total={18} />
               </CollectionRow>
             </Collection>
