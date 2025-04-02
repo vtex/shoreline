@@ -12,7 +12,11 @@ import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import type * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig } from '../../types/chart'
-import { getChartOptions } from '../../utils/chart'
+import {
+  applySeriesHook,
+  getChartOptions,
+  normalizeBarData,
+} from '../../utils/chart'
 import { canUseDOM } from '@vtex/shoreline-utils'
 import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
 import type { Dictionary } from 'lodash'
@@ -38,7 +42,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       option,
       loading = false,
       loadingConfig = DEFAULT_LOADING_SPINNER,
-      chartConfig = { type: 'bar', variant: 'horizontal' },
+      chartConfig = { type: 'bar', variant: 'default' },
       style,
       renderer = 'svg',
       theme = defaultTheme,
@@ -54,26 +58,32 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       }
       return undefined
     })
-    const chartOptions: EChartsOption = useMemo(() => {
+
+    const hookedSeries = useMemo(() => {
       const series = option.series
-      if (!chartConfig || typeof series === 'undefined') {
+
+      if (!chartConfig || typeof series === 'undefined' || seriesHooks === null)
+        return series
+
+      const { type, variant } = chartConfig
+
+      if (type === 'bar' && variant === 'default') {
+        seriesHooks.push(normalizeBarData)
+      }
+      return seriesHooks.reduce((out, fn) => applySeriesHook(out, fn), series)
+    }, [chartConfig, option, seriesHooks])
+
+    const chartOptions: EChartsOption = useMemo(() => {
+      if (!chartConfig || typeof hookedSeries === 'undefined') {
         return option
       }
       const { type, variant } = chartConfig
-      // const hook = defaultHooks.get('bar-default') // to floppando aqui
-      // // console.log(`oi default hooks ${JSON.stringify(defaultHooks)}`)
-      // if (typeof hook !== 'undefined') {
-      //   seriesHooks.push(...hook)
-      // }
-      // seriesHooks.forEach((fn) => applySeriesHook(series, fn))
-      return getChartOptions(option, type, variant) || option
-    }, [option, chartConfig, seriesHooks])
 
-    const handleResize = useCallback(() => {
-      if (chartRef.current) {
-        chartRef.current.getEchartsInstance().resize()
-      }
-    }, [chartRef])
+      return (
+        getChartOptions({ ...option, series: hookedSeries }, type, variant) ||
+        option
+      )
+    }, [option, chartConfig, hookedSeries])
 
     const checkBoxLegend = useCallback((params: any) => {
       if (!chartRef.current) return
@@ -96,6 +106,12 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
         chart.dispatchAction({ type: 'legendAllSelect' })
       }
     }, [])
+
+    const handleResize = useCallback(() => {
+      if (chartRef.current) {
+        chartRef.current.getEchartsInstance().resize()
+      }
+    }, [chartRef])
 
     useEffect(() => {
       if (!canUseDOM) return

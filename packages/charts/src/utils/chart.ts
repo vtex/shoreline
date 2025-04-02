@@ -45,13 +45,6 @@ export const getChartOptions = (
   const formattedSeries = formatSeries(series, defaultStyle)
 
   const mergedOptions = merge(defaultRest, rest)
-  if (
-    type === 'bar' &&
-    variant === 'default' &&
-    typeof formattedSeries !== 'undefined'
-  ) {
-    // applySeriesHook(formattedSeries, normalizeBarData)
-  }
   return { ...mergedOptions, series: formattedSeries }
 }
 
@@ -82,20 +75,23 @@ export function applySeriesHook(
 export function applySeriesHook(
   series: SeriesOption | SeriesOption[],
   fn: CallableFunction
+): SeriesOption | SeriesOption[]
+export function applySeriesHook(
+  series: SeriesOption | SeriesOption[],
+  fn: CallableFunction
 ): SeriesOption | SeriesOption[] {
   if (Array.isArray(series)) {
     return series.map((v: any) => {
-      return { data: fn(v.data) }
+      return { ...v, data: fn(v.data) }
     })
   }
   const data = series.data as any
-  return { data: fn(data) }
+  return { ...series, data: fn(data) }
 }
 /**
  * Fix required so that bars with negative values don't render
  * upside down.
  *
- * **Will change series data** but will leave styling alone (except for border radius).
  */
 export function normalizeBarData(data: BarSeriesOption['data']): SeriesOption {
   if (typeof data === 'undefined') return {}
