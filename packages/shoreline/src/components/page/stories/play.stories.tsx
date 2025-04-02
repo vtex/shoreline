@@ -82,7 +82,7 @@ export function Play(args: StoryArgs) {
       <TabProvider defaultSelectedId="selected">
         <PageHeader>
           <PageHeaderRow>
-            <Flex>
+            <Flex align="center">
               {args.headerWithBackButton && (
                 <Bleed top="$space-2" bottom="$space-2">
                   <IconButton
