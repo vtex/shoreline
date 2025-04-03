@@ -25,7 +25,7 @@ export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   icon: 'roundRect',
 }
 
-export const BAR_CHART_GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
+export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
   left: 'auto',
   right: '0',
   top: '5',
@@ -49,7 +49,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         type: 'bar',
       },
       legend: LEGEND_DEFAULT_STYLE,
-      grid: BAR_CHART_GRID_DEFAULT_STYLE,
+      grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         trigger: 'axis',
@@ -72,7 +72,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         },
       },
       legend: LEGEND_DEFAULT_STYLE,
-      grid: BAR_CHART_GRID_DEFAULT_STYLE,
+      grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         trigger: 'axis',
@@ -93,7 +93,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       },
       legend: LEGEND_DEFAULT_STYLE,
       tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
-      grid: BAR_CHART_GRID_DEFAULT_STYLE,
+      grid: GRID_DEFAULT_STYLE,
     },
   },
 }

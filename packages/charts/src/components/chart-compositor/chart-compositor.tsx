@@ -8,6 +8,7 @@ import {
   getTooltipMultitype,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
+import { LEGEND_DEFAULT_STYLE } from '../../theme/chartStyles'
 
 /**
  * Used to make charts with multiple different types.
@@ -53,13 +54,15 @@ export const ChartCompositor = forwardRef<
   const chartOptions: EChartsOption = useMemo(() => {
     const finalOptions: EChartsOption = {}
 
+    finalOptions.legend = LEGEND_DEFAULT_STYLE
+
     finalOptions.series = seriesOptions
     finalOptions.tooltip = tooltipOptions
     finalOptions.xAxis = backgroundOptions.xAxis
     finalOptions.yAxis = backgroundOptions.yAxis
 
     return options ? merge(options, finalOptions) : finalOptions
-  }, [charts, tooltip, background])
+  }, [charts, tooltip, background, options])
 
   return (
     <Chart
