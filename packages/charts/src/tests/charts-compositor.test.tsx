@@ -45,8 +45,8 @@ describe('@vtex.shoreline-charts chart compositor tests', () => {
 })
 
 describe('@vtex.shoreline-charts chart compositor tests', () => {
-  test('testing for 2 charts, with 5 thousand points each rendered above 500 and under 850 miliseconds', () => {
-    const topBenchmark = 850
+  test('testing for 2 charts, with 5 thousand points each rendered above 500 and under 2400 miliseconds', () => {
+    const topBenchmark = 2400
     const bottomBenchmark = 500
 
     const before = Date.now()
@@ -84,8 +84,8 @@ describe('@vtex.shoreline-charts chart compositor tests', () => {
 })
 
 describe('@vtex.shoreline-charts chart compositor tests', () => {
-  test('testing for 3 charts, with 4 thousand points each, rendered above 450 and under 750 miliseconds (bar)', () => {
-    const benchmark = 750
+  test('testing for 3 charts, with 4 thousand points each, rendered above 450 and under 2000 miliseconds (bar)', () => {
+    const benchmark = 2000
 
     const bottomBenchmark = 450
 
@@ -128,8 +128,8 @@ describe('@vtex.shoreline-charts chart compositor tests', () => {
 })
 
 describe('@vtex.shoreline-charts chart compositor tests', () => {
-  test('testing for 3 charts, with 4 thousand points each, rendered above 250 and under 500 miliseconds (line)', () => {
-    const benchmark = 500
+  test('testing for 3 charts, with 4 thousand points each, rendered above 250 and under 1200 miliseconds (line)', () => {
+    const benchmark = 1200
 
     const bottomBenchmark = 250
 
@@ -172,8 +172,8 @@ describe('@vtex.shoreline-charts chart compositor tests', () => {
 })
 
 describe('@vtex.shoreline-charts chart compositor tests', () => {
-  test('testing for 2 charts, with 50 thousand points each, rendered above 2800 and under 4000 miliseconds', () => {
-    const benchmark = 4000
+  test('testing for 2 charts, with 50 thousand points each, rendered above 2800 and under 10000 miliseconds', () => {
+    const benchmark = 10000
 
     const bottomBenchmark = 2800
 

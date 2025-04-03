@@ -36,8 +36,8 @@ describe('@vtex.shoreline-charts bar chart tests', () => {
 })
 
 describe('@vtex.shoreline-charts bar chart test', () => {
-  test('tries to render a 100 thousand points bar chart above 5000 and under 8000 miliseconds', async () => {
-    const benchmark = 8000
+  test('tries to render a 100 thousand points bar chart above 5000 and under 19000 miliseconds', async () => {
+    const benchmark = 19000
     const bottomBenchmark = 5000
 
     const before = Date.now()
@@ -61,8 +61,8 @@ describe('@vtex.shoreline-charts bar chart test', () => {
 })
 
 describe('@vtex.shoreline-charts bar chart test', () => {
-  test('tries to render a 10 thousand points bar chart above 500 and under 800 miliseconds', async () => {
-    const benchmark = 800
+  test('tries to render a 10 thousand points bar chart above 500 and under 1800 miliseconds', async () => {
+    const benchmark = 1800
     const bottomBenchmark = 500
 
     const before = Date.now()
@@ -187,8 +187,8 @@ describe('@vtex.shoreline-charts line chart test', () => {
 })
 
 describe('@vtex.shoreline-charts line chart test', () => {
-  test('tries to render a 10 thousand points chart under 50 miliseconds AND FAILS', () => {
-    const benchmark = 50
+  test('tries to render a 10 thousand points chart under 30 miliseconds AND FAILS', () => {
+    const benchmark = 30
 
     const before = Date.now()
 

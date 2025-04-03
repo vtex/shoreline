@@ -19,6 +19,34 @@ export const Testing: Story = {
     tooltip: { type: 'line' },
     options: {
       xAxis: { type: 'category', data: ['mon', 'tue', 'wed', 'thu', 'fri'] },
+
+      dataZoom: [
+        {
+          type: 'inside',
+          realtime: true,
+        },
+        {
+          type: 'slider',
+          selectedDataBackground: {
+            lineStyle: {
+              width: 1.2,
+              opacity: 1,
+              color: 'rgba(32,119,224,255)',
+            },
+            areaStyle: {
+              color: 'rgba(193,226,252,255)',
+              opacity: 1,
+            },
+          },
+          handleStyle: {
+            opacity: 1,
+            color: 'rgba(0,85,183,255)',
+            borderColor: 'rgba(0,85,183,255)',
+            borderWidth: 0.6,
+          },
+          labelFormatter: '',
+        },
+      ],
     },
   },
 }
@@ -77,6 +105,27 @@ export const MultitypeAnimation: Story = {
       ]}
       background={{ type: 'bar' }}
       tooltip={{ type: 'line' }}
+      options={{
+        dataZoom: [
+          {
+            type: 'inside',
+            realtime: true,
+          },
+          {
+            type: 'slider',
+            selectedDataBackground: {
+              lineStyle: {
+                width: 1.2,
+                opacity: 1,
+                color: 'rgba(32,119,224,255)',
+              },
+              areaStyle: {
+                opacity: 0.6,
+              },
+            },
+          },
+        ],
+      }}
     />
   ),
 }
