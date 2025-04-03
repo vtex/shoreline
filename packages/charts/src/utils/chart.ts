@@ -1,6 +1,11 @@
 import type { BarSeriesOption, EChartsOption, SeriesOption } from 'echarts'
 import { CHART_STYLES } from '../theme/chartStyles'
-import type { ChartConfig, MultiChart } from '../types/chart'
+import type {
+  BarChartVariants,
+  ChartConfig,
+  LineChartVariants,
+  MultiChart,
+} from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
 import { cloneDeep, isDate } from 'lodash'
 import { defaultTheme } from '../theme/themes'
@@ -88,12 +93,30 @@ export function applySeriesHook(
   const data = series.data as any
   return { ...series, data: fn(data) }
 }
+
+type DefaultHooks = {
+  bar: Record<BarChartVariants, CallableFunction[]>
+  line: Record<LineChartVariants, CallableFunction[]>
+}
+/**
+ * Functions that are always called for a certain chart config
+ */
+export const defaultHooks: DefaultHooks = {
+  bar: {
+    default: [normalizeBarData],
+    horizontal: [],
+  },
+  line: {
+    default: [],
+  },
+}
+
 /**
  * Fix required so that bars with negative values don't render
  * upside down.
  *
  */
-export function normalizeBarData(data: BarSeriesOption['data']): SeriesOption {
+function normalizeBarData(data: BarSeriesOption['data']): SeriesOption {
   if (typeof data === 'undefined') return {}
 
   const defaultBorder = defaultTheme.bar.itemStyle.borderRadius

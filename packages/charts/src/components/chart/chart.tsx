@@ -14,12 +14,12 @@ import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig } from '../../types/chart'
 import {
   applySeriesHook,
+  defaultHooks,
   getChartOptions,
-  normalizeBarData,
 } from '../../utils/chart'
 import { canUseDOM } from '@vtex/shoreline-utils'
 import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
-import type { Dictionary } from 'lodash'
+import { identity, type Dictionary } from 'lodash'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -65,11 +65,10 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       if (!chartConfig || typeof series === 'undefined' || seriesHooks === null)
         return series
 
-      const { type, variant } = chartConfig
+      const { type, variant = 'default' } = chartConfig
+      const hooks = defaultHooks[type][variant] ?? [identity]
 
-      if (type === 'bar' && variant === 'default') {
-        seriesHooks.push(normalizeBarData)
-      }
+      seriesHooks.push(...hooks)
       return seriesHooks.reduce((out, fn) => applySeriesHook(out, fn), series)
     }, [chartConfig, option, seriesHooks])
 
@@ -87,7 +86,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
 
     const checkBoxLegend = useCallback((params: any) => {
       if (!chartRef.current) return
-      params.selected[params.name] = !params.selected[params.name] // we flip the one that was selected, so that it represent the state of the legend before the user clicked it
+      params.selected[params.name] = !params.selected[params.name] // we flip the one that was selected, so that this represents the state of the legend before the user clicked it
 
       const notSelected: [string, boolean][] = []
       const selected: [string, boolean][] = []
