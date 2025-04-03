@@ -21,7 +21,6 @@ export const Basic: Story = {
       series: [{ data: [1, 2, 3, 4, 5, 6, 7] }],
     },
     chartConfig: { type: 'bar' },
-    // style: { height: 300 },
   },
 }
 
@@ -49,7 +48,6 @@ export const Loading: Story = {
       series: [{ data: [1, 2, 3, 4, 5, 6, 7] }],
     },
     chartConfig: { type: 'bar' },
-    // style: { height: 300 },
     loading: true,
   },
 }
@@ -66,7 +64,6 @@ export const MultiSeries: Story = {
       ],
     },
     chartConfig: { type: 'bar' },
-    // style: { height: 300 },
   },
 }
 export const WithHugeNumbers: Story = {
@@ -88,7 +85,6 @@ export const WithHugeNumbers: Story = {
       ],
     },
     chartConfig: { type: 'bar' },
-    // style: { height: 300 },
   },
 }
 
@@ -99,30 +95,14 @@ export const Horizontal: Story = {
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Test'],
       },
       series: [
-        { data: [1, 2, 3, 4, 5, 6, 7, 8] },
-        { data: [1, 4, 2, 1, 4, 3, 5, 9] },
+        { data: [1, 2, 3, 4, 5, 6, 7, 8], name: 'Series 0' },
+        { data: [1, 4, 2, 1, 4, 3, 5, 9], name: 'Series 1' },
       ],
     },
     chartConfig: { type: 'bar', variant: 'horizontal' },
-    // style: { height: 300 },
   },
 }
 
-export const MultiType: Story = {
-  args: {
-    option: {
-      xAxis: {
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      },
-      series: [
-        { data: [1, 2, 3, 4, 5, 6, 7] },
-        { data: [1, 4, 2, 1, 4, 3, 5], type: 'line' },
-      ],
-    },
-    chartConfig: { type: 'bar', variant: 'default' },
-    // style: { height: 300 },
-  },
-}
 const data2: (number | object)[] = []
 const data1: number[] = []
 
@@ -148,6 +128,5 @@ export const Animation: Story = {
       },
     },
     chartConfig: { type: 'bar', variant: 'default' },
-    // style: { height: 300 },
   },
 }

@@ -3,7 +3,6 @@ import type { DefaultChartStyles } from '../types/chart'
 import type { EChartsInstance } from 'echarts-for-react'
 import { defaultSpinnerColor } from './colors'
 import { getTooltipStaticString } from '../components/tooltip'
-import { normalizeBarData } from '../utils/chart'
 
 const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
   trigger: 'item',
@@ -36,7 +35,7 @@ export const BAR_CHART_GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
 
 export const DEFAULT_DELAY_FUNCTION = (idx: number) => idx * 20
 
-// if you're looking for a certain feature in a chart and don't find it here, check themes.js
+// if you're looking for a certain feature in a chart and don't find it here, check themes.ts
 export const CHART_STYLES: DefaultChartStyles = {
   bar: {
     default: {
@@ -105,10 +104,3 @@ export const DEFAULT_LOADING_SPINNER: EChartsInstance['showLoading'] = {
   lineWidth: 3,
   color: defaultSpinnerColor,
 }
-
-// const _defaultHooks: Map<string, CallableFunction[]> = new Map()
-// _defaultHooks.set('bar-default', [normalizeBarData])
-export const defaultHooks: Map<string, CallableFunction[]> = new Map().set(
-  'bar-default',
-  [normalizeBarData]
-)
