@@ -8,7 +8,11 @@ import {
   getTooltipMultitype,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
-import { LEGEND_DEFAULT_STYLE } from '../../theme/chartStyles'
+import {
+  DATAZOOM_DEFAULT_STYLE,
+  GRID_DEFAULT_STYLE,
+  LEGEND_DEFAULT_STYLE,
+} from '../../theme/chartStyles'
 
 /**
  * Used to make charts with multiple different types.
@@ -27,7 +31,14 @@ export const ChartCompositor = forwardRef<
   echarts.EChartsType | undefined,
   ChartCompositorProps
 >(function ChartCompositor(props, ref) {
-  const { charts, background, tooltip, options, ...otherProps } = props
+  const {
+    charts,
+    background,
+    tooltip,
+    dataZoom = false,
+    options,
+    ...otherProps
+  } = props
 
   const seriesOptions: EChartsOption['series'] = useMemo(() => {
     const series: SeriesOption[] = []
@@ -55,6 +66,8 @@ export const ChartCompositor = forwardRef<
     const finalOptions: EChartsOption = {}
 
     finalOptions.legend = LEGEND_DEFAULT_STYLE
+    finalOptions.grid = GRID_DEFAULT_STYLE
+    if (dataZoom) finalOptions.dataZoom = DATAZOOM_DEFAULT_STYLE
 
     finalOptions.series = seriesOptions
     finalOptions.tooltip = tooltipOptions
@@ -93,6 +106,12 @@ export interface ChartCompositorOptions {
    * @example { type: "bar", variant: "horizontal" }
    */
   tooltip: ChartConfig
+  /**
+   * Turns on the dataZooom configuration, using the line chart dataZoom implementation.
+   * @default false
+   * @type boolean
+   */
+  dataZoom?: boolean
   /**
    * Merges the passed options to the final options.
    * It doesn't allow passing the props 'series', 'xAxis', 'yAxis', and 'toolbox',

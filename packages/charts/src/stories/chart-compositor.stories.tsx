@@ -12,42 +12,18 @@ type Story = StoryObj<typeof ChartCompositor>
 export const Testing: Story = {
   args: {
     charts: [
-      { serie: { data: [1, 2, 3, 4, 5] }, config: { type: 'bar' } },
-      { serie: { data: [1, 3, 2, 5, 4] }, config: { type: 'line' } },
+      {
+        serie: { data: [1, 2, 3, 4, 5], name: 'barra' },
+        config: { type: 'bar' },
+      },
+      {
+        serie: { data: [1, 3, 2, 5, 4], name: 'linha' },
+        config: { type: 'line' },
+      },
     ],
     background: { type: 'bar' },
     tooltip: { type: 'line' },
-    options: {
-      xAxis: { type: 'category', data: ['mon', 'tue', 'wed', 'thu', 'fri'] },
-
-      dataZoom: [
-        {
-          type: 'inside',
-          realtime: true,
-        },
-        {
-          type: 'slider',
-          selectedDataBackground: {
-            lineStyle: {
-              width: 1.2,
-              opacity: 1,
-              color: 'rgba(32,119,224,255)',
-            },
-            areaStyle: {
-              color: 'rgba(193,226,252,255)',
-              opacity: 1,
-            },
-          },
-          handleStyle: {
-            opacity: 1,
-            color: 'rgba(0,85,183,255)',
-            borderColor: 'rgba(0,85,183,255)',
-            borderWidth: 0.6,
-          },
-          labelFormatter: '',
-        },
-      ],
-    },
+    dataZoom: true,
   },
 }
 
@@ -105,27 +81,7 @@ export const MultitypeAnimation: Story = {
       ]}
       background={{ type: 'bar' }}
       tooltip={{ type: 'line' }}
-      options={{
-        dataZoom: [
-          {
-            type: 'inside',
-            realtime: true,
-          },
-          {
-            type: 'slider',
-            selectedDataBackground: {
-              lineStyle: {
-                width: 1.2,
-                opacity: 1,
-                color: 'rgba(32,119,224,255)',
-              },
-              areaStyle: {
-                opacity: 0.6,
-              },
-            },
-          },
-        ],
-      }}
+      dataZoom
     />
   ),
 }
