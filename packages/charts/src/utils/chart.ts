@@ -116,7 +116,7 @@ export const defaultHooks: DefaultHooks = {
  * upside down.
  *
  */
-function normalizeBarData(data: BarSeriesOption['data']): SeriesOption {
+export function normalizeBarData(data: BarSeriesOption['data']): SeriesOption {
   if (typeof data === 'undefined') return {}
 
   const defaultBorder = defaultTheme.bar.itemStyle.borderRadius
