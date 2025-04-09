@@ -5,6 +5,7 @@
   height: var(--sl-checkbox-size);
   display: flex;
   width: fit-content;
+  position: relative;
 
   & > [data-sl-text] {
     user-select: none;
@@ -13,6 +14,7 @@
 
 [data-sl-checkbox-label] {
   margin-left: var(--sl-space-2);
+  position: relative;
 
   &[data-disabled="true"] {
     color: var(--sl-fg-base-disabled);
