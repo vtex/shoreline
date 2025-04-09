@@ -12,6 +12,7 @@ export type ChartConfig = BarChartConfig | LineChartConfig
 export type MultiChart = {
   serie: SeriesOption
   config: ChartConfig
+  hooks?: CallableFunction[] | null
 }
 
 export type ChartLoadingConfig = {

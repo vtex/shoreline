@@ -19,7 +19,6 @@ import {
 } from '../../utils/chart'
 import { canUseDOM } from '@vtex/shoreline-utils'
 import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
-import { identity, type Dictionary } from 'lodash'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -42,7 +41,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       option,
       loading = false,
       loadingConfig = DEFAULT_LOADING_SPINNER,
-      chartConfig = { type: 'bar', variant: 'default' },
+      chartConfig,
       style,
       renderer = 'svg',
       theme = defaultTheme,
@@ -62,18 +61,21 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
     const hookedSeries = useMemo(() => {
       const series = option.series
 
-      if (!chartConfig || typeof series === 'undefined' || seriesHooks === null)
-        return series
+      if (typeof series === 'undefined' || seriesHooks === null) return series
+
+      if (chartConfig === null) {
+        return seriesHooks.reduce((out, fn) => applySeriesHook(out, fn), series)
+      }
 
       const { type, variant = 'default' } = chartConfig
-      const hooks = defaultHooks[type][variant] ?? [identity]
+      const hooks = defaultHooks[type][variant]
 
       seriesHooks.push(...hooks)
       return seriesHooks.reduce((out, fn) => applySeriesHook(out, fn), series)
-    }, [chartConfig, option, seriesHooks])
+    }, [option, chartConfig, seriesHooks])
 
     const chartOptions: EChartsOption = useMemo(() => {
-      if (!chartConfig || typeof hookedSeries === 'undefined') {
+      if (chartConfig === null || typeof hookedSeries === 'undefined') {
         return option
       }
       const { type, variant } = chartConfig
@@ -92,6 +94,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       const selected: [string, boolean][] = []
       Object.entries(params.selected).forEach((v) => {
         if (v[1]) {
+          selected
           selected.push(v as [string, boolean])
         } else {
           notSelected.push(v as [string, boolean])
@@ -159,7 +162,7 @@ export interface ChartOptions {
   /**
    * TODO
    */
-  seriesHooks?: CallableFunction[]
+  seriesHooks?: CallableFunction[] | null
   /**
    * Whether to render the chart as a SVG or Canvas. Both are about equally as fast,
    * but SVGs have 'perfect' image quality.
