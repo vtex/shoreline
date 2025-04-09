@@ -9,25 +9,7 @@ export default {
 
 type Story = StoryObj<typeof ChartCompositor>
 
-export const Testing: Story = {
-  args: {
-    charts: [
-      {
-        serie: { data: [1, 2, 3, 4, 5], name: 'barra' },
-        config: { type: 'bar' },
-      },
-      {
-        serie: { data: [1, 3, 2, 5, 4], name: 'linha' },
-        config: { type: 'line' },
-      },
-    ],
-    background: { type: 'bar' },
-    tooltip: { type: 'line' },
-    dataZoom: true,
-  },
-}
-
-export const LargeNumbers: Story = {
+export const Stress: Story = {
   args: {
     charts: [
       {
@@ -57,7 +39,7 @@ for (let i = 0; i < 25; i++) {
   data2.push((Math.cos(i / 5) * (i / 5 - 10) + i / 6) * 5)
   data3.push((data1[i] + data2[i]) / 2)
 }
-export const MultitypeAnimation: Story = {
+export const Basic: Story = {
   render: () => (
     <ChartCompositor
       charts={[
@@ -66,8 +48,8 @@ export const MultitypeAnimation: Story = {
           serie: {
             data: data2,
             name: 'Bar 2',
-            animationDelay: (idx) => idx * 50,
-            animationEasing: 'elasticInOut',
+            // animationDelay: (idx) => idx * 50,
+            // animationEasing: 'elasticInOut',
           },
           config: { type: 'bar' },
         },
