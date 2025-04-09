@@ -27,8 +27,8 @@ export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
 }
 
 export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
-  left: '0',
-  right: '0',
+  left: 'auto',
+  right: 'auto',
   top: '5',
   bottom: '15%',
   containLabel: true,
@@ -40,6 +40,7 @@ export const DATAZOOM_DEFAULT_STYLE: EChartsOption['dataZoom'] = [
   },
   {
     type: 'slider',
+    right: '0.6%',
     bottom: '8%',
     height: '7%',
     selectedDataBackground: {
