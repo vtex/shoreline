@@ -9,7 +9,7 @@ export type BarChartConfig = { type: 'bar'; variant?: BarChartVariants }
 
 export type ChartConfig = BarChartConfig | LineChartConfig
 
-export type MultiChart = {
+export type ChartUnit = {
   serie: SeriesOption
   config: ChartConfig
 }

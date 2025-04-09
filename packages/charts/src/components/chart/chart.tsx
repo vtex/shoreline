@@ -73,9 +73,8 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
     }, [chartConfig, option, seriesHooks])
 
     const chartOptions: EChartsOption = useMemo(() => {
-      if (!chartConfig || typeof hookedSeries === 'undefined') {
-        return option
-      }
+      if (!chartConfig || typeof hookedSeries === 'undefined') return option
+
       const { type, variant } = chartConfig
 
       return (

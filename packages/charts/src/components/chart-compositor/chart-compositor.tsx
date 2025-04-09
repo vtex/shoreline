@@ -1,6 +1,6 @@
 import type { EChartsOption, SeriesOption } from 'echarts'
 import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
-import type { ChartConfig, MultiChart } from '../../types/chart'
+import type { ChartConfig, ChartUnit } from '../../types/chart'
 import { Chart, type ChartOptions } from '../chart/chart'
 import {
   getBackgroundChartCompositor,
@@ -95,7 +95,7 @@ export interface ChartCompositorOptions {
    * a SerieOption from Echarts and the ChartConfig that will be applied to the data.
    * @example { serie: { data: [1,2,3] }, config: { type: "bar", variant: "horizontal" } }
    */
-  charts: MultiChart[]
+  charts: ChartUnit[]
   /**
    * Config the background style, setting acording each kind of line.
    * @example { type: 'line' }

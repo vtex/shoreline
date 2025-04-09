@@ -4,7 +4,7 @@ import type {
   BarChartVariants,
   ChartConfig,
   LineChartVariants,
-  MultiChart,
+  ChartUnit,
 } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
 import { cloneDeep, isDate } from 'lodash'
@@ -58,7 +58,7 @@ export const getChartOptions = (
  * @param multi MultiChart config that will be used to pass
  * @returns SeriesOption correct
  */
-export const getDataToChartCompositor = (multi: MultiChart): SeriesOption => {
+export const getDataToChartCompositor = (multi: ChartUnit): SeriesOption => {
   const chartStyleType = CHART_STYLES[multi.config.type]
   const defaultStyle = multi.config.variant
     ? chartStyleType[multi.config.variant]
