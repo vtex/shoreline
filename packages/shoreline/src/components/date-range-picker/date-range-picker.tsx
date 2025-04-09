@@ -71,6 +71,7 @@ export function DateRangePicker<T extends DateValue>(
                 aria-describedby={buttonProps['aria-describedby']}
                 variant="tertiary"
                 data-sl-date-range-picker-icon-button
+                disabled={buttonProps.isDisabled}
               >
                 <IconCalendarBlank />
               </IconButton>

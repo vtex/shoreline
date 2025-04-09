@@ -67,6 +67,7 @@ export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
                 label={buttonProps['aria-label']}
                 aria-describedby={buttonProps['aria-describedby']}
                 variant="tertiary"
+                disabled={buttonProps.isDisabled}
               >
                 <IconCalendarBlank />
               </IconButton>
