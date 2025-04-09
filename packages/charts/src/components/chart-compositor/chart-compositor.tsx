@@ -3,9 +3,9 @@ import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
 import type { ChartConfig, MultiChart } from '../../types/chart'
 import { Chart, type ChartOptions } from '../chart/chart'
 import {
-  getBackgroundMultitype,
-  getDataToMultichart,
-  getTooltipMultitype,
+  getBackgroundChartCompositor,
+  getDataToChartCompositor,
+  getTooltipChartCompositor,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
 import {
@@ -45,21 +45,21 @@ export const ChartCompositor = forwardRef<
 
     for (let i = 0; i < charts.length; i++) {
       const serie = charts[i]
-      series.push(getDataToMultichart(serie))
+      series.push(getDataToChartCompositor(serie))
     }
 
     return series
   }, [charts])
 
   const tooltipOptions: EChartsOption['tooltip'] = useMemo(() => {
-    return getTooltipMultitype(tooltip)
+    return getTooltipChartCompositor(tooltip)
   }, [tooltip])
 
   const backgroundOptions: {
     xAxis: EChartsOption['xAxis']
     yAxis: EChartsOption['yAxis']
   } = useMemo(() => {
-    return getBackgroundMultitype(background)
+    return getBackgroundChartCompositor(background)
   }, [background])
 
   const chartOptions: EChartsOption = useMemo(() => {
