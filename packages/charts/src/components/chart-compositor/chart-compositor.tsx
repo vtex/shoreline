@@ -1,13 +1,13 @@
 import type { EChartsOption } from 'echarts'
 import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
-import type { ChartConfig, MultiChart } from '../../types/chart'
+import type { ChartConfig, ChartUnit } from '../../types/chart'
 import { Chart, type ChartOptions } from '../chart/chart'
 import {
   applySeriesHook,
   defaultHooks,
-  getBackgroundMultitype,
-  getDataToMultichart,
-  getTooltipMultitype,
+  getBackgroundChartCompositor,
+  getDataToChartCompositor,
+  getTooltipChartCompositor,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
 import {
@@ -42,7 +42,7 @@ export const ChartCompositor = forwardRef<
     ...otherProps
   } = props
 
-  const hookedUnits: MultiChart[] = useMemo(() => {
+  const hookedUnits: ChartUnit[] = useMemo(() => {
     return charts.map((chart) => {
       const { type, variant = 'default' } = chart.config
       const seriesHooks: CallableFunction[] = defaultHooks[type][variant]
@@ -70,18 +70,18 @@ export const ChartCompositor = forwardRef<
   }, [])
 
   const seriesOptions: EChartsOption['series'] = useMemo(() => {
-    return hookedUnits.map((u) => getDataToMultichart(u))
+    return hookedUnits.map((u) => getDataToChartCompositor(u))
   }, [hookedUnits])
 
   const tooltipOptions: EChartsOption['tooltip'] = useMemo(() => {
-    return getTooltipMultitype(tooltip)
+    return getTooltipChartCompositor(tooltip)
   }, [tooltip])
 
   const backgroundOptions: {
     xAxis: EChartsOption['xAxis']
     yAxis: EChartsOption['yAxis']
   } = useMemo(() => {
-    return getBackgroundMultitype(background)
+    return getBackgroundChartCompositor(background)
   }, [background])
 
   const chartOptions: EChartsOption = useMemo(() => {
@@ -118,7 +118,7 @@ export interface ChartCompositorOptions {
    * a hook function that will be applied to that series data.
    * @example { serie: { data: [1,2,3] }, config: { type: "bar", variant: "horizontal" } }
    */
-  charts: MultiChart[]
+  charts: ChartUnit[]
   /**
    * Config the background style, setting acording each kind of line.
    * @example { type: 'line' }

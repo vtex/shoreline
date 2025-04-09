@@ -22,14 +22,15 @@ export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   itemHeight: 16,
   padding: 0,
   itemGap: 20,
+  height: '7%',
   icon: 'roundRect',
 }
 
 export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
   left: 'auto',
-  right: '0',
+  right: 'auto',
   top: '5',
-  bottom: '10%',
+  bottom: '15%',
   containLabel: true,
 }
 
@@ -39,8 +40,9 @@ export const DATAZOOM_DEFAULT_STYLE: EChartsOption['dataZoom'] = [
   },
   {
     type: 'slider',
-    top: '91%',
-    height: '25',
+    right: '0.6%',
+    bottom: '8%',
+    height: '7%',
     selectedDataBackground: {
       lineStyle: {
         color: 'rgba(1,103,223,255)',

@@ -4,7 +4,7 @@ import type {
   BarChartVariants,
   ChartConfig,
   LineChartVariants,
-  MultiChart,
+  ChartUnit,
 } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
 import { cloneDeep, isDate } from 'lodash'
@@ -58,7 +58,7 @@ export const getChartOptions = (
  * @param multi MultiChart config that will be used to pass
  * @returns SeriesOption correct
  */
-export const getDataToMultichart = (multi: MultiChart): SeriesOption => {
+export const getDataToChartCompositor = (multi: ChartUnit): SeriesOption => {
   const chartStyleType = CHART_STYLES[multi.config.type]
   const defaultStyle = multi.config.variant
     ? chartStyleType[multi.config.variant]
@@ -154,7 +154,7 @@ export function normalizeBarData(data: BarSeriesOption['data']): SeriesOption {
  * @param tooltip ChartConfig that will be used to select.
  * @returns EChartsOption['tooltip']
  */
-export const getTooltipMultitype = (
+export const getTooltipChartCompositor = (
   tooltip: ChartConfig
 ): EChartsOption['tooltip'] => {
   return tooltip.variant
@@ -167,7 +167,7 @@ export const getTooltipMultitype = (
  * @param background ChartConfig
  * @returns Object containing xAxis, and yAxis props.
  */
-export const getBackgroundMultitype = (
+export const getBackgroundChartCompositor = (
   background: ChartConfig
 ): { xAxis: EChartsOption['xAxis']; yAxis: EChartsOption['yAxis'] } => {
   const typ = CHART_STYLES[background.type]
