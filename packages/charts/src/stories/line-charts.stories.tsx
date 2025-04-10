@@ -1,5 +1,7 @@
 import type { StoryObj } from '@storybook/react'
 import { Chart } from '../index'
+import { useState } from 'react'
+import { Button } from '@vtex/shoreline'
 
 export default {
   title: 'Charts/line',
@@ -118,5 +120,36 @@ export const Dashed: Story = {
         lineStyle: { type: 'dashed' },
       },
     },
+  },
+}
+
+export const ZoomBar: Story = {
+  render: () => {
+    const [zoom, setZoom] = useState(false)
+    return (
+      <>
+        <Button
+          onClick={() => {
+            const newZoom = !zoom
+            setZoom(newZoom)
+          }}
+        >
+          Zoom
+        </Button>
+        <Chart
+          chartConfig={{ type: 'line' }}
+          option={{
+            xAxis: {
+              type: 'category',
+              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            },
+            series: {
+              data: [820, 932, 901, 934, 1290, 1330, 1320],
+              lineStyle: { type: 'dashed' },
+            },
+          }}
+        />
+      </>
+    )
   },
 }
