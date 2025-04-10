@@ -25,7 +25,6 @@ export const Stress: Story = {
         chartConfig: { type: 'bar' },
       },
     ],
-    background: { type: 'bar' },
     tooltip: { type: 'line' },
   },
 }
@@ -64,8 +63,8 @@ export const Basic: Story = {
           chartConfig: { type: 'line' },
         },
       ]}
-      background={{ type: 'bar' }}
       tooltip={{ type: 'line' }}
+      zoom
     />
   ),
 }
