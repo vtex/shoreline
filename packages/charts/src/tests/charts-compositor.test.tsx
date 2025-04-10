@@ -18,12 +18,12 @@ describe('@vtex.shoreline-charts chart compositor tests', () => {
       <ChartCompositor
         charts={[
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data1 },
-            config: { type: 'line' },
+            series: { data: CHART_COMPOSITOR_DATA.data1 },
+            chartConfig: { type: 'line' },
           },
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data2 },
-            config: { type: 'bar' },
+            series: { data: CHART_COMPOSITOR_DATA.data2 },
+            chartConfig: { type: 'bar' },
           },
         ]}
         background={{ type: 'bar' }}
@@ -55,12 +55,12 @@ describe('@vtex.shoreline-charts chart compositor tests', () => {
       <ChartCompositor
         charts={[
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data5_thousand },
-            config: { type: 'line' },
+            series: { data: CHART_COMPOSITOR_DATA.data5_thousand },
+            chartConfig: { type: 'line' },
           },
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data5_thousand },
-            config: { type: 'bar' },
+            series: { data: CHART_COMPOSITOR_DATA.data5_thousand },
+            chartConfig: { type: 'bar' },
           },
         ]}
         background={{ type: 'bar' }}
@@ -95,16 +95,16 @@ describe('@vtex.shoreline-charts chart compositor tests', () => {
       <ChartCompositor
         charts={[
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-            config: { type: 'line' },
+            series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+            chartConfig: { type: 'line' },
           },
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-            config: { type: 'bar' },
+            series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+            chartConfig: { type: 'bar' },
           },
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-            config: { type: 'bar' },
+            series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+            chartConfig: { type: 'bar' },
           },
         ]}
         background={{ type: 'bar' }}
@@ -139,16 +139,16 @@ describe('@vtex.shoreline-charts chart compositor tests', () => {
       <ChartCompositor
         charts={[
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-            config: { type: 'line' },
+            series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+            chartConfig: { type: 'line' },
           },
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-            config: { type: 'line' },
+            series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+            chartConfig: { type: 'line' },
           },
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-            config: { type: 'bar' },
+            series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+            chartConfig: { type: 'bar' },
           },
         ]}
         background={{ type: 'bar' }}
@@ -183,12 +183,12 @@ describe('@vtex.shoreline-charts chart compositor tests', () => {
       <ChartCompositor
         charts={[
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data50_thousand },
-            config: { type: 'line' },
+            series: { data: CHART_COMPOSITOR_DATA.data50_thousand },
+            chartConfig: { type: 'line' },
           },
           {
-            serie: { data: CHART_COMPOSITOR_DATA.data50_thousand },
-            config: { type: 'bar' },
+            series: { data: CHART_COMPOSITOR_DATA.data50_thousand },
+            chartConfig: { type: 'bar' },
           },
         ]}
         background={{ type: 'bar' }}

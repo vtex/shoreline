@@ -149,7 +149,6 @@ export interface ChartOptions {
    * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
    *
    * **null** means that nothing will be done to the options, and the chart will be rendered as-is.
-   * @default {type:"bar", variant:"horizontal"}
    * @example { type:"line" }
    */
   chartConfig: ChartConfig | null

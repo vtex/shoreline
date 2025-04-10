@@ -59,12 +59,12 @@ export const getChartOptions = (
  * @returns SeriesOption correct
  */
 export const getDataToChartCompositor = (multi: ChartUnit): SeriesOption => {
-  const chartStyleType = CHART_STYLES[multi.config.type]
-  const defaultStyle = multi.config.variant
-    ? chartStyleType[multi.config.variant]
+  const chartStyleType = CHART_STYLES[multi.chartConfig.type]
+  const defaultStyle = multi.chartConfig.variant
+    ? chartStyleType[multi.chartConfig.variant]
     : chartStyleType.default
 
-  const serieFinal = merge(defaultStyle.series, multi.serie) as SeriesOption
+  const serieFinal = merge(defaultStyle.series, multi.series) as SeriesOption
 
   return serieFinal
 }

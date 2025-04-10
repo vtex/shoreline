@@ -13,16 +13,16 @@ export const Stress: Story = {
   args: {
     charts: [
       {
-        serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-        config: { type: 'line' },
+        series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+        chartConfig: { type: 'line' },
       },
       {
-        serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-        config: { type: 'bar' },
+        series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+        chartConfig: { type: 'bar' },
       },
       {
-        serie: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-        config: { type: 'bar' },
+        series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+        chartConfig: { type: 'bar' },
       },
     ],
     background: { type: 'bar' },
@@ -43,27 +43,29 @@ export const Basic: Story = {
   render: () => (
     <ChartCompositor
       charts={[
-        { serie: { data: data1, name: 'Bar 1' }, config: { type: 'bar' } },
         {
-          serie: {
+          series: { data: data1, name: 'Bar 1' },
+          chartConfig: { type: 'bar' },
+        },
+        {
+          series: {
             data: data2,
             name: 'Bar 2',
             // animationDelay: (idx) => idx * 50,
             // animationEasing: 'elasticInOut',
           },
-          config: { type: 'bar' },
+          chartConfig: { type: 'bar' },
         },
         {
-          serie: {
+          series: {
             data: data3,
             name: 'average',
           },
-          config: { type: 'line' },
+          chartConfig: { type: 'line' },
         },
       ]}
       background={{ type: 'bar' }}
       tooltip={{ type: 'line' }}
-      dataZoom
     />
   ),
 }

@@ -10,8 +10,8 @@ export type BarChartConfig = { type: 'bar'; variant?: BarChartVariants }
 export type ChartConfig = BarChartConfig | LineChartConfig
 
 export type ChartUnit = {
-  serie: SeriesOption
-  config: ChartConfig
+  series: SeriesOption
+  chartConfig: ChartConfig
   hooks?: CallableFunction[] | null
 }
 

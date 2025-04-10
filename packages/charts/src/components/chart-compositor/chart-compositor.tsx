@@ -37,21 +37,21 @@ export const ChartCompositor = forwardRef<
     charts,
     background,
     tooltip,
-    dataZoom = false,
+    zoom = false,
     options,
     ...otherProps
   } = props
 
   const hookedUnits: ChartUnit[] = useMemo(() => {
     return charts.map((chart) => {
-      const { type, variant = 'default' } = chart.config
+      const { type, variant = 'default' } = chart.chartConfig
       const seriesHooks: CallableFunction[] = defaultHooks[type][variant]
       if (chart.hooks === undefined) {
         return {
           ...chart,
-          serie: seriesHooks.reduce(
+          series: seriesHooks.reduce(
             (out, fn) => applySeriesHook(out, fn),
-            chart.serie
+            chart.series
           ),
         }
       }
@@ -61,9 +61,9 @@ export const ChartCompositor = forwardRef<
       seriesHooks.push(...chart.hooks)
       return {
         ...chart,
-        serie: seriesHooks.reduce(
+        series: seriesHooks.reduce(
           (out, fn) => applySeriesHook(out, fn),
-          chart.serie
+          chart.series
         ),
       }
     })
@@ -89,7 +89,7 @@ export const ChartCompositor = forwardRef<
 
     finalOptions.legend = LEGEND_DEFAULT_STYLE
     finalOptions.grid = GRID_DEFAULT_STYLE
-    if (dataZoom) finalOptions.dataZoom = DATAZOOM_DEFAULT_STYLE
+    if (zoom) finalOptions.dataZoom = DATAZOOM_DEFAULT_STYLE
 
     finalOptions.series = seriesOptions
     finalOptions.tooltip = tooltipOptions
@@ -113,10 +113,12 @@ export const ChartCompositor = forwardRef<
 
 export interface ChartCompositorOptions {
   /**
-   * The data that will be rendered by the Compostior, each unit contains
-   * a SerieOption from Echarts, the ChartConfig that determines the type of chart and optionally
-   * a hook function that will be applied to that series data.
-   * @example { serie: { data: [1,2,3] }, config: { type: "bar", variant: "horizontal" } }
+   * The data that will be rendered by the Compostior. Each unit contains
+   * a SeriesOption from Echarts, the ChartConfig which determines the type of chart and, optionally,
+   * an array of hook functions that will be applied to that series data.
+   *
+   * By default certain hooks will always be applied to certain chart types. This behaviour can be disabled by explicitly passing **null** to hooks.
+   * @example { series: { data: [1,2,3] }, config: { type: "bar", variant: "horizontal" } }
    */
   charts: ChartUnit[]
   /**
@@ -130,15 +132,16 @@ export interface ChartCompositorOptions {
    */
   tooltip: ChartConfig
   /**
-   * Turns on the dataZooom configuration, using the line chart dataZoom implementation.
+   * Whether to enable zoom.
    * @default false
    * @type boolean
    */
-  dataZoom?: boolean
+  zoom?: boolean
   /**
    * Merges the passed options to the final options.
-   * It doesn't allow passing the props 'series', 'xAxis', 'yAxis', and 'toolbox',
-   * since they should be selected using other props from this component.
+   *
+   * **series**, **xAxis**, **yAxis**, and **tooltip**
+   *  should be configured using other props from this component.
    */
   options?: EChartsOption
 }
