@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef } from 'react'
-import { IconCaretUpDownSmall } from '../../icons'
 import { useControlledState, useStore } from '@vtex/shoreline-utils'
 
 import { useFieldContext } from '../field'
@@ -12,12 +11,12 @@ import {
 } from './select-provider'
 import { SelectPopover } from './select-popover'
 import { SelectTrigger } from './select-trigger'
-import { SelectArrow } from '@ariakit/react'
 
 import { messages } from './messages'
 import { createMessageHook } from '../locale'
 import { SelectValue } from './select-value'
 import { isEmpty } from './select-utils'
+import { SelectArrow } from './select-arrow'
 
 const useMessage = createMessageHook(messages)
 
@@ -79,7 +78,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(
             {...otherProps}
           >
             <SelectValue placeholder={getMessage('placeholder')} />
-            <SelectArrow render={<IconCaretUpDownSmall />} />
+            <SelectArrow />
           </SelectTrigger>
           <SelectPopover
             sameWidth
