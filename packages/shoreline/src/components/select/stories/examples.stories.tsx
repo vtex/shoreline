@@ -135,17 +135,19 @@ export function Composition() {
   const [value, setValue] = useState('')
 
   return (
-    <SelectProvider value={value} setValue={setValue}>
-      <SelectTrigger asChild>
-        <Button>Select: {value}</Button>
-      </SelectTrigger>
-      <SelectPopover>
-        <SelectItem value="apple">Apple</SelectItem>
-        <SelectItem value="google">Google</SelectItem>
-        <SelectItem value="microsoft">Microsoft</SelectItem>
-        <SelectItem value="amazon">Amazon</SelectItem>
-      </SelectPopover>
-    </SelectProvider>
+    <div data-sl-select>
+      <SelectProvider value={value} setValue={setValue}>
+        <SelectTrigger asChild>
+          <Button>Select: {value}</Button>
+        </SelectTrigger>
+        <SelectPopover>
+          <SelectItem value="apple">Apple</SelectItem>
+          <SelectItem value="google">Google</SelectItem>
+          <SelectItem value="microsoft">Microsoft</SelectItem>
+          <SelectItem value="amazon">Amazon</SelectItem>
+        </SelectPopover>
+      </SelectProvider>
+    </div>
   )
 }
 
