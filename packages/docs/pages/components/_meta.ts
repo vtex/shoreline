@@ -43,6 +43,9 @@ export default {
   'range-calendar': 'RangeCalendar',
   'time-input': 'TimeInput',
 
+  DataVisualization: { type: 'separator', title: 'Data Visualization' },
+  'bar-chart': 'BarChart',
+
   Primitives: { type: 'separator', title: 'Primitives' },
   'accessible-icon': 'AccessibleIcon',
   clickable: 'Clickable',
