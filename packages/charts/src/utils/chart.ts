@@ -86,17 +86,14 @@ export function applySeriesHook(
   fn: CallableFunction
 ): SeriesOption | SeriesOption[] {
   if (Array.isArray(series)) {
-    return series.map((v: any) => {
-      return { ...v, data: fn(v.data) }
-    })
+    return series.map((v: any) => fn(v))
   }
-  const data = series.data as any
-  return { ...series, data: fn(data) }
+  return fn(series)
 }
 
 type DefaultHooks = {
-  bar: Record<BarChartVariants, CallableFunction[]>
-  line: Record<LineChartVariants, CallableFunction[]>
+  bar: Record<BarChartVariants, ((series: any) => SeriesOption)[]>
+  line: Record<LineChartVariants, ((series: any) => SeriesOption)[]>
 }
 /**
  * Functions that are always called for a certain chart config
@@ -116,37 +113,40 @@ export const defaultHooks: DefaultHooks = {
  * upside down.
  *
  */
-export function normalizeBarData(data: BarSeriesOption['data']): SeriesOption {
-  if (typeof data === 'undefined') return {}
+export function normalizeBarData(series: BarSeriesOption): SeriesOption {
+  if (typeof series === 'undefined' || typeof series.data === 'undefined')
+    return {}
+  const data = series.data
 
   const defaultBorder = defaultTheme.bar.itemStyle.borderRadius
   const invertedBorderRadius = [0, 0, defaultBorder[0], defaultBorder[1]]
 
-  return data.map((v) => {
-    if (
-      typeof v === 'string' ||
-      isDate(v) ||
-      Array.isArray(v) || // We could allow this case, but i don't think we allow arrays of arrays anywhere
-      v === null ||
-      typeof v === 'undefined'
-    ) {
+  return {
+    ...series,
+    data: data.map((v) => {
+      if (
+        typeof v === 'string' ||
+        isDate(v) ||
+        Array.isArray(v) || // We could allow this case, but i don't think we allow arrays of arrays anywhere
+        v === null ||
+        typeof v === 'undefined'
+      ) {
+        return v
+      }
+      if (typeof v === 'number') {
+        return v > 0
+          ? v
+          : { value: v, itemStyle: { borderRadius: invertedBorderRadius } }
+      }
+      if (typeof v.value === 'number' && v.value < 0) {
+        const out = { ...v }
+        out.itemStyle ??= {}
+        out.itemStyle.borderRadius = invertedBorderRadius
+        return out
+      }
       return v
-    }
-    if (typeof v === 'number') {
-      return v > 0
-        ? v
-        : { value: v, itemStyle: { borderRadius: invertedBorderRadius } }
-    }
-    if (typeof v.value === 'number' && v.value < 0) {
-      const out = { ...v }
-      out.itemStyle ??= {}
-      out.itemStyle.borderRadius = invertedBorderRadius
-      return out
-      // biome-ignore lint/style/noUselessElse: <To remove "Not all code paths return a value" warning, which is incorrect here because every variant of v is covered and returns>
-    } else {
-      return v
-    }
-  }) as SeriesOption // a BarOption is a SeriesOption but there's nothing directly expressing that relation so TS thinks it's wrong
+    }),
+  } as SeriesOption // a BarOption is a SeriesOption but there's nothing directly expressing that relation so TS thinks it's wrong
 }
 
 /**
