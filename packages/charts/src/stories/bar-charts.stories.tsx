@@ -91,7 +91,7 @@ export const WithHugeNumbers: Story = {
 export const Horizontal: Story = {
   args: {
     option: {
-      xAxis: {
+      yAxis: {
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Test'],
       },
       series: [

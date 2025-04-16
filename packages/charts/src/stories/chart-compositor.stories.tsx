@@ -40,32 +40,28 @@ for (let i = 0; i < 25; i++) {
   data3.push((data1[i] + data2[i]) / 2)
 }
 export const Basic: Story = {
-  render: () => (
-    <ChartCompositor
-      charts={[
-        {
-          series: { data: data1, name: 'Bar 1' },
-          chartConfig: { type: 'bar' },
+  args: {
+    charts: [
+      {
+        series: { data: data1, name: 'Bar 1' },
+        chartConfig: { type: 'bar' },
+      },
+      {
+        series: {
+          data: data2,
+          name: 'Bar 2',
         },
-        {
-          series: {
-            data: data2,
-            name: 'Bar 2',
-            // animationDelay: (idx) => idx * 50,
-            // animationEasing: 'elasticInOut',
-          },
-          chartConfig: { type: 'bar' },
+        chartConfig: { type: 'bar' },
+      },
+      {
+        series: {
+          data: data3,
+          name: 'Line',
         },
-        {
-          series: {
-            data: data3,
-            name: 'average',
-          },
-          chartConfig: { type: 'line' },
-        },
-      ]}
-      background={{ type: 'bar' }}
-      tooltip={{ type: 'line' }}
-    />
-  ),
+        chartConfig: { type: 'line' },
+      },
+    ],
+    background: { type: 'bar' },
+    tooltip: { type: 'line' },
+  },
 }

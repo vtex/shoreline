@@ -18,9 +18,7 @@ export default function Example() {
             data: data2.map((v) => {
               v > 0 ? v + 2 : v - 2
             }),
-            animationDelay: (idx) => idx * 50,
-            animationEasing: 'elasticInOut',
-            name: 'average',
+            name: 'Line',
           },
           config: { type: 'line' },
         },

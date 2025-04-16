@@ -19,6 +19,7 @@ import {
 } from '../../utils/chart'
 import { canUseDOM } from '@vtex/shoreline-utils'
 import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
+import type { Dictionary } from 'lodash'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -149,7 +150,7 @@ export interface ChartOptions {
    * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
    *
    * **null** means that nothing will be done to the options, and the chart will be rendered as-is.
-   * @example { type:"line" }
+   * @example { type:"line", variant: "default" }
    */
   chartConfig: ChartConfig | null
   /**
@@ -159,9 +160,17 @@ export interface ChartOptions {
    */
   option: EChartsOption
   /**
-   * TODO
+   * **Pure** functions that will be run on the series before the default styles are applied, in addition to any default hooks that may be applied per chart type.
+   *
+   * These functions should receive a **SeriesOptions** or one of the more specific versions, e.g. **BarSeriesOption** or **LineSeriesOption** and return the same.
+   *
+   * If set to null no default hooks will be applied.
+   *
+   * @example seriesHooks: [
+      (series: BarSeriesOption) => { return { ...series, itemStyle: { ...series.itemStyle, color: '#ff1234' } }}
+    ] // paints all bars in a bright red color, while making sure to preserve all of it's options.
    */
-  seriesHooks?: CallableFunction[] | null
+  seriesHooks?: ((series: any) => echarts.SeriesOption)[] | null
   /**
    * Whether to render the chart as a SVG or Canvas. Both are about equally as fast,
    * but SVGs have 'perfect' image quality.
