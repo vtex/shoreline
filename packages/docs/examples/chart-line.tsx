@@ -8,9 +8,6 @@ export default function Example() {
         xAxis: {
           data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         },
-        animationDelay: (idx) => {
-          return idx * 100
-        },
         series: [
           {
             name: 'Email',
