@@ -5,7 +5,6 @@ import { Chart, type ChartOptions } from '../chart/chart'
 import {
   applySeriesHook,
   defaultHooks,
-  getBackgroundChartCompositor,
   getDataToChartCompositor,
   getTooltipChartCompositor,
 } from '../../utils/chart'
@@ -35,7 +34,8 @@ export const ChartCompositor = forwardRef<
 >(function ChartCompositor(props, ref) {
   const {
     charts,
-    background,
+    xAxis = { type: 'category' },
+    yAxis = { type: 'value' },
     tooltip,
     zoom = false,
     options,
@@ -77,13 +77,6 @@ export const ChartCompositor = forwardRef<
     return getTooltipChartCompositor(tooltip)
   }, [tooltip])
 
-  const backgroundOptions: {
-    xAxis: EChartsOption['xAxis']
-    yAxis: EChartsOption['yAxis']
-  } = useMemo(() => {
-    return getBackgroundChartCompositor(background)
-  }, [background])
-
   const chartOptions: EChartsOption = useMemo(() => {
     const finalOptions: EChartsOption = {}
 
@@ -93,11 +86,11 @@ export const ChartCompositor = forwardRef<
 
     finalOptions.series = seriesOptions
     finalOptions.tooltip = tooltipOptions
-    finalOptions.xAxis = backgroundOptions.xAxis
-    finalOptions.yAxis = backgroundOptions.yAxis
+    finalOptions.yAxis = yAxis
+    finalOptions.xAxis = xAxis
 
     return options ? merge(options, finalOptions) : finalOptions
-  }, [charts, tooltip, background, options])
+  }, [charts, tooltip, xAxis, yAxis, options])
 
   return (
     <Chart
@@ -122,10 +115,19 @@ export interface ChartCompositorOptions {
    */
   charts: ChartUnit[]
   /**
-   * Config the background style, setting acording each kind of line.
-   * @example { type: 'line' }
+   * Defines the yAxis setup for the chart, using the ECharts props.
+   * By default it just returns the value passed in data to the axis.
+   *
+   * @default {type:'value'}
    */
-  background: ChartConfig
+  yAxis?: EChartsOption['yAxis']
+  /**
+   * Defines the xAxis setup for the chart, using the ECharts props.
+   * By default it just returns the value passed in data to the axis.
+   *
+   * @default {type:'category'}
+   */
+  xAxis?: EChartsOption['xAxis']
   /**
    * Defines which type of tooltip is going to be used by the chart.
    * @example { type: "bar", variant: "horizontal" }
