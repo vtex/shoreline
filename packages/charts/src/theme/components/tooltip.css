@@ -1,0 +1,28 @@
+[data-sl-chart-tooltip] {
+  background-color: var(--sl-color-gray-0);
+  border-radius: 4px;
+  min-width: 100px;
+}
+[data-sl-chart-tooltip-title] {
+  font-weight: bold;
+}
+[data-sl-chart-tooltip-data-container] {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--sl-space-2) 0px;
+}
+[data-sl-chart-tooltip-data-serie-container] {
+  display: flex;
+  align-items: center;
+}
+[data-sl-chart-tooltip-data-serie-label-box] {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: var(--sl-space-1);
+  border-radius: var(--sl-space-1);
+}
+[data-sl-chart-tooltip-data-serie-value] {
+  font-weight: bold;
+  margin-left: var(--sl-space-gap);
+}
