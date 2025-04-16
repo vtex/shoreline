@@ -25,7 +25,6 @@ export default function Example() {
             lineStyle: { type: 'dashed' },
           },
         }}
-        dataZoom={zoom}
       />
     </>
   )
