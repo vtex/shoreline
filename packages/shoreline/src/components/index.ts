@@ -211,6 +211,8 @@ export {
   SelectTrigger,
   useSelectContext,
   useSelectStore,
+  SelectArrow,
+  SelectValue,
 } from './select'
 export type {
   SelectProps,
