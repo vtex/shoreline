@@ -2,14 +2,21 @@
   background-color: var(--sl-color-gray-0);
   border-radius: 4px;
   min-width: 100px;
+  padding-left: var(--sl-space-3);
+  padding-right: var(--sl-space-3);
+  padding-top: var(--sl-space-1);
+  padding-bottom: var(--sl-space-1);
 }
 [data-sl-chart-tooltip-title] {
   font-weight: bold;
+  font-size: 12;
+  padding-top: var(--sl-space-1);
+  padding-left: var(--sl-space-3);
 }
 [data-sl-chart-tooltip-data-container] {
   display: flex;
   justify-content: space-between;
-  padding: var(--sl-space-2) 0px;
+  padding: var(--sl-space-1) 0px;
 }
 [data-sl-chart-tooltip-data-serie-container] {
   display: flex;
