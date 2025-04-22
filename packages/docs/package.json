@@ -1,51 +1,47 @@
 {
-  "name": "@shoreline/docs",
-  "version": "1.0.7",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "npm run gen:examples && npm run gen:props && next dev",
-    "build-docs": "npm --prefix ../../ run build && npm run gen:contributors && npm run gen:examples && npm run gen:props && next build",
-    "start": "next start",
-    "gen:examples": "node ./scripts/build-examples.mjs",
-    "gen:props": "node ./scripts/build-props.mjs",
-    "gen:contributors": "node ./scripts/build-contributors.mjs"
-  },
-  "devDependencies": {
-    "@types/fs-extra": "11.0.4",
-    "@types/node": "20.14.9"
-  },
-  "dependencies": {
-    "@next/third-parties": "^15.0.0",
-    "@octokit/graphql": "^8.1.1",
-    "@sentry/nextjs": "^8.35.0",
-    "@tanstack/react-table": "8.17.3",
-    "@vtex/shoreline": "workspace:*",
-    "@vtex/shoreline-ts-table": "workspace:*",
-    "@vtex/shoreline-utils": "workspace:*",
-    "fs-extra": "11.2.0",
-    "google": "link:@next/third-parties/google",
-    "next": "^15.0.0",
-    "nextra": "^3.0.15",
-    "nextra-theme-docs": "^3.0.15",
-    "prettier": "^3.3.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-markdown": "^9.0.1",
-    "shiki": "^1.22.0",
-    "swr": "^2.2.5",
-    "ts-morph": "^24.0.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "@shoreline/docs",
+	"version": "1.0.7",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "npm run gen:examples && npm run gen:props && next dev",
+		"build-docs": "npm --prefix ../../ run build && npm run gen:contributors && npm run gen:examples && npm run gen:props && next build",
+		"start": "next start",
+		"gen:examples": "node ./scripts/build-examples.mjs",
+		"gen:props": "node ./scripts/build-props.mjs",
+		"gen:contributors": "node ./scripts/build-contributors.mjs"
+	},
+	"devDependencies": {
+		"@types/fs-extra": "11.0.4",
+		"@types/node": "20.14.9"
+	},
+	"dependencies": {
+		"@next/third-parties": "^15.0.0",
+		"@octokit/graphql": "^8.1.1",
+		"@sentry/nextjs": "^8.35.0",
+		"@tanstack/react-table": "8.17.3",
+		"@vtex/shoreline": "workspace:*",
+		"@vtex/shoreline-ts-table": "workspace:*",
+		"@vtex/shoreline-utils": "workspace:*",
+		"fs-extra": "11.2.0",
+		"google": "link:@next/third-parties/google",
+		"next": "^15.0.0",
+		"nextra": "^3.0.15",
+		"nextra-theme-docs": "^3.0.15",
+		"prettier": "^3.3.3",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-markdown": "^9.0.1",
+		"shiki": "^1.22.0",
+		"swr": "^2.2.5",
+		"ts-morph": "^24.0.0"
+	},
+	"browserslist": {
+		"production": [">0.5%", "not dead", "not op_mini all"],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }
