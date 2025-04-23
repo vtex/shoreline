@@ -51,19 +51,49 @@ export const Loading: Story = {
     loading: true,
   },
 }
-export const MultiSeries: Story = {
+export const MultiSeriesSmol: Story = {
   args: {
     option: {
       xAxis: {
         data: ['Mon', 'Tue', 'Wed'],
       },
       series: [
-        { data: [3, 2, 3, 4], name: 'Series 1' },
-        { data: [1, 4, 2, 3], name: 'Series 2' },
-        { data: [2, 1, 4, 1], name: 'Series 3' },
+        { data: [3, 2, 1], name: 'Series 1' },
+        { data: [1, 4, 3], name: 'Series 2' },
+        { data: [2, 1, 4], name: 'Series 3' },
       ],
     },
-    chartConfig: { type: 'bar' },
+    chartConfig: { type: 'bar', gap: 1 },
+  },
+}
+export const MultiSeriesMidi: Story = {
+  args: {
+    option: {
+      xAxis: {
+        data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      },
+      series: [
+        { data: [3, 2, 3, 4, 1, 9, 7], name: 'Series 1' },
+        { data: [1, 4, 2, 3, 1, 5, 9], name: 'Series 2' },
+        { data: [2, 1, 4, 1, 7, 2, 1], name: 'Series 3' },
+      ],
+    },
+    chartConfig: { type: 'bar', gap: 2 },
+  },
+}
+export const MultiSeriesBigui: Story = {
+  args: {
+    option: {
+      xAxis: {
+        data: [],
+      },
+      series: [
+        { data: [2, 1, 4, 1, 7, 2, 1, 2, 1, 4, 1, 7, 2, 1], name: 'Series 1' },
+        { data: [1, 4, 2, 3, 1, 5, 9, 1, 4, 2, 3, 1, 5, 9], name: 'Series 2' },
+        { data: [3, 2, 3, 4, 1, 9, 7, 3, 2, 3, 4, 1, 9, 7], name: 'Series 3' },
+      ],
+    },
+    chartConfig: { type: 'bar', gap: 3 },
   },
 }
 export const WithHugeNumbers: Story = {
@@ -99,7 +129,7 @@ export const Horizontal: Story = {
         { data: [1, 4, 2, 1, 4, 3, 5, 9], name: 'Series 1' },
       ],
     },
-    chartConfig: { type: 'bar', variant: 'horizontal' },
+    chartConfig: { type: 'bar', variant: 'horizontal', gap: 2 },
   },
 }
 
