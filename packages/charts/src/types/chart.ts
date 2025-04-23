@@ -1,6 +1,6 @@
 import type { EChartsOption, SeriesOption } from 'echarts'
 
-export type BarChartVariants = 'default' | 'horizontal'
+export type BarChartVariants = 'vertical' | 'horizontal'
 
 export type LineChartVariants = 'default'
 

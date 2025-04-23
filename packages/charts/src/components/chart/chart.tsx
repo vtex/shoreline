@@ -68,7 +68,8 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
         return seriesHooks.reduce((out, fn) => applySeriesHook(out, fn), series)
       }
 
-      const { type, variant = 'default' } = chartConfig
+      const { type, variant = type === 'bar' ? 'vertical' : 'default' } =
+        chartConfig
       const hooks = defaultHooks[type][variant]
 
       seriesHooks.push(...hooks)
