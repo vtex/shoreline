@@ -8,6 +8,8 @@ const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
   trigger: 'item',
   borderWidth: 1,
   borderColor: 'var(--sl-color-gray-4)',
+  extraCssText:
+    'padding-top: 12px; padding-bottom: 12px; padding-left: 16px; padding-right: 16px',
   formatter: (params) => {
     return getTooltipStaticString(params)
   },
