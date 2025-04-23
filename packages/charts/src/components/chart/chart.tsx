@@ -80,10 +80,9 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       if (chartConfig === null || typeof hookedSeries === 'undefined') {
         return option
       }
-      const { type, variant } = chartConfig
 
       return (
-        getChartOptions({ ...option, series: hookedSeries }, type, variant) ||
+        getChartOptions({ ...option, series: hookedSeries }, chartConfig) ||
         option
       )
     }, [option, chartConfig, hookedSeries])
