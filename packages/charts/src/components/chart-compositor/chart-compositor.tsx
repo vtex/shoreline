@@ -44,7 +44,8 @@ export const ChartCompositor = forwardRef<
 
   const hookedUnits: ChartUnit[] = useMemo(() => {
     return charts.map((chart) => {
-      const { type, variant = 'default' } = chart.chartConfig
+      const { type, variant = type === 'bar' ? 'vertical' : 'default' } =
+        chart.chartConfig
       const seriesHooks: CallableFunction[] = defaultHooks[type][variant]
       if (chart.hooks === undefined) {
         return {

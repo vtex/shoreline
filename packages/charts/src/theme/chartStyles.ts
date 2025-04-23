@@ -79,7 +79,7 @@ export const DEFAULT_DELAY_FUNCTION = (idx: number) => idx * 20
 // if you're looking for a certain feature in a chart and don't find it here, check themes.ts
 export const CHART_STYLES: DefaultChartStyles = {
   bar: {
-    default: {
+    vertical: {
       xAxis: {
         type: 'category',
       },
@@ -94,7 +94,11 @@ export const CHART_STYLES: DefaultChartStyles = {
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         trigger: 'axis',
-        axisPointer: { type: 'shadow' },
+        axisPointer: {
+          type: 'shadow',
+          z: -1,
+          shadowStyle: { color: '#F5F5F5', opacity: '1' },
+        },
       },
 
       animationDelay: DEFAULT_DELAY_FUNCTION,
@@ -117,7 +121,11 @@ export const CHART_STYLES: DefaultChartStyles = {
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         trigger: 'axis',
-        axisPointer: { type: 'shadow' },
+        axisPointer: {
+          type: 'shadow',
+          z: -1,
+          shadowStyle: { color: '#F5F5F5', opacity: '1' },
+        },
       },
 
       animationDelay: DEFAULT_DELAY_FUNCTION,
