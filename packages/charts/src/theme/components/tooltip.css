@@ -30,6 +30,6 @@
   border-radius: var(--sl-space-1);
 }
 [data-sl-chart-tooltip-data-serie-value] {
-  font-weight: bold;
+  font-weight: 525;
   margin-left: var(--sl-space-gap);
 }
