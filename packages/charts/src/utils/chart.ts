@@ -41,11 +41,11 @@ const setBarGap = (series: SeriesOption[], size: number) => {
 
   let finalPercentage: number
   finalPercentage = 100
-  if (size === 1) finalPercentage = 100 / (bar + 1)
+  if (size === 1) finalPercentage = 100 / (bar + 2)
 
-  if (size === 2) finalPercentage = 100 / bar
+  if (size === 2) finalPercentage = 100 / (bar + 1)
 
-  if (size === 3) finalPercentage = 100 / (bar - 1)
+  if (size === 3) finalPercentage = 100 / bar
 
   for (let i = series.length - 1; i > -1; i--) {
     const serie = series[i]

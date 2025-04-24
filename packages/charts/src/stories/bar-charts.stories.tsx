@@ -60,7 +60,6 @@ export const MultiSeriesSmol: Story = {
       series: [
         { data: [3, 2, 1], name: 'Series 1' },
         { data: [1, 4, 3], name: 'Series 2' },
-        { data: [2, 1, 4], name: 'Series 3' },
       ],
     },
     chartConfig: { type: 'bar', gap: 1 },
@@ -75,7 +74,6 @@ export const MultiSeriesMidi: Story = {
       series: [
         { data: [3, 2, 3, 4, 1, 9, 7], name: 'Series 1' },
         { data: [1, 4, 2, 3, 1, 5, 9], name: 'Series 2' },
-        { data: [2, 1, 4, 1, 7, 2, 1], name: 'Series 3' },
       ],
     },
     chartConfig: { type: 'bar', gap: 2 },
@@ -90,7 +88,6 @@ export const MultiSeriesBigui: Story = {
       series: [
         { data: [2, 1, 4, 1, 7, 2, 1, 2, 1, 4, 1, 7, 2, 1], name: 'Series 1' },
         { data: [1, 4, 2, 3, 1, 5, 9, 1, 4, 2, 3, 1, 5, 9], name: 'Series 2' },
-        { data: [3, 2, 3, 4, 1, 9, 7, 3, 2, 3, 4, 1, 9, 7], name: 'Series 3' },
       ],
     },
     chartConfig: { type: 'bar', gap: 3 },
