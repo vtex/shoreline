@@ -74,6 +74,7 @@ export const MultiSeriesMidi: Story = {
       series: [
         { data: [3, 2, 3, 4, 1, 9, 7], name: 'Series 1' },
         { data: [1, 4, 2, 3, 1, 5, 9], name: 'Series 2' },
+        { data: [23, 43, 1, 23, 5, 2], name: 'teste' },
       ],
     },
     chartConfig: { type: 'bar', gap: 2 },
