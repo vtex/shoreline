@@ -1,7 +1,18 @@
-import { bench } from 'vitest'
+import { beforeAll, bench } from 'vitest'
 import { Chart } from '../components/chart'
 import { render } from '@vtex/shoreline-test-utils'
 import { CHART_DATA } from './__fixtures__/chartData'
+
+beforeAll(() => {
+  Object.defineProperty(HTMLElement.prototype, 'clientWidth', {
+    configurable: true,
+    value: 300,
+  })
+  Object.defineProperty(HTMLElement.prototype, 'clientHeight', {
+    configurable: true,
+    value: 200,
+  })
+})
 
 bench(
   'renders bar chart with 1 thousand points',

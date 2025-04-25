@@ -1,7 +1,18 @@
-import { bench } from 'vitest'
+import { beforeAll, bench } from 'vitest'
 import { render } from '@vtex/shoreline-test-utils'
 import { CHART_DATA } from './__fixtures__/chartData'
 import { ChartCompositor } from '../components'
+
+beforeAll(() => {
+  Object.defineProperty(HTMLElement.prototype, 'clientWidth', {
+    configurable: true,
+    value: 300,
+  })
+  Object.defineProperty(HTMLElement.prototype, 'clientHeight', {
+    configurable: true,
+    value: 200,
+  })
+})
 
 bench(
   'renders a chart compositor of bar and line chart both with 1 thousand points',
