@@ -39,7 +39,7 @@ export default function Example() {
           },
         ],
       }}
-      style={{ height: 400 }}
+      style={{ height: 550 }}
     />
   )
 }

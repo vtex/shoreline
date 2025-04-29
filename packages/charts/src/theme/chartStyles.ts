@@ -17,7 +17,7 @@ const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
 
 export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   orient: 'horizontal',
-  left: 'auto',
+  left: '1%',
   bottom: 0,
   align: 'left',
   itemWidth: 16,
@@ -28,10 +28,10 @@ export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
 }
 
 export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
-  left: 'auto',
-  right: 'auto',
-  top: '5',
-  bottom: '13%',
+  left: '16',
+  right: '16',
+  top: '16',
+  bottom: '16',
   containLabel: true,
 }
 
@@ -42,24 +42,29 @@ export const DATAZOOM_DEFAULT_STYLE: EChartsOption['dataZoom'] = [
   {
     type: 'slider',
     //Sizing
-    right: '0.6%',
-    bottom: '6%',
-    height: '6%',
+    right: 'center',
+    bottom: '9%',
+    height: '9%',
+    width: '95%',
     //Styles
+    fillerColor: '#0064C30D',
     selectedDataBackground: {
       lineStyle: {
         color: 'rgba(1,103,223,255)',
         width: 1.2,
       },
       areaStyle: {
-        color: 'rgba(192,226,253,255)',
+        color: '#0366DD',
       },
     },
+
     handleStyle: {
+      // side things
       color: 'rgba(1,103,223,255)',
       borderColor: 'rgba(1,103,223,255)',
     },
     moveHandleStyle: {
+      // top drag bar
       color: 'rgba(244,244,244,255)',
     },
     emphasis: {
@@ -143,7 +148,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       dataZoom: DATAZOOM_DEFAULT_STYLE,
       legend: LEGEND_DEFAULT_STYLE,
       tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
-      grid: GRID_DEFAULT_STYLE,
+      grid: { ...GRID_DEFAULT_STYLE, height: '75%' },
     },
   },
 }

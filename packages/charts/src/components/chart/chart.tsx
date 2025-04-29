@@ -3,7 +3,6 @@ import {
   useEffect,
   useMemo,
   forwardRef,
-  useImperativeHandle,
   type ComponentPropsWithRef,
   useCallback,
 } from 'react'
@@ -17,7 +16,7 @@ import {
   defaultHooks,
   getChartOptions,
 } from '../../utils/chart'
-import { canUseDOM } from '@vtex/shoreline-utils'
+import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
 import type { Dictionary } from 'lodash'
 
@@ -47,18 +46,12 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       renderer = 'svg',
       theme = defaultTheme,
       seriesHooks = [],
+      onEvents,
       ...otherProps
     } = props
 
     const chartRef = useRef<ReactECharts>(null)
-
-    useImperativeHandle(ref, () => {
-      if (chartRef.current) {
-        return chartRef.current.getEchartsInstance()
-      }
-      return undefined
-    })
-
+    console.log(onEvents)
     const hookedSeries = useMemo(() => {
       const series = option.series
 
@@ -129,17 +122,21 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
     return (
       <div data-sl-chart>
         <ReactECharts
-          ref={chartRef}
+          ref={useMergeRef(ref, chartRef)}
+          // ref={chartRef}
           theme={theme}
           option={chartOptions}
-          style={{ minWidth: 300, minHeight: 200, ...style }}
+          style={{ minWidth: 300, minHeight: 200, padding: 20, ...style }}
           opts={{
             renderer: renderer,
           }}
           showLoading={loading}
           loadingOption={loadingConfig}
           // onChartReady={(instance) => instance.resize()}
-          onEvents={{ legendselectchanged: checkBoxLegend }}
+          onEvents={{
+            legendselectchanged: checkBoxLegend,
+            ...onEvents,
+          }}
           {...otherProps}
         />
       </div>
@@ -186,15 +183,20 @@ export interface ChartOptions {
    */
   theme?: Dictionary<any> | string
   /**
-   * Wether is loading
+   * Wether is loading.
    * @default false
    */
   loading?: boolean
   /**
-   * Echarts showLoading options, see [docs]("https://echarts.apache.org/en/api.html#echartsInstance.showLoading)
+   * Echarts showLoading options, see [docs]("https://echarts.apache.org/en/api.html#echartsInstance.showLoading).
    * @default false
    */
   loadingConfig?: EChartsInstance['showLoading']
+  /**
+   * Binds callback functions to certain events, see [docs](https://echarts.apache.org/en/api.html#events)
+   * for a complete list of available events and their parameters.
+   */
+  onEvents?: Record<string, CallableFunction>
 }
 
 export type ChartProps = ChartOptions & ComponentPropsWithRef<'div'>

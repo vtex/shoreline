@@ -62,5 +62,6 @@ export const Basic: Story = {
     ],
     tooltip: { type: 'line' },
     zoom: true,
+    options: { grid: { height: '75%' } },
   },
 }

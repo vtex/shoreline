@@ -14,6 +14,7 @@ export default function Example() {
           lineStyle: { type: 'dashed' },
         },
       }}
+      style={{ height: 550 }}
     />
   )
 }

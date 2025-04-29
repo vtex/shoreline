@@ -3,10 +3,6 @@
   border-radius: 4px;
   min-width: 100px;
 }
-[data-sl-chart-tooltip-title] {
-  font-weight: bold;
-  font-size: 12;
-}
 [data-sl-chart-tooltip-data-container] {
   display: flex;
   justify-content: space-between;
@@ -23,6 +19,25 @@
   margin-right: var(--sl-space-1);
   border-radius: var(--sl-space-1);
 }
+[data-sl-chart-tooltip-title] {
+  font: var(--sl-text-caption-1);
+  /* font: var(--sl-text-caption-1-font); */
+  /* letter-spacing: var(--sl-text-caption-1-letter-spacing); */
+
+  font-weight: bold;
+  font-size: 12;
+  color: var(--sl-fg-base);
+}
+[data-sl-chart-tooltip-data-serie-name] {
+  font: var(--sl-text-body);
+  font-weight: var(--sl-font-weight-regular);
+  font-size: 14;
+  color: var(--sl-fg-base-soft);
+}
 [data-sl-chart-tooltip-data-serie-value] {
-  font-weight: 525;
+  font: var(--sl-text-emphasis);
+  font-weight: var(--sl-font-weight-medium);
+  margin-left: var(--sl-space-gap);
+  font-size: 14;
+  color: var(--sl-fg-base);
 }

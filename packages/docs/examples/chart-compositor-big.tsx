@@ -30,6 +30,7 @@ export default function Example() {
         },
       ]}
       tooltip={{ type: 'line' }}
+      options={{ grid: { height: '75%' } }}
       zoom
     />
   )

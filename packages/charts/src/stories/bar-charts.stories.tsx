@@ -1,8 +1,7 @@
-// biome-ignore lint/correctness/noUnusedImports: <explanation>
-import React from 'react'
 import { Chart } from '../index'
-import { compactNumber } from '../utils/format'
 import type { StoryObj } from '@storybook/react'
+import { compactNumber } from '../utils/format'
+import { useRef } from 'react'
 
 const Bar = {
   title: 'Charts/bar',
@@ -66,6 +65,41 @@ export const MultiSeries: Story = {
     chartConfig: { type: 'bar' },
   },
 }
+
+export const Tooltip: Story = {
+  render: () => {
+    const ref = useRef(null)
+    return (
+      <Chart
+        ref={ref}
+        chartConfig={{ type: 'bar', variant: 'vertical' }}
+        option={{
+          xAxis: {
+            data: ['Mon', 'Tue', 'Wed'],
+          },
+          series: [
+            { data: [3, 2, 3, 4], name: 'Series 1' },
+            { data: [1, 4, 2, 3], name: 'Series 2' },
+            { data: [2, 1, 4, 1], name: 'Series 3' },
+          ],
+          tooltip: { alwaysShowContent: true },
+        }}
+        onEvents={{
+          rendered: () => {
+            if (ref.current) {
+              ref.current.getEchartsInstance().dispatchAction({
+                type: 'showTip',
+                x: 200,
+                y: 50,
+                position: ['50%', '50%'],
+              })
+            }
+          },
+        }}
+      />
+    )
+  },
+}
 export const WithHugeNumbers: Story = {
   args: {
     option: {
@@ -95,7 +129,7 @@ export const Horizontal: Story = {
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Test'],
       },
       series: [
-        { data: [-1, 2, 3, 4, 5, 6, 7, 8], name: 'Series 0' },
+        { data: [1, 2, 3, 4, 5, 6, 7, 8], name: 'Series 0' },
         { data: [1, 4, 2, 1, 4, 3, 5, 9], name: 'Series 1' },
       ],
     },
