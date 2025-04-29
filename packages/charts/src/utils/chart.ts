@@ -116,6 +116,10 @@ export function applySeriesHook(
 export function applySeriesHook(
   series: SeriesOption | SeriesOption[],
   fn: CallableFunction
+): SeriesOption | SeriesOption[]
+export function applySeriesHook(
+  series: SeriesOption | SeriesOption[],
+  fn: CallableFunction
 ): SeriesOption | SeriesOption[] {
   if (Array.isArray(series)) {
     return series.map((v: any) => fn(v))
