@@ -20,22 +20,24 @@
   border-radius: var(--sl-space-1);
 }
 [data-sl-chart-tooltip-title] {
-  font: var(--sl-text-caption-1);
-  /* font: var(--sl-text-caption-1-font); */
-  /* letter-spacing: var(--sl-text-caption-1-letter-spacing); */
+  /* font: var(--sl-text-caption-1); */
+  font: var(--sl-text-caption-1-font);
+  letter-spacing: var(--sl-text-caption-1-letter-spacing);
 
   font-weight: bold;
   font-size: 12;
   color: var(--sl-fg-base);
 }
 [data-sl-chart-tooltip-data-serie-name] {
-  font: var(--sl-text-body);
+  font: var(--sl-text-body-font);
+  letter-spacing: var(--sl-text-body-letter-spacing);
   font-weight: var(--sl-font-weight-regular);
   font-size: 14;
   color: var(--sl-fg-base-soft);
 }
 [data-sl-chart-tooltip-data-serie-value] {
-  font: var(--sl-text-emphasis);
+  font: var(--sl-text-emphasis-font);
+  letter-spacing: var(--sl-text-emphasis-letter-spacing);
   font-weight: var(--sl-font-weight-medium);
   margin-left: var(--sl-space-gap);
   font-size: 14;
