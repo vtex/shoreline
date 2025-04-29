@@ -20,5 +20,3 @@ jobs:
         run: pnpm install
       - name: Run Chromatic
         uses: chromaui/action@latest
-        with:
-          projectToken: 'chpt_242dc59fcdeb02b'
