@@ -1,4 +1,5 @@
 import { vi } from 'vitest'
+
 import 'vitest-canvas-mock'
 
 vi.mock('echarts', async () => {

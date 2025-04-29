@@ -5,7 +5,11 @@ export type BarChartVariants = 'vertical' | 'horizontal'
 export type LineChartVariants = 'default'
 
 export type LineChartConfig = { type: 'line'; variant?: LineChartVariants }
-export type BarChartConfig = { type: 'bar'; variant?: BarChartVariants }
+export type BarChartConfig = {
+  type: 'bar'
+  variant?: BarChartVariants
+  gap?: 1 | 2 | 3
+}
 
 export type ChartConfig = BarChartConfig | LineChartConfig
 

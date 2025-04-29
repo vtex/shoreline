@@ -7,7 +7,7 @@ import type {
   ChartUnit,
 } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
-import { cloneDeep, isDate } from 'lodash'
+import { cloneDeep, isArray, isDate } from 'lodash'
 import { defaultTheme } from '../theme/themes'
 
 export const buildDefaultSerie = (
@@ -33,11 +33,33 @@ export const formatSeries = (
   return buildDefaultSerie(series, defaultStyle)
 }
 
+const setBarGap = (series: SeriesOption[], size: number) => {
+  let bar = 0
+
+  for (let i = 0; i < series.length; i++) if (series[i].type === 'bar') bar++
+  if (bar <= 1) return
+
+  let finalPercentage: number
+  finalPercentage = 100
+  if (size === 1) finalPercentage = 100 / (bar + 2)
+
+  if (size === 2) finalPercentage = 100 / (bar + 1)
+
+  if (size === 3) finalPercentage = 100 / bar
+
+  for (let i = series.length - 1; i > -1; i--) {
+    const serie = series[i]
+    if (serie.type === 'bar') {
+      serie.barCategoryGap = `${finalPercentage.toFixed(0)}%`
+    }
+  }
+}
+
 export const getChartOptions = (
   options: EChartsOption,
-  type: ChartConfig['type'],
-  variant: ChartConfig['variant']
+  chartConfig: ChartConfig
 ): EChartsOption | undefined => {
+  const { type, variant } = chartConfig
   if (typeof options === 'undefined') return
   const { series, ...rest } = options
 
@@ -45,6 +67,9 @@ export const getChartOptions = (
 
   const { series: defaultSeries, ...defaultRest } = defaultStyle
   const formattedSeries = formatSeries(series, defaultStyle)
+
+  if (chartConfig.type === 'bar' && isArray(formattedSeries) && chartConfig.gap)
+    setBarGap(formattedSeries, chartConfig.gap)
 
   const mergedOptions = merge(defaultRest, rest)
   return { ...mergedOptions, series: formattedSeries }
