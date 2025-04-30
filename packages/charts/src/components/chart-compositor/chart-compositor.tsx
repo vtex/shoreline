@@ -39,6 +39,7 @@ export const ChartCompositor = forwardRef<
     tooltip,
     zoom = false,
     options,
+    style,
     ...otherProps
   } = props
 
@@ -100,7 +101,7 @@ export const ChartCompositor = forwardRef<
     <Chart
       chartConfig={null}
       option={chartOptions}
-      style={{ height: 550 }}
+      style={style}
       ref={ref}
       seriesHooks={null}
       zoom={zoom}
