@@ -83,8 +83,11 @@ export const ChartCompositor = forwardRef<
 
     finalOptions.legend = LEGEND_DEFAULT_STYLE
     finalOptions.grid = GRID_DEFAULT_STYLE
-    if (zoom) finalOptions.dataZoom = DATAZOOM_DEFAULT_STYLE
-
+    if (zoom) {
+      finalOptions.grid ??= {}
+      finalOptions.grid = { ...finalOptions.grid, height: '75%' }
+      finalOptions.dataZoom = DATAZOOM_DEFAULT_STYLE
+    }
     finalOptions.series = seriesOptions
     finalOptions.tooltip = tooltipOptions
     finalOptions.yAxis = yAxis
