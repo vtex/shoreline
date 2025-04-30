@@ -17,7 +17,10 @@ import {
   getChartOptions,
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
-import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
+import {
+  DATAZOOM_DEFAULT_STYLE,
+  DEFAULT_LOADING_SPINNER,
+} from '../../theme/chartStyles'
 import type { Dictionary } from 'lodash'
 
 /**
@@ -47,11 +50,12 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       theme = defaultTheme,
       seriesHooks = [],
       onEvents,
+      zoom = false,
       ...otherProps
     } = props
 
     const chartRef = useRef<ReactECharts>(null)
-    console.log(onEvents)
+
     const hookedSeries = useMemo(() => {
       const series = option.series
 
@@ -73,12 +77,16 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       if (chartConfig === null || typeof hookedSeries === 'undefined') {
         return option
       }
-
-      return (
+      const options =
         getChartOptions({ ...option, series: hookedSeries }, chartConfig) ||
         option
-      )
-    }, [option, chartConfig, hookedSeries])
+      if (zoom) {
+        options.grid ??= {}
+        options.grid = { ...options.grid, height: '75%' }
+        options.dataZoom = DATAZOOM_DEFAULT_STYLE
+      }
+      return options
+    }, [option, chartConfig, hookedSeries, zoom])
 
     const checkBoxLegend = useCallback((params: any) => {
       if (!chartRef.current) return
@@ -168,6 +176,10 @@ export interface ChartOptions {
     ] // paints all bars in a bright red color, while making sure to preserve all of it's options.
    */
   seriesHooks?: ((series: any) => echarts.SeriesOption)[] | null
+  /**
+   * Whether to enable zoom and the zoom bar, which will also make the chart slightly smaller to fit the bar.
+   */
+  zoom?: boolean
   /**
    * Whether to render the chart as a SVG or Canvas. Both are about equally as fast,
    * but SVGs have 'perfect' image quality.

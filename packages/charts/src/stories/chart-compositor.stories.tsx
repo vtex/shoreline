@@ -55,7 +55,7 @@ export const Basic: Story = {
       {
         series: {
           data: data3,
-          name: 'Line',
+          name: 'Average',
         },
         chartConfig: { type: 'line' },
       },

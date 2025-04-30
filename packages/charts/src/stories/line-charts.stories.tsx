@@ -20,12 +20,14 @@ export const Basic: Story = {
     },
     chartConfig: { type: 'line' },
     style: { height: 550 },
+    zoom: true,
   },
 }
 export const MultiLines: Story = {
   args: {
     chartConfig: { type: 'line' },
     style: { height: 550 },
+    zoom: true,
     option: {
       xAxis: {
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -64,6 +66,7 @@ export const Stacked: Story = {
   args: {
     chartConfig: { type: 'line' },
     style: { height: 550 },
+    zoom: true,
     option: {
       xAxis: {
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -108,6 +111,7 @@ export const Dashed: Story = {
   args: {
     chartConfig: { type: 'line' },
     style: { height: 550 },
+    zoom: true,
     option: {
       xAxis: {
         type: 'category',

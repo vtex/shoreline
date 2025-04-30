@@ -100,6 +100,7 @@ export const ChartCompositor = forwardRef<
       style={{ height: 550 }}
       ref={ref}
       seriesHooks={null}
+      zoom={zoom}
       {...otherProps}
     />
   )

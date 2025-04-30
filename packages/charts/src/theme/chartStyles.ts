@@ -47,6 +47,13 @@ export const DATAZOOM_DEFAULT_STYLE: EChartsOption['dataZoom'] = [
     height: '9%',
     width: '95%',
     //Styles
+    borderColor: '#C2C2C2',
+    backgroundColor: '#ffffff',
+    dataBackground: {
+      areaStyle: {
+        color: '#F5F5F5',
+      },
+    },
     fillerColor: '#0064C30D',
     selectedDataBackground: {
       lineStyle: {
@@ -54,7 +61,8 @@ export const DATAZOOM_DEFAULT_STYLE: EChartsOption['dataZoom'] = [
         width: 1.2,
       },
       areaStyle: {
-        color: '#0366DD',
+        color: '#D6ECFC',
+        opacity: 1,
       },
     },
 
@@ -145,10 +153,9 @@ export const CHART_STYLES: DefaultChartStyles = {
         smooth: true,
         showSymbol: false,
       },
-      dataZoom: DATAZOOM_DEFAULT_STYLE,
       legend: LEGEND_DEFAULT_STYLE,
       tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
-      grid: { ...GRID_DEFAULT_STYLE, height: '75%' },
+      grid: GRID_DEFAULT_STYLE,
     },
   },
 }
