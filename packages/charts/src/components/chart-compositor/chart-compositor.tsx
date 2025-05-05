@@ -40,6 +40,7 @@ export const ChartCompositor = forwardRef<
     zoom = false,
     options,
     style,
+    renderer = 'svg',
     ...otherProps
   } = props
 
@@ -105,6 +106,7 @@ export const ChartCompositor = forwardRef<
       ref={ref}
       seriesHooks={null}
       zoom={zoom}
+      renderer={renderer}
       {...otherProps}
     />
   )
@@ -152,6 +154,14 @@ export interface ChartCompositorOptions {
    *  should be configured using other props from this component.
    */
   options?: EChartsOption
+  /**
+   * Whether to render the chart as a SVG or Canvas. Both are about equally as fast,
+   * but SVGs have 'perfect' image quality.
+   *
+   * Canvas is required if the chart is meant to be downloaded as a png or jpg, as SVG-rendered charts can only be exported as SVG.
+   * @default svg
+   */
+  renderer?: 'svg' | 'canvas'
 }
 
 export type ChartCompositorProps = ChartCompositorOptions &

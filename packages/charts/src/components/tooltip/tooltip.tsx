@@ -3,7 +3,6 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import '../../theme/components/tooltip.css'
 
 export default function ChartTooltip({ params }: ChartTooltipProps) {
-  console.log(JSON.stringify(params))
   return (
     <>
       <h4 data-sl-chart-tooltip-title>
