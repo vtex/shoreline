@@ -38,7 +38,7 @@ import type { Dictionary } from 'lodash'
       style={{ height: 550 }}
     />
  */
-export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
+export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
   function Charts(props, ref) {
     const {
       option,

@@ -14,6 +14,7 @@ import {
   GRID_DEFAULT_STYLE,
   LEGEND_DEFAULT_STYLE,
 } from '../../theme/chartStyles'
+import type EChartsReact from 'echarts-for-react'
 
 /**
  * Used to make charts with multiple different types.
@@ -29,7 +30,7 @@ import {
  * />
  */
 export const ChartCompositor = forwardRef<
-  echarts.EChartsType | undefined,
+  EChartsReact | undefined,
   ChartCompositorProps
 >(function ChartCompositor(props, ref) {
   const {
