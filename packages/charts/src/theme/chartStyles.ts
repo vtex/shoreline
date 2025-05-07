@@ -155,7 +155,8 @@ export const CHART_STYLES: DefaultChartStyles = {
       },
       legend: LEGEND_DEFAULT_STYLE,
       tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
-      grid: GRID_DEFAULT_STYLE,
+      grid: { ...GRID_DEFAULT_STYLE, height: '75%' },
+      dataZoom: DATAZOOM_DEFAULT_STYLE,
     },
   },
 }
