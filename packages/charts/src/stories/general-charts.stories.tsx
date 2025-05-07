@@ -1,6 +1,8 @@
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
-import { Chart } from '../index'
+import { random } from 'lodash'
+import { Chart, ChartCompositor } from '../index'
 import type { StoryObj } from '@storybook/react'
+import { Text } from '@vtex/shoreline'
 
 export default {
   title: 'Charts/general',
@@ -9,8 +11,8 @@ export default {
 
 type Story = StoryObj<typeof Chart>
 
-export const Basic: Story = {
-  render: (args) => {
+export const BasicSync: Story = {
+  render: () => {
     return (
       <>
         <Chart
@@ -21,7 +23,141 @@ export const Basic: Story = {
           chartConfig={{ type: 'bar' }}
           group="group1"
         />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        <Chart
+          option={{
+            series: { data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
+            xAxis: { data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] },
+          }}
+          group="group1"
+          chartConfig={{ type: 'bar' }}
+        />
+      </>
+    )
+  },
+}
+
+export const ManyChartsSync: Story = {
+  render: () => {
+    const data: number[] = []
+    for (let i = 0; i < 9; i++) {
+      data.push(random(10, false))
+    }
+
+    return (
+      <>
+        <Chart
+          option={{ series: { data: [1, 2, 3, 4, 5, 6, 7, 8, 9] } }}
+          chartConfig={{ type: 'bar' }}
+          group="vtex"
+        />
+        <Chart
+          option={{ series: { data: [9, 8, 7, 6, 5, 4, 3, 2, 1] } }}
+          chartConfig={{ type: 'line' }}
+          group="vtex"
+        />
+        <Chart
+          option={{ series: { data: [2, 4, 6, 7, 9, 0, 8, 6, 4] } }}
+          chartConfig={{ type: 'bar' }}
+          group="vtex"
+        />
+        <Chart
+          option={{
+            series: {
+              data: [9, 7, 7, 5, 0, 10, 5, 9, 4, 3],
+            },
+          }}
+          chartConfig={{ type: 'line' }}
+          group="vtex"
+        />
+        <Chart
+          option={{ series: { data: [2, 4, 6, 7, 9, 0, 8, 6, 4] } }}
+          chartConfig={{ type: 'bar' }}
+          group="vtex"
+        />
+        <Chart
+          option={{ series: { data: [1, 2, 3, 4, 5, 6, 7, 8, 9] } }}
+          chartConfig={{ type: 'line' }}
+          group="vtex"
+        />
+        <Chart
+          option={{ series: { data: [9, 8, 7, 6, 5, 4, 3, 2, 1] } }}
+          chartConfig={{ type: 'bar' }}
+          group="vtex"
+        />
+        <Chart
+          option={{ series: { data: [2, 4, 6, 7, 9, 0, 8, 6, 4] } }}
+          chartConfig={{ type: 'line' }}
+          group="vtex"
+        />
+        <Chart
+          option={{
+            series: {
+              data: [9, 7, 7, 5, 0, 10, 5, 9, 4, 3],
+            },
+          }}
+          chartConfig={{ type: 'bar' }}
+          group="vtex"
+        />
+        <Chart
+          option={{ series: { data: [2, 4, 6, 7, 9, 0, 8, 6, 4] } }}
+          chartConfig={{ type: 'line' }}
+          group="vtex"
+        />
+      </>
+    )
+  },
+}
+
+export const ChartAndChartCompositorSync: Story = {
+  render: () => {
+    return (
+      <>
+        <Chart
+          option={{
+            xAxis: { data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] },
+            series: { data: [23, 432, 67, 43, 25, 134, 54, 373, 623, 412] },
+          }}
+          chartConfig={{ type: 'bar' }}
+          group="group1"
+        />
+        <ChartCompositor
+          charts={[
+            {
+              series: { data: [7, 2, 7, 6, 5, 2, 5, 0, 7, 7] },
+              chartConfig: { type: 'bar' },
+            },
+            {
+              series: { data: [7, 2, 9, 1, 7, 9, 10, 10, 7, 5] },
+              chartConfig: { type: 'line' },
+            },
+          ]}
+          xAxis={{ data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] }}
+          group="group1"
+          tooltip={{
+            type: 'bar',
+          }}
+        />
+      </>
+    )
+  },
+}
+
+export const TextBetweenSync: Story = {
+  render: () => {
+    return (
+      <>
+        <Chart
+          option={{
+            xAxis: { data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] },
+            series: { data: [23, 432, 67, 43, 25, 134, 54, 373, 623, 412] },
+          }}
+          chartConfig={{ type: 'bar' }}
+          group="group1"
+        />
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod
+        </Text>
         <Chart
           option={{
             series: { data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
