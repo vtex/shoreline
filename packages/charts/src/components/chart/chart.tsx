@@ -8,7 +8,7 @@ import {
 } from 'react'
 import type { EChartsOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
-import type * as echarts from 'echarts'
+import * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig } from '../../types/chart'
 import {
@@ -38,7 +38,7 @@ import type { Dictionary } from 'lodash'
       style={{ height: 550 }}
     />
  */
-export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
+export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
   function Charts(props, ref) {
     const {
       option,
@@ -51,6 +51,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       seriesHooks = [],
       onEvents,
       zoom = false,
+      group,
       ...otherProps
     } = props
 
@@ -117,6 +118,15 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       }
     }, [chartRef])
 
+    const connectGroups = useCallback(() => {
+      if (!group || !chartRef.current) return
+      const chart = chartRef.current.getEchartsInstance()
+
+      chart.group = group
+
+      echarts.connect(group)
+    }, [group])
+
     useEffect(() => {
       if (!canUseDOM) return
 
@@ -142,6 +152,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
           // onChartReady={(instance) => instance.resize()}
           onEvents={{
             legendselectchanged: checkBoxLegend,
+            finished: connectGroups,
             ...onEvents,
           }}
           {...otherProps}
@@ -180,6 +191,12 @@ export interface ChartOptions {
    * Whether to enable zoom and the zoom bar, which will also make the chart slightly smaller to fit the bar.
    */
   zoom?: boolean
+  /**
+   * Defines the group that the chart will be part of. Charts in the same group have many featues among them.
+   * The features includes, sharing the tooltip and share the same legends (if names are equals).
+   * All features, see [the echarts docs](https://echarts.apache.org/en/api.html#echarts.connect)
+   */
+  group?: string
   /**
    * Whether to render the chart as a SVG or Canvas. Both are about equally as fast,
    * but SVGs have 'perfect' image quality.

@@ -2,6 +2,7 @@ import { Chart } from '../index'
 import type { StoryObj } from '@storybook/react'
 import { compactNumber } from '../utils/format'
 import { useRef } from 'react'
+import type EChartsReact from 'echarts-for-react'
 
 const Bar = {
   title: 'Charts/bar',
@@ -50,7 +51,7 @@ export const Loading: Story = {
     loading: true,
   },
 }
-export const MultiSeriesSmol: Story = {
+export const MultiSeriesSmall: Story = {
   args: {
     option: {
       xAxis: {
@@ -64,7 +65,7 @@ export const MultiSeriesSmol: Story = {
     chartConfig: { type: 'bar', gap: 1 },
   },
 }
-export const MultiSeriesMidi: Story = {
+export const MultiSeriesMid: Story = {
   args: {
     option: {
       xAxis: {
@@ -80,11 +81,11 @@ export const MultiSeriesMidi: Story = {
     chartConfig: { type: 'bar', gap: 2 },
   },
 }
-export const MultiSeriesBigui: Story = {
+export const MultiSeriesBig: Story = {
   args: {
     option: {
       xAxis: {
-        data: [],
+        data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       },
       series: [
         { data: [2, 1, 4, 1, 7, 2, 1, 2, 1, 4, 1, 7, 2, 1], name: 'Series 1' },
@@ -97,7 +98,7 @@ export const MultiSeriesBigui: Story = {
 
 export const Tooltip: Story = {
   render: () => {
-    const ref = useRef(null)
+    const ref = useRef<EChartsReact>(null)
     return (
       <Chart
         ref={ref}

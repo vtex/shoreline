@@ -14,6 +14,7 @@ import {
   GRID_DEFAULT_STYLE,
   LEGEND_DEFAULT_STYLE,
 } from '../../theme/chartStyles'
+import type EChartsReact from 'echarts-for-react'
 
 /**
  * Used to make charts with multiple different types.
@@ -29,7 +30,7 @@ import {
  * />
  */
 export const ChartCompositor = forwardRef<
-  echarts.EChartsType | undefined,
+  EChartsReact | undefined,
   ChartCompositorProps
 >(function ChartCompositor(props, ref) {
   const {
@@ -141,6 +142,12 @@ export interface ChartCompositorOptions {
    * @example { type: "bar", variant: "horizontal" }
    */
   tooltip: ChartConfig
+  /**
+   * Defines the group that the chart will be part of. Charts in the same group have many featues among them.
+   * The features includes, sharing the tooltip and share the same legends (if names are equals).
+   * All features, see [the echarts docs](https://echarts.apache.org/en/api.html#echarts.connect)
+   */
+  group?: string
   /**
    * Whether to enable zoom.
    * @default false
