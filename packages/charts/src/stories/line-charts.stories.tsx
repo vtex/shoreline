@@ -115,3 +115,59 @@ export const Dashed: Story = {
     },
   },
 }
+
+export const Area: Story = {
+  args: {
+    chartConfig: { type: 'line' },
+    style: { height: 550 },
+    zoom: true,
+
+    option: {
+      xAxis: {
+        type: 'category',
+        data: [
+          '0',
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+          '6',
+          '7',
+          '8',
+          '9',
+          '10',
+          '11',
+          '12',
+          '13',
+          '14',
+        ],
+      },
+      visualMap: {
+        show: false,
+        min: 200,
+        max: 1050,
+        inRange: {
+          color: ['#D31A15', '#3993F4', '#9C56F3'],
+        },
+      },
+      series: [
+        {
+          smooth: false,
+          data: [
+            543, 287, 892, 1050, 176, 732, 954, 611, 399, 1085, 224, 777, 1023,
+            465, 918,
+          ],
+          type: 'line',
+          markArea: {
+            emphasis: {
+              disabled: true,
+            },
+            data: [[{ coord: [0, 900] }, { coord: [14, 400] }]],
+            itemStyle: { color: '#B6DFFF', opacity: 0.4 },
+          },
+        },
+      ],
+    },
+  },
+}
