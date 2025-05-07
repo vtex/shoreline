@@ -80,7 +80,7 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       const options =
         getChartOptions({ ...option, series: hookedSeries }, chartConfig) ||
         option
-      if (zoom) {
+      if (zoom && chartConfig.type !== 'line') {
         options.grid ??= {}
         options.grid = { ...options.grid, height: '75%' }
         options.dataZoom = DATAZOOM_DEFAULT_STYLE

@@ -20,14 +20,12 @@ export const Basic: Story = {
     },
     chartConfig: { type: 'line' },
     style: { height: 550 },
-    zoom: true,
   },
 }
 export const MultiLines: Story = {
   args: {
     chartConfig: { type: 'line' },
     style: { height: 550 },
-    zoom: true,
     option: {
       xAxis: {
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -41,7 +39,7 @@ export const MultiLines: Story = {
         {
           name: 'Union Ads',
           type: 'line',
-          data: [220, 182, 191, 234, 290, 330, 310],
+          data: [220, 182, 191, 234, 290, 330, 260],
         },
         {
           name: 'Video Ads',
@@ -53,11 +51,6 @@ export const MultiLines: Story = {
           type: 'line',
           data: [320, 332, 301, 334, 390, 330, 320],
         },
-        {
-          name: 'Search Engine',
-          type: 'line',
-          data: [820, 932, 901, 934, 1290, 1330, 1320],
-        },
       ],
     },
   },
@@ -66,7 +59,6 @@ export const Stacked: Story = {
   args: {
     chartConfig: { type: 'line' },
     style: { height: 550 },
-    zoom: true,
     option: {
       xAxis: {
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -111,7 +103,6 @@ export const Dashed: Story = {
   args: {
     chartConfig: { type: 'line' },
     style: { height: 550 },
-    zoom: true,
     option: {
       xAxis: {
         type: 'category',
