@@ -3,7 +3,7 @@ import { Chart } from '@vtex/shoreline-charts'
 import { useState } from 'react'
 
 export default function Example() {
-  const [zoom, changeZoom] = useState(true)
+  const [zoom, changeZoom] = useState(false)
 
   const toogleZoom = () => {
     const newZoom = !zoom

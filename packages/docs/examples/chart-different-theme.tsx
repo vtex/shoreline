@@ -3,7 +3,7 @@ import { Chart } from '@vtex/shoreline-charts'
 export default function Example() {
   return (
     <Chart
-      chartConfig={{ type: 'bar', variant: 'default' }}
+      chartConfig={{ type: 'bar', variant: 'vertical' }}
       option={{
         xAxis: {
           data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],

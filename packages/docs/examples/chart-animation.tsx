@@ -28,7 +28,7 @@ export default function Example() {
           left: 'center',
         },
       }}
-      chartConfig={{ type: 'bar', variant: 'default' }}
+      chartConfig={{ type: 'bar' }}
     />
   )
 }

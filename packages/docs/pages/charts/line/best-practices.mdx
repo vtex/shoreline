@@ -1,13 +1,22 @@
 # Best practices
 
 ## Sizing
+
 - Line charts have a minimum widht and height of 300x200px and in general you should follow the 3:2 aspect ratio.
 
 ## Labels
-- Avoid using oversized labels, if necessary break them into two lines.
+
+- Reuse existing labels.
+- Avoid using oversized labels, try to keep the size the one suggested in the component or break it into 2 lines.
+- Use sentence case but capitalize proper nouns.
 - Don’t use punctuation or more than two words.
 - Abbreviate only when the meaning is clear (Ex: “Mon” for Monday).
-- Numbers can be abbreviated using letters. Use capital letters. Check "bar chart with big numbers" example.
-    - 100.000 = 100K
-    - 1.000.000 = 1M
-    - 1.000.000.000 = 1B
+- Numbers can be abbreviated using letters. Use capital letters.
+  - 100.000 = 100K
+  - 1.000.000 = 1M
+  - 1.000.000.000 = 1B
+
+## Position
+
+- In general, position the chart inside a Card component.
+- When not inside a Card component, in most cases it should be left aligned inside the container it's positioned into.
