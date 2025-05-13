@@ -2,7 +2,7 @@ name: Enviar Issues de Design no Slack
 
 on:
   schedule:
-    - cron: '0 9 * * 1'  # Enviar toda segunda-feira às 9h (UTC)
+    - cron: '0 9 * * 1/2'  # Enviar a cada duas semanas às 9h (UTC)
   workflow_dispatch:  # Permite disparar manualmente
 
 jobs:
@@ -35,21 +35,24 @@ jobs:
             const designIssuesUrl = `${baseUrl}?q=label%3Adesign+is%3Aopen`;
             const designGoodFirstIssuesUrl = `${baseUrl}?q=label%3Adesign+label%3Agood+first+issue+is%3Aopen`;
 
-            return `
-📝 *Últimas issues criadas*
-${latest}
+            // A mensagem a ser enviada ao Slack
+            const message = `
+              📝 *Últimas issues com label \`design\`:*
+              ${latest}
 
-🔗 <${designIssuesUrl}|Ver todas de \`design\`>
-🔗 <${designGoodFirstIssuesUrl}|Ver \`good first issues\`>
+              🔗 <${designIssuesUrl}|Ver todas com \`design\`>
+              🔗 <${designGoodFirstIssuesUrl}|Ver \`design\` + \`good first issue\`>
             `.trim();
+
+            // Salva a mensagem em uma variável de saída
+            return message;
+
+      - name: Gravar mensagem em arquivo temporário
+        run: echo "${{ steps.issues.outputs.result }}" > message.txt
 
       - name: Enviar para o Slack
         uses: slackapi/slack-github-action@v1.25.0
         with:
-          payload: |
-            {
-              "channel": "U05107MCWSD",
-              "text": "${{ steps.issues.outputs.result }}"
-            }
+          payload: '{"channel": "U05107MCWSD", "text": "$(cat message.txt)"}'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
