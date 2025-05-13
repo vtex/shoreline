@@ -1,0 +1,55 @@
+name: Enviar Issues de Design no Slack
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Enviar toda segunda-feira às 9h (UTC)
+  workflow_dispatch:  # Permite disparar manualmente
+
+jobs:
+  post-to-slack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Buscar últimas issues com label 'design'
+        uses: actions/github-script@v6
+        id: issues
+        with:
+          script: |
+            const issues = await github.issues.listForRepo({
+              owner: 'vtex',
+              repo: 'shoreline',
+              state: 'open',
+              labels: 'design',
+              per_page: 10,
+            });
+
+            // Filtra as 2 últimas issues com a label 'design'
+            const latest = issues.data
+              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+              .slice(0, 2)
+              .map(issue => `• <${issue.html_url}|${issue.title}>`)
+              .join('\n');
+
+            // URLs para as listas filtradas
+            const baseUrl = `https://github.com/vtex/shoreline/issues`;
+            const designIssuesUrl = `${baseUrl}?q=label%3Adesign+is%3Aopen`;
+            const designGoodFirstIssuesUrl = `${baseUrl}?q=label%3Adesign+label%3Agood+first+issue+is%3Aopen`;
+
+            return `
+📝 *Últimas issues criadas*
+${latest}
+
+🔗 <${designIssuesUrl}|Ver todas de \`design\`>
+🔗 <${designGoodFirstIssuesUrl}|Ver \`good first issues\`>
+            `.trim();
+
+      - name: Enviar para o Slack
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          payload: |
+            {
+              "channel": "U05107MCWSD",
+              "text": "${{ steps.issues.outputs.result }}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
