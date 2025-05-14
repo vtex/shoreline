@@ -1,58 +1,36 @@
-name: Enviar Issues de Design no Slack
+name: Send Design Issues to Slack
 
 on:
   schedule:
-    - cron: '0 9 * * 1/2'  # Enviar a cada duas semanas às 9h (UTC)
-  workflow_dispatch:  # Permite disparar manualmente
+    - cron: '0 9 */14 * *'  # A cada 14 dias, às 09:00 UTC
+  workflow_dispatch:  # Também pode ser disparado manualmente
 
 jobs:
   post-to-slack:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Buscar últimas issues com label 'design'
-        uses: actions/github-script@v6
-        id: issues
-        with:
-          script: |
-            const issues = await github.issues.listForRepo({
-              owner: 'vtex',
-              repo: 'shoreline',
-              state: 'open',
-              labels: 'design',
-              per_page: 10,
-            });
+      - name: Get latest Design issues
+        id: get_issues
+        run: |
+          RESPONSE=$(curl -s "https://api.github.com/repos/vtex/shoreline/issues?state=open&labels=design&sort=created&direction=desc&per_page=2")
+          ISSUE1_TITLE=$(echo "$RESPONSE" | jq -r '.[0].title')
+          ISSUE1_URL=$(echo "$RESPONSE" | jq -r '.[0].html_url')
+          ISSUE2_TITLE=$(echo "$RESPONSE" | jq -r '.[1].title')
+          ISSUE2_URL=$(echo "$RESPONSE" | jq -r '.[1].html_url')
+          echo "ISSUE1_TITLE=$ISSUE1_TITLE" >> $GITHUB_ENV
+          echo "ISSUE1_URL=$ISSUE1_URL" >> $GITHUB_ENV
+          echo "ISSUE2_TITLE=$ISSUE2_TITLE" >> $GITHUB_ENV
+          echo "ISSUE2_URL=$ISSUE2_URL" >> $GITHUB_ENV
 
-            // Filtra as 2 últimas issues com a label 'design'
-            const latest = issues.data
-              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-              .slice(0, 2)
-              .map(issue => `• <${issue.html_url}|${issue.title}>`)
-              .join('\n');
-
-            // URLs para as listas filtradas
-            const baseUrl = `https://github.com/vtex/shoreline/issues`;
-            const designIssuesUrl = `${baseUrl}?q=label%3Adesign+is%3Aopen`;
-            const designGoodFirstIssuesUrl = `${baseUrl}?q=label%3Adesign+label%3Agood+first+issue+is%3Aopen`;
-
-            // A mensagem a ser enviada ao Slack
-            const message = `
-              📝 *Últimas issues com label \`design\`:*
-              ${latest}
-
-              🔗 <${designIssuesUrl}|Ver todas com \`design\`>
-              🔗 <${designGoodFirstIssuesUrl}|Ver \`design\` + \`good first issue\`>
-            `.trim();
-
-            // Salva a mensagem em uma variável de saída
-            return message;
-
-      - name: Gravar mensagem em arquivo temporário
-        run: echo "${{ steps.issues.outputs.result }}" > message.txt
-
-      - name: Enviar para o Slack
-        uses: slackapi/slack-github-action@v1.25.0
-        with:
-          payload: '{"channel": "U05107MCWSD", "text": "$(cat message.txt)"}'
+      - name: Send message to Slack
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          MESSAGE="🔔 *Issues de Design*\n\n\
+          *Últimas 2 issues criadas com a label \`design\`:*\n\
+          1. <${{ env.ISSUE1_URL }}|${{ env.ISSUE1_TITLE }}>\n\
+          2. <${{ env.ISSUE2_URL }}|${{ env.ISSUE2_TITLE }}>\n\n\
+          ➡️ <https://github.com/vtex/shoreline/issues?q=is%3Aopen+label%3Adesign|Ver todas as issues abertas com label \`design\`>\n\
+          ➡️ <https://github.com/vtex/shoreline/issues?q=is%3Aopen+label%3Adesign+label%3A%22good+first+issue%22|Ver issues com labels \`design\` e \`good first issue\`>"
+
+          curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"$MESSAGE\"}" $SLACK_WEBHOOK_URL
