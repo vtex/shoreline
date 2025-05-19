@@ -116,12 +116,69 @@ export const Dashed: Story = {
   },
 }
 
-export const Area: Story = {
+export const ConfienceBand: Story = {
   args: {
     chartConfig: { type: 'line' },
     style: { height: 550 },
     zoom: true,
 
+    option: {
+      tooltip: {
+        trigger: 'axis',
+      },
+      xAxis: {
+        type: 'category',
+        data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
+      },
+      yAxis: {
+        type: 'value',
+      },
+      visualMap: {
+        show: false,
+        min: 1000,
+        max: 9000,
+        inRange: { color: ['#EC3727', '#157BF4', '#9C56F3'] },
+      },
+      series: [
+        {
+          type: 'line',
+          name: 'média',
+          data: [1500, 6700, 8000, 1200, 7600, 9000, 2900, 8500, 1100, 200],
+          markPoint: {
+            data: [
+              { name: 'min', coord: [9, 200], itemStyle: { color: '#EC3727' } },
+              {
+                name: 'max',
+                coord: [5, 9000],
+                itemStyle: { color: '#9C56F3' },
+              },
+            ],
+          },
+        },
+        {
+          type: 'line',
+          name: 'limite inferior',
+          data: [1823, 3671, 2530, 2000, 3927, 2186, 4000, 3370, 1500, 2895],
+          stack: 'confidence band',
+          lineStyle: { opacity: 0 },
+        },
+        {
+          type: 'line',
+          name: 'limite superior',
+          data: [5000, 5000, 5000, 5000, 5000, 5000, 5000, 3000, 5000, 5000],
+          stack: 'confidence band',
+          areaStyle: { color: 'grey', opacity: 0.3 },
+          lineStyle: { opacity: 0 },
+        },
+      ],
+    },
+  },
+}
+export const GradientArea: Story = {
+  args: {
+    chartConfig: { type: 'line' },
+    style: { height: 550 },
+    zoom: true,
     option: {
       xAxis: {
         type: 'category',
@@ -143,29 +200,33 @@ export const Area: Story = {
           '14',
         ],
       },
-      visualMap: {
-        show: false,
-        min: 200,
-        max: 1050,
-        inRange: {
-          color: ['#D31A15', '#3993F4', '#9C56F3'],
-        },
-      },
       series: [
         {
-          smooth: false,
           data: [
             543, 287, 892, 1050, 176, 732, 954, 611, 399, 1085, 224, 777, 1023,
             465, 918,
           ],
-          type: 'line',
-          markArea: {
-            emphasis: {
-              disabled: true,
+          areaStyle: {
+            color: {
+              type: 'linear',
+              x: 0,
+              y: 0,
+              x2: 0,
+              y2: 1,
+              colorStops: [
+                {
+                  offset: 0,
+                  color: '#97CFFE',
+                },
+                {
+                  offset: 1,
+                  color: '#FFFFFF',
+                },
+              ],
             },
-            data: [[{ coord: [0, 900] }, { coord: [14, 400] }]],
-            itemStyle: { color: '#B6DFFF', opacity: 0.4 },
+            opacity: 0.5,
           },
+          emphasis: { disabled: true },
         },
       ],
     },
