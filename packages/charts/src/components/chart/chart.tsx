@@ -13,8 +13,10 @@ import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig } from '../../types/chart'
 import {
   applySeriesHook,
+  checkValidVariant,
   defaultHooks,
   getChartOptions,
+  getDefaultByType,
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
@@ -66,9 +68,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         return seriesHooks.reduce((out, fn) => applySeriesHook(out, fn), series)
       }
 
-      const { type, variant = type === 'bar' ? 'vertical' : 'default' } =
-        chartConfig
-      const hooks = defaultHooks[type][variant]
+      const { type, variant } = chartConfig
+
+      const checkedVariant =
+        variant && checkValidVariant(type, variant)
+          ? variant
+          : getDefaultByType(type)
+
+      const hooks = defaultHooks[type][checkedVariant]
 
       seriesHooks.push(...hooks)
       return seriesHooks.reduce((out, fn) => applySeriesHook(out, fn), series)

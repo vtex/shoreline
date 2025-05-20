@@ -248,10 +248,11 @@ export const getBackgroundChartCompositor = (
   return { xAxis: style.xAxis, yAxis: style.yAxis }
 }
 
-function checkValidVariant(type: string, variant: string): boolean {
+export function checkValidVariant(type: string, variant?: string): boolean {
+  if (!variant) return false
   return variant in ChartVariants[type].variants
 }
 
-function getDefaultByType(type: ChartConfig['type']): string {
+export function getDefaultByType(type: ChartConfig['type']): string {
   return ChartVariants[type].default
 }
