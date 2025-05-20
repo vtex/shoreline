@@ -86,6 +86,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         options.grid = { ...options.grid, height: '75%' }
         options.dataZoom = DATAZOOM_DEFAULT_STYLE
       }
+      if (!zoom) options.dataZoom = undefined
       return options
     }, [option, chartConfig, hookedSeries, zoom])
 

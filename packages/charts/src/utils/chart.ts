@@ -1,10 +1,11 @@
 import type { BarSeriesOption, EChartsOption, SeriesOption } from 'echarts'
 import { CHART_STYLES } from '../theme/chartStyles'
-import type {
-  BarChartVariants,
-  ChartConfig,
-  LineChartVariants,
-  ChartUnit,
+import {
+  type BarChartVariants,
+  type ChartConfig,
+  type LineChartVariants,
+  type ChartUnit,
+  ChartVariants,
 } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
 import { cloneDeep, isArray, isDate } from 'lodash'
@@ -68,7 +69,7 @@ export const getChartOptions = (
   const { series: defaultSeries, ...defaultRest } = defaultStyle
   const formattedSeries = formatSeries(series, defaultStyle)
 
-  if (chartConfig.type === 'bar' && isArray(formattedSeries) && chartConfig.gap)
+  if (type === 'bar' && isArray(formattedSeries) && chartConfig.gap)
     setBarGap(formattedSeries, chartConfig.gap)
 
   const mergedOptions = merge(defaultRest, rest)
@@ -83,10 +84,10 @@ function getDefaultStyle(
   type: ChartConfig['type'],
   variant?: ChartConfig['variant']
 ): EChartsOption {
-  if (type === 'bar') {
-    return variant ? CHART_STYLES[type][variant] : CHART_STYLES[type].vertical
-  }
-  return variant ? CHART_STYLES[type][variant] : CHART_STYLES[type].default
+  if (!variant || !checkValidVariant(type, variant))
+    return CHART_STYLES[type][getDefaultByType(type)]
+
+  return CHART_STYLES[type][variant]
 }
 
 /**
@@ -245,4 +246,12 @@ export const getBackgroundChartCompositor = (
   const style = getDefaultStyle(background.type, background.variant)
 
   return { xAxis: style.xAxis, yAxis: style.yAxis }
+}
+
+function checkValidVariant(type: string, variant: string): boolean {
+  return variant in ChartVariants[type].variants
+}
+
+function getDefaultByType(type: ChartConfig['type']): string {
+  return ChartVariants[type].default
 }
