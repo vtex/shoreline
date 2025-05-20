@@ -4,8 +4,10 @@ import type { ChartConfig, ChartUnit } from '../../types/chart'
 import { Chart, type ChartOptions } from '../chart/chart'
 import {
   applySeriesHook,
+  checkValidVariant,
   defaultHooks,
   getDataToChartCompositor,
+  getDefaultByType,
   getTooltipChartCompositor,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
@@ -46,9 +48,13 @@ export const ChartCompositor = forwardRef<
 
   const hookedUnits: ChartUnit[] = useMemo(() => {
     return charts.map((chart) => {
-      const { type, variant = type === 'bar' ? 'vertical' : 'default' } =
-        chart.chartConfig
-      const seriesHooks: CallableFunction[] = defaultHooks[type][variant]
+      const { type, variant } = chart.chartConfig
+
+      const checkedVariant =
+        variant && checkValidVariant(type, variant)
+          ? variant
+          : getDefaultByType(type)
+      const seriesHooks: CallableFunction[] = defaultHooks[type][checkedVariant]
       if (chart.hooks === undefined) {
         return {
           ...chart,
