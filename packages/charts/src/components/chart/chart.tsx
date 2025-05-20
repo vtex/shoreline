@@ -141,13 +141,10 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       <div data-sl-chart>
         <ReactECharts
           ref={useMergeRef(ref, chartRef)}
-          // ref={chartRef}
           theme={theme}
           option={chartOptions}
           style={{ minWidth: 300, minHeight: 200, padding: 20, ...style }}
-          opts={{
-            renderer: renderer,
-          }}
+          opts={{ renderer: renderer }}
           showLoading={loading}
           loadingOption={loadingConfig}
           // onChartReady={(instance) => instance.resize()}
