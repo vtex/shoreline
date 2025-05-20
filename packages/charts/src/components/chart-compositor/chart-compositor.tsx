@@ -142,9 +142,10 @@ export interface ChartCompositorOptions {
    */
   tooltip: ChartConfig
   /**
-   * Defines the group that the chart will be part of. Charts in the same group have many featues among them.
-   * The features includes, sharing the tooltip and share the same legends (if names are equals).
-   * All features, see [the echarts docs](https://echarts.apache.org/en/api.html#echarts.connect)
+   * Defines the group that the chart will be part of. Charts in the same group share many features among them.
+   * The features include: sharing the tooltip and sharing the same legend.
+   *
+   * See [echarts docs](https://echarts.apache.org/en/api.html#echarts.connect).
    */
   group?: string
   /**
@@ -154,7 +155,7 @@ export interface ChartCompositorOptions {
    */
   zoom?: boolean
   /**
-   * Merges the passed options to the final options.
+   * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
    *
    * **series**, **xAxis**, **yAxis**, and **tooltip**
    *  should be configured using other props from this component.
