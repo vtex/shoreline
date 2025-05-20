@@ -34,6 +34,12 @@ export default {
   toast: 'Toast',
   tooltip: 'Tooltip',
 
+  Charts: { type: 'separator', title: 'Data Visualization' },
+  chart: 'Chart',
+  bar: 'Bar Chart',
+  line: 'Line Chart',
+  'chart-compositor': 'Chart Compositor',
+
   Date: { type: 'separator', title: 'Date' },
   calendar: 'Calendar',
   'date-field': 'DateField',

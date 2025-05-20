@@ -176,11 +176,11 @@ const chartVariants = [
     description:
       'Line charts use a series of connected data points to visualize changes and trends over a continuous period. They are ideal for tracking progress, fluctuations, or patterns over time.',
   },
-  {
-    type: 'Area',
-    description:
-      'A line chart with some stuff below it. Really pretty. Lorem ipsum and all that, this need to be a bit longer still, there we go.',
-  },
+  // {
+  //   type: 'Area',
+  //   description:
+  //     'A line chart with some stuff below it. Really pretty. Lorem ipsum and all that, this need to be a bit longer still, there we go.',
+  // },
 ]
 
 let tsCode = `

@@ -19,10 +19,6 @@ export default {
     title: 'Foundations',
     type: 'page',
   },
-  charts: {
-    title: 'Charts',
-    type: 'page',
-  },
   'eng-onsite-2024': {
     display: 'hidden',
     theme: {
