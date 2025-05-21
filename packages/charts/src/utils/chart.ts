@@ -1,12 +1,6 @@
-import type { BarSeriesOption, EChartsOption, SeriesOption } from 'echarts'
+import type { EChartsOption, SeriesOption } from 'echarts'
 import { CHART_STYLES } from '../theme/chartStyles'
-import {
-  type BarChartVariants,
-  type ChartConfig,
-  type LineChartVariants,
-  type ChartUnit,
-  ChartVariants,
-} from '../types/chart'
+import { type ChartConfig, type ChartUnit, ChartVariants } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
 import { cloneDeep, isArray, isDate } from 'lodash'
 import { defaultTheme } from '../theme/themes'
@@ -128,36 +122,29 @@ export function applySeriesHook(
   return fn(series)
 }
 
-type DefaultHooks = {
-  bar: Record<BarChartVariants, ((series: any) => SeriesOption)[]>
-  line: Record<LineChartVariants, ((series: any) => SeriesOption)[]>
-}
-/**
- * Functions that are always called for a certain chart config
- */
-export const defaultHooks: DefaultHooks = {
-  bar: {
-    vertical: [normalizeBarData],
-    horizontal: [normalizeHorizontalBarData],
-  },
-  line: {
-    default: [],
-  },
-}
-
 /**
  * Fix required so that bars with negative values don't render
  * upside down.
- *
  */
-export function normalizeBarData(series: BarSeriesOption): SeriesOption {
-  if (typeof series === 'undefined' || typeof series.data === 'undefined')
-    return {}
-  const data = series.data
+export function normalizeBarData(option: EChartsOption): EChartsOption {
+  const series = option.series
+  if (typeof series === 'undefined') return option
+  if (isArray(series)) {
+    const out = cloneDeep(option)
+    out.series = series.map((v: any) => normalizeBarDataInner(v))
+    return out
+  }
+  const out = cloneDeep(option)
+  out.series = normalizeBarDataInner(series)
+  return out
+}
+
+export function normalizeBarDataInner(series: SeriesOption): SeriesOption {
+  const data: any = series.data
+  if (data === null || typeof data === 'undefined') return series
 
   const defaultBorder = defaultTheme.bar.itemStyle.borderRadius
   const invertedBorderRadius = [0, 0, defaultBorder[0], defaultBorder[1]]
-
   return {
     ...series,
     data: data.map((v) => {
@@ -183,15 +170,30 @@ export function normalizeBarData(series: BarSeriesOption): SeriesOption {
       }
       return v
     }),
-  } as SeriesOption // a BarOption is a SeriesOption but there's nothing directly expressing that relation so TS thinks it's wrong
+  }
 }
 
 export function normalizeHorizontalBarData(
-  series: BarSeriesOption
+  option: EChartsOption
+): EChartsOption {
+  const series = option.series
+  if (typeof series === 'undefined') return option
+  if (isArray(series)) {
+    const out = cloneDeep(option)
+    out.series = series.map((v: any) => normalizeHorizontalBarDataInner(v))
+    return out
+  }
+  const out = cloneDeep(option)
+  out.series = normalizeHorizontalBarDataInner(series)
+  return out
+}
+export function normalizeHorizontalBarDataInner(
+  series: SeriesOption
 ): SeriesOption {
   if (typeof series === 'undefined' || typeof series.data === 'undefined')
     return {}
-  const data = series.data
+  const data: any = series.data
+  if (data === null || typeof data === 'undefined') return series
 
   const defaultBorder = defaultTheme.bar.itemStyle.borderRadius
   const invertedBorderRadius = [defaultBorder[0], 0, 0, defaultBorder[1]]
@@ -221,7 +223,7 @@ export function normalizeHorizontalBarData(
       }
       return v
     }),
-  } as SeriesOption // a BarOption is a SeriesOption but there's nothing directly expressing that relation so TS thinks it's wrong
+  }
 }
 
 /**

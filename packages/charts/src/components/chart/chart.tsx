@@ -10,13 +10,17 @@ import type { EChartsOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
-import type { ChartConfig } from '../../types/chart'
+import type {
+  BarChartVariants,
+  ChartConfig,
+  LineChartVariants,
+} from '../../types/chart'
 import {
-  applySeriesHook,
   checkValidVariant,
-  defaultHooks,
   getChartOptions,
   getDefaultByType,
+  normalizeBarData,
+  normalizeHorizontalBarData,
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
@@ -50,7 +54,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       style,
       renderer = 'svg',
       theme = defaultTheme,
-      seriesHooks = [],
+      optionHooks = [],
       onEvents,
       zoom = false,
       group,
@@ -59,35 +63,29 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
     const chartRef = useRef<ReactECharts>(null)
 
-    const hookedSeries = useMemo(() => {
-      const series = option.series
-
-      if (typeof series === 'undefined' || seriesHooks === null) return series
-
-      if (chartConfig === null) {
-        return seriesHooks.reduce((out, fn) => applySeriesHook(out, fn), series)
+    const hooks: ((series: EChartsOption) => EChartsOption)[] = useMemo(() => {
+      if (optionHooks === null || chartConfig === null) {
+        return []
       }
-
       const { type, variant } = chartConfig
-
       const checkedVariant =
         variant && checkValidVariant(type, variant)
           ? variant
           : getDefaultByType(type)
 
-      const hooks = defaultHooks[type][checkedVariant]
-
-      seriesHooks.push(...hooks)
-      return seriesHooks.reduce((out, fn) => applySeriesHook(out, fn), series)
-    }, [option, chartConfig, seriesHooks])
+      const hooks = [...optionHooks]
+      hooks.push(...defaultHooks[type][checkedVariant])
+      return hooks
+    }, [chartConfig, optionHooks])
 
     const chartOptions: EChartsOption = useMemo(() => {
-      if (chartConfig === null || typeof hookedSeries === 'undefined') {
+      if (chartConfig === null) {
         return option
       }
-      const options =
-        getChartOptions({ ...option, series: hookedSeries }, chartConfig) ||
-        option
+
+      const hookedOptions = hooks.reduce((out, fn) => fn(out), option)
+
+      const options = getChartOptions(hookedOptions, chartConfig) || option
       if (zoom && chartConfig.type !== 'line') {
         options.grid ??= {}
         options.grid = { ...options.grid, height: '75%' }
@@ -95,11 +93,12 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
       if (!zoom) options.dataZoom = undefined
       return options
-    }, [option, chartConfig, hookedSeries, zoom])
+    }, [option, chartConfig, zoom])
 
     const checkBoxLegend = useCallback((params: any) => {
       if (!chartRef.current) return
-      params.selected[params.name] = !params.selected[params.name] // we flip the one that was selected, so that this represents the state of the legend before the user clicked it
+      // we flip the one that was selected, so that this represents the state of the legend before the user clicked it
+      params.selected[params.name] = !params.selected[params.name]
 
       const notSelected: [string, boolean][] = []
       const selected: [string, boolean][] = []
@@ -120,12 +119,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
     }, [])
 
-    const handleResize = useCallback(() => {
-      if (chartRef.current) {
-        chartRef.current.getEchartsInstance().resize()
-      }
-    }, [chartRef])
-
     const connectGroups = useCallback(() => {
       if (!group || !chartRef.current) return
       const chart = chartRef.current.getEchartsInstance()
@@ -134,6 +127,12 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
       echarts.connect(group)
     }, [group])
+
+    const handleResize = useCallback(() => {
+      if (chartRef.current) {
+        chartRef.current.getEchartsInstance().resize()
+      }
+    }, [chartRef])
 
     useEffect(() => {
       if (!canUseDOM) return
@@ -181,25 +180,26 @@ export interface ChartOptions {
    */
   option: EChartsOption
   /**
-   * **Pure** functions that will be run on the series before the default styles are applied, in addition to any default hooks that may be applied per chart type.
+   * **Pure** functions that will be run on the option object before the default styles are applied, in addition to any default hooks that may be applied per chart type.
    *
-   * These functions should receive a **SeriesOptions** or one of the more specific versions, e.g. **BarSeriesOption** or **LineSeriesOption** and return the same.
+   * These functions should receive an **EchartsOption** and return the same.
    *
    * If set to null no default hooks will be applied.
-   *
-   * @example seriesHooks: [
+   * TODO: Update example
+   * @example optionHooks: [
       (series: BarSeriesOption) => { return { ...series, itemStyle: { ...series.itemStyle, color: '#ff1234' } }}
     ] // paints all bars in a bright red color, while making sure to preserve all of it's options.
    */
-  seriesHooks?: ((series: any) => echarts.SeriesOption)[] | null
+  optionHooks?: ((series: EChartsOption) => EChartsOption)[] | null
   /**
    * Whether to enable zoom and the zoom bar, which will also make the chart slightly smaller to fit the bar.
    */
   zoom?: boolean
   /**
-   * Defines the group that the chart will be part of. Charts in the same group have many featues among them.
-   * The features includes, sharing the tooltip and share the same legends (if names are equals).
-   * All features, see [the echarts docs](https://echarts.apache.org/en/api.html#echarts.connect)
+   * Defines the group that the chart will be part of. Charts in the same group share many features among them.
+   * These features include: sharing the tooltip and sharing the same legend.
+   *
+   * See [echarts docs](https://echarts.apache.org/en/api.html#echarts.connect).
    */
   group?: string
   /**
@@ -233,3 +233,20 @@ export interface ChartOptions {
 }
 
 export type ChartProps = ChartOptions & ComponentPropsWithRef<'div'>
+
+type DefaultHooks = {
+  bar: Record<BarChartVariants, ((series: EChartsOption) => EChartsOption)[]>
+  line: Record<LineChartVariants, ((series: EChartsOption) => EChartsOption)[]>
+}
+/**
+ * Functions that are always called for a certain chart config
+ */
+const defaultHooks: DefaultHooks = {
+  bar: {
+    vertical: [normalizeBarData],
+    horizontal: [normalizeHorizontalBarData],
+  },
+  line: {
+    default: [],
+  },
+}

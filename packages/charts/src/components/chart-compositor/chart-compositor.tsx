@@ -1,14 +1,20 @@
-import type { EChartsOption } from 'echarts'
+import type { EChartsOption, SeriesOption } from 'echarts'
 import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
-import type { ChartConfig, ChartUnit } from '../../types/chart'
+import type {
+  BarChartVariants,
+  ChartConfig,
+  ChartUnit,
+  LineChartVariants,
+} from '../../types/chart'
 import { Chart, type ChartOptions } from '../chart/chart'
 import {
   applySeriesHook,
   checkValidVariant,
-  defaultHooks,
   getDataToChartCompositor,
   getDefaultByType,
   getTooltipChartCompositor,
+  normalizeBarDataInner,
+  normalizeHorizontalBarDataInner,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
 import {
@@ -110,7 +116,7 @@ export const ChartCompositor = forwardRef<
       option={chartOptions}
       style={style}
       ref={ref}
-      seriesHooks={null}
+      optionHooks={null}
       zoom={zoom}
       renderer={renderer}
       {...otherProps}
@@ -149,7 +155,7 @@ export interface ChartCompositorOptions {
   tooltip: ChartConfig
   /**
    * Defines the group that the chart will be part of. Charts in the same group share many features among them.
-   * The features include: sharing the tooltip and sharing the same legend.
+   * These features include: sharing the tooltip and sharing the same legend.
    *
    * See [echarts docs](https://echarts.apache.org/en/api.html#echarts.connect).
    */
@@ -180,3 +186,20 @@ export interface ChartCompositorOptions {
 export type ChartCompositorProps = ChartCompositorOptions &
   Omit<ChartOptions, 'chartConfig' | 'option'> &
   ComponentPropsWithRef<'div'>
+
+type DefaultHooks = {
+  bar: Record<BarChartVariants, ((series: SeriesOption) => SeriesOption)[]>
+  line: Record<LineChartVariants, ((series: SeriesOption) => SeriesOption)[]>
+}
+/**
+ * Functions that are always called for a certain chart config
+ */
+const defaultHooks: DefaultHooks = {
+  bar: {
+    vertical: [normalizeBarDataInner],
+    horizontal: [normalizeHorizontalBarDataInner],
+  },
+  line: {
+    default: [],
+  },
+}
