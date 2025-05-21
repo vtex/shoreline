@@ -204,7 +204,7 @@ export interface ChartOptions {
   group?: string
   /**
    * Whether to render the chart as a SVG or Canvas. Both are about equally as fast,
-   * but SVGs have 'perfect' image quality.
+   * but SVGs can scale to any size.
    *
    * Canvas is required if the chart is meant to be downloaded as a png or jpg, as SVG-rendered charts can only be exported as SVG.
    * @default svg
