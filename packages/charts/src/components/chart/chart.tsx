@@ -185,10 +185,6 @@ export interface ChartOptions {
    * These functions should receive an **EchartsOption** and return the same.
    *
    * If set to null no default hooks will be applied.
-   * TODO: Update example
-   * @example optionHooks: [
-      (series: BarSeriesOption) => { return { ...series, itemStyle: { ...series.itemStyle, color: '#ff1234' } }}
-    ] // paints all bars in a bright red color, while making sure to preserve all of it's options.
    */
   optionHooks?: ((series: EChartsOption) => EChartsOption)[] | null
   /**
