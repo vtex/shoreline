@@ -16,18 +16,14 @@ export const BasicSync: Story = {
     return (
       <>
         <Chart
-          option={{
-            xAxis: { data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] },
-            series: { data: [23, 432, 67, 43, 25, 134, 54, 373, 623, 412] },
-          }}
+          xAxis={{ data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] }}
+          series={{ data: [23, 432, 67, 43, 25, 134, 54, 373, 623, 412] }}
           chartConfig={{ type: 'bar' }}
           group="group1"
         />
         <Chart
-          option={{
-            series: { data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
-            xAxis: { data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] },
-          }}
+          series={{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }}
+          xAxis={{ data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] }}
           group="group1"
           chartConfig={{ type: 'bar' }}
         />
@@ -46,60 +42,56 @@ export const ManyChartsSync: Story = {
     return (
       <>
         <Chart
-          option={{ series: { data: [1, 2, 3, 4, 5, 6, 7, 8, 9] } }}
+          series={{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9] }}
           chartConfig={{ type: 'bar' }}
           group="vtex"
         />
         <Chart
-          option={{ series: { data: [9, 8, 7, 6, 5, 4, 3, 2, 1] } }}
+          series={{ data: [9, 8, 7, 6, 5, 4, 3, 2, 1] }}
           chartConfig={{ type: 'line' }}
           group="vtex"
         />
         <Chart
-          option={{ series: { data: [2, 4, 6, 7, 9, 0, 8, 6, 4] } }}
+          series={{ data: [2, 4, 6, 7, 9, 0, 8, 6, 4] }}
           chartConfig={{ type: 'bar' }}
           group="vtex"
         />
         <Chart
-          option={{
-            series: {
-              data: [9, 7, 7, 5, 0, 10, 5, 9, 4, 3],
-            },
+          series={{
+            data: [9, 7, 7, 5, 0, 10, 5, 9, 4, 3],
           }}
           chartConfig={{ type: 'line' }}
           group="vtex"
         />
         <Chart
-          option={{ series: { data: [2, 4, 6, 7, 9, 0, 8, 6, 4] } }}
+          series={{ data: [2, 4, 6, 7, 9, 0, 8, 6, 4] }}
           chartConfig={{ type: 'bar' }}
           group="vtex"
         />
         <Chart
-          option={{ series: { data: [1, 2, 3, 4, 5, 6, 7, 8, 9] } }}
+          series={{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9] }}
           chartConfig={{ type: 'line' }}
           group="vtex"
         />
         <Chart
-          option={{ series: { data: [9, 8, 7, 6, 5, 4, 3, 2, 1] } }}
+          series={{ data: [9, 8, 7, 6, 5, 4, 3, 2, 1] }}
           chartConfig={{ type: 'bar' }}
           group="vtex"
         />
         <Chart
-          option={{ series: { data: [2, 4, 6, 7, 9, 0, 8, 6, 4] } }}
+          series={{ data: [2, 4, 6, 7, 9, 0, 8, 6, 4] }}
           chartConfig={{ type: 'line' }}
           group="vtex"
         />
         <Chart
-          option={{
-            series: {
-              data: [9, 7, 7, 5, 0, 10, 5, 9, 4, 3],
-            },
+          series={{
+            data: [9, 7, 7, 5, 0, 10, 5, 9, 4, 3],
           }}
           chartConfig={{ type: 'bar' }}
           group="vtex"
         />
         <Chart
-          option={{ series: { data: [2, 4, 6, 7, 9, 0, 8, 6, 4] } }}
+          series={{ data: [2, 4, 6, 7, 9, 0, 8, 6, 4] }}
           chartConfig={{ type: 'line' }}
           group="vtex"
         />
@@ -113,10 +105,8 @@ export const ChartAndChartCompositorSync: Story = {
     return (
       <>
         <Chart
-          option={{
-            xAxis: { data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] },
-            series: { data: [23, 432, 67, 43, 25, 134, 54, 373, 623, 412] },
-          }}
+          xAxis={{ data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] }}
+          series={{ data: [23, 432, 67, 43, 25, 134, 54, 373, 623, 412] }}
           chartConfig={{ type: 'bar' }}
           group="group1"
         />
@@ -147,10 +137,8 @@ export const TextBetweenSync: Story = {
     return (
       <>
         <Chart
-          option={{
-            xAxis: { data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] },
-            series: { data: [23, 432, 67, 43, 25, 134, 54, 373, 623, 412] },
-          }}
+          series={{ data: [23, 432, 67, 43, 25, 134, 54, 373, 623, 412] }}
+          xAxis={{ data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] }}
           chartConfig={{ type: 'bar' }}
           group="group1"
         />
@@ -159,10 +147,8 @@ export const TextBetweenSync: Story = {
           eiusmod
         </Text>
         <Chart
-          option={{
-            series: { data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
-            xAxis: { data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] },
-          }}
+          series={{ data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }}
+          xAxis={{ data: ['a', 'b', 'c', 'd', 'e', 'e', 'f', 'g', 'h', 'i'] }}
           group="group1"
           chartConfig={{ type: 'bar' }}
         />
@@ -206,20 +192,18 @@ export const Handbook: Story = {
           group="sync"
         />
         <Chart
-          option={{
-            series: [
-              {
-                data: [5, 6, 1, -12, 2, -7, 10, 7, 10, 9, 3, 5],
-                name: 'Data 4',
-              },
-              {
-                data: [10, -4, 6, 11, 9, 10, -6, 2, -8, -4, 3, 4],
-                name: 'Data 5',
-              },
-            ],
-            xAxis: {
-              data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'I', 'J', 'K', 'L'],
+          series={[
+            {
+              data: [5, 6, 1, -12, 2, -7, 10, 7, 10, 9, 3, 5],
+              name: 'Data 4',
             },
+            {
+              data: [10, -4, 6, 11, 9, 10, -6, 2, -8, -4, 3, 4],
+              name: 'Data 5',
+            },
+          ]}
+          xAxis={{
+            data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'I', 'J', 'K', 'L'],
           }}
           chartConfig={{ type: 'bar', gap: 2 }}
           group="sync"
