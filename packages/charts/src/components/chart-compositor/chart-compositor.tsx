@@ -6,7 +6,7 @@ import type {
   ChartUnit,
   LineChartVariants,
 } from '../../types/chart'
-import { Chart, type ChartOptions } from '../chart/chart'
+import { Chart } from '../chart/chart'
 import {
   applySeriesHook,
   checkValidVariant,
@@ -49,7 +49,7 @@ export const ChartCompositor = forwardRef<
     options,
     style,
     renderer = 'svg',
-    // ...otherProps
+    ...otherProps
   } = props
 
   const hookedUnits: ChartUnit[] = useMemo(() => {
@@ -122,7 +122,7 @@ export const ChartCompositor = forwardRef<
       optionHooks={null}
       zoom={zoom}
       renderer={renderer}
-      // {...otherProps}
+      {...otherProps}
     />
   )
 })
@@ -187,7 +187,6 @@ export interface ChartCompositorOptions {
 }
 
 export type ChartCompositorProps = ChartCompositorOptions &
-  Omit<ChartOptions, 'chartConfig' | 'option'> &
   ComponentPropsWithRef<'div'>
 
 type DefaultHooks = {

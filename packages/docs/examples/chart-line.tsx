@@ -4,8 +4,7 @@ export default function Example() {
   return (
     <Chart
       chartConfig={{ type: 'line' }}
-
-      xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], }}
+      xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
       series={[
         {
           name: 'Email',

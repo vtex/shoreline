@@ -11,7 +11,7 @@ for (let i = 0; i < 25; i++) {
 export default function Example() {
   return (
     <Chart
-      series= {[
+      series={[
         { data: data1, name: 'Default animation' },
         {
           data: data2,

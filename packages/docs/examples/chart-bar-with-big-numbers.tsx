@@ -4,7 +4,9 @@ export default function Example() {
   return (
     <Chart
       xAxis={{ data: ['Mon', 'Tue', 'Wed'] }}
-      yAxis={{ axisLabel: { formatter: (value: number) => compactNumber(value) } }}
+      yAxis={{
+        axisLabel: { formatter: (value: number) => compactNumber(value) },
+      }}
       series={[{ data: [12344441, 62346346, 97346346], name: 'Series 1' }]}
       chartConfig={{ type: 'bar' }}
     />
