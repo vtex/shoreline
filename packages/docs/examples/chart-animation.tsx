@@ -11,24 +11,24 @@ for (let i = 0; i < 25; i++) {
 export default function Example() {
   return (
     <Chart
+      series={[
+        { data: data1, name: 'Default animation' },
+        {
+          data: data2,
+          name: 'Custom animation',
+          animationDelay: (idx) => idx * 50,
+          animationEasing: 'elasticInOut',
+        },
+      ]}
       option={{
         barGap: 0,
         catgoryGap: 0,
-        series: [
-          { data: data1, name: 'Default animation' },
-          {
-            data: data2,
-            name: 'Custom animation',
-            animationDelay: (idx) => idx * 50,
-            animationEasing: 'elasticInOut',
-          },
-        ],
         title: {
           text: 'Reload animation by clicking on the legend',
           left: 'center',
         },
       }}
-      chartConfig={{ type: 'bar', variant: 'default' }}
+      chartConfig={{ type: 'bar' }}
     />
   )
 }

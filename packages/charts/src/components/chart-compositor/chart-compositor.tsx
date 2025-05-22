@@ -1,12 +1,20 @@
-import type { EChartsOption } from 'echarts'
+import type { EChartsOption, SeriesOption } from 'echarts'
 import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
-import type { ChartConfig, ChartUnit } from '../../types/chart'
-import { Chart, type ChartOptions } from '../chart/chart'
+import type {
+  BarChartVariants,
+  ChartConfig,
+  ChartUnit,
+  LineChartVariants,
+} from '../../types/chart'
+import { Chart } from '../chart/chart'
 import {
   applySeriesHook,
-  defaultHooks,
+  checkValidVariant,
   getDataToChartCompositor,
+  getDefaultByType,
   getTooltipChartCompositor,
+  normalizeBarDataInner,
+  normalizeHorizontalBarDataInner,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
 import {
@@ -14,6 +22,7 @@ import {
   GRID_DEFAULT_STYLE,
   LEGEND_DEFAULT_STYLE,
 } from '../../theme/chartStyles'
+import type EChartsReact from 'echarts-for-react'
 
 /**
  * Used to make charts with multiple different types.
@@ -21,15 +30,14 @@ import {
  * @example
  * <ChartCompositor
  *   charts={[
- *     { serie: { data: [1, 2, 3, 4, 5] }, config: { type: 'bar' } },
- *     { serie: { data: [1, 3, 2, 5, 4] }, config: { type: 'line' } },
+ *     { series: { data: [1, 2, 3, 4, 5] }, chartConfig: { type: 'bar' } },
+ *     { series: { data: [1, 3, 2, 5, 4] }, chartConfig: { type: 'line' } },
  *   ]}
- *   background={{ type: 'bar' }}
  *   tooltip={{ type: 'line' }}
  * />
  */
 export const ChartCompositor = forwardRef<
-  echarts.EChartsType | undefined,
+  EChartsReact | undefined,
   ChartCompositorProps
 >(function ChartCompositor(props, ref) {
   const {
@@ -39,13 +47,20 @@ export const ChartCompositor = forwardRef<
     tooltip,
     zoom = false,
     options,
+    style,
+    renderer = 'svg',
     ...otherProps
   } = props
 
   const hookedUnits: ChartUnit[] = useMemo(() => {
     return charts.map((chart) => {
-      const { type, variant = 'default' } = chart.chartConfig
-      const seriesHooks: CallableFunction[] = defaultHooks[type][variant]
+      const { type, variant } = chart.chartConfig
+
+      const checkedVariant =
+        variant && checkValidVariant(type, variant)
+          ? variant
+          : getDefaultByType(type)
+      const seriesHooks: CallableFunction[] = defaultHooks[type][checkedVariant]
       if (chart.hooks === undefined) {
         return {
           ...chart,
@@ -82,8 +97,11 @@ export const ChartCompositor = forwardRef<
 
     finalOptions.legend = LEGEND_DEFAULT_STYLE
     finalOptions.grid = GRID_DEFAULT_STYLE
-    if (zoom) finalOptions.dataZoom = DATAZOOM_DEFAULT_STYLE
-
+    if (zoom) {
+      finalOptions.grid ??= {}
+      finalOptions.grid = { ...finalOptions.grid, height: '75%' }
+      finalOptions.dataZoom = DATAZOOM_DEFAULT_STYLE
+    }
     finalOptions.series = seriesOptions
     finalOptions.tooltip = tooltipOptions
     finalOptions.yAxis = yAxis
@@ -95,10 +113,15 @@ export const ChartCompositor = forwardRef<
   return (
     <Chart
       chartConfig={null}
+      series={chartOptions.series ?? {}}
+      xAxis={chartOptions.xAxis}
+      yAxis={chartOptions.yAxis}
       option={chartOptions}
-      style={{ height: 550 }}
+      style={style}
       ref={ref}
-      seriesHooks={null}
+      optionHooks={null}
+      zoom={zoom}
+      renderer={renderer}
       {...otherProps}
     />
   )
@@ -134,20 +157,51 @@ export interface ChartCompositorOptions {
    */
   tooltip: ChartConfig
   /**
+   * Defines the group that the chart will be part of. Charts in the same group share many features among them.
+   * These features include: sharing the tooltip and sharing the same legend.
+   *
+   * See [echarts docs](https://echarts.apache.org/en/api.html#echarts.connect).
+   */
+  group?: string
+  /**
    * Whether to enable zoom.
    * @default false
    * @type boolean
    */
   zoom?: boolean
   /**
-   * Merges the passed options to the final options.
+   * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
    *
    * **series**, **xAxis**, **yAxis**, and **tooltip**
    *  should be configured using other props from this component.
    */
   options?: EChartsOption
+  /**
+   * Whether to render the chart as a SVG or Canvas. Both are about equally as fast,
+   * but SVGs can scale to any size.
+   *
+   * Canvas is required if the chart is meant to be downloaded as a png or jpg, as SVG-rendered charts can only be exported as SVG.
+   * @default svg
+   */
+  renderer?: 'svg' | 'canvas'
 }
 
 export type ChartCompositorProps = ChartCompositorOptions &
-  Omit<ChartOptions, 'chartConfig' | 'option'> &
   ComponentPropsWithRef<'div'>
+
+type DefaultHooks = {
+  bar: Record<BarChartVariants, ((series: SeriesOption) => SeriesOption)[]>
+  line: Record<LineChartVariants, ((series: SeriesOption) => SeriesOption)[]>
+}
+/**
+ * Functions that are always called for a certain chart config
+ */
+const defaultHooks: DefaultHooks = {
+  bar: {
+    vertical: [normalizeBarDataInner],
+    horizontal: [normalizeHorizontalBarDataInner],
+  },
+  line: {
+    default: [],
+  },
+}

@@ -34,7 +34,9 @@ export function ChartTooltipBase({ params }: { params: any }) {
           />
           <span data-sl-chart-tooltip-data-serie-name>{params.seriesName}</span>
         </div>
-        <span data-sl-chart-tooltip-data-serie-value>{params.value}</span>
+        <b>
+          <span data-sl-chart-tooltip-data-serie-value>{params.value}</span>
+        </b>
       </div>
     </>
   )

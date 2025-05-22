@@ -8,6 +8,8 @@ const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
   trigger: 'item',
   borderWidth: 1,
   borderColor: 'var(--sl-color-gray-4)',
+  extraCssText:
+    'padding-top: 12px; padding-bottom: 12px; padding-left: 16px; padding-right: 16px',
   formatter: (params) => {
     return getTooltipStaticString(params)
   },
@@ -15,7 +17,7 @@ const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
 
 export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   orient: 'horizontal',
-  left: 'auto',
+  left: '1%',
   bottom: 0,
   align: 'left',
   itemWidth: 16,
@@ -26,10 +28,10 @@ export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
 }
 
 export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
-  left: 'auto',
-  right: 'auto',
-  top: '5',
-  bottom: '13%',
+  left: '16',
+  right: '16',
+  top: '16',
+  bottom: '16',
   containLabel: true,
 }
 
@@ -40,24 +42,37 @@ export const DATAZOOM_DEFAULT_STYLE: EChartsOption['dataZoom'] = [
   {
     type: 'slider',
     //Sizing
-    right: '0.6%',
-    bottom: '6%',
-    height: '6%',
+    right: 'center',
+    bottom: '9%',
+    height: '9%',
+    width: '95%',
     //Styles
+    borderColor: '#C2C2C2',
+    backgroundColor: '#ffffff',
+    dataBackground: {
+      areaStyle: {
+        color: '#F5F5F5',
+      },
+    },
+    fillerColor: '#0064C30D',
     selectedDataBackground: {
       lineStyle: {
         color: 'rgba(1,103,223,255)',
         width: 1.2,
       },
       areaStyle: {
-        color: 'rgba(192,226,253,255)',
+        color: '#D6ECFC',
+        opacity: 1,
       },
     },
+
     handleStyle: {
+      // side things
       color: 'rgba(1,103,223,255)',
       borderColor: 'rgba(1,103,223,255)',
     },
     moveHandleStyle: {
+      // top drag bar
       color: 'rgba(244,244,244,255)',
     },
     emphasis: {
@@ -77,7 +92,7 @@ export const DEFAULT_DELAY_FUNCTION = (idx: number) => idx * 20
 // if you're looking for a certain feature in a chart and don't find it here, check themes.ts
 export const CHART_STYLES: DefaultChartStyles = {
   bar: {
-    default: {
+    vertical: {
       xAxis: {
         type: 'category',
       },
@@ -92,7 +107,11 @@ export const CHART_STYLES: DefaultChartStyles = {
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         trigger: 'axis',
-        axisPointer: { type: 'shadow' },
+        axisPointer: {
+          type: 'shadow',
+          z: -1,
+          shadowStyle: { color: '#F5F5F5', opacity: '1' },
+        },
       },
 
       animationDelay: DEFAULT_DELAY_FUNCTION,
@@ -115,7 +134,11 @@ export const CHART_STYLES: DefaultChartStyles = {
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         trigger: 'axis',
-        axisPointer: { type: 'shadow' },
+        axisPointer: {
+          type: 'shadow',
+          z: -1,
+          shadowStyle: { color: '#F5F5F5', opacity: '1' },
+        },
       },
 
       animationDelay: DEFAULT_DELAY_FUNCTION,
@@ -130,10 +153,10 @@ export const CHART_STYLES: DefaultChartStyles = {
         smooth: true,
         showSymbol: false,
       },
-      dataZoom: DATAZOOM_DEFAULT_STYLE,
       legend: LEGEND_DEFAULT_STYLE,
       tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
-      grid: GRID_DEFAULT_STYLE,
+      grid: { ...GRID_DEFAULT_STYLE, height: '75%' },
+      dataZoom: DATAZOOM_DEFAULT_STYLE,
     },
   },
 }

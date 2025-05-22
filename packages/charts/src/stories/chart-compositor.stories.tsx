@@ -1,6 +1,6 @@
 import type { StoryObj } from '@storybook/react'
 import { ChartCompositor } from '../index'
-import { CHART_COMPOSITOR_DATA } from '../tests/__fixtures__/chartData'
+import { CHART_COMPOSITOR_DATA } from '../benchmarks/__fixtures__/chartData'
 
 export default {
   title: 'Charts/chart-compositor',
@@ -62,5 +62,6 @@ export const Basic: Story = {
     ],
     tooltip: { type: 'line' },
     zoom: true,
+    style: { height: 550 },
   },
 }

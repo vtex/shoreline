@@ -3,23 +3,31 @@ import {
   useEffect,
   useMemo,
   forwardRef,
-  useImperativeHandle,
   type ComponentPropsWithRef,
   useCallback,
 } from 'react'
-import type { EChartsOption } from 'echarts'
+import type { EChartsOption, SeriesOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
-import type * as echarts from 'echarts'
+import * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
-import type { ChartConfig } from '../../types/chart'
+import type {
+  BarChartVariants,
+  ChartConfig,
+  LineChartVariants,
+} from '../../types/chart'
 import {
-  applySeriesHook,
-  defaultHooks,
+  checkValidVariant,
   getChartOptions,
+  getDefaultByType,
+  normalizeBarData,
+  normalizeHorizontalBarData,
 } from '../../utils/chart'
-import { canUseDOM } from '@vtex/shoreline-utils'
-import { DEFAULT_LOADING_SPINNER } from '../../theme/chartStyles'
-import type { Dictionary } from 'lodash'
+import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
+import {
+  DATAZOOM_DEFAULT_STYLE,
+  DEFAULT_LOADING_SPINNER,
+} from '../../theme/chartStyles'
+import { cloneDeep, type Dictionary } from 'lodash'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -36,9 +44,12 @@ import type { Dictionary } from 'lodash'
       style={{ height: 550 }}
     />
  */
-export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
+export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
   function Charts(props, ref) {
     const {
+      series,
+      xAxis,
+      yAxis,
       option,
       loading = false,
       loadingConfig = DEFAULT_LOADING_SPINNER,
@@ -46,50 +57,55 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       style,
       renderer = 'svg',
       theme = defaultTheme,
-      seriesHooks = [],
+      optionHooks = [],
+      onEvents,
+      zoom = false,
+      group,
       ...otherProps
     } = props
 
     const chartRef = useRef<ReactECharts>(null)
 
-    useImperativeHandle(ref, () => {
-      if (chartRef.current) {
-        return chartRef.current.getEchartsInstance()
-      }
-      return undefined
-    })
-
-    const hookedSeries = useMemo(() => {
-      const series = option.series
-
-      if (typeof series === 'undefined' || seriesHooks === null) return series
-
-      if (chartConfig === null) {
-        return seriesHooks.reduce((out, fn) => applySeriesHook(out, fn), series)
-      }
-
-      const { type, variant = 'default' } = chartConfig
-      const hooks = defaultHooks[type][variant]
-
-      seriesHooks.push(...hooks)
-      return seriesHooks.reduce((out, fn) => applySeriesHook(out, fn), series)
-    }, [option, chartConfig, seriesHooks])
-
-    const chartOptions: EChartsOption = useMemo(() => {
-      if (chartConfig === null || typeof hookedSeries === 'undefined') {
-        return option
+    const hooks: ((series: EChartsOption) => EChartsOption)[] = useMemo(() => {
+      if (optionHooks === null || chartConfig === null) {
+        return []
       }
       const { type, variant } = chartConfig
+      const checkedVariant =
+        variant && checkValidVariant(type, variant)
+          ? variant
+          : getDefaultByType(type)
 
-      return (
-        getChartOptions({ ...option, series: hookedSeries }, type, variant) ||
-        option
-      )
-    }, [option, chartConfig, hookedSeries])
+      const hooks = [...optionHooks]
+      hooks.push(...defaultHooks[type][checkedVariant])
+      return hooks
+    }, [chartConfig, optionHooks])
+
+    const chartOptions: EChartsOption = useMemo(() => {
+      const wholeOption = cloneDeep(option) ?? {}
+      wholeOption.series = series
+      wholeOption.xAxis = xAxis ?? {}
+      wholeOption.yAxis = yAxis ?? {}
+      if (chartConfig === null) {
+        return wholeOption
+      }
+
+      const hookedOptions = hooks.reduce((out, fn) => fn(out), wholeOption)
+
+      const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
+      if (zoom && chartConfig.type !== 'line') {
+        options.grid ??= {}
+        options.grid = { ...options.grid, height: '75%' }
+        options.dataZoom = DATAZOOM_DEFAULT_STYLE
+      }
+      // if (!zoom) options.dataZoom = undefined
+      return options
+    }, [option, chartConfig, zoom])
 
     const checkBoxLegend = useCallback((params: any) => {
       if (!chartRef.current) return
-      params.selected[params.name] = !params.selected[params.name] // we flip the one that was selected, so that this represents the state of the legend before the user clicked it
+      // we flip the one that was selected, so that this represents the state of the legend before the user clicked it
+      params.selected[params.name] = !params.selected[params.name]
 
       const notSelected: [string, boolean][] = []
       const selected: [string, boolean][] = []
@@ -110,6 +126,15 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
       }
     }, [])
 
+    const connectGroups = useCallback(() => {
+      if (!group || !chartRef.current) return
+      const chart = chartRef.current.getEchartsInstance()
+
+      chart.group = group
+
+      echarts.connect(group)
+    }, [group])
+
     const handleResize = useCallback(() => {
       if (chartRef.current) {
         chartRef.current.getEchartsInstance().resize()
@@ -128,17 +153,19 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
     return (
       <div data-sl-chart>
         <ReactECharts
-          ref={chartRef}
+          ref={useMergeRef(ref, chartRef)}
           theme={theme}
           option={chartOptions}
-          style={{ minWidth: 300, minHeight: 200, ...style }}
-          opts={{
-            renderer: renderer,
-          }}
+          style={{ minWidth: 300, minHeight: 200, padding: 20, ...style }}
+          opts={{ renderer: renderer }}
           showLoading={loading}
           loadingOption={loadingConfig}
           // onChartReady={(instance) => instance.resize()}
-          onEvents={{ legendselectchanged: checkBoxLegend }}
+          onEvents={{
+            legendselectchanged: checkBoxLegend,
+            finished: connectGroups,
+            ...onEvents,
+          }}
           {...otherProps}
         />
       </div>
@@ -146,6 +173,21 @@ export const Chart = forwardRef<echarts.EChartsType | undefined, ChartProps>(
   }
 )
 export interface ChartOptions {
+  /**
+   * Echarts Series Options, where you put the data for the chart.
+   * @example series={{ data: [1, 2, 3, 4, 5, 6, 7] }}
+   */
+  series: SeriesOption | SeriesOption[]
+  /**
+   * Defines the look and data of the X axis. Generally you will need to pass the name of the labels
+   * if this is the categorical axis.
+   * @example xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
+   */
+  xAxis?: EChartsOption['xAxis']
+  /**
+   * Defines the look and data of the Y axis. Generally you won't need to fill this out, if this is the value axis.
+   */
+  yAxis?: EChartsOption['yAxis']
   /**
    * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
    *
@@ -156,24 +198,32 @@ export interface ChartOptions {
   /**
    * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
    *
-   * Includes the data that the chart will use and more advanced or specific configuration.
+   * Series and axis options should be set with the other props,
+   * this one is meant to be used for other things, like enabling toolbox features.
    */
-  option: EChartsOption
+  option?: EChartsOption
   /**
-   * **Pure** functions that will be run on the series before the default styles are applied, in addition to any default hooks that may be applied per chart type.
+   * **Pure** functions that will be run on the option object before the default styles are applied, in addition to any default hooks that may be applied per chart type.
    *
-   * These functions should receive a **SeriesOptions** or one of the more specific versions, e.g. **BarSeriesOption** or **LineSeriesOption** and return the same.
+   * These functions should receive an **EchartsOption** and return the same.
    *
    * If set to null no default hooks will be applied.
-   *
-   * @example seriesHooks: [
-      (series: BarSeriesOption) => { return { ...series, itemStyle: { ...series.itemStyle, color: '#ff1234' } }}
-    ] // paints all bars in a bright red color, while making sure to preserve all of it's options.
    */
-  seriesHooks?: ((series: any) => echarts.SeriesOption)[] | null
+  optionHooks?: ((series: EChartsOption) => EChartsOption)[] | null
+  /**
+   * Whether to enable zoom and the zoom bar, which will also make the chart slightly smaller to fit the bar.
+   */
+  zoom?: boolean
+  /**
+   * Defines the group that the chart will be part of. Charts in the same group share many features among them.
+   * These features include: sharing the tooltip and sharing the same legend.
+   *
+   * See [echarts docs](https://echarts.apache.org/en/api.html#echarts.connect).
+   */
+  group?: string
   /**
    * Whether to render the chart as a SVG or Canvas. Both are about equally as fast,
-   * but SVGs have 'perfect' image quality.
+   * but SVGs can scale to any size.
    *
    * Canvas is required if the chart is meant to be downloaded as a png or jpg, as SVG-rendered charts can only be exported as SVG.
    * @default svg
@@ -185,15 +235,37 @@ export interface ChartOptions {
    */
   theme?: Dictionary<any> | string
   /**
-   * Wether is loading
+   * Wether is loading.
    * @default false
    */
   loading?: boolean
   /**
-   * Echarts showLoading options, see [docs]("https://echarts.apache.org/en/api.html#echartsInstance.showLoading)
+   * Echarts showLoading options, see [docs]("https://echarts.apache.org/en/api.html#echartsInstance.showLoading).
    * @default false
    */
   loadingConfig?: EChartsInstance['showLoading']
+  /**
+   * Binds callback functions to certain events, see [docs](https://echarts.apache.org/en/api.html#events)
+   * for a complete list of available events and their parameters.
+   */
+  onEvents?: Record<string, CallableFunction>
 }
 
 export type ChartProps = ChartOptions & ComponentPropsWithRef<'div'>
+
+type DefaultHooks = {
+  bar: Record<BarChartVariants, ((series: EChartsOption) => EChartsOption)[]>
+  line: Record<LineChartVariants, ((series: EChartsOption) => EChartsOption)[]>
+}
+/**
+ * Functions that are always called for a certain chart config
+ */
+const defaultHooks: DefaultHooks = {
+  bar: {
+    vertical: [normalizeBarData],
+    horizontal: [normalizeHorizontalBarData],
+  },
+  line: {
+    default: [],
+  },
+}

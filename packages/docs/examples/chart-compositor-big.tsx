@@ -27,6 +27,7 @@ export default function Example() {
         },
       ]}
       tooltip={{ type: 'line' }}
+      style={{ height: 450 }}
       zoom
     />
   )
