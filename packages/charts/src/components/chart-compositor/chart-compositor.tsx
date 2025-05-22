@@ -6,7 +6,7 @@ import type {
   ChartUnit,
   LineChartVariants,
 } from '../../types/chart'
-import { Chart, type ChartOptions } from '../chart/chart'
+import { Chart } from '../chart/chart'
 import {
   applySeriesHook,
   checkValidVariant,
@@ -113,6 +113,9 @@ export const ChartCompositor = forwardRef<
   return (
     <Chart
       chartConfig={null}
+      series={chartOptions.series ?? {}}
+      xAxis={chartOptions.xAxis}
+      yAxis={chartOptions.yAxis}
       option={chartOptions}
       style={style}
       ref={ref}
@@ -184,7 +187,6 @@ export interface ChartCompositorOptions {
 }
 
 export type ChartCompositorProps = ChartCompositorOptions &
-  Omit<ChartOptions, 'chartConfig' | 'option'> &
   ComponentPropsWithRef<'div'>
 
 type DefaultHooks = {

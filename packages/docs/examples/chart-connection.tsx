@@ -27,20 +27,12 @@ export default function Example() {
         group="sync"
       />
       <Chart
-        option={{
-          series: [
-            {
-              data: [5, 6, 1, -12, 2, -7, 10, 7, 10, 9, 3, 5],
-              name: 'Data 1',
-            },
-            {
-              data: [10, -4, 6, 11, 9, 10, -6, 2, -8, -4, 3, 4],
-              name: 'Data 2',
-            },
-          ],
-          xAxis: {
-            data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'I', 'J', 'K', 'L'],
-          },
+        series={[
+          { data: [5, 6, 1, -12, 2, -7, 10, 7, 10, 9, 3, 5], name: 'Data 1' },
+          { data: [10, -4, 6, 11, 9, 10, -6, 2, -8, -4, 3, 4], name: 'Data 2' },
+        ]}
+        xAxis={{
+          data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'I', 'J', 'K', 'L'],
         }}
         chartConfig={{ type: 'bar', gap: 2 }}
         group="sync"
