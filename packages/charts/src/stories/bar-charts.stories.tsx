@@ -61,9 +61,9 @@ export const MultiSeriesMid: Story = {
   args: {
     xAxis: { data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
     series: [
-      { data: [3, 2, 3, 4, 1, 9, 7], name: 'Series 1' },
-      { data: [1, 4, 2, 3, 1, 5, 9], name: 'Series 2' },
-      { data: [23, 43, 1, 23, 5, 2], name: 'series 3' },
+      { data: [3, 2, 3, 4, 1, 7, 7], name: 'Series 1' },
+      { data: [1, 4, 2, 3, 1, 5, 6], name: 'Series 2' },
+      { data: [2, 4, 1, 3, 5, 2, 0], name: 'series 3' },
     ],
     chartConfig: { type: 'bar', gap: 2 },
   },

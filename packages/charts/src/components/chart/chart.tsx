@@ -90,7 +90,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         return wholeOption
       }
 
-      const hookedOptions = hooks.reduce((out, fn) => fn(out), wholeOption)
+      const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
 
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
       if (zoom && chartConfig.type !== 'line') {
