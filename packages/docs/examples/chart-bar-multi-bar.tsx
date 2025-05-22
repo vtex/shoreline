@@ -9,7 +9,7 @@ export default function Example() {
         { data: [1, 4, 2, 3], name: 'Series 2' },
         { data: [2, 1, 4, 1], name: 'Series 3' },
       ]}
-      chartConfig={{ type: 'bar' }}
+      chartConfig={{ type: 'bar', gap: 2 }}
     />
   )
 }
