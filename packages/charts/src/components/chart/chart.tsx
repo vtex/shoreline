@@ -98,7 +98,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         options.grid = { ...options.grid, height: '75%' }
         options.dataZoom = DATAZOOM_DEFAULT_STYLE
       }
-      if (!zoom) options.dataZoom = undefined
+      // if (!zoom) options.dataZoom = undefined
       return options
     }, [option, chartConfig, zoom])
 
@@ -173,8 +173,20 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
   }
 )
 export interface ChartOptions {
+  /**
+   * Echarts Series Options, where you put the data for the chart.
+   * @example series={{ data: [1, 2, 3, 4, 5, 6, 7] }}
+   */
   series: SeriesOption | SeriesOption[]
+  /**
+   * Defines the look and data of the X axis. Generally you will need to pass the name of the labels
+   * if this is the categorical axis.
+   * @example xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
+   */
   xAxis?: EChartsOption['xAxis']
+  /**
+   * Defines the look and data of the Y axis. Generally you won't need to fill this out, if this is the value axis.
+   */
   yAxis?: EChartsOption['yAxis']
   /**
    * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.

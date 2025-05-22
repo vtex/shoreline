@@ -49,7 +49,7 @@ export const ChartCompositor = forwardRef<
     options,
     style,
     renderer = 'svg',
-    ...otherProps
+    // ...otherProps
   } = props
 
   const hookedUnits: ChartUnit[] = useMemo(() => {
@@ -122,7 +122,7 @@ export const ChartCompositor = forwardRef<
       optionHooks={null}
       zoom={zoom}
       renderer={renderer}
-      {...otherProps}
+      // {...otherProps}
     />
   )
 })
