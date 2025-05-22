@@ -1,5 +1,13 @@
 import { Chart } from '@vtex/shoreline-charts'
 
+export const compactNumber = (number: number) => {
+  const formatter = new Intl.NumberFormat('en-US', {
+    notation: 'compact',
+    maximumFractionDigits: 2,
+  })
+
+  return formatter.format(number)
+}
 export default function Example() {
   return (
     <Chart
@@ -11,13 +19,4 @@ export default function Example() {
       chartConfig={{ type: 'bar' }}
     />
   )
-}
-
-export const compactNumber = (number: number) => {
-  const formatter = new Intl.NumberFormat('en-US', {
-    notation: 'compact',
-    maximumFractionDigits: 2,
-  })
-
-  return formatter.format(number)
 }
