@@ -2,6 +2,7 @@ import { Chart } from '../index'
 import type { StoryObj } from '@storybook/react'
 import { useRef } from 'react'
 import type EChartsReact from 'echarts-for-react'
+import { compactNumber } from '../utils/format'
 
 const Bar = {
   title: 'Charts/bar',
