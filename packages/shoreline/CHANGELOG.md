@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.30](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.29...@vtex/shoreline@1.11.30) (2025-04-17)
+
+
+### Bug Fixes
+
+* **select:** add missing exports from the global index ([898615c](https://github.com/vtex/shoreline/commit/898615c9c74c43f542f58a1c37feb162a43549b5))
+
+
+
+
+
 ## [1.11.29](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.28...@vtex/shoreline@1.11.29) (2025-04-14)
 
 
