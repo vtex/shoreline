@@ -58,7 +58,10 @@ export const getChartOptions = (
   if (typeof options === 'undefined') return
   const { series, ...rest } = options
 
-  const defaultStyle = getDefaultStyle(type, variant)
+  const defaultStyle =
+    variant && checkValidVariant(type, variant)
+      ? CHART_STYLES[type][variant]
+      : CHART_STYLES[type][getDefaultByType(type)]
 
   const { series: defaultSeries, ...defaultRest } = defaultStyle
   const formattedSeries = formatSeries(series, defaultStyle)
@@ -89,13 +92,17 @@ function getDefaultStyle(
  * @param multi MultiChart config that will be used to pass
  * @returns SeriesOption correct
  */
-export const getDataToChartCompositor = (multi: ChartUnit): SeriesOption => {
-  const defaultStyle = getDefaultStyle(
-    multi.chartConfig.type,
-    multi.chartConfig.variant
-  )
+export const getDataToChartCompositor = ({
+  chartConfig,
+  series,
+}: ChartUnit): SeriesOption => {
+  const { type, variant } = chartConfig
+  const defaultStyle =
+    variant && checkValidVariant(type, variant)
+      ? CHART_STYLES[type][variant]
+      : CHART_STYLES[type][getDefaultByType(type)]
 
-  const serieFinal = merge(defaultStyle.series, multi.series) as SeriesOption
+  const serieFinal = merge(defaultStyle.series, series) as SeriesOption
 
   return serieFinal
 }
@@ -252,7 +259,13 @@ export const getBackgroundChartCompositor = (
 
 export function checkValidVariant(type: string, variant?: string): boolean {
   if (!variant) return false
-  return variant in ChartVariants[type].variants
+  if (
+    ChartVariants[type].variants.some((v) => {
+      return v === variant
+    })
+  )
+    return true
+  return false
 }
 
 export function getDefaultByType(type: ChartConfig['type']): string {
