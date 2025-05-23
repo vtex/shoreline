@@ -259,13 +259,7 @@ export const getBackgroundChartCompositor = (
 
 export function checkValidVariant(type: string, variant?: string): boolean {
   if (!variant) return false
-  if (
-    ChartVariants[type].variants.some((v) => {
-      return v === variant
-    })
-  )
-    return true
-  return false
+  return ChartVariants[type].variants.includes(variant)
 }
 
 export function getDefaultByType(type: ChartConfig['type']): string {

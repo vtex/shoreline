@@ -6,7 +6,7 @@ import {
   type ComponentPropsWithRef,
   useCallback,
 } from 'react'
-import type { EChartsOption } from 'echarts'
+import type { EChartsOption, SeriesOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
@@ -27,7 +27,7 @@ import {
   DATAZOOM_DEFAULT_STYLE,
   DEFAULT_LOADING_SPINNER,
 } from '../../theme/chartStyles'
-import type { Dictionary } from 'lodash'
+import { cloneDeep, type Dictionary } from 'lodash'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -47,6 +47,9 @@ import type { Dictionary } from 'lodash'
 export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
   function Charts(props, ref) {
     const {
+      series,
+      xAxis,
+      yAxis,
       option,
       loading = false,
       loadingConfig = DEFAULT_LOADING_SPINNER,
@@ -79,19 +82,23 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     }, [chartConfig, optionHooks])
 
     const chartOptions: EChartsOption = useMemo(() => {
+      const wholeOption = cloneDeep(option) ?? {}
+      wholeOption.series = series
+      wholeOption.xAxis = xAxis ?? {}
+      wholeOption.yAxis = yAxis ?? {}
       if (chartConfig === null) {
-        return option
+        return wholeOption
       }
 
-      const hookedOptions = hooks.reduce((out, fn) => fn(out), option)
+      const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
 
-      const options = getChartOptions(hookedOptions, chartConfig) || option
+      const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
       if (zoom && chartConfig.type !== 'line') {
         options.grid ??= {}
         options.grid = { ...options.grid, height: '75%' }
         options.dataZoom = DATAZOOM_DEFAULT_STYLE
       }
-      if (!zoom) options.dataZoom = undefined
+      // if (!zoom) options.dataZoom = undefined
       return options
     }, [option, chartConfig, zoom])
 
@@ -167,6 +174,21 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 )
 export interface ChartOptions {
   /**
+   * Echarts Series Options, where you put the data for the chart.
+   * @example series={{ data: [1, 2, 3, 4, 5, 6, 7] }}
+   */
+  series: SeriesOption | SeriesOption[]
+  /**
+   * Defines the look and data of the X axis. Generally you will need to pass the name of the labels
+   * if this is the categorical axis.
+   * @example xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
+   */
+  xAxis?: EChartsOption['xAxis']
+  /**
+   * Defines the look and data of the Y axis. Generally you won't need to fill this out, if this is the value axis.
+   */
+  yAxis?: EChartsOption['yAxis']
+  /**
    * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
    *
    * **null** means that nothing will be done to the options, and the chart will be rendered as-is.
@@ -176,9 +198,10 @@ export interface ChartOptions {
   /**
    * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
    *
-   * Includes the data that the chart will use and more advanced or specific configuration.
+   * Series and axis options should be set with the other props,
+   * this one is meant to be used for other things, like enabling toolbox features.
    */
-  option: EChartsOption
+  option?: EChartsOption
   /**
    * **Pure** functions that will be run on the option object before the default styles are applied, in addition to any default hooks that may be applied per chart type.
    *
