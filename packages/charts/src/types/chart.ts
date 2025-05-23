@@ -1,7 +1,7 @@
 import type { EChartsOption, SeriesOption } from 'echarts'
 
 const BarChartVariantsArray = ['vertical', 'horizontal'] as const
-const LineChartVariantsArray = ['default'] as const
+const LineChartVariantsArray = ['default', 'area'] as const
 
 /**
  * Used to check the variants of each chart, making sure is a valid chart.

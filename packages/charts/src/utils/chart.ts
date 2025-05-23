@@ -4,6 +4,7 @@ import { type ChartConfig, type ChartUnit, ChartVariants } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
 import { cloneDeep, isArray, isDate } from 'lodash'
 import { defaultTheme } from '../theme/themes'
+import { defaultColorPreset } from '../theme/colors'
 
 export const buildDefaultSerie = (
   serie: SeriesOption | SeriesOption[],
@@ -69,8 +70,55 @@ export const getChartOptions = (
   if (type === 'bar' && isArray(formattedSeries) && chartConfig.gap)
     setBarGap(formattedSeries, chartConfig.gap)
 
+  if (type === 'line' && variant === 'area') setAreaColors(formattedSeries)
+
   const mergedOptions = merge(defaultRest, rest)
   return { ...mergedOptions, series: formattedSeries }
+}
+
+function setAreaColors(series: EChartsOption['series']) {
+  if (!isArray(series)) {
+    if (series?.type !== 'line' || !series.areaStyle) return
+    series.areaStyle.color = {
+      type: 'linear',
+      x: 0,
+      y: 0,
+      x2: 0,
+      y2: 1,
+      colorStops: [
+        {
+          offset: 0,
+          color: defaultColorPreset[0],
+        },
+        {
+          offset: 1,
+          color: '#FFFFFF',
+        },
+      ],
+    }
+    return
+  }
+  series.forEach((value, index) => {
+    if (value?.type !== 'line' || !value.areaStyle) return
+    value.areaStyle.color = {
+      type: 'linear',
+      x: 0,
+      y: 0,
+      x2: 0,
+      y2: 1,
+      colorStops: [
+        {
+          offset: 0,
+          color: defaultColorPreset[index % 4],
+        },
+        {
+          offset: 1,
+          color: '#FFFFFF',
+        },
+      ],
+    }
+    return
+  })
 }
 
 /**

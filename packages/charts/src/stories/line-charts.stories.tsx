@@ -120,58 +120,73 @@ export const ConfienceBand: Story = {
   },
 }
 export const GradientArea: Story = {
-  args: {
-    chartConfig: { type: 'line' },
-    style: { height: 550 },
-    zoom: true,
-    xAxis: {
-      type: 'category',
-      data: [
-        '0',
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
-        '10',
-        '11',
-        '12',
-        '13',
-        '14',
-      ],
-    },
-    series: [
-      {
-        data: [
-          543, 287, 892, 1050, 176, 732, 954, 611, 399, 1085, 224, 777, 1023,
-          465, 918,
-        ],
-        areaStyle: {
-          color: {
-            type: 'linear',
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [
-              {
-                offset: 0,
-                color: '#97CFFE',
-              },
-              {
-                offset: 1,
-                color: '#FFFFFF',
-              },
+  render: () => {
+    return (
+      <Chart
+        chartConfig={{ type: 'line' }}
+        style={{ height: 550 }}
+        zoom
+        xAxis={{
+          type: 'category',
+          data: [
+            '0',
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9',
+            '10',
+            '11',
+            '12',
+            '13',
+            '14',
+          ],
+        }}
+        series={[
+          {
+            data: [
+              543, 287, 892, 1050, 176, 732, 954, 611, 399, 1085, 224, 777,
+              1023, 465, 918,
             ],
+            areaStyle: {
+              color: {
+                type: 'linear',
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: '#97CFFE',
+                  },
+                  {
+                    offset: 1,
+                    color: '#FFFFFF',
+                  },
+                ],
+              },
+              opacity: 0.5,
+            },
+            emphasis: { disabled: true },
           },
-          opacity: 0.5,
-        },
-        emphasis: { disabled: true },
-      },
-    ],
+        ]}
+      />
+    )
+  },
+}
+
+export const TesteInitialArea: Story = {
+  render: () => {
+    return (
+      <Chart
+        series={[{ data: [1, 2, 3, 2, 1] }, { data: [3, 2, 1, 2, 3] }]}
+        chartConfig={{ type: 'line', variant: 'area' }}
+      />
+    )
   },
 }

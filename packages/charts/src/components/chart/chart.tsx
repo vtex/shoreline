@@ -267,5 +267,6 @@ const defaultHooks: DefaultHooks = {
   },
   line: {
     default: [],
+    area: [],
   },
 }
