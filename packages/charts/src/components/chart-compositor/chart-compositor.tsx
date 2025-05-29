@@ -121,26 +121,26 @@ export interface ChartCompositorOptions {
   /**
    * The data that will be rendered by the Compostior. Each unit contains
    * a SeriesOption from Echarts, the ChartConfig which determines the type of chart and, optionally,
-   * an array of hook functions that will be applied to that series data.
+   * an array of hook functions that will be applied to that series data. These are the same as
+   * `Chart.optionHooks` except that they can only effect the series of each chart unit.
    *
-   * By default certain hooks will always be applied to certain chart types. This behaviour can be disabled by explicitly passing **null** to hooks.
+   * By default certain hooks will always be applied to certain chart types.
+   *  This behaviour can be disabled by explicitly passing **null** to hooks.
    * @example { series: { data: [1,2,3] }, config: { type: "bar", variant: "horizontal" } }
    */
   charts: ChartUnit[]
   /**
-   * Defines the yAxis setup for the chart, using the ECharts props.
-   * By default it just returns the value passed in data to the axis.
-   *
-   * @default {type:'value'}
-   */
-  yAxis?: EChartsOption['yAxis']
-  /**
-   * Defines the xAxis setup for the chart, using the ECharts props.
-   * By default it just returns the value passed in data to the axis.
-   *
-   * @default {type:'category'}
+   * Defines the look and data of the X axis. Generally you **will** need to pass the name of the labels here,
+   * as this is by default the categorical axis.
+   * @example xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
+   * @default { type:'category' }
    */
   xAxis?: EChartsOption['xAxis']
+  /**
+   * Defines the look and data of the Y axis. Generally you won't need to fill this out, as this is the value axis by default.
+   * @default { type:'value' }
+   */
+  yAxis?: EChartsOption['yAxis']
   /**
    * Defines the title, as well as its position and style.
    */

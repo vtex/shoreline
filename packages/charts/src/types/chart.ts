@@ -37,7 +37,7 @@ export type ChartConfig = BarChartConfig | LineChartConfig
 export type ChartUnit = {
   series: SeriesOption
   chartConfig: ChartConfig
-  hooks?: CallableFunction[] | null
+  hooks?: ((option: EChartsOption) => EChartsOption)[] | null
 }
 
 export type ChartLoadingConfig = {

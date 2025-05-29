@@ -177,7 +177,7 @@ export interface ChartOptions {
    */
   series: SeriesOption | SeriesOption[]
   /**
-   * Defines the look and data of the X axis. Generally you will need to pass the name of the labels
+   * Defines the look and data of the X axis. Generally you will need to pass the name of the labels here,
    * if this is the categorical axis.
    * @example xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
    */
