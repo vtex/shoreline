@@ -44,6 +44,7 @@ export const ChartCompositor = forwardRef<
     charts,
     xAxis = { type: 'category' },
     yAxis = { type: 'value' },
+    title,
     tooltip,
     zoom = false,
     options,
@@ -106,6 +107,7 @@ export const ChartCompositor = forwardRef<
     finalOptions.tooltip = tooltipOptions
     finalOptions.yAxis = yAxis
     finalOptions.xAxis = xAxis
+    finalOptions.title = title
 
     return options ? merge(options, finalOptions) : finalOptions
   }, [charts, tooltip, xAxis, yAxis, options])
@@ -151,6 +153,10 @@ export interface ChartCompositorOptions {
    * @default {type:'category'}
    */
   xAxis?: EChartsOption['xAxis']
+  /**
+   * Defines the title, as well as its position and style.
+   */
+  title?: EChartsOption['title']
   /**
    * Defines which type of tooltip is going to be used by the chart.
    * @example { type: "bar", variant: "horizontal" }
@@ -203,5 +209,6 @@ const defaultHooks: DefaultHooks = {
   },
   line: {
     default: [],
+    area: [],
   },
 }

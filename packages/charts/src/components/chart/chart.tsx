@@ -48,8 +48,9 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
   function Charts(props, ref) {
     const {
       series,
-      xAxis,
-      yAxis,
+      xAxis = {},
+      yAxis = {},
+      title,
       option,
       loading = false,
       loadingConfig = DEFAULT_LOADING_SPINNER,
@@ -84,8 +85,9 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     const chartOptions: EChartsOption = useMemo(() => {
       const wholeOption = cloneDeep(option) ?? {}
       wholeOption.series = series
-      wholeOption.xAxis = xAxis ?? {}
-      wholeOption.yAxis = yAxis ?? {}
+      wholeOption.xAxis = xAxis
+      wholeOption.yAxis = yAxis
+      wholeOption.title = title
       if (chartConfig === null) {
         return wholeOption
       }
@@ -188,6 +190,10 @@ export interface ChartOptions {
    * Defines the look and data of the Y axis. Generally you won't need to fill this out, if this is the value axis.
    */
   yAxis?: EChartsOption['yAxis']
+  /**
+   * Defines the title, as well as its position and style.
+   */
+  title?: EChartsOption['title']
   /**
    * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
    *
