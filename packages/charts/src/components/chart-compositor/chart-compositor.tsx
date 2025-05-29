@@ -1,11 +1,6 @@
-import type { EChartsOption, SeriesOption } from 'echarts'
+import type { EChartsOption } from 'echarts'
 import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
-import type {
-  BarChartVariants,
-  ChartConfig,
-  ChartUnit,
-  LineChartVariants,
-} from '../../types/chart'
+import type { ChartConfig, ChartUnit, DefaultHooks } from '../../types/chart'
 import { Chart } from '../chart/chart'
 import {
   applySeriesHook,
@@ -13,8 +8,8 @@ import {
   getDataToChartCompositor,
   getDefaultByType,
   getTooltipChartCompositor,
-  normalizeBarDataInner,
-  normalizeHorizontalBarDataInner,
+  normalizeBarData,
+  normalizeHorizontalBarData,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
 import {
@@ -55,26 +50,19 @@ export const ChartCompositor = forwardRef<
 
   const hookedUnits: ChartUnit[] = useMemo(() => {
     return charts.map((chart) => {
+      if (chart.hooks === null) {
+        return chart
+      }
       const { type, variant } = chart.chartConfig
-
       const checkedVariant =
         variant && checkValidVariant(type, variant)
           ? variant
           : getDefaultByType(type)
-      const seriesHooks: CallableFunction[] = defaultHooks[type][checkedVariant]
-      if (chart.hooks === undefined) {
-        return {
-          ...chart,
-          series: seriesHooks.reduce(
-            (out, fn) => applySeriesHook(out, fn),
-            chart.series
-          ),
-        }
-      }
-      if (chart.hooks === null) {
-        return chart
-      }
-      seriesHooks.push(...chart.hooks)
+
+      const seriesHooks: ((option: EChartsOption) => EChartsOption)[] =
+        defaultHooks[type][checkedVariant]
+      seriesHooks.push(...(chart.hooks ?? []))
+
       return {
         ...chart,
         series: seriesHooks.reduce(
@@ -195,17 +183,13 @@ export interface ChartCompositorOptions {
 export type ChartCompositorProps = ChartCompositorOptions &
   ComponentPropsWithRef<'div'>
 
-type DefaultHooks = {
-  bar: Record<BarChartVariants, ((series: SeriesOption) => SeriesOption)[]>
-  line: Record<LineChartVariants, ((series: SeriesOption) => SeriesOption)[]>
-}
 /**
  * Functions that are always called for a certain chart config
  */
 const defaultHooks: DefaultHooks = {
   bar: {
-    vertical: [normalizeBarDataInner],
-    horizontal: [normalizeHorizontalBarDataInner],
+    vertical: [normalizeBarData],
+    horizontal: [normalizeHorizontalBarData],
   },
   line: {
     default: [],

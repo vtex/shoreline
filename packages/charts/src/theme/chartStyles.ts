@@ -31,7 +31,7 @@ export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
   left: '16',
   right: '16',
   top: '16',
-  bottom: '16',
+  bottom: '32',
   containLabel: true,
 }
 

@@ -50,3 +50,8 @@ export type DefaultChartStyles = {
   bar: Record<BarChartVariants, EChartsOption>
   line: Record<LineChartVariants, EChartsOption>
 }
+
+export type DefaultHooks = {
+  bar: Record<BarChartVariants, ((series: EChartsOption) => EChartsOption)[]>
+  line: Record<LineChartVariants, ((series: EChartsOption) => EChartsOption)[]>
+}

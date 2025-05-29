@@ -156,25 +156,11 @@ export const getDataToChartCompositor = ({
 }
 
 export function applySeriesHook(
-  series: SeriesOption[],
-  fn: CallableFunction
-): SeriesOption[]
-export function applySeriesHook(
   series: SeriesOption,
-  fn: CallableFunction
-): SeriesOption
-export function applySeriesHook(
-  series: SeriesOption | SeriesOption[],
-  fn: CallableFunction
-): SeriesOption | SeriesOption[]
-export function applySeriesHook(
-  series: SeriesOption | SeriesOption[],
-  fn: CallableFunction
-): SeriesOption | SeriesOption[] {
-  if (Array.isArray(series)) {
-    return series.map((v: any) => fn(v))
-  }
-  return fn(series)
+  fn: (option: EChartsOption) => EChartsOption
+): SeriesOption {
+  return fn({ series: series }).series as SeriesOption
+  // we can be relatively certain no one's gonna return undefined from these
 }
 
 /**

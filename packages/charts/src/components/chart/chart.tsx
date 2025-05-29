@@ -10,11 +10,7 @@ import type { EChartsOption, SeriesOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
-import type {
-  BarChartVariants,
-  ChartConfig,
-  LineChartVariants,
-} from '../../types/chart'
+import type { ChartConfig, DefaultHooks } from '../../types/chart'
 import {
   checkValidVariant,
   getChartOptions,
@@ -259,10 +255,6 @@ export interface ChartOptions {
 
 export type ChartProps = ChartOptions & ComponentPropsWithRef<'div'>
 
-type DefaultHooks = {
-  bar: Record<BarChartVariants, ((series: EChartsOption) => EChartsOption)[]>
-  line: Record<LineChartVariants, ((series: EChartsOption) => EChartsOption)[]>
-}
 /**
  * Functions that are always called for a certain chart config
  */
