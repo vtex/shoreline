@@ -181,7 +181,7 @@ export interface ChartCompositorOptions {
 }
 
 export type ChartCompositorProps = ChartCompositorOptions &
-  ComponentPropsWithRef<'div'>
+  Omit<ComponentPropsWithRef<'div'>, 'title'>
 
 /**
  * Functions that are always called for a certain chart config
