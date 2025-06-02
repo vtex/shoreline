@@ -22,7 +22,11 @@ import {
   DEFAULT_LOADING_SPINNER,
 } from '../../theme/chartStyles'
 import { cloneDeep, type Dictionary } from 'lodash'
-import { normalizeBarData, normalizeHorizontalBarData } from '../../utils/hooks'
+import {
+  normalizeBarData,
+  normalizeHorizontalBarData,
+  setAreaColors,
+} from '../../utils/hooks'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -176,7 +180,7 @@ export interface ChartOptions {
    */
   series: SeriesOption | SeriesOption[]
   /**
-   * Defines the look and data of the X axis. Generally you will need to pass the name of the labels here,
+   * Defines the look and data of the X axis. Generally you will need to pass the name of the labels
    * if this is the categorical axis.
    * @example xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
    */
@@ -252,8 +256,7 @@ export interface ChartOptions {
   onEvents?: Record<string, CallableFunction>
 }
 
-export type ChartProps = ChartOptions &
-  Omit<ComponentPropsWithRef<'div'>, 'title'>
+export type ChartProps = ChartOptions & ComponentPropsWithRef<'div'>
 
 /**
  * Functions that are always called for a certain chart config
@@ -265,6 +268,6 @@ const defaultHooks: DefaultHooks = {
   },
   line: {
     default: [],
-    area: [],
+    area: [setAreaColors],
   },
 }

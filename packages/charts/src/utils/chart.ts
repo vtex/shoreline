@@ -69,15 +69,18 @@ export const getChartOptions = (
   if (type === 'bar' && isArray(formattedSeries) && chartConfig.gap)
     setBarGap(formattedSeries, chartConfig.gap)
 
-  if (type === 'line' && variant === 'area') setAreaColors(formattedSeries)
-
   const mergedOptions = merge(defaultRest, rest)
   return { ...mergedOptions, series: formattedSeries }
 }
 
-function setAreaColors(series: EChartsOption['series']) {
+export function setAreaColors(options: EChartsOption): EChartsOption {
+  const returnOptions = cloneDeep(options)
+
+  const { series, ...otherProps } = returnOptions
+
   if (!isArray(series)) {
-    if (series?.type !== 'line' || !series.areaStyle) return
+    if (series?.type !== 'line' || !series.areaStyle)
+      return { series, ...otherProps }
     series.areaStyle.color = {
       type: 'linear',
       x: 0,
@@ -95,7 +98,7 @@ function setAreaColors(series: EChartsOption['series']) {
         },
       ],
     }
-    return
+    return { series, ...otherProps }
   }
   series.forEach((value, index) => {
     if (value?.type !== 'line' || !value.areaStyle) return
@@ -118,6 +121,8 @@ function setAreaColors(series: EChartsOption['series']) {
     }
     return
   })
+
+  return { series, ...otherProps }
 }
 
 /**
