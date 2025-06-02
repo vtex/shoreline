@@ -17,6 +17,7 @@ import {
   getDefaultByType,
   normalizeBarData,
   normalizeHorizontalBarData,
+  setAreaColors,
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
@@ -177,7 +178,7 @@ export interface ChartOptions {
    */
   series: SeriesOption | SeriesOption[]
   /**
-   * Defines the look and data of the X axis. Generally you will need to pass the name of the labels here,
+   * Defines the look and data of the X axis. Generally you will need to pass the name of the labels
    * if this is the categorical axis.
    * @example xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
    */
@@ -253,8 +254,7 @@ export interface ChartOptions {
   onEvents?: Record<string, CallableFunction>
 }
 
-export type ChartProps = ChartOptions &
-  Omit<ComponentPropsWithRef<'div'>, 'title'>
+export type ChartProps = ChartOptions & ComponentPropsWithRef<'div'>
 
 /**
  * Functions that are always called for a certain chart config
@@ -266,6 +266,6 @@ const defaultHooks: DefaultHooks = {
   },
   line: {
     default: [],
-    area: [],
+    area: [setAreaColors],
   },
 }
