@@ -1,6 +1,7 @@
 import type { EChartsOption, SeriesOption } from 'echarts'
 import { cloneDeep, isArray, isDate } from 'lodash'
 import { defaultTheme } from '../theme/themes'
+import { defaultColorPreset } from '../theme/colors'
 
 export function applySeriesHook(
   series: SeriesOption,
@@ -112,4 +113,56 @@ export function normalizeHorizontalBarDataInner(
       return v
     }),
   }
+}
+
+export function setAreaColors(options: EChartsOption): EChartsOption {
+  const returnOptions = cloneDeep(options)
+
+  const { series, ...otherProps } = returnOptions
+
+  if (!isArray(series)) {
+    if (series?.type !== 'line' || !series.areaStyle)
+      return { series, ...otherProps }
+    series.areaStyle.color = {
+      type: 'linear',
+      x: 0,
+      y: 0,
+      x2: 0,
+      y2: 1,
+      colorStops: [
+        {
+          offset: 0,
+          color: defaultColorPreset[0],
+        },
+        {
+          offset: 1,
+          color: '#FFFFFF',
+        },
+      ],
+    }
+    return { series, ...otherProps }
+  }
+  series.forEach((value, index) => {
+    if (value?.type !== 'line' || !value.areaStyle) return
+    value.areaStyle.color = {
+      type: 'linear',
+      x: 0,
+      y: 0,
+      x2: 0,
+      y2: 1,
+      colorStops: [
+        {
+          offset: 0,
+          color: defaultColorPreset[index % 4],
+        },
+        {
+          offset: 1,
+          color: '#FFFFFF',
+        },
+      ],
+    }
+    return
+  })
+
+  return { series, ...otherProps }
 }
