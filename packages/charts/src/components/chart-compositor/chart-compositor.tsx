@@ -3,13 +3,10 @@ import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
 import type { ChartConfig, ChartUnit, DefaultHooks } from '../../types/chart'
 import { Chart } from '../chart/chart'
 import {
-  applySeriesHook,
   checkValidVariant,
   getDataToChartCompositor,
   getDefaultByType,
   getTooltipChartCompositor,
-  normalizeBarData,
-  normalizeHorizontalBarData,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
 import {
@@ -18,6 +15,11 @@ import {
   LEGEND_DEFAULT_STYLE,
 } from '../../theme/chartStyles'
 import type EChartsReact from 'echarts-for-react'
+import {
+  applySeriesHook,
+  normalizeBarData,
+  normalizeHorizontalBarData,
+} from '../../utils/hooks'
 
 /**
  * Used to make charts with multiple different types.

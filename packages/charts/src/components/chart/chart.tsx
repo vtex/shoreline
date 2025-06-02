@@ -15,8 +15,6 @@ import {
   checkValidVariant,
   getChartOptions,
   getDefaultByType,
-  normalizeBarData,
-  normalizeHorizontalBarData,
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
@@ -24,6 +22,7 @@ import {
   DEFAULT_LOADING_SPINNER,
 } from '../../theme/chartStyles'
 import { cloneDeep, type Dictionary } from 'lodash'
+import { normalizeBarData, normalizeHorizontalBarData } from '../../utils/hooks'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
