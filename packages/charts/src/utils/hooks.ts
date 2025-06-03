@@ -150,12 +150,11 @@ export function setAreaColors(options: EChartsOption): EChartsOption {
     return { series, ...otherProps }
   }
 
-  if (series?.type === 'line') {
-    series.areaStyle = {}
-    const colorOut = cloneDeep(color)
-    colorOut.colorStops[0].color = defaultColorPreset[0]
-    series.areaStyle.color = colorOut
-  }
+  const serie = series as LineSeriesOption
+  serie.areaStyle ??= {}
+  const colorOut = cloneDeep(color)
+  colorOut.colorStops[0].color = defaultColorPreset[0]
+  serie.areaStyle.color = colorOut
 
   return { series, ...otherProps }
 }
