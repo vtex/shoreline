@@ -123,68 +123,41 @@ export const GradientArea: Story = {
   render: () => {
     return (
       <Chart
-        chartConfig={{ type: 'line' }}
+        chartConfig={{ type: 'line', variant: 'area' }}
         style={{ height: 550 }}
         zoom
-        xAxis={{
-          type: 'category',
+        series={{
           data: [
-            '0',
-            '1',
-            '2',
-            '3',
-            '4',
-            '5',
-            '6',
-            '7',
-            '8',
-            '9',
-            '10',
-            '11',
-            '12',
-            '13',
-            '14',
+            543, 287, 892, 1050, 176, 732, 954, 611, 399, 1085, 224, 777, 1023,
+            465, 918,
           ],
         }}
-        series={[
-          {
-            data: [
-              543, 287, 892, 1050, 176, 732, 954, 611, 399, 1085, 224, 777,
-              1023, 465, 918,
-            ],
-            areaStyle: {
-              color: {
-                type: 'linear',
-                x: 0,
-                y: 0,
-                x2: 0,
-                y2: 1,
-                colorStops: [
-                  {
-                    offset: 0,
-                    color: '#97CFFE',
-                  },
-                  {
-                    offset: 1,
-                    color: '#FFFFFF',
-                  },
-                ],
-              },
-              opacity: 0.5,
-            },
-            emphasis: { disabled: true },
-          },
-        ]}
       />
     )
   },
 }
 
-export const TesteInitialArea: Story = {
+export const MultipleGradientArea: Story = {
   render: () => {
     return (
       <Chart
-        series={[{ data: [1, 2, 3, 2, 1] }, { data: [3, 2, 1, 2, 3] }]}
+        style={{ height: 550 }}
+        series={[{ data: [1, 2, 3, 2, 1] }, { data: [3, 2, 5, 2, 3] }]}
+        chartConfig={{ type: 'line', variant: 'area' }}
+      />
+    )
+  },
+}
+
+export const StackedArea: Story = {
+  render: () => {
+    return (
+      <Chart
+        style={{ height: 550 }}
+        series={[
+          { data: [1, 2, 3, 2, 1], stack: 'stack' },
+          { data: [3, 2, 5, 2, 3], stack: 'stack' },
+        ]}
         chartConfig={{ type: 'line', variant: 'area' }}
       />
     )
