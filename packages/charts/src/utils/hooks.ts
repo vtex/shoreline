@@ -1,4 +1,4 @@
-import type { EChartsOption, SeriesOption } from 'echarts'
+import type { EChartsOption, LineSeriesOption, SeriesOption } from 'echarts'
 import { cloneDeep, isArray, isDate } from 'lodash'
 import { defaultTheme } from '../theme/themes'
 import { defaultColorPreset } from '../theme/colors'
@@ -116,53 +116,46 @@ export function normalizeHorizontalBarDataInner(
 }
 
 export function setAreaColors(options: EChartsOption): EChartsOption {
-  const returnOptions = cloneDeep(options)
+  const returnOptions = cloneDeep(options) as EChartsOption
 
   const { series, ...otherProps } = returnOptions
 
-  if (!isArray(series)) {
-    if (series?.type !== 'line' || !series.areaStyle)
-      return { series, ...otherProps }
-    series.areaStyle.color = {
-      type: 'linear',
-      x: 0,
-      y: 0,
-      x2: 0,
-      y2: 1,
-      colorStops: [
-        {
-          offset: 0,
-          color: defaultColorPreset[0],
-        },
-        {
-          offset: 1,
-          color: '#FFFFFF',
-        },
-      ],
-    }
+  const color = {
+    type: 'linear' as const,
+    x: 0,
+    y: 0,
+    x2: 0,
+    y2: 1,
+    global: false,
+    colorStops: [
+      {
+        offset: 0,
+        color: '',
+      },
+      {
+        offset: 1,
+        color: '#FFFFFF',
+      },
+    ],
+  }
+
+  if (isArray(series)) {
+    series.forEach((v, index) => {
+      const serie = v as LineSeriesOption
+      serie.areaStyle ??= {}
+      const colorOut = cloneDeep(color)
+      colorOut.colorStops[0].color = defaultColorPreset[index % 4]
+      serie.areaStyle.color = colorOut
+    })
     return { series, ...otherProps }
   }
-  series.forEach((value, index) => {
-    if (value?.type !== 'line' || !value.areaStyle) return
-    value.areaStyle.color = {
-      type: 'linear',
-      x: 0,
-      y: 0,
-      x2: 0,
-      y2: 1,
-      colorStops: [
-        {
-          offset: 0,
-          color: defaultColorPreset[index % 4],
-        },
-        {
-          offset: 1,
-          color: '#FFFFFF',
-        },
-      ],
-    }
-    return
-  })
+
+  if (series?.type === 'line') {
+    series.areaStyle = {}
+    const colorOut = cloneDeep(color)
+    colorOut.colorStops[0].color = defaultColorPreset[0]
+    series.areaStyle.color = colorOut
+  }
 
   return { series, ...otherProps }
 }
