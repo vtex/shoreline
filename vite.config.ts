@@ -18,7 +18,13 @@ export default defineConfig({
       '**/.{idea,git,cache,output,temp}/**',
       '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*',
     ],
-    setupFiles: ['./packages/test-utils/dist/setup.mjs'],
+    setupFiles: [
+      './packages/test-utils/dist/setup.mjs',
+      './packages/charts/src/tests/vitest.config.ts',
+    ],
+    deps: {
+      inline: ['vitest-canvas-mock'],
+    },
     environment: 'jsdom',
     css: false,
   },
