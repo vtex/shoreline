@@ -119,20 +119,3 @@ export const ConfienceBand: Story = {
     },
   },
 }
-export const GradientArea: Story = {
-  render: () => {
-    return (
-      <Chart
-        chartConfig={{ type: 'line', variant: 'area' }}
-        style={{ height: 550 }}
-        zoom
-        series={{
-          data: [
-            543, 287, 892, 1050, 176, 732, 954, 611, 399, 1085, 224, 777, 1023,
-            465, 918,
-          ],
-        }}
-      />
-    )
-  },
-}
