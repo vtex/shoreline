@@ -268,6 +268,9 @@ const defaultHooks: DefaultHooks = {
   },
   line: {
     default: [],
-    area: [setAreaColors],
+  },
+  area: {
+    default: [setAreaColors],
+    stacked: [],
   },
 }

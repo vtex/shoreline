@@ -159,17 +159,33 @@ export const CHART_STYLES: DefaultChartStyles = {
       grid: { ...GRID_DEFAULT_STYLE, height: '75%' },
       dataZoom: DATAZOOM_DEFAULT_STYLE,
     },
-    area: {
+  },
+  area: {
+    default: {
       xAxis: { type: 'category' },
       yAxis: { type: 'value' },
       series: {
         type: 'line',
         smooth: true,
         showSymbol: false,
-        areaStyle: {
-          opacity: 0.5,
-        },
+        areaStyle: { opacity: 0.5 },
         emphasis: { disabled: true },
+      },
+      legend: LEGEND_DEFAULT_STYLE,
+      tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
+      grid: { ...GRID_DEFAULT_STYLE, height: '75%' },
+      dataZoom: DATAZOOM_DEFAULT_STYLE,
+    },
+    stacked: {
+      xAxis: { type: 'category' },
+      yAxis: { type: 'value' },
+      series: {
+        type: 'line',
+        smooth: true,
+        showSymbol: false,
+        areaStyle: { opacity: 0.5 },
+        emphasis: { disabled: true },
+        stack: '_STACK',
       },
       legend: LEGEND_DEFAULT_STYLE,
       tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
