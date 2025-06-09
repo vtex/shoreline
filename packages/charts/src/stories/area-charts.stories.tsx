@@ -37,6 +37,18 @@ export const StackedArea: Story = {
             data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5],
             stack: 'stack',
           },
+          {
+            data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5],
+            stack: 'stack',
+          },
+          {
+            data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5],
+            stack: 'stack',
+          },
+          {
+            data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5],
+            stack: 'stack',
+          },
         ]}
         chartConfig={{ type: 'line', variant: 'area' }}
       />

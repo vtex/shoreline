@@ -144,7 +144,8 @@ export function setAreaColors(options: EChartsOption): EChartsOption {
       const serie = v as LineSeriesOption
       serie.areaStyle ??= {}
       const colorOut = cloneDeep(color)
-      colorOut.colorStops[0].color = defaultColorPreset[index % 4]
+      colorOut.colorStops[0].color =
+        defaultColorPreset[index % defaultColorPreset.length]
       serie.areaStyle.color = colorOut
     })
     return { series, ...otherProps }

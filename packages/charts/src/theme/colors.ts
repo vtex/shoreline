@@ -10,6 +10,7 @@ export const defaultColorPreset = [
   colors['--sl-purple-9'],
   colors['--sl-orange-6'],
   colors['--sl-pink-8'],
+  colors['--sl-green-8'],
 ]
 
 export const defaultChartColorConfig = {
