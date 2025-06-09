@@ -19,6 +19,7 @@ import {
   applySeriesHook,
   normalizeBarData,
   normalizeHorizontalBarData,
+  setAreaColors,
 } from '../../utils/hooks'
 
 /**
@@ -195,6 +196,9 @@ const defaultHooks: DefaultHooks = {
   },
   line: {
     default: [],
-    area: [],
+  },
+  area: {
+    default: [setAreaColors],
+    stacked: [],
   },
 }
