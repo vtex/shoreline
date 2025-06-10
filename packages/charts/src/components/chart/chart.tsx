@@ -59,7 +59,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       theme = defaultTheme,
       optionHooks = [],
       onEvents,
-      zoom = false,
+      zoom = true,
       group,
       ...otherProps
     } = props
@@ -94,7 +94,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
 
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
-      if (zoom && chartConfig.type === 'line') {
+      if (zoom && chartConfig.type !== 'bar') {
         options.grid ??= {}
         options.grid = { ...options.grid, height: '75%' }
         options.dataZoom = DATAZOOM_DEFAULT_STYLE
