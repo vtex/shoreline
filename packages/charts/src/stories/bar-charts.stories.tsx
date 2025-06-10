@@ -49,10 +49,10 @@ export const Loading: Story = {
 }
 export const MultiSeriesSmall: Story = {
   args: {
-    xAxis: { data: ['Mon', 'Tue', 'Wed'] },
+    xAxis: { data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
     series: [
-      { data: [3, 2, 1], name: 'Series 1' },
-      { data: [1, 4, 3], name: 'Series 2' },
+      { data: [3, 2, 3, 4, 3, 7, 7], name: 'Series 1' },
+      { data: [1, 4, 2, 3, 3, 5, 6], name: 'Series 2' },
     ],
     chartConfig: { type: 'bar', gap: 1 },
   },
@@ -61,9 +61,8 @@ export const MultiSeriesMid: Story = {
   args: {
     xAxis: { data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
     series: [
-      { data: [3, 2, 3, 4, 1, 7, 7], name: 'Series 1' },
-      { data: [1, 4, 2, 3, 1, 5, 6], name: 'Series 2' },
-      { data: [2, 4, 1, 3, 5, 2, 0], name: 'series 3' },
+      { data: [3, 2, 3, 4, 3, 7, 7], name: 'Series 1' },
+      { data: [1, 4, 2, 3, 3, 5, 6], name: 'Series 2' },
     ],
     chartConfig: { type: 'bar', gap: 2 },
   },
@@ -72,8 +71,8 @@ export const MultiSeriesBig: Story = {
   args: {
     xAxis: { data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
     series: [
-      { data: [2, 1, 4, 1, 7, 2, 1, 2, 1, 4, 1, 7, 2, 1], name: 'Series 1' },
-      { data: [1, 4, 2, 3, 1, 5, 9, 1, 4, 2, 3, 1, 5, 9], name: 'Series 2' },
+      { data: [3, 2, 3, 4, 3, 7, 7], name: 'Series 1' },
+      { data: [1, 4, 2, 3, 3, 5, 6], name: 'Series 2' },
     ],
     chartConfig: { type: 'bar', gap: 3 },
   },
