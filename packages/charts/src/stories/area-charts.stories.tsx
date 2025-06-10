@@ -17,17 +17,14 @@ export const Basic: Story = {
 }
 
 export const MultipleGradientArea: Story = {
-  render: () => {
-    return (
-      <Chart
-        style={{ height: 550 }}
-        series={[
-          { data: [6, 5, 2, 7, 1, 10, 6, 5, 1, 5, 6, 3, 8, 10, 4] },
-          { data: [4, 7, 5, 2, 6, 2, 6, 2, 6, 8, 4, 5, 9, 1, 5] },
-        ]}
-        chartConfig={{ type: 'area' }}
-      />
-    )
+  args: {
+    style: { height: 550 },
+    series: [
+      { data: [6, 5, 2, 7, 1, 10, 6, 5, 1, 5, 6, 3, 8, 10, 4], name: 'Data 1' },
+      { data: [4, 7, 5, 2, 6, 2, 6, 2, 6, 8, 4, 5, 9, 1, 5], name: 'Data 2' },
+    ],
+    zoom: true,
+    chartConfig: { type: 'area' },
   },
 }
 
