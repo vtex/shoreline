@@ -2,6 +2,8 @@
 import { random } from 'lodash'
 import { Chart, ChartCompositor } from '../index'
 import type { StoryObj } from '@storybook/react'
+import { useState } from 'react'
+import { Button } from '@vtex/shoreline'
 
 export default {
   title: 'Charts/general',
@@ -128,6 +130,40 @@ export const ManyChartsSync: Story = {
           series={{ data: [2, 4, 6, 7, 9, 0, 8, 6, 4] }}
           chartConfig={{ type: 'line' }}
           group="vtex"
+        />
+      </>
+    )
+  },
+}
+
+export const ZoomExample: Story = {
+  render: () => {
+    const [Zoom, setZoom] = useState<boolean>(true)
+    const [key, setKey] = useState<boolean>(true)
+    return (
+      <>
+        <Button
+          onClick={(params: any) => {
+            const nZoom = !Zoom
+            setZoom(nZoom)
+            const nKey = !key
+            setKey(nKey)
+          }}
+        >
+          Botao do Zoom
+        </Button>
+        <Chart
+          key={`${key}`}
+          style={{ height: 550 }}
+          series={[
+            { data: [3, 4, 8, 8, 5, 4, 10, 9, 2, 7, 6, 3, 9, 2, 3] },
+            { data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5] },
+            { data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5] },
+            { data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5] },
+            { data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5] },
+          ]}
+          chartConfig={{ type: 'area', variant: 'stacked' }}
+          zoom={Zoom}
         />
       </>
     )
