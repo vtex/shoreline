@@ -160,7 +160,7 @@ export const CHART_STYLES: DefaultChartStyles = {
     },
   },
   area: {
-    default: {
+    overlapping: {
       xAxis: { type: 'category' },
       yAxis: { type: 'value' },
       series: {

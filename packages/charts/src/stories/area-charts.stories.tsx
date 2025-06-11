@@ -24,7 +24,7 @@ export const MultipleGradientArea: Story = {
       { data: [4, 7, 5, 2, 6, 2, 6, 2, 6, 8, 4, 5, 9, 1, 5], name: 'Data 2' },
     ],
     zoom: true,
-    chartConfig: { type: 'area' },
+    chartConfig: { type: 'area', variant: 'overlapping' },
   },
 }
 

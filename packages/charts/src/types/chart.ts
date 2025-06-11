@@ -2,13 +2,10 @@ import type { EChartsOption, SeriesOption } from 'echarts'
 
 const BarChartVariantsArray = ['vertical', 'horizontal'] as const
 const LineChartVariantsArray = ['default'] as const
-const AreaChartVariantsArray = ['default', 'stacked'] as const
+const AreaChartVariantsArray = ['overlapping', 'stacked'] as const
 
 /**
- * Used to check the variants of each chart, making sure is a valid chart.
- * Every variant should be in this object.
- * The object contains the types of chart, that leads to an object that has variants,
- *  which is an array with all variants of that type, and default which is the default variant of that type
+ * Used to check variants in utils/chart.ts checkValidVariant and getDefaultByTpe
  */
 export const ChartVariants = {
   bar: {
@@ -21,7 +18,7 @@ export const ChartVariants = {
   },
   area: {
     variants: AreaChartVariantsArray,
-    default: 'default' as const,
+    default: 'overlapping' as const,
   },
 }
 
