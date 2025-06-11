@@ -47,7 +47,7 @@ export const Loading: Story = {
     loading: true,
   },
 }
-export const MultiSeriesSmall: Story = {
+export const Gap1: Story = {
   args: {
     xAxis: { data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
     series: [
@@ -56,8 +56,9 @@ export const MultiSeriesSmall: Story = {
     ],
     chartConfig: { type: 'bar', gap: 1 },
   },
+  name: 'Gap-1',
 }
-export const MultiSeriesMid: Story = {
+export const Gap2: Story = {
   args: {
     xAxis: { data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
     series: [
@@ -66,8 +67,9 @@ export const MultiSeriesMid: Story = {
     ],
     chartConfig: { type: 'bar', gap: 2 },
   },
+  name: 'Gap-2',
 }
-export const MultiSeriesBig: Story = {
+export const Gap3: Story = {
   args: {
     xAxis: { data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
     series: [
@@ -76,6 +78,7 @@ export const MultiSeriesBig: Story = {
     ],
     chartConfig: { type: 'bar', gap: 3 },
   },
+  name: 'Gap-3',
 }
 
 export const Tooltip: Story = {
