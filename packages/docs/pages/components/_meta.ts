@@ -34,11 +34,11 @@ export default {
   toast: 'Toast',
   tooltip: 'Tooltip',
 
-  Charts: { type: 'separator', title: 'Data Visualization' },
+  DataVisualization: { type: 'separator', title: 'Data Visualization' },
   chart: 'Chart',
-  bar: 'Bar Chart',
-  line: 'Line Chart',
-  area: 'Area Chart',
+  'chart-bar': 'Bar Chart',
+  'chart-line': 'Line Chart',
+  'chart-area': 'Area Chart',
   'chart-compositor': 'Chart Compositor',
 
   Date: { type: 'separator', title: 'Date' },
@@ -49,9 +49,6 @@ export default {
   'date-segment': 'DateSegment',
   'range-calendar': 'RangeCalendar',
   'time-input': 'TimeInput',
-
-  DataVisualization: { type: 'separator', title: 'Data Visualization' },
-  'bar-chart': 'BarChart',
 
   Primitives: { type: 'separator', title: 'Primitives' },
   'accessible-icon': 'AccessibleIcon',

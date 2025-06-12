@@ -26,11 +26,6 @@ export default function Example() {
           type: 'line',
           data: [320, 332, 301, 334, 390, 330, 320],
         },
-        {
-          name: 'Search Engine',
-          type: 'line',
-          data: [820, 932, 901, 934, 1290, 1330, 1320],
-        },
       ]}
       option={{
         animationDelay: (idx) => {
