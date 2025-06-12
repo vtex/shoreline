@@ -10,17 +10,11 @@ import type { EChartsOption, SeriesOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
-import type {
-  BarChartVariants,
-  ChartConfig,
-  LineChartVariants,
-} from '../../types/chart'
+import type { ChartConfig, DefaultHooks } from '../../types/chart'
 import {
   checkValidVariant,
   getChartOptions,
   getDefaultByType,
-  normalizeBarData,
-  normalizeHorizontalBarData,
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
@@ -28,6 +22,11 @@ import {
   DEFAULT_LOADING_SPINNER,
 } from '../../theme/chartStyles'
 import { cloneDeep, type Dictionary } from 'lodash'
+import {
+  normalizeBarData,
+  normalizeHorizontalBarData,
+  setAreaGradients,
+} from '../../utils/hooks'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -48,8 +47,9 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
   function Charts(props, ref) {
     const {
       series,
-      xAxis,
-      yAxis,
+      xAxis = {},
+      yAxis = {},
+      title,
       option,
       loading = false,
       loadingConfig = DEFAULT_LOADING_SPINNER,
@@ -59,7 +59,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       theme = defaultTheme,
       optionHooks = [],
       onEvents,
-      zoom = false,
+      zoom = true,
       group,
       ...otherProps
     } = props
@@ -84,21 +84,21 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     const chartOptions: EChartsOption = useMemo(() => {
       const wholeOption = cloneDeep(option) ?? {}
       wholeOption.series = series
-      wholeOption.xAxis = xAxis ?? {}
-      wholeOption.yAxis = yAxis ?? {}
+      wholeOption.xAxis = xAxis
+      wholeOption.yAxis = yAxis
+      wholeOption.title = title
       if (chartConfig === null) {
         return wholeOption
       }
 
-      const hookedOptions = hooks.reduce((out, fn) => fn(out), wholeOption)
+      const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
 
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
-      if (zoom && chartConfig.type !== 'line') {
+      if (zoom && chartConfig.type === 'line') {
         options.grid ??= {}
         options.grid = { ...options.grid, height: '75%' }
         options.dataZoom = DATAZOOM_DEFAULT_STYLE
       }
-      // if (!zoom) options.dataZoom = undefined
       return options
     }, [option, chartConfig, zoom])
 
@@ -189,6 +189,10 @@ export interface ChartOptions {
    */
   yAxis?: EChartsOption['yAxis']
   /**
+   * Defines the title, as well as its position and style.
+   */
+  title?: EChartsOption['title']
+  /**
    * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
    *
    * **null** means that nothing will be done to the options, and the chart will be rendered as-is.
@@ -251,12 +255,9 @@ export interface ChartOptions {
   onEvents?: Record<string, CallableFunction>
 }
 
-export type ChartProps = ChartOptions & ComponentPropsWithRef<'div'>
+export type ChartProps = ChartOptions &
+  Omit<ComponentPropsWithRef<'div'>, 'title'>
 
-type DefaultHooks = {
-  bar: Record<BarChartVariants, ((series: EChartsOption) => EChartsOption)[]>
-  line: Record<LineChartVariants, ((series: EChartsOption) => EChartsOption)[]>
-}
 /**
  * Functions that are always called for a certain chart config
  */
@@ -267,5 +268,9 @@ const defaultHooks: DefaultHooks = {
   },
   line: {
     default: [],
+  },
+  area: {
+    overlapping: [setAreaGradients],
+    stacked: [],
   },
 }

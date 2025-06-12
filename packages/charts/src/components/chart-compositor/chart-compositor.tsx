@@ -1,20 +1,12 @@
-import type { EChartsOption, SeriesOption } from 'echarts'
+import type { EChartsOption } from 'echarts'
 import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
-import type {
-  BarChartVariants,
-  ChartConfig,
-  ChartUnit,
-  LineChartVariants,
-} from '../../types/chart'
+import type { ChartConfig, ChartUnit, DefaultHooks } from '../../types/chart'
 import { Chart } from '../chart/chart'
 import {
-  applySeriesHook,
   checkValidVariant,
   getDataToChartCompositor,
   getDefaultByType,
   getTooltipChartCompositor,
-  normalizeBarDataInner,
-  normalizeHorizontalBarDataInner,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
 import {
@@ -23,6 +15,12 @@ import {
   LEGEND_DEFAULT_STYLE,
 } from '../../theme/chartStyles'
 import type EChartsReact from 'echarts-for-react'
+import {
+  applySeriesHook,
+  normalizeBarData,
+  normalizeHorizontalBarData,
+  setAreaGradients,
+} from '../../utils/hooks'
 
 /**
  * Used to make charts with multiple different types.
@@ -44,6 +42,7 @@ export const ChartCompositor = forwardRef<
     charts,
     xAxis = { type: 'category' },
     yAxis = { type: 'value' },
+    title,
     tooltip,
     zoom = false,
     options,
@@ -54,26 +53,19 @@ export const ChartCompositor = forwardRef<
 
   const hookedUnits: ChartUnit[] = useMemo(() => {
     return charts.map((chart) => {
+      if (chart.hooks === null) {
+        return chart
+      }
       const { type, variant } = chart.chartConfig
-
       const checkedVariant =
         variant && checkValidVariant(type, variant)
           ? variant
           : getDefaultByType(type)
-      const seriesHooks: CallableFunction[] = defaultHooks[type][checkedVariant]
-      if (chart.hooks === undefined) {
-        return {
-          ...chart,
-          series: seriesHooks.reduce(
-            (out, fn) => applySeriesHook(out, fn),
-            chart.series
-          ),
-        }
-      }
-      if (chart.hooks === null) {
-        return chart
-      }
-      seriesHooks.push(...chart.hooks)
+
+      const seriesHooks: ((option: EChartsOption) => EChartsOption)[] =
+        defaultHooks[type][checkedVariant]
+      seriesHooks.push(...(chart.hooks ?? []))
+
       return {
         ...chart,
         series: seriesHooks.reduce(
@@ -106,6 +98,7 @@ export const ChartCompositor = forwardRef<
     finalOptions.tooltip = tooltipOptions
     finalOptions.yAxis = yAxis
     finalOptions.xAxis = xAxis
+    finalOptions.title = title
 
     return options ? merge(options, finalOptions) : finalOptions
   }, [charts, tooltip, xAxis, yAxis, options])
@@ -131,26 +124,30 @@ export interface ChartCompositorOptions {
   /**
    * The data that will be rendered by the Compostior. Each unit contains
    * a SeriesOption from Echarts, the ChartConfig which determines the type of chart and, optionally,
-   * an array of hook functions that will be applied to that series data.
+   * an array of hook functions that will be applied to that series data. These are the same as
+   * `Chart.optionHooks` except that they can only effect the series of each chart unit.
    *
-   * By default certain hooks will always be applied to certain chart types. This behaviour can be disabled by explicitly passing **null** to hooks.
+   * By default certain hooks will always be applied to certain chart types.
+   *  This behaviour can be disabled by explicitly passing **null** to hooks.
    * @example { series: { data: [1,2,3] }, config: { type: "bar", variant: "horizontal" } }
    */
   charts: ChartUnit[]
   /**
-   * Defines the yAxis setup for the chart, using the ECharts props.
-   * By default it just returns the value passed in data to the axis.
-   *
-   * @default {type:'value'}
+   * Defines the look and data of the X axis. Generally you **will** need to pass the name of the labels here,
+   * as this is by default the categorical axis.
+   * @example xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
+   * @default { type:'category' }
+   */
+  xAxis?: EChartsOption['xAxis']
+  /**
+   * Defines the look and data of the Y axis. Generally you won't need to fill this out, as this is the value axis by default.
+   * @default { type:'value' }
    */
   yAxis?: EChartsOption['yAxis']
   /**
-   * Defines the xAxis setup for the chart, using the ECharts props.
-   * By default it just returns the value passed in data to the axis.
-   *
-   * @default {type:'category'}
+   * Defines the title, as well as its position and style.
    */
-  xAxis?: EChartsOption['xAxis']
+  title?: EChartsOption['title']
   /**
    * Defines which type of tooltip is going to be used by the chart.
    * @example { type: "bar", variant: "horizontal" }
@@ -187,21 +184,21 @@ export interface ChartCompositorOptions {
 }
 
 export type ChartCompositorProps = ChartCompositorOptions &
-  ComponentPropsWithRef<'div'>
+  Omit<ComponentPropsWithRef<'div'>, 'title'>
 
-type DefaultHooks = {
-  bar: Record<BarChartVariants, ((series: SeriesOption) => SeriesOption)[]>
-  line: Record<LineChartVariants, ((series: SeriesOption) => SeriesOption)[]>
-}
 /**
  * Functions that are always called for a certain chart config
  */
 const defaultHooks: DefaultHooks = {
   bar: {
-    vertical: [normalizeBarDataInner],
-    horizontal: [normalizeHorizontalBarDataInner],
+    vertical: [normalizeBarData],
+    horizontal: [normalizeHorizontalBarData],
   },
   line: {
     default: [],
+  },
+  area: {
+    overlapping: [setAreaGradients],
+    stacked: [],
   },
 }

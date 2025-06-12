@@ -38,6 +38,7 @@ export default {
   chart: 'Chart',
   bar: 'Bar Chart',
   line: 'Line Chart',
+  area: 'Area Chart',
   'chart-compositor': 'Chart Compositor',
 
   Date: { type: 'separator', title: 'Date' },

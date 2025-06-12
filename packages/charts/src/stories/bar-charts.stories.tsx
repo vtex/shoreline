@@ -47,36 +47,38 @@ export const Loading: Story = {
     loading: true,
   },
 }
-export const MultiSeriesSmall: Story = {
+export const Gap1: Story = {
   args: {
-    xAxis: { data: ['Mon', 'Tue', 'Wed'] },
+    xAxis: { data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
     series: [
-      { data: [3, 2, 1], name: 'Series 1' },
-      { data: [1, 4, 3], name: 'Series 2' },
+      { data: [3, 2, 3, 4, 3, 7, 7], name: 'Series 1' },
+      { data: [1, 4, 2, 3, 3, 5, 6], name: 'Series 2' },
     ],
     chartConfig: { type: 'bar', gap: 1 },
   },
+  name: 'Gap-1',
 }
-export const MultiSeriesMid: Story = {
+export const Gap2: Story = {
   args: {
     xAxis: { data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
     series: [
-      { data: [3, 2, 3, 4, 1, 9, 7], name: 'Series 1' },
-      { data: [1, 4, 2, 3, 1, 5, 9], name: 'Series 2' },
-      { data: [2, 4, 1, 3, 5, 2, 0], name: 'series 3' },
+      { data: [3, 2, 3, 4, 3, 7, 7], name: 'Series 1' },
+      { data: [1, 4, 2, 3, 3, 5, 6], name: 'Series 2' },
     ],
     chartConfig: { type: 'bar', gap: 2 },
   },
+  name: 'Gap-2',
 }
-export const MultiSeriesBig: Story = {
+export const Gap3: Story = {
   args: {
     xAxis: { data: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] },
     series: [
-      { data: [2, 1, 4, 1, 7, 2, 1, 2, 1, 4, 1, 7, 2, 1], name: 'Series 1' },
-      { data: [1, 4, 2, 3, 1, 5, 9, 1, 4, 2, 3, 1, 5, 9], name: 'Series 2' },
+      { data: [3, 2, 3, 4, 3, 7, 7], name: 'Series 1' },
+      { data: [1, 4, 2, 3, 3, 5, 6], name: 'Series 2' },
     ],
     chartConfig: { type: 'bar', gap: 3 },
   },
+  name: 'Gap-3',
 }
 
 export const Tooltip: Story = {
@@ -130,6 +132,7 @@ export const Horizontal: Story = {
       { data: [1, 4, 2, 1, 4, 3, 5, 9], name: 'Series 1' },
     ],
     chartConfig: { type: 'bar', variant: 'horizontal', gap: 2 },
+    style: { height: 400 },
   },
 }
 
@@ -151,11 +154,9 @@ export const Animation: Story = {
         animationEasing: 'elasticInOut',
       },
     ],
-    option: {
-      title: {
-        text: 'Reload animation by clicking on the legend',
-        left: 'center',
-      },
+    title: {
+      text: 'Reload animation by clicking on the legend',
+      left: 'center',
     },
     chartConfig: { type: 'bar' },
   },

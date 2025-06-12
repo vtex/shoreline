@@ -25,13 +25,14 @@ export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   padding: 0,
   itemGap: 20,
   icon: 'roundRect',
+  textStyle: { color: 'var(--sl-color-gray-9)' },
 }
 
 export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
   left: '16',
   right: '16',
   top: '16',
-  bottom: '16',
+  bottom: '32',
   containLabel: true,
 }
 
@@ -110,7 +111,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         axisPointer: {
           type: 'shadow',
           z: -1,
-          shadowStyle: { color: '#F5F5F5', opacity: '1' },
+          shadowStyle: { color: '#F5F5F5', opacity: 1 },
         },
       },
 
@@ -137,7 +138,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         axisPointer: {
           type: 'shadow',
           z: -1,
-          shadowStyle: { color: '#F5F5F5', opacity: '1' },
+          shadowStyle: { color: '#F5F5F5', opacity: 1 },
         },
       },
 
@@ -153,10 +154,40 @@ export const CHART_STYLES: DefaultChartStyles = {
         smooth: true,
         showSymbol: false,
       },
+      legend: { ...LEGEND_DEFAULT_STYLE },
+      tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
+      grid: GRID_DEFAULT_STYLE,
+    },
+  },
+  area: {
+    overlapping: {
+      xAxis: { type: 'category' },
+      yAxis: { type: 'value' },
+      series: {
+        type: 'line',
+        smooth: true,
+        showSymbol: false,
+        areaStyle: { opacity: 0.5 },
+        emphasis: { disabled: true },
+      },
       legend: LEGEND_DEFAULT_STYLE,
       tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
-      grid: { ...GRID_DEFAULT_STYLE, height: '75%' },
-      dataZoom: DATAZOOM_DEFAULT_STYLE,
+      grid: GRID_DEFAULT_STYLE,
+    },
+    stacked: {
+      xAxis: { type: 'category' },
+      yAxis: { type: 'value' },
+      series: {
+        type: 'line',
+        smooth: true,
+        showSymbol: false,
+        areaStyle: { opacity: 0.5 },
+        emphasis: { disabled: true },
+        stack: '_STACK',
+      },
+      legend: LEGEND_DEFAULT_STYLE,
+      tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
+      grid: GRID_DEFAULT_STYLE,
     },
   },
 }
