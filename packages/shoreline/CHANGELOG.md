@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.31](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.30...@vtex/shoreline@1.11.31) (2025-05-29)
+
+
+### Bug Fixes
+
+* **stack:** fix css for stacked stack components ([401a49b](https://github.com/vtex/shoreline/commit/401a49b0ceaefdc924c9cc0dda666509f4c8bd3a))
+
+
+
+
+
 ## [1.11.30](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.29...@vtex/shoreline@1.11.30) (2025-04-17)
 
 

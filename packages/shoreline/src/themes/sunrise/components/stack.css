@@ -8,13 +8,10 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: var(--sl-stack-align);
+    row-gap: var(--sl-stack-space);
 
     & > * {
       margin-block: 0;
-    }
-
-    & > * + * {
-      margin-block-start: var(--sl-stack-space);
     }
 
     &[data-fluid="true"] {
@@ -27,13 +24,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: var(--sl-stack-align);
+    column-gap: var(--sl-stack-space);
 
     & > * {
       margin-inline: 0;
-    }
-
-    & > * + * {
-      margin-inline-start: var(--sl-stack-space);
     }
   }
 }
