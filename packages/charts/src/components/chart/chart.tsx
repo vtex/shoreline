@@ -25,7 +25,7 @@ import { cloneDeep, type Dictionary } from 'lodash'
 import {
   normalizeBarData,
   normalizeHorizontalBarData,
-  setAreaColors,
+  setAreaGradients,
 } from '../../utils/hooks'
 
 /**
@@ -94,7 +94,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
 
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
-      if (zoom && chartConfig.type !== 'bar') {
+      if (zoom && chartConfig.type === 'line') {
         options.grid ??= {}
         options.grid = { ...options.grid, height: '75%' }
         options.dataZoom = DATAZOOM_DEFAULT_STYLE
@@ -270,7 +270,7 @@ const defaultHooks: DefaultHooks = {
     default: [],
   },
   area: {
-    default: [setAreaColors],
+    overlapping: [setAreaGradients],
     stacked: [],
   },
 }

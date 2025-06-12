@@ -115,7 +115,7 @@ export function normalizeHorizontalBarDataInner(
   }
 }
 
-export function setAreaColors(options: EChartsOption): EChartsOption {
+export function setAreaGradients(options: EChartsOption): EChartsOption {
   const returnOptions = cloneDeep(options) as EChartsOption
 
   const { series, ...otherProps } = returnOptions
