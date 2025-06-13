@@ -171,7 +171,13 @@ export const CHART_STYLES: DefaultChartStyles = {
         emphasis: { disabled: true },
       },
       legend: LEGEND_DEFAULT_STYLE,
-      tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
+      tooltip: {
+        ...BASE_TOOLTIP_OPIONS,
+        trigger: 'axis',
+        formatter: (params) => {
+          return getTooltipStaticString(params, true)
+        },
+      },
       grid: GRID_DEFAULT_STYLE,
     },
     stacked: {
@@ -186,7 +192,13 @@ export const CHART_STYLES: DefaultChartStyles = {
         stack: '_STACK',
       },
       legend: LEGEND_DEFAULT_STYLE,
-      tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
+      tooltip: {
+        ...BASE_TOOLTIP_OPIONS,
+        trigger: 'axis',
+        formatter: (params) => {
+          return getTooltipStaticString(params, true)
+        },
+      },
       grid: GRID_DEFAULT_STYLE,
     },
   },
