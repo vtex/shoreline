@@ -15,7 +15,7 @@ export default function Example() {
       yAxis={{
         axisLabel: { formatter: (value: number) => compactNumber(value) },
       }}
-      series={[{ data: [12344441, 62346346, 97346346], name: 'Series 1' }]}
+      series={[{ data: [12344441, 62346346, 97346346] }]}
       chartConfig={{ type: 'bar', gap: 3 }}
     />
   )
