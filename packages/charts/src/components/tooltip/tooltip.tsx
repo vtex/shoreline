@@ -2,9 +2,8 @@ import type { TooltipComponentFormatterCallbackParams } from 'echarts'
 import { renderToStaticMarkup } from 'react-dom/server'
 import '../../theme/components/tooltip.css'
 
-export default function ChartTooltip({ params, area }: ChartTooltipProps) {
-  // this is specific for area charts
-  if (Array.isArray(params) && area) params.reverse()
+export default function ChartTooltip({ params, invert }: ChartTooltipProps) {
+  if (Array.isArray(params) && invert) params.reverse()
   return (
     <>
       <h4 data-sl-chart-tooltip-title>
@@ -46,10 +45,10 @@ export function ChartTooltipBase({ params }: { params: any }) {
 
 export const getTooltipStaticString = (
   params: TooltipComponentFormatterCallbackParams,
-  area?: boolean
-) => renderToStaticMarkup(<ChartTooltip params={params} area={area} />)
+  invert?: boolean
+) => renderToStaticMarkup(<ChartTooltip params={params} invert={invert} />)
 
 export interface ChartTooltipProps {
   params: TooltipComponentFormatterCallbackParams
-  area?: boolean
+  invert?: boolean
 }
