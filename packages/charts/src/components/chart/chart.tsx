@@ -126,6 +126,43 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
     }, [])
 
+    const checkBoxVisual = useCallback((params: any) => {
+      if (!chartRef.current) return
+      const chart = chartRef.current.getEchartsInstance()
+      const dom = chart.getDom()
+      const height = chart.getHeight()
+      const svg = dom.querySelector('g')
+      if (!svg) return
+      console.log(dom)
+      console.log(svg)
+      console.log(height)
+      const paths = svg.querySelectorAll('path')
+
+      const icons: SVGPathElement[] = []
+
+      paths.forEach((v) => {
+        const t = v.getAttribute('transform')
+        if (t && v.hasAttribute('fill')) {
+          const match = t?.match(/translate\([^\s]+\s([^\)]+)\)/) // returns [x, y]
+          const y = match ? Number.parseFloat(match[1]) : null
+          if (y === height - 16) {
+            console.log(y)
+            icons.push(v)
+            const square = document.createElement('path')
+            square.setAttribute(
+              'd',
+              'M4 0L12 0A4 4 0 0 1 16 4L16 12A4 4 0 0 1 12 16L4 16A4 4 0 0 1 0 12L0 4A4 4 0 0 1 4 0'
+            ) // 100x100 square
+            square.setAttribute('fill', 'red')
+            square.setAttribute('stroke', 'black')
+            square.setAttribute('stroke-width', '2')
+            square.setAttribute('transform', t)
+            svg.appendChild(square)
+          }
+        }
+      })
+    }, [])
+
     const connectGroups = useCallback(() => {
       if (!group || !chartRef.current) return
       const chart = chartRef.current.getEchartsInstance()
@@ -164,6 +201,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           onEvents={{
             legendselectchanged: checkBoxLegend,
             finished: connectGroups,
+            rendered: checkBoxVisual,
             ...onEvents,
           }}
           {...otherProps}
