@@ -25,6 +25,7 @@ export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   padding: 0,
   itemGap: 20,
   icon: 'roundRect',
+  itemStyle: { color: 'transparent' },
   textStyle: { color: 'var(--sl-color-gray-9)' },
 }
 

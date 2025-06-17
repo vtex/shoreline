@@ -5,8 +5,13 @@ import {
   forwardRef,
   type ComponentPropsWithRef,
   useCallback,
+  useState,
 } from 'react'
-import type { EChartsOption, SeriesOption } from 'echarts'
+import type {
+  EChartsOption,
+  GraphicComponentOption,
+  SeriesOption,
+} from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
@@ -21,12 +26,13 @@ import {
   DATAZOOM_DEFAULT_STYLE,
   DEFAULT_LOADING_SPINNER,
 } from '../../theme/chartStyles'
-import { cloneDeep, type Dictionary } from 'lodash'
+import { cloneDeep, isArray, type Dictionary } from 'lodash'
 import {
   normalizeBarData,
   normalizeHorizontalBarData,
   setAreaGradients,
 } from '../../utils/hooks'
+import { createLegendVisuals } from '../../utils/legend'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -65,6 +71,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     } = props
 
     const chartRef = useRef<ReactECharts>(null)
+    const [graphics, setGraphics] = useState([] as GraphicComponentOption[])
 
     const hooks: ((series: EChartsOption) => EChartsOption)[] = useMemo(() => {
       if (optionHooks === null || chartConfig === null) {
@@ -99,37 +106,122 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         options.grid = { ...options.grid, height: '75%' }
         options.dataZoom = DATAZOOM_DEFAULT_STYLE
       }
+
+      options.graphic = [
+        ...graphics,
+        ...(isArray(option?.graphic) ? option.graphic : []),
+      ]
       return options
-    }, [option, chartConfig, zoom])
+    }, [option, chartConfig, zoom, graphics, series, xAxis, yAxis, title])
 
-    const checkBoxLegend = useCallback((params: any) => {
+    const checkBoxLegend = useCallback(
+      (params: any) => {
+        if (!chartRef.current) return
+        console.log(params)
+        // we flip the one that was selected, so that this represents the state of the legend before the user clicked it
+        params.selected[params.name] = !params.selected[params.name]
+
+        const notSelected: [string, boolean][] = []
+        const selected: [string, boolean][] = []
+        Object.entries(params.selected).forEach((v) => {
+          if (v[1]) {
+            selected
+            selected.push(v as [string, boolean])
+          } else {
+            notSelected.push(v as [string, boolean])
+          }
+        })
+
+        const chart = chartRef.current.getEchartsInstance()
+        if (notSelected.length === 0) {
+          chart.dispatchAction({ type: 'legendInverseSelect' })
+        } else if (selected.length === 1 && selected[0][0] === params.name) {
+          chart.dispatchAction({ type: 'legendAllSelect' })
+        }
+
+        // const newRects = createLegendVisuals(
+        //   graphics.map((g) => g.info),
+        //   Object.values(params.selected)
+        // )
+        // const rects = newRects.map((r, i) => {
+        //   return {
+        //     ...r,
+        //     onclick() {
+        //       toggle(Object.keys(params.selected)[i])
+        //     },
+        //   }
+        // })
+        // setGraphics(
+        //   graphics.map((g) => {
+        //     return { ...g, style: { fill: '#FFFFFF' } }
+        //   })
+        // )
+      },
+      [chartRef, graphics]
+    )
+
+    const setupCheckBoxVisual = useCallback(() => {
       if (!chartRef.current) return
-      // we flip the one that was selected, so that this represents the state of the legend before the user clicked it
-      params.selected[params.name] = !params.selected[params.name]
+      if (isArray(graphics) && graphics.length !== 0) return
 
-      const notSelected: [string, boolean][] = []
-      const selected: [string, boolean][] = []
-      Object.entries(params.selected).forEach((v) => {
-        if (v[1]) {
-          selected
-          selected.push(v as [string, boolean])
-        } else {
-          notSelected.push(v as [string, boolean])
+      const chart = chartRef.current.getEchartsInstance()
+      const dom = chart.getDom()
+      const svg = dom.querySelector('g')
+      if (!svg) return
+
+      const paths = svg.querySelectorAll('path')
+      const height = chart.getHeight()
+
+      const rawPoints: [number, number][] = []
+      paths.forEach((p) => {
+        const t = p.getAttribute('transform')
+        if (t) {
+          // Match "translate(x y)" and extract the y value
+          const match = t.match(/translate\(\s*([^\s,)]+)[ ,]+([^\s,)]+)\s*\)/)
+          const x = match ? Number.parseFloat(match[1]) : null
+          const y = match ? Number.parseFloat(match[2]) : null
+          if (x && y && height - 16 === y) {
+            rawPoints.push([x, y])
+          }
         }
       })
 
-      const chart = chartRef.current.getEchartsInstance()
-      if (notSelected.length === 0) {
-        chart.dispatchAction({ type: 'legendInverseSelect' })
-      } else if (selected.length === 1 && selected[0][0] === params.name) {
-        chart.dispatchAction({ type: 'legendAllSelect' })
+      // every legend item has 2 paths: the icon and the background, we only care about the icon
+      const points = rawPoints.filter((_, i) => i % 2 !== 0)
+      const rawRects = createLegendVisuals(points)
+      const names = ['Series 1', 'Series 2', 'Series 3', 'Series 4', 'Series 5']
+      const rects = rawRects.map((r, i) => {
+        return {
+          ...r,
+          onclick() {
+            toggle(names[i])
+          },
+        }
+      })
+      console.log(points)
+
+      if (!isArray(chartOptions.graphic)) return
+
+      // for some reason this is necessary or else the loading state doesn't render correctly
+      if (rects.length !== graphics.length) {
+        setGraphics(rects)
       }
-    }, [])
+    }, [graphics, chartRef])
+
+    const toggle = useCallback(
+      (name: string) => {
+        if (!chartRef.current) return
+        chartRef.current
+          .getEchartsInstance()
+          .dispatchAction({ type: 'legendToggleSelect', name: name })
+      },
+      [graphics, chartRef]
+    )
 
     const connectGroups = useCallback(() => {
       if (!group || !chartRef.current) return
       const chart = chartRef.current.getEchartsInstance()
-
+      if (chart.group === group) return
       chart.group = group
 
       echarts.connect(group)
@@ -140,7 +232,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         chartRef.current.getEchartsInstance().resize()
       }
     }, [chartRef])
-
     useEffect(() => {
       if (!canUseDOM) return
 
@@ -164,6 +255,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           onEvents={{
             legendselectchanged: checkBoxLegend,
             finished: connectGroups,
+            rendered: setupCheckBoxVisual,
             ...onEvents,
           }}
           {...otherProps}

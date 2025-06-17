@@ -13,6 +13,27 @@ export const Basic: Story = {
     series: [{ data: [70, 40, 55, 35, 39, 30, 25], name: 'Data' }],
     xAxis: { data: ['一', '二', '三', '四', '五', '六', '七'] },
     chartConfig: { type: 'area' },
+    option: {
+      graphic: [
+        {
+          type: 'circle',
+          shape: {
+            cx: 750,
+            cy: 40,
+            r: 20,
+          },
+          style: { fill: 'var(--sl-color-red-10)' },
+          onmouseover(e) {
+            e.target.attr({ style: { fill: 'var(--sl-color-teal-10)' } })
+          },
+          onmouseout(e) {
+            e.target.attr({ style: { fill: 'var(--sl-color-red-10)' } })
+          },
+          z: 10,
+          draggable: true,
+        },
+      ],
+    },
   },
 }
 
