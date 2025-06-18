@@ -18,15 +18,19 @@ const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
 export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
   orient: 'horizontal',
   left: '1%',
-  bottom: 0,
+  bottom: 1,
   align: 'left',
   itemWidth: 16,
   itemHeight: 16,
   padding: 0,
   itemGap: 20,
   icon: 'roundRect',
-  itemStyle: { color: 'transparent' },
-  textStyle: { color: 'var(--sl-color-gray-9)' },
+  textStyle: {
+    color: 'var(--sl-fg-base-soft)',
+    // lineHeight: 16,
+    fontSize: 12,
+  },
+  inactiveColor: 'var(--sl-fg-base-soft)',
 }
 
 export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
@@ -182,7 +186,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         type: 'line',
         smooth: true,
         showSymbol: false,
-        areaStyle: { opacity: 0.5 },
+        areaStyle: { opacity: 0.15 },
         emphasis: { disabled: true },
         stack: '_STACK',
       },

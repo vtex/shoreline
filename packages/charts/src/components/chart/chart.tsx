@@ -30,6 +30,7 @@ import { cloneDeep, isArray, type Dictionary } from 'lodash'
 import {
   normalizeBarData,
   normalizeHorizontalBarData,
+  setAreaColors,
   setAreaGradients,
 } from '../../utils/hooks'
 import { createLegendVisuals } from '../../utils/legend'
@@ -66,6 +67,8 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       optionHooks = [],
       onEvents,
       zoom = true,
+      checkboxLegendBehaviour = true,
+      checkboxLegendVisuals = true,
       group,
       ...otherProps
     } = props
@@ -106,62 +109,78 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         options.grid = { ...options.grid, height: '75%' }
         options.dataZoom = DATAZOOM_DEFAULT_STYLE
       }
-
-      options.graphic = [
-        ...graphics,
-        ...(isArray(option?.graphic) ? option.graphic : []),
-      ]
+      if (checkboxLegendVisuals) {
+        if (isArray(options.legend)) return options
+        options.legend ??= {}
+        options.legend.itemStyle = {
+          ...options.legend.itemStyle,
+          color: 'transparent',
+        }
+        options.graphic = [
+          ...graphics,
+          ...(isArray(option?.graphic) ? option.graphic : []),
+        ]
+      }
       return options
     }, [option, chartConfig, zoom, graphics, series, xAxis, yAxis, title])
 
     const checkBoxLegend = useCallback(
       (params: any) => {
         if (!chartRef.current) return
-        console.log(params)
         // we flip the one that was selected, so that this represents the state of the legend before the user clicked it
         params.selected[params.name] = !params.selected[params.name]
+        const changedIndex = Object.keys(params.selected).indexOf(params.name)
 
         const notSelected: [string, boolean][] = []
         const selected: [string, boolean][] = []
+        const toggled: boolean[] = []
+
         Object.entries(params.selected).forEach((v) => {
           if (v[1]) {
-            selected
             selected.push(v as [string, boolean])
+            toggled.push(true)
           } else {
             notSelected.push(v as [string, boolean])
+            toggled.push(false)
           }
         })
+        toggled[changedIndex] = !toggled[changedIndex]
 
         const chart = chartRef.current.getEchartsInstance()
-        if (notSelected.length === 0) {
-          chart.dispatchAction({ type: 'legendInverseSelect' })
-        } else if (selected.length === 1 && selected[0][0] === params.name) {
-          chart.dispatchAction({ type: 'legendAllSelect' })
+        if (checkboxLegendBehaviour) {
+          if (notSelected.length === 0) {
+            chart.dispatchAction({ type: 'legendInverseSelect' })
+            toggled.forEach((v, i) => {
+              toggled[i] = !v
+            })
+          } else if (selected.length === 1 && selected[0][0] === params.name) {
+            chart.dispatchAction({ type: 'legendAllSelect' })
+            toggled.fill(true)
+          }
         }
 
-        // const newRects = createLegendVisuals(
-        //   graphics.map((g) => g.info),
-        //   Object.values(params.selected)
-        // )
-        // const rects = newRects.map((r, i) => {
-        //   return {
-        //     ...r,
-        //     onclick() {
-        //       toggle(Object.keys(params.selected)[i])
-        //     },
-        //   }
-        // })
-        // setGraphics(
-        //   graphics.map((g) => {
-        //     return { ...g, style: { fill: '#FFFFFF' } }
-        //   })
-        // )
+        if (!checkboxLegendVisuals) return
+
+        const newRects = createLegendVisuals(
+          graphics.map((g) => g.children[0].info),
+          toggled,
+          toggled.some((v) => !v)
+        )
+        const rects = newRects.map((r, i) => {
+          return {
+            ...r,
+            onclick() {
+              toggle(Object.keys(params.selected)[i])
+            },
+          }
+        })
+        chart.setOption({ ...chartOptions, graphic: rects })
       },
       [chartRef, graphics]
     )
 
     const setupCheckBoxVisual = useCallback(() => {
-      if (!chartRef.current) return
+      if (!chartRef.current || !checkboxLegendVisuals) return
       if (isArray(graphics) && graphics.length !== 0) return
 
       const chart = chartRef.current.getEchartsInstance()
@@ -180,7 +199,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           const match = t.match(/translate\(\s*([^\s,)]+)[ ,]+([^\s,)]+)\s*\)/)
           const x = match ? Number.parseFloat(match[1]) : null
           const y = match ? Number.parseFloat(match[2]) : null
-          if (x && y && height - 16 === y) {
+          if (x && y && height - 17 === y) {
             rawPoints.push([x, y])
           }
         }
@@ -198,7 +217,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           },
         }
       })
-      console.log(points)
 
       if (!isArray(chartOptions.graphic)) return
 
@@ -231,7 +249,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       if (chartRef.current) {
         chartRef.current.getEchartsInstance().resize()
       }
+      const graphics = chartOptions.graphic
+      if (isArray(graphics) && checkboxLegendVisuals) {
+        setGraphics(
+          graphics.filter((g) => g.id?.toString().startsWith('_group'))
+        )
+      }
     }, [chartRef])
+
     useEffect(() => {
       if (!canUseDOM) return
 
@@ -311,6 +336,15 @@ export interface ChartOptions {
    */
   zoom?: boolean
   /**
+   * Whether to use our custom checkbox legend behaviour.
+   */
+  checkboxLegendBehaviour?: boolean
+  /**
+   * Whether to use our custom checkbox legend visuals, including the checkbox itself
+   * and custom hover and off states.
+   */
+  checkboxLegendVisuals?: boolean
+  /**
    * Defines the group that the chart will be part of. Charts in the same group share many features among them.
    * These features include: sharing the tooltip and sharing the same legend.
    *
@@ -363,6 +397,6 @@ const defaultHooks: DefaultHooks = {
   },
   area: {
     overlapping: [setAreaGradients],
-    stacked: [],
+    stacked: [setAreaColors],
   },
 }

@@ -1,7 +1,7 @@
 import type { EChartsOption, LineSeriesOption, SeriesOption } from 'echarts'
 import { cloneDeep, isArray, isDate } from 'lodash'
 import { defaultTheme } from '../theme/themes'
-import { defaultColorPreset } from '../theme/colors'
+import { defaultAreaColors, defaultColorShade } from '../theme/colors'
 
 export function applySeriesHook(
   series: SeriesOption,
@@ -115,7 +115,14 @@ export function normalizeHorizontalBarDataInner(
   }
 }
 
-export function setAreaGradients(options: EChartsOption): EChartsOption {
+export function setAreaGradients(options: EChartsOption) {
+  return setAreaColors(options, true)
+}
+
+export function setAreaColors(
+  options: EChartsOption,
+  gradient = false
+): EChartsOption {
   const returnOptions = cloneDeep(options) as EChartsOption
 
   const { series, ...otherProps } = returnOptions
@@ -142,20 +149,24 @@ export function setAreaGradients(options: EChartsOption): EChartsOption {
   if (isArray(series)) {
     series.forEach((v, index) => {
       const serie = v as LineSeriesOption
+      serie.color = defaultColorShade[index]
+
       serie.areaStyle ??= {}
       const colorOut = cloneDeep(color)
       colorOut.colorStops[0].color =
-        defaultColorPreset[index % defaultColorPreset.length]
-      serie.areaStyle.color = colorOut
+        defaultAreaColors[index % defaultAreaColors.length]
+      serie.areaStyle.color = gradient ? colorOut : defaultAreaColors[index]
     })
     return { series, ...otherProps }
   }
 
   const serie = series as LineSeriesOption
+  serie.color = defaultColorShade[0]
+
   serie.areaStyle ??= {}
   const colorOut = cloneDeep(color)
-  colorOut.colorStops[0].color = defaultColorPreset[0]
-  serie.areaStyle.color = colorOut
+  colorOut.colorStops[0].color = defaultAreaColors[0]
+  serie.areaStyle.color = gradient ? colorOut : defaultAreaColors[0]
 
   return { series, ...otherProps }
 }

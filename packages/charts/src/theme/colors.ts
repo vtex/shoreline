@@ -10,7 +10,21 @@ export const defaultColorPreset = [
   colors['--sl-purple-9'],
   colors['--sl-orange-6'],
   colors['--sl-pink-8'],
-  colors['--sl-green-8'],
+  colors['--sl-teal-11'],
+]
+export const defaultColorShade = [
+  colors['--sl-blue-9'],
+  colors['--sl-purple-10'],
+  colors['--sl-orange-7'],
+  colors['--sl-pink-9'],
+  colors['--sl-teal-12'],
+]
+export const defaultAreaColors = [
+  colors['--sl-blue-11'],
+  colors['--sl-purple-11'],
+  colors['--sl-orange-11'],
+  colors['--sl-pink-11'],
+  colors['--sl-teal-11'],
 ]
 
 export const defaultChartColorConfig = {
