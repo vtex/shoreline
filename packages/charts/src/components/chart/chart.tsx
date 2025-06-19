@@ -15,6 +15,10 @@ import {
   checkValidVariant,
   getChartOptions,
   getDefaultByType,
+  toggleSerieLegend,
+  turnOffSerieLegend,
+  turnOnAllLegend,
+  turnOnSerieLegend,
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
@@ -102,29 +106,81 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       return options
     }, [option, chartConfig, zoom])
 
-    const checkBoxLegend = useCallback((params: any) => {
-      if (!chartRef.current) return
-      // we flip the one that was selected, so that this represents the state of the legend before the user clicked it
-      params.selected[params.name] = !params.selected[params.name]
+    const checkBoxLegend = useCallback(
+      (params: { name: any; selected: any }) => {
+        if (!chartRef.current) return
+        const chart = chartRef.current.getEchartsInstance()
 
-      const notSelected: [string, boolean][] = []
-      const selected: [string, boolean][] = []
-      Object.entries(params.selected).forEach((v) => {
-        if (v[1]) {
-          selected
-          selected.push(v as [string, boolean])
-        } else {
-          notSelected.push(v as [string, boolean])
+        const seriesNames = Object.keys(params.selected)
+        if (
+          typeof params.name === 'string' &&
+          seriesNames.includes(params.name)
+        ) {
+          const indexOfClicked = seriesNames.indexOf(params.name)
+
+          params.selected[params.name] = !params.selected[params.name]
+
+          const selectedSeries: string[] = []
+          const unselectedSeries: string[] = []
+
+          seriesNames.forEach((serie) => {
+            if (params.selected[serie]) selectedSeries.push(serie)
+            else unselectedSeries.push(serie)
+          })
+
+          let actionType: string
+
+          if (unselectedSeries.length === 0) actionType = 'exclusive'
+          else if (
+            selectedSeries.length === 1 &&
+            params.name === selectedSeries[0]
+          )
+            actionType = 'selectAll'
+          else actionType = 'toggle'
+
+          chart.dispatchAction({
+            type: 'legendToggleSelect',
+            name: {
+              index: indexOfClicked,
+              name: params.name as string,
+              type: actionType,
+            },
+          })
+          return
         }
-      })
 
-      const chart = chartRef.current.getEchartsInstance()
-      if (notSelected.length === 0) {
-        chart.dispatchAction({ type: 'legendInverseSelect' })
-      } else if (selected.length === 1 && selected[0][0] === params.name) {
-        chart.dispatchAction({ type: 'legendAllSelect' })
-      }
-    }, [])
+        if (typeof params.name === 'string') return
+
+        const legendAction = params.name as {
+          index: number
+          name: string
+          type: 'selectAll' | 'toggle' | 'exclusive'
+        }
+
+        if (legendAction.type === 'selectAll') {
+          turnOnAllLegend(chart, seriesNames)
+          return
+        }
+
+        if (
+          legendAction.type === 'toggle' &&
+          legendAction.index < seriesNames.length
+        ) {
+          if (seriesNames.includes(legendAction.name)) return
+          toggleSerieLegend(chart, seriesNames[legendAction.index])
+          return
+        }
+
+        if (legendAction.type === 'exclusive') {
+          seriesNames.forEach((serie, index) => {
+            if (index === legendAction.index) turnOnSerieLegend(chart, serie)
+            else turnOffSerieLegend(chart, serie)
+          })
+          return
+        }
+      },
+      []
+    )
 
     const connectGroups = useCallback(() => {
       if (!group || !chartRef.current) return
