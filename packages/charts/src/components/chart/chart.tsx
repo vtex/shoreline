@@ -20,7 +20,10 @@ import {
   checkValidVariant,
   getChartOptions,
   getDefaultByType,
-  getSeriesNames,
+  toggleSerieLegend,
+  turnOffSerieLegend,
+  turnOnAllLegend,
+  turnOnSerieLegend,
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
@@ -34,7 +37,6 @@ import {
   setAreaColors,
   setAreaGradients,
 } from '../../utils/hooks'
-import { createLegendVisuals } from '../../utils/legend'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -126,115 +128,79 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     }, [option, chartConfig, zoom, graphics, series, xAxis, yAxis, title])
 
     const checkBoxLegend = useCallback(
-      (params: any) => {
+      (params: { name: any; selected: any }) => {
         if (!chartRef.current) return
-        // we flip the one that was selected, so that this represents the state of the legend before the user clicked it
-        params.selected[params.name] = !params.selected[params.name]
-        const changedIndex = Object.keys(params.selected).indexOf(params.name)
-
-        const notSelected: [string, boolean][] = []
-        const selected: [string, boolean][] = []
-        const toggled: boolean[] = []
-
-        Object.entries(params.selected).forEach((v) => {
-          if (v[1]) {
-            selected.push(v as [string, boolean])
-            toggled.push(true)
-          } else {
-            notSelected.push(v as [string, boolean])
-            toggled.push(false)
-          }
-        })
-        toggled[changedIndex] = !toggled[changedIndex]
-
         const chart = chartRef.current.getEchartsInstance()
-        if (checkboxLegendBehaviour) {
-          if (notSelected.length === 0) {
-            chart.dispatchAction({ type: 'legendInverseSelect' })
-            toggled.forEach((v, i) => {
-              toggled[i] = !v
-            })
-          } else if (selected.length === 1 && selected[0][0] === params.name) {
-            chart.dispatchAction({ type: 'legendAllSelect' })
-            toggled.fill(true)
-          }
-        }
 
-        if (!checkboxLegendVisuals) return
+        const seriesNames = Object.keys(params.selected)
+        if (
+          typeof params.name === 'string' &&
+          seriesNames.includes(params.name)
+        ) {
+          const indexOfClicked = seriesNames.indexOf(params.name)
 
-        const newRects = createLegendVisuals(
-          graphics.map((g: any) => g.children[0].info),
-          toggled,
-          toggled.some((v) => !v)
-        )
-        const rects = newRects.map((r, i) => {
-          return {
-            ...r,
-            onclick() {
-              toggle(Object.keys(params.selected)[i])
+          params.selected[params.name] = !params.selected[params.name]
+
+          const selectedSeries: string[] = []
+          const unselectedSeries: string[] = []
+
+          seriesNames.forEach((serie) => {
+            if (params.selected[serie]) selectedSeries.push(serie)
+            else unselectedSeries.push(serie)
+          })
+
+          let actionType: string
+
+          if (unselectedSeries.length === 0) actionType = 'exclusive'
+          else if (
+            selectedSeries.length === 1 &&
+            params.name === selectedSeries[0]
+          )
+            actionType = 'selectAll'
+          else actionType = 'toggle'
+
+          chart.dispatchAction({
+            type: 'legendToggleSelect',
+            name: {
+              index: indexOfClicked,
+              name: params.name as string,
+              type: actionType,
             },
-          }
-        })
-        chart.setOption({ ...finalOptions, graphic: rects })
-      },
-      [chartRef, graphics]
-    )
-
-    const setupCheckBoxVisual = useCallback(() => {
-      if (!chartRef.current || !checkboxLegendVisuals) return
-      if (isArray(graphics) && graphics.length !== 0) return
-
-      const chart = chartRef.current.getEchartsInstance()
-      const dom = chart.getDom()
-      const svg = dom.querySelector('g')
-      if (!svg) return
-
-      const paths = svg.querySelectorAll('path')
-      const height = chart.getHeight()
-
-      const rawPoints: [number, number][] = []
-      paths.forEach((p) => {
-        const t = p.getAttribute('transform')
-        if (t) {
-          // Match "translate(x y)" and extract x and y
-          const match = t.match(/translate\(\s*([^\s,)]+)[ ,]+([^\s,)]+)\s*\)/)
-          const x = match ? Number.parseFloat(match[1]) : null
-          const y = match ? Number.parseFloat(match[2]) : null
-          if (x && y && height - 17 === y) {
-            rawPoints.push([x, y])
-          }
+          })
+          return
         }
-      })
 
-      // every legend item has 2 paths: the icon and the background, we only care about the icon
-      const points = rawPoints.filter((_, i) => i % 2 !== 0)
-      const rawRects = createLegendVisuals(points)
-      const names = getSeriesNames(finalOptions)
-      const rects = rawRects.map((r, i) => {
-        return {
-          ...r,
-          onclick() {
-            toggle(names[i])
-          },
+        if (typeof params.name === 'string') return
+
+        const legendAction = params.name as {
+          index: number
+          name: string
+          type: 'selectAll' | 'toggle' | 'exclusive'
         }
-      })
 
-      if (!isArray(finalOptions.graphic)) return
+        if (legendAction.type === 'selectAll') {
+          turnOnAllLegend(chart, seriesNames)
+          return
+        }
 
-      // for some reason this is necessary or else the loading state doesn't render correctly
-      if (rects.length !== graphics.length) {
-        setGraphics(rects)
-      }
-    }, [graphics, chartRef, finalOptions])
+        if (
+          legendAction.type === 'toggle' &&
+          legendAction.index < seriesNames.length
+        ) {
+          if (seriesNames.includes(legendAction.name)) return
+          toggleSerieLegend(chart, seriesNames[legendAction.index])
+          return
+        }
 
-    const toggle = useCallback(
-      (name: string) => {
-        if (!chartRef.current) return
-        chartRef.current
-          .getEchartsInstance()
-          .dispatchAction({ type: 'legendToggleSelect', name: name })
+        if (legendAction.type === 'exclusive') {
+          seriesNames.forEach((serie, index) => {
+            if (index === legendAction.index) turnOnSerieLegend(chart, serie)
+            else turnOffSerieLegend(chart, serie)
+          })
+          return
+        }
       },
-      [graphics, chartRef]
+      []
     )
 
     const connectGroups = useCallback(() => {
