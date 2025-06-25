@@ -20,6 +20,7 @@ import {
   checkValidVariant,
   getChartOptions,
   getDefaultByType,
+  getSeriesNames,
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
@@ -91,7 +92,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       return hooks
     }, [chartConfig, optionHooks])
 
-    const chartOptions: EChartsOption = useMemo(() => {
+    const finalOptions: EChartsOption = useMemo(() => {
       const wholeOption = cloneDeep(option) ?? {}
       wholeOption.series = series
       wholeOption.xAxis = xAxis
@@ -162,7 +163,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         if (!checkboxLegendVisuals) return
 
         const newRects = createLegendVisuals(
-          graphics.map((g) => g.children[0].info),
+          graphics.map((g: any) => g.children[0].info),
           toggled,
           toggled.some((v) => !v)
         )
@@ -174,7 +175,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             },
           }
         })
-        chart.setOption({ ...chartOptions, graphic: rects })
+        chart.setOption({ ...finalOptions, graphic: rects })
       },
       [chartRef, graphics]
     )
@@ -195,7 +196,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       paths.forEach((p) => {
         const t = p.getAttribute('transform')
         if (t) {
-          // Match "translate(x y)" and extract the y value
+          // Match "translate(x y)" and extract x and y
           const match = t.match(/translate\(\s*([^\s,)]+)[ ,]+([^\s,)]+)\s*\)/)
           const x = match ? Number.parseFloat(match[1]) : null
           const y = match ? Number.parseFloat(match[2]) : null
@@ -208,7 +209,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       // every legend item has 2 paths: the icon and the background, we only care about the icon
       const points = rawPoints.filter((_, i) => i % 2 !== 0)
       const rawRects = createLegendVisuals(points)
-      const names = ['Series 1', 'Series 2', 'Series 3', 'Series 4', 'Series 5']
+      const names = getSeriesNames(finalOptions)
       const rects = rawRects.map((r, i) => {
         return {
           ...r,
@@ -218,16 +219,17 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         }
       })
 
-      if (!isArray(chartOptions.graphic)) return
+      if (!isArray(finalOptions.graphic)) return
 
       // for some reason this is necessary or else the loading state doesn't render correctly
       if (rects.length !== graphics.length) {
         setGraphics(rects)
       }
-    }, [graphics, chartRef])
+    }, [graphics, chartRef, finalOptions])
 
     const toggle = useCallback(
       (name: string) => {
+        console.log(name)
         if (!chartRef.current) return
         chartRef.current
           .getEchartsInstance()
@@ -249,7 +251,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       if (chartRef.current) {
         chartRef.current.getEchartsInstance().resize()
       }
-      const graphics = chartOptions.graphic
+      const graphics = finalOptions.graphic
       if (isArray(graphics) && checkboxLegendVisuals) {
         setGraphics(
           graphics.filter((g) => g.id?.toString().startsWith('_group'))
@@ -271,7 +273,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         <ReactECharts
           ref={useMergeRef(ref, chartRef)}
           theme={theme}
-          option={chartOptions}
+          option={finalOptions}
           style={{ minWidth: 300, minHeight: 200, padding: 20, ...style }}
           opts={{ renderer: renderer }}
           showLoading={loading}

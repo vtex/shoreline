@@ -10,7 +10,7 @@ type Story = StoryObj<typeof Chart>
 
 export const Basic: Story = {
   args: {
-    series: [{ data: [70, 40, 55, 35, 39, 30, 25], name: 'Data' }],
+    series: { data: [70, 40, 55, 35, 39, 30, 25], name: 'Data' },
     xAxis: { data: ['一', '二', '三', '四', '五', '六', '七'] },
     chartConfig: { type: 'area' },
   },

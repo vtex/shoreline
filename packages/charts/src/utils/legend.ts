@@ -17,7 +17,8 @@ export function createLegendVisuals(
         if (border.style.fill === '#FFFFFF') return
         border.attr({ style: { fill: '#ADADAD' } })
       },
-      onmouseout(e) {
+      onmouseout(e: any) {
+        // the public children property is empty here, but the private one isn't.
         const border = e.target.parent._children[1]
         if (border.style.fill === '#FFFFFF') return
         border.attr({ style: { fill: '#C2C2C2' } })
@@ -39,7 +40,7 @@ export function createLegendVisuals(
           onmouseover(e) {
             e.target.attr({ style: { fill: getColorShade(color) } })
           },
-          onmouseout(e) {
+          onmouseout(e: any) {
             e.target.attr({ style: { fill: color } })
           },
         },

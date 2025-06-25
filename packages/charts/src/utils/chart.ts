@@ -138,3 +138,12 @@ export function checkValidVariant(type: string, variant?: string): boolean {
 export function getDefaultByType(type: ChartConfig['type']): string {
   return ChartVariants[type].default
 }
+
+export function getSeriesNames(option: EChartsOption): string[] {
+  if (!option.series) return ['series0']
+  const series = option.series
+  if (isArray(series)) {
+    return series.map((v, i) => (v.name ? v.name.toString() : `series${i}`))
+  }
+  return series.name ? [series.name.toString()] : ['series0']
+}
