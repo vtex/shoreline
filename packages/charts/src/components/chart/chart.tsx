@@ -229,7 +229,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
     const toggle = useCallback(
       (name: string) => {
-        console.log(name)
         if (!chartRef.current) return
         chartRef.current
           .getEchartsInstance()
@@ -250,12 +249,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     const handleResize = useCallback(() => {
       if (chartRef.current) {
         chartRef.current.getEchartsInstance().resize()
-      }
-      const graphics = finalOptions.graphic
-      if (isArray(graphics) && checkboxLegendVisuals) {
-        setGraphics(
-          graphics.filter((g) => g.id?.toString().startsWith('_group'))
-        )
       }
     }, [chartRef])
 
