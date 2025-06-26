@@ -5,7 +5,7 @@ import { defaultSpinnerColor } from './colors'
 import { getTooltipStaticString } from '../components/tooltip'
 
 const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
-  trigger: 'item',
+  trigger: 'axis',
   borderWidth: 1,
   borderColor: 'var(--sl-color-gray-4)',
   extraCssText:
@@ -112,7 +112,6 @@ export const CHART_STYLES: DefaultChartStyles = {
       grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
-        trigger: 'axis',
         axisPointer: {
           type: 'shadow',
           z: -1,
@@ -139,7 +138,6 @@ export const CHART_STYLES: DefaultChartStyles = {
       grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
-        trigger: 'axis',
         axisPointer: {
           type: 'shadow',
           z: -1,
@@ -160,7 +158,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         showSymbol: false,
       },
       legend: { ...LEGEND_DEFAULT_STYLE },
-      tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'axis' },
+      tooltip: { ...BASE_TOOLTIP_OPIONS },
       grid: GRID_DEFAULT_STYLE,
     },
   },
@@ -178,7 +176,6 @@ export const CHART_STYLES: DefaultChartStyles = {
       legend: LEGEND_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
-        trigger: 'axis',
         formatter: (params) => {
           return getTooltipStaticString(params, true)
         },
@@ -199,7 +196,6 @@ export const CHART_STYLES: DefaultChartStyles = {
       legend: LEGEND_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
-        trigger: 'axis',
         formatter: (params) => {
           return getTooltipStaticString(params, true)
         },

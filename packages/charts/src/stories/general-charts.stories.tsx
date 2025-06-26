@@ -139,7 +139,7 @@ export const ZoomExample: Story = {
     return (
       <>
         <Button
-          onClick={(params: any) => {
+          onClick={() => {
             const nZoom = !Zoom
             setZoom(nZoom)
             const nKey = !key
