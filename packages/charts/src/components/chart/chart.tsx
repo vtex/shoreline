@@ -13,6 +13,7 @@ import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig, DefaultHooks } from '../../types/chart'
 import {
   checkValidVariant,
+  checkZoom,
   getChartOptions,
   getDefaultByType,
   toggleSerieLegend,
@@ -63,7 +64,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       theme = defaultTheme,
       optionHooks = [],
       onEvents,
-      zoom = true,
+      zoom,
       group,
       ...otherProps
     } = props
@@ -91,6 +92,12 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       wholeOption.xAxis = xAxis
       wholeOption.yAxis = yAxis
       wholeOption.title = title
+
+      if (checkZoom(zoom, chartConfig?.type)) {
+        wholeOption.grid ??= {}
+        wholeOption.grid = { ...wholeOption.grid, height: '75%' }
+        wholeOption.dataZoom = DATAZOOM_DEFAULT_STYLE
+      }
       if (chartConfig === null) {
         return wholeOption
       }
@@ -98,11 +105,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
 
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
-      if (zoom && chartConfig.type === 'line') {
-        options.grid ??= {}
-        options.grid = { ...options.grid, height: '75%' }
-        options.dataZoom = DATAZOOM_DEFAULT_STYLE
-      }
       return options
     }, [option, chartConfig, zoom])
 

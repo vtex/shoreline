@@ -160,3 +160,14 @@ export function toggleSerieLegend(chart: echarts.ECharts, serie: string) {
     { silent: true }
   )
 }
+
+export function checkZoom(
+  zoom: boolean | undefined,
+  type: string | undefined
+): boolean {
+  if (typeof zoom === 'boolean') return zoom
+
+  if (type === 'bar') return false
+
+  return true
+}
