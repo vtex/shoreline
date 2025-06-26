@@ -158,13 +158,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
           let actionType: string
 
-          if (unselectedSeries.length === 0) actionType = 'exclusive'
-          else if (
+          if (unselectedSeries.length === 0) {
+            actionType = 'exclusive'
+          } else if (
             selectedSeries.length === 1 &&
             params.name === selectedSeries[0]
-          )
+          ) {
             actionType = 'selectAll'
-          else actionType = 'toggle'
+          } else actionType = 'toggle'
 
           chart.dispatchAction({
             type: 'legendToggleSelect',
