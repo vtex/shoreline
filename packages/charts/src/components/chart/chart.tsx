@@ -18,6 +18,7 @@ import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig, DefaultHooks } from '../../types/chart'
 import {
   checkValidVariant,
+  checkZoom,
   getChartOptions,
   getDefaultByType,
   toggleSerieLegend,
@@ -69,7 +70,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       theme = defaultTheme,
       optionHooks = [],
       onEvents,
-      zoom = true,
+      zoom,
       checkboxLegendBehaviour = true,
       checkboxLegendVisuals = true,
       group,
@@ -100,6 +101,12 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       wholeOption.xAxis = xAxis
       wholeOption.yAxis = yAxis
       wholeOption.title = title
+
+      if (checkZoom(zoom, chartConfig?.type)) {
+        wholeOption.grid ??= {}
+        wholeOption.grid = { ...wholeOption.grid, height: '75%' }
+        wholeOption.dataZoom = DATAZOOM_DEFAULT_STYLE
+      }
       if (chartConfig === null) {
         return wholeOption
       }

@@ -147,3 +147,14 @@ export function getSeriesNames(option: EChartsOption): string[] {
   }
   return series.name ? [series.name.toString()] : ['series0']
 }
+
+export function checkZoom(
+  zoom: boolean | undefined,
+  type: string | undefined
+): boolean {
+  if (typeof zoom === 'boolean') return zoom
+
+  if (type === 'bar') return false
+
+  return true
+}

@@ -44,7 +44,7 @@ export const ChartCompositor = forwardRef<
     yAxis = { type: 'value' },
     title,
     tooltip,
-    zoom = false,
+    zoom,
     options,
     style,
     renderer = 'svg',
