@@ -1,4 +1,3 @@
-// biome-ignore lint/correctness/noUnusedImports: <explanation>
 import { random } from 'lodash'
 import { Chart, ChartCompositor } from '../index'
 import type { StoryObj } from '@storybook/react'
@@ -11,8 +10,33 @@ export default {
 }
 
 type Story = StoryObj<typeof Chart>
+export const BasicSync: Story = {
+  render: () => {
+    return (
+      <>
+        <Chart
+          series={[
+            { data: [1, 2, 3], name: 'Seg' },
+            { data: [3, 4, 5], name: 'Ter' },
+            { data: [5, 1, 2], name: 'Qua' },
+          ]}
+          chartConfig={{ type: 'bar' }}
+          group="a"
+        />
+        <Chart
+          series={[
+            { data: [3, 4, 5], name: 'Seg' },
+            { data: [1, 2, 3], name: 'Ter' },
+          ]}
+          chartConfig={{ type: 'bar' }}
+          group="a"
+        />
+      </>
+    )
+  },
+}
 
-export const BasicExample: Story = {
+export const SyncWithCompositor: Story = {
   render: () => {
     return (
       <>
@@ -44,6 +68,7 @@ export const BasicExample: Story = {
           xAxis={{
             data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'I', 'J', 'K', 'L'],
           }}
+          style={{ height: 500 }}
           group="sync"
         />
         <Chart

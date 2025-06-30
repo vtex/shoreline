@@ -12,6 +12,7 @@ export const defaultColorPreset = [
   colors['--sl-pink-8'],
   colors['--sl-teal-11'],
 ]
+
 export const defaultColorShade = [
   colors['--sl-blue-9'],
   colors['--sl-purple-10'],
