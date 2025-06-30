@@ -69,6 +69,7 @@ export const SyncWithCompositor: Story = {
             data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'I', 'J', 'K', 'L'],
           }}
           style={{ height: 500 }}
+          zoom
           group="sync"
         />
         <Chart

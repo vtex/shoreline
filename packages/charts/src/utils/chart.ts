@@ -138,16 +138,19 @@ export function checkValidVariant(type: string, variant?: string): boolean {
 export function getDefaultByType(type: ChartConfig['type']): string {
   return ChartVariants[type].default
 }
-
+/**
+ * Determines whether to enable zoom by default.
+ * If zoom is undefined, certain chart types will enable zoom anyway.
+ */
 export function checkZoom(
   zoom: boolean | undefined,
   type: string | undefined
 ): boolean {
   if (typeof zoom === 'boolean') return zoom
 
-  if (type === 'bar') return false
+  if (type === 'line') return true
 
-  return true
+  return false
 }
 
 export function getSeriesNames(option: EChartsOption): string[] {
