@@ -127,46 +127,32 @@ export function setAreaColors(
 
   const { series, ...otherProps } = returnOptions
 
-  const color = {
-    type: 'linear' as const,
-    x: 0,
-    y: 0,
-    x2: 0,
-    y2: 1,
-    global: false,
-    colorStops: [
-      {
-        offset: 0,
-        color: '',
-      },
-      {
-        offset: 1,
-        color: '#FFFFFF',
-      },
-    ],
-  }
+  const arraySeries = isArray(series) ? series : [series]
 
-  if (isArray(series)) {
-    series.forEach((v, index) => {
-      const serie = v as LineSeriesOption
-      serie.color = defaultColorShade[index]
-
-      serie.areaStyle ??= {}
-      const colorOut = cloneDeep(color)
-      colorOut.colorStops[0].color =
-        defaultAreaColors[index % defaultAreaColors.length]
-      serie.areaStyle.color = gradient ? colorOut : defaultAreaColors[index]
-    })
-    return { series, ...otherProps }
-  }
-
-  const serie = series as LineSeriesOption
-  serie.color = defaultColorShade[0]
-
-  serie.areaStyle ??= {}
-  const colorOut = cloneDeep(color)
-  colorOut.colorStops[0].color = defaultAreaColors[0]
-  serie.areaStyle.color = gradient ? colorOut : defaultAreaColors[0]
-
+  arraySeries.forEach((v, index) => {
+    const serie = v as LineSeriesOption
+    const areaColor = defaultAreaColors[index % defaultAreaColors.length]
+    const color = {
+      type: 'linear' as const,
+      x: 0,
+      y: 0,
+      x2: 0,
+      y2: 1,
+      global: false,
+      colorStops: [
+        {
+          offset: 0,
+          color: areaColor,
+        },
+        {
+          offset: 1,
+          color: `${areaColor}00`,
+        },
+      ],
+    }
+    serie.color = defaultColorShade[index]
+    serie.areaStyle ??= {}
+    serie.areaStyle.color = gradient ? color : defaultAreaColors[index]
+  })
   return { series, ...otherProps }
 }
