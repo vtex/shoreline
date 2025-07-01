@@ -146,7 +146,7 @@ export function setAreaColors(
         },
         {
           offset: 1,
-          color: `${areaColor}00`,
+          color: '#FFFFFF',
         },
       ],
     }
