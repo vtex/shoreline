@@ -135,7 +135,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     }, [option, chartConfig, zoom, graphics, series, xAxis, yAxis, title])
 
     const checkBoxLegend = useCallback(
-      (params: { name: any; selected: any }) => {
+      (params: any) => {
         if (!chartRef.current) return
         const chart = chartRef.current.getEchartsInstance()
 
@@ -187,6 +187,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
               name: params.name as string,
               type: actionType,
               toggled: toggled,
+              chartId: chart.getId(),
             },
           })
           if (!checkboxLegendVisuals) return
@@ -202,7 +203,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           name: string
           type: 'selectAll' | 'toggle' | 'exclusive'
           toggled: boolean[]
+          chartId: string
         }
+
+        if (
+          seriesNames.includes(legendAction.name) &&
+          chart.getId() !== legendAction.chartId
+        )
+          return
 
         if (legendAction.type === 'selectAll') {
           turnOnAllLegend(chart, seriesNames)
