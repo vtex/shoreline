@@ -16,14 +16,15 @@ export const Basic: Story = {
   },
 }
 
-export const MultipleGradientArea: Story = {
+export const MaximumAmoutOfOverlappedAreas: Story = {
   args: {
-    style: { height: 550 },
+    // style: { height: 550 },
     series: [
-      { data: [6, 5, 2, 7, 1, 10, 6, 5, 1, 5, 6, 3, 8, 10, 4], name: 'Data 1' },
-      { data: [4, 7, 5, 2, 6, 2, 6, 2, 6, 8, 4, 5, 9, 1, 5], name: 'Data 2' },
+      { data: [70, 40, 55, 35, 39, 30, 25], name: 'Product A' },
+      { data: [0, 0, 5, 10, 25, 45, 55], name: 'Product B' },
     ],
     chartConfig: { type: 'area', variant: 'overlapping' },
+    xAxis: { data: ['1º', '2º', '3º', '4º', '5º', '6º', '7º'] },
   },
 }
 
