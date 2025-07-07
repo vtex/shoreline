@@ -34,9 +34,9 @@ export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
 }
 
 export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
-  left: '16',
-  right: '16',
-  top: '16',
+  left: '0',
+  right: '0',
+  top: '8',
   bottom: '32',
   containLabel: true,
 }
