@@ -27,7 +27,7 @@ export const defaultAreaColors = [
   colors['--sl-pink-11'],
   colors['--sl-teal-11'],
 ]
-
+// blue-9 e purple-10
 export const defaultChartColorConfig = {
   lineColor: colors['--sl-gray-6'],
   textSoft: colors['--sl-gray-9'],

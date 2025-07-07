@@ -170,7 +170,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         type: 'line',
         smooth: true,
         showSymbol: false,
-        areaStyle: { opacity: 0.5 },
+        areaStyle: { opacity: 0.2 },
         emphasis: { disabled: true },
       },
       legend: LEGEND_DEFAULT_STYLE,
