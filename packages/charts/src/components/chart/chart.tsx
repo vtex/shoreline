@@ -331,6 +331,11 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
     }, [chartRef])
 
+    const onFinished = useCallback(() => {
+      connectGroups()
+      setupCheckBoxVisual()
+    }, [group, graphics, chartRef])
+
     useEffect(() => {
       if (!canUseDOM) return
 
@@ -353,8 +358,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           // onChartReady={(instance) => instance.resize()}
           onEvents={{
             legendselectchanged: checkBoxLegend,
-            finished: connectGroups,
-            rendered: setupCheckBoxVisual,
+            rendered: onFinished,
             ...onEvents,
           }}
           {...otherProps}
