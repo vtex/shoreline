@@ -148,7 +148,7 @@ export function checkZoom(
 ): boolean {
   if (typeof zoom === 'boolean') return zoom
 
-  if (type === 'line') return true
+  if (type === 'line') return false // temporaly disabled by default
 
   return false
 }
