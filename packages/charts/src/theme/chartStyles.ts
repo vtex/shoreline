@@ -164,7 +164,7 @@ export const CHART_STYLES: DefaultChartStyles = {
   },
   area: {
     overlapping: {
-      xAxis: { type: 'category' },
+      xAxis: { type: 'category', boundaryGap: false },
       yAxis: { type: 'value' },
       series: {
         type: 'line',
@@ -183,7 +183,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       grid: GRID_DEFAULT_STYLE,
     },
     stacked: {
-      xAxis: { type: 'category' },
+      xAxis: { type: 'category', boundaryGap: false },
       yAxis: { type: 'value' },
       series: {
         type: 'line',
