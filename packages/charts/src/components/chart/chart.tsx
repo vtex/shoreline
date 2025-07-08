@@ -143,7 +143,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
     const checkBoxLegend = useCallback(
       (params: any) => {
-        if (!chartRef.current) return
+        if (!chartRef.current || !checkboxLegendBehaviour) return
         const chart = chartRef.current.getEchartsInstance()
 
         const seriesNames = Object.keys(params.selected)
