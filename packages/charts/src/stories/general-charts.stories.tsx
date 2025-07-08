@@ -42,22 +42,18 @@ export const MultiLines2: Story = {
     const data: SeriesOption[] = [
       {
         name: 'Email',
-        type: 'line',
         data: [120, 132, 101, 134, 90, 230, 210],
       },
       {
         name: 'Union Ads',
-        type: 'line',
         data: [220, 182, 191, 234, 290, 330, 260],
       },
       {
         name: 'Video Ads',
-        type: 'line',
         data: [150, 232, 201, 154, 190, 330, 410],
       },
       {
         name: 'Direct',
-        type: 'line',
         data: [320, 332, 301, 334, 390, 330, 320],
       },
     ]
@@ -65,37 +61,48 @@ export const MultiLines2: Story = {
       <Grid columns={'50% 50%'} rows={'50% 50%'} style={{ width: 1000 }}>
         <Chart
           xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
-          title={{ text: 'CubicInOut' }}
-          chartConfig={{ type: 'line' }}
+          title={{ text: '100' }}
+          chartConfig={{ type: 'bar' }}
           series={data}
-          option={{ animationEasingUpdate: 'cubicInOut' }}
+          option={{
+            animationDurationUpdate: (idx) => idx * 100,
+            animationDelayUpdate: (idx) => idx * 50,
+          }}
           group="A"
         />
         <Chart
           title={{
-            text: 'SinusoidalInOut',
-            subtext: 'escolhi esse mais pelo nome não vou mentir',
+            text: '50',
           }}
           xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
-          chartConfig={{ type: 'line' }}
+          chartConfig={{ type: 'bar' }}
           series={data}
-          option={{ animationEasingUpdate: 'sinusoidalInOut' }}
+          option={{
+            animationDurationUpdate: (idx) => idx * 50,
+            animationDelayUpdate: (idx) => idx * 50,
+          }}
           group="A"
         />
         <Chart
-          title={{ text: 'QuinticInOut' }}
+          title={{ text: '25' }}
           xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
-          chartConfig={{ type: 'line' }}
+          chartConfig={{ type: 'bar' }}
           series={data}
-          option={{ animationEasingUpdate: 'quinticInOut' }}
+          option={{
+            animationDurationUpdate: (idx) => idx * 25,
+            animationDelayUpdate: (idx) => idx * 50,
+          }}
           group="A"
         />
         <Chart
-          title={{ text: 'CircularInOut' }}
+          title={{ text: '15' }}
           xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
-          chartConfig={{ type: 'line' }}
+          chartConfig={{ type: 'bar' }}
           series={data}
-          option={{ animationEasingUpdate: 'circularInOut' }}
+          option={{
+            animationDurationUpdate: (idx) => idx * 15,
+            animationDelayUpdate: (idx) => idx * 50,
+          }}
           group="A"
         />
       </Grid>
