@@ -1,7 +1,7 @@
 import type { EChartsOption } from 'echarts'
 import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
 import type { ChartConfig, ChartUnit, DefaultHooks } from '../../types/chart'
-import { Chart } from '../chart/chart'
+import { Chart, type ChartOptions } from '../chart/chart'
 import {
   checkValidVariant,
   getDataToChartCompositor,
@@ -45,9 +45,10 @@ export const ChartCompositor = forwardRef<
     title,
     tooltip,
     zoom,
-    options,
+    option,
     style,
     renderer = 'svg',
+    loading = false,
     ...otherProps
   } = props
 
@@ -100,8 +101,8 @@ export const ChartCompositor = forwardRef<
     finalOptions.xAxis = xAxis
     finalOptions.title = title
 
-    return options ? merge(options, finalOptions) : finalOptions
-  }, [charts, tooltip, xAxis, yAxis, options])
+    return option ? merge(option, finalOptions) : finalOptions
+  }, [charts, tooltip, xAxis, yAxis, option])
 
   return (
     <Chart
@@ -133,58 +134,15 @@ export interface ChartCompositorOptions {
    */
   charts: ChartUnit[]
   /**
-   * Defines the look and data of the X axis. Generally you **will** need to pass the name of the labels here,
-   * as this is by default the categorical axis.
-   * @example xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
-   * @default { type:'category' }
-   */
-  xAxis?: EChartsOption['xAxis']
-  /**
-   * Defines the look and data of the Y axis. Generally you won't need to fill this out, as this is the value axis by default.
-   * @default { type:'value' }
-   */
-  yAxis?: EChartsOption['yAxis']
-  /**
-   * Defines the title, as well as its position and style.
-   */
-  title?: EChartsOption['title']
-  /**
    * Defines which type of tooltip is going to be used by the chart.
    * @example { type: "bar", variant: "horizontal" }
    */
   tooltip: ChartConfig
-  /**
-   * Defines the group that the chart will be part of. Charts in the same group share many features among them.
-   * These features include: sharing the tooltip and sharing the same legend.
-   *
-   * See [echarts docs](https://echarts.apache.org/en/api.html#echarts.connect).
-   */
-  group?: string
-  /**
-   * Whether to enable zoom.
-   * @default false
-   * @type boolean
-   */
-  zoom?: boolean
-  /**
-   * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
-   *
-   * **series**, **xAxis**, **yAxis**, and **tooltip**
-   *  should be configured using other props from this component.
-   */
-  options?: EChartsOption
-  /**
-   * Whether to render the chart as a SVG or Canvas. Both are about equally as fast,
-   * but SVGs can scale to any size.
-   *
-   * Canvas is required if the chart is meant to be downloaded as a png or jpg, as SVG-rendered charts can only be exported as SVG.
-   * @default svg
-   */
-  renderer?: 'svg' | 'canvas'
 }
 
 export type ChartCompositorProps = ChartCompositorOptions &
-  Omit<ComponentPropsWithRef<'div'>, 'title'>
+  Omit<ComponentPropsWithRef<'div'>, 'title'> &
+  Omit<ChartOptions, 'series' | 'chartConfig'>
 
 /**
  * Functions that are always called for a certain chart config

@@ -367,12 +367,19 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     )
   }
 )
-export interface finalOptions {
+export interface ChartOptions {
   /**
    * Echarts Series Options, where you put the data for the chart.
    * @example series={{ data: [1, 2, 3, 4, 5, 6, 7] }}
    */
   series: SeriesOption | SeriesOption[]
+  /**
+   * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
+   *
+   * **null** means that nothing will be done to the options, and the chart will be rendered as-is.
+   * @example { type:"line", variant: "default" }
+   */
+  chartConfig: ChartConfig | null
   /**
    * Defines the look and data of the X axis. Generally you will need to pass the name of the labels
    * if this is the categorical axis.
@@ -387,13 +394,6 @@ export interface finalOptions {
    * Defines the title, as well as its position and style.
    */
   title?: EChartsOption['title']
-  /**
-   * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
-   *
-   * **null** means that nothing will be done to the options, and the chart will be rendered as-is.
-   * @example { type:"line", variant: "default" }
-   */
-  chartConfig: ChartConfig | null
   /**
    * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
    *
@@ -459,7 +459,7 @@ export interface finalOptions {
   onEvents?: Record<string, CallableFunction>
 }
 
-export type ChartProps = finalOptions &
+export type ChartProps = ChartOptions &
   Omit<ComponentPropsWithRef<'div'>, 'title'>
 
 /**
