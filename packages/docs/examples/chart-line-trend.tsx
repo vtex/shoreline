@@ -8,11 +8,11 @@ export default function Example() {
         {
           data: [820, 932, 901, 934, 1290, 1330, 1320],
           lineStyle: { type: 'dashed' },
+          color: '#adadad',
           name: 'Trend',
         },
         {
           data: [820, 832, 920, 834, 990, 830, 910],
-          color: '#adadad',
           name: 'Solid',
         },
       ]}
