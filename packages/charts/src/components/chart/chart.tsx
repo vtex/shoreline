@@ -125,9 +125,16 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         ]
       }
 
+      if (loading) {
+        wholeOption.tooltip = {
+          show: false,
+        }
+      }
+
       if (chartConfig === null) {
         return wholeOption
       }
+
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
 

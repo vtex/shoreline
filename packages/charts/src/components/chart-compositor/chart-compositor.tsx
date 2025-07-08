@@ -47,8 +47,6 @@ export const ChartCompositor = forwardRef<
     zoom,
     option,
     style,
-    renderer = 'svg',
-    loading = false,
     ...otherProps
   } = props
 
@@ -115,7 +113,6 @@ export const ChartCompositor = forwardRef<
       ref={ref}
       optionHooks={null}
       zoom={zoom}
-      renderer={renderer}
       {...otherProps}
     />
   )
