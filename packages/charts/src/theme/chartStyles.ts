@@ -160,6 +160,10 @@ export const CHART_STYLES: DefaultChartStyles = {
       legend: { ...LEGEND_DEFAULT_STYLE },
       tooltip: { ...BASE_TOOLTIP_OPIONS },
       grid: GRID_DEFAULT_STYLE,
+      animationDuration: 750,
+      animationDurationUpdate: 300,
+      animationEasing: 'cubicInOut',
+      animationEasingUpdate: 'cubicInOut',
     },
   },
   area: {
@@ -181,6 +185,10 @@ export const CHART_STYLES: DefaultChartStyles = {
         },
       },
       grid: GRID_DEFAULT_STYLE,
+      animationDuration: 750,
+      animationDurationUpdate: 300,
+      animationEasing: 'cubicInOut',
+      animationEasingUpdate: 'cubicInOut',
     },
     stacked: {
       xAxis: { type: 'category', boundaryGap: false },
@@ -201,6 +209,10 @@ export const CHART_STYLES: DefaultChartStyles = {
         },
       },
       grid: GRID_DEFAULT_STYLE,
+      animationDuration: 750,
+      animationDurationUpdate: 300,
+      animationEasing: 'cubicInOut',
+      animationEasingUpdate: 'cubicInOut',
     },
   },
 }
