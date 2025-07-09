@@ -153,9 +153,12 @@ importers:
       '@vtex/shoreline-utils':
         specifier: workspace:*
         version: link:../utils
+      echarts:
+        specifier: ^5.6.0
+        version: 5.6.0
       echarts-for-react:
         specifier: ^3.0.2
-        version: 3.0.2(echarts@5.5.0)(react@18.3.1)
+        version: 3.0.2(echarts@5.6.0)(react@18.3.1)
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -175,9 +178,6 @@ importers:
       '@vtex/shoreline':
         specifier: workspace:*
         version: link:../shoreline
-      echarts:
-        specifier: 5.5.0
-        version: 5.5.0
 
   packages/css:
     dependencies:
@@ -3605,10 +3605,6 @@ packages:
   '@vitest/utils@2.1.9':
     resolution: {integrity: sha512-v0psaMSkNJ3A2NMrUEHFRzJtDPFn+/VWZ5WxImB21T9fjucJRmS7xCS3ppEnARb9y11OAzaD+P2Ps+b+BGX5iQ==}
 
-  '@vtex/shoreline-utils@1.0.93':
-    resolution: {integrity: sha512-CBZGY2vL5/wtA1j5YnltCSSILw04Zd3VaNc7dEpADF7hzMwbtrBzvEa+gaCjEAdqydUeNAMT8sWf0Bmhnxtsyg==}
-    engines: {node: '>=20'}
-
   '@webassemblyjs/ast@1.14.1':
     resolution: {integrity: sha512-nuBEDgQfm1ccRp/8bCQrx1frohyufl4JlbMMZ4P1wpeOfDhF6FQkxZJ1b/e+PLwr6X1Nhw6OLme5usuBWYBvuQ==}
 
@@ -5029,8 +5025,8 @@ packages:
       echarts: ^3.0.0 || ^4.0.0 || ^5.0.0
       react: ^15.0.0 || >=16.0.0
 
-  echarts@5.5.0:
-    resolution: {integrity: sha512-rNYnNCzqDAPCr4m/fqyUFv7fD9qIsd50S6GDFgO1DxZhncCsNsG7IfUlAlvZe5oSEQxtsjnHiUuppzccry93Xw==}
+  echarts@5.6.0:
+    resolution: {integrity: sha512-oTbVTsXfKuEhxftHqL5xprgLoc0k7uScAwtryCgWF6hPYFLRwOUHiFmHGCBKP5NPFNkDVopOieyUqYGH8Fa3kA==}
 
   ejs@3.1.10:
     resolution: {integrity: sha512-UeJmFfOrAQS8OJWPZ4qtgHyWExa088/MtK5UEyoJGFH67cDEXkZSviOiKRCZ4Xij0zxI3JECgYs3oKx+AizQBA==}
@@ -9350,9 +9346,6 @@ packages:
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
-  tslib@2.8.1:
-    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
-
   tsup@8.1.0:
     resolution: {integrity: sha512-UFdfCAXukax+U6KzeTNO2kAARHcWxmKsnvSPXUcfA1D+kU05XDccCrkffCQpFaWDsZfV0jMyTsxU39VfCp6EOg==}
     engines: {node: '>=18'}
@@ -10148,8 +10141,8 @@ packages:
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
-  zrender@5.5.0:
-    resolution: {integrity: sha512-O3MilSi/9mwoovx77m6ROZM7sXShR/O/JIanvzTwjN3FORfLSr81PsUGd7jlaYOeds9d8tw82oP44+3YucVo+w==}
+  zrender@5.6.1:
+    resolution: {integrity: sha512-OFXkDJKcrlx5su2XbzJvj/34Q3m6PvyCZkVPHGYpcCJ52ek4U/ymZyfuV1nKE23AyBJ51E/6Yr0mhZ7xGTO4ag==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -10649,7 +10642,7 @@ snapshots:
 
   '@emnapi/runtime@1.3.1':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.6.3
 
   '@emnapi/wasi-threads@1.0.1':
     dependencies:
@@ -11264,7 +11257,7 @@ snapshots:
   '@jridgewell/trace-mapping@0.3.25':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
-      '@jridgewell/sourcemap-codec': 1.4.15
+      '@jridgewell/sourcemap-codec': 1.5.0
 
   '@lerna/create@8.1.4(@swc/core@1.11.11(@swc/helpers@0.5.13))(encoding@0.1.13)(typescript@5.5.2)':
     dependencies:
@@ -13755,17 +13748,6 @@ snapshots:
       loupe: 3.1.3
       tinyrainbow: 1.2.0
 
-  '@vtex/shoreline-utils@1.0.93(react@18.3.1)':
-    dependencies:
-      csstype: 3.1.3
-      deepmerge: 4.3.1
-      scule: 1.1.1
-      tiny-invariant: 1.3.3
-      tiny-warning: 1.0.3
-      use-sync-external-store: 1.2.0(react@18.3.1)
-    transitivePeerDependencies:
-      - react
-
   '@webassemblyjs/ast@1.14.1':
     dependencies:
       '@webassemblyjs/helper-numbers': 1.13.2
@@ -15311,17 +15293,17 @@ snapshots:
 
   eastasianwidth@0.2.0: {}
 
-  echarts-for-react@3.0.2(echarts@5.5.0)(react@18.3.1):
+  echarts-for-react@3.0.2(echarts@5.6.0)(react@18.3.1):
     dependencies:
-      echarts: 5.5.0
+      echarts: 5.6.0
       fast-deep-equal: 3.1.3
       react: 18.3.1
       size-sensor: 1.0.2
 
-  echarts@5.5.0:
+  echarts@5.6.0:
     dependencies:
       tslib: 2.3.0
-      zrender: 5.5.0
+      zrender: 5.6.1
 
   ejs@3.1.10:
     dependencies:
@@ -15585,7 +15567,7 @@ snapshots:
 
   estree-walker@3.0.3:
     dependencies:
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
 
   esutils@2.0.3: {}
 
@@ -16206,7 +16188,7 @@ snapshots:
 
   has-tostringtag@1.0.2:
     dependencies:
-      has-symbols: 1.0.3
+      has-symbols: 1.1.0
 
   has-unicode@2.0.1: {}
 
@@ -20910,8 +20892,6 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tslib@2.8.1: {}
-
   tsup@8.1.0(@swc/core@1.11.11(@swc/helpers@0.5.13))(postcss@8.5.3)(typescript@5.5.2):
     dependencies:
       bundle-require: 4.2.1(esbuild@0.21.5)
@@ -21837,7 +21817,7 @@ snapshots:
 
   zod@3.23.8: {}
 
-  zrender@5.5.0:
+  zrender@5.6.1:
     dependencies:
       tslib: 2.3.0
 
