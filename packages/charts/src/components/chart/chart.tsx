@@ -1,11 +1,11 @@
 import {
   useRef,
-  useEffect,
   useMemo,
   forwardRef,
-  type ComponentPropsWithRef,
   useCallback,
   useState,
+  useEffect,
+  type ComponentPropsWithRef,
 } from 'react'
 import type {
   EChartsOption,
