@@ -2,7 +2,8 @@ import { random } from 'lodash'
 import { Chart, ChartCompositor } from '../index'
 import type { StoryObj } from '@storybook/react'
 import { useState } from 'react'
-import { Button } from '@vtex/shoreline'
+import { Button, Grid } from '@vtex/shoreline'
+import type { EChartsOption, SeriesOption } from 'echarts'
 
 export default {
   title: 'Charts/general',
@@ -32,6 +33,42 @@ export const BasicSync: Story = {
           group="a"
         />
       </>
+    )
+  },
+}
+
+export const AnimationUpdateFunctions: Story = {
+  render: () => {
+    const axis = { data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }
+    // biome-ignore format:
+    const series: SeriesOption[] = [
+        { name: 'Email', type: 'line', data: [120, 132, 101, 134, 90, 230, 210] },
+        { name: 'Union Ads', type: 'line', data: [220, 182, 191, 234, 290, 330, 260] },
+        { name: 'Video Ads', type: 'line', data: [150, 232, 201, 154, 190, 330, 410] },
+        { name: 'Direct', type: 'line', data: [320, 332, 301, 334, 390, 330, 320] },
+    ]
+    // biome-ignore format:
+    const data: { title: EChartsOption['title']; option: EChartsOption }[] = [
+      { title: { text: 'CubicInOut' }, option: { animationEasingUpdate: 'cubicInOut' }},
+      { title: { text: 'SinusoidalInOut',}, option: { animationEasingUpdate: 'sinusoidalInOut' }},
+      { title: { text: 'QuinticInOut' }, option: { animationEasingUpdate: 'quinticInOut' }},
+      { title: { text: 'CircularInOut' }, option: { animationEasingUpdate: 'circularInOut' }},
+    ]
+
+    return (
+      <Grid columns={'50% 50%'} rows={'50% 50%'} style={{ width: 1000 }}>
+        {data.map((chart: any) => (
+          <Chart
+            key={chart.title.text}
+            xAxis={axis}
+            title={chart.title}
+            chartConfig={{ type: 'line' }}
+            series={series}
+            option={chart.option}
+            group="A"
+          />
+        ))}
+      </Grid>
     )
   },
 }

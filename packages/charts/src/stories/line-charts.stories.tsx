@@ -46,7 +46,7 @@ export const MultiLines: Story = {
   },
 }
 
-export const Dashed: Story = {
+export const TrendLine: Story = {
   args: {
     chartConfig: { type: 'line' },
     style: { height: 550 },
@@ -54,10 +54,18 @@ export const Dashed: Story = {
       type: 'category',
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     },
-    series: {
-      data: [820, 932, 901, 934, 1290, 1330, 1320],
-      lineStyle: { type: 'dashed' },
-    },
+    series: [
+      {
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        lineStyle: { type: 'dashed' },
+        color: '#adadad',
+        name: 'Trend',
+      },
+      {
+        data: [720, 1032, 801, 1034, 1190, 1430, 1220],
+        name: 'Solid',
+      },
+    ],
   },
 }
 

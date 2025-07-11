@@ -10,6 +10,7 @@ export default function Example() {
       ]}
       xAxis={{ data: ['1º', '2º', '3º', '4º', '5º', '6º', '7º'] }}
       chartConfig={{ type: 'area', variant: 'overlapping' }}
+      loading
     />
   )
 }

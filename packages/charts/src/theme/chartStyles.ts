@@ -34,9 +34,9 @@ export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
 }
 
 export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
-  left: '16',
-  right: '16',
-  top: '16',
+  left: '0',
+  right: '8',
+  top: '8',
   bottom: '32',
   containLabel: true,
 }
@@ -160,17 +160,21 @@ export const CHART_STYLES: DefaultChartStyles = {
       legend: { ...LEGEND_DEFAULT_STYLE },
       tooltip: { ...BASE_TOOLTIP_OPIONS },
       grid: GRID_DEFAULT_STYLE,
+      animationDuration: 750,
+      animationDurationUpdate: 300,
+      animationEasing: 'cubicInOut',
+      animationEasingUpdate: 'cubicInOut',
     },
   },
   area: {
     overlapping: {
-      xAxis: { type: 'category' },
+      xAxis: { type: 'category', boundaryGap: false },
       yAxis: { type: 'value' },
       series: {
         type: 'line',
         smooth: true,
         showSymbol: false,
-        areaStyle: { opacity: 0.5 },
+        areaStyle: { opacity: 0.2 },
         emphasis: { disabled: true },
       },
       legend: LEGEND_DEFAULT_STYLE,
@@ -181,9 +185,13 @@ export const CHART_STYLES: DefaultChartStyles = {
         },
       },
       grid: GRID_DEFAULT_STYLE,
+      animationDuration: 750,
+      animationDurationUpdate: 300,
+      animationEasing: 'cubicInOut',
+      animationEasingUpdate: 'cubicInOut',
     },
     stacked: {
-      xAxis: { type: 'category' },
+      xAxis: { type: 'category', boundaryGap: false },
       yAxis: { type: 'value' },
       series: {
         type: 'line',
@@ -201,6 +209,10 @@ export const CHART_STYLES: DefaultChartStyles = {
         },
       },
       grid: GRID_DEFAULT_STYLE,
+      animationDuration: 750,
+      animationDurationUpdate: 300,
+      animationEasing: 'cubicInOut',
+      animationEasingUpdate: 'cubicInOut',
     },
   },
 }

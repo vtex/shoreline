@@ -37,4 +37,5 @@ export const defaultTheme = {
     },
     barGap: '1%',
   },
+  title: { left: 'center', top: 8 },
 }

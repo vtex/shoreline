@@ -1,5 +1,10 @@
 # Changing styling
-Most visual aspects can be changed in the `option` prop.
+> Shoreline Charts already provides colors and general styles for your charts, in most cases you should **not** modify these.
 
-You can also override the default theme by modifying the `theme` prop.
+Most visual aspects can be changed in the `option` or `series` prop.
+You can also override the default theme by modifying the `theme` prop. In general, reffer to the official echarts docs for visual configuration of components.
+
+Legend behaviour and visuals can be returned to their default echarts settings by disabling the `checkboxLegendVisuals` and `checkboxLegendBehaviour` props.
+
+Certain aspects might not be overridable, and can only be disabled by setting `chartConfig` to `null`.
 <Preview name="chart-different-theme"/>

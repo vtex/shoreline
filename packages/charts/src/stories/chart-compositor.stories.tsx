@@ -9,26 +9,6 @@ export default {
 
 type Story = StoryObj<typeof ChartCompositor>
 
-export const Stress: Story = {
-  args: {
-    charts: [
-      {
-        series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-        chartConfig: { type: 'line' },
-      },
-      {
-        series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-        chartConfig: { type: 'bar' },
-      },
-      {
-        series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
-        chartConfig: { type: 'bar' },
-      },
-    ],
-    tooltip: { type: 'line' },
-  },
-}
-
 const data1: number[] = []
 const data2: number[] = []
 const data3: number[] = []
@@ -63,5 +43,25 @@ export const Basic: Story = {
     tooltip: { type: 'line' },
     zoom: true,
     style: { height: 550 },
+  },
+}
+
+export const Stress: Story = {
+  args: {
+    charts: [
+      {
+        series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+        chartConfig: { type: 'line' },
+      },
+      {
+        series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+        chartConfig: { type: 'bar' },
+      },
+      {
+        series: { data: CHART_COMPOSITOR_DATA.data4_thousand },
+        chartConfig: { type: 'bar' },
+      },
+    ],
+    tooltip: { type: 'line' },
   },
 }

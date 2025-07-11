@@ -1,21 +1,9 @@
-import {
-  useRef,
-  useEffect,
-  useMemo,
-  forwardRef,
-  type ComponentPropsWithRef,
-  useCallback,
-  useState,
-} from 'react'
-import type {
-  EChartsOption,
-  GraphicComponentOption,
-  SeriesOption,
-} from 'echarts'
-import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
+import { useRef, useMemo, forwardRef, useCallback, useState } from 'react'
+import type { EChartsOption, GraphicComponentOption } from 'echarts'
+import ReactECharts from 'echarts-for-react'
 import * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
-import type { ChartConfig, DefaultHooks } from '../../types/chart'
+import type {} from '../../types/chart'
 import {
   checkValidVariant,
   checkZoom,
@@ -23,18 +11,13 @@ import {
   getDefaultByType,
   getSeriesNames,
 } from '../../utils/chart'
-import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
+import { useMergeRef } from '@vtex/shoreline-utils'
 import {
   DATAZOOM_DEFAULT_STYLE,
   DEFAULT_LOADING_SPINNER,
 } from '../../theme/chartStyles'
-import { cloneDeep, isArray, type Dictionary } from 'lodash'
-import {
-  normalizeBarData,
-  normalizeHorizontalBarData,
-  setAreaColors,
-  setAreaGradients,
-} from '../../utils/hooks'
+import { cloneDeep, isArray } from 'lodash'
+import {} from '../../utils/hooks'
 import {
   turnOnAllLegend,
   toggleSerieLegend,
@@ -125,9 +108,16 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         ]
       }
 
+      if (loading) {
+        wholeOption.tooltip = {
+          show: false,
+        }
+      }
+
       if (chartConfig === null) {
         return wholeOption
       }
+
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
 
@@ -136,7 +126,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
     const checkBoxLegend = useCallback(
       (params: any) => {
-        if (!chartRef.current) return
+        if (!chartRef.current || !checkboxLegendBehaviour) return
         const chart = chartRef.current.getEchartsInstance()
 
         const seriesNames = Object.keys(params.selected)
@@ -331,7 +321,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
     }, [chartRef])
 
-    const onFinished = useCallback(() => {
+    const onRendered = useCallback(() => {
       connectGroups()
       setupCheckBoxVisual()
     }, [group, graphics, chartRef])
@@ -351,14 +341,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           ref={useMergeRef(ref, chartRef)}
           theme={theme}
           option={finalOptions}
-          style={{ minWidth: 300, minHeight: 200, padding: 20, ...style }}
+          style={{ minWidth: 300, minHeight: 200, ...style }}
           opts={{ renderer: renderer }}
           showLoading={loading}
           loadingOption={loadingConfig}
           // onChartReady={(instance) => instance.resize()}
           onEvents={{
             legendselectchanged: checkBoxLegend,
-            rendered: onFinished,
+            rendered: onRendered,
             ...onEvents,
           }}
           {...otherProps}
@@ -367,12 +357,19 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     )
   }
 )
-export interface finalOptions {
+export interface ChartOptions {
   /**
    * Echarts Series Options, where you put the data for the chart.
    * @example series={{ data: [1, 2, 3, 4, 5, 6, 7] }}
    */
   series: SeriesOption | SeriesOption[]
+  /**
+   * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
+   *
+   * **null** means that nothing will be done to the options, and the chart will be rendered as-is.
+   * @example { type:"line", variant: "default" }
+   */
+  chartConfig: ChartConfig | null
   /**
    * Defines the look and data of the X axis. Generally you will need to pass the name of the labels
    * if this is the categorical axis.
@@ -387,13 +384,6 @@ export interface finalOptions {
    * Defines the title, as well as its position and style.
    */
   title?: EChartsOption['title']
-  /**
-   * Configs containing **type** of chart and its **variants**, each variant is a pre-defined chart style for each type.
-   *
-   * **null** means that nothing will be done to the options, and the chart will be rendered as-is.
-   * @example { type:"line", variant: "default" }
-   */
-  chartConfig: ChartConfig | null
   /**
    * Echarts options for the chart, see [docs](https://echarts.apache.org/en/option.html#title).
    *
@@ -459,7 +449,7 @@ export interface finalOptions {
   onEvents?: Record<string, CallableFunction>
 }
 
-export type ChartProps = finalOptions &
+export type ChartProps = ChartOptions &
   Omit<ComponentPropsWithRef<'div'>, 'title'>
 
 /**
