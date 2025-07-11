@@ -92,11 +92,11 @@ export const Tooltip: Story = {
         ref={ref}
         chartConfig={{ type: 'bar', variant: 'vertical' }}
         series={[
-          { data: [3, 2, 3, 4], name: 'Series 1' },
-          { data: [1, 4, 2, 3], name: 'Series 2' },
-          { data: [2, 1, 4, 1], name: 'Series 3' },
+          { data: [139, 200, 332, 444], name: 'Label 1' },
+          { data: [143, 400, 212, 312], name: 'Label 2' },
+          { data: [503, 250, 410, 119], name: 'Label 3' },
         ]}
-        xAxis={{ data: ['Mon', 'Tue', 'Wed'] }}
+        xAxis={{ data: ['Jun 05', 'Tue', 'Wed'] }}
         option={{ tooltip: { alwaysShowContent: true } }}
         checkboxLegendVisuals={false}
         onEvents={{

@@ -1,6 +1,7 @@
 import type { TooltipComponentFormatterCallbackParams } from 'echarts'
 import { renderToStaticMarkup } from 'react-dom/server'
 import '../../theme/components/tooltip.css'
+import { Flex } from '@vtex/shoreline'
 
 export default function ChartTooltip({ params, invert }: ChartTooltipProps) {
   if (Array.isArray(params) && invert) params.reverse()
@@ -28,16 +29,20 @@ export function ChartTooltipBase({ params }: { params: any }) {
       <div data-sl-chart-tooltip-data-container>
         <div data-sl-chart-tooltip-data-serie-container>
           <span
-            data-sl-chart-tooltip-data-serie-label-box
+            data-sl-chart-tooltip-data-serie-label-line
             style={{
               backgroundColor: params.color,
             }}
           />
-          <span data-sl-chart-tooltip-data-serie-name>{params.seriesName}</span>
+          <Flex direction="column" justify="center" align="left" gap={0}>
+            <span data-sl-chart-tooltip-data-serie-name>
+              {params.seriesName}
+            </span>
+            <b>
+              <span data-sl-chart-tooltip-data-serie-value>{params.value}</span>
+            </b>
+          </Flex>
         </div>
-        <b>
-          <span data-sl-chart-tooltip-data-serie-value>{params.value}</span>
-        </b>
       </div>
     </>
   )
