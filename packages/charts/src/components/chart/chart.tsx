@@ -1,9 +1,21 @@
-import { useRef, useMemo, forwardRef, useCallback, useState } from 'react'
-import type { EChartsOption, GraphicComponentOption } from 'echarts'
-import ReactECharts from 'echarts-for-react'
+import {
+  useRef,
+  useMemo,
+  forwardRef,
+  useCallback,
+  useState,
+  useEffect,
+  type ComponentPropsWithRef,
+} from 'react'
+import type {
+  EChartsOption,
+  GraphicComponentOption,
+  SeriesOption,
+} from 'echarts'
+import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
-import type {} from '../../types/chart'
+import type { ChartConfig, DefaultHooks } from '../../types/chart'
 import {
   checkValidVariant,
   checkZoom,
@@ -11,13 +23,18 @@ import {
   getDefaultByType,
   getSeriesNames,
 } from '../../utils/chart'
-import { useMergeRef } from '@vtex/shoreline-utils'
+import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
   DATAZOOM_DEFAULT_STYLE,
   DEFAULT_LOADING_SPINNER,
 } from '../../theme/chartStyles'
-import { cloneDeep, isArray } from 'lodash'
-import {} from '../../utils/hooks'
+import { cloneDeep, type Dictionary, isArray } from 'lodash'
+import {
+  normalizeBarData,
+  normalizeHorizontalBarData,
+  setAreaColors,
+  setAreaGradients,
+} from '../../utils/hooks'
 import {
   turnOnAllLegend,
   toggleSerieLegend,
