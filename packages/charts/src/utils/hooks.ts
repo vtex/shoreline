@@ -151,7 +151,6 @@ export function setAreaColors(
       ],
     }
     serie.color = defaultColorShade[index]
-    console.log(color)
     serie.areaStyle ??= {}
     serie.areaStyle.color = gradient ? color : defaultAreaColors[index]
   })

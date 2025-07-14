@@ -13,13 +13,15 @@ export const defaultColorPreset = [
   colors['--sl-teal-11'],
 ]
 
-export const defaultColorShade = [
-  colors['--sl-blue-9'],
-  colors['--sl-purple-10'],
-  colors['--sl-orange-7'],
-  colors['--sl-pink-9'],
-  colors['--sl-teal-12'],
-]
+export const defaultColorShade: Record<string, string> = {
+  [colors['--sl-blue-8']]: colors['--sl-blue-9'],
+  [colors['--sl-purple-9']]: colors['--sl-purple-10'],
+  [colors['--sl-orange-6']]: colors['--sl-orange-7'],
+  [colors['--sl-pink-8']]: colors['--sl-pink-9'],
+  [colors['--sl-teal-11']]: colors['--sl-teal-12'],
+  [colors['--sl-gray-6']]: colors['--sl-gray-7'],
+}
+
 export const defaultAreaColors = [
   colors['--sl-blue-11'],
   colors['--sl-purple-11'],

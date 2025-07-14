@@ -1,13 +1,14 @@
-import { defaultColorPreset, defaultColorShade } from '../theme/colors'
+import { defaultColorShade } from '../theme/colors'
 
 export function createLegendVisuals(
   points: [number, number][],
+  colors: string[],
   selected?: boolean[],
   checked = false
 ): echarts.GraphicComponentOption[] {
   return points.map((point, i) => {
     const isSelected = selected ? selected[i] : true
-    const color = isSelected ? defaultColorPreset[i] : '#FFFFFF'
+    const color = isSelected ? colors[i] : '#FFFFFF'
 
     return {
       type: 'group',
@@ -89,8 +90,9 @@ export function createLegendVisuals(
 
 export function getColorShade(color: string) {
   if (color === '#FFFFFF') return '#FFFFFF'
-  const index = defaultColorPreset.indexOf(color)
-  return defaultColorShade[index]
+  const shade = defaultColorShade[color.toUpperCase()]
+  // console.log(`${color} shade: ${shade}`)
+  return shade ? shade : color
 }
 export function turnOnAllLegend(chart: echarts.ECharts, series: string[]) {
   series.forEach((serie) => turnOnSerieLegend(chart, serie))
