@@ -53,11 +53,11 @@ export const DATAZOOM_DEFAULT_STYLE: EChartsOption['dataZoom'] = [
     height: '9%',
     width: '95%',
     //Styles
-    borderColor: '#C2C2C2',
-    backgroundColor: '#ffffff',
+    borderColor: 'var(--sl-color-gray-5)',
+    backgroundColor: 'var(--sl-color-gray-0)',
     dataBackground: {
       areaStyle: {
-        color: '#F5F5F5',
+        color: 'var(--sl-color-gray-1)',
       },
     },
     fillerColor: '#0064C30D',
@@ -115,7 +115,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         axisPointer: {
           type: 'shadow',
           z: -1,
-          shadowStyle: { color: '#F5F5F5', opacity: 1 },
+          shadowStyle: { color: 'var(--sl-color-gray-1)', opacity: 1 },
         },
       },
 
@@ -141,7 +141,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         axisPointer: {
           type: 'shadow',
           z: -1,
-          shadowStyle: { color: '#F5F5F5', opacity: 1 },
+          shadowStyle: { color: 'var(--sl-color-gray-1)', opacity: 1 },
         },
       },
 
