@@ -1,7 +1,11 @@
 import type { EChartsOption, LineSeriesOption, SeriesOption } from 'echarts'
 import { cloneDeep, isArray, isDate } from 'lodash'
 import { defaultTheme } from '../theme/themes'
-import { defaultAreaColors, defaultColorShade } from '../theme/colors'
+import {
+  defaultAreaColors,
+  defaultColorPreset,
+  defaultColorShade,
+} from '../theme/colors'
 
 export function applySeriesHook(
   series: SeriesOption,
@@ -131,7 +135,8 @@ export function setAreaColors(
 
   arraySeries.forEach((v, index) => {
     const serie = v as LineSeriesOption
-    const areaColor = defaultColorShade[index % defaultAreaColors.length]
+    const areaColor =
+      defaultColorShade[defaultColorPreset[index % defaultAreaColors.length]]
     const color = {
       type: 'linear' as const,
       x: 0,
@@ -150,7 +155,7 @@ export function setAreaColors(
         },
       ],
     }
-    serie.color = defaultColorShade[index]
+    serie.color = defaultColorShade[areaColor]
     serie.areaStyle ??= {}
     serie.areaStyle.color = gradient ? color : defaultAreaColors[index]
   })
