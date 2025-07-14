@@ -115,10 +115,10 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       if (checkboxLegendVisuals) {
         if (isArray(wholeOption.legend)) return wholeOption
         wholeOption.legend ??= {}
-        wholeOption.legend.itemStyle = {
-          ...wholeOption.legend.itemStyle,
-          color: 'transparent',
-        }
+        // wholeOption.legend.itemStyle = {
+        //   ...wholeOption.legend.itemStyle,
+        //   color: 'transparent',
+        // }
         wholeOption.graphic = [
           ...graphics,
           ...(isArray(option?.graphic) ? option.graphic : []),
@@ -250,6 +250,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
         const newRects = createLegendVisuals(
           graphics.map((g: any) => g.children[0].info),
+          graphics.map((g: any) => g.children[0].style.fill),
           toggled,
           toggled.some((v) => !v)
         )
@@ -279,11 +280,18 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       const height = chart.getHeight()
 
       const rawPoints: [number, number][] = []
+      const rawColors: string[] = []
       paths.forEach((p) => {
-        const t = p.getAttribute('transform')
-        if (t) {
+        const transform = p.getAttribute('transform')
+        if (transform) {
+          const color = p.getAttribute('fill')
+          if (color) {
+            rawColors.push(color)
+          }
           // Match "translate(x y)" and extract x and y
-          const match = t.match(/translate\(\s*([^\s,)]+)[ ,]+([^\s,)]+)\s*\)/)
+          const match = transform.match(
+            /translate\(\s*([^\s,)]+)[ ,]+([^\s,)]+)\s*\)/
+          )
           const x = match ? Number.parseFloat(match[1]) : null
           const y = match ? Number.parseFloat(match[2]) : null
           if (x && y && height - 17 === y) {
@@ -294,7 +302,9 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
       // every legend item has 2 paths: the icon and the background, we only care about the icon
       const points = rawPoints.filter((_, i) => i % 2 !== 0)
-      const rawRects = createLegendVisuals(points)
+      const colors = rawColors.filter((_, i) => i % 2 !== 0)
+
+      const rawRects = createLegendVisuals(points, colors)
       const names = getSeriesNames(finalOptions)
       const rects = rawRects.map((r, i) => {
         return {
