@@ -54,11 +54,31 @@ export const TrendLine: Story = {
       type: 'category',
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     },
+    option: {
+      graphic: [
+        {
+          type: 'rect',
+          shape: {
+            width: 160,
+            height: 160,
+            r: 4,
+            x: 900,
+            y: 300,
+            z: 9999,
+          },
+          // scaleX: 0.1,
+          // scaleY: 0.1,
+          style: {
+            fill: 'red',
+          },
+        },
+      ],
+    },
     series: [
       {
         data: [820, 932, 901, 934, 1290, 1330, 1320],
         lineStyle: { type: 'dashed' },
-        color: '#adadad',
+        color: '#aaaaaa',
         name: 'Trend',
       },
       {
