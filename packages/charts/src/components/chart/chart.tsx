@@ -285,9 +285,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         const transform = p.getAttribute('transform')
         if (transform) {
           const color = p.getAttribute('fill')
-          if (color) {
-            rawColors.push(color)
-          }
           // Match "translate(x y)" and extract x and y
           const match = transform.match(
             /translate\(\s*([^\s,)]+)[ ,]+([^\s,)]+)\s*\)/
@@ -296,6 +293,9 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           const y = match ? Number.parseFloat(match[2]) : null
           if (x && y && height - 17 === y) {
             rawPoints.push([x, y])
+            if (color) {
+              rawColors.push(color)
+            }
           }
         }
       })
