@@ -197,8 +197,9 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
               chartId: chart.getId(),
             },
           })
-          if (!checkboxLegendVisuals) return
-          toggleCheckBoxLegend(toggled, Object.keys(params.selected))
+          if (checkboxLegendVisuals) {
+            toggleCheckBoxLegend(toggled, Object.keys(params.selected))
+          }
           return
         }
 
