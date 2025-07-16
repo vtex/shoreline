@@ -7,17 +7,18 @@
   display: flex;
   justify-content: space-between;
   padding: var(--sl-space-1) 0px;
+  gap: var(--sl-space-2);
 }
 [data-sl-chart-tooltip-data-serie-container] {
   display: flex;
   align-items: center;
+  gap: var(--sl-space-2);
 }
 [data-sl-chart-tooltip-data-serie-label-line] {
   width: 4px;
-  height: 36px;
+  height: 40px;
   display: inline-block;
-  margin-right: var(--sl-space-1);
-  border-radius: var(--sl-space-1);
+  border-radius: var(--sl-radius-1);
 }
 [data-sl-chart-tooltip-title] {
   font: var(--sl-text-caption-1-font);
