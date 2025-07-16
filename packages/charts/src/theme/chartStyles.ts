@@ -8,6 +8,7 @@ const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
   trigger: 'axis',
   borderWidth: 1,
   borderColor: 'var(--sl-color-gray-4)',
+  confine: true,
   extraCssText:
     'min-width: 128px; max-width: 268px; padding: var(--sl-space-3) var(--sl-space-4);',
   formatter: (params) => {
