@@ -268,61 +268,64 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       [chartRef, graphics]
     )
 
-    const setupCheckBoxVisual = useCallback(() => {
-      if (!chartRef.current || !checkboxLegendVisuals) return
-      if (isArray(graphics) && graphics.length !== 0) return
+    const setupCheckBoxVisual = useCallback(
+      (_params?: any) => {
+        if (!chartRef.current || !checkboxLegendVisuals) return
+        if (isArray(graphics) && graphics.length !== 0) return
 
-      const chart = chartRef.current.getEchartsInstance()
-      const dom = chart.getDom()
-      const svg = dom.querySelector('g')
-      if (!svg) return
+        const chart = chartRef.current.getEchartsInstance()
+        const dom = chart.getDom()
+        const svg = dom.querySelector('g')
+        if (!svg) return
 
-      const paths = svg.querySelectorAll('path')
-      const height = chart.getHeight()
+        const paths = svg.querySelectorAll('path')
+        const height = chart.getHeight()
 
-      const rawPoints: [number, number][] = []
-      const rawColors: string[] = []
-      paths.forEach((p) => {
-        const transform = p.getAttribute('transform')
-        if (transform) {
-          // Match "translate(x y)" and extract x and y
-          const match = transform.match(
-            /translate\(\s*([^\s,)]+)[ ,]+([^\s,)]+)\s*\)/
-          )
-          const x = match ? Number.parseFloat(match[1]) : null
-          const y = match ? Number.parseFloat(match[2]) : null
-          if (x && y && height - 17 === y) {
-            rawPoints.push([x, y])
-            const color = p.getAttribute('fill')
-            if (color) {
-              rawColors.push(color)
+        const rawPoints: [number, number][] = []
+        const rawColors: string[] = []
+        paths.forEach((p) => {
+          const transform = p.getAttribute('transform')
+          if (transform) {
+            // Match "translate(x y)" and extract x and y
+            const match = transform.match(
+              /translate\(\s*([^\s,)]+)[ ,]+([^\s,)]+)\s*\)/
+            )
+            const x = match ? Number.parseFloat(match[1]) : null
+            const y = match ? Number.parseFloat(match[2]) : null
+            if (x && y && height - 17 === y) {
+              rawPoints.push([x, y])
+              const color = p.getAttribute('fill')
+              if (color) {
+                rawColors.push(color)
+              }
             }
           }
+        })
+
+        // every legend item has 2 paths: the icon and the background, we only care about the icon
+        const points = rawPoints.filter((_, i) => i % 2 !== 0)
+        const colors = rawColors.filter((_, i) => i % 2 !== 0)
+
+        const rawRects = createLegendVisuals(points, colors)
+        const names = getSeriesNames(finalOptions)
+        const rects = rawRects.map((r, i) => {
+          return {
+            ...r,
+            onclick() {
+              toggle(names[i])
+            },
+          }
+        })
+
+        if (!isArray(finalOptions.graphic)) return
+
+        // for some reason this is necessary or else the loading state doesn't render correctly
+        if (rects.length !== graphics.length) {
+          setGraphics(rects)
         }
-      })
-
-      // every legend item has 2 paths: the icon and the background, we only care about the icon
-      const points = rawPoints.filter((_, i) => i % 2 !== 0)
-      const colors = rawColors.filter((_, i) => i % 2 !== 0)
-
-      const rawRects = createLegendVisuals(points, colors)
-      const names = getSeriesNames(finalOptions)
-      const rects = rawRects.map((r, i) => {
-        return {
-          ...r,
-          onclick() {
-            toggle(names[i])
-          },
-        }
-      })
-
-      if (!isArray(finalOptions.graphic)) return
-
-      // for some reason this is necessary or else the loading state doesn't render correctly
-      if (rects.length !== graphics.length) {
-        setGraphics(rects)
-      }
-    }, [graphics, chartRef, finalOptions])
+      },
+      [graphics, chartRef, finalOptions]
+    )
 
     const toggle = useCallback(
       (name: string) => {
@@ -334,14 +337,17 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       [graphics, chartRef]
     )
 
-    const connectGroups = useCallback(() => {
-      if (!group || !chartRef.current) return
-      const chart = chartRef.current.getEchartsInstance()
+    const connectGroups = useCallback(
+      (_params?: any) => {
+        if (!group || !chartRef.current) return
+        const chart = chartRef.current.getEchartsInstance()
 
-      chart.group = group
+        chart.group = group
 
-      echarts.connect(group)
-    }, [group])
+        echarts.connect(group)
+      },
+      [group]
+    )
 
     const handleResize = useCallback(() => {
       if (chartRef.current) {
@@ -349,10 +355,13 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
     }, [chartRef])
 
-    const onRendered = useCallback(() => {
-      connectGroups()
-      setupCheckBoxVisual()
-    }, [group, graphics, chartRef])
+    const onRendered = useCallback(
+      (_params: any) => {
+        connectGroups()
+        setupCheckBoxVisual()
+      },
+      [group, graphics, chartRef]
+    )
 
     useEffect(() => {
       if (!canUseDOM) return
@@ -362,6 +371,32 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         window.removeEventListener('resize', handleResize)
       }
     }, [handleResize, canUseDOM])
+
+    const memoEvents = {
+      legendselectchanged: checkBoxLegend,
+      rendered: onRendered,
+    }
+
+    const eventsAdaption = useMemo(() => {
+      const defaultKeys = Object.keys(memoEvents)
+
+      if (!onEvents) return memoEvents
+
+      const newEvents = { ...memoEvents, ...onEvents }
+
+      // for each key in the memoEvents object, if it exists in the onEvents object
+      // compose the functions, call both of them
+      for (let i = 0; i < defaultKeys.length; i++) {
+        if (onEvents[defaultKeys[i]]) {
+          newEvents[defaultKeys[i]] = (params: any) => {
+            memoEvents[defaultKeys[i]](params)
+            onEvents[defaultKeys[i]](params)
+          }
+        }
+      }
+
+      return newEvents
+    }, [graphics, onEvents])
 
     return (
       <div data-sl-chart>
@@ -374,11 +409,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           showLoading={loading}
           loadingOption={loadingConfig}
           // onChartReady={(instance) => instance.resize()}
-          onEvents={{
-            legendselectchanged: checkBoxLegend,
-            rendered: onRendered,
-            ...onEvents,
-          }}
+          onEvents={eventsAdaption}
           {...otherProps}
         />
       </div>
