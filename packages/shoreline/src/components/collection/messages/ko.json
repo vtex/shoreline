@@ -1,11 +1,11 @@
 {
-  "not-found-heading": "No results found",
-  "not-found-description": "Try using different terms or filters.",
-  "empty-heading": "No items yet",
-  "empty-description": "Create an item to start selling.",
-  "empty-action": "Create item",
-  "error-heading": "Something went wrong",
-  "error-action": "Try again",
-  "unauthorized-heading": "Unauthorized access",
-  "unauthorized-description": "User profile does not have access to the filtered content. Please contact support."
+  "not-found-heading": "결과를 찾을 수 없습니다",
+  "not-found-description": "다른 용어 또는 필터를 사용해 보세요",
+  "empty-heading": "아직 항목이 없습니다",
+  "empty-description": "판매를 시작하려면 상품을 등록하세요",
+  "empty-action": "항목 만들기",
+  "error-heading": "문제가 발생했습니다",
+  "error-action": "다시 시도하십시오",
+  "unauthorized-heading": "허가되지 않은 접근",
+  "unauthorized-description": "사용자 역할에 필터링된 콘텐츠에 대한 액세스 권한이 없습니다. 지원팀에 문의하세요.\n"
 }

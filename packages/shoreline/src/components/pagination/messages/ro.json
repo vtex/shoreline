@@ -1,6 +1,6 @@
 {
-  "pagination-label": "{firstPosition} — {lastPosition} of {items}",
-  "pagination-label-single-page": "{lastPosition} of {items}",
-  "next-page-action": "Next page",
-  "previous-page-action": "Previous page"
+  "pagination-label": "{firstPosition} — {lastPosition} din {items}",
+  "pagination-label-single-page": "{lastPosition} din {items}",
+  "next-page-action": "Pagina următoare",
+  "previous-page-action": "Pagina anterioară"
 }
