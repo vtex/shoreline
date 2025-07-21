@@ -381,7 +381,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       rendered: onRendered,
     }
 
-    const eventsAdaption = useMemo(() => {
+    const eventsAdapter = useMemo(() => {
       const defaultKeys = Object.keys(memoEvents)
 
       if (!onEvents) return memoEvents
@@ -413,7 +413,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           showLoading={loading}
           loadingOption={loadingConfig}
           // onChartReady={(instance) => instance.resize()}
-          onEvents={eventsAdaption}
+          onEvents={eventsAdapter}
           {...otherProps}
         />
       </div>
