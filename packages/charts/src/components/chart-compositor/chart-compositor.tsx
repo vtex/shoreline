@@ -19,6 +19,7 @@ import {
   applySeriesHook,
   normalizeBarData,
   normalizeHorizontalBarData,
+  roundCap,
   setAreaColors,
   setAreaGradients,
 } from '../../utils/hooks'
@@ -149,6 +150,7 @@ const defaultHooks: DefaultHooks = {
   bar: {
     vertical: [normalizeBarData],
     horizontal: [normalizeHorizontalBarData],
+    stacked: [roundCap],
   },
   line: {
     default: [],

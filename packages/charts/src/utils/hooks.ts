@@ -1,5 +1,5 @@
 import type { EChartsOption, LineSeriesOption, SeriesOption } from 'echarts'
-import { cloneDeep, isArray, isDate } from 'lodash'
+import { cloneDeep, isArray, isDate, isObject } from 'lodash'
 import { defaultTheme } from '../theme/themes'
 import {
   defaultAreaColors,
@@ -119,7 +119,45 @@ export function normalizeHorizontalBarDataInner(
   }
 }
 
-export function setAreaGradients(options: EChartsOption) {
+export function roundCap(options: EChartsOption): EChartsOption {
+  const outOptions = cloneDeep(options)
+  const series = outOptions.series
+  if (!isArray(series) || !isArray(series[0].data)) return options
+
+  const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
+  series[0].data.forEach((_, i) => {
+    for (let j = series.length - 1; j > -1; j--) {
+      const data = series[j].data as (
+        | number
+        | { value: number; itemStyle: { borderRadius: number[] } }
+      )[]
+      if (isObject(data[i])) {
+        if (data[i].value !== 0) {
+          data[i] = {
+            ...data[i],
+            itemStyle: {
+              ...data[i].itemStyle,
+              borderRadius: defaultBorderRadius,
+            },
+          }
+          break
+        }
+      }
+      if (data[i] !== 0) {
+        data[i] = {
+          value: data[i],
+          itemStyle: { borderRadius: defaultBorderRadius },
+        } as { value: number; itemStyle: { borderRadius: number[] } }
+        // series[j].data[i].itemStyle ??= {}
+        // series[j].data[i].itemStyle.borderRadius = defaultBorderRadius
+        break
+      }
+    }
+  })
+  return outOptions
+}
+
+export function setAreaGradients(options: EChartsOption): EChartsOption {
   return setAreaColors(options, true)
 }
 
