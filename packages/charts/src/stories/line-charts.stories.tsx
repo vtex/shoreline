@@ -23,22 +23,18 @@ export const MultiLines: Story = {
     series: [
       {
         name: 'Email',
-        type: 'line',
         data: [120, 132, 101, 134, 90, 230, 210],
       },
       {
         name: 'Union Ads',
-        type: 'line',
         data: [220, 182, 191, 234, 290, 330, 260],
       },
       {
         name: 'Video Ads',
-        type: 'line',
         data: [150, 232, 201, 154, 190, 330, 410],
       },
       {
         name: 'Direct',
-        type: 'line',
         data: [320, 332, 301, 334, 390, 330, 320],
       },
     ],
