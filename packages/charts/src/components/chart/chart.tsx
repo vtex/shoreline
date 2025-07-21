@@ -238,8 +238,12 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             else turnOffSerieLegend(chart, serie)
           })
         }
-        if (!checkboxLegendVisuals) return
-        toggleCheckBoxLegend(legendAction.toggled, Object.keys(params.selected))
+        if (checkboxLegendVisuals) {
+          toggleCheckBoxLegend(
+            legendAction.toggled,
+            Object.keys(params.selected)
+          )
+        }
       },
       [chartRef, graphics]
     )
