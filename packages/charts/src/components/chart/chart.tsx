@@ -102,10 +102,10 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
     const finalOptions: EChartsOption = useMemo(() => {
       const wholeOption = cloneDeep(option) ?? {}
-      wholeOption.series = series
-      wholeOption.xAxis = xAxis
-      wholeOption.yAxis = yAxis
-      wholeOption.title = title
+      wholeOption.series = cloneDeep(series)
+      wholeOption.xAxis = cloneDeep(xAxis)
+      wholeOption.yAxis = cloneDeep(yAxis)
+      wholeOption.title = cloneDeep(title)
 
       if (checkZoom(zoom, chartConfig?.type)) {
         wholeOption.grid ??= {}
