@@ -41,7 +41,6 @@ export const Basic: Story = {
       },
     ],
     tooltip: { type: 'line' },
-    zoom: true,
     style: { height: 550 },
   },
 }
