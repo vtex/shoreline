@@ -1,0 +1,26 @@
+[data-sl-chart-legend] {
+  display: flex;
+  gap: var(--sl-space-4);
+  margin-top: var(--sl-space-2);
+}
+
+[data-sl-chart-legend-container] {
+  display: flex;
+  align-items: center;
+  padding: var(--sl-space-0);
+  gap: var(--sl-space-1);
+}
+
+[data-sl-chart-legend-button] {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--sl-radius-1);
+  border: 0px;
+}
+
+[data-sl-chart-legend-text] {
+  cursor: "pointer";
+  font: var(--sl-text-body-font);
+  color: var(--sl-fg-base-soft);
+  font-size: "12px";
+}
