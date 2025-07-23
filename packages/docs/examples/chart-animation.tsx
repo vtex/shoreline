@@ -11,6 +11,7 @@ for (let i = 0; i < 25; i++) {
 export default function Example() {
   return (
     <Chart
+      chartConfig={{ type: 'bar' }}
       series={[
         { data: data1, name: 'Default animation' },
         {
@@ -28,7 +29,6 @@ export default function Example() {
           left: 'center',
         },
       }}
-      chartConfig={{ type: 'bar' }}
     />
   )
 }
