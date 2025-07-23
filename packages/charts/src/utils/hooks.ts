@@ -1,5 +1,5 @@
 import type { EChartsOption, LineSeriesOption, SeriesOption } from 'echarts'
-import { cloneDeep, isArray, isDate, isObject } from 'lodash'
+import { isArray, isDate, isObject } from 'lodash'
 import { defaultTheme } from '../theme/themes'
 import {
   defaultAreaColors,
@@ -23,13 +23,11 @@ export function normalizeBarData(option: EChartsOption): EChartsOption {
   const series = option.series
   if (typeof series === 'undefined') return option
   if (isArray(series)) {
-    const out = cloneDeep(option)
-    out.series = series.map((v: any) => normalizeBarDataInner(v))
-    return out
+    option.series = series.map((v: any) => normalizeBarDataInner(v))
+    return option
   }
-  const out = cloneDeep(option)
-  out.series = normalizeBarDataInner(series)
-  return out
+  option.series = normalizeBarDataInner(series)
+  return option
 }
 
 export function normalizeBarDataInner(series: SeriesOption): SeriesOption {
@@ -72,13 +70,11 @@ export function normalizeHorizontalBarData(
   const series = option.series
   if (typeof series === 'undefined') return option
   if (isArray(series)) {
-    const out = cloneDeep(option)
-    out.series = series.map((v: any) => normalizeHorizontalBarDataInner(v))
-    return out
+    option.series = series.map((v: any) => normalizeHorizontalBarDataInner(v))
+    return option
   }
-  const out = cloneDeep(option)
-  out.series = normalizeHorizontalBarDataInner(series)
-  return out
+  option.series = normalizeHorizontalBarDataInner(series)
+  return option
 }
 export function normalizeHorizontalBarDataInner(
   series: SeriesOption
@@ -120,8 +116,7 @@ export function normalizeHorizontalBarDataInner(
 }
 
 export function roundCap(options: EChartsOption): EChartsOption {
-  const outOptions = cloneDeep(options)
-  const series = outOptions.series
+  const series = options.series
   if (!isArray(series) || !isArray(series[0].data)) return options
 
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
@@ -154,7 +149,7 @@ export function roundCap(options: EChartsOption): EChartsOption {
       }
     }
   })
-  return outOptions
+  return options
 }
 
 export function setAreaGradients(options: EChartsOption): EChartsOption {
@@ -165,9 +160,7 @@ export function setAreaColors(
   options: EChartsOption,
   gradient = false
 ): EChartsOption {
-  const returnOptions = cloneDeep(options) as EChartsOption
-
-  const { series, ...otherProps } = returnOptions
+  const { series, ...otherProps } = options
 
   const arraySeries = isArray(series) ? series : [series]
 
