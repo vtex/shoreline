@@ -176,6 +176,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       animationDelay: DEFAULT_DELAY_FUNCTION,
     },
   },
+
   line: {
     default: {
       xAxis: { type: 'category' },
@@ -194,6 +195,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       animationEasingUpdate: 'cubicInOut',
     },
   },
+
   area: {
     overlapping: {
       xAxis: { type: 'category', boundaryGap: false },
@@ -241,6 +243,21 @@ export const CHART_STYLES: DefaultChartStyles = {
       animationDurationUpdate: 300,
       animationEasing: 'cubicInOut',
       animationEasingUpdate: 'cubicInOut',
+    },
+  },
+
+  funnel: {
+    default: {
+      series: {
+        type: 'funnel',
+        label: {
+          show: true,
+          position: 'inside',
+        },
+      },
+      tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'item' },
+      grid: { ...GRID_DEFAULT_STYLE },
+      legend: { ...LEGEND_DEFAULT_STYLE, left: 'center' },
     },
   },
 }

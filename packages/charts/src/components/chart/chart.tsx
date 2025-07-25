@@ -532,4 +532,7 @@ const defaultHooks: DefaultHooks = {
     overlapping: [setAreaGradients],
     stacked: [setAreaColors],
   },
+  funnel: {
+    default: [],
+  },
 }
