@@ -1,7 +1,7 @@
 [data-sl-chart-legend] {
   display: flex;
   gap: var(--sl-space-4);
-  margin-top: var(--sl-space-2);
+  margin: var(--sl-space-4);
 }
 
 [data-sl-chart-legend-container] {
@@ -12,14 +12,27 @@
 }
 
 [data-sl-chart-legend-button] {
+  cursor: pointer;
   width: 16px;
   height: 16px;
   border-radius: var(--sl-radius-1);
   border: 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+[data-sl-chart-legend-button]:focus {
+  box-shadow: var(--sl-focus-ring-base);
+}
+
+[data-sl-chart-legend-check] {
+  color: var(--sl-fg-inverted);
+  width: 9.75;
+  height: 7.125;
 }
 
 [data-sl-chart-legend-text] {
-  cursor: "pointer";
+  cursor: pointer;
   font: var(--sl-text-body-font);
   color: var(--sl-fg-base-soft);
   font-size: "12px";

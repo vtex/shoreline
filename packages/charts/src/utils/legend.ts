@@ -1,3 +1,5 @@
+import { defaultColorPreset, defaultColorShade } from '../theme/colors'
+
 export function turnOnAllLegend(chart: echarts.ECharts, series: string[]) {
   series.forEach((serie) => turnOnSerieLegend(chart, serie))
 }
@@ -18,4 +20,9 @@ export function toggleSerieLegend(chart: echarts.ECharts, serie: string) {
     { type: 'legendToggleSelect', name: serie },
     { silent: true }
   )
+}
+
+export function getHoverColor(color: string): string {
+  if (defaultColorPreset.includes(color)) return defaultColorShade[color]
+  return color
 }
