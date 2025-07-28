@@ -164,15 +164,23 @@ export function setAreaColors(
 
   const arraySeries = isArray(series) ? series : [series]
 
-  arraySeries.forEach((v, index) => {
+  let nextColorIndex = 0
+  arraySeries.forEach((v) => {
     const serie = v as LineSeriesOption
+    if (serie.color) {
+      return
+    }
+    console.log(nextColorIndex)
     const areaColor =
-      defaultColorShade[defaultColorPreset[index % defaultAreaColors.length]]
+      defaultColorShade[
+        defaultColorPreset[nextColorIndex % defaultAreaColors.length]
+      ]
     serie.areaStyle ??= {}
 
     if (!gradient) {
-      serie.areaStyle.color = defaultAreaColors[index]
+      serie.areaStyle.color = defaultAreaColors[nextColorIndex]
       serie.color = defaultColorShade[areaColor]
+      nextColorIndex++
       return
     }
     const color = {
@@ -195,5 +203,6 @@ export function setAreaColors(
     }
     serie.areaStyle.color = color
   })
+  nextColorIndex++
   return { series, ...otherProps }
 }
