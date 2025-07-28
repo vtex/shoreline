@@ -170,7 +170,6 @@ export function setAreaColors(
     if (serie.color) {
       return
     }
-    console.log(nextColorIndex)
     const areaColor =
       defaultColorShade[
         defaultColorPreset[nextColorIndex % defaultAreaColors.length]
