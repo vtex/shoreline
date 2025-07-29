@@ -1,3 +1,4 @@
+import type { LegendStateType } from '../components/legend'
 import { defaultColorPreset, defaultColorShade } from '../theme/colors'
 
 export function turnOnAllLegend(chart: echarts.ECharts, series: string[]) {
@@ -25,4 +26,36 @@ export function toggleSerieLegend(chart: echarts.ECharts, serie: string) {
 export function getHoverColor(color: string): string {
   if (defaultColorPreset.includes(color)) return defaultColorShade[color]
   return color
+}
+
+export function getSelectAllState(
+  seriesState: LegendStateType
+): LegendStateType {
+  return seriesState.map((serie) => ({
+    ...serie,
+    state: undefined,
+  })) as LegendStateType
+}
+
+export function getExclusiveState(
+  seriesState: LegendStateType,
+  index: number
+): LegendStateType {
+  return seriesState.map((serie, i) => ({
+    ...serie,
+    state: index === i,
+  })) as LegendStateType
+}
+
+export function checkAllSelected(
+  seriesState: LegendStateType
+): LegendStateType {
+  const allNotFalse = seriesState.every((serie) => serie.state !== false)
+
+  if (allNotFalse) return getSelectAllState(seriesState)
+
+  return seriesState.map((serie) => ({
+    ...serie,
+    state: serie.state === undefined ? true : serie.state,
+  })) as LegendStateType
 }

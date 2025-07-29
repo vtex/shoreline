@@ -31,12 +31,12 @@ import {
   setAreaGradients,
 } from '../../utils/hooks'
 import {
-  turnOnAllLegend,
   toggleSerieLegend,
-  turnOnSerieLegend,
   turnOffSerieLegend,
+  turnOnAllLegend,
+  turnOnSerieLegend,
 } from '../../utils/legend'
-import { Legend } from '../legend'
+import { Legend, type LegendHandle, type LegendActionType } from '../legend'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -77,6 +77,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     } = props
 
     const chartRef = useRef<ReactECharts>(null)
+    const legendRef = useRef<LegendHandle>(null)
 
     const hooks: ((series: EChartsOption) => EChartsOption)[] = useMemo(() => {
       if (optionHooks === null || chartConfig === null) {
@@ -124,110 +125,33 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
     const checkBoxLegend = useCallback(
       (params: any) => {
-        if (!chartRef.current || !checkboxLegendBehaviour) return
-        const chart = chartRef.current.getEchartsInstance()
-
-        const seriesNames = Object.keys(params.selected)
-        // for when the selected series was in this chart
-        if (
-          typeof params.name === 'string' &&
-          seriesNames.includes(params.name)
-        ) {
-          const indexOfClicked = seriesNames.indexOf(params.name)
-          params.selected[params.name] = !params.selected[params.name]
-
-          const selectedSeries: string[] = []
-          const unselectedSeries: string[] = []
-          const toggled: boolean[] = []
-
-          seriesNames.forEach((serie) => {
-            if (params.selected[serie]) {
-              selectedSeries.push(serie)
-              toggled.push(true)
-            } else {
-              unselectedSeries.push(serie)
-              toggled.push(false)
-            }
-          })
-          toggled[indexOfClicked] = !toggled[indexOfClicked]
-
-          let actionType: string
-
-          if (unselectedSeries.length === 0) {
-            actionType = 'exclusive'
-            toggled.forEach((v, i) => {
-              toggled[i] = !v
-            })
-          } else if (
-            selectedSeries.length === 1 &&
-            params.name === selectedSeries[0]
-          ) {
-            actionType = 'selectAll'
-            toggled.fill(true)
-          } else {
-            actionType = 'toggle'
-          }
-
-          chart.dispatchAction({
-            type: 'legendToggleSelect',
-            name: {
-              index: indexOfClicked,
-              name: params.name as string,
-              type: actionType,
-              toggled: toggled,
-              chartId: chart.getId(),
-            },
-          })
-          return
-        }
-
-        if (typeof params.name === 'string') return
-
-        // for when the selected series was in another chart of the same group
-        const legendAction = params.name as {
-          index: number
-          name: string
-          type: 'selectAll' | 'toggle' | 'exclusive'
-          toggled: boolean[]
-          chartId: string
-        }
-
-        if (
-          seriesNames.includes(legendAction.name) &&
-          chart.getId() !== legendAction.chartId
-        )
-          return
-
-        if (legendAction.type === 'selectAll') {
-          turnOnAllLegend(chart, seriesNames)
-        }
-
-        if (
-          legendAction.type === 'toggle' &&
-          legendAction.index < seriesNames.length
-        ) {
-          if (seriesNames.includes(legendAction.name)) return
-          toggleSerieLegend(chart, seriesNames[legendAction.index])
-        }
-
-        if (legendAction.type === 'exclusive') {
-          seriesNames.forEach((serie, index) => {
-            if (index === legendAction.index) turnOnSerieLegend(chart, serie)
-            else turnOffSerieLegend(chart, serie)
-          })
-        }
-      },
-      [chartRef]
-    )
-
-    const toggle = useCallback(
-      (name: string) => {
         if (!chartRef.current) return
-        chartRef.current
-          .getEchartsInstance()
-          .dispatchAction({ type: 'legendToggleSelect', name: name })
+        const chart = chartRef.current.getEchartsInstance()
+        const series = finalOptions.series as SeriesOption[]
+        const action = params.name as LegendActionType
+
+        if (action.type === 'toggle' && action.index < series.length) {
+          toggleSerieLegend(chart, String(series[action.index].name))
+        }
+
+        if (action.type === 'selectAll') {
+          turnOnAllLegend(
+            chart,
+            series.map((serie) => String(serie.name))
+          )
+        }
+
+        if (action.type === 'exclusive') {
+          series.forEach((s, index) => {
+            if (index === action.index) turnOnSerieLegend(chart, String(s.name))
+            else turnOffSerieLegend(chart, String(s.name))
+          })
+        }
+        if (action.chartId !== chart.getId() && legendRef.current) {
+          legendRef.current.setState(action.state, action.index, action.type)
+        }
       },
-      [chartRef]
+      [chartRef, finalOptions]
     )
 
     const connectGroups = useCallback(
@@ -264,10 +188,12 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
     }, [handleResize, canUseDOM])
 
-    const memoEvents = {
-      legendselectchanged: checkBoxLegend,
-      rendered: onRendered,
-    }
+    const memoEvents = useMemo(() => {
+      return {
+        legendselectchanged: checkBoxLegend,
+        rendered: onRendered,
+      }
+    }, [checkBoxLegend, onRendered])
 
     const eventsAdapter = useMemo(() => {
       const defaultKeys = Object.keys(memoEvents)
@@ -304,7 +230,11 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           onEvents={eventsAdapter}
           {...otherProps}
         />
-        <Legend series={finalOptions.series} onClick={toggle} />
+        <Legend
+          ref={legendRef}
+          series={finalOptions.series}
+          chartRef={chartRef}
+        />
       </div>
     )
   }
