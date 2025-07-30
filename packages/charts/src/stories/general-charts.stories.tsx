@@ -17,10 +17,10 @@ export const BasicSync: Story = {
       <>
         <Chart
           series={[
-            { data: [1, 2, 3, 2], name: 'Seg' },
-            { data: [3, 4, 5, 3], name: 'Ter' },
-            { data: [5, 1, 2, 5], name: 'Qua' },
-            { data: [2, 5, 1, 2], name: 'Qui' },
+            { data: [1, 2, 3], name: 'Seg' },
+            { data: [3, 4, 5], name: 'Ter' },
+            { data: [5, 1, 2], name: 'Qua' },
+            { data: [2, 5, 1], name: 'Qui' },
           ]}
           chartConfig={{ type: 'bar' }}
           group="a"

@@ -28,31 +28,16 @@ export function getHoverColor(color: string): string {
   return color
 }
 
-export function getSelectAllState(
-  seriesState: LegendStateType
-): LegendStateType {
-  return seriesState.map((serie) => ({
-    ...serie,
-    state: undefined,
-  })) as LegendStateType
-}
-
-export function getExclusiveState(
-  seriesState: LegendStateType,
-  index: number
-): LegendStateType {
-  return seriesState.map((serie, i) => ({
-    ...serie,
-    state: index === i,
-  })) as LegendStateType
-}
-
 export function checkAllSelected(
   seriesState: LegendStateType
 ): LegendStateType {
   const allNotFalse = seriesState.every((serie) => serie.state !== false)
 
-  if (allNotFalse) return getSelectAllState(seriesState)
+  if (allNotFalse)
+    return seriesState.map((serie) => ({
+      ...serie,
+      state: undefined,
+    })) as LegendStateType
 
   return seriesState.map((serie) => ({
     ...serie,
