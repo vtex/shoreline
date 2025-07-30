@@ -147,8 +147,9 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             else turnOffSerieLegend(chart, String(s.name))
           })
         }
+
         if (action.chartId !== chart.getId() && legendRef.current) {
-          legendRef.current.setState(action.state, action.index, action.type)
+          legendRef.current.setState(action.index, action.type)
         }
       },
       [chartRef, finalOptions]

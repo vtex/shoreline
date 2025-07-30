@@ -11,12 +11,7 @@ import {
 import { defaultColorPreset } from '../../theme/colors'
 import type { EChartsOption } from 'echarts'
 import '../../theme/components/legend.css'
-import {
-  checkAllSelected,
-  getExclusiveState,
-  getHoverColor,
-  getSelectAllState,
-} from '../../utils/legend'
+import { checkAllSelected, getHoverColor } from '../../utils/legend'
 import { IconCheckSmall } from '@vtex/shoreline'
 import type ReactECharts from 'echarts-for-react'
 
@@ -54,34 +49,50 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
       return colorsOut
     }, [series, seriesState])
 
+    /**
+     * Functions that changes the state of the legend.
+     * Based on the type of action and the index of the change,
+     * the legend can decide  what is the next state to be rendered.
+     *
+     * It is a pure function, so the old state is not modified and a new one is created
+     * Also returns the new legend state when its called.
+     *
+     * @param {number} index - Index of the serie to change the state.
+     * @param {string} type - Type of action to perform. Can be 'toggle', 'selectAll' or 'exclusive'.
+     * @returns {LegendStateType} The new state of the legend.
+     */
+    const changeState = useCallback(
+      (index: number, type: LegendActionType['type']) => {
+        const newState = [...seriesState] as LegendStateType
+        if (type === 'selectAll') {
+          newState.forEach((serie) => {
+            serie.state = undefined
+          })
+        } else if (type === 'exclusive') {
+          newState.forEach((serie, i) => {
+            if (index !== i) serie.state = false
+            else serie.state = true
+          })
+        } else {
+          if (index >= seriesState.length)
+            return setSeriesState(checkAllSelected(newState))
+          newState[index].state = !newState[index].state
+        }
+        const checkedState = checkAllSelected(newState)
+        setSeriesState(checkedState)
+        return checkedState
+      },
+      [seriesState]
+    )
+
     useImperativeHandle(
       ref,
       () => ({
-        setState: (
-          stateOut: LegendStateType,
-          index: number,
-          action: string
-        ) => {
-          let newState: LegendStateType = [...seriesState] as LegendStateType
-          if (action === 'selectAll') {
-            newState = getSelectAllState(seriesState)
-          } else if (action === 'exclusive') {
-            newState = getExclusiveState(seriesState, index)
-          } else if (stateOut.length === seriesState.length) {
-            const modState = [...seriesState] as LegendStateType
-            modState.forEach((serie, i) => {
-              serie.state = stateOut[i].state
-            })
-            newState = modState
-          } else if (index < seriesState.length) {
-            const modState = [...seriesState] as LegendStateType
-            modState[index].state = stateOut[index].state
-            newState = checkAllSelected(modState)
-          }
-          setSeriesState(newState)
+        setState: (index: number, action: string) => {
+          changeState(index, action as LegendActionType['type'])
         },
       }),
-      [{}]
+      [changeState]
     )
 
     const onClick = useCallback(
@@ -94,7 +105,8 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
         const on: string[] = []
         const off: string[] = []
         const un: string[] = []
-        seriesState.forEach((serie) => {
+        newState.forEach((serie) => {
+          console.log(serie.serie, serie.state)
           if (serie.state === true) on.push(serie.serie)
           if (serie.state === false) off.push(serie.serie)
           if (serie.state === undefined) un.push(serie.serie)
@@ -103,36 +115,28 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
         let action = ''
         if (un.length !== 0) {
           action = 'exclusive'
-          newState.forEach((serie, i) => {
-            if (index === i) serie.state = true
-            else serie.state = false
-          })
         } else if (on.length === 1 && on[0] === name) {
           action = 'selectAll'
-          newState.forEach((serie) => {
-            serie.state = undefined
-          })
         } else {
           action = 'toggle'
-          if (off.length === 1 && off[0] === name)
-            newState.forEach((serie) => {
-              serie.state = undefined
-            })
-          else newState[index].state = !newState[index].state
         }
 
-        setSeriesState(newState as LegendStateType)
+        const settedState = changeState(
+          index,
+          action as LegendActionType['type']
+        )
+
         chart.dispatchAction({
           type: 'legendToggleSelect',
           name: {
             index: index,
             type: action,
-            state: newState,
+            state: settedState,
             chartId: chart.getId(),
           },
         })
       },
-      [seriesState]
+      [seriesState, chartRef]
     )
 
     return (
@@ -169,7 +173,7 @@ export type LegendActionType = {
 }
 
 export type LegendHandle = {
-  setState: (state: LegendStateType, index: number, action: string) => void
+  setState: (index: number, action: string) => void
 }
 
 export type LegendOptions = {
@@ -201,7 +205,7 @@ function LegendItem({
     (_e: React.MouseEvent) => {
       onClick(String(serie))
     },
-    [serie, buttonRef]
+    [serie, onClick]
   )
 
   return (
