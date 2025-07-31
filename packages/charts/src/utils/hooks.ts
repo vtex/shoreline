@@ -177,8 +177,12 @@ export function setAreaColors(
     serie.areaStyle ??= {}
 
     if (!gradient) {
-      serie.areaStyle.color = defaultAreaColors[nextColorIndex]
-      serie.color = defaultColorShade[areaColor]
+      // defaultColorShade[areaColor]
+      serie.areaStyle.color = areaColor
+      console.log(serie.areaStyle.color)
+      serie.color = areaColor
+      console.log(serie.color)
+
       nextColorIndex++
       return
     }
