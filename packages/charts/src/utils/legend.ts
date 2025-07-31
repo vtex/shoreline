@@ -1,4 +1,4 @@
-import type { LegendStateType } from '../components/legend'
+import type { LegendState } from '../components/legend'
 import { defaultColorPreset, defaultColorShade } from '../theme/colors'
 
 export function turnOnAllLegend(chart: echarts.ECharts, series: string[]) {
@@ -28,19 +28,17 @@ export function getHoverColor(color: string): string {
   return color
 }
 
-export function checkAllSelected(
-  seriesState: LegendStateType
-): LegendStateType {
-  const allNotFalse = seriesState.every((serie) => serie.state !== false)
+export function checkAllSelected(seriesState: LegendState): LegendState {
+  const allOn = seriesState.every((serie) => serie.state !== false)
 
-  if (allNotFalse)
+  if (allOn)
     return seriesState.map((serie) => ({
       ...serie,
       state: undefined,
-    })) as LegendStateType
+    })) as LegendState
 
   return seriesState.map((serie) => ({
     ...serie,
     state: serie.state === undefined ? true : serie.state,
-  })) as LegendStateType
+  })) as LegendState
 }

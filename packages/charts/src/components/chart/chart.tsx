@@ -36,7 +36,7 @@ import {
   turnOnAllLegend,
   turnOnSerieLegend,
 } from '../../utils/legend'
-import { Legend, type LegendHandle, type LegendActionType } from '../legend'
+import { Legend, type LegendHandle, type LegendAction } from '../legend'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -128,7 +128,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         if (!chartRef.current) return
         const chart = chartRef.current.getEchartsInstance()
         const series = finalOptions.series as SeriesOption[]
-        const action = params.name as LegendActionType
+        const action = params.name as LegendAction
 
         if (action.type === 'toggle' && action.index < series.length) {
           toggleSerieLegend(chart, String(series[action.index].name))

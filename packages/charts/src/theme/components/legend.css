@@ -17,8 +17,9 @@
   height: 12px;
   border-radius: var(--sl-radius-1);
   border: 0px;
-  padding-left: 1px;
-  padding-right: 1px;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
 }
 
 [data-sl-chart-legend-button]:focus {
@@ -27,13 +28,14 @@
 
 [data-sl-chart-legend-check] {
   color: var(--sl-fg-inverted);
+  margin: auto;
   width: 10px;
   height: 10px;
 }
 
 [data-sl-chart-legend-text] {
   cursor: pointer;
-  font: var(--sl-text-body-font);
+  font: var(--sl-text-caption-1-font);
   color: var(--sl-fg-base-soft);
   font-size: 12px;
 }
