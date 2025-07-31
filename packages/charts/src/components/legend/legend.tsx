@@ -54,7 +54,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
      * Based on the type of action and the index of the change,
      * the legend can decide  what is the next state to be rendered.
      *
-     * It is a pure function, so the old state is not modified and a new one is created
+     * It is a pure function in a way that it does not modify the old state, and a new one is created
      * Also returns the new legend state when its called.
      *
      * @param {number} index - Index of the serie to change the state.
@@ -212,6 +212,7 @@ function LegendItem({
     <div
       data-sl-chart-legend-container
       onClick={handleClick}
+      onMouseDown={(e) => e.preventDefault()}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       {...otherProps}
