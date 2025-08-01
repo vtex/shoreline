@@ -33,6 +33,7 @@ import {
   createStackedBarGaps,
   normalizeBarData,
   normalizeHorizontalBarData,
+  normalizeStackedBars,
   roundCap,
   setAreaColors,
   setAreaGradients,
@@ -525,6 +526,7 @@ const defaultHooks: DefaultHooks = {
     vertical: [normalizeBarData],
     horizontal: [normalizeHorizontalBarData],
     stacked: [roundCap, createStackedBarGaps],
+    'percentage stack': [normalizeStackedBars],
   },
   line: {
     default: [],

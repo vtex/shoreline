@@ -1,6 +1,11 @@
 import type { EChartsOption, SeriesOption } from 'echarts'
 
-const BarChartVariantsArray = ['vertical', 'horizontal', 'stacked'] as const
+const BarChartVariantsArray = [
+  'vertical',
+  'horizontal',
+  'stacked',
+  'percentage stack',
+] as const
 const LineChartVariantsArray = ['default'] as const
 const AreaChartVariantsArray = ['overlapping', 'stacked'] as const
 const FunnelChartVariantsArray = ['default'] as const

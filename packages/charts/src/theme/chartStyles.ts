@@ -156,8 +156,6 @@ export const CHART_STYLES: DefaultChartStyles = {
         stack: '__stack',
         itemStyle: {
           borderRadius: 0,
-          // borderWidth: 4,
-          // borderColor: 'transparent',
         },
       },
       legend: LEGEND_DEFAULT_STYLE,
@@ -173,7 +171,31 @@ export const CHART_STYLES: DefaultChartStyles = {
           shadowStyle: { color: 'var(--sl-color-gray-1)', opacity: 1 },
         },
       },
-
+      animationDelay: DEFAULT_DELAY_FUNCTION,
+    },
+    'percentage stack': {
+      xAxis: { type: 'category' },
+      yAxis: { type: 'value' },
+      series: {
+        type: 'bar',
+        stack: '__stack%',
+        itemStyle: {
+          borderRadius: 0,
+        },
+      },
+      legend: LEGEND_DEFAULT_STYLE,
+      grid: GRID_DEFAULT_STYLE,
+      tooltip: {
+        ...BASE_TOOLTIP_OPIONS,
+        formatter: (params) => {
+          return getTooltipStaticString(params, true, true)
+        },
+        axisPointer: {
+          type: 'shadow',
+          z: -1,
+          shadowStyle: { color: 'var(--sl-color-gray-1)', opacity: 1 },
+        },
+      },
       animationDelay: DEFAULT_DELAY_FUNCTION,
     },
   },

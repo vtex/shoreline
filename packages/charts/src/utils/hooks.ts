@@ -163,8 +163,8 @@ export function createStackedBarGaps(options: EChartsOption): EChartsOption {
   let maxSize = 0
   for (let i = 0; i < series[0].data.length; i++) {
     let currentTotal = 0
-    series.forEach((v) => {
-      const data = v.data as (number | { value: number })[]
+    series.forEach((serie) => {
+      const data = serie.data as (number | { value: number })[]
       const current = data[i] as number | { value: number }
       if (isObject(current)) {
         currentTotal += current.value
@@ -198,6 +198,40 @@ export function createStackedBarGaps(options: EChartsOption): EChartsOption {
       })
     }
   }
+  return options
+}
+
+export function normalizeStackedBars(options: EChartsOption): EChartsOption {
+  const series = options.series
+  if (!isArray(series) || !isArray(series[0].data)) return options
+
+  const seriesSums: number[] = []
+  for (let i = 0; i < series[0].data.length; i++) {
+    let currentTotal = 0
+    series.forEach((v) => {
+      const data = v.data as (number | { value: number })[]
+      const current = data[i] as number | { value: number }
+      if (isObject(current)) {
+        currentTotal += current.value
+      } else {
+        currentTotal += current
+      }
+    })
+    seriesSums.push(currentTotal)
+  }
+
+  series.forEach((serie) => {
+    const data = serie.data as (number | { value: number })[]
+    data.forEach((v, j) => {
+      let value = 0
+      if (isObject(v)) {
+        value = v.value
+      } else {
+        value = v
+      }
+      data[j] = value / seriesSums[j]
+    })
+  })
   return options
 }
 

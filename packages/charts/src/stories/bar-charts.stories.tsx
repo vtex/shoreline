@@ -170,6 +170,19 @@ export const Stacked: Story = {
   },
 }
 
+export const StackedPercentage: Story = {
+  args: {
+    chartConfig: { type: 'bar', variant: 'percentage stack', gap: 3 },
+    xAxis: { data: ['Q1', 'Q2', 'Q3', 'Q4'] },
+    series: [
+      { data: [30, 70, 250, 33], name: 'Blue Store' },
+      { data: [60, 15, 500, 33], name: 'Purple Store' },
+      { data: [10, 15, 250, 33], name: 'Orange Store' },
+    ],
+    style: { width: 400 },
+  },
+}
+
 const data2: (number | object)[] = []
 const data1: number[] = []
 
