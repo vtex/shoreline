@@ -122,6 +122,10 @@ export function roundCap(options: EChartsOption): EChartsOption {
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
   series[0].data.forEach((_, i) => {
     for (let j = series.length - 1; j > -1; j--) {
+      if (series[j].name?.toString().startsWith('__invisible')) {
+        continue
+      }
+
       const data = series[j].data as (
         | number
         | { value: number; itemStyle: { borderRadius: number[] } }
@@ -149,6 +153,51 @@ export function roundCap(options: EChartsOption): EChartsOption {
       }
     }
   })
+  return options
+}
+
+export function createStackedBarGaps(options: EChartsOption): EChartsOption {
+  const series = options.series
+  if (!isArray(series) || !isArray(series[0].data)) return options
+
+  let max = 0
+  for (let i = 0; i < series[0].data.length; i++) {
+    let currentTotal = 0
+    series.forEach((v) => {
+      const data = v.data as (number | { value: number })[]
+      const current = data[i] as number | { value: number }
+      if (isObject(current)) {
+        currentTotal += current.value
+      } else {
+        currentTotal += current
+      }
+    })
+    if (currentTotal > max) {
+      max = currentTotal
+    }
+  }
+
+  max *= 0.025
+
+  for (let i = 0; i < series.length - 1; i += 2) {
+    const data = series[i].data
+    if (isArray(data)) {
+      const invisibleSeries = data.map((v: number | { value: number }) => {
+        let value = 0
+        if (isObject(v)) {
+          value = v.value
+        } else {
+          value = v
+        }
+        return v === 0 ? 0 : max
+      })
+      series.splice(i + 1, 0, {
+        data: invisibleSeries,
+        name: `__invisible${i}`,
+        color: 'transparent',
+      })
+    }
+  }
   return options
 }
 

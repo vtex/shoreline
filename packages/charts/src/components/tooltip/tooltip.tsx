@@ -2,21 +2,30 @@ import type { TooltipComponentFormatterCallbackParams } from 'echarts'
 import { renderToStaticMarkup } from 'react-dom/server'
 import '../../theme/components/tooltip.css'
 import { Flex } from '@vtex/shoreline'
+import { isArray } from 'lodash'
 
 export default function ChartTooltip({ params, invert }: ChartTooltipProps) {
-  if (Array.isArray(params) && invert) params.reverse()
+  if (isArray(params) && invert) params.reverse()
+  const realParams = isArray(params)
+    ? params.filter(
+        (p: any) =>
+          typeof p.seriesName === 'string' &&
+          !p.seriesName.startsWith('__invisible')
+      )
+    : params
+
   return (
     <>
       <h4 data-sl-chart-tooltip-title>
-        {Array.isArray(params) ? params[0].name : params.name}
+        {isArray(realParams) ? realParams[0].name : realParams.name}
       </h4>
       <div data-sl-chart-tooltip>
-        {Array.isArray(params) ? (
-          params.map((param) => (
+        {isArray(realParams) ? (
+          realParams.map((param) => (
             <ChartTooltipBase key={param.dataIndex} params={param} />
           ))
         ) : (
-          <ChartTooltipBase params={params} />
+          <ChartTooltipBase params={realParams} />
         )}
       </div>
     </>

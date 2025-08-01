@@ -30,6 +30,7 @@ import {
 } from '../../theme/chartStyles'
 import { cloneDeep, isArray, type Dictionary } from 'lodash'
 import {
+  createStackedBarGaps,
   normalizeBarData,
   normalizeHorizontalBarData,
   roundCap,
@@ -523,7 +524,7 @@ const defaultHooks: DefaultHooks = {
   bar: {
     vertical: [normalizeBarData],
     horizontal: [normalizeHorizontalBarData],
-    stacked: [roundCap],
+    stacked: [roundCap, createStackedBarGaps],
   },
   line: {
     default: [],
