@@ -160,7 +160,7 @@ export function createStackedBarGaps(options: EChartsOption): EChartsOption {
   const series = options.series
   if (!isArray(series) || !isArray(series[0].data)) return options
 
-  let max = 0
+  let maxSize = 0
   for (let i = 0; i < series[0].data.length; i++) {
     let currentTotal = 0
     series.forEach((v) => {
@@ -172,12 +172,12 @@ export function createStackedBarGaps(options: EChartsOption): EChartsOption {
         currentTotal += current
       }
     })
-    if (currentTotal > max) {
-      max = currentTotal
+    if (currentTotal > maxSize) {
+      maxSize = currentTotal
     }
   }
 
-  max *= 0.025
+  const gapSize = maxSize * 0.01
 
   for (let i = 0; i < series.length - 1; i += 2) {
     const data = series[i].data
@@ -189,7 +189,7 @@ export function createStackedBarGaps(options: EChartsOption): EChartsOption {
         } else {
           value = v
         }
-        return v === 0 ? 0 : max
+        return v === 0 ? 0 : gapSize
       })
       series.splice(i + 1, 0, {
         data: invisibleSeries,
