@@ -1,5 +1,6 @@
 [data-sl-chart-legend] {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--sl-space-4);
   margin: var(--sl-space-2);
 }
