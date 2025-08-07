@@ -142,7 +142,19 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
 
       return options
-    }, [option, chartConfig, zoom, graphics, series, xAxis, yAxis, title])
+    }, [
+      option,
+      loading,
+      chartConfig,
+      zoom,
+      graphics,
+      series,
+      xAxis,
+      yAxis,
+      title,
+      checkboxLegendVisuals,
+      hooks.reduce,
+    ])
 
     const checkBoxLegend = useCallback(
       (params: any) => {
@@ -248,7 +260,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           )
         }
       },
-      [chartRef, graphics]
+      [checkboxLegendBehaviour, checkboxLegendVisuals]
     )
 
     const toggleCheckBoxLegend = useCallback(
@@ -272,7 +284,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         })
         chart.setOption({ ...finalOptions, graphic: rects })
       },
-      [chartRef, graphics]
+      [graphics, finalOptions]
     )
 
     const setupCheckBoxVisual = useCallback(
@@ -331,18 +343,15 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           setGraphics(rects)
         }
       },
-      [graphics, chartRef, finalOptions]
+      [graphics, finalOptions, checkboxLegendVisuals]
     )
 
-    const toggle = useCallback(
-      (name: string) => {
-        if (!chartRef.current) return
-        chartRef.current
-          .getEchartsInstance()
-          .dispatchAction({ type: 'legendToggleSelect', name: name })
-      },
-      [graphics, chartRef]
-    )
+    const toggle = useCallback((name: string) => {
+      if (!chartRef.current) return
+      chartRef.current
+        .getEchartsInstance()
+        .dispatchAction({ type: 'legendToggleSelect', name: name })
+    }, [])
 
     const connectGroups = useCallback(
       (_params?: any) => {
@@ -360,14 +369,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       if (chartRef.current) {
         chartRef.current.getEchartsInstance().resize()
       }
-    }, [chartRef])
+    }, [])
 
     const onRendered = useCallback(
       (_params: any) => {
         connectGroups()
         setupCheckBoxVisual()
       },
-      [group, graphics, chartRef]
+      [connectGroups, setupCheckBoxVisual]
     )
 
     useEffect(() => {
@@ -379,10 +388,12 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
     }, [handleResize, canUseDOM])
 
-    const memoEvents = {
-      legendselectchanged: checkBoxLegend,
-      rendered: onRendered,
-    }
+    const memoEvents = useMemo(() => {
+      return {
+        legendselectchanged: checkBoxLegend,
+        rendered: onRendered,
+      }
+    }, [checkBoxLegend, onRendered])
 
     const eventsAdapter = useMemo(() => {
       const defaultKeys = Object.keys(memoEvents)
@@ -403,7 +414,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
 
       return newEvents
-    }, [graphics, onEvents])
+    }, [onEvents, memoEvents])
 
     return (
       <div data-sl-chart>
