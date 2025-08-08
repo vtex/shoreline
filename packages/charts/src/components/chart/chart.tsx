@@ -418,7 +418,13 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     }, [onEvents, memoEvents])
 
     return (
-      <div data-sl-chart={`${chartConfig?.type}-${chartConfig?.variant}`}>
+      <div
+        data-sl-chart={
+          chartConfig
+            ? `${chartConfig.type}-${chartConfig.variant ? chartConfig.variant : getDefaultByType(chartConfig.type)}`
+            : ''
+        }
+      >
         <ReactECharts
           ref={useMergeRef(ref, chartRef)}
           theme={theme}
