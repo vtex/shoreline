@@ -30,7 +30,6 @@ import {
 } from '../../theme/chartStyles'
 import { cloneDeep, isArray, type Dictionary } from 'lodash'
 import {
-  createStackedBarGaps,
   normalizeBarData,
   normalizeHorizontalBarData,
   normalizeStackedBars,
@@ -45,6 +44,8 @@ import {
   turnOffSerieLegend,
   createLegendVisuals,
 } from '../../utils/legend'
+
+import '../../theme/components/chart.css'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -417,7 +418,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     }, [onEvents, memoEvents])
 
     return (
-      <div data-sl-chart>
+      <div data-sl-chart={`${chartConfig?.type}-${chartConfig?.variant}`}>
         <ReactECharts
           ref={useMergeRef(ref, chartRef)}
           theme={theme}
@@ -536,7 +537,7 @@ const defaultHooks: DefaultHooks = {
   bar: {
     vertical: [normalizeBarData],
     horizontal: [normalizeHorizontalBarData],
-    stacked: [roundCap, createStackedBarGaps],
+    stacked: [roundCap],
     'percentage stack': [normalizeStackedBars],
   },
   line: {

@@ -153,6 +153,8 @@ export const Stacked: Story = {
             { data: [4000, 3000, 2500, 1900, 0, 0], name: 'Store C' },
             { data: [4000, 3000, 2500, 1900, 0, 0], name: 'Store D' },
           ]}
+          option={{ legend: { show: false } }}
+          checkboxLegendBehaviour={false}
           style={{ width: 800 }}
         />
         <Chart
@@ -163,6 +165,8 @@ export const Stacked: Story = {
             { data: [0, 15, 22, 31, 32, 35], name: 'Store B' },
             { data: [40, 170, 25, 19, 0, 0], name: 'Store C' },
           ]}
+          option={{ legend: { show: false } }}
+          checkboxLegendBehaviour={false}
           style={{ width: 800 }}
         />
       </Grid>

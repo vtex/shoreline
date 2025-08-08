@@ -18,10 +18,8 @@ import {
 import type EChartsReact from 'echarts-for-react'
 import {
   applySeriesHook,
-  createStackedBarGaps,
   normalizeBarData,
   normalizeHorizontalBarData,
-  normalizeStackedBars,
   roundCap,
   setAreaColors,
   setAreaGradients,
@@ -153,8 +151,8 @@ const defaultHooks: DefaultHooks = {
   bar: {
     vertical: [normalizeBarData],
     horizontal: [normalizeHorizontalBarData],
-    stacked: [roundCap, createStackedBarGaps],
-    'percentage stack': [normalizeStackedBars],
+    stacked: [roundCap],
+    'percentage stack': [],
   },
   line: {
     default: [],

@@ -156,51 +156,6 @@ export function roundCap(options: EChartsOption): EChartsOption {
   return options
 }
 
-export function createStackedBarGaps(options: EChartsOption): EChartsOption {
-  const series = options.series
-  if (!isArray(series) || !isArray(series[0].data)) return options
-
-  let maxSize = 0
-  for (let i = 0; i < series[0].data.length; i++) {
-    let currentTotal = 0
-    series.forEach((serie) => {
-      const data = serie.data as (number | { value: number })[]
-      const current = data[i] as number | { value: number }
-      if (isObject(current)) {
-        currentTotal += current.value
-      } else {
-        currentTotal += current
-      }
-    })
-    if (currentTotal > maxSize) {
-      maxSize = currentTotal
-    }
-  }
-
-  const gapSize = maxSize * 0.01
-
-  for (let i = 0; i < series.length - 1; i += 2) {
-    const data = series[i].data
-    if (isArray(data)) {
-      const invisibleSeries = data.map((v: number | { value: number }) => {
-        let value = 0
-        if (isObject(v)) {
-          value = v.value
-        } else {
-          value = v
-        }
-        return v === 0 ? 0 : gapSize
-      })
-      series.splice(i + 1, 0, {
-        data: invisibleSeries,
-        name: `__invisible${i}`,
-        color: 'transparent',
-      })
-    }
-  }
-  return options
-}
-
 export function normalizeStackedBars(options: EChartsOption): EChartsOption {
   const series = options.series
   if (!isArray(series) || !isArray(series[0].data)) return options

@@ -10,21 +10,14 @@ export default function ChartTooltip({
   percentage = false,
 }: ChartTooltipProps) {
   if (isArray(params) && invert) params.reverse()
-  const realParams = isArray(params)
-    ? params.filter(
-        (p: any) =>
-          typeof p.seriesName === 'string' &&
-          !p.seriesName.startsWith('__invisible')
-      )
-    : params
   return (
     <>
       <h4 data-sl-chart-tooltip-title>
-        {isArray(realParams) ? realParams[0].name : realParams.name}
+        {isArray(params) ? params[0].name : params.name}
       </h4>
       <div data-sl-chart-tooltip>
-        {isArray(realParams) ? (
-          realParams.map((param) => (
+        {isArray(params) ? (
+          params.map((param) => (
             <ChartTooltipBase
               key={param.dataIndex}
               params={param}
@@ -32,7 +25,7 @@ export default function ChartTooltip({
             />
           ))
         ) : (
-          <ChartTooltipBase params={realParams} percentage={percentage} />
+          <ChartTooltipBase params={params} percentage={percentage} />
         )}
       </div>
     </>

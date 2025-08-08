@@ -156,6 +156,8 @@ export const CHART_STYLES: DefaultChartStyles = {
         stack: '__stack',
         itemStyle: {
           borderRadius: 0,
+          borderWidth: 2,
+          borderColor: '#FFFFFF00',
         },
       },
       legend: LEGEND_DEFAULT_STYLE,
