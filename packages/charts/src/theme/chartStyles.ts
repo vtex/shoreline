@@ -177,7 +177,10 @@ export const CHART_STYLES: DefaultChartStyles = {
     },
     'percentage stack': {
       xAxis: { type: 'category' },
-      yAxis: { type: 'value' },
+      yAxis: {
+        type: 'value',
+        axisLabel: { formatter: (value) => `${value * 100}%` },
+      },
       series: {
         type: 'bar',
         stack: '__stack%',
