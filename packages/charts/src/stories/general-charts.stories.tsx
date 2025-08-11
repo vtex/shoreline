@@ -227,3 +227,11 @@ export const ZoomExample: Story = {
     )
   },
 }
+export const Loading: Story = {
+  args: {
+    series: [],
+    xAxis: {},
+    chartConfig: { type: 'area' },
+    loading: true,
+  },
+}

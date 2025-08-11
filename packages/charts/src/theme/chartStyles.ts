@@ -291,6 +291,8 @@ export const CHART_STYLES: DefaultChartStyles = {
 }
 
 export const DEFAULT_LOADING_SPINNER: EChartsInstance['showLoading'] = {
+  data: [],
+  xAxis: { type: 'category' },
   text: '',
   spinnerRadius: 10,
   lineWidth: 3,

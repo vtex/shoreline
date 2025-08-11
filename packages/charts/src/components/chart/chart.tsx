@@ -387,7 +387,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       return () => {
         window.removeEventListener('resize', handleResize)
       }
-    }, [handleResize, canUseDOM])
+    }, [handleResize])
 
     const memoEvents = useMemo(() => {
       return {
