@@ -98,8 +98,8 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           ? variant
           : getDefaultByType(type)
 
-      const hooks = [...optionHooks]
-      hooks.push(...defaultHooks[type][checkedVariant])
+      const hooks = [...defaultHooks[type][checkedVariant]]
+      hooks.push(...optionHooks)
       return hooks
     }, [chartConfig, optionHooks])
 
