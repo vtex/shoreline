@@ -70,8 +70,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       optionHooks = [],
       onEvents,
       zoom,
-      checkboxLegendBehaviour = true,
-      checkboxLegendVisuals = true,
+      checkboxLegends = true,
       group,
       ...otherProps
     } = props
@@ -231,11 +230,13 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           onEvents={eventsAdapter}
           {...otherProps}
         />
-        <Legend
-          ref={legendRef}
-          series={finalOptions.series}
-          chartRef={chartRef}
-        />
+        {checkboxLegends ? (
+          <Legend
+            ref={legendRef}
+            series={finalOptions.series}
+            chartRef={chartRef}
+          />
+        ) : null}
       </div>
     )
   }
@@ -287,14 +288,9 @@ export interface ChartOptions {
    */
   zoom?: boolean
   /**
-   * Whether to use our custom checkbox legend behaviour.
+   * Whether to render the legend as checkboxes.
    */
-  checkboxLegendBehaviour?: boolean
-  /**
-   * Whether to use our custom checkbox legend visuals, including the checkbox itself
-   * and custom hover and off states.
-   */
-  checkboxLegendVisuals?: boolean
+  checkboxLegends?: boolean
   /**
    * Defines the group that the chart will be part of. Charts in the same group share many features among them.
    * These features include: sharing the tooltip and sharing the same legend.
