@@ -19,6 +19,14 @@ export function LegendItem({
   const buttonRef = useRef<HTMLButtonElement>(null)
   const [hover, setHover] = useState<boolean>(false)
 
+  const border = useMemo(() => {
+    if (selected !== false) return 'none'
+    if (hover) {
+      return 'var(--sl-border-base-strong-hover)'
+    }
+    return 'var(--sl-border-base-strong)'
+  }, [selected, hover, color])
+
   const backgroundColor = useMemo(() => {
     if (selected === false) return 'transparent'
     if (!hover) return color
@@ -46,7 +54,7 @@ export function LegendItem({
         data-sl-chart-legend-button
         style={{
           backgroundColor: backgroundColor,
-          border: selected !== false ? 'none' : 'var(--sl-border-base-strong)',
+          border: border,
         }}
       >
         {selected === true ? (
