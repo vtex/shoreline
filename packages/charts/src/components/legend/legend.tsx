@@ -41,7 +41,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
         if (isString(serie.color)) return serie.color
         return serie.color[0]
       })
-    }, [series, seriesState])
+    }, [series])
 
     /**
      * Functions that changes the state of the legend.
@@ -126,7 +126,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
           },
         })
       },
-      [seriesState, chartRef]
+      [seriesState, chartRef, changeState]
     )
 
     return (

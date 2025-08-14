@@ -128,12 +128,10 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       loading,
       chartConfig,
       zoom,
-      graphics,
       series,
       xAxis,
       yAxis,
       title,
-      checkboxLegendVisuals,
       hooks.reduce,
     ])
 
@@ -166,7 +164,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           legendRef.current.setState(action.index, action.type)
         }
       },
-      [chartRef, finalOptions]
+      [finalOptions]
     )
 
     const connectGroups = useCallback(
@@ -191,7 +189,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       (_params: any) => {
         connectGroups()
       },
-      [connectGroups, setupCheckBoxVisual]
+      [connectGroups]
     )
 
     useEffect(() => {

@@ -25,7 +25,7 @@ export function LegendItem({
       return 'var(--sl-border-base-strong-hover)'
     }
     return 'var(--sl-border-base-strong)'
-  }, [selected, hover, color])
+  }, [selected, hover])
 
   const backgroundColor = useMemo(() => {
     if (selected === false) return 'transparent'
