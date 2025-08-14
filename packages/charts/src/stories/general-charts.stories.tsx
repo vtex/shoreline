@@ -108,7 +108,6 @@ export const SyncWithCompositor: Story = {
             data: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'I', 'J', 'K', 'L'],
           }}
           style={{ height: 500 }}
-          zoom
           group="sync"
         />
         <Chart
@@ -228,5 +227,13 @@ export const ZoomExample: Story = {
         />
       </>
     )
+  },
+}
+export const Loading: Story = {
+  args: {
+    series: [],
+    xAxis: {},
+    chartConfig: { type: 'area' },
+    loading: true,
   },
 }

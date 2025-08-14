@@ -133,15 +133,41 @@ export const CHART_STYLES: DefaultChartStyles = {
       animationDelay: DEFAULT_DELAY_FUNCTION,
     },
     stacked: {
-      xAxis: {
-        type: 'category',
-      },
-      yAxis: {
-        type: 'value',
-      },
+      xAxis: { type: 'category' },
+      yAxis: { type: 'value' },
       series: {
         type: 'bar',
         stack: '__stack',
+        itemStyle: {
+          borderRadius: 0,
+          borderWidth: 2,
+          borderColor: '#FFFFFF00',
+        },
+      },
+      legend: LEGEND_DEFAULT_STYLE,
+      grid: GRID_DEFAULT_STYLE,
+      tooltip: {
+        ...BASE_TOOLTIP_OPIONS,
+        formatter: (params) => {
+          return getTooltipStaticString(params, true)
+        },
+        axisPointer: {
+          type: 'shadow',
+          z: -1,
+          shadowStyle: { color: 'var(--sl-color-gray-1)', opacity: 1 },
+        },
+      },
+      animationDelay: DEFAULT_DELAY_FUNCTION,
+    },
+    'percentage stack': {
+      xAxis: { type: 'category' },
+      yAxis: {
+        type: 'value',
+        axisLabel: { formatter: (value) => `${value * 100}%` },
+      },
+      series: {
+        type: 'bar',
+        stack: '__stack%',
         itemStyle: {
           borderRadius: 0,
         },
@@ -150,16 +176,19 @@ export const CHART_STYLES: DefaultChartStyles = {
       grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
+        formatter: (params) => {
+          return getTooltipStaticString(params, true, true)
+        },
         axisPointer: {
           type: 'shadow',
           z: -1,
           shadowStyle: { color: 'var(--sl-color-gray-1)', opacity: 1 },
         },
       },
-
       animationDelay: DEFAULT_DELAY_FUNCTION,
     },
   },
+
   line: {
     default: {
       xAxis: { type: 'category' },
@@ -178,6 +207,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       animationEasingUpdate: 'cubicInOut',
     },
   },
+
   area: {
     overlapping: {
       xAxis: { type: 'category', boundaryGap: false },
@@ -227,9 +257,26 @@ export const CHART_STYLES: DefaultChartStyles = {
       animationEasingUpdate: 'cubicInOut',
     },
   },
+
+  funnel: {
+    default: {
+      series: {
+        type: 'funnel',
+        label: {
+          show: true,
+          position: 'inside',
+        },
+      },
+      tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'item' },
+      grid: { ...GRID_DEFAULT_STYLE },
+      legend: { ...LEGEND_DEFAULT_STYLE, left: 'center' },
+    },
+  },
 }
 
 export const DEFAULT_LOADING_SPINNER: EChartsInstance['showLoading'] = {
+  data: [],
+  xAxis: { type: 'category' },
   text: '',
   spinnerRadius: 10,
   lineWidth: 3,

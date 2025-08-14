@@ -1,0 +1,7 @@
+div[data-sl-chart="bar-stacked"] g text ~ path {
+  transform: translate(0px, 1px);
+}
+
+path {
+  cursor: default;
+}

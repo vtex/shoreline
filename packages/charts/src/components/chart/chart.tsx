@@ -26,6 +26,7 @@ import { cloneDeep, type Dictionary } from 'lodash'
 import {
   normalizeBarData,
   normalizeHorizontalBarData,
+  normalizeStackedBars,
   roundCap,
   setAreaColors,
   setAreaGradients,
@@ -37,6 +38,8 @@ import {
   turnOnSerieLegend,
 } from '../../utils/legend'
 import { Legend, type LegendHandle, type LegendAction } from '../legend'
+
+import '../../theme/components/chart.css'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -88,8 +91,8 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           ? variant
           : getDefaultByType(type)
 
-      const hooks = [...optionHooks]
-      hooks.push(...defaultHooks[type][checkedVariant])
+      const hooks = [...defaultHooks[type][checkedVariant]]
+      hooks.push(...optionHooks)
       return hooks
     }, [chartConfig, optionHooks])
 
@@ -120,7 +123,19 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
 
       return options
-    }, [option, chartConfig, zoom, series, xAxis, yAxis, title])
+    }, [
+      option,
+      loading,
+      chartConfig,
+      zoom,
+      graphics,
+      series,
+      xAxis,
+      yAxis,
+      title,
+      checkboxLegendVisuals,
+      hooks.reduce,
+    ])
 
     const checkBoxLegend = useCallback(
       (params: any) => {
@@ -170,13 +185,13 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       if (chartRef.current) {
         chartRef.current.getEchartsInstance().resize()
       }
-    }, [chartRef])
+    }, [])
 
     const onRendered = useCallback(
       (_params: any) => {
         connectGroups()
       },
-      [group, chartRef]
+      [connectGroups, setupCheckBoxVisual]
     )
 
     useEffect(() => {
@@ -186,7 +201,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       return () => {
         window.removeEventListener('resize', handleResize)
       }
-    }, [handleResize, canUseDOM])
+    }, [handleResize])
 
     const memoEvents = useMemo(() => {
       return {
@@ -214,10 +229,16 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
 
       return newEvents
-    }, [onEvents])
+    }, [onEvents, memoEvents])
 
     return (
-      <div data-sl-chart>
+      <div
+        data-sl-chart={
+          chartConfig
+            ? `${chartConfig.type}-${chartConfig.variant ? chartConfig.variant : getDefaultByType(chartConfig.type)}`
+            : ''
+        }
+      >
         <ReactECharts
           ref={useMergeRef(ref, chartRef)}
           theme={theme}
@@ -339,6 +360,7 @@ const defaultHooks: DefaultHooks = {
     vertical: [normalizeBarData],
     horizontal: [normalizeHorizontalBarData],
     stacked: [roundCap],
+    'percentage stack': [normalizeStackedBars],
   },
   line: {
     default: [],
@@ -346,5 +368,8 @@ const defaultHooks: DefaultHooks = {
   area: {
     overlapping: [setAreaGradients],
     stacked: [setAreaColors],
+  },
+  funnel: {
+    default: [],
   },
 }
