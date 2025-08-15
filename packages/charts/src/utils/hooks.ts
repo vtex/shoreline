@@ -278,13 +278,10 @@ export function setAreaColors(
  * ]
  *```
  */
-export function formatTimeAxis(locale: string) {
-  const formatOptions = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }
+export function formatTimeAxis(
+  locale: Intl.LocalesArgument,
+  formatOptions: Intl.DateTimeFormatOptions = { dateStyle: 'full' }
+) {
   return (options: EChartsOption) => {
     const series = options.series
     if (!isArray(series) || !isArray(series[0].data)) return options
