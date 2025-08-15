@@ -100,7 +100,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       hooks.push(...defaultHooks[type][checkedVariant])
       hooks.push(...optionHooks)
       return hooks
-    }, [chartConfig, optionHooks, xAxis])
+    }, [chartConfig, optionHooks, xAxis, locale])
 
     const finalOptions: EChartsOption = useMemo(() => {
       const wholeOption = cloneDeep(option) ?? {}
@@ -138,7 +138,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       yAxis,
       title,
       hooks.reduce,
-      locale,
     ])
 
     const checkBoxLegend = useCallback(
