@@ -4,6 +4,7 @@ import type { ChartConfig, ChartUnit, DefaultHooks } from '../../types/chart'
 import { Chart, type ChartOptions } from '../chart/chart'
 import {
   checkValidVariant,
+  checkZoom,
   getDataToChartCompositor,
   getDefaultByType,
   getTooltipChartCompositor,
@@ -90,7 +91,7 @@ export const ChartCompositor = forwardRef<
 
     finalOptions.legend = LEGEND_DEFAULT_STYLE
     finalOptions.grid = GRID_DEFAULT_STYLE
-    if (zoom) {
+    if (checkZoom(zoom, charts[0].chartConfig?.type)) {
       finalOptions.grid ??= {}
       finalOptions.grid = { ...finalOptions.grid, height: '75%' }
       finalOptions.dataZoom = DATAZOOM_DEFAULT_STYLE
@@ -151,6 +152,7 @@ const defaultHooks: DefaultHooks = {
     vertical: [normalizeBarData],
     horizontal: [normalizeHorizontalBarData],
     stacked: [roundCap],
+    'percentage stack': [],
   },
   line: {
     default: [],
@@ -158,5 +160,8 @@ const defaultHooks: DefaultHooks = {
   area: {
     overlapping: [setAreaGradients],
     stacked: [setAreaColors],
+  },
+  funnel: {
+    default: [],
   },
 }

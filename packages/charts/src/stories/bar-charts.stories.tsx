@@ -141,14 +141,49 @@ export const Horizontal: Story = {
 }
 
 export const Stacked: Story = {
+  render: () => {
+    return (
+      <Grid rows={'50% 50%'}>
+        <Chart
+          chartConfig={{ type: 'bar', variant: 'stacked', gap: 3 }}
+          xAxis={{ data: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] }}
+          series={[
+            { data: [3000, 4000, 3500, 4000, 6000, 5250], name: 'Store A' },
+            { data: [0, 1500, 2250, 3111, 3250, 3500], name: 'Store B' },
+            { data: [4000, 3000, 2500, 1900, 0, 0], name: 'Store C' },
+            { data: [4000, 3000, 2500, 1900, 0, 0], name: 'Store D' },
+          ]}
+          option={{ legend: { show: false } }}
+          checkboxLegendBehaviour={false}
+          style={{ width: 800 }}
+        />
+        <Chart
+          chartConfig={{ type: 'bar', variant: 'stacked', gap: 3 }}
+          xAxis={{ data: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] }}
+          series={[
+            { data: [30, 40, 35, 40, 60, 52], name: 'Store A' },
+            { data: [0, 15, 22, 31, 32, 35], name: 'Store B' },
+            { data: [40, 170, 25, 19, 0, 0], name: 'Store C' },
+          ]}
+          option={{ legend: { show: false } }}
+          checkboxLegendBehaviour={false}
+          style={{ width: 800 }}
+        />
+      </Grid>
+    )
+  },
+}
+
+export const StackedPercentage: Story = {
   args: {
-    xAxis: { data: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] },
+    chartConfig: { type: 'bar', variant: 'percentage stack', gap: 3 },
+    xAxis: { data: ['Q1', 'Q2', 'Q3', 'Q4'] },
     series: [
-      { data: [3000, 4000, 3500, 4000, 6000, 5250], name: 'Store A' },
-      { data: [0, 1500, 2250, 3111, 3250, 3500], name: 'Store B' },
-      { data: [4000, 3000, 2500, 1900, 0, 0], name: 'Store C' },
+      { data: [30, 70, 250, 33], name: 'Blue Store' },
+      { data: [60, 15, 500, 33], name: 'Purple Store' },
+      { data: [10, 15, 250, 33], name: 'Orange Store' },
     ],
-    chartConfig: { type: 'bar', variant: 'stacked', gap: 3 },
+    style: { width: 400 },
   },
 }
 

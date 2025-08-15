@@ -3,15 +3,10 @@ import {
   useMemo,
   forwardRef,
   useCallback,
-  useState,
   useEffect,
   type ComponentPropsWithRef,
 } from 'react'
-import type {
-  EChartsOption,
-  GraphicComponentOption,
-  SeriesOption,
-} from 'echarts'
+import type { EChartsOption, SeriesOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import * as echarts from 'echarts'
 import { defaultTheme } from '../../theme/themes'
@@ -21,28 +16,30 @@ import {
   checkZoom,
   getChartOptions,
   getDefaultByType,
-  getSeriesNames,
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
   DATAZOOM_DEFAULT_STYLE,
   DEFAULT_LOADING_SPINNER,
 } from '../../theme/chartStyles'
-import { cloneDeep, type Dictionary, isArray } from 'lodash'
+import { cloneDeep, type Dictionary } from 'lodash'
 import {
   normalizeBarData,
   normalizeHorizontalBarData,
+  normalizeStackedBars,
   roundCap,
   setAreaColors,
   setAreaGradients,
 } from '../../utils/hooks'
 import {
-  turnOnAllLegend,
   toggleSerieLegend,
-  turnOnSerieLegend,
   turnOffSerieLegend,
-  createLegendVisuals,
+  turnOnAllLegend,
+  turnOnSerieLegend,
 } from '../../utils/legend'
+import { Legend, type LegendHandle, type LegendAction } from '../legend'
+
+import '../../theme/components/chart.css'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -76,14 +73,13 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       optionHooks = [],
       onEvents,
       zoom,
-      checkboxLegendBehaviour = true,
-      checkboxLegendVisuals = true,
+      checkboxLegend = true,
       group,
       ...otherProps
     } = props
 
     const chartRef = useRef<ReactECharts>(null)
-    const [graphics, setGraphics] = useState([] as GraphicComponentOption[])
+    const legendRef = useRef<LegendHandle>(null)
 
     const hooks: ((series: EChartsOption) => EChartsOption)[] = useMemo(() => {
       if (optionHooks === null || chartConfig === null) {
@@ -95,8 +91,8 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           ? variant
           : getDefaultByType(type)
 
-      const hooks = [...optionHooks]
-      hooks.push(...defaultHooks[type][checkedVariant])
+      const hooks = [...defaultHooks[type][checkedVariant]]
+      hooks.push(...optionHooks)
       return hooks
     }, [chartConfig, optionHooks])
 
@@ -113,19 +109,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         wholeOption.dataZoom = DATAZOOM_DEFAULT_STYLE
       }
 
-      if (checkboxLegendVisuals) {
-        if (isArray(wholeOption.legend)) return wholeOption
-        wholeOption.legend ??= {}
-        // wholeOption.legend.itemStyle = {
-        //   ...wholeOption.legend.itemStyle,
-        //   color: 'transparent',
-        // }
-        wholeOption.graphic = [
-          ...graphics,
-          ...(isArray(option?.graphic) ? option.graphic : []),
-        ]
-      }
-
       if (loading) {
         wholeOption.tooltip = {
           show: false,
@@ -140,206 +123,48 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
 
       return options
-    }, [option, chartConfig, zoom, graphics, series, xAxis, yAxis, title])
+    }, [
+      option,
+      loading,
+      chartConfig,
+      zoom,
+      series,
+      xAxis,
+      yAxis,
+      title,
+      hooks.reduce,
+    ])
 
     const checkBoxLegend = useCallback(
       (params: any) => {
-        if (!chartRef.current || !checkboxLegendBehaviour) return
+        if (!chartRef.current) return
         const chart = chartRef.current.getEchartsInstance()
+        const series = finalOptions.series as SeriesOption[]
+        const action = params.name as LegendAction
 
-        const seriesNames = Object.keys(params.selected)
-        // for when the selected series was in this chart
-        if (
-          typeof params.name === 'string' &&
-          seriesNames.includes(params.name)
-        ) {
-          const indexOfClicked = seriesNames.indexOf(params.name)
-          params.selected[params.name] = !params.selected[params.name]
-
-          const selectedSeries: string[] = []
-          const unselectedSeries: string[] = []
-          const toggled: boolean[] = []
-
-          seriesNames.forEach((serie) => {
-            if (params.selected[serie]) {
-              selectedSeries.push(serie)
-              toggled.push(true)
-            } else {
-              unselectedSeries.push(serie)
-              toggled.push(false)
-            }
-          })
-          toggled[indexOfClicked] = !toggled[indexOfClicked]
-
-          let actionType: string
-
-          if (unselectedSeries.length === 0) {
-            actionType = 'exclusive'
-            toggled.forEach((v, i) => {
-              toggled[i] = !v
-            })
-          } else if (
-            selectedSeries.length === 1 &&
-            params.name === selectedSeries[0]
-          ) {
-            actionType = 'selectAll'
-            toggled.fill(true)
-          } else {
-            actionType = 'toggle'
-          }
-
-          chart.dispatchAction({
-            type: 'legendToggleSelect',
-            name: {
-              index: indexOfClicked,
-              name: params.name as string,
-              type: actionType,
-              toggled: toggled,
-              chartId: chart.getId(),
-            },
-          })
-          if (checkboxLegendVisuals) {
-            toggleCheckBoxLegend(toggled, Object.keys(params.selected))
-          }
-          return
+        if (action.type === 'toggle' && action.index < series.length) {
+          toggleSerieLegend(chart, String(series[action.index].name))
         }
 
-        if (typeof params.name === 'string') return
-
-        // for when the selected series was in another chart of the same group
-        const legendAction = params.name as {
-          index: number
-          name: string
-          type: 'selectAll' | 'toggle' | 'exclusive'
-          toggled: boolean[]
-          chartId: string
-        }
-
-        if (
-          seriesNames.includes(legendAction.name) &&
-          chart.getId() !== legendAction.chartId
-        )
-          return
-
-        if (legendAction.type === 'selectAll') {
-          turnOnAllLegend(chart, seriesNames)
-        }
-
-        if (
-          legendAction.type === 'toggle' &&
-          legendAction.index < seriesNames.length
-        ) {
-          if (seriesNames.includes(legendAction.name)) return
-          toggleSerieLegend(chart, seriesNames[legendAction.index])
-        }
-
-        if (legendAction.type === 'exclusive') {
-          seriesNames.forEach((serie, index) => {
-            if (index === legendAction.index) turnOnSerieLegend(chart, serie)
-            else turnOffSerieLegend(chart, serie)
-          })
-        }
-        if (checkboxLegendVisuals) {
-          toggleCheckBoxLegend(
-            legendAction.toggled,
-            Object.keys(params.selected)
+        if (action.type === 'selectAll') {
+          turnOnAllLegend(
+            chart,
+            series.map((serie) => String(serie.name))
           )
         }
-      },
-      [chartRef, graphics]
-    )
 
-    const toggleCheckBoxLegend = useCallback(
-      (toggled: boolean[], selected) => {
-        if (!chartRef.current) return
-        const chart = chartRef.current.getEchartsInstance()
+        if (action.type === 'exclusive') {
+          series.forEach((s, index) => {
+            if (index === action.index) turnOnSerieLegend(chart, String(s.name))
+            else turnOffSerieLegend(chart, String(s.name))
+          })
+        }
 
-        const newRects = createLegendVisuals(
-          graphics.map((g: any) => g.children[0].info),
-          graphics.map((g: any) => g.children[0].style.fill),
-          toggled,
-          toggled.some((v) => !v)
-        )
-        const rects = newRects.map((r, i) => {
-          return {
-            ...r,
-            onclick() {
-              toggle(selected[i])
-            },
-          }
-        })
-        chart.setOption({ ...finalOptions, graphic: rects })
-      },
-      [chartRef, graphics]
-    )
-
-    const setupCheckBoxVisual = useCallback(
-      (_params?: any) => {
-        if (!chartRef.current || !checkboxLegendVisuals) return
-        if (isArray(graphics) && graphics.length !== 0) return
-
-        const chart = chartRef.current.getEchartsInstance()
-        const dom = chart.getDom()
-        const svg = dom.querySelector('g')
-        if (!svg) return
-
-        const paths = svg.querySelectorAll('path')
-        const height = chart.getHeight()
-
-        const rawPoints: [number, number][] = []
-        const rawColors: string[] = []
-        paths.forEach((p) => {
-          const transform = p.getAttribute('transform')
-          if (transform) {
-            // Match "translate(x y)" and extract x and y
-            const match = transform.match(
-              /translate\(\s*([^\s,)]+)[ ,]+([^\s,)]+)\s*\)/
-            )
-            const x = match ? Number.parseFloat(match[1]) : null
-            const y = match ? Number.parseFloat(match[2]) : null
-            if (x && y && height - 17 === y) {
-              rawPoints.push([x, y])
-              const color = p.getAttribute('fill')
-              if (color) {
-                rawColors.push(color)
-              }
-            }
-          }
-        })
-
-        // every legend item has 2 paths: the icon and the background, we only care about the icon
-        const points = rawPoints.filter((_, i) => i % 2 !== 0)
-        const colors = rawColors.filter((_, i) => i % 2 !== 0)
-
-        const rawRects = createLegendVisuals(points, colors)
-        const names = getSeriesNames(finalOptions)
-        const rects = rawRects.map((r, i) => {
-          return {
-            ...r,
-            onclick() {
-              toggle(names[i])
-            },
-          }
-        })
-
-        if (!isArray(finalOptions.graphic)) return
-
-        // for some reason this is necessary or else the loading state doesn't render correctly
-        if (rects.length !== graphics.length) {
-          setGraphics(rects)
+        if (action.chartId !== chart.getId() && legendRef.current) {
+          legendRef.current.setState(action.index, action.type)
         }
       },
-      [graphics, chartRef, finalOptions]
-    )
-
-    const toggle = useCallback(
-      (name: string) => {
-        if (!chartRef.current) return
-        chartRef.current
-          .getEchartsInstance()
-          .dispatchAction({ type: 'legendToggleSelect', name: name })
-      },
-      [graphics, chartRef]
+      [finalOptions]
     )
 
     const connectGroups = useCallback(
@@ -358,14 +183,13 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       if (chartRef.current) {
         chartRef.current.getEchartsInstance().resize()
       }
-    }, [chartRef])
+    }, [])
 
     const onRendered = useCallback(
       (_params: any) => {
         connectGroups()
-        setupCheckBoxVisual()
       },
-      [group, graphics, chartRef]
+      [connectGroups]
     )
 
     useEffect(() => {
@@ -375,12 +199,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       return () => {
         window.removeEventListener('resize', handleResize)
       }
-    }, [handleResize, canUseDOM])
+    }, [handleResize])
 
-    const memoEvents = {
-      legendselectchanged: checkBoxLegend,
-      rendered: onRendered,
-    }
+    const memoEvents = useMemo(() => {
+      return {
+        legendselectchanged: checkBoxLegend,
+        rendered: onRendered,
+      }
+    }, [checkBoxLegend, onRendered])
 
     const eventsAdapter = useMemo(() => {
       const defaultKeys = Object.keys(memoEvents)
@@ -401,10 +227,16 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
 
       return newEvents
-    }, [graphics, onEvents])
+    }, [onEvents, memoEvents])
 
     return (
-      <div data-sl-chart>
+      <div
+        data-sl-chart={
+          chartConfig
+            ? `${chartConfig.type}-${chartConfig.variant ? chartConfig.variant : getDefaultByType(chartConfig.type)}`
+            : ''
+        }
+      >
         <ReactECharts
           ref={useMergeRef(ref, chartRef)}
           theme={theme}
@@ -417,6 +249,13 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           onEvents={eventsAdapter}
           {...otherProps}
         />
+        {checkboxLegend ? (
+          <Legend
+            ref={legendRef}
+            series={finalOptions.series}
+            chartRef={chartRef}
+          />
+        ) : null}
       </div>
     )
   }
@@ -468,14 +307,9 @@ export interface ChartOptions {
    */
   zoom?: boolean
   /**
-   * Whether to use our custom checkbox legend behaviour.
+   * Whether to use the custom Shoreline checkbox legend. Setting to false fallbacks to the default Echarts legend.
    */
-  checkboxLegendBehaviour?: boolean
-  /**
-   * Whether to use our custom checkbox legend visuals, including the checkbox itself
-   * and custom hover and off states.
-   */
-  checkboxLegendVisuals?: boolean
+  checkboxLegend?: boolean
   /**
    * Defines the group that the chart will be part of. Charts in the same group share many features among them.
    * These features include: sharing the tooltip and sharing the same legend.
@@ -524,6 +358,7 @@ const defaultHooks: DefaultHooks = {
     vertical: [normalizeBarData],
     horizontal: [normalizeHorizontalBarData],
     stacked: [roundCap],
+    'percentage stack': [normalizeStackedBars],
   },
   line: {
     default: [],
@@ -531,5 +366,8 @@ const defaultHooks: DefaultHooks = {
   area: {
     overlapping: [setAreaGradients],
     stacked: [setAreaColors],
+  },
+  funnel: {
+    default: [],
   },
 }
