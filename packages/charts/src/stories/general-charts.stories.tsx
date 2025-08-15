@@ -20,6 +20,7 @@ export const BasicSync: Story = {
             { data: [1, 2, 3], name: 'Seg' },
             { data: [3, 4, 5], name: 'Ter' },
             { data: [5, 1, 2], name: 'Qua' },
+            { data: [2, 5, 1], name: 'Qui' },
           ]}
           chartConfig={{ type: 'bar' }}
           group="a"
@@ -28,6 +29,7 @@ export const BasicSync: Story = {
           series={[
             { data: [3, 4, 5], name: 'Seg' },
             { data: [1, 2, 3], name: 'Ter' },
+            { data: [5, 1, 2], name: 'Qua' },
           ]}
           chartConfig={{ type: 'bar' }}
           group="a"

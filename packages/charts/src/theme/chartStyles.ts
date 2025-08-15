@@ -16,29 +16,13 @@ const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
   },
 }
 
-export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = {
-  orient: 'horizontal',
-  left: '1%',
-  bottom: 1,
-  align: 'left',
-  itemWidth: 16,
-  itemHeight: 16,
-  padding: 0,
-  itemGap: 20,
-  icon: 'roundRect',
-  textStyle: {
-    color: 'var(--sl-fg-base-soft)',
-    // lineHeight: 16,
-    fontSize: 12,
-  },
-  inactiveColor: 'var(--sl-fg-base-soft)',
-}
+export const LEGEND_DEFAULT_STYLE: EChartsOption['legend'] = { show: false }
 
 export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
   left: '0',
   right: '8',
   top: '8',
-  bottom: '32',
+  bottom: '0',
   containLabel: true,
 }
 
@@ -214,7 +198,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         smooth: true,
         showSymbol: false,
       },
-      legend: { ...LEGEND_DEFAULT_STYLE },
+      legend: LEGEND_DEFAULT_STYLE,
       tooltip: { ...BASE_TOOLTIP_OPIONS },
       grid: GRID_DEFAULT_STYLE,
       animationDuration: 750,
