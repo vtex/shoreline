@@ -22,8 +22,9 @@ import {
   DATAZOOM_DEFAULT_STYLE,
   DEFAULT_LOADING_SPINNER,
 } from '../../theme/chartStyles'
-import { cloneDeep, type Dictionary } from 'lodash'
+import { cloneDeep, isArray, type Dictionary } from 'lodash'
 import {
+  formatTimeAxis,
   normalizeBarData,
   normalizeHorizontalBarData,
   normalizeStackedBars,
@@ -69,6 +70,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       chartConfig,
       style,
       renderer = 'svg',
+      locale = 'en',
       theme = defaultTheme,
       optionHooks = [],
       onEvents,
@@ -91,10 +93,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           ? variant
           : getDefaultByType(type)
 
-      const hooks = [...defaultHooks[type][checkedVariant]]
+      const hooks: any[] = []
+      if (!isArray(xAxis) && xAxis.type === 'time') {
+        hooks.push(formatTimeAxis(locale))
+      }
+      hooks.push(...defaultHooks[type][checkedVariant])
       hooks.push(...optionHooks)
       return hooks
-    }, [chartConfig, optionHooks])
+    }, [chartConfig, optionHooks, xAxis])
 
     const finalOptions: EChartsOption = useMemo(() => {
       const wholeOption = cloneDeep(option) ?? {}
@@ -121,7 +127,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
-
       return options
     }, [
       option,
@@ -133,6 +138,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       yAxis,
       title,
       hooks.reduce,
+      locale,
     ])
 
     const checkBoxLegend = useCallback(
@@ -242,7 +248,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           theme={theme}
           option={finalOptions}
           style={{ minWidth: 300, minHeight: 200, ...style }}
-          opts={{ renderer: renderer }}
+          opts={{ renderer: renderer, locale: locale }}
           showLoading={loading}
           loadingOption={loadingConfig}
           // onChartReady={(instance) => instance.resize()}
@@ -263,7 +269,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 export interface ChartOptions {
   /**
    * Echarts Series Options, where you put the data for the chart.
-   * @example series={{ data: [1, 2, 3, 4, 5, 6, 7] }}
+   * @example series={[{ data: [1, 2, 3], name: 'Series 1' }, { data: [4, 5, 6], name: 'Series 2' }]}
    */
   series: SeriesOption | SeriesOption[]
   /**
@@ -275,12 +281,15 @@ export interface ChartOptions {
   chartConfig: ChartConfig | null
   /**
    * Defines the look and data of the X axis. Generally you will need to pass the name of the labels
-   * if this is the categorical axis.
+   * if this is the categorical axis (which is the default for most charts).
+   *
+   * For a _time_ or _value_ axis,`data` should be ommited.
    * @example xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
    */
   xAxis?: EChartsOption['xAxis']
   /**
-   * Defines the look and data of the Y axis. Generally you won't need to fill this out, if this is the value axis.
+   * Defines the look and data of the Y axis. Generally you won't need to fill this out,
+   * if this is the value axis (which is the default for most charts).
    */
   yAxis?: EChartsOption['yAxis']
   /**
@@ -325,6 +334,10 @@ export interface ChartOptions {
    * @default svg
    */
   renderer?: 'svg' | 'canvas'
+  /**
+   * Override the locale used to format dates.
+   */
+  locale?: string
   /**
    * Overrides default shoreline theme.
    * @default defaultTheme

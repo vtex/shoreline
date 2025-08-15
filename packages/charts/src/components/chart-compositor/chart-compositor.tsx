@@ -13,7 +13,6 @@ import { merge } from '@vtex/shoreline-utils'
 import {
   DATAZOOM_DEFAULT_STYLE,
   GRID_DEFAULT_STYLE,
-  LEGEND_DEFAULT_STYLE,
 } from '../../theme/chartStyles'
 import type EChartsReact from 'echarts-for-react'
 import {
@@ -89,7 +88,6 @@ export const ChartCompositor = forwardRef<
   const chartOptions: EChartsOption = useMemo(() => {
     const finalOptions: EChartsOption = {}
 
-    finalOptions.legend = LEGEND_DEFAULT_STYLE
     finalOptions.grid = GRID_DEFAULT_STYLE
     if (checkZoom(zoom, charts[0].chartConfig?.type)) {
       finalOptions.grid ??= {}

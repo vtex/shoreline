@@ -247,3 +247,58 @@ export function setAreaColors(
   nextColorIndex++
   return { series, ...otherProps }
 }
+/**
+ * Returns a function that formats our matrix based date value format into echarts array of objects format, using the specified locale.
+ * If options is already an array of objects, does nothing.
+ *
+ * Expects options to be like:
+ * ```
+ * series: [
+ *  {
+ *    data: [
+ *          [new Date('2025-01-01'), 10],
+ *          [new Date('2025-05-01'), 11],
+ *          [new Date('2025-10-01'), 12],
+ *        ],
+ *    name: 'Series 1',
+ *  },
+ * ]
+ * ```
+ * Which expands into:
+ * ```
+ * series: [
+ *   {
+ *     data: [
+ *           { name: new Date('2025-01-01').toLocaleDateString(locale, options), value:[new Date('2025-01-02'),10] },
+ *           { name: new Date('2025-05-01').toLocaleDateString(locale, options), value:[new Date('2025-05-01'),11] },
+ *           { name: new Date('2025-10-01').toLocaleDateString(locale, options), value:[new Date('2025-10-01'),12] },
+ *         ],
+ *     name: 'Series 1',
+ *   },
+ * ]
+ *```
+ */
+export function formatTimeAxis(locale: string) {
+  const formatOptions = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }
+  return (options: EChartsOption) => {
+    const series = options.series
+    if (!isArray(series) || !isArray(series[0].data)) return options
+    series.forEach((serie, i) => {
+      const data = serie.data as any[]
+      data.forEach((value: [Date, number], j) => {
+        data[j] = {
+          name: value[0].toLocaleDateString(locale, formatOptions),
+          value: value,
+        }
+      })
+      series
+    })
+    console.log(series)
+    return options
+  }
+}
