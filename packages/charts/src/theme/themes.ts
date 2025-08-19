@@ -1,7 +1,7 @@
-import { defaultChartColorConfig, defaultColorPreset } from './colors'
+import { defaultChartColorConfig } from './colors'
 
 export const defaultTheme = {
-  color: defaultColorPreset,
+  // color: defaultColorPreset,
   categoryAxis: {
     axisTick: {
       show: false,

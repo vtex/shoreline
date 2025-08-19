@@ -38,6 +38,7 @@ export const BasicSync: Story = {
     )
   },
 }
+
 export const TimeAxis: Story = {
   args: {
     chartConfig: { type: 'line' },
@@ -93,6 +94,7 @@ export const TimeAxis: Story = {
     style: { width: '600px' },
   },
 }
+
 export const AnimationUpdateFunctions: Story = {
   render: () => {
     const axis = { data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }

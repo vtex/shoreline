@@ -38,18 +38,18 @@
   },
   "peerDependencies": {
     "@vtex/shoreline": "1.x",
+    "echarts": "6.x",
     "react": "18.x",
-    "echarts": "5.x",
     "react-dom": "18.x"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.4",
+    "@types/lodash": "^4.17.20",
     "@vtex/shoreline": "workspace:*"
   },
   "dependencies": {
     "@vtex/shoreline-utils": "workspace:*",
-    "echarts": "^5.6.0",
-    "echarts-for-react": "^3.0.2",
+    "echarts": "^6.0.0",
+    "echarts-for-react": "^3.0.4",
     "lodash": "^4.17.21",
     "vitest-canvas-mock": "^0.3.3"
   }
