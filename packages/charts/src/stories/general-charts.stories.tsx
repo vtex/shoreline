@@ -43,7 +43,7 @@ export const TimeAxis: Story = {
   args: {
     chartConfig: { type: 'line' },
     xAxis: { type: 'time' },
-    locale: 'zh',
+    locale: 'FR',
     series: [
       {
         //biome-ignore format: matrix
@@ -52,7 +52,7 @@ export const TimeAxis: Story = {
           [new Date('2025-05-01'), 11],
           [new Date('2025-10-01'), 12],
         ],
-        name: 'Hehe',
+        name: 'I',
       },
       {
         //biome-ignore format: matrix
@@ -61,7 +61,7 @@ export const TimeAxis: Story = {
           [new Date('2025-05-01'),  9],
           [new Date('2025-10-01'), 15],
         ],
-        name: 'hihi',
+        name: '💖',
       },
       {
         //biome-ignore format: matrix
@@ -70,26 +70,8 @@ export const TimeAxis: Story = {
           [new Date('2025-05-01'), 19],
           [new Date('2025-10-01'), 17],
         ],
-        name: 'hoho',
+        name: 'Localization',
       },
-      //biome-ignore format: matrix
-      // {
-      //  data: [
-      // {name: new Date('2025-01-01').toLocaleDateString("zh", options), value:[new Date('2025-01-02'),20]},
-      //     {name: new Date('2025-05-01').toLocaleDateString("pt-br", options), value:[new Date('2025-05-01'),9]},
-      //     {name: new Date('2025-10-01').toString(), value:[new Date('2025-10-01'),15]},
-      //   ],
-      //   name: 'Hihi',
-      // },
-      // //biome-ignore format: matrix
-      // {
-      //   data: [
-      //     {name: new Date('2025-01-01').toLocaleDateString("zh", options), value:[new Date('2025-01-02'), 18]},
-      //     {name: new Date('2025-05-01').toLocaleDateString("pt-br", options), value:[new Date('2025-05-01'), 19]},
-      //     {name: new Date('2025-10-01').toString(), value:[new Date('2025-10-01'), 17]},
-      //   ],
-      //   name: 'Haha',
-      // },
     ],
     style: { width: '600px' },
   },

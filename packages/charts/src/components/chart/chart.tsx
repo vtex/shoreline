@@ -9,6 +9,7 @@ import {
 import type { EChartsOption, SeriesOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
 import * as echarts from 'echarts'
+import './locales'
 import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig, DefaultHooks } from '../../types/chart'
 import {
@@ -252,7 +253,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
       return newEvents
     }, [onEvents, memoEvents])
-
     return (
       <div
         data-sl-chart={
