@@ -20,6 +20,12 @@ export const defaultColorShade: Record<string, string> = {
   [colors['--sl-pink-8']]: colors['--sl-pink-11'],
   [colors['--sl-teal-11']]: colors['--sl-teal-12'],
   [colors['--sl-gray-6']]: colors['--sl-gray-7'],
+  [colors['--sl-blue-9']]: colors['--sl-blue-10'],
+  [colors['--sl-purple-10']]: colors['--sl-purple-11'],
+  [colors['--sl-orange-7']]: colors['--sl-orange-8'],
+  [colors['--sl-pink-11']]: colors['--sl-pink-12'],
+  [colors['--sl-teal-12']]: colors['--sl-teal-13'],
+  [colors['--sl-gray-7']]: colors['--sl-gray-8'],
 }
 
 export const defaultAreaColors = [

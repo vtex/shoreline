@@ -3,8 +3,8 @@ import {
   useMemo,
   forwardRef,
   useCallback,
-  useEffect,
   type ComponentPropsWithRef,
+  useState,
 } from 'react'
 import type { EChartsOption, SeriesOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
@@ -17,13 +17,14 @@ import {
   getChartOptions,
   getDefaultByType,
 } from '../../utils/chart'
-import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
+import { useMergeRef } from '@vtex/shoreline-utils'
 import {
   DATAZOOM_DEFAULT_STYLE,
   DEFAULT_LOADING_SPINNER,
 } from '../../theme/chartStyles'
-import { cloneDeep, type Dictionary } from 'lodash'
+import { cloneDeep, isArray, type Dictionary } from 'lodash'
 import {
+  formatTimeAxis,
   normalizeBarData,
   normalizeHorizontalBarData,
   normalizeStackedBars,
@@ -32,6 +33,8 @@ import {
   setAreaGradients,
 } from '../../utils/hooks'
 import {
+  changeBarRoundingExclusive,
+  changeBarRoundingToogle,
   toggleSerieLegend,
   turnOffSerieLegend,
   turnOnAllLegend,
@@ -69,6 +72,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       chartConfig,
       style,
       renderer = 'svg',
+      locale = 'en',
       theme = defaultTheme,
       optionHooks = [],
       onEvents,
@@ -80,6 +84,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
     const chartRef = useRef<ReactECharts>(null)
     const legendRef = useRef<LegendHandle>(null)
+    const [,] = useState<EChartsOption>()
 
     const hooks: ((series: EChartsOption) => EChartsOption)[] = useMemo(() => {
       if (optionHooks === null || chartConfig === null) {
@@ -91,10 +96,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           ? variant
           : getDefaultByType(type)
 
-      const hooks = [...defaultHooks[type][checkedVariant]]
+      const hooks: any[] = []
+      if (!isArray(xAxis) && xAxis.type === 'time') {
+        hooks.push(formatTimeAxis(locale))
+      }
+      hooks.push(...defaultHooks[type][checkedVariant])
       hooks.push(...optionHooks)
       return hooks
-    }, [chartConfig, optionHooks])
+    }, [chartConfig, optionHooks, xAxis, locale])
 
     const finalOptions: EChartsOption = useMemo(() => {
       const wholeOption = cloneDeep(option) ?? {}
@@ -121,7 +130,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
-
       return options
     }, [
       option,
@@ -140,10 +148,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         if (!chartRef.current) return
         const chart = chartRef.current.getEchartsInstance()
         const series = finalOptions.series as SeriesOption[]
+        const isStacked =
+          chartConfig?.type === 'bar' && chartConfig.variant === 'stacked'
         const action = params.name as LegendAction
 
         if (action.type === 'toggle' && action.index < series.length) {
           toggleSerieLegend(chart, String(series[action.index].name))
+          if (isStacked)
+            chart.setOption(changeBarRoundingToogle(finalOptions, action.state))
         }
 
         if (action.type === 'selectAll') {
@@ -151,6 +163,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             chart,
             series.map((serie) => String(serie.name))
           )
+          if (isStacked) chart.setOption(finalOptions)
         }
 
         if (action.type === 'exclusive') {
@@ -158,13 +171,17 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             if (index === action.index) turnOnSerieLegend(chart, String(s.name))
             else turnOffSerieLegend(chart, String(s.name))
           })
+          if (isStacked)
+            chart.setOption(
+              changeBarRoundingExclusive(finalOptions, action.index)
+            )
         }
 
         if (action.chartId !== chart.getId() && legendRef.current) {
           legendRef.current.setState(action.index, action.type)
         }
       },
-      [finalOptions]
+      [finalOptions, chartConfig]
     )
 
     const connectGroups = useCallback(
@@ -179,11 +196,11 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       [group]
     )
 
-    const handleResize = useCallback(() => {
-      if (chartRef.current) {
-        chartRef.current.getEchartsInstance().resize()
-      }
-    }, [])
+    // const handleResize = useCallback(() => {
+    //   if (chartRef.current) {
+    //     chartRef.current.getEchartsInstance().resize()
+    //   }
+    // }, [])
 
     const onRendered = useCallback(
       (_params: any) => {
@@ -192,14 +209,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       [connectGroups]
     )
 
-    useEffect(() => {
-      if (!canUseDOM) return
+    // useEffect(() => {
+    //   if (!canUseDOM) return
 
-      window.addEventListener('resize', handleResize)
-      return () => {
-        window.removeEventListener('resize', handleResize)
-      }
-    }, [handleResize])
+    //   window.addEventListener('resize', handleResize)
+    //   return () => {
+    //     window.removeEventListener('resize', handleResize)
+    //   }
+    // }, [handleResize])
 
     const memoEvents = useMemo(() => {
       return {
@@ -242,7 +259,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           theme={theme}
           option={finalOptions}
           style={{ minWidth: 300, minHeight: 200, ...style }}
-          opts={{ renderer: renderer }}
+          opts={{ renderer: renderer, locale: locale }}
           showLoading={loading}
           loadingOption={loadingConfig}
           // onChartReady={(instance) => instance.resize()}
@@ -263,7 +280,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 export interface ChartOptions {
   /**
    * Echarts Series Options, where you put the data for the chart.
-   * @example series={{ data: [1, 2, 3, 4, 5, 6, 7] }}
+   * @example series={[{ data: [1, 2, 3], name: 'Series 1' }, { data: [4, 5, 6], name: 'Series 2' }]}
    */
   series: SeriesOption | SeriesOption[]
   /**
@@ -275,12 +292,15 @@ export interface ChartOptions {
   chartConfig: ChartConfig | null
   /**
    * Defines the look and data of the X axis. Generally you will need to pass the name of the labels
-   * if this is the categorical axis.
+   * if this is the categorical axis (which is the default for most charts).
+   *
+   * For a _time_ or _value_ axis,`data` should be ommited.
    * @example xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
    */
   xAxis?: EChartsOption['xAxis']
   /**
-   * Defines the look and data of the Y axis. Generally you won't need to fill this out, if this is the value axis.
+   * Defines the look and data of the Y axis. Generally you won't need to fill this out,
+   * if this is the value axis (which is the default for most charts).
    */
   yAxis?: EChartsOption['yAxis']
   /**
@@ -325,6 +345,10 @@ export interface ChartOptions {
    * @default svg
    */
   renderer?: 'svg' | 'canvas'
+  /**
+   * Override the locale used to format dates.
+   */
+  locale?: string
   /**
    * Overrides default shoreline theme.
    * @default defaultTheme

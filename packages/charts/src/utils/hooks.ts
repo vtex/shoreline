@@ -122,25 +122,20 @@ export function roundCap(options: EChartsOption): EChartsOption {
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
   series[0].data.forEach((_, i) => {
     for (let j = series.length - 1; j > -1; j--) {
-      if (series[j].name?.toString().startsWith('__invisible')) {
-        continue
-      }
-
       const data = series[j].data as (
         | number
         | { value: number; itemStyle: { borderRadius: number[] } }
       )[]
-      if (isObject(data[i])) {
-        if (data[i].value !== 0) {
-          data[i] = {
-            ...data[i],
-            itemStyle: {
-              ...data[i].itemStyle,
-              borderRadius: defaultBorderRadius,
-            },
-          }
-          break
+
+      if (isObject(data[i]) && data[i].value !== 0) {
+        data[i] = {
+          ...data[i],
+          itemStyle: {
+            ...data[i].itemStyle,
+            borderRadius: defaultBorderRadius,
+          },
         }
+        break
       }
       if (data[i] !== 0) {
         data[i] = {
@@ -204,27 +199,32 @@ export function setAreaColors(
 
   let nextColorIndex = 0
   arraySeries.forEach((v) => {
+    let areaColor: any
     const serie = v as LineSeriesOption
-    if (serie.color) {
+    if (serie.areaStyle) {
       return
     }
-    const areaColor =
-      defaultColorShade[
-        defaultColorPreset[nextColorIndex % defaultAreaColors.length]
-      ]
+    if (serie.color) {
+      if (Array.isArray(serie.color)) {
+        areaColor = serie.color[0]
+      } else areaColor = serie.color
+    } else {
+      areaColor =
+        defaultColorShade[
+          defaultColorPreset[nextColorIndex % defaultAreaColors.length]
+        ]
+    }
     serie.areaStyle ??= {}
 
     if (!gradient) {
       // defaultColorShade[areaColor]
       serie.areaStyle.color = areaColor
-      console.log(serie.areaStyle.color)
       serie.color = areaColor
-      console.log(serie.color)
 
       nextColorIndex++
       return
     }
-    const color = {
+    areaColor = {
       type: 'linear' as const,
       x: 0,
       y: 0,
@@ -242,8 +242,61 @@ export function setAreaColors(
         },
       ],
     }
-    serie.areaStyle.color = color
+    serie.areaStyle.color = areaColor
+    if (!serie.color) {
+      nextColorIndex++
+    }
   })
-  nextColorIndex++
   return { series, ...otherProps }
+}
+/**
+ * Returns a function that formats our matrix based date value format into echarts array of objects format, using the specified locale.
+ * If options is already an array of objects, does nothing.
+ *
+ * Expects options to be like:
+ * ```
+ * series: [
+ *  {
+ *    data: [
+ *          [new Date('2025-01-01'), 10],
+ *          [new Date('2025-05-01'), 11],
+ *          [new Date('2025-10-01'), 12],
+ *        ],
+ *    name: 'Series 1',
+ *  },
+ * ]
+ * ```
+ * Which expands into:
+ * ```
+ * series: [
+ *   {
+ *     data: [
+ *           { name: new Date('2025-01-01').toLocaleDateString(locale, options), value:[new Date('2025-01-02'),10] },
+ *           { name: new Date('2025-05-01').toLocaleDateString(locale, options), value:[new Date('2025-05-01'),11] },
+ *           { name: new Date('2025-10-01').toLocaleDateString(locale, options), value:[new Date('2025-10-01'),12] },
+ *         ],
+ *     name: 'Series 1',
+ *   },
+ * ]
+ *```
+ */
+export function formatTimeAxis(
+  locale: Intl.LocalesArgument,
+  formatOptions: Intl.DateTimeFormatOptions = { dateStyle: 'full' }
+) {
+  return (options: EChartsOption) => {
+    const series = options.series
+    if (!isArray(series) || !isArray(series[0].data)) return options
+    series.forEach((serie) => {
+      const data = serie.data as any[]
+      data.forEach((value: [Date, number], j) => {
+        data[j] = {
+          name: value[0].toLocaleDateString(locale, formatOptions),
+          value: value,
+        }
+      })
+      series
+    })
+    return options
+  }
 }

@@ -22,7 +22,7 @@ export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
   left: '0',
   right: '8',
   top: '8',
-  bottom: '0',
+  bottom: '1',
   containLabel: true,
 }
 

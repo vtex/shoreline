@@ -54,7 +54,9 @@ export function ChartTooltipBase({
               <span data-sl-chart-tooltip-data-serie-value>
                 {percentage
                   ? `${Math.round(params.value * 1000) / 10}%`
-                  : params.value}
+                  : isArray(params.value)
+                    ? params.value[1]
+                    : params.value}
               </span>
             </b>
           </Flex>

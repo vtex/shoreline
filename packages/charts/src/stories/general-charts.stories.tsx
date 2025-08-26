@@ -38,7 +38,61 @@ export const BasicSync: Story = {
     )
   },
 }
-
+export const TimeAxis: Story = {
+  args: {
+    chartConfig: { type: 'line' },
+    xAxis: { type: 'time' },
+    locale: 'zh',
+    series: [
+      {
+        //biome-ignore format: matrix
+        data: [
+          [new Date('2025-01-01'), 10],
+          [new Date('2025-05-01'), 11],
+          [new Date('2025-10-01'), 12],
+        ],
+        name: 'Hehe',
+      },
+      {
+        //biome-ignore format: matrix
+        data: [
+          [new Date('2025-01-01'), 20],
+          [new Date('2025-05-01'),  9],
+          [new Date('2025-10-01'), 15],
+        ],
+        name: 'hihi',
+      },
+      {
+        //biome-ignore format: matrix
+        data: [
+          [new Date('2025-01-01'), 18],
+          [new Date('2025-05-01'), 19],
+          [new Date('2025-10-01'), 17],
+        ],
+        name: 'hoho',
+      },
+      //biome-ignore format: matrix
+      // {
+      //  data: [
+      // {name: new Date('2025-01-01').toLocaleDateString("zh", options), value:[new Date('2025-01-02'),20]},
+      //     {name: new Date('2025-05-01').toLocaleDateString("pt-br", options), value:[new Date('2025-05-01'),9]},
+      //     {name: new Date('2025-10-01').toString(), value:[new Date('2025-10-01'),15]},
+      //   ],
+      //   name: 'Hihi',
+      // },
+      // //biome-ignore format: matrix
+      // {
+      //   data: [
+      //     {name: new Date('2025-01-01').toLocaleDateString("zh", options), value:[new Date('2025-01-02'), 18]},
+      //     {name: new Date('2025-05-01').toLocaleDateString("pt-br", options), value:[new Date('2025-05-01'), 19]},
+      //     {name: new Date('2025-10-01').toString(), value:[new Date('2025-10-01'), 17]},
+      //   ],
+      //   name: 'Haha',
+      // },
+    ],
+    style: { width: '600px' },
+  },
+}
 export const AnimationUpdateFunctions: Story = {
   render: () => {
     const axis = { data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }

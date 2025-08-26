@@ -24,6 +24,8 @@
   font: var(--sl-text-caption-1-font);
   letter-spacing: var(--sl-letter-spacing-0);
   color: var(--sl-fg-base);
+  overflow-wrap: break-word;
+  white-space: normal !important;
 }
 [data-sl-chart-tooltip-data-serie-name] {
   font: var(--sl-text-body-font);

@@ -98,7 +98,7 @@ export const Tooltip: Story = {
         ]}
         xAxis={{ data: ['Jun 05', 'Tue', 'Wed'] }}
         option={{ tooltip: { alwaysShowContent: true } }}
-        checkboxLegendVisuals={false}
+        checkboxLegend={false}
         onEvents={{
           rendered: () => {
             if (ref.current) {
@@ -154,7 +154,7 @@ export const Stacked: Story = {
             { data: [4000, 3000, 2500, 1900, 0, 0], name: 'Store D' },
           ]}
           option={{ legend: { show: false } }}
-          checkboxLegendBehaviour={false}
+          group="a"
           style={{ width: 800 }}
         />
         <Chart
@@ -166,7 +166,7 @@ export const Stacked: Story = {
             { data: [40, 170, 25, 19, 0, 0], name: 'Store C' },
           ]}
           option={{ legend: { show: false } }}
-          checkboxLegendBehaviour={false}
+          group="a"
           style={{ width: 800 }}
         />
       </Grid>
