@@ -105,7 +105,6 @@ export const Tooltip: Story = {
         ]}
         xAxis={{ data: ['Jun 05', 'Tue', 'Wed'] }}
         option={{ tooltip: { alwaysShowContent: true } }}
-        checkboxLegend={false}
         onEvents={{
           rendered: () => {
             if (ref.current) {
