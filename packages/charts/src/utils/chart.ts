@@ -20,7 +20,7 @@ export const formatSeries = (
   defaultStyle: EChartsOption
 ) => {
   if (!series) return
-  if (Array.isArray(series)) {
+  if (isArray(series)) {
     return series.map((serie) => buildDefaultSerie(serie, defaultStyle))
   }
 

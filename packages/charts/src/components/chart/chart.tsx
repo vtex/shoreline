@@ -3,8 +3,8 @@ import {
   useMemo,
   forwardRef,
   useCallback,
-  useEffect,
   type ComponentPropsWithRef,
+  useState,
 } from 'react'
 import type { EChartsOption, SeriesOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
@@ -17,7 +17,7 @@ import {
   getChartOptions,
   getDefaultByType,
 } from '../../utils/chart'
-import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
+import { useMergeRef } from '@vtex/shoreline-utils'
 import {
   DATAZOOM_DEFAULT_STYLE,
   DEFAULT_LOADING_SPINNER,
@@ -33,6 +33,8 @@ import {
   setAreaGradients,
 } from '../../utils/hooks'
 import {
+  changeBarRoundingExclusive,
+  changeBarRoundingToogle,
   toggleSerieLegend,
   turnOffSerieLegend,
   turnOnAllLegend,
@@ -82,6 +84,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
     const chartRef = useRef<ReactECharts>(null)
     const legendRef = useRef<LegendHandle>(null)
+    const [options, setOptions] = useState<EChartsOption>()
 
     const hooks: ((series: EChartsOption) => EChartsOption)[] = useMemo(() => {
       if (optionHooks === null || chartConfig === null) {
@@ -145,10 +148,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         if (!chartRef.current) return
         const chart = chartRef.current.getEchartsInstance()
         const series = finalOptions.series as SeriesOption[]
+        const isStacked =
+          chartConfig?.type === 'bar' && chartConfig.variant === 'stacked'
         const action = params.name as LegendAction
 
         if (action.type === 'toggle' && action.index < series.length) {
           toggleSerieLegend(chart, String(series[action.index].name))
+          if (isStacked)
+            chart.setOption(changeBarRoundingToogle(finalOptions, action.state))
         }
 
         if (action.type === 'selectAll') {
@@ -156,6 +163,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             chart,
             series.map((serie) => String(serie.name))
           )
+          if (isStacked) chart.setOption(finalOptions)
         }
 
         if (action.type === 'exclusive') {
@@ -163,13 +171,17 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             if (index === action.index) turnOnSerieLegend(chart, String(s.name))
             else turnOffSerieLegend(chart, String(s.name))
           })
+          if (isStacked)
+            chart.setOption(
+              changeBarRoundingExclusive(finalOptions, action.index)
+            )
         }
 
         if (action.chartId !== chart.getId() && legendRef.current) {
           legendRef.current.setState(action.index, action.type)
         }
       },
-      [finalOptions]
+      [finalOptions, chartConfig]
     )
 
     const connectGroups = useCallback(
@@ -184,11 +196,11 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       [group]
     )
 
-    const handleResize = useCallback(() => {
-      if (chartRef.current) {
-        chartRef.current.getEchartsInstance().resize()
-      }
-    }, [])
+    // const handleResize = useCallback(() => {
+    //   if (chartRef.current) {
+    //     chartRef.current.getEchartsInstance().resize()
+    //   }
+    // }, [])
 
     const onRendered = useCallback(
       (_params: any) => {
@@ -197,14 +209,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       [connectGroups]
     )
 
-    useEffect(() => {
-      if (!canUseDOM) return
+    // useEffect(() => {
+    //   if (!canUseDOM) return
 
-      window.addEventListener('resize', handleResize)
-      return () => {
-        window.removeEventListener('resize', handleResize)
-      }
-    }, [handleResize])
+    //   window.addEventListener('resize', handleResize)
+    //   return () => {
+    //     window.removeEventListener('resize', handleResize)
+    //   }
+    // }, [handleResize])
 
     const memoEvents = useMemo(() => {
       return {

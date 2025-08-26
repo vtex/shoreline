@@ -122,25 +122,20 @@ export function roundCap(options: EChartsOption): EChartsOption {
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
   series[0].data.forEach((_, i) => {
     for (let j = series.length - 1; j > -1; j--) {
-      if (series[j].name?.toString().startsWith('__invisible')) {
-        continue
-      }
-
       const data = series[j].data as (
         | number
         | { value: number; itemStyle: { borderRadius: number[] } }
       )[]
-      if (isObject(data[i])) {
-        if (data[i].value !== 0) {
-          data[i] = {
-            ...data[i],
-            itemStyle: {
-              ...data[i].itemStyle,
-              borderRadius: defaultBorderRadius,
-            },
-          }
-          break
+
+      if (isObject(data[i]) && data[i].value !== 0) {
+        data[i] = {
+          ...data[i],
+          itemStyle: {
+            ...data[i].itemStyle,
+            borderRadius: defaultBorderRadius,
+          },
         }
+        break
       }
       if (data[i] !== 0) {
         data[i] = {
@@ -285,7 +280,7 @@ export function formatTimeAxis(
   return (options: EChartsOption) => {
     const series = options.series
     if (!isArray(series) || !isArray(series[0].data)) return options
-    series.forEach((serie, i) => {
+    series.forEach((serie) => {
       const data = serie.data as any[]
       data.forEach((value: [Date, number], j) => {
         data[j] = {
