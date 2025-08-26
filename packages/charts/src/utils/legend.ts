@@ -1,6 +1,6 @@
 import type { EChartsOption } from 'echarts'
 import type { LegendState } from '../components/legend'
-import { defaultColorPreset, defaultColorShade } from '../theme/colors'
+import { defaultColorShade } from '../theme/colors'
 import { cloneDeep, isArray, isObject } from 'lodash'
 import { defaultTheme } from '../theme/themes'
 
@@ -27,7 +27,8 @@ export function toggleSerieLegend(chart: echarts.ECharts, serie: string) {
 }
 
 export function getHoverColor(color: string): string {
-  if (defaultColorPreset.includes(color)) return defaultColorShade[color]
+  if (Object.keys(defaultColorShade).includes(color))
+    return defaultColorShade[color]
   return color
 }
 

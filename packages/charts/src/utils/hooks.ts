@@ -199,27 +199,32 @@ export function setAreaColors(
 
   let nextColorIndex = 0
   arraySeries.forEach((v) => {
+    let areaColor: any
     const serie = v as LineSeriesOption
-    if (serie.color) {
+    if (serie.areaStyle) {
       return
     }
-    const areaColor =
-      defaultColorShade[
-        defaultColorPreset[nextColorIndex % defaultAreaColors.length]
-      ]
+    if (serie.color) {
+      if (Array.isArray(serie.color)) {
+        areaColor = serie.color[0]
+      } else areaColor = serie.color
+    } else {
+      areaColor =
+        defaultColorShade[
+          defaultColorPreset[nextColorIndex % defaultAreaColors.length]
+        ]
+    }
     serie.areaStyle ??= {}
 
     if (!gradient) {
       // defaultColorShade[areaColor]
       serie.areaStyle.color = areaColor
-      console.log(serie.areaStyle.color)
       serie.color = areaColor
-      console.log(serie.color)
 
       nextColorIndex++
       return
     }
-    const color = {
+    areaColor = {
       type: 'linear' as const,
       x: 0,
       y: 0,
@@ -237,9 +242,11 @@ export function setAreaColors(
         },
       ],
     }
-    serie.areaStyle.color = color
+    serie.areaStyle.color = areaColor
+    if (!serie.color) {
+      nextColorIndex++
+    }
   })
-  nextColorIndex++
   return { series, ...otherProps }
 }
 /**
@@ -290,7 +297,6 @@ export function formatTimeAxis(
       })
       series
     })
-    console.log(series)
     return options
   }
 }
