@@ -84,7 +84,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
     const chartRef = useRef<ReactECharts>(null)
     const legendRef = useRef<LegendHandle>(null)
-    const [options, setOptions] = useState<EChartsOption>()
+    const [,] = useState<EChartsOption>()
 
     const hooks: ((series: EChartsOption) => EChartsOption)[] = useMemo(() => {
       if (optionHooks === null || chartConfig === null) {
