@@ -13,7 +13,7 @@ export const Basic: Story = {
     chartConfig: { type: 'funnel' },
     series: [
       {
-        name: 'cu',
+        name: "This probably shouldn't be visible",
         data: [
           { value: 450, name: 'A' },
           { value: 250, name: 'B' },
