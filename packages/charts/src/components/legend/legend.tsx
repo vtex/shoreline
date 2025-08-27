@@ -44,12 +44,9 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
     }, [series])
 
     /**
-     * Functions that changes the state of the legend.
+     * Pure function that changes the state of the legend.
      * Based on the type of action and the index of the change,
-     * the legend can decide  what is the next state to be rendered.
-     *
-     * It is a pure function in a way that it does not modify the old state, and a new one is created
-     * Also returns the new legend state when its called.
+     * the legend can decide what is the next state to be rendered.
      *
      * @param {number} index - Index of the serie to change the state.
      * @param {string} type - Type of action to perform. Can be 'toggle', 'selectAll' or 'exclusive'.
@@ -115,9 +112,9 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
         }
 
         const settedState = changeState(index, action as LegendAction['type'])
-
         chart.dispatchAction({
           type: 'legendToggleSelect',
+          // repurposing this field for the extra info we need
           name: {
             index: index,
             type: action,

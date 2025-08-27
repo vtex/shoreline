@@ -21,6 +21,7 @@ import { useMergeRef } from '@vtex/shoreline-utils'
 import {
   DATAZOOM_DEFAULT_STYLE,
   DEFAULT_LOADING_SPINNER,
+  LEGEND_DEFAULT_STYLE,
 } from '../../theme/chartStyles'
 import { cloneDeep, isArray, type Dictionary } from 'lodash'
 import {
@@ -117,7 +118,11 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         wholeOption.grid = { ...wholeOption.grid, height: '75%' }
         wholeOption.dataZoom = DATAZOOM_DEFAULT_STYLE
       }
-
+      if (checkboxLegend) {
+        wholeOption.legend = LEGEND_DEFAULT_STYLE
+        // the legend echarts component must exist for
+        // ours to work, but it can't be visible
+      }
       if (loading) {
         wholeOption.tooltip = {
           show: false,
@@ -150,8 +155,8 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         const series = finalOptions.series as SeriesOption[]
         const isStacked =
           chartConfig?.type === 'bar' && chartConfig.variant === 'stacked'
-        const action = params.name as LegendAction
 
+        const action = params.name as LegendAction
         if (action.type === 'toggle' && action.index < series.length) {
           toggleSerieLegend(chart, String(series[action.index].name))
           if (isStacked)
