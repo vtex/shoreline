@@ -93,7 +93,6 @@ export const CHART_STYLES: DefaultChartStyles = {
       series: {
         type: 'bar',
       },
-      legend: LEGEND_DEFAULT_STYLE,
       grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
@@ -119,7 +118,6 @@ export const CHART_STYLES: DefaultChartStyles = {
           borderRadius: [0, 4, 4, 0],
         },
       },
-      legend: LEGEND_DEFAULT_STYLE,
       grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
@@ -144,7 +142,6 @@ export const CHART_STYLES: DefaultChartStyles = {
           borderColor: '#FFFFFF00',
         },
       },
-      legend: LEGEND_DEFAULT_STYLE,
       grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
@@ -172,7 +169,6 @@ export const CHART_STYLES: DefaultChartStyles = {
           borderRadius: 0,
         },
       },
-      legend: LEGEND_DEFAULT_STYLE,
       grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
@@ -198,7 +194,6 @@ export const CHART_STYLES: DefaultChartStyles = {
         smooth: true,
         showSymbol: false,
       },
-      legend: LEGEND_DEFAULT_STYLE,
       tooltip: { ...BASE_TOOLTIP_OPIONS },
       grid: GRID_DEFAULT_STYLE,
       animationDuration: 750,
@@ -219,7 +214,6 @@ export const CHART_STYLES: DefaultChartStyles = {
         areaStyle: { opacity: 0.2 },
         emphasis: { disabled: true },
       },
-      legend: LEGEND_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         formatter: (params) => {
@@ -243,7 +237,6 @@ export const CHART_STYLES: DefaultChartStyles = {
         emphasis: { disabled: true },
         stack: '_STACK',
       },
-      legend: LEGEND_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         formatter: (params) => {

@@ -23,6 +23,7 @@ import {
   setAreaColors,
   setAreaGradients,
 } from '../../utils/hooks'
+import { cloneDeep } from 'lodash'
 
 /**
  * Used to make charts with multiple different types.
@@ -53,10 +54,11 @@ export const ChartCompositor = forwardRef<
   } = props
 
   const hookedUnits: ChartUnit[] = useMemo(() => {
-    return charts.map((chart) => {
-      if (chart.hooks === null) {
-        return chart
+    return charts.map((chartIn) => {
+      if (chartIn.hooks === null) {
+        return chartIn
       }
+      const chart = cloneDeep(chartIn)
       const { type, variant } = chart.chartConfig
       const checkedVariant =
         variant && checkValidVariant(type, variant)
@@ -67,13 +69,11 @@ export const ChartCompositor = forwardRef<
         defaultHooks[type][checkedVariant]
       seriesHooks.push(...(chart.hooks ?? []))
 
-      return {
-        ...chart,
-        series: seriesHooks.reduce(
-          (out, fn) => applySeriesHook(out, fn),
-          chart.series
-        ),
-      }
+      chart.series = seriesHooks.reduce(
+        (out, fn) => applySeriesHook(out, fn),
+        chart.series
+      )
+      return chart
     })
   }, [])
 
@@ -94,14 +94,13 @@ export const ChartCompositor = forwardRef<
       finalOptions.grid = { ...finalOptions.grid, height: '75%' }
       finalOptions.dataZoom = DATAZOOM_DEFAULT_STYLE
     }
-    finalOptions.series = seriesOptions
-    finalOptions.tooltip = tooltipOptions
-    finalOptions.yAxis = yAxis
-    finalOptions.xAxis = xAxis
-    finalOptions.title = title
-
+    finalOptions.series = cloneDeep(seriesOptions)
+    finalOptions.tooltip = cloneDeep(tooltipOptions)
+    finalOptions.yAxis = cloneDeep(yAxis)
+    finalOptions.xAxis = cloneDeep(xAxis)
+    finalOptions.title = cloneDeep(title)
     return option ? merge(option, finalOptions) : finalOptions
-  }, [charts, tooltip, xAxis, yAxis, option])
+  }, [charts, xAxis, yAxis, option, tooltipOptions, title, seriesOptions, zoom])
 
   return (
     <Chart
