@@ -1,6 +1,6 @@
 {
-  "pagination-label": "{firstPosition} — {lastPosition} of {items}",
-  "pagination-label-single-page": "{lastPosition} of {items}",
-  "next-page-action": "Next page",
-  "previous-page-action": "Previous page"
+  "pagination-label": "{items}개 중 {firstPosition}번째 — {lastPosition}번째",
+  "pagination-label-single-page": "{items}개 중 {lastPosition}번째",
+  "next-page-action": "다음 페이지",
+  "previous-page-action": "이전 페이지"
 }

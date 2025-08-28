@@ -1,0 +1,11 @@
+{
+  "not-found-heading": "Nie znaleziono żadnych rezultatów",
+  "not-found-description": "Spróbuj użyć innych terminów lub filtrów",
+  "empty-heading": "Brak pozycji na razie",
+  "empty-description": "Utwórz pozycję, aby rozpocząć sprzedaż",
+  "empty-action": "Utwórz pozycję",
+  "error-heading": "Coś poszło nie tak",
+  "error-action": "Spróbuj ponownie",
+  "unauthorized-heading": "Nieautoryzowany dostęp",
+  "unauthorized-description": "Rola użytkownika nie ma dostępu do filtrowanych treści. Skontaktuj się z pomocą techniczną."
+}

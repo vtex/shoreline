@@ -1,11 +1,11 @@
 {
-  "not-found-heading": "No results found",
-  "not-found-description": "Try using different terms or filters.",
-  "empty-heading": "No items yet",
-  "empty-description": "Create an item to start selling.",
-  "empty-action": "Create item",
-  "error-heading": "Something went wrong",
+  "not-found-heading": "検索結果がありません",
+  "not-found-description": "他の用語または検索フィルタを使ってみてください.",
+  "empty-heading": "項目がまだありません",
+  "empty-description": "項目を作成して販売を開始する",
+  "empty-action": "項目の作成",
+  "error-heading": "エラーがありました",
   "error-action": "Try again",
-  "unauthorized-heading": "Unauthorized access",
-  "unauthorized-description": "User profile does not have access to the filtered content. Please contact support."
+  "unauthorized-heading": "不正アクセス",
+  "unauthorized-description": "このユーザー権限では、フィルタされたコンテンツにアクセスできません。サポートまでご連絡ください。"
 }

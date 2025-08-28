@@ -1,6 +1,6 @@
 {
-  "pagination-label": "{firstPosition} — {lastPosition} of {items}",
-  "pagination-label-single-page": "{lastPosition} of {items}",
-  "next-page-action": "Next page",
-  "previous-page-action": "Previous page"
+  "pagination-label": "สินค้าแรก {firstPosition} — สุดท้าย {lastPosition} ในรายการ {items}",
+  "pagination-label-single-page": "สินค้าสุดท้าย {lastPosition} ใน {items}",
+  "next-page-action": "หน้าถัดไป",
+  "previous-page-action": "หน้าก่อนหน้านี้"
 }
