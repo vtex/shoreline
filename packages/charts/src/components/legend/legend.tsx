@@ -67,7 +67,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
         } else {
           if (index >= seriesState.length)
             return setSeriesState(checkAllSelected(newState))
-          newState[index].state = !newState[index].state
+          newState[index].state = !(newState[index].state !== false)
         }
         const checkedState = checkAllSelected(newState)
         setSeriesState(checkedState)
@@ -80,6 +80,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
       ref,
       () => ({
         setState: (index: number, action: string) => {
+          console.log(action)
           changeState(index, action as LegendAction['type'])
         },
       }),
