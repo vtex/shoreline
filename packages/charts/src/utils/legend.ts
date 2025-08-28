@@ -33,17 +33,17 @@ export function getHoverColor(color: string): string {
 }
 
 export function checkAllSelected(seriesState: LegendState): LegendState {
-  const allOn = seriesState.every((serie) => serie.state !== false)
+  const allOn = seriesState.every((serie) => serie.state !== 'off')
 
   if (allOn)
     return seriesState.map((serie) => ({
       ...serie,
-      state: undefined,
+      state: 'unchecked',
     })) as LegendState
 
   return seriesState.map((serie) => ({
     ...serie,
-    state: serie.state === undefined ? true : serie.state,
+    state: serie.state === 'unchecked' ? 'checked' : serie.state,
   })) as LegendState
 }
 
@@ -55,7 +55,7 @@ export function changeBarRoundingToogle(
   if (!series || !isArray(series)) return options
 
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
-  const booleanStates = state.map((s) => s.state !== false)
+  const booleanStates = state.map((s) => s.state !== 'off')
   const visibleSeries: any[] = []
 
   series.forEach((serie, index) => {

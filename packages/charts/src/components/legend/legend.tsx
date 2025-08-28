@@ -21,10 +21,10 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
     if (!series) return
     if (!isArray(series)) return
 
-    const initialState: { serie: string; state: undefined }[] = []
+    const initialState: LegendState = []
     series.forEach((serie) => {
       if (serie.name)
-        initialState.push({ serie: String(serie.name), state: undefined })
+        initialState.push({ serie: String(serie.name), state: 'unchecked' })
     })
 
     const [seriesState, setSeriesState] = useState<LegendState>(initialState)
@@ -57,17 +57,18 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
         const newState = [...seriesState] as LegendState
         if (type === 'selectAll') {
           newState.forEach((serie) => {
-            serie.state = undefined
+            serie.state = 'unchecked'
           })
         } else if (type === 'exclusive') {
           newState.forEach((serie, i) => {
-            if (index !== i) serie.state = false
-            else serie.state = true
+            if (index !== i) serie.state = 'off'
+            else serie.state = 'checked'
           })
         } else {
           if (index >= seriesState.length)
             return setSeriesState(checkAllSelected(newState))
-          newState[index].state = !(newState[index].state !== false)
+          newState[index].state =
+            newState[index].state !== 'off' ? 'off' : 'checked'
         }
         const checkedState = checkAllSelected(newState)
         setSeriesState(checkedState)
@@ -98,8 +99,8 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
         const off: string[] = []
         const checked: string[] = []
         newState.forEach((serie) => {
-          if (serie.state === true) on.push(serie.serie)
-          else if (serie.state === false) off.push(serie.serie)
+          if (serie.state === 'checked') on.push(serie.serie)
+          else if (serie.state === 'off') off.push(serie.serie)
           else checked.push(serie.serie)
         })
 
@@ -135,7 +136,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
               key={index}
               serie={serie.serie}
               onClick={onClick}
-              selected={seriesState[index].state}
+              state={seriesState[index].state}
               color={colors[index]}
               index={index}
             />
@@ -146,9 +147,12 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
   }
 )
 
-export type LegendState =
-  | { serie: string; state: boolean }[]
-  | { serie: string; state: undefined }[]
+export type LegendState = LegendItemType[]
+
+export type LegendItemType = {
+  serie: string
+  state: 'checked' | 'unchecked' | 'off'
+}
 
 export type LegendAction = {
   index: number

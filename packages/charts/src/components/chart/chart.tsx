@@ -137,6 +137,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       return options
     }, [
       option,
+      checkboxLegend,
       loading,
       chartConfig,
       zoom,

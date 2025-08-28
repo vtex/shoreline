@@ -7,11 +7,12 @@ import {
   type ComponentPropsWithoutRef,
 } from 'react'
 import { getHoverColor } from '../../utils/legend'
+import type { LegendItemType } from './legend'
 
 export function LegendItem({
   serie,
   onClick,
-  selected,
+  state,
   color,
   index,
   ...otherProps
@@ -20,18 +21,18 @@ export function LegendItem({
   const [hover, setHover] = useState<boolean>(false)
 
   const border = useMemo(() => {
-    if (selected !== false) return 'none'
+    if (state !== 'off') return 'none'
     if (hover) {
       return 'var(--sl-border-base-strong-hover)'
     }
     return 'var(--sl-border-base-strong)'
-  }, [selected, hover])
+  }, [state, hover])
 
   const backgroundColor = useMemo(() => {
-    if (selected === false) return 'transparent'
+    if (state === 'off') return 'transparent'
     if (!hover) return color
     return getHoverColor(color)
-  }, [selected, hover, color])
+  }, [state, hover, color])
 
   const handleClick = useCallback(
     (_e: React.MouseEvent) => {
@@ -57,9 +58,7 @@ export function LegendItem({
           border: border,
         }}
       >
-        {selected === true ? (
-          <IconCheckSmall data-sl-chart-legend-check />
-        ) : null}
+        {state === 'checked' && <IconCheckSmall data-sl-chart-legend-check />}
       </button>
       <span data-sl-chart-legend-text>{serie}</span>
     </div>
@@ -69,7 +68,7 @@ export function LegendItem({
 export type LegendItemOptions = {
   serie: string
   onClick: (name: string) => void
-  selected?: boolean
+  state?: LegendItemType['state']
   color: string
   index: number
 }
