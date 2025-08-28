@@ -4,7 +4,7 @@ import {
   forwardRef,
   useCallback,
   type ComponentPropsWithRef,
-  useState,
+  useEffect,
 } from 'react'
 import type { EChartsOption, SeriesOption } from 'echarts'
 import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
@@ -17,7 +17,7 @@ import {
   getChartOptions,
   getDefaultByType,
 } from '../../utils/chart'
-import { useMergeRef } from '@vtex/shoreline-utils'
+import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
   DATAZOOM_DEFAULT_STYLE,
   DEFAULT_LOADING_SPINNER,
@@ -85,7 +85,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
     const chartRef = useRef<ReactECharts>(null)
     const legendRef = useRef<LegendHandle>(null)
-    const [,] = useState<EChartsOption>()
 
     const hooks: ((series: EChartsOption) => EChartsOption)[] = useMemo(() => {
       if (optionHooks === null || chartConfig === null) {
@@ -183,6 +182,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         }
 
         if (action.chartId !== chart.getId() && legendRef.current) {
+          console.log('deu certo')
           legendRef.current.setState(action.index, action.type)
         }
       },
@@ -201,11 +201,11 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       [group]
     )
 
-    // const handleResize = useCallback(() => {
-    //   if (chartRef.current) {
-    //     chartRef.current.getEchartsInstance().resize()
-    //   }
-    // }, [])
+    const handleResize = useCallback(() => {
+      if (chartRef.current) {
+        chartRef.current.getEchartsInstance().resize()
+      }
+    }, [])
 
     const onRendered = useCallback(
       (_params: any) => {
@@ -214,14 +214,14 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       [connectGroups]
     )
 
-    // useEffect(() => {
-    //   if (!canUseDOM) return
+    useEffect(() => {
+      if (!canUseDOM) return
 
-    //   window.addEventListener('resize', handleResize)
-    //   return () => {
-    //     window.removeEventListener('resize', handleResize)
-    //   }
-    // }, [handleResize])
+      window.addEventListener('resize', handleResize)
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
+    }, [handleResize])
 
     const memoEvents = useMemo(() => {
       return {
