@@ -29,7 +29,6 @@ bench(
             chartConfig: { type: 'bar' },
           },
         ]}
-        background={{ type: 'bar' }}
         tooltip={{ type: 'line' }}
       />
     )
@@ -53,7 +52,6 @@ bench(
             chartConfig: { type: 'bar' },
           },
         ]}
-        background={{ type: 'bar' }}
         tooltip={{ type: 'line' }}
       />
     )
@@ -77,7 +75,6 @@ bench(
             chartConfig: { type: 'bar' },
           },
         ]}
-        background={{ type: 'bar' }}
         tooltip={{ type: 'line' }}
       />
     )

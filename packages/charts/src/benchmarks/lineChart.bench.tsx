@@ -19,9 +19,7 @@ bench(
   async () => {
     const { unmount } = render(
       <Chart
-        option={{
-          series: { data: CHART_DATA.series.dayNumbers_1thousand },
-        }}
+        series={{ data: CHART_DATA.series.dayNumbers_1thousand }}
         chartConfig={{
           type: 'line',
         }}
@@ -38,9 +36,7 @@ bench(
   async () => {
     const { unmount } = render(
       <Chart
-        option={{
-          series: { data: CHART_DATA.series.dayNumbers_5thousand },
-        }}
+        series={{ data: CHART_DATA.series.dayNumbers_5thousand }}
         chartConfig={{
           type: 'line',
         }}
@@ -57,9 +53,7 @@ bench(
   async () => {
     const { unmount } = render(
       <Chart
-        option={{
-          series: { data: CHART_DATA.series.dayNumbers_10thousand },
-        }}
+        series={{ data: CHART_DATA.series.dayNumbers_10thousand }}
         chartConfig={{
           type: 'line',
         }}
@@ -76,9 +70,7 @@ bench(
   async () => {
     const { unmount } = render(
       <Chart
-        option={{
-          series: { data: CHART_DATA.series.dayNumbers_30thousand },
-        }}
+        series={{ data: CHART_DATA.series.dayNumbers_30thousand }}
         chartConfig={{
           type: 'line',
         }}
@@ -95,9 +87,7 @@ bench(
   async () => {
     const { unmount } = render(
       <Chart
-        option={{
-          series: { data: CHART_DATA.series.dayNumbers_50thousand },
-        }}
+        series={{ data: CHART_DATA.series.dayNumbers_50thousand }}
         chartConfig={{
           type: 'line',
         }}
@@ -114,9 +104,7 @@ bench(
   async () => {
     const { unmount } = render(
       <Chart
-        option={{
-          series: { data: CHART_DATA.series.dayNumbers_100thousand },
-        }}
+        series={{ data: CHART_DATA.series.dayNumbers_100thousand }}
         chartConfig={{
           type: 'line',
         }}

@@ -19,9 +19,7 @@ bench(
   async () => {
     const { unmount } = render(
       <Chart
-        option={{
-          series: [{ data: CHART_DATA.series.dayNumbers_1thousand }],
-        }}
+        series={[{ data: CHART_DATA.series.dayNumbers_1thousand }]}
         chartConfig={{
           type: 'bar',
         }}
@@ -38,10 +36,7 @@ bench(
   async () => {
     const { unmount } = render(
       <Chart
-        option={{
-          series: [{ data: CHART_DATA.series.dayNumbers_5thousand }],
-          tooltip: {},
-        }}
+        series={[{ data: CHART_DATA.series.dayNumbers_5thousand }]}
         chartConfig={{
           type: 'bar',
         }}
@@ -58,9 +53,7 @@ bench(
   async () => {
     const { unmount } = render(
       <Chart
-        option={{
-          series: [{ data: CHART_DATA.series.dayNumbers_10thousand }],
-        }}
+        series={[{ data: CHART_DATA.series.dayNumbers_10thousand }]}
         chartConfig={{
           type: 'bar',
         }}
