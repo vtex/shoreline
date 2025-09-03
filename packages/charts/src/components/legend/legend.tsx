@@ -10,9 +10,14 @@ import {
 import { defaultColorPreset } from '../../theme/colors'
 import type { EChartsOption } from 'echarts'
 import '../../theme/components/legend.css'
-import { checkAllSelected } from '../../utils/legend'
+import {
+  changeBarRoundingExclusive,
+  changeBarRoundingToogle,
+  checkAllSelected,
+} from '../../utils/legend'
 import type ReactECharts from 'echarts-for-react'
 import { LegendItem } from './legend-item'
+import type { ChartConfig } from '../../types/chart'
 
 export const Legend = forwardRef<LegendHandle, LegendProps>(
   function Legend(props, ref) {
@@ -147,6 +152,29 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
   }
 )
 
+export function getChanges(chart: ChartConfig | null): string {
+  let change = ''
+  if (chart) {
+    if (chart.variant === 'stacked' && chart.type === 'bar') {
+      change = 'roundBar'
+    }
+  }
+  return change
+}
+
+export function handleChanges(
+  change: string,
+  option: EChartsOption,
+  action: LegendAction
+): EChartsOption {
+  let finalOptions = option
+  if (change === 'roundBar' && action.type === 'toggle') {
+    finalOptions = changeBarRoundingToogle(option, action.state)
+  } else if (change === 'roundBar' && action.type === 'exclusive') {
+    finalOptions = changeBarRoundingExclusive(option, action.index)
+  }
+  return finalOptions
+}
 export type LegendState = LegendItemType[]
 
 export type LegendItemType = {

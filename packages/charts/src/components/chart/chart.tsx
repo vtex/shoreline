@@ -34,14 +34,18 @@ import {
   setAreaGradients,
 } from '../../utils/hooks'
 import {
-  changeBarRoundingExclusive,
-  changeBarRoundingToogle,
   toggleSerieLegend,
   turnOffSerieLegend,
   turnOnAllLegend,
   turnOnSerieLegend,
 } from '../../utils/legend'
-import { Legend, type LegendHandle, type LegendAction } from '../legend'
+import {
+  Legend,
+  type LegendHandle,
+  type LegendAction,
+  getChanges,
+  handleChanges,
+} from '../legend'
 
 import '../../theme/components/chart.css'
 
@@ -153,14 +157,13 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         if (!chartRef.current) return
         const chart = chartRef.current.getEchartsInstance()
         const series = finalOptions.series as SeriesOption[]
-        const isStacked =
-          chartConfig?.type === 'bar' && chartConfig.variant === 'stacked'
+        const change = getChanges(chartConfig)
 
         const action = params.name as LegendAction
         if (action.type === 'toggle' && action.index < series.length) {
           toggleSerieLegend(chart, String(series[action.index].name))
-          if (isStacked)
-            chart.setOption(changeBarRoundingToogle(finalOptions, action.state))
+          if (change)
+            chart.setOption(handleChanges(change, finalOptions, action))
         }
 
         if (action.type === 'selectAll') {
@@ -168,7 +171,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             chart,
             series.map((serie) => String(serie.name))
           )
-          if (isStacked) chart.setOption(finalOptions)
+          if (change) chart.setOption(finalOptions)
         }
 
         if (action.type === 'exclusive') {
@@ -176,10 +179,8 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             if (index === action.index) turnOnSerieLegend(chart, String(s.name))
             else turnOffSerieLegend(chart, String(s.name))
           })
-          if (isStacked)
-            chart.setOption(
-              changeBarRoundingExclusive(finalOptions, action.index)
-            )
+          if (change)
+            chart.setOption(handleChanges(change, finalOptions, action))
         }
 
         if (action.chartId !== chart.getId() && legendRef.current) {
