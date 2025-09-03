@@ -7,7 +7,7 @@ import * as echarts from 'echarts'
  *
  * @param {string} color - The base color key to which the hover state will be mapped.
  * @param {string} hover - The color value to be used when hovering over elements with the base color.
- * @example addHoverToColors('--sl-color-red-5', '--sl-color-red-6');
+//  * @example addHoverToColors('var(--sl-color-red-5)', 'var(--sl-color-red-6)');
  */
 export function addHoverToLegendColor(color: string, hover: string) {
   if (Object.keys(defaultColorShade).includes(color)) return
