@@ -1,0 +1,10 @@
+# Synchronization/Grouping
+Allows multiple charts in the same `group` to share events,
+ meaning that when a tooltip is spawned by one of them (on mouse hover),
+ all other charts in the same group will also spawn a tooltip, at that same serie.
+
+ Toggling one chart's legend will also toggle all the others in the same group.
+
+As many charts as desired can be part of the same group, so long as all of them have the same value in the `group` prop.
+> Charts do not need to share the same series names or axis names for this feature to work.
+ <Preview name="chart-connection"/>
