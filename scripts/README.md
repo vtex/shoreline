@@ -1,6 +1,14 @@
-# scripts
+# scripts <!-- omit in toc -->
 
-This directory contains scripts that are used on the CI/CD pipelines.
+This directory contains scripts that are used on automated processes (CI/CD, documentation generation, etc.).
+
+- [`create-json-rep.mjs`](#create-json-repmjs)
+  - [Features](#features)
+  - [Output](#output)
+  - [Usage](#usage)
+  - [Configuration](#configuration)
+- [`configure-git-user.sh`](#configure-git-usersh)
+  - [Testing](#testing)
 
 ## [`create-json-rep.mjs`](create-json-rep.mjs)
 
