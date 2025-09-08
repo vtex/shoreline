@@ -1,0 +1,2339 @@
+{
+  "VisuallyHidden": {
+    "displayName": "VisuallyHidden",
+    "description": "Renders an element that is visually only to screen readers",
+    "props": {
+      "children": {
+        "type": "unknown",
+        "required": false,
+        "description": "Content that will be only available for a screen reader"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Tooltip": {
+    "displayName": "Tooltip",
+    "description": "Tooltips display a label that was omitted when hovering the element. They shouldn't be essential for users to complete tasks.",
+    "props": {
+      "label": {
+        "type": "unknown",
+        "required": true,
+        "description": "Text displayed on the popover"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "InheritedOptions"
+    ],
+    "examples": []
+  },
+  "TooltipTrigger": {
+    "displayName": "TooltipTrigger",
+    "description": "The anchor of the Tooltip",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "TooltipPopover": {
+    "displayName": "TooltipPopover",
+    "description": "Popover of the Tooltip",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "gutter": {
+        "type": "unknown",
+        "required": false,
+        "description": "Distance (in px) from the trigger reference @default 2"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "TooltipArrow": {
+    "displayName": "TooltipArrow",
+    "description": "Arrow of the Tooltip",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Toast": {
+    "displayName": "Toast",
+    "description": "Toasts can appear at any time to provide instant feedback on actions. They are usually temporary, but can also require the user to dismiss.",
+    "props": {
+      "variant": {
+        "type": "unknown",
+        "required": false,
+        "description": "Toast variant @default 'informational'"
+      },
+      "children": {
+        "type": "unknown",
+        "required": false,
+        "description": "Toast children"
+      },
+      "onDismiss": {
+        "type": "unknown",
+        "required": false,
+        "description": "Callback to be called when the toast is dismissed"
+      },
+      "id": {
+        "type": "unknown",
+        "required": false,
+        "description": "Toast id"
+      },
+      "duration": {
+        "type": "unknown",
+        "required": false,
+        "description": "How long the toast should be visible for in milliseconds @default 5000"
+      },
+      "loading": {
+        "type": "unknown",
+        "required": false,
+        "description": ""
+      }
+    },
+    "methods": [],
+    "composes": [
+      "ComponentPropsWithoutRef"
+    ],
+    "examples": []
+  },
+  "ToastStack": {
+    "displayName": "ToastStack",
+    "description": "Toasts can appear at any time to provide instant feedback on actions. They are usually temporary, but can also require the user to dismiss.",
+    "props": {
+      "position": {
+        "type": "unknown",
+        "required": false,
+        "description": "Postion of the toasts @default 'bottom-right'"
+      },
+      "toastOptions": {
+        "type": "unknown",
+        "required": false,
+        "description": "Options of each toast"
+      },
+      "reverseOrder": {
+        "type": "unknown",
+        "required": false,
+        "description": "Wether should invert the order"
+      },
+      "gutter": {
+        "type": "unknown",
+        "required": false,
+        "description": "Position distance @default 16"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "ToastAppear": {
+    "displayName": "ToastAppear",
+    "description": "Controls toast appearance",
+    "props": {
+      "id": {
+        "type": "unknown",
+        "required": true,
+        "description": "Toast id"
+      },
+      "onHeightUpdate": {
+        "type": "unknown",
+        "required": true,
+        "description": "Callback of height update"
+      },
+      "visible": {
+        "type": "unknown",
+        "required": false,
+        "description": "Wether is visible"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "ComponentPropsWithoutRef"
+    ],
+    "examples": []
+  },
+  "TimeInput": {
+    "displayName": "TimeInput",
+    "description": "A Time Input is a field for a single time value.",
+    "props": {
+      "className": {
+        "type": "unknown",
+        "required": false,
+        "description": "Custom className"
+      },
+      "error": {
+        "type": "unknown",
+        "required": false,
+        "description": "Wether has error"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "Omit"
+    ],
+    "examples": []
+  },
+  "Textarea": {
+    "displayName": "Textarea",
+    "description": "Text Area is a field for text values that can take up more than one line in a form, such as descriptions or comments.",
+    "props": {
+      "error": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether is in error state"
+      },
+      "optional": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the textarea is optional or not"
+      },
+      "resizable": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the textarea is resizable or not @default true"
+      },
+      "onChange": {
+        "type": "unknown",
+        "required": false,
+        "description": "Callback for value change"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Text": {
+    "displayName": "Text",
+    "description": "Text component",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Tag": {
+    "displayName": "Tag",
+    "description": "Tags differentiate items through a read-only text value in a colored bg. They can be secondary or primary, given their relevance to the main job.",
+    "props": {
+      "variant": {
+        "type": "unknown",
+        "required": false,
+        "description": "Tag variant @default 'primary'"
+      },
+      "color": {
+        "type": "unknown",
+        "required": false,
+        "description": "Tag color @default 'gray'"
+      },
+      "size": {
+        "type": "unknown",
+        "required": false,
+        "description": "Tag size @default 'normal'"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Table": {
+    "displayName": "Table",
+    "description": "Table lists items vertically and can include actions for each row. The columns display property values for users to scan, sort, and compare.",
+    "props": {
+      "columnWidths": {
+        "type": "unknown",
+        "required": false,
+        "description": "Array of column widths When using the Table component @default [] When using the SimpleTable component @default [repeat(${columns.length}, var(--sl-table-default-column-width))]"
+      },
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "If true, the Table component will be rendered as a child of the Compose component @default false"
+      },
+      "stickyHeader": {
+        "type": "unknown",
+        "required": false,
+        "description": "If true, the header will be sticky @default false"
+      },
+      "stickyColumn": {
+        "type": "unknown",
+        "required": false,
+        "description": "If true, the first column will be sticky @default false"
+      },
+      "density": {
+        "type": "unknown",
+        "required": false,
+        "description": "The density of the table @default 'default'"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "TableSortIndicator": {
+    "displayName": "TableSortIndicator",
+    "description": "Component that indicates if a column is sortable and its current sort direction",
+    "props": {
+      "sorted": {
+        "type": "unknown",
+        "required": false,
+        "description": "Indicates if column is currently sorted, and in witch order @default null"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "TableRow": {
+    "displayName": "TableRow",
+    "description": "Row of the table",
+    "props": {
+      "selected": {
+        "type": "unknown",
+        "required": false,
+        "description": "Indicates the row selection @default false"
+      },
+      "expanded": {
+        "type": "unknown",
+        "required": false,
+        "description": "Indicates the row expansion @default false"
+      },
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "dimOnHover": {
+        "type": "unknown",
+        "required": false,
+        "description": "Indicates that the row dims while hovered @default true"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "TableHeader": {
+    "displayName": "TableHeader",
+    "description": "Header of the table",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "TableHeaderCell": {
+    "displayName": "TableHeaderCell",
+    "description": "Cell of the table header",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "sortable": {
+        "type": "unknown",
+        "required": false,
+        "description": "Represents a sortable column @default false"
+      },
+      "align": {
+        "type": "unknown",
+        "required": false,
+        "description": "Cell content alignment @default 'start'"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "TableCell": {
+    "displayName": "TableCell",
+    "description": "Cell of the table body",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "align": {
+        "type": "unknown",
+        "required": false,
+        "description": "Cell content alignment @default 'start'"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "TableBody": {
+    "displayName": "TableBody",
+    "description": "Body of the table",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Tab": {
+    "displayName": "Tab",
+    "description": "Tabs are used to create up to five views inside a page. Use for related content that is not comparable, when a unified view is not necessary.",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "TabPanel": {
+    "displayName": "TabPanel",
+    "description": "Tabs are used to create up to five views inside a page. Use for related content that is not comparable, when a unified view is not necessary.",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      },
+      "tabId": {
+        "type": "unknown",
+        "required": false,
+        "description": "The id of the tab that controls this panel. By default, this value will be inferred based on the order of the tabs and the panels."
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "TabList": {
+    "displayName": "TabList",
+    "description": "Tabs are used to create up to five views inside a page. Use for related content that is not comparable, when a unified view is not necessary.",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Stack": {
+    "displayName": "Stack",
+    "description": "Spaces elements consistently",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "horizontal": {
+        "type": "unknown",
+        "required": false,
+        "description": "Switches the layout to horizontal @default false"
+      },
+      "fluid": {
+        "type": "unknown",
+        "required": false,
+        "description": "Grows the width of items to match the parent @default false"
+      },
+      "space": {
+        "type": "unknown",
+        "required": false,
+        "description": "space between items @default 0"
+      },
+      "align": {
+        "type": "unknown",
+        "required": false,
+        "description": "items alignment @default start"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Spinner": {
+    "displayName": "Spinner",
+    "description": "Spinner informs that a specific element in the page is loading or a task is in progress. Use only for request that take over 1s and less than 5s.",
+    "props": {
+      "description": {
+        "type": "unknown",
+        "required": false,
+        "description": "Specify a description that would be used to best describe the loading state @default 'loading'"
+      },
+      "size": {
+        "type": "unknown",
+        "required": false,
+        "description": "Increase or decrease the size of the shape @default 16"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Skeleton": {
+    "displayName": "Skeleton",
+    "description": "Skeletons compose a low-fidelity representation of content that will load. They appear when the entire page is loading and take up to 5s.",
+    "props": {
+      "shape": {
+        "type": "unknown",
+        "required": false,
+        "description": "Skeleton shape @default rect"
+      },
+      "width": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS width @default '100%'"
+      },
+      "height": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS height @default '100%'"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Select": {
+    "displayName": "Select",
+    "description": "Select opens a dropdown with between five and seven values for users to choose one. Use Radios for less items or a Combobox for more items.",
+    "props": {
+      "error": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether is in error state"
+      },
+      "disabled": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether is disabled @default false"
+      },
+      "messages": {
+        "type": "unknown",
+        "required": false,
+        "description": "Select messages"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "SelectProviderOptions"
+    ],
+    "examples": []
+  },
+  "SelectValue": {
+    "displayName": "SelectValue",
+    "description": "Renders the value of the select",
+    "props": {
+      "placeholder": {
+        "type": "unknown",
+        "required": false,
+        "description": "placeholder of the select"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "SelectTrigger": {
+    "displayName": "SelectTrigger",
+    "description": "Trigger of the PopoverBox",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "SelectPopover": {
+    "displayName": "SelectPopover",
+    "description": "Popover box of Select",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "PopoverOptions"
+    ],
+    "examples": []
+  },
+  "SelectList": {
+    "displayName": "SelectList",
+    "description": "List that wraps the SelectItems",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      },
+      "alwaysVisible": {
+        "type": "unknown",
+        "required": false,
+        "description": "@default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "SelectItem": {
+    "displayName": "SelectItem",
+    "description": "Option of the Select",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      },
+      "value": {
+        "type": "unknown",
+        "required": false,
+        "description": "Option value"
+      },
+      "hideOnClick": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether to hide the select when this item is clicked. By default, it's true when the value prop is also provided. @default true"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "SelectItemCheck": {
+    "displayName": "SelectItemCheck",
+    "description": "Check indicator of the SelectItem",
+    "props": {
+      "children": {
+        "type": "unknown",
+        "required": false,
+        "description": "Indicator icon override"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "SelectArrow": {
+    "displayName": "SelectArrow",
+    "description": "",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Search": {
+    "displayName": "Search",
+    "description": "Search is a text input that users can type to narrow down a Collection. Use Filters if values can be classified in predefined options.",
+    "props": {
+      "loading": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether component is loading or not @default false"
+      },
+      "onClear": {
+        "type": "unknown",
+        "required": false,
+        "description": "Callback when the input is cleared @default undefined"
+      },
+      "messages": {
+        "type": "unknown",
+        "required": false,
+        "description": "Object containing all messages to be displayed in the search input"
+      },
+      "placeholder": {
+        "type": "unknown",
+        "required": false,
+        "description": "@deprecated You must use the messages property to override the placeholder label."
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "RangeCalendar": {
+    "displayName": "RangeCalendar",
+    "description": "Allow users to select a date range",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Radio": {
+    "displayName": "Radio",
+    "description": "Radio inputs allow users to select one option from a list. It should be used inside a RadioGroup component.",
+    "props": {
+      "error": {
+        "type": "unknown",
+        "required": false,
+        "description": "Wether is disabled @default false"
+      },
+      "value": {
+        "type": "unknown",
+        "required": true,
+        "description": "The value of the radio"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "RadioGroup": {
+    "displayName": "RadioGroup",
+    "description": "A group of Radios includes five options at most and only one can be selected at a time. Options can be listed horizontally or vertically.",
+    "props": {
+      "error": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the radio group is in an error state"
+      },
+      "description": {
+        "type": "unknown",
+        "required": false,
+        "description": "Radio group description"
+      },
+      "errorText": {
+        "type": "unknown",
+        "required": false,
+        "description": "Radio group error message"
+      },
+      "label": {
+        "type": "unknown",
+        "required": true,
+        "description": "Radio group label"
+      },
+      "horizontal": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the radio group is horizontal or vertical @default false"
+      },
+      "state": {
+        "type": "unknown",
+        "required": false,
+        "description": "Radio group state"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Popover": {
+    "displayName": "Popover",
+    "description": "Popover containers allow merchants to access and interact with more information of an item through an overlay.",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "portal": {
+        "type": "unknown",
+        "required": false,
+        "description": "Should activate portal @default true"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "Pick"
+    ],
+    "examples": []
+  },
+  "PopoverTrigger": {
+    "displayName": "PopoverTrigger",
+    "description": "Triggers popover containers",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "PopoverDismiss": {
+    "displayName": "PopoverDismiss",
+    "description": "Dismiss the Popover",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Pagination": {
+    "displayName": "Pagination",
+    "description": "Pagination handles navigation inside a Collection. It displays the number of items, filtered or not, and allow users to navigate between pages.",
+    "props": {
+      "onPageChange": {
+        "type": "unknown",
+        "required": false,
+        "description": "Function called whenever the pagination actions are triggered and the page changes. @param page The new page number reference @param type The type of the action that was triggered"
+      },
+      "page": {
+        "type": "unknown",
+        "required": true,
+        "description": "Pagination current page"
+      },
+      "total": {
+        "type": "unknown",
+        "required": true,
+        "description": "The total number of items"
+      },
+      "loading": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the pagination is loading or not. @default false"
+      },
+      "size": {
+        "type": "unknown",
+        "required": false,
+        "description": "Page size @default 25"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Page": {
+    "displayName": "Page",
+    "description": "The Page structure helps users to easily identify where they are, view content essential to the main job, and perform related actions.",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "PageHeading": {
+    "displayName": "PageHeading",
+    "description": "Title of a page",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "variant": {
+        "type": "unknown",
+        "required": false,
+        "description": "Heading variant @default 'context'"
+      },
+      "level": {
+        "type": "unknown",
+        "required": false,
+        "description": "Heading level @default 3"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "PageHeader": {
+    "displayName": "PageHeader",
+    "description": "Header of the page",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "PageHeaderRow": {
+    "displayName": "PageHeaderRow",
+    "description": "Row of the page header",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "PageContent": {
+    "displayName": "PageContent",
+    "description": "Content of a page",
+    "props": {
+      "layout": {
+        "type": "unknown",
+        "required": false,
+        "description": "Layout type @default 'standard'"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Modal": {
+    "displayName": "Modal",
+    "description": "Modal displays content related to a minor job within a page's main job. It demands complete attention and blocks interactions outside the overlay.",
+    "props": {
+      "onClose": {
+        "type": "unknown",
+        "required": false,
+        "description": "Callback fired when the backdrop or close button is clicked."
+      },
+      "open": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the modal is open or not @default false"
+      },
+      "portal": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether to render the modal inside a portal or not @default true"
+      },
+      "size": {
+        "type": "unknown",
+        "required": false,
+        "description": "Modal size @default medium"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "ModalHeading": {
+    "displayName": "ModalHeading",
+    "description": "Header of the Modal",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "ModalHeader": {
+    "displayName": "ModalHeader",
+    "description": "Header of the Modal",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "ModalFooter": {
+    "displayName": "ModalFooter",
+    "description": "Footer of the Modal",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "ModalDismiss": {
+    "displayName": "ModalDismiss",
+    "description": "Header of the Modal",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "ModalContent": {
+    "displayName": "ModalContent",
+    "description": "Content of the Modal",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "narrow": {
+        "type": "unknown",
+        "required": false,
+        "description": "Decrease the space token in top and bottom padding. @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Menu": {
+    "displayName": "Menu",
+    "description": "Menus summarize actions in a dropdown. They can include actions that are rarely used, complementary, or repeated for each item in a Collection.",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "label": {
+        "type": "unknown",
+        "required": true,
+        "description": "Trigger label"
+      },
+      "type": {
+        "type": "unknown",
+        "required": false,
+        "description": "Type of dropdown @default 'menu'"
+      },
+      "iconOnly": {
+        "type": "unknown",
+        "required": false,
+        "description": "Hide the textual label @default false"
+      },
+      "variant": {
+        "type": "unknown",
+        "required": false,
+        "description": "Change between color combinations. @default 'tertiary'"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "MenuTrigger": {
+    "displayName": "MenuTrigger",
+    "description": "Menu's trigger action",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "MenuSeparator": {
+    "displayName": "MenuSeparator",
+    "description": "Separator of MenuItems",
+    "props": {
+      "orientation": {
+        "type": "unknown",
+        "required": false,
+        "description": "Divider axis orientation @default 'horizontal'"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "MenuPopover": {
+    "displayName": "MenuPopover",
+    "description": "Menu's Popover Box",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "portal": {
+        "type": "unknown",
+        "required": false,
+        "description": "Should activate portal @default true"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "MenuItem": {
+    "displayName": "MenuItem",
+    "description": "Option within a menu popover box",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "critical": {
+        "type": "unknown",
+        "required": false,
+        "description": "Wether is critical @default false"
+      },
+      "disabled": {
+        "type": "unknown",
+        "required": false,
+        "description": "Wether is disabled @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "LinkBox": {
+    "displayName": "LinkBox",
+    "description": "A container that acts as a link. It allows text selection and stop its children event propagation.",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Link": {
+    "displayName": "Link",
+    "description": "Links represent navigation inside a page or between pages, including to pages outside the Admin. They exist within or directly after a text.",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Label": {
+    "displayName": "Label",
+    "description": "Label component",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enables component composition @default false"
+      },
+      "optional": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the input linked to this label is optional @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Input": {
+    "displayName": "Input",
+    "description": "An Input is a field for short text values. It can include masks and character restrictions, such as accepting only numbers.",
+    "props": {
+      "error": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether there is an error @default false"
+      },
+      "disabled": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether is disabled or not @default false"
+      },
+      "prefix": {
+        "type": "unknown",
+        "required": false,
+        "description": "Node added before input space"
+      },
+      "suffix": {
+        "type": "unknown",
+        "required": false,
+        "description": "Node added before input space"
+      },
+      "onChange": {
+        "type": "unknown",
+        "required": false,
+        "description": "Callback for value change"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "IconButton": {
+    "displayName": "IconButton",
+    "description": "Icon Buttons represent minor actions in a flow. It includes a label only for accessibility that is not visible, so the icon must be recognizable by itself.",
+    "props": {
+      "children": {
+        "type": "unknown",
+        "required": true,
+        "description": "Button contents"
+      },
+      "size": {
+        "type": "unknown",
+        "required": false,
+        "description": "Increase or decrease padding. @default 'normal'"
+      },
+      "variant": {
+        "type": "unknown",
+        "required": false,
+        "description": "Change between color combinations. @default 'secondary'"
+      },
+      "loading": {
+        "type": "unknown",
+        "required": false,
+        "description": "Disable the button and show a spinner. @default false"
+      },
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Merge button props with immediate child. @default false"
+      },
+      "label": {
+        "type": "unknown",
+        "required": true,
+        "description": "Icon button label. Needed for accessibility."
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Heading": {
+    "displayName": "Heading",
+    "description": "Heading is used to define levels of typography",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "variant": {
+        "type": "unknown",
+        "required": false,
+        "description": "Heading variant @default 'context'"
+      },
+      "level": {
+        "type": "unknown",
+        "required": false,
+        "description": "Heading level @default 3"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Grid": {
+    "displayName": "Grid",
+    "description": "Grid layout ://developer.mozilla.org/en-US/docs/Glossary/Grid",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "gap": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS Gap @default '$space-gap' @see https://developer.mozilla.org/en-US/docs/Web/CSS/gap"
+      },
+      "areas": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-template-areas @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas"
+      },
+      "rows": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-template-rows @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows"
+      },
+      "columns": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-template-columns @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns"
+      },
+      "autoColumns": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-auto-columns @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns"
+      },
+      "autoRows": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-auto-rows @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows"
+      },
+      "autoFlow": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-auto-flow @default 'row' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "GridCell": {
+    "displayName": "GridCell",
+    "description": "Optional cell of a grid layout ://developer.mozilla.org/en-US/docs/Glossary/Grid",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "columnStart": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-column-start @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start"
+      },
+      "columnEnd": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-column-end @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end"
+      },
+      "rowStart": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-row-start @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start"
+      },
+      "rowEnd": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-row-end @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end"
+      },
+      "column": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-column @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column"
+      },
+      "row": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-row @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row"
+      },
+      "area": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS grid-area @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Flex": {
+    "displayName": "Flex",
+    "description": "Flexbox layout ://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox",
+    "props": {
+      "order": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS order @default 0 @see https://developer.mozilla.org/en-US/docs/Web/CSS/order"
+      },
+      "direction": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS flex-direction @default 'row' @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction"
+      },
+      "grow": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS flex-grow @default 0 @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow"
+      },
+      "wrap": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS flex-wrap @default 'nowrap' @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap"
+      },
+      "shrink": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS flex-shrink @default 1 @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink"
+      },
+      "basis": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS flex-basis @default 'auto' @see https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis"
+      },
+      "justify": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS justify-content @default 'flex-start' @see https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content"
+      },
+      "align": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS align-items @default 'stretch' @see https://developer.mozilla.org/en-US/docs/Web/CSS/align-items"
+      },
+      "gap": {
+        "type": "unknown",
+        "required": false,
+        "description": "CSS Gap @default '$space-gap' @see https://developer.mozilla.org/en-US/docs/Web/CSS/gap"
+      },
+      "inline": {
+        "type": "unknown",
+        "required": false,
+        "description": "Use `inline-flex` instead of `flex` @default false"
+      },
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false @example <Flex asChild> <button> A flex button </button> </Flex>"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Filter": {
+    "displayName": "Filter",
+    "description": "Filters represent criteria that users can choose to narrow down a Collection. They can include single or multiple selection.",
+    "props": {
+      "label": {
+        "type": "unknown",
+        "required": true,
+        "description": "Filter label"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "FilterValue": {
+    "displayName": "FilterValue",
+    "description": "Renders the Filter applied value",
+    "props": {
+      "className": {
+        "type": "unknown",
+        "required": false,
+        "description": "Custom styles"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "FilterTrigger": {
+    "displayName": "FilterTrigger",
+    "description": "Triggers the Filter Popover box, also displays the Filter applied value",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "FilterPopover": {
+    "displayName": "FilterPopover",
+    "description": "Filter popover box",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "portal": {
+        "type": "unknown",
+        "required": false,
+        "description": "Should activate portal @default true"
+      },
+      "messages": {
+        "type": "unknown",
+        "required": false,
+        "description": "Filter messages"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "Pick"
+    ],
+    "examples": []
+  },
+  "FilterList": {
+    "displayName": "FilterList",
+    "description": "Filter listbox",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "FilterListSkeleton": {
+    "displayName": "FilterListSkeleton",
+    "description": "Filter listbox",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "horizontal": {
+        "type": "unknown",
+        "required": false,
+        "description": "Switches the layout to horizontal @default false"
+      },
+      "fluid": {
+        "type": "unknown",
+        "required": false,
+        "description": "Grows the width of items to match the parent @default false"
+      },
+      "space": {
+        "type": "unknown",
+        "required": false,
+        "description": "space between items @default 0"
+      },
+      "align": {
+        "type": "unknown",
+        "required": false,
+        "description": "items alignment @default start"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "FilterItem": {
+    "displayName": "FilterItem",
+    "description": "Filter Option",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "FilterItemCheck": {
+    "displayName": "FilterItemCheck",
+    "description": "Check state of the FilterItem",
+    "props": {
+      "children": {
+        "type": "unknown",
+        "required": false,
+        "description": "Indicator icon override"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "FilterClear": {
+    "displayName": "FilterClear",
+    "description": "Action that clears both Filter value and UI Select value",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "FilterApply": {
+    "displayName": "FilterApply",
+    "description": "Action that applies the Filter value, and closes the popover",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Field": {
+    "displayName": "Field",
+    "description": "Implementation of a fieldset",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "FieldError": {
+    "displayName": "FieldError",
+    "description": "Error of a field",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enables component composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "FieldDescription": {
+    "displayName": "FieldDescription",
+    "description": "Description of a Field",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enables component composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "FieldCharCounter": {
+    "displayName": "FieldCharCounter",
+    "description": "Count chars of a field that contains a input or textarea that has a max-length",
+    "props": {
+      "count": {
+        "type": "unknown",
+        "required": true,
+        "description": "Current count"
+      },
+      "limit": {
+        "type": "unknown",
+        "required": true,
+        "description": "Max count"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "EmptyState": {
+    "displayName": "EmptyState",
+    "description": "An Empty State represents the state of a container, such as when there are no items to display or when the user isn't allowed to access items.",
+    "props": {
+      "size": {
+        "type": "unknown",
+        "required": false,
+        "description": "Indicates size of empty state area @default 'medium'"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "EmptyStateIllustration": {
+    "displayName": "EmptyStateIllustration",
+    "description": "EmptyState illustration section",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "EmptyStateActions": {
+    "displayName": "EmptyStateActions",
+    "description": "Empty actions section",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "drawer-trigger": {
+    "displayName": "drawer-trigger",
+    "description": "Drawer's Trigger <DrawerProvider> <DrawerTrigger asChild> <Button>Open</Button> </DrawerTrigger> </DrawerProvider>",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "DrawerPopover": {
+    "displayName": "DrawerPopover",
+    "description": "Drawer's popover box",
+    "props": {
+      "children": {
+        "type": "unknown",
+        "required": true,
+        "description": "Popover children"
+      },
+      "size": {
+        "type": "unknown",
+        "required": false,
+        "description": "Popover width @default 'medium'"
+      },
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "DrawerHeading": {
+    "displayName": "DrawerHeading",
+    "description": "Drawer's heading",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "DrawerHeader": {
+    "displayName": "DrawerHeader",
+    "description": "Drawer's header container",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "DrawerFooter": {
+    "displayName": "DrawerFooter",
+    "description": "Drawer's footer container",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "DrawerDismiss": {
+    "displayName": "DrawerDismiss",
+    "description": "Drawer's dismiss action",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "DrawerContent": {
+    "displayName": "DrawerContent",
+    "description": "Drawer's content",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Divider": {
+    "displayName": "Divider",
+    "description": "Creates distinction between sections in containers with constrained space or rows in a table.",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "DateSegment": {
+    "displayName": "DateSegment",
+    "description": "Segment of a DateField",
+    "props": {
+      "segment": {
+        "type": "unknown",
+        "required": true,
+        "description": "Segment to render"
+      },
+      "state": {
+        "type": "unknown",
+        "required": true,
+        "description": "State of a Datefield"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "DateRangePicker": {
+    "displayName": "DateRangePicker",
+    "description": "A Date Range Picker is a field for date period values that may include time. The date can be typed or selected in a Calendar.",
+    "props": {
+      "className": {
+        "type": "unknown",
+        "required": false,
+        "description": "Custom className"
+      },
+      "error": {
+        "type": "unknown",
+        "required": false,
+        "description": "Wether has error"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "Omit"
+    ],
+    "examples": []
+  },
+  "DatePicker": {
+    "displayName": "DatePicker",
+    "description": "A Date Picker is a field for single date values that may include time. The date can be typed or selected with the help of a Calendar.",
+    "props": {
+      "className": {
+        "type": "unknown",
+        "required": false,
+        "description": "Custom className"
+      },
+      "error": {
+        "type": "unknown",
+        "required": false,
+        "description": "Wether has error"
+      },
+      "portal": {
+        "type": "unknown",
+        "required": false,
+        "description": "Should activate portal @default true"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "Omit"
+    ],
+    "examples": []
+  },
+  "DateField": {
+    "displayName": "DateField",
+    "description": "A list of date-segments used as base for date-picker and date-range-picker",
+    "props": {
+      "className": {
+        "type": "unknown",
+        "required": false,
+        "description": "Custom className"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "AriaDateFieldProps"
+    ],
+    "examples": []
+  },
+  "Content": {
+    "displayName": "Content",
+    "description": "Content containers allow merchants to easily scan information to understand its hierarchy and rhythm. @playground",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      },
+      "narrow": {
+        "type": "unknown",
+        "required": false,
+        "description": "Decrease the space token in top and bottom padding. @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Container": {
+    "displayName": "Container",
+    "description": "Wraps Content component to support Container Queries",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "ConfirmationModal": {
+    "displayName": "ConfirmationModal",
+    "description": "Confirmation Modals appear after users attempt to trigger an action with an effect that is irreversible or hard to reverse, such as deleting items. [open, setOpen] = useState(false) const handleClose = () => { setOpen(false) } <Button onClick={() => setOpen((open) => !open)}> Open confirmation modal </Button> <ConfirmationModal open={open} onClose={handleClose} onConfirm={handleClose} onCancel={handleClose} > <Text variant=\"body\">Hello world</Text> </ConfirmationModal>",
+    "props": {
+      "onClose": {
+        "type": "unknown",
+        "required": false,
+        "description": "Callback fired when the backdrop or close button is clicked."
+      },
+      "onConfirm": {
+        "type": "unknown",
+        "required": false,
+        "description": "Callback fired when the ok button is clicked."
+      },
+      "onCancel": {
+        "type": "unknown",
+        "required": false,
+        "description": "Callback fired when the cancel button is clicked."
+      },
+      "open": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the modal is open or not. @default false"
+      },
+      "disabled": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the confirm actions is disabled. @default false"
+      },
+      "critical": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the confirm actions is critical. @default false"
+      },
+      "locale": {
+        "type": "unknown",
+        "required": false,
+        "description": "The BCP47 language code for the locale. @link https://www.ietf.org/rfc/bcp/bcp47.txt @default en-US"
+      },
+      "messages": {
+        "type": "unknown",
+        "required": false,
+        "description": "Object containing all messages to be displayed internally in the modal. They include \"title\", \"ok\" and \"cancel\"."
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "createComposition": {
+    "displayName": "createComposition",
+    "description": "",
+    "props": {
+      "element": {
+        "type": "unknown",
+        "required": true,
+        "description": "Element to clone"
+      },
+      "props": {
+        "type": "unknown",
+        "required": true,
+        "description": "Props to merge with element props"
+      },
+      "ref": {
+        "type": "unknown",
+        "required": true,
+        "description": "Ref to merge with element ref"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Compose": {
+    "displayName": "Compose",
+    "description": "Composes immediate child with its props and child own props. Used to implement Shoreline composition Button({ asChild, ...props }){ const Composition = asChild ? Compose : 'button' return <Composition {...props} /> }",
+    "props": {
+      "children": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children to compose"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "composeElement": {
+    "displayName": "composeElement",
+    "description": "Clone element merging its props and refs with passed props and refs. element: React.ReactNode = ... const props = {} cosnt ref = useRef() composeElement({ element, props, ref, })",
+    "props": {
+      "element": {
+        "type": "unknown",
+        "required": true,
+        "description": "Element to clone"
+      },
+      "props": {
+        "type": "unknown",
+        "required": true,
+        "description": "Props to merge with element props"
+      },
+      "ref": {
+        "type": "unknown",
+        "required": true,
+        "description": "Ref to merge with element ref"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Composable": {
+    "displayName": "Composable",
+    "description": "Defines a composable child inside of a Compose component Button({ asChild, children, ...props }){ const Composition = asChild ? Compose : 'button' return ( <Composition {...props}> Prefix <Composable>{children}</Composable> </Composition> ) }",
+    "props": {
+      "render": {
+        "type": "unknown",
+        "required": false,
+        "description": "Render function. Use it to wrap the root with containers"
+      },
+      "children": {
+        "type": "unknown",
+        "required": true,
+        "description": "Defines the composition root"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "ComboboxInput": {
+    "displayName": "ComboboxInput",
+    "description": "Renders a combobox input",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "Pick"
+    ],
+    "examples": []
+  },
+  "ComboboxPopover": {
+    "displayName": "ComboboxPopover",
+    "description": "Renders a popover for the combobox",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "Pick"
+    ],
+    "examples": []
+  },
+  "ComboboxList": {
+    "displayName": "ComboboxList",
+    "description": "Renders a list for the combobox",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "ComponentPropsWithoutRef"
+    ],
+    "examples": []
+  },
+  "ComboboxItem": {
+    "displayName": "ComboboxItem",
+    "description": "Renders an item for the combobox",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [
+      "Pick"
+    ],
+    "examples": []
+  },
+  "Collection": {
+    "displayName": "Collection",
+    "description": "Collection combines a list of items with controls for the view. The list can be a Table and the controls can be a Search, Filters, and Pagination.",
+    "props": {
+      "children": {
+        "type": "unknown",
+        "required": false,
+        "description": "Component children"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "CollectionView": {
+    "displayName": "CollectionView",
+    "description": "A collection view is a component that renders a collection based on its status",
+    "props": {
+      "status": {
+        "type": "unknown",
+        "required": true,
+        "description": "Represents the status of a collection and indicates what should be rendered @default 'ready'"
+      },
+      "onError": {
+        "type": "unknown",
+        "required": false,
+        "description": "On status error action callback"
+      },
+      "onEmpty": {
+        "type": "unknown",
+        "required": false,
+        "description": "On status empty action callback"
+      },
+      "messages": {
+        "type": "unknown",
+        "required": false,
+        "description": "Collection internal messages"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "CollectionRow": {
+    "displayName": "CollectionRow",
+    "description": "Row of the collection",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Clickable": {
+    "displayName": "Clickable",
+    "description": "Represents clickable surfaces",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Enable children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "ClickableBubble": {
+    "displayName": "ClickableBubble",
+    "description": "Bubbles events to Clickable",
+    "props": {
+      "children": {
+        "type": "unknown",
+        "required": true,
+        "description": "Children to bubble event"
+      },
+      "onlyImmediateChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "if true only immediate children will bubble the event if false the immediate children and their children will bubble the event @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Checkbox": {
+    "displayName": "Checkbox",
+    "description": "A single Checkbox represents binary choices, such as accepting terms and conditions or activating and deactivating notifications.",
+    "props": {
+      "indeterminate": {
+        "type": "unknown",
+        "required": false,
+        "description": "Indicates the indeterminate state @default"
+      },
+      "value": {
+        "type": "unknown",
+        "required": false,
+        "description": "Indicator value"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "CheckboxGroup": {
+    "displayName": "CheckboxGroup",
+    "description": "A group of Checkboxes includes five independent choices at most. Each option is binary and they can be listed horizontally or vertically.",
+    "props": {
+      "error": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the checkbox group is in an error state"
+      },
+      "description": {
+        "type": "unknown",
+        "required": false,
+        "description": "Checkbox group description"
+      },
+      "errorText": {
+        "type": "unknown",
+        "required": false,
+        "description": "Checkbox group error message"
+      },
+      "label": {
+        "type": "unknown",
+        "required": true,
+        "description": "Checkbox group label"
+      },
+      "horizontal": {
+        "type": "unknown",
+        "required": false,
+        "description": "Whether the checkbox group is horizontal or vertical @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Center": {
+    "displayName": "Center",
+    "description": "Centralizes its content",
+    "props": {
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Children composition @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Calendar": {
+    "displayName": "Calendar",
+    "description": "Allow users to select a date",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "CalendarTitle": {
+    "displayName": "CalendarTitle",
+    "description": "Title of the calendar",
+    "props": {
+      "children": {
+        "type": "unknown",
+        "required": false,
+        "description": "Component children"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "CalendarHeader": {
+    "displayName": "CalendarHeader",
+    "description": "Header of the calendar",
+    "props": {
+      "children": {
+        "type": "unknown",
+        "required": false,
+        "description": "Component children"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "CalendarGrid": {
+    "displayName": "CalendarGrid",
+    "description": "Grid of a calendar",
+    "props": {},
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "CalendarCell": {
+    "displayName": "CalendarCell",
+    "description": "Cell of a calendar grid",
+    "props": {
+      "date": {
+        "type": "unknown",
+        "required": true,
+        "description": "Date that the cell represents"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Button": {
+    "displayName": "Button",
+    "description": "Buttons with labels represent the most important actions that users frequently trigger. They can vary in prominence and can include an icon.",
+    "props": {
+      "children": {
+        "type": "unknown",
+        "required": true,
+        "description": "Button contents"
+      },
+      "size": {
+        "type": "unknown",
+        "required": false,
+        "description": "Increase or decrease padding. @default 'normal'"
+      },
+      "variant": {
+        "type": "unknown",
+        "required": false,
+        "description": "Change between color combinations. @default 'secondary'"
+      },
+      "loading": {
+        "type": "unknown",
+        "required": false,
+        "description": "Disable the button and show a spinner. @default false"
+      },
+      "asChild": {
+        "type": "unknown",
+        "required": false,
+        "description": "Merge button props with immediate child. @default false"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Bleed": {
+    "displayName": "Bleed",
+    "description": "Allows the content to bleed into the external container",
+    "props": {
+      "top": {
+        "type": "unknown",
+        "required": false,
+        "description": "Top bleed @default '$space-0'"
+      },
+      "bottom": {
+        "type": "unknown",
+        "required": false,
+        "description": "Bottom bleed @default '$space-0'"
+      },
+      "start": {
+        "type": "unknown",
+        "required": false,
+        "description": "Start bleed @default '$space-0'"
+      },
+      "end": {
+        "type": "unknown",
+        "required": false,
+        "description": "End bleed @default '$space-0'"
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "Alert": {
+    "displayName": "Alert",
+    "description": "Alerts call attention to a semantic message and load alongside the rest of the page content. They can optionally be dismissed upon user action.",
+    "props": {
+      "variant": {
+        "type": "unknown",
+        "required": false,
+        "description": "Variants of the alert, one of: informational, success, critical, warning. @default 'informational'"
+      },
+      "onDismiss": {
+        "type": "unknown",
+        "required": false,
+        "description": "Callback fired when the alert is dismissed."
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  },
+  "AccessibleIcon": {
+    "displayName": "AccessibleIcon",
+    "description": "Makes icons accessible by adding a label. It can be used with Shoreline icons or other svg.",
+    "props": {
+      "label": {
+        "type": "unknown",
+        "required": true,
+        "description": "Icon description"
+      },
+      "children": {
+        "type": "unknown",
+        "required": false,
+        "description": "Component children, normally a <svg />."
+      }
+    },
+    "methods": [],
+    "composes": [],
+    "examples": []
+  }
+}
