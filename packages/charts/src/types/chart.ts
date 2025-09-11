@@ -9,6 +9,7 @@ const BarChartVariantsArray = [
 const LineChartVariantsArray = ['default'] as const
 const AreaChartVariantsArray = ['overlapping', 'stacked'] as const
 const FunnelChartVariantsArray = ['default'] as const
+const ScatterChartVariantsArray = ['default'] as const
 const SunburstChartVariantsArray = ['default'] as const
 const DonutChartVariantsArray = ['default'] as const
 
@@ -40,12 +41,17 @@ export const ChartVariants = {
     variants: DonutChartVariantsArray,
     default: 'default' as const,
   },
-}
+  scatter: {
+    variants: ScatterChartVariantsArray,
+    default: 'default' as const,
+  },
+} as const
 
 export type BarChartVariants = (typeof BarChartVariantsArray)[number]
 export type LineChartVariants = (typeof LineChartVariantsArray)[number]
 export type AreaChartVariants = (typeof AreaChartVariantsArray)[number]
 export type FunnelChartVariants = (typeof FunnelChartVariantsArray)[number]
+export type ScatterChartVariants = (typeof ScatterChartVariantsArray)[number]
 export type SunburstChartVariants = (typeof SunburstChartVariantsArray)[number]
 export type DonutChartVariants = (typeof DonutChartVariantsArray)[number]
 
@@ -59,6 +65,10 @@ export type AreaChartConfig = { type: 'area'; variant?: AreaChartVariants }
 export type FunnelChartConfig = {
   type: 'funnel'
   variant?: FunnelChartVariants
+}
+export type ScatterChartConfig = {
+  type: 'scatter'
+  variant?: ScatterChartVariants
 }
 export type SunburstChartConfig = {
   type: 'sunburst'
@@ -75,6 +85,7 @@ export type ChartConfig =
   | LineChartConfig
   | AreaChartConfig
   | FunnelChartConfig
+  | ScatterChartConfig
   | SunburstChartConfig
   | DonutChartConfig
 
@@ -95,6 +106,7 @@ export type DefaultChartStyles = {
   line: Record<LineChartVariants, EChartsOption>
   area: Record<AreaChartVariants, EChartsOption>
   funnel: Record<FunnelChartVariants, EChartsOption>
+  scatter: Record<ScatterChartVariants, EChartsOption>
   sunburst: Record<SunburstChartVariants, EChartsOption>
   donut: Record<DonutChartVariants, EChartsOption>
 }
@@ -105,6 +117,10 @@ export type DefaultHooks = {
   area: Record<AreaChartVariants, ((series: EChartsOption) => EChartsOption)[]>
   funnel: Record<
     FunnelChartVariants,
+    ((series: EChartsOption) => EChartsOption)[]
+  >
+  scatter: Record<
+    ScatterChartVariants,
     ((series: EChartsOption) => EChartsOption)[]
   >
   sunburst: Record<
