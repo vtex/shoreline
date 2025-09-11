@@ -8,17 +8,31 @@ export default {
 
 type Story = StoryObj<typeof Chart>
 
-const data1: [number, number][] = []
+const data1: [number, number][] = [
+  [0, 19],
+  [1, 53],
+  [2, 27],
+  [3, 4],
+  [4, 27],
+  [5, 36],
+  [6, 94],
+  [7, 80],
+  [8, 31],
+  [9, 57],
+]
 
-for (let i = 0; i < 10; i++) {
-  data1.push([i, Math.ceil(Math.random() * 100)])
-}
-
-const data2: [number, number][] = []
-
-for (let i = 0; i < 10; i++) {
-  data2.push([i, Math.ceil(Math.random() * 100)])
-}
+const data2: [number, number][] = [
+  [0, 2],
+  [1, 4],
+  [2, 92],
+  [3, 68],
+  [4, 2],
+  [5, 3],
+  [6, 67],
+  [7, 3],
+  [8, 69],
+  [9, 39],
+]
 
 export const Basic: Story = {
   args: {
