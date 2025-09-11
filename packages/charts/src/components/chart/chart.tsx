@@ -401,4 +401,7 @@ const defaultHooks: DefaultHooks = {
   funnel: {
     default: [],
   },
+  scatter: {
+    default: [],
+  },
 }

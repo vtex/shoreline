@@ -9,6 +9,7 @@ const BarChartVariantsArray = [
 const LineChartVariantsArray = ['default'] as const
 const AreaChartVariantsArray = ['overlapping', 'stacked'] as const
 const FunnelChartVariantsArray = ['default'] as const
+const ScatterChartVariantsArray = ['default'] as const
 
 /**
  * Used to check variants in utils/chart.ts checkValidVariant and getDefaultByTpe
@@ -30,12 +31,17 @@ export const ChartVariants = {
     variants: FunnelChartVariantsArray,
     default: 'default' as const,
   },
-}
+  scatter: {
+    variants: ScatterChartVariantsArray,
+    default: 'default' as const,
+  },
+} as const
 
 export type BarChartVariants = (typeof BarChartVariantsArray)[number]
 export type LineChartVariants = (typeof LineChartVariantsArray)[number]
 export type AreaChartVariants = (typeof AreaChartVariantsArray)[number]
 export type FunnelChartVariants = (typeof FunnelChartVariantsArray)[number]
+export type ScatterChartVariants = (typeof ScatterChartVariantsArray)[number]
 
 export type BarChartConfig = {
   type: 'bar'
@@ -48,12 +54,17 @@ export type FunnelChartConfig = {
   type: 'funnel'
   variant?: FunnelChartVariants
 }
+export type ScatterChartConfig = {
+  type: 'scatter'
+  variant?: ScatterChartVariants
+}
 
 export type ChartConfig =
   | BarChartConfig
   | LineChartConfig
   | AreaChartConfig
   | FunnelChartConfig
+  | ScatterChartConfig
 
 export type ChartUnit = {
   series: SeriesOption
@@ -72,6 +83,7 @@ export type DefaultChartStyles = {
   line: Record<LineChartVariants, EChartsOption>
   area: Record<AreaChartVariants, EChartsOption>
   funnel: Record<FunnelChartVariants, EChartsOption>
+  scatter: Record<ScatterChartVariants, EChartsOption>
 }
 
 export type DefaultHooks = {
@@ -80,6 +92,10 @@ export type DefaultHooks = {
   area: Record<AreaChartVariants, ((series: EChartsOption) => EChartsOption)[]>
   funnel: Record<
     FunnelChartVariants,
+    ((series: EChartsOption) => EChartsOption)[]
+  >
+  scatter: Record<
+    ScatterChartVariants,
     ((series: EChartsOption) => EChartsOption)[]
   >
 }
