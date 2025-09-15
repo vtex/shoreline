@@ -193,6 +193,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         type: 'line',
         smooth: true,
         showSymbol: false,
+        emphasis: { itemStyle: { color: '#FFFFFF' } },
       },
       tooltip: { ...BASE_TOOLTIP_OPIONS },
       grid: GRID_DEFAULT_STYLE,
@@ -212,7 +213,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         smooth: true,
         showSymbol: false,
         areaStyle: { opacity: 0.2 },
-        emphasis: { disabled: true },
+        emphasis: { itemStyle: { color: '#FFFFFF' } },
       },
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
@@ -234,7 +235,7 @@ export const CHART_STYLES: DefaultChartStyles = {
         smooth: true,
         showSymbol: false,
         areaStyle: { opacity: 0.15 },
-        emphasis: { disabled: true },
+        emphasis: { itemStyle: { color: '#FFFFFF' } },
         stack: '_STACK',
       },
       tooltip: {
@@ -263,6 +264,24 @@ export const CHART_STYLES: DefaultChartStyles = {
       tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'item' },
       grid: { ...GRID_DEFAULT_STYLE },
       legend: { ...LEGEND_DEFAULT_STYLE, left: 'center' },
+    },
+  },
+  sunburst: {
+    default: {
+      series: {
+        type: 'sunburst',
+        radius: '100%',
+        label: { rotate: 'radial' },
+        emphasis: { focus: 'relative' },
+        selectedMode: true,
+        levels: [
+          {
+            itemStyle: { color: '#3D3D3D' },
+          },
+        ],
+      },
+      grid: { ...GRID_DEFAULT_STYLE },
+      // tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'item' },
     },
   },
 }

@@ -161,4 +161,7 @@ const defaultHooks: DefaultHooks = {
   funnel: {
     default: [],
   },
+  sunburst: {
+    default: [],
+  },
 }

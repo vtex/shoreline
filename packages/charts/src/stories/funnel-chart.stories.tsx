@@ -23,5 +23,6 @@ export const Basic: Story = {
         ],
       },
     ],
+    style: { width: 600 },
   },
 }
