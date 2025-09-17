@@ -64,3 +64,101 @@ export const Stress: Story = {
     tooltip: { type: 'line' },
   },
 }
+
+export const Sunburst: Story = {
+  args: {
+    style: { height: 500 },
+    tooltip: { type: 'funnel' },
+    // option: { grid: { top: '55%' } },
+    charts: [
+      { series: { data: data1.slice(15, 24) }, chartConfig: { type: 'bar' } },
+      {
+        series: { data: data2.slice(15, 24).map((v) => v / 3) },
+        chartConfig: { type: 'bar' },
+      },
+      {
+        chartConfig: { type: 'sunburst' },
+        series: {
+          center: ['15%', '35%'],
+          radius: '70%',
+          label: { fontSize: 11 },
+          data: [
+            {
+              name: '​奶​奶',
+              children: [
+                {
+                  name: '刘',
+                  value: 15,
+                  children: [
+                    {
+                      name: '你抠死了',
+                      value: 2,
+                    },
+                    {
+                      name: '表姐',
+                      value: 5,
+                      children: [
+                        {
+                          name: '儿子',
+                          value: 2,
+                        },
+                      ],
+                    },
+                    {
+                      name: '表哥',
+                      value: 4,
+                    },
+                  ],
+                },
+                {
+                  name: '爸爸',
+                  value: 10,
+                  children: [
+                    {
+                      name: '我',
+                      value: 5,
+                    },
+                    {
+                      name: '​弟​弟',
+                      value: 1,
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: 'Nan',
+              children: [
+                {
+                  name: 'Nico',
+                  children: [
+                    {
+                      name: 'Betty',
+                      value: 4,
+                    },
+                    {
+                      name: 'Jenny',
+                      value: 2,
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: 'Ramon',
+              children: [
+                {
+                  name: 'Katya',
+                  children: [
+                    { name: 'Trix', value: 9 },
+                    { name: 'Bosco', value: 5 },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      },
+    ],
+  },
+}
