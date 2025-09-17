@@ -89,7 +89,11 @@ export const ChartCompositor = forwardRef<
   const chartOptions: EChartsOption = useMemo(() => {
     const finalOptions: EChartsOption = {}
 
-    finalOptions.grid = GRID_DEFAULT_STYLE
+    if (option) {
+      finalOptions.grid = option.grid ? option.grid : GRID_DEFAULT_STYLE
+    } else {
+      finalOptions.grid = GRID_DEFAULT_STYLE
+    }
     if (checkZoom(zoom, charts[0].chartConfig?.type)) {
       finalOptions.grid ??= {}
       finalOptions.grid = { ...finalOptions.grid, height: '75%' }
@@ -109,7 +113,7 @@ export const ChartCompositor = forwardRef<
       series={chartOptions.series ?? {}}
       xAxis={chartOptions.xAxis}
       yAxis={chartOptions.yAxis}
-      option={option}
+      option={chartOptions}
       style={style}
       ref={ref}
       optionHooks={null}
