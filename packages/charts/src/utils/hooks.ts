@@ -249,6 +249,7 @@ export function setAreaColors(
   })
   return { series, ...otherProps }
 }
+
 /**
  * Returns a function that formats our matrix based date value format into echarts array of objects format, using the specified locale.
  * If options is already an array of objects, does nothing.
@@ -299,4 +300,29 @@ export function formatTimeAxis(
     })
     return options
   }
+}
+
+export function sunburstCoreColoring(options: EChartsOption): EChartsOption {
+  const series = options.series as SeriesOption & {
+    levels: [{ itemStyle: any }]
+  }
+  if (!series) return options
+  if (isArray(series)) {
+    return options
+  }
+
+  if (isArray(series.levels) && Object.keys(series.levels[0]).length === 0) {
+    series.levels[0] = {
+      itemStyle: { color: 'var(--sl-color-gray-11)' },
+    }
+  }
+
+  if (!isArray(series.levels)) {
+    series.levels = [
+      {
+        itemStyle: { color: 'var(--sl-color-gray-11)' },
+      },
+    ]
+  }
+  return options
 }

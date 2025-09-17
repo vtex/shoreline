@@ -274,11 +274,6 @@ export const CHART_STYLES: DefaultChartStyles = {
         label: { rotate: 'radial' },
         emphasis: { focus: 'relative' },
         selectedMode: true,
-        levels: [
-          {
-            itemStyle: { color: '#3D3D3D' },
-          },
-        ],
       },
       grid: { ...GRID_DEFAULT_STYLE },
       // tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'item' },

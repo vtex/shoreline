@@ -24,5 +24,6 @@ export const Basic: Story = {
       },
     ],
     style: { width: 600 },
+    checkboxLegend: false,
   },
 }

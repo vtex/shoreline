@@ -33,6 +33,7 @@ import {
   roundCap,
   setAreaColors,
   setAreaGradients,
+  sunburstCoreColoring,
 } from '../../utils/hooks'
 import {
   toggleSerieLegend,
@@ -402,6 +403,6 @@ const defaultHooks: DefaultHooks = {
     default: [],
   },
   sunburst: {
-    default: [],
+    default: [sunburstCoreColoring],
   },
 }

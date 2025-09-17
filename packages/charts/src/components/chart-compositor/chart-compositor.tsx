@@ -22,6 +22,7 @@ import {
   roundCap,
   setAreaColors,
   setAreaGradients,
+  sunburstCoreColoring,
 } from '../../utils/hooks'
 import { cloneDeep } from 'lodash'
 
@@ -162,6 +163,6 @@ const defaultHooks: DefaultHooks = {
     default: [],
   },
   sunburst: {
-    default: [],
+    default: [sunburstCoreColoring],
   },
 }
