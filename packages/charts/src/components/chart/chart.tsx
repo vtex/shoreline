@@ -405,4 +405,7 @@ const defaultHooks: DefaultHooks = {
   sunburst: {
     default: [sunburstCoreColoring],
   },
+  donut: {
+    default: [],
+  },
 }

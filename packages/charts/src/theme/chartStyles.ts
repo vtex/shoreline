@@ -279,6 +279,29 @@ export const CHART_STYLES: DefaultChartStyles = {
       // tooltip: { ...BASE_TOOLTIP_OPIONS, trigger: 'item' },
     },
   },
+  donut: {
+    default: {
+      series: {
+        type: 'pie',
+        radius: ['50%', '90%'],
+        avoidLabelOverlap: false,
+        itemStyle: {
+          borderRadius: 10,
+          borderColor: '#fff',
+          borderWidth: 2,
+        },
+        emphasis: {
+          label: {
+            show: true,
+            fontSize: 20,
+            fontWeight: 'bold',
+          },
+        },
+      },
+      grid: { ...GRID_DEFAULT_STYLE },
+      // legend: { ...LEGEND_DEFAULT_STYLE, left: 'center' },
+    },
+  },
 }
 
 export const DEFAULT_LOADING_SPINNER: EChartsInstance['showLoading'] = {

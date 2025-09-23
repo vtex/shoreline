@@ -10,6 +10,7 @@ const LineChartVariantsArray = ['default'] as const
 const AreaChartVariantsArray = ['overlapping', 'stacked'] as const
 const FunnelChartVariantsArray = ['default'] as const
 const SunburstChartVariantsArray = ['default'] as const
+const DonutChartVariantsArray = ['default'] as const
 
 /**
  * Used to check variants in utils/chart.ts checkValidVariant and getDefaultByTpe
@@ -35,6 +36,10 @@ export const ChartVariants = {
     variants: SunburstChartVariantsArray,
     default: 'default' as const,
   },
+  donut: {
+    variants: DonutChartVariantsArray,
+    default: 'default' as const,
+  },
 }
 
 export type BarChartVariants = (typeof BarChartVariantsArray)[number]
@@ -42,6 +47,7 @@ export type LineChartVariants = (typeof LineChartVariantsArray)[number]
 export type AreaChartVariants = (typeof AreaChartVariantsArray)[number]
 export type FunnelChartVariants = (typeof FunnelChartVariantsArray)[number]
 export type SunburstChartVariants = (typeof SunburstChartVariantsArray)[number]
+export type DonutChartVariants = (typeof DonutChartVariantsArray)[number]
 
 export type BarChartConfig = {
   type: 'bar'
@@ -59,12 +65,18 @@ export type SunburstChartConfig = {
   variant?: SunburstChartVariants
 }
 
+export type DonutChartConfig = {
+  type: 'donut'
+  variant?: DonutChartVariants
+}
+
 export type ChartConfig =
   | BarChartConfig
   | LineChartConfig
   | AreaChartConfig
   | FunnelChartConfig
   | SunburstChartConfig
+  | DonutChartConfig
 
 export type ChartUnit = {
   series: SeriesOption
@@ -84,6 +96,7 @@ export type DefaultChartStyles = {
   area: Record<AreaChartVariants, EChartsOption>
   funnel: Record<FunnelChartVariants, EChartsOption>
   sunburst: Record<SunburstChartVariants, EChartsOption>
+  donut: Record<DonutChartVariants, EChartsOption>
 }
 
 export type DefaultHooks = {
@@ -96,6 +109,10 @@ export type DefaultHooks = {
   >
   sunburst: Record<
     SunburstChartVariants,
+    ((series: EChartsOption) => EChartsOption)[]
+  >
+  donut: Record<
+    DonutChartVariants,
     ((series: EChartsOption) => EChartsOption)[]
   >
 }
