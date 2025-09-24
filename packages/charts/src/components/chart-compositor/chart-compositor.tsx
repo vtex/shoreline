@@ -76,7 +76,7 @@ export const ChartCompositor = forwardRef<
       )
       return chart
     })
-  }, [])
+  }, [charts])
 
   const seriesOptions: EChartsOption['series'] = useMemo(() => {
     return hookedUnits.map((u) => getDataToChartCompositor(u))
@@ -106,6 +106,8 @@ export const ChartCompositor = forwardRef<
     finalOptions.title = cloneDeep(title)
     return option ? merge(option, finalOptions) : finalOptions
   }, [charts, xAxis, yAxis, option, tooltipOptions, title, seriesOptions, zoom])
+
+  console.log(chartOptions)
 
   return (
     <Chart
@@ -168,5 +170,11 @@ const defaultHooks: DefaultHooks = {
   },
   sunburst: {
     default: [sunburstCoreColoring],
+  },
+  scatter: {
+    default: [],
+  },
+  donut: {
+    default: [],
   },
 }

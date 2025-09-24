@@ -1,6 +1,5 @@
 import type { EChartsOption } from 'echarts'
 import type { DefaultChartStyles } from '../types/chart'
-import type { EChartsInstance } from 'echarts-for-react'
 import { defaultSpinnerColor } from './colors'
 import { getTooltipStaticString } from '../components/tooltip'
 
@@ -73,6 +72,9 @@ export const DATAZOOM_DEFAULT_STYLE: EChartsOption['dataZoom'] = [
       handleStyle: {
         color: 'rgba(2,84,183,255)',
         borderColor: 'rgba(2,84,183,255)',
+      },
+      handleLabel: {
+        show: true,
       },
     },
   },
@@ -302,9 +304,25 @@ export const CHART_STYLES: DefaultChartStyles = {
       // legend: { ...LEGEND_DEFAULT_STYLE, left: 'center' },
     },
   },
+  scatter: {
+    default: {
+      xAxis: { type: 'category' },
+      yAxis: { type: 'value' },
+      series: {
+        type: 'scatter',
+        symbolSize: 15,
+      },
+      tooltip: { ...BASE_TOOLTIP_OPIONS },
+      grid: GRID_DEFAULT_STYLE,
+      animationDuration: 750,
+      animationDurationUpdate: 300,
+      animationEasing: 'cubicInOut',
+      animationEasingUpdate: 'cubicInOut',
+    },
+  },
 }
 
-export const DEFAULT_LOADING_SPINNER: EChartsInstance['showLoading'] = {
+export const DEFAULT_LOADING_SPINNER: EChartsOption['showLoading'] = {
   data: [],
   xAxis: { type: 'category' },
   text: '',
