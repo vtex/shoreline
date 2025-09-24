@@ -12,6 +12,7 @@ const FunnelChartVariantsArray = ['default'] as const
 const ScatterChartVariantsArray = ['default'] as const
 const SunburstChartVariantsArray = ['default'] as const
 const DonutChartVariantsArray = ['default'] as const
+const ScatterChartVariantsArray = ['default'] as const
 
 /**
  * Used to check variants in utils/chart.ts checkValidVariant and getDefaultByTpe

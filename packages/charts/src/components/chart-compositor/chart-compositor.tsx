@@ -171,4 +171,7 @@ const defaultHooks: DefaultHooks = {
   sunburst: {
     default: [sunburstCoreColoring],
   },
+  scatter: {
+    default: [],
+  },
 }
