@@ -174,4 +174,7 @@ const defaultHooks: DefaultHooks = {
   scatter: {
     default: [],
   },
+  donut: {
+    default: [],
+  },
 }
