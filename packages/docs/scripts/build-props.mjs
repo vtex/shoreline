@@ -178,7 +178,8 @@ const chartVariants = [
   },
   {
     type: 'Area',
-    description: 'Not yet decided :p',
+    description:
+      'Area charts illustrate how values change over time, making them effective for highlighting trends, showing accumulated totals, or tracking variations in volume across different periods.',
   },
 ]
 
