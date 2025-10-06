@@ -323,7 +323,7 @@ export interface ChartOptions {
    */
   option?: EChartsOption
   /**
-   * Functions that will be run on the option object before the default styles are applied, in addition to any default hooks that may be applied per chart type.
+   * Functions that will be run on the option object **after** the default styles are applied, in addition to any default hooks that may be applied per chart type.
    *
    * These functions should receive an **EchartsOption** and return the same.
    *
