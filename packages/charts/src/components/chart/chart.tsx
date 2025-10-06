@@ -139,6 +139,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
 
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
+      console.log(hookedOptions)
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
       return options
     }, [
@@ -323,7 +324,7 @@ export interface ChartOptions {
    */
   option?: EChartsOption
   /**
-   * Functions that will be run on the option object **after** the default styles are applied, in addition to any default hooks that may be applied per chart type.
+   * Functions that will be run on the option object **before** the default styles are applied, in addition to any default hooks that may be applied per chart type.
    *
    * These functions should receive an **EchartsOption** and return the same.
    *
