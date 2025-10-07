@@ -50,7 +50,6 @@ import {
 } from '../legend'
 
 import '../../theme/components/chart.css'
-import { defaultColorPreset } from '../../theme/colors'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -131,10 +130,16 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
       if (loading) {
         wholeOption.tooltip = { show: false }
-        wholeOption.color = Array(10).fill('transparent')
-      } else {
-        wholeOption.tooltip = { show: true }
-        wholeOption.color = defaultColorPreset
+        wholeOption.color = Array(10).fill('#FFFFFF00')
+        wholeOption.series = [
+          {
+            data: [1, 3, 6],
+            areaStyle: { color: 'transparent', opacity: 0 },
+            color: 'transparent',
+          },
+        ]
+        console.log('ÖIOIOII')
+        console.log(wholeOption)
       }
 
       if (chartConfig === null) {
@@ -276,6 +281,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           loadingOption={loadingConfig}
           // onChartReady={(instance) => instance.resize()}
           onEvents={eventsAdapter}
+          notMerge={true}
           {...otherProps}
         />
         {checkboxLegend ? (
