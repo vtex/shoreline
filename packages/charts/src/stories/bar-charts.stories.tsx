@@ -1,6 +1,6 @@
 import { Chart } from '../index'
 import type { StoryObj } from '@storybook/react'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type EChartsReact from 'echarts-for-react'
 import { compactNumber } from '../utils/format'
 import { Grid } from '@vtex/shoreline'
@@ -24,30 +24,30 @@ export const Basic: Story = {
 }
 
 export const Loading: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: true },
-  },
-  render: (args) => {
-    const { series, xAxis, option, chartConfig, loading } = args
+  render: () => {
+    const [currentSeries, setCurrentSeries] = useState<SeriesOption[]>([
+      { data: [1, 2, 6] },
+    ])
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setCurrentSeries([{ data: [1, 2, 3, 4, 5, 6, 7], name: 'Series A' }])
+        setIsLoading(false)
+      }, 5000)
+      return () => clearTimeout(timer)
+    }, [])
 
     return (
       <Chart
-        series={series}
-        xAxis={xAxis}
-        option={option}
-        chartConfig={chartConfig}
-        // style={{ height: 300 }}
-        loading={loading}
+        series={currentSeries}
+        loading={isLoading}
+        xAxis={{
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        }}
+        chartConfig={{ type: 'bar' }}
       />
     )
-  },
-  args: {
-    xAxis: {
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    },
-    series: [{ data: [1, 2, 3, 4, 5, 6, 7] }],
-    chartConfig: { type: 'bar' },
-    loading: true,
   },
 }
 export const Gap1: Story = {

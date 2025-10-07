@@ -323,10 +323,11 @@ export const CHART_STYLES: DefaultChartStyles = {
 }
 
 export const DEFAULT_LOADING_SPINNER: EChartsOption['showLoading'] = {
-  data: [],
-  xAxis: { type: 'category' },
   text: '',
   spinnerRadius: 10,
+  maskColor: 'transparent',
+  zlevel: 0,
+
   lineWidth: 3,
   color: defaultSpinnerColor,
 }

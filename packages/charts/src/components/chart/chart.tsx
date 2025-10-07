@@ -50,6 +50,7 @@ import {
 } from '../legend'
 
 import '../../theme/components/chart.css'
+import { defaultColorPreset } from '../../theme/colors'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -129,9 +130,11 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         // ours to work, but it can't be visible
       }
       if (loading) {
-        wholeOption.tooltip = {
-          show: false,
-        }
+        wholeOption.tooltip = { show: false }
+        wholeOption.color = Array(10).fill('transparent')
+      } else {
+        wholeOption.tooltip = { show: true }
+        wholeOption.color = defaultColorPreset
       }
 
       if (chartConfig === null) {
