@@ -1,5 +1,6 @@
 import type { StoryObj } from '@storybook/react'
 import { Chart } from '../index'
+import { useState, useEffect } from 'react'
 
 export default {
   title: 'Charts/area',
@@ -42,6 +43,39 @@ export const StackedArea: Story = {
           { data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5], name: 'Series 5' },
         ]}
         style={{ height: 550 }}
+      />
+    )
+  },
+}
+
+export const Loading: Story = {
+  render: () => {
+    const [currentSeries, setCurrentSeries] = useState<any>([
+      {
+        data: [10, 5],
+        // areaStyle: {color: 'transparent', opacity: 0}
+      },
+    ])
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setCurrentSeries([
+          { data: [70, 40, 55, 35, 39, 30, 25], name: 'Product A' },
+          { data: [0, 0, 5, 10, 25, 45, 55], name: 'Product B' },
+        ])
+        setIsLoading(false)
+      }, 5000)
+      return () => clearTimeout(timer)
+    }, [])
+    return (
+      <Chart
+        chartConfig={{ type: 'area', variant: 'overlapping' }}
+        xAxis={{ data: ['1º', '2º', '3º', '4º', '5º', '6º', '7º'] }}
+        series={currentSeries}
+        style={{ height: 300 }}
+        loading={isLoading}
+        // optionHooks={null}
       />
     )
   },

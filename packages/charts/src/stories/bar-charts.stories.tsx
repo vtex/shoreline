@@ -1,9 +1,9 @@
 import { Chart } from '../index'
 import type { StoryObj } from '@storybook/react'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import type EChartsReact from 'echarts-for-react'
 import { compactNumber } from '../utils/format'
-import { Grid } from '@vtex/shoreline'
+import { Button, Grid } from '@vtex/shoreline'
 import type { SeriesOption } from 'echarts'
 
 const Bar = {
@@ -30,23 +30,30 @@ export const Loading: Story = {
     ])
     const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setCurrentSeries([{ data: [1, 2, 3, 4, 5, 6, 7], name: 'Series A' }])
-        setIsLoading(false)
-      }, 5000)
-      return () => clearTimeout(timer)
-    }, [])
-
     return (
-      <Chart
-        series={currentSeries}
-        loading={isLoading}
-        xAxis={{
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        }}
-        chartConfig={{ type: 'bar' }}
-      />
+      <>
+        <Button
+          variant={'primary'}
+          onClick={() => {
+            if (isLoading) {
+              setCurrentSeries([
+                { data: [1, 2, 3, 4, 5, 6, 7], name: 'Series A' },
+              ])
+              setIsLoading(false)
+            } else {
+              setIsLoading(true)
+            }
+          }}
+        >
+          {isLoading ? 'Finish Loading' : 'Unload'}
+        </Button>
+        <Chart
+          chartConfig={{ type: 'bar', variant: 'vertical' }}
+          xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
+          series={currentSeries}
+          loading={isLoading}
+        />
+      </>
     )
   },
 }
