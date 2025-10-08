@@ -154,7 +154,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
-      console.log(options)
       return options
     }, [
       option,
@@ -357,7 +356,7 @@ export interface ChartOptions {
    *
    * @default []
    */
-  tooltipDimensions: string[]
+  tooltipDimensions?: string[]
   /**
    * Whether to use the custom Shoreline checkbox legend. Setting to false fallbacks to the default Echarts legend.
    */
