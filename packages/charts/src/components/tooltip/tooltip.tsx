@@ -68,12 +68,15 @@ export function ChartTooltipBase({
 
 export const getTooltipStaticString = (
   params: TooltipComponentFormatterCallbackParams,
+  dimensions: string[],
   invert = false,
   percentage = false
-) =>
-  renderToStaticMarkup(
+) => {
+  // console.log(dimensions)
+  return renderToStaticMarkup(
     <ChartTooltip params={params} invert={invert} percentage={percentage} />
   )
+}
 
 export interface ChartTooltipProps {
   params: TooltipComponentFormatterCallbackParams

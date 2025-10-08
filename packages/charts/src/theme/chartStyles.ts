@@ -1,7 +1,6 @@
 import type { EChartsOption } from 'echarts'
 import type { DefaultChartStyles } from '../types/chart'
 import { defaultSpinnerColor } from './colors'
-import { getTooltipStaticString } from '../components/tooltip'
 
 const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
   trigger: 'axis',
@@ -10,8 +9,13 @@ const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
   confine: true,
   extraCssText:
     'min-width: 128px; max-width: 268px; padding: var(--sl-space-3) var(--sl-space-4);',
-  formatter: (params) => {
-    return getTooltipStaticString(params)
+}
+
+const SHADOW_TOOLTIP_OPTIONS: EChartsOption['tooltip'] = {
+  axisPointer: {
+    type: 'shadow',
+    z: -1,
+    shadowStyle: { color: 'var(--sl-color-gray-1)', opacity: 1 },
   },
 }
 
@@ -98,11 +102,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
-        axisPointer: {
-          type: 'shadow',
-          z: -1,
-          shadowStyle: { color: 'var(--sl-color-gray-1)', opacity: 1 },
-        },
+        ...SHADOW_TOOLTIP_OPTIONS,
       },
 
       animationDelay: DEFAULT_DELAY_FUNCTION,
@@ -123,11 +123,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
-        axisPointer: {
-          type: 'shadow',
-          z: -1,
-          shadowStyle: { color: 'var(--sl-color-gray-1)', opacity: 1 },
-        },
+        ...SHADOW_TOOLTIP_OPTIONS,
       },
 
       animationDelay: DEFAULT_DELAY_FUNCTION,
@@ -147,14 +143,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
-        formatter: (params) => {
-          return getTooltipStaticString(params, true)
-        },
-        axisPointer: {
-          type: 'shadow',
-          z: -1,
-          shadowStyle: { color: 'var(--sl-color-gray-1)', opacity: 1 },
-        },
+        ...SHADOW_TOOLTIP_OPTIONS,
       },
       animationDelay: DEFAULT_DELAY_FUNCTION,
     },
@@ -174,14 +163,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       grid: GRID_DEFAULT_STYLE,
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
-        formatter: (params) => {
-          return getTooltipStaticString(params, true, true)
-        },
-        axisPointer: {
-          type: 'shadow',
-          z: -1,
-          shadowStyle: { color: 'var(--sl-color-gray-1)', opacity: 1 },
-        },
+        ...SHADOW_TOOLTIP_OPTIONS,
       },
       animationDelay: DEFAULT_DELAY_FUNCTION,
     },
@@ -219,9 +201,6 @@ export const CHART_STYLES: DefaultChartStyles = {
       },
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
-        formatter: (params) => {
-          return getTooltipStaticString(params, true)
-        },
       },
       grid: GRID_DEFAULT_STYLE,
       animationDuration: 750,
@@ -242,9 +221,6 @@ export const CHART_STYLES: DefaultChartStyles = {
       },
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
-        formatter: (params) => {
-          return getTooltipStaticString(params, true)
-        },
       },
       grid: GRID_DEFAULT_STYLE,
       animationDuration: 750,
@@ -319,6 +295,17 @@ export const CHART_STYLES: DefaultChartStyles = {
       animationEasing: 'cubicInOut',
       animationEasingUpdate: 'cubicInOut',
     },
+  },
+}
+
+export const CUSTOM_TOOLTIP = {
+  bar: {
+    stacked: 1,
+    'percentage stack': 2,
+  },
+  area: {
+    overlapping: 1,
+    stacked: 1,
   },
 }
 

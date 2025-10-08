@@ -13,6 +13,7 @@ import './locales'
 import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig, DefaultHooks } from '../../types/chart'
 import {
+  buildTooltip,
   checkValidVariant,
   checkZoom,
   getChartOptions,
@@ -86,6 +87,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       zoom,
       checkboxLegend = true,
       group,
+      tooltipDimensions = [],
       ...otherProps
     } = props
 
@@ -138,8 +140,12 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             color: 'transparent',
           },
         ]
-        console.log('ÖIOIOII')
-        console.log(wholeOption)
+      } else {
+        wholeOption.tooltip = buildTooltip(
+          chartConfig,
+          wholeOption.tooltip,
+          tooltipDimensions
+        )
       }
 
       if (chartConfig === null) {
@@ -147,12 +153,13 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       }
 
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
-      console.log(hookedOptions)
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
+      console.log(options)
       return options
     }, [
       option,
       checkboxLegend,
+      tooltipDimensions,
       loading,
       chartConfig,
       zoom,
@@ -263,6 +270,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
       return newEvents
     }, [onEvents, memoEvents])
+
     return (
       <div
         data-sl-chart={
@@ -344,6 +352,12 @@ export interface ChartOptions {
    * Whether to enable zoom and the zoom bar, which will also make the chart slightly smaller to fit the bar.
    */
   zoom?: boolean
+  /**
+   * Select the dimensions that will appear in the tooltip.
+   *
+   * @default []
+   */
+  tooltipDimensions: string[]
   /**
    * Whether to use the custom Shoreline checkbox legend. Setting to false fallbacks to the default Echarts legend.
    */
