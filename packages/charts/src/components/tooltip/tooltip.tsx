@@ -72,7 +72,6 @@ export const getTooltipStaticString = (
   invert = false,
   percentage = false
 ) => {
-  // console.log(dimensions)
   return renderToStaticMarkup(
     <ChartTooltip params={params} invert={invert} percentage={percentage} />
   )

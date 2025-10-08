@@ -173,17 +173,20 @@ export function buildTooltip(
 
   const tooltipConfig = tooltipOptions ? tooltipOptions : {}
 
-  if (
-    !chartConfig ||
-    CUSTOM_TOOLTIP[chartConfig.type][chartConfig.variant] === undefined
-  )
-    tooltipConfig.formatter = (params) =>
-      getTooltipStaticString(params, tooltipDimensions)
-  else {
-    const formatter = getCustomTooltip(chartConfig, tooltipDimensions)
-    tooltipConfig.formatter = formatter
-  }
+  const defaultTooltip = (params) =>
+    getTooltipStaticString(params, tooltipDimensions)
 
+  if (chartConfig) {
+    const { type, variant = 'default' } = chartConfig
+    const isDefaultTooltip =
+      CUSTOM_TOOLTIP[type] === undefined ||
+      CUSTOM_TOOLTIP[type][variant] === undefined
+
+    if (isDefaultTooltip) tooltipConfig.formatter = defaultTooltip
+    else {
+      tooltipConfig.formatter = getCustomTooltip(chartConfig, tooltipDimensions)
+    }
+  } else tooltipConfig.formatter = defaultTooltip
   return tooltipConfig
 }
 

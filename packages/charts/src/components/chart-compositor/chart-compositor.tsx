@@ -107,7 +107,17 @@ export const ChartCompositor = forwardRef<
     finalOptions.xAxis = cloneDeep(xAxis)
     finalOptions.title = cloneDeep(title)
     return option ? merge(option, finalOptions) : finalOptions
-  }, [charts, xAxis, yAxis, option, tooltipOptions, title, seriesOptions, zoom])
+  }, [
+    charts,
+    xAxis,
+    yAxis,
+    option,
+    tooltipOptions,
+    title,
+    seriesOptions,
+    zoom,
+    loading,
+  ])
 
   return (
     <Chart
