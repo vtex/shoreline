@@ -196,12 +196,10 @@ export function setAreaColors(
   const { series, ...otherProps } = options
 
   const arraySeries = isArray(series) ? series : [series]
-  console.log('ASDSDA')
   let nextColorIndex = 0
   arraySeries.forEach((v) => {
     let areaColor: any
     const serie = v as LineSeriesOption
-    console.log(`asdadfafSD${serie.areaStyle}`)
     if (serie.areaStyle) {
       console.log('oi')
       return

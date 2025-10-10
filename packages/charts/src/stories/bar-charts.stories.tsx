@@ -25,9 +25,7 @@ export const Basic: Story = {
 
 export const Loading: Story = {
   render: () => {
-    const [currentSeries, setCurrentSeries] = useState<SeriesOption[]>([
-      { data: [1, 2, 6] },
-    ])
+    const [currentSeries, setCurrentSeries] = useState<SeriesOption[]>([{}])
     const [isLoading, setIsLoading] = useState(true)
 
     return (

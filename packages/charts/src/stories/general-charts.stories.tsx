@@ -4,6 +4,7 @@ import type { StoryObj } from '@storybook/react'
 import { useState } from 'react'
 import { Button, Grid } from '@vtex/shoreline'
 import type { EChartsOption, SeriesOption } from 'echarts'
+import { ChartSkeleton } from '../components/chart-skeleton/chart-skeleton'
 
 export default {
   title: 'Charts/general',
@@ -268,10 +269,7 @@ export const ZoomExample: Story = {
   },
 }
 export const Loading: Story = {
-  args: {
-    series: [],
-    xAxis: {},
-    chartConfig: { type: 'area' },
-    loading: true,
+  render: () => {
+    return <ChartSkeleton />
   },
 }

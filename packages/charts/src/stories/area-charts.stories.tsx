@@ -50,12 +50,7 @@ export const StackedArea: Story = {
 
 export const Loading: Story = {
   render: () => {
-    const [currentSeries, setCurrentSeries] = useState<any>([
-      {
-        data: [10, 5],
-        // areaStyle: {color: 'transparent', opacity: 0}
-      },
-    ])
+    const [currentSeries, setCurrentSeries] = useState<any>([{}])
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {

@@ -1,0 +1,20 @@
+[data-sl-chart-skeleton-container] {
+  min-width: 300;
+  min-height: 200;
+  position: relative;
+}
+
+[data-sl-chart-skeleton-spinner] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+[data-sl-chart-skeleton-line-box] {
+  margin-right: var(--sl-space-2);
+}
+
+[data-sl-chart-skeleton-line] {
+  width: 100%;
+  height: 0.5px;
+}

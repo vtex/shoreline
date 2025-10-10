@@ -51,6 +51,7 @@ import {
 } from '../legend'
 
 import '../../theme/components/chart.css'
+import { ChartSkeleton } from '../chart-skeleton/chart-skeleton'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -130,23 +131,11 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         // the legend echarts component must exist for
         // ours to work, but it can't be visible
       }
-      if (loading) {
-        wholeOption.tooltip = { show: false }
-        wholeOption.color = Array(10).fill('#FFFFFF00')
-        wholeOption.series = [
-          {
-            data: [1, 3, 6],
-            areaStyle: { color: 'transparent', opacity: 0 },
-            color: 'transparent',
-          },
-        ]
-      } else {
-        wholeOption.tooltip = buildTooltip(
-          chartConfig,
-          wholeOption.tooltip,
-          tooltipDimensions
-        )
-      }
+      wholeOption.tooltip = buildTooltip(
+        chartConfig,
+        wholeOption.tooltip,
+        tooltipDimensions
+      )
 
       if (chartConfig === null) {
         return wholeOption
@@ -159,7 +148,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       option,
       checkboxLegend,
       tooltipDimensions,
-      loading,
       chartConfig,
       zoom,
       series,
@@ -270,7 +258,11 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       return newEvents
     }, [onEvents, memoEvents])
 
-    return (
+    const mergedRef = useMergeRef(ref, chartRef)
+
+    return loading ? (
+      <ChartSkeleton height={style?.height} width={style?.width} />
+    ) : (
       <div
         data-sl-chart={
           chartConfig
@@ -279,7 +271,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         }
       >
         <ReactECharts
-          ref={useMergeRef(ref, chartRef)}
+          ref={mergedRef}
           theme={theme}
           option={finalOptions}
           style={{ minWidth: 300, minHeight: 200, ...style }}
