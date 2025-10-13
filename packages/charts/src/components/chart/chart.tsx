@@ -13,7 +13,6 @@ import './locales'
 import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig, DefaultHooks } from '../../types/chart'
 import {
-  buildTooltip,
   checkValidVariant,
   checkZoom,
   getChartOptions,
@@ -87,7 +86,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       zoom,
       checkboxLegend = true,
       group,
-      tooltipDimensions = [],
       ...otherProps
     } = props
 
@@ -130,11 +128,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         // the legend echarts component must exist for
         // ours to work, but it can't be visible
       }
-      wholeOption.tooltip = buildTooltip(
-        chartConfig,
-        wholeOption.tooltip,
-        tooltipDimensions
-      )
 
       if (chartConfig === null) {
         return wholeOption
@@ -142,11 +135,11 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
+      console.log(options)
       return options
     }, [
       option,
       checkboxLegend,
-      tooltipDimensions,
       chartConfig,
       zoom,
       series,
@@ -347,8 +340,12 @@ export interface ChartOptions {
    */
   zoom?: boolean
   /**
-   * Select the dimensions that will appear in the tooltip.
+   * Select the dimensions that will appear in the tooltip. The dimensions are setted by the props of the item.
+   * To set new dimensions, the series should follow this format:
    *
+   *    series: {{ data: [1, 2, 3, 4, { alpha: 50, value: 5 }] }}
+   *
+   * Inside the data, the item/items that should have new dimensions may be an object, which the prop 'value' is the value that will appear on the chart.
    * @default []
    */
   tooltipDimensions?: string[]

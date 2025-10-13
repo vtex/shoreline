@@ -1,9 +1,8 @@
 import type { EChartsOption, SeriesOption } from 'echarts'
-import { CHART_STYLES, CUSTOM_TOOLTIP } from '../theme/chartStyles'
+import { CHART_STYLES } from '../theme/chartStyles'
 import { type ChartConfig, type ChartUnit, ChartVariants } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
 import { cloneDeep, isArray } from 'lodash'
-import { getTooltipStaticString } from '../components/tooltip'
 
 export const buildDefaultSerie = (
   serie: SeriesOption | SeriesOption[],
@@ -162,39 +161,4 @@ export function getSeriesNames(option: EChartsOption): string[] {
     return series.map((v, i) => (v.name ? v.name.toString() : `series${i}`))
   }
   return series.name ? [series.name.toString()] : ['series0']
-}
-
-export function buildTooltip(
-  chartConfig: ChartConfig | null,
-  tooltipOptions: EChartsOption['tooltip'],
-  tooltipDimensions: string[]
-): EChartsOption['tooltip'] {
-  if (isArray(tooltipOptions)) return tooltipOptions
-
-  const tooltipConfig = tooltipOptions ? tooltipOptions : {}
-
-  const defaultTooltip = (params) =>
-    getTooltipStaticString(params, tooltipDimensions)
-
-  if (chartConfig) {
-    const { type, variant = 'default' } = chartConfig
-    const isDefaultTooltip =
-      CUSTOM_TOOLTIP[type] === undefined ||
-      CUSTOM_TOOLTIP[type][variant] === undefined
-
-    if (isDefaultTooltip) tooltipConfig.formatter = defaultTooltip
-    else {
-      tooltipConfig.formatter = getCustomTooltip(chartConfig, tooltipDimensions)
-    }
-  } else tooltipConfig.formatter = defaultTooltip
-  return tooltipConfig
-}
-
-function getCustomTooltip(chartConfig: ChartConfig, dimensions: string[]) {
-  const type = CUSTOM_TOOLTIP[chartConfig.type][chartConfig.variant]
-  if (type === 1)
-    return (params) => getTooltipStaticString(params, dimensions, true)
-  if (type === 2)
-    return (params) => getTooltipStaticString(params, dimensions, true)
-  return (params) => getTooltipStaticString(params, dimensions)
 }

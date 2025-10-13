@@ -68,7 +68,6 @@ export function ChartTooltipBase({
 
 export const getTooltipStaticString = (
   params: TooltipComponentFormatterCallbackParams,
-  dimensions: string[],
   invert = false,
   percentage = false
 ) => {
