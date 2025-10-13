@@ -29,6 +29,7 @@ export default function Example() {
         xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
         series={currentSeries}
         loading={isLoading}
+        loadingOptions={{ numLines: 7 }}
       />
     </>
   )
