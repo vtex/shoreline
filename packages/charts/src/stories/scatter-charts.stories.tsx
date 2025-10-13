@@ -8,7 +8,7 @@ export default {
 
 type Story = StoryObj<typeof Chart>
 
-const data1: [number, number][] = [
+const data1: any[] = [
   [0, 19],
   [1, 53],
   [2, 27],
@@ -34,6 +34,19 @@ const data2: [number, number][] = [
   [9, 39],
 ]
 
+const data1alternative: any[] = [
+  [0, 19, 4],
+  [1, 53, 6],
+  [2, 27, 8],
+  [3, 4, 18],
+  [4, 27, 5],
+  [5, 36, 3],
+  [6, 94, 9],
+  [7, 80, 7],
+  [8, 31, 5],
+  [9, 57, 10],
+]
+
 export const Basic: Story = {
   args: {
     series: [
@@ -41,6 +54,16 @@ export const Basic: Story = {
       { data: data2, name: 'Serie 2' },
     ],
     chartConfig: { type: 'scatter' },
+  },
+}
+
+export const Tooltip2Variant: Story = {
+  args: {
+    series: [
+      { data: data1alternative, name: 'Serie 1' },
+      { data: data2, name: 'Serie 2' },
+    ],
+    chartConfig: { type: 'scatter', variant: 'tooltip2' },
   },
 }
 

@@ -11,7 +11,7 @@ const BASE_TOOLTIP_OPIONS: EChartsOption['tooltip'] = {
   extraCssText:
     'min-width: 128px; max-width: 268px; padding: var(--sl-space-3) var(--sl-space-4);',
   formatter: (params) => {
-    return getTooltipStaticString(params)
+    return getTooltipStaticString({ params })
   },
 }
 
@@ -148,7 +148,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         formatter: (params) => {
-          return getTooltipStaticString(params, true)
+          return getTooltipStaticString({ params, invert: true })
         },
         axisPointer: {
           type: 'shadow',
@@ -175,7 +175,11 @@ export const CHART_STYLES: DefaultChartStyles = {
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         formatter: (params) => {
-          return getTooltipStaticString(params, true, true)
+          return getTooltipStaticString({
+            params,
+            invert: true,
+            percentage: true,
+          })
         },
         axisPointer: {
           type: 'shadow',
@@ -220,7 +224,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         formatter: (params) => {
-          return getTooltipStaticString(params, true)
+          return getTooltipStaticString({ params, invert: true })
         },
       },
       grid: GRID_DEFAULT_STYLE,
@@ -243,7 +247,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       tooltip: {
         ...BASE_TOOLTIP_OPIONS,
         formatter: (params) => {
-          return getTooltipStaticString(params, true)
+          return getTooltipStaticString({ params, invert: true })
         },
       },
       grid: GRID_DEFAULT_STYLE,
@@ -313,6 +317,23 @@ export const CHART_STYLES: DefaultChartStyles = {
         symbolSize: 15,
       },
       tooltip: { ...BASE_TOOLTIP_OPIONS },
+      grid: GRID_DEFAULT_STYLE,
+      animationDuration: 750,
+      animationDurationUpdate: 300,
+      animationEasing: 'cubicInOut',
+      animationEasingUpdate: 'cubicInOut',
+    },
+    tooltip2: {
+      xAxis: { type: 'category' },
+      yAxis: { type: 'value' },
+      series: {
+        type: 'scatter',
+        symbolSize: 15,
+      },
+      tooltip: {
+        ...BASE_TOOLTIP_OPIONS,
+        formatter: (params) => getTooltipStaticString({ params, dimension: 2 }),
+      },
       grid: GRID_DEFAULT_STYLE,
       animationDuration: 750,
       animationDurationUpdate: 300,
