@@ -26,9 +26,10 @@ export default function Example() {
         {isLoading ? 'Finish Loading' : 'Unload'}
       </Button>
       <Chart
-        chartConfig={{ type: 'bar', variant: 'vertical' }}
-        xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
+        chartConfig={{ type: 'area', variant: 'overlapping' }}
+        xAxis={{ data: ['1º', '2º', '3º', '4º', '5º', '6º', '7º'] }}
         series={currentSeries}
+        style={{ height: 300 }}
         loading={isLoading}
         loadingOptions={{ numLines: 8 }}
       />
