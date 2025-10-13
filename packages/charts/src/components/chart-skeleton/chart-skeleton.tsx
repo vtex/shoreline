@@ -5,7 +5,13 @@ import '../../theme/components/chartSkeleton.css'
 
 export const ChartSkeleton = forwardRef<HTMLDivElement, ChartSkeletonProps>(
   function ChartSkeleton(props, ref) {
-    const { height = '300px', width = '100%', style } = props
+    const {
+      height = '300px',
+      width = '100%',
+      numLines = 6,
+      numColumns = 7,
+      style,
+    } = props
 
     return (
       <Flex
@@ -25,13 +31,13 @@ export const ChartSkeleton = forwardRef<HTMLDivElement, ChartSkeletonProps>(
           justify="space-between"
           style={{ height: '100%', width: '100%' }}
         >
-          {Array.from({ length: 5 }).map((_, index) => (
+          {Array.from({ length: numLines - 1 }).map((_, index) => (
             <ChartSkeletonLine key={index} />
           ))}
-          <ChartSkeletonLine isXAxisLine />
+          {numLines <= 0 ? null : <ChartSkeletonLine isXAxisLine />}
         </Flex>
         <Flex justify="space-between" style={{ paddingLeft: '40px' }}>
-          {Array.from({ length: 7 }).map((_, index) => (
+          {Array.from({ length: numColumns }).map((_, index) => (
             <ChartSkeletonXAxisBox key={index} />
           ))}
         </Flex>
@@ -43,6 +49,8 @@ export const ChartSkeleton = forwardRef<HTMLDivElement, ChartSkeletonProps>(
 export type ChartSkeletonProps = {
   height?: string | number
   width?: string | number
+  numLines?: number
+  numColumns?: number
 } & ComponentPropsWithoutRef<'div'>
 
 function ChartSkeletonLine(props: { isXAxisLine?: boolean }) {
@@ -58,7 +66,7 @@ function ChartSkeletonLine(props: { isXAxisLine?: boolean }) {
     >
       <Skeleton
         data-sl-chart-skeleton-line-box
-        width={'36px'}
+        width={'16px'}
         height={'16px'}
       />
       <div

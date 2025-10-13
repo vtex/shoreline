@@ -31,11 +31,12 @@ export const Loading: Story = {
     return (
       <>
         <Button
+          style={{ marginBottom: 'var(--sl-space-2)' }}
           variant={'primary'}
           onClick={() => {
             if (isLoading) {
               setCurrentSeries([
-                { data: [1, 2, 3, 4, 5, 6, 7], name: 'Series A' },
+                { data: [2, 2, 3, 3, 5, 6, 6], name: 'Series A' },
               ])
               setIsLoading(false)
             } else {
@@ -50,6 +51,7 @@ export const Loading: Story = {
           xAxis={{ data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] }}
           series={currentSeries}
           loading={isLoading}
+          loadingOptions={{ numLines: 7 }}
         />
       </>
     )

@@ -7,7 +7,7 @@ import {
   useEffect,
 } from 'react'
 import type { EChartsOption, SeriesOption } from 'echarts'
-import ReactECharts, { type EChartsInstance } from 'echarts-for-react'
+import ReactECharts from 'echarts-for-react'
 import * as echarts from 'echarts'
 import './locales'
 import { defaultTheme } from '../../theme/themes'
@@ -22,7 +22,6 @@ import {
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import {
   DATAZOOM_DEFAULT_STYLE,
-  DEFAULT_LOADING_SPINNER,
   LEGEND_DEFAULT_STYLE,
 } from '../../theme/chartStyles'
 import { cloneDeep, isArray, type Dictionary } from 'lodash'
@@ -77,7 +76,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       title,
       option,
       loading = false,
-      loadingConfig = DEFAULT_LOADING_SPINNER,
+      loadingOptions,
       chartConfig,
       style,
       renderer = 'svg',
@@ -261,7 +260,12 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     const mergedRef = useMergeRef(ref, chartRef)
 
     return loading ? (
-      <ChartSkeleton height={style?.height} width={style?.width} />
+      <ChartSkeleton
+        height={style?.height}
+        width={style?.width}
+        numColumns={loadingOptions?.numColumns}
+        numLines={loadingOptions?.numLines}
+      />
     ) : (
       <div
         data-sl-chart={
@@ -277,7 +281,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           style={{ minWidth: 300, minHeight: 200, ...style }}
           opts={{ renderer: renderer, locale: locale }}
           showLoading={loading}
-          loadingOption={loadingConfig}
           // onChartReady={(instance) => instance.resize()}
           onEvents={eventsAdapter}
           notMerge={true}
@@ -383,10 +386,10 @@ export interface ChartOptions {
    */
   loading?: boolean
   /**
-   * Echarts showLoading options, see [docs]("https://echarts.apache.org/en/api.html#echartsInstance.showLoading).
-   * @default false
+   * How many horizontal lines and columns the chart skeleton will have while the chart loads.
+   *
    */
-  loadingConfig?: EChartsInstance['showLoading']
+  loadingOptions?: { numLines?: number; numColumns?: number }
   /**
    * Binds callback functions to certain events, see [docs](https://echarts.apache.org/en/api.html#events)
    * for a complete list of available events and their parameters.

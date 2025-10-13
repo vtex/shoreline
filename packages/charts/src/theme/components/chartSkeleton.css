@@ -2,8 +2,8 @@
   min-width: 300;
   min-height: 200;
   position: relative;
+  padding-right: 8px;
 }
-
 [data-sl-chart-skeleton-spinner] {
   position: absolute;
   top: 50%;

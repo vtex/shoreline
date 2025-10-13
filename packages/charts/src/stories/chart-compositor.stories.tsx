@@ -74,6 +74,7 @@ export const Loading: Story = {
     return (
       <>
         <Button
+          style={{ marginBottom: 'var(--sl-space-2)' }}
           variant={'primary'}
           onClick={() => {
             if (isLoading) {
@@ -98,12 +99,13 @@ export const Loading: Story = {
         <ChartCompositor
           charts={charts}
           tooltip={{ type: 'line' }}
-          loading={isLoading}
           xAxis={{
             type: 'category',
             data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
           }}
           yAxis={{ type: 'value', splitLine: { show: true } }}
+          loading={isLoading}
+          loadingOptions={{ numColumns: 5 }}
         />
       </>
     )

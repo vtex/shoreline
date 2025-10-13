@@ -9,6 +9,7 @@ export default function Example() {
   return (
     <>
       <Button
+        style={{ marginBottom: 'var(--sl-space-2)' }}
         variant={'primary'}
         onClick={() => {
           if (isLoading) {

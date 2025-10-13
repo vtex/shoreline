@@ -1,6 +1,7 @@
 import type { StoryObj } from '@storybook/react'
 import { Chart } from '../index'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { Button } from '@vtex/shoreline'
 
 export default {
   title: 'Charts/area',
@@ -53,25 +54,34 @@ export const Loading: Story = {
     const [currentSeries, setCurrentSeries] = useState<any>([{}])
     const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setCurrentSeries([
-          { data: [70, 40, 55, 35, 39, 30, 25], name: 'Product A' },
-          { data: [0, 0, 5, 10, 25, 45, 55], name: 'Product B' },
-        ])
-        setIsLoading(false)
-      }, 5000)
-      return () => clearTimeout(timer)
-    }, [])
     return (
-      <Chart
-        chartConfig={{ type: 'area', variant: 'overlapping' }}
-        xAxis={{ data: ['1º', '2º', '3º', '4º', '5º', '6º', '7º'] }}
-        series={currentSeries}
-        style={{ height: 300 }}
-        loading={isLoading}
-        // optionHooks={null}
-      />
+      <>
+        <Button
+          style={{ marginBottom: 'var(--sl-space-2)' }}
+          variant={'primary'}
+          onClick={() => {
+            if (isLoading) {
+              setCurrentSeries([
+                { data: [70, 40, 55, 35, 39, 30, 25], name: 'Product A' },
+                { data: [0, 0, 5, 10, 25, 45, 55], name: 'Product B' },
+              ])
+              setIsLoading(false)
+            } else {
+              setIsLoading(true)
+            }
+          }}
+        >
+          {isLoading ? 'Finish Loading' : 'Unload'}
+        </Button>
+        <Chart
+          chartConfig={{ type: 'area', variant: 'overlapping' }}
+          xAxis={{ data: ['1º', '2º', '3º', '4º', '5º', '6º', '7º'] }}
+          series={currentSeries}
+          style={{ height: 300 }}
+          loading={isLoading}
+          loadingOptions={{ numLines: 8 }}
+        />
+      </>
     )
   },
 }
