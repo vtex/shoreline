@@ -8,6 +8,7 @@ export default function ChartTooltip({
   params,
   invert = false,
   percentage = false,
+  dimension,
 }: ChartTooltipProps) {
   if (isArray(params) && invert) params.reverse()
   return (
@@ -22,10 +23,15 @@ export default function ChartTooltip({
               key={param.dataIndex}
               params={param}
               percentage={percentage}
+              dimension={dimension}
             />
           ))
         ) : (
-          <ChartTooltipBase params={params} percentage={percentage} />
+          <ChartTooltipBase
+            params={params}
+            percentage={percentage}
+            dimension={dimension}
+          />
         )}
       </div>
     </>
@@ -35,7 +41,8 @@ export default function ChartTooltip({
 export function ChartTooltipBase({
   params,
   percentage,
-}: { params: any; percentage: boolean }) {
+  dimension,
+}: { params: any; percentage: boolean; dimension?: number }) {
   return (
     <>
       <div data-sl-chart-tooltip-data-container>
@@ -52,11 +59,7 @@ export function ChartTooltipBase({
             </span>
             <b>
               <span data-sl-chart-tooltip-data-serie-value>
-                {percentage
-                  ? `${Math.round(params.value * 1000) / 10}%`
-                  : isArray(params.value)
-                    ? params.value[1]
-                    : params.value}
+                {getValueForTooltip(params, percentage, dimension)}
               </span>
             </b>
           </Flex>
@@ -66,18 +69,41 @@ export function ChartTooltipBase({
   )
 }
 
-export const getTooltipStaticString = (
-  params: TooltipComponentFormatterCallbackParams,
-  invert = false,
-  percentage = false
-) => {
+function getValueForTooltip(params, percentage, dimension) {
+  if (percentage) {
+    return `${Math.round(params.value * 1000) / 10}%`
+  }
+  if (!isArray(params.value)) {
+    return params.value
+  }
+  if (dimension && params.value.length > dimension) {
+    return params.value[dimension]
+  }
+  return params.value[1]
+}
+
+export const getTooltipStaticString = (props: FormatterParams) => {
+  const { params, invert = false, percentage = false, dimension } = props
   return renderToStaticMarkup(
-    <ChartTooltip params={params} invert={invert} percentage={percentage} />
+    <ChartTooltip
+      params={params}
+      invert={invert}
+      percentage={percentage}
+      dimension={dimension}
+    />
   )
+}
+
+export interface FormatterParams {
+  params: TooltipComponentFormatterCallbackParams
+  invert?: boolean
+  percentage?: boolean
+  dimension?: number
 }
 
 export interface ChartTooltipProps {
   params: TooltipComponentFormatterCallbackParams
   invert?: boolean
   percentage?: boolean
+  dimension?: number
 }

@@ -413,5 +413,6 @@ const defaultHooks: DefaultHooks = {
   },
   scatter: {
     default: [],
+    tooltip2: [],
   },
 }

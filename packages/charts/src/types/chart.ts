@@ -9,7 +9,7 @@ const BarChartVariantsArray = [
 const LineChartVariantsArray = ['default'] as const
 const AreaChartVariantsArray = ['overlapping', 'stacked'] as const
 const FunnelChartVariantsArray = ['default'] as const
-const ScatterChartVariantsArray = ['default'] as const
+const ScatterChartVariantsArray = ['default', 'tooltip2'] as const
 const SunburstChartVariantsArray = ['default'] as const
 const DonutChartVariantsArray = ['default'] as const
 
