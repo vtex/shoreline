@@ -135,7 +135,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
-      console.log(options)
       return options
     }, [
       option,
@@ -181,7 +180,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         }
 
         if (action.chartId !== chart.getId() && legendRef.current) {
-          console.log('deu certo')
           legendRef.current.setState(action.index, action.type)
         }
       },
@@ -339,16 +337,6 @@ export interface ChartOptions {
    * Whether to enable zoom and the zoom bar, which will also make the chart slightly smaller to fit the bar.
    */
   zoom?: boolean
-  /**
-   * Select the dimensions that will appear in the tooltip. The dimensions are setted by the props of the item.
-   * To set new dimensions, the series should follow this format:
-   *
-   *    series: {{ data: [1, 2, 3, 4, { alpha: 50, value: 5 }] }}
-   *
-   * Inside the data, the item/items that should have new dimensions may be an object, which the prop 'value' is the value that will appear on the chart.
-   * @default []
-   */
-  tooltipDimensions?: string[]
   /**
    * Whether to use the custom Shoreline checkbox legend. Setting to false fallbacks to the default Echarts legend.
    */
