@@ -1,6 +1,6 @@
 import type { EChartsOption } from 'echarts'
 import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
-import type { ChartConfig, ChartUnit, DefaultHooks } from '../../types/chart'
+import type { ChartConfig, ChartUnit } from '../../types/chart'
 import { Chart, type ChartOptions } from '../chart/chart'
 import {
   checkValidVariant,
@@ -15,16 +15,9 @@ import {
   GRID_DEFAULT_STYLE,
 } from '../../theme/chartStyles'
 import type EChartsReact from 'echarts-for-react'
-import {
-  applySeriesHook,
-  normalizeBarData,
-  normalizeHorizontalBarData,
-  roundCap,
-  setAreaColors,
-  setAreaGradients,
-  sunburstCoreColoring,
-} from '../../utils/hooks'
+import { applySeriesHook } from '../../utils/hooks'
 import { cloneDeep } from 'lodash'
+import { chartCompositorDefaultHooks } from '../../utils/defaultHooks'
 
 /**
  * Used to make charts with multiple different types.
@@ -68,7 +61,7 @@ export const ChartCompositor = forwardRef<
           : getDefaultByType(type)
 
       const seriesHooks: ((option: EChartsOption) => EChartsOption)[] =
-        defaultHooks[type][checkedVariant]
+        chartCompositorDefaultHooks[type][checkedVariant]
       seriesHooks.push(...(chart.hooks ?? []))
 
       chart.series = seriesHooks.reduce(
@@ -158,34 +151,3 @@ export interface ChartCompositorOptions {
 export type ChartCompositorProps = ChartCompositorOptions &
   Omit<ComponentPropsWithRef<'div'>, 'title'> &
   Omit<ChartOptions, 'series' | 'chartConfig'>
-
-/**
- * Functions that are always called for a certain chart config
- */
-const defaultHooks: DefaultHooks = {
-  bar: {
-    vertical: [normalizeBarData],
-    horizontal: [normalizeHorizontalBarData],
-    stacked: [roundCap],
-    'percentage stack': [],
-  },
-  line: {
-    default: [],
-  },
-  area: {
-    overlapping: [setAreaGradients],
-    stacked: [setAreaColors],
-  },
-  funnel: {
-    default: [],
-  },
-  sunburst: {
-    default: [sunburstCoreColoring],
-  },
-  scatter: {
-    default: [],
-  },
-  donut: {
-    default: [],
-  },
-}

@@ -11,7 +11,7 @@ import ReactECharts from 'echarts-for-react'
 import * as echarts from 'echarts'
 import './locales'
 import { defaultTheme } from '../../theme/themes'
-import type { ChartConfig, DefaultHooks } from '../../types/chart'
+import type { ChartConfig } from '../../types/chart'
 import {
   checkValidVariant,
   checkZoom,
@@ -24,16 +24,7 @@ import {
   LEGEND_DEFAULT_STYLE,
 } from '../../theme/chartStyles'
 import { cloneDeep, isArray, type Dictionary } from 'lodash'
-import {
-  formatTimeAxis,
-  normalizeBarData,
-  normalizeHorizontalBarData,
-  normalizeStackedBars,
-  roundCap,
-  setAreaColors,
-  setAreaGradients,
-  sunburstCoreColoring,
-} from '../../utils/hooks'
+import { formatTimeAxis } from '../../utils/hooks'
 import {
   toggleSerieLegend,
   turnOffSerieLegend,
@@ -50,6 +41,7 @@ import {
 
 import '../../theme/components/chart.css'
 import { ChartSkeleton } from '../chart-skeleton/chart-skeleton'
+import { chartsDefaultHooks } from '../../utils/defaultHooks'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -106,7 +98,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       if (!isArray(xAxis) && xAxis.type === 'time') {
         hooks.push(formatTimeAxis(locale))
       }
-      hooks.push(...defaultHooks[type][checkedVariant])
+      hooks.push(...chartsDefaultHooks[type][checkedVariant])
       hooks.push(...optionHooks)
       return hooks
     }, [chartConfig, optionHooks, xAxis, locale])
@@ -383,35 +375,3 @@ export interface ChartOptions {
 
 export type ChartProps = ChartOptions &
   Omit<ComponentPropsWithRef<'div'>, 'title'>
-
-/**
- * Functions that are always called for a certain chart config
- */
-const defaultHooks: DefaultHooks = {
-  bar: {
-    vertical: [normalizeBarData],
-    horizontal: [normalizeHorizontalBarData],
-    stacked: [roundCap],
-    'percentage stack': [normalizeStackedBars],
-  },
-  line: {
-    default: [],
-  },
-  area: {
-    overlapping: [setAreaGradients],
-    stacked: [setAreaColors],
-  },
-  funnel: {
-    default: [],
-  },
-  sunburst: {
-    default: [sunburstCoreColoring],
-  },
-  donut: {
-    default: [],
-  },
-  scatter: {
-    default: [],
-    tooltip2: [],
-  },
-}
