@@ -24,12 +24,14 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
     const { series, chartRef, ...otherProps } = props
 
     if (!series) return
+
     if (!isArray(series)) return
 
     const initialState: LegendState = []
     series.forEach((serie) => {
-      if (serie.name)
+      if (serie.name) {
         initialState.push({ serie: String(serie.name), state: 'unchecked' })
+      }
     })
 
     const [seriesState, setSeriesState] = useState<LegendState>(initialState)
@@ -39,11 +41,14 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
      */
     const colors = useMemo(() => {
       let index = 0
+
       return series.map((serie) => {
         if (!serie.color) {
           return defaultColorPreset[index++]
         }
+
         if (isString(serie.color)) return serie.color
+
         return serie.color[0]
       })
     }, [series])
@@ -60,6 +65,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
     const changeState = useCallback(
       (index: number, type: LegendAction['type']) => {
         const newState = [...seriesState] as LegendState
+
         if (type === 'selectAll') {
           newState.forEach((serie) => {
             serie.state = 'unchecked'
@@ -70,13 +76,17 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
             else serie.state = 'checked'
           })
         } else {
-          if (index >= seriesState.length)
+          if (index >= seriesState.length) {
             return setSeriesState(checkAllSelected(newState))
+          }
+
           newState[index].state =
             newState[index].state !== 'off' ? 'off' : 'checked'
         }
+
         const checkedState = checkAllSelected(newState)
         setSeriesState(checkedState)
+
         return checkedState
       },
       [seriesState]
@@ -96,6 +106,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
     const onClick = useCallback(
       (name: string) => {
         if (!chartRef.current) return
+
         const chart = chartRef.current.getEchartsInstance()
         const index = seriesState.findIndex((serie) => serie.serie === name)
         const newState = [...seriesState]
@@ -159,6 +170,7 @@ export function getChanges(chart: ChartConfig | null): string {
       change = 'roundBar'
     }
   }
+
   return change
 }
 
@@ -168,11 +180,13 @@ export function handleChanges(
   action: LegendAction
 ): EChartsOption {
   let finalOptions = option
+
   if (change === 'roundBar' && action.type === 'toggle') {
     finalOptions = changeBarRoundingToogle(option, action.state)
   } else if (change === 'roundBar' && action.type === 'exclusive') {
     finalOptions = changeBarRoundingExclusive(option, action.index)
   }
+
   return finalOptions
 }
 export type LegendState = LegendItemType[]
