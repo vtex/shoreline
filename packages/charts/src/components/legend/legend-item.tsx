@@ -22,15 +22,19 @@ export function LegendItem({
 
   const border = useMemo(() => {
     if (state !== 'off') return 'none'
+
     if (hover) {
       return 'var(--sl-border-base-strong-hover)'
     }
+
     return 'var(--sl-border-base-strong)'
   }, [state, hover])
 
   const backgroundColor = useMemo(() => {
     if (state === 'off') return 'transparent'
+
     if (!hover) return color
+
     return getHoverColor(color)
   }, [state, hover, color])
 

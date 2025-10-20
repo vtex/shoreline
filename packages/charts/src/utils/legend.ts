@@ -27,19 +27,22 @@ export function toggleSerieLegend(chart: echarts.ECharts, serie: string) {
 }
 
 export function getHoverColor(color: string): string {
-  if (Object.keys(defaultColorShade).includes(color))
+  if (Object.keys(defaultColorShade).includes(color)) {
     return defaultColorShade[color]
+  }
+
   return color
 }
 
 export function checkAllSelected(seriesState: LegendState): LegendState {
   const allOn = seriesState.every((serie) => serie.state !== 'off')
 
-  if (allOn)
+  if (allOn) {
     return seriesState.map((serie) => ({
       ...serie,
       state: 'unchecked',
     })) as LegendState
+  }
 
   return seriesState.map((serie) => ({
     ...serie,
@@ -52,6 +55,7 @@ export function changeBarRoundingToogle(
   state: LegendState
 ): EChartsOption {
   const series = options.series
+
   if (!series || !isArray(series)) return options
 
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
@@ -117,6 +121,7 @@ export function changeBarRoundingExclusive(
   index: number
 ): EChartsOption {
   const series = options.series
+
   if (!series || !isArray(series)) return options
 
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
@@ -131,6 +136,7 @@ export function changeBarRoundingExclusive(
           },
         }
       }
+
       return serie
     }),
   }

@@ -21,21 +21,27 @@ export function applySeriesHook(
  */
 export function normalizeBarData(option: EChartsOption): EChartsOption {
   const series = option.series
+
   if (typeof series === 'undefined') return option
+
   if (isArray(series)) {
     option.series = series.map((v: any) => normalizeBarDataInner(v))
     return option
   }
+
   option.series = normalizeBarDataInner(series)
+
   return option
 }
 
 export function normalizeBarDataInner(series: SeriesOption): SeriesOption {
   const data: any = series.data
+
   if (data === null || typeof data === 'undefined') return series
 
   const defaultBorder = defaultTheme.bar.itemStyle.borderRadius
   const invertedBorderRadius = [0, 0, defaultBorder[0], defaultBorder[1]]
+
   return {
     ...series,
     data: data.map((v) => {
@@ -48,17 +54,21 @@ export function normalizeBarDataInner(series: SeriesOption): SeriesOption {
       ) {
         return v
       }
+
       if (typeof v === 'number') {
         return v > 0
           ? v
           : { value: v, itemStyle: { borderRadius: invertedBorderRadius } }
       }
+
       if (typeof v.value === 'number' && v.value < 0) {
         const out = { ...v }
         out.itemStyle ??= {}
         out.itemStyle.borderRadius = invertedBorderRadius
+
         return out
       }
+
       return v
     }),
   }
@@ -68,20 +78,28 @@ export function normalizeHorizontalBarData(
   option: EChartsOption
 ): EChartsOption {
   const series = option.series
+
   if (typeof series === 'undefined') return option
+
   if (isArray(series)) {
     option.series = series.map((v: any) => normalizeHorizontalBarDataInner(v))
+
     return option
   }
+
   option.series = normalizeHorizontalBarDataInner(series)
+
   return option
 }
+
 export function normalizeHorizontalBarDataInner(
   series: SeriesOption
 ): SeriesOption {
   if (typeof series === 'undefined' || typeof series.data === 'undefined')
     return {}
+
   const data: any = series.data
+
   if (data === null || typeof data === 'undefined') return series
 
   const defaultBorder = defaultTheme.bar.itemStyle.borderRadius
@@ -99,17 +117,21 @@ export function normalizeHorizontalBarDataInner(
       ) {
         return v
       }
+
       if (typeof v === 'number') {
         return v > 0
           ? v
           : { value: v, itemStyle: { borderRadius: invertedBorderRadius } }
       }
+
       if (typeof v.value === 'number' && v.value < 0) {
         const out = { ...v }
         out.itemStyle ??= {}
         out.itemStyle.borderRadius = invertedBorderRadius
+
         return out
       }
+
       return v
     }),
   }
@@ -117,6 +139,7 @@ export function normalizeHorizontalBarDataInner(
 
 export function roundCap(options: EChartsOption): EChartsOption {
   const series = options.series
+
   if (!isArray(series) || !isArray(series[0].data)) return options
 
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
@@ -137,22 +160,23 @@ export function roundCap(options: EChartsOption): EChartsOption {
         }
         break
       }
+
       if (data[i] !== 0) {
         data[i] = {
           value: data[i],
           itemStyle: { borderRadius: defaultBorderRadius },
         } as { value: number; itemStyle: { borderRadius: number[] } }
-        // series[j].data[i].itemStyle ??= {}
-        // series[j].data[i].itemStyle.borderRadius = defaultBorderRadius
         break
       }
     }
   })
+
   return options
 }
 
 export function normalizeStackedBars(options: EChartsOption): EChartsOption {
   const series = options.series
+
   if (!isArray(series) || !isArray(series[0].data)) return options
 
   const seriesSums: number[] = []
@@ -161,12 +185,14 @@ export function normalizeStackedBars(options: EChartsOption): EChartsOption {
     series.forEach((v) => {
       const data = v.data as (number | { value: number })[]
       const current = data[i] as number | { value: number }
+
       if (isObject(current)) {
         currentTotal += current.value
       } else {
         currentTotal += current
       }
     })
+
     seriesSums.push(currentTotal)
   }
 
@@ -174,14 +200,17 @@ export function normalizeStackedBars(options: EChartsOption): EChartsOption {
     const data = serie.data as (number | { value: number })[]
     data.forEach((v, j) => {
       let value = 0
+
       if (isObject(v)) {
         value = v.value
       } else {
         value = v
       }
+
       data[j] = value / seriesSums[j]
     })
   })
+
   return options
 }
 
@@ -200,10 +229,11 @@ export function setAreaColors(
   arraySeries.forEach((v) => {
     let areaColor: any
     const serie = v as LineSeriesOption
+
     if (serie.areaStyle) {
-      console.log('oi')
       return
     }
+
     if (serie.color) {
       if (Array.isArray(serie.color)) {
         areaColor = serie.color[0]
@@ -214,16 +244,18 @@ export function setAreaColors(
           defaultColorPreset[nextColorIndex % defaultAreaColors.length]
         ]
     }
+
     serie.areaStyle ??= {}
 
     if (!gradient) {
-      // defaultColorShade[areaColor]
       serie.areaStyle.color = areaColor
       serie.color = areaColor
 
       nextColorIndex++
+
       return
     }
+
     areaColor = {
       type: 'linear' as const,
       x: 0,
@@ -243,6 +275,7 @@ export function setAreaColors(
       ],
     }
     serie.areaStyle.color = areaColor
+
     if (!serie.color) {
       nextColorIndex++
     }
@@ -287,7 +320,9 @@ export function formatTimeAxis(
 ) {
   return (options: EChartsOption) => {
     const series = options.series
+
     if (!isArray(series) || !isArray(series[0].data)) return options
+
     series.forEach((serie) => {
       const data = serie.data as any[]
       data.forEach((value: [Date, number], j) => {
@@ -298,6 +333,7 @@ export function formatTimeAxis(
       })
       series
     })
+
     return options
   }
 }
@@ -306,7 +342,9 @@ export function sunburstCoreColoring(options: EChartsOption): EChartsOption {
   const series = options.series as SeriesOption & {
     levels: [{ itemStyle: any }]
   }
+
   if (!series) return options
+
   if (isArray(series)) {
     return options
   }
@@ -324,5 +362,6 @@ export function sunburstCoreColoring(options: EChartsOption): EChartsOption {
       },
     ]
   }
+
   return options
 }

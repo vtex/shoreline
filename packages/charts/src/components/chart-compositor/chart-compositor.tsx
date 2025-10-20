@@ -53,6 +53,7 @@ export const ChartCompositor = forwardRef<
       if (chartIn.hooks === null) {
         return chartIn
       }
+
       const chart = cloneDeep(chartIn)
       const { type, variant } = chart.chartConfig
       const checkedVariant =
@@ -68,6 +69,7 @@ export const ChartCompositor = forwardRef<
         (out, fn) => applySeriesHook(out, fn),
         chart.series
       )
+
       return chart
     })
   }, [charts])
@@ -82,6 +84,7 @@ export const ChartCompositor = forwardRef<
 
   const chartOptions: EChartsOption = useMemo(() => {
     const finalOptions: EChartsOption = {}
+
     if (loading) return { xAxis: xAxis, yAxis: yAxis }
 
     if (option) {
@@ -89,16 +92,19 @@ export const ChartCompositor = forwardRef<
     } else {
       finalOptions.grid = GRID_DEFAULT_STYLE
     }
+
     if (charts[0] && checkZoom(zoom, charts[0].chartConfig?.type)) {
       finalOptions.grid ??= {}
       finalOptions.grid = { ...finalOptions.grid, height: '75%' }
       finalOptions.dataZoom = DATAZOOM_DEFAULT_STYLE
     }
+
     finalOptions.series = cloneDeep(seriesOptions)
     finalOptions.tooltip = cloneDeep(tooltipOptions)
     finalOptions.yAxis = cloneDeep(yAxis)
     finalOptions.xAxis = cloneDeep(xAxis)
     finalOptions.title = cloneDeep(title)
+
     return option ? merge(option, finalOptions) : finalOptions
   }, [
     charts,

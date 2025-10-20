@@ -11,6 +11,7 @@ export default function ChartTooltip({
   dimension,
 }: ChartTooltipProps) {
   if (isArray(params) && invert) params.reverse()
+
   return (
     <>
       <h4 data-sl-chart-tooltip-title>
@@ -73,17 +74,21 @@ function getValueForTooltip(params, percentage, dimension) {
   if (percentage) {
     return `${Math.round(params.value * 1000) / 10}%`
   }
+
   if (!isArray(params.value)) {
     return params.value
   }
+
   if (dimension && params.value.length > dimension) {
     return params.value[dimension]
   }
+
   return params.value[1]
 }
 
 export const getTooltipStaticString = (props: FormatterParams) => {
   const { params, invert = false, percentage = false, dimension } = props
+
   return renderToStaticMarkup(
     <ChartTooltip
       params={params}
