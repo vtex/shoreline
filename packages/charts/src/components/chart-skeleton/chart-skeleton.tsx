@@ -5,13 +5,7 @@ import '../../theme/components/chartSkeleton.css'
 
 export const ChartSkeleton = forwardRef<HTMLDivElement, ChartSkeletonProps>(
   function ChartSkeleton(props, ref) {
-    const {
-      height = '300px',
-      width = '100%',
-      numLines = 6,
-      numColumns = 7,
-      style,
-    } = props
+    const { height, width, numLines = 6, numColumns = 7, style } = props
 
     return (
       <Flex
