@@ -24,13 +24,14 @@
   letter-spacing: var(--sl-letter-spacing-0);
   color: var(--sl-fg-base);
   overflow-wrap: break-word;
-  white-space: normal !important;
+  white-space: normal;
 }
 [data-sl-chart-tooltip-data-serie-name] {
   font: var(--sl-text-body-font);
   letter-spacing: var(--sl-text- -letter-spacing);
   color: var(--sl-fg-base-soft);
   letter-spacing: var(--sl-letter-spacing-2);
+  white-space: normal;
 }
 [data-sl-chart-tooltip-data-serie-value] {
   font: var(--sl-text-display-3-font);
