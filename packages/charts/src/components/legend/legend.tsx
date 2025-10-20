@@ -100,31 +100,31 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
         const index = seriesState.findIndex((serie) => serie.serie === name)
         const newState = [...seriesState]
 
-        const on: string[] = []
-        const off: string[] = []
-        const checked: string[] = []
+        const seriesChecked: string[] = []
+        const seriesUnchecked: string[] = []
         newState.forEach((serie) => {
-          if (serie.state === 'checked') on.push(serie.serie)
-          else if (serie.state === 'off') off.push(serie.serie)
-          else checked.push(serie.serie)
+          if (serie.state === 'checked') seriesChecked.push(serie.serie)
+          else if (serie.state === 'unchecked')
+            seriesUnchecked.push(serie.serie)
         })
 
-        let action = ''
-        if (checked.length !== 0) {
-          action = 'exclusive'
-        } else if (on.length === 1 && on[0] === name) {
-          action = 'selectAll'
-        } else {
-          action = 'toggle'
+        let actionType: LegendAction['type'] = 'toggle'
+        if (seriesUnchecked.length !== 0) {
+          actionType = 'exclusive'
+        } else if (seriesChecked.length === 1 && seriesChecked[0] === name) {
+          actionType = 'selectAll'
         }
 
-        const settedState = changeState(index, action as LegendAction['type'])
+        const settedState = changeState(
+          index,
+          actionType as LegendAction['type']
+        )
         chart.dispatchAction({
           type: 'legendToggleSelect',
           // repurposing this field for the extra info we need
           name: {
             index: index,
-            type: action,
+            type: actionType,
             state: settedState,
             chartId: chart.getId(),
           },
@@ -175,6 +175,7 @@ export function handleChanges(
   }
   return finalOptions
 }
+
 export type LegendState = LegendItemType[]
 
 export type LegendItemType = {
