@@ -272,7 +272,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           style={{ minWidth: 300, minHeight: 200, ...style }}
           opts={{ renderer: renderer, locale: locale }}
           showLoading={loading}
-          // onChartReady={(instance) => instance.resize()}
           onEvents={eventsAdapter}
           notMerge={true}
           {...otherProps}

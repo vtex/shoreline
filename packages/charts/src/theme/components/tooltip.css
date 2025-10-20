@@ -1,7 +1,6 @@
 [data-sl-chart-tooltip] {
   background-color: var(--sl-color-gray-0);
   border-radius: 4px;
-  /* min-width: 100px; */
 }
 [data-sl-chart-tooltip-data-container] {
   display: flex;
