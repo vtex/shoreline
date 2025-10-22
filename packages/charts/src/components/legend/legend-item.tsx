@@ -1,4 +1,4 @@
-import { IconCheckSmall } from '@vtex/shoreline'
+import { Flex, IconCheckSmall } from '@vtex/shoreline'
 import {
   useRef,
   useState,
@@ -46,7 +46,8 @@ export function LegendItem({
   )
 
   return (
-    <div
+    <Flex
+      gap={0}
       data-sl-chart-legend-container
       onClick={handleClick}
       onMouseDown={(e) => e.preventDefault()}
@@ -65,7 +66,7 @@ export function LegendItem({
         {state === 'checked' && <IconCheckSmall data-sl-chart-legend-check />}
       </button>
       <span data-sl-chart-legend-text>{serie}</span>
-    </div>
+    </Flex>
   )
 }
 
