@@ -1,4 +1,4 @@
-import { Flex, IconCheckSmall } from '@vtex/shoreline'
+import { Button, Flex, IconCheckSmall } from '@vtex/shoreline'
 import {
   useRef,
   useState,
@@ -55,7 +55,7 @@ export function LegendItem({
       onMouseLeave={() => setHover(false)}
       {...otherProps}
     >
-      <button
+      <Button
         ref={buttonRef}
         data-sl-chart-legend-button
         style={{
@@ -64,7 +64,7 @@ export function LegendItem({
         }}
       >
         {state === 'checked' && <IconCheckSmall data-sl-chart-legend-check />}
-      </button>
+      </Button>
       <span data-sl-chart-legend-text>{serie}</span>
     </Flex>
   )
