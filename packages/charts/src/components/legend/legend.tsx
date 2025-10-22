@@ -18,6 +18,7 @@ import {
 import type ReactECharts from 'echarts-for-react'
 import { LegendItem } from './legend-item'
 import type { ChartConfig } from '../../types/chart'
+import { Flex } from '@vtex/shoreline'
 
 export const Legend = forwardRef<LegendHandle, LegendProps>(
   function Legend(props, ref) {
@@ -145,7 +146,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
     )
 
     return (
-      <div data-sl-chart-legend {...otherProps} onClick={undefined}>
+      <Flex data-sl-chart-legend {...otherProps} onClick={undefined}>
         {seriesState.map((serie, index) => {
           return (
             <LegendItem
@@ -158,7 +159,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
             />
           )
         })}
-      </div>
+      </Flex>
     )
   }
 )

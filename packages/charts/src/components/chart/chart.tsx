@@ -42,6 +42,7 @@ import {
 import '../../theme/components/chart.css'
 import { ChartSkeleton } from '../chart-skeleton/chart-skeleton'
 import { chartsDefaultHooks } from '../../utils/defaultHooks'
+import { Flex } from '@vtex/shoreline'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -266,7 +267,8 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         numLines={loadingOptions?.numLines}
       />
     ) : (
-      <div
+      <Flex
+        direction="column"
         data-sl-chart={
           chartConfig
             ? `${chartConfig.type}-${chartConfig.variant ? chartConfig.variant : getDefaultByType(chartConfig.type)}`
@@ -291,7 +293,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             chartRef={chartRef}
           />
         ) : null}
-      </div>
+      </Flex>
     )
   }
 )
