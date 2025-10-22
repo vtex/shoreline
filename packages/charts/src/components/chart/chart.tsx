@@ -269,6 +269,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     ) : (
       <Flex
         direction="column"
+        gap={0}
         data-sl-chart={
           chartConfig
             ? `${chartConfig.type}-${chartConfig.variant ? chartConfig.variant : getDefaultByType(chartConfig.type)}`
