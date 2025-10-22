@@ -32,3 +32,4 @@ pnpm dev:docs # [docs package] runs the docs website
 
 Pull requests are welcome, please check our
 [development guideline](https://shoreline.vtex.com/guides/code/development-guideline)!
+ 
