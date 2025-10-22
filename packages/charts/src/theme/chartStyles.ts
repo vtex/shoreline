@@ -323,7 +323,7 @@ export const CHART_STYLES: DefaultChartStyles = {
       animationEasing: 'cubicInOut',
       animationEasingUpdate: 'cubicInOut',
     },
-    tooltip2: {
+    'third-dimension': {
       xAxis: { type: 'category' },
       yAxis: { type: 'value' },
       series: {

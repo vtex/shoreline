@@ -37,7 +37,7 @@ export const chartsDefaultHooks: DefaultHooks = {
   },
   scatter: {
     default: [],
-    tooltip2: [],
+    'third-dimension': [],
   },
 }
 
@@ -66,7 +66,7 @@ export const chartCompositorDefaultHooks: DefaultHooks = {
   },
   scatter: {
     default: [],
-    tooltip2: [],
+    'third-dimension': [],
   },
   donut: {
     default: [],

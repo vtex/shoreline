@@ -46,7 +46,7 @@ export const Basic: Story = {
   },
 }
 
-export const Tooltip2Variant: Story = {
+export const ThirdDimensionVariant: Story = {
   args: {
     series: [
       {
@@ -80,7 +80,7 @@ export const Tooltip2Variant: Story = {
         name: 'Serie 2',
       },
     ],
-    chartConfig: { type: 'scatter', variant: 'tooltip2' },
+    chartConfig: { type: 'scatter', variant: 'third-dimension' },
   },
 }
 
