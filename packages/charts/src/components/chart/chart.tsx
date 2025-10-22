@@ -88,6 +88,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       if (optionHooks === null || chartConfig === null) {
         return []
       }
+
       const { type, variant } = chartConfig
       const checkedVariant =
         variant && checkValidVariant(type, variant)
@@ -95,11 +96,13 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
           : getDefaultByType(type)
 
       const hooks: any[] = []
+
       if (!isArray(xAxis) && xAxis.type === 'time') {
         hooks.push(formatTimeAxis(locale))
       }
       hooks.push(...chartsDefaultHooks[type][checkedVariant])
       hooks.push(...optionHooks)
+
       return hooks
     }, [chartConfig, optionHooks, xAxis, locale])
 
@@ -115,6 +118,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         wholeOption.grid = { ...wholeOption.grid, height: '75%' }
         wholeOption.dataZoom = DATAZOOM_DEFAULT_STYLE
       }
+
       if (checkboxLegend) {
         wholeOption.legend = LEGEND_DEFAULT_STYLE
         // the legend echarts component must exist for
@@ -127,6 +131,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
       const hookedOptions = hooks.reduce((opt, fn) => fn(opt), wholeOption)
       const options = getChartOptions(hookedOptions, chartConfig) || wholeOption
+
       return options
     }, [
       option,
@@ -143,15 +148,19 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     const checkBoxLegend = useCallback(
       (params: any) => {
         if (!chartRef.current) return
+
         const chart = chartRef.current.getEchartsInstance()
         const series = finalOptions.series as SeriesOption[]
         const change = getChanges(chartConfig)
 
         const action = params.name as LegendAction
+
         if (action.type === 'toggle' && action.index < series.length) {
           toggleSerieLegend(chart, String(series[action.index].name))
-          if (change)
+
+          if (change) {
             chart.setOption(handleChanges(change, finalOptions, action))
+          }
         }
 
         if (action.type === 'selectAll') {
@@ -159,7 +168,10 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             chart,
             series.map((serie) => String(serie.name))
           )
-          if (change) chart.setOption(finalOptions)
+
+          if (change) {
+            chart.setOption(finalOptions)
+          }
         }
 
         if (action.type === 'exclusive') {
@@ -167,8 +179,10 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             if (index === action.index) turnOnSerieLegend(chart, String(s.name))
             else turnOffSerieLegend(chart, String(s.name))
           })
-          if (change)
+
+          if (change) {
             chart.setOption(handleChanges(change, finalOptions, action))
+          }
         }
 
         if (action.chartId !== chart.getId() && legendRef.current) {
@@ -181,6 +195,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     const connectGroups = useCallback(
       (_params?: any) => {
         if (!group || !chartRef.current) return
+
         const chart = chartRef.current.getEchartsInstance()
 
         chart.group = group
@@ -207,6 +222,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       if (!canUseDOM) return
 
       window.addEventListener('resize', handleResize)
+
       return () => {
         window.removeEventListener('resize', handleResize)
       }

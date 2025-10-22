@@ -20,6 +20,7 @@ export const formatSeries = (
   defaultStyle: EChartsOption
 ) => {
   if (!series) return
+
   if (isArray(series)) {
     return series.map((serie) => buildDefaultSerie(serie, defaultStyle))
   }
@@ -31,10 +32,12 @@ const setBarGap = (series: SeriesOption[], size: number) => {
   let bar = 0
 
   for (let i = 0; i < series.length; i++) if (series[i].type === 'bar') bar++
+
   if (bar <= 1) return
 
   let finalPercentage: number
   finalPercentage = 100
+
   if (size === 1) finalPercentage = 100 / (bar + 2)
 
   if (size === 2) finalPercentage = 100 / (bar + 1)
@@ -43,6 +46,7 @@ const setBarGap = (series: SeriesOption[], size: number) => {
 
   for (let i = series.length - 1; i > -1; i--) {
     const serie = series[i]
+
     if (serie.type === 'bar') {
       serie.barCategoryGap = `${finalPercentage.toFixed(0)}%`
     }
@@ -54,7 +58,9 @@ export const getChartOptions = (
   chartConfig: ChartConfig
 ): EChartsOption | undefined => {
   const { type, variant } = chartConfig
+
   if (typeof options === 'undefined') return
+
   const { series, ...rest } = options
 
   const defaultStyle =
@@ -65,10 +71,12 @@ export const getChartOptions = (
   const { series: defaultSeries, ...defaultRest } = defaultStyle
   const formattedSeries = formatSeries(series, defaultStyle)
 
-  if (type === 'bar' && isArray(formattedSeries) && chartConfig.gap)
+  if (type === 'bar' && isArray(formattedSeries) && chartConfig.gap) {
     setBarGap(formattedSeries, chartConfig.gap)
+  }
 
   const mergedOptions = merge(defaultRest, rest)
+
   return { ...mergedOptions, series: formattedSeries }
 }
 
@@ -132,6 +140,7 @@ export const getBackgroundChartCompositor = (
 
 export function checkValidVariant(type: string, variant?: string): boolean {
   if (!variant) return false
+
   return ChartVariants[type].variants.includes(variant)
 }
 
@@ -156,9 +165,12 @@ export function checkZoom(
 
 export function getSeriesNames(option: EChartsOption): string[] {
   if (!option.series) return ['series0']
+
   const series = option.series
+
   if (isArray(series)) {
     return series.map((v, i) => (v.name ? v.name.toString() : `series${i}`))
   }
+
   return series.name ? [series.name.toString()] : ['series0']
 }
