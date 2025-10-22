@@ -1,4 +1,4 @@
-import { isArray, isString } from 'lodash'
+import { isArray } from 'lodash'
 import {
   type ComponentPropsWithoutRef,
   forwardRef,
@@ -38,7 +38,9 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
     const [seriesState, setSeriesState] = useState<LegendState>(initialState)
 
     /**
-     * Makes an array of colors to track the colors of each serie
+     * Makes an array of colors to track the colors of each serie.
+     * Mimics echarts color picking behaviour, if a color is set in the series
+     * the next default color is picked.
      */
     const colors = useMemo(() => {
       let index = 0
@@ -47,10 +49,10 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
         if (!serie.color) {
           return defaultColorPreset[index++]
         }
+        // Echarts choses the first by default.
+        if (Array.isArray(serie.color)) return serie.color[0]
 
-        if (isString(serie.color)) return serie.color
-
-        return serie.color[0]
+        return serie.color
       })
     }, [series])
 
