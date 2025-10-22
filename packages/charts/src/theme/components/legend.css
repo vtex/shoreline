@@ -13,6 +13,7 @@
 }
 
 [data-sl-chart-legend-button] {
+  padding: 0%;
   cursor: pointer;
   width: 12px;
   height: 12px;
@@ -21,6 +22,8 @@
   padding-left: 0px;
   padding-right: 0px;
   text-align: center;
+  min-width: auto;
+  min-height: auto;
 }
 
 [data-sl-chart-legend-button]:focus {
