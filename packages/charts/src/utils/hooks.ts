@@ -7,7 +7,13 @@ import {
   defaultColorShade,
 } from '../theme/colors'
 
-export function applySeriesHook(
+/**
+ * Apply a hook to a function and keep only the series part of the resulting option.
+ *
+ * Enables chart compositor to use the same hooks as a regular chart while limiting the
+ * changes to only affect one chart unit.
+ */
+export function hooksCompositorAdapter(
   series: SeriesOption,
   fn: (option: EChartsOption) => EChartsOption
 ): SeriesOption {
@@ -34,7 +40,13 @@ export function normalizeBarData(option: EChartsOption): EChartsOption {
   return option
 }
 
-export function normalizeBarDataInner(series: SeriesOption): SeriesOption {
+/**
+ * Iterates through series data and inverts the border radius of
+ * points with negative values, so that the border doesn't render upside down.
+ *
+ * Most of the complexity here comes from the many different ways series can be layed out.
+ */
+function normalizeBarDataInner(series: SeriesOption): SeriesOption {
   const data: any = series.data
 
   if (data === null || typeof data === 'undefined') return series
@@ -74,6 +86,10 @@ export function normalizeBarDataInner(series: SeriesOption): SeriesOption {
   }
 }
 
+/**
+ * Fix required so that bars with negative values don't render
+ * upside down.
+ */
 export function normalizeHorizontalBarData(
   option: EChartsOption
 ): EChartsOption {
@@ -91,10 +107,13 @@ export function normalizeHorizontalBarData(
 
   return option
 }
-
-export function normalizeHorizontalBarDataInner(
-  series: SeriesOption
-): SeriesOption {
+/**
+ * Iterates through series data and inverts the border radius of
+ * points with negative values, so that the border doesn't render upside down.
+ *
+ * Most of the complexity here comes from the many different ways series can be layed out.
+ */
+function normalizeHorizontalBarDataInner(series: SeriesOption): SeriesOption {
   if (typeof series === 'undefined' || typeof series.data === 'undefined')
     return {}
 
@@ -136,7 +155,12 @@ export function normalizeHorizontalBarDataInner(
     }),
   }
 }
-
+/**
+ * Used in stacked charts to guarantee that the top bar in the stack
+ * always has a border radius, and no other bar does.
+ *
+ * Also called when series are toggled.
+ */
 export function roundCap(options: EChartsOption): EChartsOption {
   const series = options.series
 
@@ -150,6 +174,7 @@ export function roundCap(options: EChartsOption): EChartsOption {
         | { value: number; itemStyle: { borderRadius: number[] } }
       )[]
 
+      // Zero value points aren't rendered and should be skipped
       if (isObject(data[i]) && data[i].value !== 0) {
         data[i] = {
           ...data[i],
@@ -174,6 +199,10 @@ export function roundCap(options: EChartsOption): EChartsOption {
   return options
 }
 
+/**
+ *  Used in percentage stacked bar charts to map the passed values to
+ * percentages.
+ */
 export function normalizeStackedBars(options: EChartsOption): EChartsOption {
   const series = options.series
 
@@ -214,10 +243,19 @@ export function normalizeStackedBars(options: EChartsOption): EChartsOption {
   return options
 }
 
+/**
+ * Used by overlapping area charts to set their area colors
+ * to have a gradient between series color and transparent.
+ */
 export function setAreaGradients(options: EChartsOption): EChartsOption {
   return setAreaColors(options, true)
 }
 
+/**
+ * Used by area charts to correctly set their area colors,
+ * accounting for the possibility of colors being overriden by `series.color`.
+ * @param gradient wether to interpolate the color to transparent
+ */
 export function setAreaColors(
   options: EChartsOption,
   gradient = false
@@ -288,7 +326,7 @@ export function setAreaColors(
  * If options is already an array of objects, does nothing.
  *
  * Expects options to be like:
- * ```
+ * ``` ts
  * series: [
  *  {
  *    data: [
@@ -301,7 +339,7 @@ export function setAreaColors(
  * ]
  * ```
  * Which expands into:
- * ```
+ * ``` ts
  * series: [
  *   {
  *     data: [
@@ -338,6 +376,14 @@ export function formatTimeAxis(
   }
 }
 
+/**
+ * Colors the root node in sunburst charts, while still allowing for the user
+ * to change it.
+ *
+ * Could also have been implemented in chart styles, but doing so resulted
+ * in weird behaviour where user and default would be mixed, not allowing the user
+ * to change the root node.
+ */
 export function sunburstCoreColoring(options: EChartsOption): EChartsOption {
   const series = options.series as SeriesOption & {
     levels: [{ itemStyle: any }]
