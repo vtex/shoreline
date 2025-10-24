@@ -20,17 +20,15 @@ export const ChartSkeleton = forwardRef<HTMLDivElement, ChartSkeletonProps>(
         ref={ref}
       >
         <Spinner data-sl-chart-skeleton-spinner />
-        <Flex
-          direction="column"
-          justify="space-between"
-          style={{ height: '100%', width: '100%' }}
-        >
+
+        <Flex data-sl-inner-flex direction="column" justify="space-between">
           {Array.from({ length: numLines - 1 }).map((_, index) => (
             <ChartSkeletonLine key={index} />
           ))}
           {numLines <= 0 ? null : <ChartSkeletonLine isXAxisLine />}
         </Flex>
-        <Flex justify="space-between" style={{ paddingLeft: '40px' }}>
+
+        <Flex data-ls-chart-skeleto-chart-flex justify="space-between">
           {Array.from({ length: numColumns }).map((_, index) => (
             <ChartSkeletonXAxisBox key={index} />
           ))}
@@ -63,6 +61,7 @@ function ChartSkeletonLine(props: { isXAxisLine?: boolean }) {
         width={'16px'}
         height={'16px'}
       />
+
       <div
         data-sl-chart-skeleton-line
         style={{
