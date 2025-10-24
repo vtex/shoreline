@@ -12,7 +12,7 @@ import {
 import { merge } from '@vtex/shoreline-utils'
 import { GRID_DEFAULT_STYLE } from '../../theme/chartStyles'
 import type EChartsReact from 'echarts-for-react'
-import { applySeriesHook } from '../../utils/hooks'
+import { hooksCompositorAdapter } from '../../utils/hooks'
 import { cloneDeep } from 'lodash'
 import { chartCompositorDefaultHooks } from '../../utils/defaultHooks'
 
@@ -81,7 +81,7 @@ export const ChartCompositor = forwardRef<
       seriesHooks.push(...(chart.hooks ?? []))
 
       chart.series = seriesHooks.reduce(
-        (out, fn) => applySeriesHook(out, fn),
+        (out, fn) => hooksCompositorAdapter(out, fn),
         chart.series
       )
 
