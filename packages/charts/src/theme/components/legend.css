@@ -41,5 +41,5 @@
   cursor: pointer;
   font: var(--sl-text-caption-1-font);
   color: var(--sl-fg-base-soft);
-  font-size: 12px;
+  font-size: 0.75rem;
 }
