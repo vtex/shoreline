@@ -34,7 +34,7 @@ export const DATAZOOM_DEFAULT_STYLE: EChartsOption['dataZoom'] = [
     //Sizing
     right: 'center',
     bottom: '9%',
-    height: '9%',
+    height: '48px',
     width: '95%',
     //Styles
     borderColor: 'var(--sl-color-gray-5)',

@@ -14,15 +14,11 @@ import { defaultTheme } from '../../theme/themes'
 import type { ChartConfig } from '../../types/chart'
 import {
   checkValidVariant,
-  checkZoom,
   getChartOptions,
   getDefaultByType,
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
-import {
-  DATAZOOM_DEFAULT_STYLE,
-  LEGEND_DEFAULT_STYLE,
-} from '../../theme/chartStyles'
+import { LEGEND_DEFAULT_STYLE } from '../../theme/chartStyles'
 import { cloneDeep, isArray, type Dictionary } from 'lodash'
 import { formatTimeAxis } from '../../utils/hooks'
 import {
@@ -114,12 +110,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       wholeOption.yAxis = cloneDeep(yAxis)
       wholeOption.title = cloneDeep(title)
 
-      if (checkZoom(zoom, chartConfig?.type)) {
-        wholeOption.grid ??= {}
-        wholeOption.grid = { ...wholeOption.grid, height: '75%' }
-        wholeOption.dataZoom = DATAZOOM_DEFAULT_STYLE
-      }
-
       if (checkboxLegend) {
         wholeOption.legend = LEGEND_DEFAULT_STYLE
         // the legend echarts component must exist for
@@ -138,7 +128,6 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       option,
       checkboxLegend,
       chartConfig,
-      zoom,
       series,
       xAxis,
       yAxis,

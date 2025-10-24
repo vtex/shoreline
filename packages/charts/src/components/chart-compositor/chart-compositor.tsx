@@ -4,16 +4,12 @@ import type { ChartConfig, ChartUnit } from '../../types/chart'
 import { Chart, type ChartOptions } from '../chart/chart'
 import {
   checkValidVariant,
-  checkZoom,
   getDataToChartCompositor,
   getDefaultByType,
   getTooltipChartCompositor,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
-import {
-  DATAZOOM_DEFAULT_STYLE,
-  GRID_DEFAULT_STYLE,
-} from '../../theme/chartStyles'
+import { GRID_DEFAULT_STYLE } from '../../theme/chartStyles'
 import type EChartsReact from 'echarts-for-react'
 import { applySeriesHook } from '../../utils/hooks'
 import { cloneDeep } from 'lodash'
@@ -41,7 +37,6 @@ export const ChartCompositor = forwardRef<
     yAxis = { type: 'value' },
     title,
     tooltip,
-    zoom,
     option,
     style,
     loading,
@@ -93,12 +88,6 @@ export const ChartCompositor = forwardRef<
       finalOptions.grid = GRID_DEFAULT_STYLE
     }
 
-    if (charts[0] && checkZoom(zoom, charts[0].chartConfig?.type)) {
-      finalOptions.grid ??= {}
-      finalOptions.grid = { ...finalOptions.grid, height: '75%' }
-      finalOptions.dataZoom = DATAZOOM_DEFAULT_STYLE
-    }
-
     finalOptions.series = cloneDeep(seriesOptions)
     finalOptions.tooltip = cloneDeep(tooltipOptions)
     finalOptions.yAxis = cloneDeep(yAxis)
@@ -106,17 +95,7 @@ export const ChartCompositor = forwardRef<
     finalOptions.title = cloneDeep(title)
 
     return option ? merge(option, finalOptions) : finalOptions
-  }, [
-    charts,
-    xAxis,
-    yAxis,
-    option,
-    tooltipOptions,
-    title,
-    seriesOptions,
-    zoom,
-    loading,
-  ])
+  }, [xAxis, yAxis, option, tooltipOptions, title, seriesOptions, loading])
 
   return (
     <Chart
@@ -128,7 +107,6 @@ export const ChartCompositor = forwardRef<
       style={style}
       ref={ref}
       optionHooks={null}
-      zoom={zoom}
       loading={loading}
       {...otherProps}
     />
