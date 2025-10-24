@@ -7,21 +7,8 @@ import {
   ChartVariants,
 } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
-import { cloneDeep, isArray } from 'lodash'
+import { isArray } from 'lodash'
 
-/**
- *
- */
-const buildDefaultSerie = (
-  serie: SeriesOption | SeriesOption[],
-  defaultStyle: EChartsOption
-): SeriesOption => {
-  const seriesClone = cloneDeep(serie)
-  const defaultStylesClone = cloneDeep(defaultStyle.series)
-  const serieMerged = merge(defaultStylesClone, seriesClone) as SeriesOption
-
-  return serieMerged
-}
 /**
  * Merges series with default styles, handling both array and scalar form.
  */
@@ -35,7 +22,7 @@ const formatSeries = (
     return series.map((serie) => merge(serie, defaultStyle))
   }
 
-  return buildDefaultSerie(series, defaultStyle)
+  return merge(series, defaultStyle)
 }
 
 /**
