@@ -39,7 +39,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>(
 
     /**
      * Makes an array of colors to track the colors of each serie.
-     * Mimics echarts color picking behaviour, if a color is set in the series
+     * Mimics echarts color picking behaviour, if a color is not set in the series
      * the next default color is picked.
      */
     const colors = useMemo(() => {
