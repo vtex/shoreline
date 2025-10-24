@@ -116,12 +116,18 @@ export const getBackgroundChartCompositor = (
   return { xAxis: style.xAxis, yAxis: style.yAxis }
 }
 
+/**
+ * Checks if a certan chart type has that variant.
+ */
 export function checkValidVariant(type: string, variant?: string): boolean {
   if (!variant) return false
 
   return ChartVariants[type].variants.includes(variant)
 }
 
+/**
+ * Gets default variant for a chart type.
+ */
 export function getDefaultByType(type: ChartConfig['type']): string {
   return ChartVariants[type].default
 }
