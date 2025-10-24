@@ -7,7 +7,13 @@ import {
   defaultColorShade,
 } from '../theme/colors'
 
-export function applySeriesHook(
+/**
+ * Apply a hook to a function and keep only the series part of the resulting option.
+ *
+ * Enables chart compositor to use the same hooks as a regular chart while limiting the
+ * changes to only affect one chart unit.
+ */
+export function hooksCompositorAdapter(
   series: SeriesOption,
   fn: (option: EChartsOption) => EChartsOption
 ): SeriesOption {
