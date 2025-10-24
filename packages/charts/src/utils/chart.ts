@@ -9,7 +9,10 @@ import {
 import { merge } from '@vtex/shoreline-utils'
 import { cloneDeep, isArray } from 'lodash'
 
-export const buildDefaultSerie = (
+/**
+ *
+ */
+const buildDefaultSerie = (
   serie: SeriesOption | SeriesOption[],
   defaultStyle: EChartsOption
 ): SeriesOption => {
@@ -19,60 +22,28 @@ export const buildDefaultSerie = (
 
   return serieMerged
 }
-
-export const formatSeries = (
+/**
+ * Merges series with default styles, handling both array and scalar form.
+ */
+const formatSeries = (
   series: SeriesOption | SeriesOption[] | undefined,
   defaultStyle: EChartsOption
 ) => {
   if (!series) return
 
   if (isArray(series)) {
-    return series.map((serie) => buildDefaultSerie(serie, defaultStyle))
+    return series.map((serie) => merge(serie, defaultStyle))
   }
 
   return buildDefaultSerie(series, defaultStyle)
 }
+
 /**
- * Sets the size of bars and the size of the space between them. A good default is to set `gap` to equal the number of categories.
- * @param series
- * @param gap The size of the gap between each bar, smaller means larger bars. Chose based on the number of categories and the width of the chart.
+ * Applies default styling to the chart by merging user passed options
+ * with the default.
+ *
+ * In a conflict, user options are chosen over defaults.
  */
-export const setBarGap = (
-  series: SeriesOption[],
-  gap: BarChartConfig['gap']
-) => {
-  let bars = 0
-
-  for (let i = 0; i < series.length; i++) if (series[i].type === 'bar') bars++
-
-  if (bars <= 1 || typeof gap === 'undefined') return
-
-  let finalPercentage: number
-
-  switch (gap) {
-    case 1:
-      finalPercentage = 100 / (bars + 2)
-      break
-    case 2:
-      finalPercentage = 100 / (bars + 1)
-      break
-    case 3:
-      finalPercentage = 100 / bars
-      break
-    default:
-      gap satisfies never
-      return
-  }
-
-  for (let i = series.length - 1; i > -1; i--) {
-    const serie = series[i]
-
-    if (serie.type === 'bar') {
-      serie.barCategoryGap = `${finalPercentage.toFixed(0)}%`
-    }
-  }
-}
-
 export const getChartOptions = (
   options: EChartsOption,
   chartConfig: ChartConfig
@@ -102,7 +73,7 @@ export const getChartOptions = (
 
 /**
  * Returns the default style for that chart type and variant,
- * or the appropriate default variant if the variant is not passed.
+ * or for the appropriate default variant if the variant is not passed.
  */
 function getDefaultStyle(
   type: ChartConfig['type'],
@@ -183,6 +154,10 @@ export function checkZoom(
   return false
 }
 
+/**
+ * Get the names of series in options. If `series.name` is set return that, if not
+ * return the appropriate default name.
+ */
 export function getSeriesNames(option: EChartsOption): string[] {
   if (!option.series) return ['series0']
 
@@ -193,4 +168,45 @@ export function getSeriesNames(option: EChartsOption): string[] {
   }
 
   return series.name ? [series.name.toString()] : ['series0']
+}
+
+/**
+ * Sets the size of bars and the size of the space between them. A good default is to set `gap` to equal the number of categories.
+ * @param series
+ * @param gap The size of the gap between each bar, smaller means larger bars. Chose based on the number of categories and the width of the chart.
+ */
+export const setBarGap = (
+  series: SeriesOption[],
+  gap: BarChartConfig['gap']
+) => {
+  let bars = 0
+
+  for (let i = 0; i < series.length; i++) if (series[i].type === 'bar') bars++
+
+  if (bars <= 1 || typeof gap === 'undefined') return
+
+  let finalPercentage: number
+
+  switch (gap) {
+    case 1:
+      finalPercentage = 100 / (bars + 2)
+      break
+    case 2:
+      finalPercentage = 100 / (bars + 1)
+      break
+    case 3:
+      finalPercentage = 100 / bars
+      break
+    default:
+      gap satisfies never
+      return
+  }
+
+  for (let i = series.length - 1; i > -1; i--) {
+    const serie = series[i]
+
+    if (serie.type === 'bar') {
+      serie.barCategoryGap = `${finalPercentage.toFixed(0)}%`
+    }
+  }
 }
