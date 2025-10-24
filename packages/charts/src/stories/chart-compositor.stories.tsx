@@ -25,14 +25,14 @@ export const Basic: Story = {
     charts: [
       {
         series: { data: data1, name: 'Bar 1' },
-        chartConfig: { type: 'bar', gap: 3 },
+        chartConfig: { type: 'bar', gap: 1 },
       },
       {
         series: {
           data: data2,
           name: 'Bar 2',
         },
-        chartConfig: { type: 'bar', gap: 3 },
+        chartConfig: { type: 'bar' },
       },
       {
         series: {
