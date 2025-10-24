@@ -1,12 +1,13 @@
 import type { EChartsOption } from 'echarts'
 import { type ComponentPropsWithRef, forwardRef, useMemo } from 'react'
-import type { ChartConfig, ChartUnit } from '../../types/chart'
+import type { BarChartConfig, ChartConfig, ChartUnit } from '../../types/chart'
 import { Chart, type ChartOptions } from '../chart/chart'
 import {
   checkValidVariant,
   getDataToChartCompositor,
   getDefaultByType,
   getTooltipChartCompositor,
+  setBarGap,
 } from '../../utils/chart'
 import { merge } from '@vtex/shoreline-utils'
 import { GRID_DEFAULT_STYLE } from '../../theme/chartStyles'
@@ -44,7 +45,26 @@ export const ChartCompositor = forwardRef<
   } = props
 
   const hookedUnits: ChartUnit[] = useMemo(() => {
-    return charts.map((chartIn) => {
+    const chartsIn = cloneDeep(charts)
+
+    let gap: BarChartConfig['gap']
+    chartsIn.forEach((c) => {
+      if (c.chartConfig.type === 'bar') {
+        // We assume the last gap defined is the correct one, though it doesn't make sense
+        // to set multiple different gap values.
+        gap = c.chartConfig.gap ? c.chartConfig.gap : gap
+        // we need to set series type to 'bar' since by this point in the pipeline it
+        // hasn't been filled in yet, and setBarGap needs it to be.
+        c.series.type = 'bar'
+      }
+    })
+
+    setBarGap(
+      chartsIn.map((c) => c.series),
+      gap
+    )
+
+    return chartsIn.map((chartIn) => {
       if (chartIn.hooks === null) {
         return chartIn
       }
@@ -70,7 +90,7 @@ export const ChartCompositor = forwardRef<
   }, [charts])
 
   const seriesOptions: EChartsOption['series'] = useMemo(() => {
-    return hookedUnits.map((u) => getDataToChartCompositor(u))
+    return hookedUnits.map(getDataToChartCompositor)
   }, [hookedUnits])
 
   const tooltipOptions: EChartsOption['tooltip'] = useMemo(() => {
