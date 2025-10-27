@@ -10,7 +10,9 @@ import { merge } from '@vtex/shoreline-utils'
 import { isArray } from 'lodash'
 
 /**
- * Merges series with default styles, handling both array and scalar form.
+ * Merges series with default styles series, handling both array and scalar form.
+ * Every series needs to be merged individually so that every series has
+ * the configs they need.
  */
 const formatSeries = (
   series: SeriesOption | SeriesOption[] | undefined,
@@ -19,10 +21,10 @@ const formatSeries = (
   if (!series) return
 
   if (isArray(series)) {
-    return series.map((serie) => merge(serie, defaultStyle))
+    return series.map((serie) => merge(serie, defaultStyle.series))
   }
 
-  return merge(series, defaultStyle)
+  return merge(series, defaultStyle.series)
 }
 
 /**
