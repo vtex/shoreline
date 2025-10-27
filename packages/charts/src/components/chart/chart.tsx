@@ -39,6 +39,7 @@ import '../../theme/components/chart.css'
 import { ChartSkeleton } from '../chart-skeleton/chart-skeleton'
 import { chartsDefaultHooks } from '../../utils/defaultHooks'
 import { Flex } from '@vtex/shoreline'
+import type { Locale } from './locales'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -358,7 +359,7 @@ export interface ChartOptions {
   /**
    * Override the locale used to format dates.
    */
-  locale?: string
+  locale?: Locale
   /**
    * Overrides default shoreline theme.
    * @default defaultTheme

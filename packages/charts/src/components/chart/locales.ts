@@ -49,3 +49,32 @@ echarts.registerLocale('TR', tr)
 echarts.registerLocale('UK', uk)
 echarts.registerLocale('VI', vi)
 echarts.registerLocale('ZH', zh)
+
+export type Locale =
+  | 'AR'
+  | 'CS'
+  | 'DE'
+  | 'EN'
+  | 'ES'
+  | 'FA'
+  | 'FI'
+  | 'FR'
+  | 'HU'
+  | 'IT'
+  | 'JA'
+  | 'KO'
+  | 'NL'
+  | 'PL'
+  | 'PT-br'
+  | 'RO'
+  | 'RU'
+  | 'SI'
+  | 'SV'
+  | 'TH'
+  | 'TR'
+  | 'UK'
+  | 'VI'
+  | 'ZH'
+  | (string & {})
+// Allows any other string while keeping autocomplete for the others.
+// Needed since the user can set their own locales.
