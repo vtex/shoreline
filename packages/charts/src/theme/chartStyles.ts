@@ -25,61 +25,6 @@ export const GRID_DEFAULT_STYLE: EChartsOption['grid'] = {
   containLabel: true,
 }
 
-export const DATAZOOM_DEFAULT_STYLE: EChartsOption['dataZoom'] = [
-  {
-    type: 'inside',
-  },
-  {
-    type: 'slider',
-    //Sizing
-    right: 'center',
-    bottom: '9%',
-    height: '48px',
-    width: '95%',
-    //Styles
-    borderColor: 'var(--sl-color-gray-5)',
-    backgroundColor: 'var(--sl-color-gray-0)',
-    dataBackground: {
-      areaStyle: {
-        color: 'var(--sl-color-gray-1)',
-      },
-    },
-    fillerColor: '#0064C30D',
-    selectedDataBackground: {
-      lineStyle: {
-        color: 'rgba(1,103,223,255)',
-        width: 1.2,
-      },
-      areaStyle: {
-        color: '#D6ECFC',
-        opacity: 1,
-      },
-    },
-
-    handleStyle: {
-      // side things
-      color: 'rgba(1,103,223,255)',
-      borderColor: 'rgba(1,103,223,255)',
-    },
-    moveHandleStyle: {
-      // top drag bar
-      color: 'rgba(244,244,244,255)',
-    },
-    emphasis: {
-      moveHandleStyle: {
-        color: 'rgba(231,231,231,255)',
-      },
-      handleStyle: {
-        color: 'rgba(2,84,183,255)',
-        borderColor: 'rgba(2,84,183,255)',
-      },
-      handleLabel: {
-        show: true,
-      },
-    },
-  },
-]
-
 export const DEFAULT_DELAY_FUNCTION = (idx: number) => idx * 20
 
 // if you're looking for a certain feature in a chart and don't find it here, check themes.ts
