@@ -16,8 +16,9 @@
   width: 100;
 }
 
-[data-ls-chart-skeleto-chart-flex] {
+[data-ls-chart-skeleton-chart-flex] {
   padding-left: 40px;
+  /*Exactly 40 px needed so that it lines up with the start of the line*/
 }
 
 [data-sl-chart-skeleton-line-box] {
