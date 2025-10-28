@@ -68,25 +68,32 @@ export const Legend = forwardRef<LegendHandle, LegendProps>((props, ref) => {
    * @returns {LegendState} The new state of the legend.
    */
   const changeState = useCallback(
-    (index: number, type: LegendAction['type']) => {
+    (index: number, actionType: LegendAction['type']) => {
       const newState = [...seriesState] as LegendState
 
-      if (type === 'selectAll') {
-        newState.forEach((serie) => {
-          serie.state = 'unchecked'
-        })
-      } else if (type === 'exclusive') {
-        newState.forEach((serie, i) => {
-          if (index !== i) serie.state = 'off'
-          else serie.state = 'checked'
-        })
-      } else {
-        if (index >= seriesState.length) {
-          return setSeriesState(checkAllSelected(newState))
-        }
+      switch (actionType) {
+        case 'toggle':
+          if (index >= seriesState.length) {
+            return setSeriesState(checkAllSelected(newState))
+          }
 
-        newState[index].state =
-          newState[index].state !== 'off' ? 'off' : 'checked'
+          newState[index].state =
+            newState[index].state !== 'off' ? 'off' : 'checked'
+          break
+        case 'selectAll':
+          newState.forEach((serie) => {
+            serie.state = 'unchecked'
+          })
+
+          break
+        case 'exclusive':
+          newState.forEach((serie, i) => {
+            if (index !== i) serie.state = 'off'
+            else serie.state = 'checked'
+          })
+          break
+        default:
+          actionType satisfies never
       }
 
       const checkedState = checkAllSelected(newState)
