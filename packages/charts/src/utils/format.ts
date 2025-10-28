@@ -1,5 +1,6 @@
 /**
- * Abbreviates large numbers. For example:
+ * Abbreviates large numbers, which is useful when a value axis
+ * has large values. For example:
  * - 100.000 = 100K
  * - 1.000.000 = 1M
  * - 1.000.000.000 = 1B
