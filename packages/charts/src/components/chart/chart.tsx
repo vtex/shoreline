@@ -146,34 +146,45 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
         const action = params.name as LegendAction
 
-        if (action.type === 'toggle' && action.index < series.length) {
-          toggleSerieLegend(chart, String(series[action.index].name))
+        switch (action.type) {
+          case 'selectAll':
+            turnOnAllLegend(
+              chart,
+              series.map((serie) => String(serie.name))
+            )
 
-          if (change) {
-            chart.setOption(handleChanges(change, finalOptions, action))
-          }
-        }
+            if (change) {
+              chart.setOption(finalOptions)
+            }
 
-        if (action.type === 'selectAll') {
-          turnOnAllLegend(
-            chart,
-            series.map((serie) => String(serie.name))
-          )
+            return
 
-          if (change) {
-            chart.setOption(finalOptions)
-          }
-        }
+          case 'exclusive':
+            series.forEach((s, index) => {
+              if (index === action.index)
+                turnOnSerieLegend(chart, String(s.name))
+              else turnOffSerieLegend(chart, String(s.name))
+            })
 
-        if (action.type === 'exclusive') {
-          series.forEach((s, index) => {
-            if (index === action.index) turnOnSerieLegend(chart, String(s.name))
-            else turnOffSerieLegend(chart, String(s.name))
-          })
+            if (change) {
+              chart.setOption(handleChanges(change, finalOptions, action))
+            }
 
-          if (change) {
-            chart.setOption(handleChanges(change, finalOptions, action))
-          }
+            return
+
+          case 'toggle':
+            if (action.index < series.length) {
+              toggleSerieLegend(chart, String(series[action.index].name))
+
+              if (change) {
+                chart.setOption(handleChanges(change, finalOptions, action))
+              }
+            }
+
+            return
+
+          default:
+            action.type satisfies never
         }
 
         if (action.chartId !== chart.getId() && legendRef.current) {
