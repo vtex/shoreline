@@ -20,6 +20,9 @@ import { LegendItem } from './legend-item'
 import type { ChartConfig } from '../../types/chart'
 import { Flex } from '@vtex/shoreline'
 
+/**
+ * A Chart's legend which can toggle series on and off.
+ */
 export const Legend = forwardRef<LegendHandle, LegendProps>((props, ref) => {
   const { series, chartRef, ...otherProps } = props
 
