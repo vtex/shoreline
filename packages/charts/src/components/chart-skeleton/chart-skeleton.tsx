@@ -31,7 +31,7 @@ export const ChartSkeleton = forwardRef<HTMLDivElement, ChartSkeletonProps>(
           {numLines <= 0 ? null : <ChartSkeletonLine isXAxisLine />}
         </Flex>
 
-        <Flex data-ls-chart-skeleto-chart-flex justify="space-between">
+        <Flex data-ls-chart-skeleton-chart-flex justify="space-between">
           {Array.from({ length: numColumns }).map((_, index) => (
             <ChartSkeletonXAxisBox key={index} />
           ))}
