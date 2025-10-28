@@ -4,6 +4,10 @@ import '../../theme/components/tooltip.css'
 import { Flex } from '@vtex/shoreline'
 import { isArray } from 'lodash'
 
+/**
+ * Tooltip for the Chart component, depending on the tipe of chart it can be
+ * inverted and normalized to show a percentage of values.
+ */
 export default function ChartTooltip({
   params,
   invert = false,
@@ -70,7 +74,15 @@ export function ChartTooltipBase({
   )
 }
 
-function getValueForTooltip(params, percentage, dimension) {
+/**
+ * Extracts the value to be shown in the tooltip from the series
+ * @param params contains series values
+ */
+function getValueForTooltip(
+  params: any,
+  percentage: boolean,
+  dimension?: number
+) {
   if (percentage) {
     return `${Math.round(params.value * 1000) / 10}%`
   }
@@ -82,10 +94,14 @@ function getValueForTooltip(params, percentage, dimension) {
   if (dimension && params.value.length > dimension) {
     return params.value[dimension]
   }
-
+  // Default choice for echarts
   return params.value[1]
 }
 
+/**
+ * Renders the tooltip statically so that it can be passed as an echarts tooltip
+ * formatter.
+ */
 export const getTooltipStaticString = (props: FormatterParams) => {
   const { params, invert = false, percentage = false, dimension } = props
 
@@ -99,16 +115,14 @@ export const getTooltipStaticString = (props: FormatterParams) => {
   )
 }
 
-export interface FormatterParams {
-  params: TooltipComponentFormatterCallbackParams
-  invert?: boolean
-  percentage?: boolean
-  dimension?: number
-}
+export type FormatterParams = ChartTooltipProps
 
 export interface ChartTooltipProps {
   params: TooltipComponentFormatterCallbackParams
+  /** Whether to invert the order of series.*/
   invert?: boolean
+  /** Whether to show values as a percentage of the total.*/
   percentage?: boolean
+  /** What dimension should appear as the tooltip value.*/
   dimension?: number
 }
