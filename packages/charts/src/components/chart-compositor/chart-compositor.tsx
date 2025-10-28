@@ -31,7 +31,7 @@ import { chartCompositorDefaultHooks } from '../../utils/defaultHooks'
 export const ChartCompositor = forwardRef<
   EChartsReact | undefined,
   ChartCompositorProps
->(function ChartCompositor(props, ref) {
+>((props, ref) => {
   const {
     charts,
     xAxis = { type: 'category' },

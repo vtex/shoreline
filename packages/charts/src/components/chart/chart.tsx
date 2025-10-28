@@ -57,7 +57,7 @@ import type { Locale } from './locales'
     />
  */
 export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
-  function Charts(props, ref) {
+  (props, ref) => {
     const {
       series,
       xAxis = {},
