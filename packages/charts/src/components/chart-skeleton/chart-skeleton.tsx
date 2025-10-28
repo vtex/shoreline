@@ -7,7 +7,7 @@ import '../../theme/components/chartSkeleton.css'
  * Chart skeleton used while loading data.
  */
 export const ChartSkeleton = forwardRef<HTMLDivElement, ChartSkeletonProps>(
-  function ChartSkeleton(props, ref) {
+  (props, ref) => {
     const { height, width, numLines = 6, numColumns = 7, style } = props
 
     return (
