@@ -1,8 +1,7 @@
 import { random } from 'lodash'
 import { Chart, ChartCompositor } from '../index'
 import type { StoryObj } from '@storybook/react'
-import { useState } from 'react'
-import { Button, Grid } from '@vtex/shoreline'
+import { Grid } from '@vtex/shoreline'
 import type { EChartsOption, SeriesOption } from 'echarts'
 import { ChartSkeleton } from '../components/chart-skeleton/chart-skeleton'
 
@@ -235,39 +234,6 @@ export const ManyChartsSync: Story = {
   },
 }
 
-export const ZoomExample: Story = {
-  render: () => {
-    const [Zoom, setZoom] = useState<boolean>(true)
-    const [key, setKey] = useState<boolean>(true)
-    return (
-      <>
-        <Button
-          onClick={() => {
-            const nZoom = !Zoom
-            setZoom(nZoom)
-            const nKey = !key
-            setKey(nKey)
-          }}
-        >
-          Botao do Zoom
-        </Button>
-        <Chart
-          key={`${key}`}
-          style={{ height: 550 }}
-          series={[
-            { data: [3, 4, 8, 8, 5, 4, 10, 9, 2, 7, 6, 3, 9, 2, 3] },
-            { data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5] },
-            { data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5] },
-            { data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5] },
-            { data: [5, 4, 5, 9, 6, 8, 7, 2, 8, 5, 3, 9, 4, 9, 5] },
-          ]}
-          chartConfig={{ type: 'area', variant: 'stacked' }}
-          zoom={Zoom}
-        />
-      </>
-    )
-  },
-}
 export const Loading: Story = {
   render: () => {
     return <ChartSkeleton />
