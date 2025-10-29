@@ -43,6 +43,9 @@ export default function ChartTooltip({
   )
 }
 
+/**
+ * One line of the tooltip, including the colored symbol, series name and value.
+ */
 export function ChartTooltipBase({
   params,
   percentage,
