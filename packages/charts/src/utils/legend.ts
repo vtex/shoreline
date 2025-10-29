@@ -4,22 +4,22 @@ import { defaultColorShade } from '../theme/colors'
 import { cloneDeep, isArray, isObject } from 'lodash'
 import { defaultTheme } from '../theme/themes'
 
-export function turnOnAllLegend(chart: echarts.ECharts, series: string[]) {
-  series.forEach((serie) => turnOnSerieLegend(chart, serie))
+export function turnOnAllSeries(chart: echarts.ECharts, series: string[]) {
+  series.forEach((serie) => turnOnSerie(chart, serie))
 }
 
-export function turnOnSerieLegend(chart: echarts.ECharts, serie: string) {
+export function turnOnSerie(chart: echarts.ECharts, serie: string) {
   chart.dispatchAction({ type: 'legendSelect', name: serie }, { silent: true })
 }
 
-export function turnOffSerieLegend(chart: echarts.ECharts, serie: string) {
+export function turnOffSerie(chart: echarts.ECharts, serie: string) {
   chart.dispatchAction(
     { type: 'legendUnSelect', name: serie },
     { silent: true }
   )
 }
 
-export function toggleSerieLegend(chart: echarts.ECharts, serie: string) {
+export function toggleSerie(chart: echarts.ECharts, serie: string) {
   chart.dispatchAction(
     { type: 'legendToggleSelect', name: serie },
     { silent: true }
@@ -34,6 +34,11 @@ export function getHoverColor(color: string): string {
   return color
 }
 
+/**
+ * If all series are on, makes sure to hide the checkmark for all of them.
+ *
+ * If not, the series that are on show their checkmark.
+ */
 export function checkAllSelected(seriesState: LegendState): LegendState {
   const allOn = seriesState.every((serie) => serie.state !== 'off')
 
