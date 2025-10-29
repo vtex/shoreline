@@ -22,10 +22,10 @@ import { LEGEND_DEFAULT_STYLE } from '../../theme/chartStyles'
 import { cloneDeep, isArray, type Dictionary } from 'lodash'
 import { formatTimeAxis } from '../../utils/hooks'
 import {
-  toggleSerieLegend,
-  turnOffSerieLegend,
-  turnOnAllLegend,
-  turnOnSerieLegend,
+  toggleSerie,
+  turnOffSerie,
+  turnOnAllSeries,
+  turnOnSerie,
 } from '../../utils/legend'
 import {
   Legend,
@@ -148,7 +148,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
         switch (action.type) {
           case 'selectAll':
-            turnOnAllLegend(
+            turnOnAllSeries(
               chart,
               series.map((serie) => String(serie.name))
             )
@@ -161,9 +161,8 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
           case 'exclusive':
             series.forEach((s, index) => {
-              if (index === action.index)
-                turnOnSerieLegend(chart, String(s.name))
-              else turnOffSerieLegend(chart, String(s.name))
+              if (index === action.index) turnOnSerie(chart, String(s.name))
+              else turnOffSerie(chart, String(s.name))
             })
 
             if (change) {
@@ -174,7 +173,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
           case 'toggle':
             if (action.index < series.length) {
-              toggleSerieLegend(chart, String(series[action.index].name))
+              toggleSerie(chart, String(series[action.index].name))
 
               if (change) {
                 chart.setOption(handleChanges(change, finalOptions, action))
