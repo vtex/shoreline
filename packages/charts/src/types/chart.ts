@@ -132,3 +132,7 @@ export type DefaultHooks = {
     ((series: EChartsOption) => EChartsOption)[]
   >
 }
+
+export type LegendHooks = {
+  bar?: Partial<Record<BarChartVariants, string>>
+}

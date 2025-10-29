@@ -1,5 +1,5 @@
 import type { EChartsOption } from 'echarts'
-import type { LegendState } from '../components/legend'
+import type { LegendAction, LegendState } from '../components/legend'
 import { defaultColorShade } from '../theme/colors'
 import { cloneDeep, isArray, isObject } from 'lodash'
 import { defaultTheme } from '../theme/themes'
@@ -55,17 +55,37 @@ export function checkAllSelected(seriesState: LegendState): LegendState {
   })) as LegendState
 }
 
-export function changeBarRoundingToogle(
+export function changeBarRounding(
+  options: EChartsOption,
+  action: LegendAction
+): EChartsOption {
+  switch (action.type) {
+    case 'toggle': {
+      return handleToggleType(options, action.state)
+    }
+
+    case 'exclusive': {
+      return handleExclusiveType(options, action.index)
+    }
+
+    default: {
+      action.type satisfies 'selectAll'
+
+      return {}
+    }
+  }
+}
+
+function handleToggleType(
   options: EChartsOption,
   state: LegendState
 ): EChartsOption {
-  const series = options.series
-
-  if (!series || !isArray(series)) return options
-
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
+  const series = options.series
   const booleanStates = state.map((s) => s.state !== 'off')
   const visibleSeries: any[] = []
+
+  if (!series || !isArray(series)) return options
 
   series.forEach((serie, index) => {
     if (booleanStates[index]) visibleSeries.push(cloneDeep(serie))
@@ -77,6 +97,7 @@ export function changeBarRoundingToogle(
 
   for (let i = 0; i < visibleSeries[0].data.length; i++) {
     let top = -1
+
     for (let j = visibleSeries.length - 1; j > -1; j--) {
       const data = visibleSeries[j].data
 
@@ -85,7 +106,9 @@ export function changeBarRoundingToogle(
           ...data[i].itemStyle,
           borderRadius: defaultBorderRadius,
         }
+
         top = j
+
         break
       }
 
@@ -94,7 +117,9 @@ export function changeBarRoundingToogle(
           value: data[i],
           itemStyle: { borderRadius: defaultBorderRadius },
         }
+
         top = j
+
         break
       }
     }
@@ -121,15 +146,14 @@ export function changeBarRoundingToogle(
   return { series: visibleSeries }
 }
 
-export function changeBarRoundingExclusive(
+function handleExclusiveType(
   options: EChartsOption,
   index: number
 ): EChartsOption {
+  const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
   const series = options.series
 
   if (!series || !isArray(series)) return options
-
-  const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
 
   return {
     series: series.map((serie, i) => {
