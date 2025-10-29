@@ -9,6 +9,9 @@ import {
 import { getHoverColor } from '../../utils/legend'
 import type { LegendItemType } from './legend'
 
+/**
+ * Contains the series name and the button that toggles it on/off.
+ */
 export function LegendItem({
   serie,
   onClick,

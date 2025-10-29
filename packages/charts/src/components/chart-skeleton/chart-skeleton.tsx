@@ -88,7 +88,7 @@ function ChartSkeletonLine(props: { isXAxisLine?: boolean }) {
 }
 
 /**
- * Represent a value in the Y axis.
+ * Represents a value in the Y axis.
  */
 function ChartSkeletonXAxisBox() {
   return (
