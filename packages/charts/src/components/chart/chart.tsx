@@ -141,49 +141,37 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
         const chart = chartRef.current.getEchartsInstance()
         const series = finalOptions.series as SeriesOption[]
-        const change = getChanges(chartConfig)
-
         const action = params.name as LegendAction
 
         switch (action.type) {
           case 'selectAll':
             turnOnAllSeries(
-            chart,
-            series.map((serie) => String(serie.name))
-          )
+              chart,
+              series.map((serie) => String(serie.name))
+            )
 
-          if (change) {
-            chart.setOption(finalOptions)
-        }
-
-            return
+            break
 
           case 'exclusive':
-          series.forEach((s, index) => {
+            series.forEach((s, index) => {
               if (index === action.index) turnOnSerie(chart, String(s.name))
               else turnOffSerie(chart, String(s.name))
-          })
+            })
 
-          if (change) {
-            chart.setOption(handleChanges(change, finalOptions, action))
-          }
-
-            return
+            break
 
           case 'toggle':
             if (action.index < series.length) {
               toggleSerie(chart, String(series[action.index].name))
-
-              if (change) {
-                chart.setOption(handleChanges(change, finalOptions, action))
-              }
             }
 
-            return
+            break
 
           default:
             action.type satisfies never
         }
+
+        chart.setOption(handleChanges(chartConfig, finalOptions, action))
 
         if (action.chartId !== chart.getId() && legendRef.current) {
           legendRef.current.setState(action.index, action.type)
