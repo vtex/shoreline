@@ -24,7 +24,7 @@ export default function ChartTooltip({
       <div data-sl-chart-tooltip>
         {isArray(params) ? (
           params.map((param) => (
-            <ChartTooltipBase
+            <ChartTooltipLine
               key={param.dataIndex}
               params={param}
               percentage={percentage}
@@ -32,7 +32,7 @@ export default function ChartTooltip({
             />
           ))
         ) : (
-          <ChartTooltipBase
+          <ChartTooltipLine
             params={params}
             percentage={percentage}
             dimension={dimension}
@@ -46,7 +46,7 @@ export default function ChartTooltip({
 /**
  * One line of the tooltip, including the colored symbol, series name and value.
  */
-export function ChartTooltipBase({
+function ChartTooltipLine({
   params,
   percentage,
   dimension,
