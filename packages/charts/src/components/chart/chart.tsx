@@ -31,7 +31,6 @@ import {
   Legend,
   type LegendHandle,
   type LegendAction,
-  getChanges,
   handleChanges,
 } from '../legend'
 
@@ -149,25 +148,25 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
         switch (action.type) {
           case 'selectAll':
             turnOnAllSeries(
-              chart,
-              series.map((serie) => String(serie.name))
-            )
+            chart,
+            series.map((serie) => String(serie.name))
+          )
 
-            if (change) {
-              chart.setOption(finalOptions)
-            }
+          if (change) {
+            chart.setOption(finalOptions)
+        }
 
             return
 
           case 'exclusive':
-            series.forEach((s, index) => {
+          series.forEach((s, index) => {
               if (index === action.index) turnOnSerie(chart, String(s.name))
               else turnOffSerie(chart, String(s.name))
-            })
+          })
 
-            if (change) {
-              chart.setOption(handleChanges(change, finalOptions, action))
-            }
+          if (change) {
+            chart.setOption(handleChanges(change, finalOptions, action))
+          }
 
             return
 

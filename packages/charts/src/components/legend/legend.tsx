@@ -10,14 +10,10 @@ import {
 import { defaultColorPreset } from '../../theme/colors'
 import type { EChartsOption } from 'echarts'
 import '../../theme/components/legend.css'
-import {
-  changeBarRoundingExclusive,
-  changeBarRoundingToogle,
-  checkAllSelected,
-} from '../../utils/legend'
+import { changeBarRounding, checkAllSelected } from '../../utils/legend'
 import type ReactECharts from 'echarts-for-react'
 import { LegendItem } from './legend-item'
-import type { ChartConfig } from '../../types/chart'
+import type { ChartConfig, LegendHooks } from '../../types/chart'
 import { Flex } from '@vtex/shoreline'
 
 /**
@@ -170,31 +166,28 @@ export const Legend = forwardRef<LegendHandle, LegendProps>((props, ref) => {
   )
 })
 
-export function getChanges(chart: ChartConfig | null): string {
-  let change = ''
-  if (chart) {
-    if (chart.variant === 'stacked' && chart.type === 'bar') {
-      change = 'roundBar'
-    }
-  }
-
-  return change
+const legendHooks: LegendHooks = {
+  bar: {
+    stacked: 'roundBar',
+  },
 }
 
 export function handleChanges(
-  change: string,
+  chartConfig: ChartConfig | null,
   option: EChartsOption,
   action: LegendAction
 ): EChartsOption {
-  let finalOptions = option
+  if (!chartConfig) return option
 
-  if (change === 'roundBar' && action.type === 'toggle') {
-    finalOptions = changeBarRoundingToogle(option, action.state)
-  } else if (change === 'roundBar' && action.type === 'exclusive') {
-    finalOptions = changeBarRoundingExclusive(option, action.index)
+  const change = legendHooks[chartConfig.type][chartConfig.variant]
+
+  switch (change) {
+    case 'roundBar':
+      return changeBarRounding(option, action)
+    default: {
+      return {}
+    }
   }
-
-  return finalOptions
 }
 
 export type LegendState = LegendItemType[]
