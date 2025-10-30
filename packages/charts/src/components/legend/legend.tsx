@@ -15,6 +15,7 @@ import type ReactECharts from 'echarts-for-react'
 import { LegendItem } from './legend-item'
 import type { ChartConfig, LegendHooks } from '../../types/chart'
 import { Flex } from '@vtex/shoreline'
+import { checkValidVariant, getDefaultByType } from '../../utils/chart'
 
 /**
  * A Chart's legend which can toggle series on and off.
@@ -76,18 +77,22 @@ export const Legend = forwardRef<LegendHandle, LegendProps>((props, ref) => {
           newState[index].state =
             newState[index].state !== 'off' ? 'off' : 'checked'
           break
+
         case 'selectAll':
           newState.forEach((serie) => {
             serie.state = 'unchecked'
           })
 
           break
+
         case 'exclusive':
           newState.forEach((serie, i) => {
             if (index !== i) serie.state = 'off'
             else serie.state = 'checked'
           })
+
           break
+
         default:
           actionType satisfies never
       }
@@ -118,15 +123,16 @@ export const Legend = forwardRef<LegendHandle, LegendProps>((props, ref) => {
       const chart = chartRef.current.getEchartsInstance()
       const index = seriesState.findIndex((serie) => serie.serie === name)
       const newState = [...seriesState]
-
       const seriesChecked: string[] = []
       const seriesUnchecked: string[] = []
+
       newState.forEach((serie) => {
         if (serie.state === 'checked') seriesChecked.push(serie.serie)
         else if (serie.state === 'unchecked') seriesUnchecked.push(serie.serie)
       })
 
       let actionType: LegendAction['type'] = 'toggle'
+
       if (seriesUnchecked.length !== 0) {
         actionType = 'exclusive'
       } else if (seriesChecked.length === 1 && seriesChecked[0] === name) {
@@ -166,28 +172,28 @@ export const Legend = forwardRef<LegendHandle, LegendProps>((props, ref) => {
   )
 })
 
-const legendHooks: LegendHooks = {
-  bar: {
-    stacked: 'roundBar',
-  },
-}
-
-export function handleChanges(
+/**
+ * Handles all the Legends hooks
+ * @returns the resulting options
+ */
+export function handleHooks(
   chartConfig: ChartConfig | null,
   option: EChartsOption,
   action: LegendAction
 ): EChartsOption {
   if (!chartConfig) return option
 
-  const change = legendHooks[chartConfig.type][chartConfig.variant]
+  const type = chartConfig.type
+  const variant = chartConfig.variant
 
-  switch (change) {
-    case 'roundBar':
-      return changeBarRounding(option, action)
-    default: {
-      return {}
-    }
-  }
+  const checkedVariant =
+    variant && checkValidVariant(type, variant)
+      ? variant
+      : getDefaultByType(type)
+
+  const hookFunction = legendHooks[type][checkedVariant]
+
+  return hookFunction(option, action)
 }
 
 export type LegendState = LegendItemType[]
@@ -216,3 +222,9 @@ type LegendOptions = {
 
 type LegendProps = LegendOptions &
   Omit<ComponentPropsWithoutRef<'div'>, 'onClick'>
+
+const legendHooks: LegendHooks = {
+  bar: {
+    stacked: changeBarRounding,
+  },
+}

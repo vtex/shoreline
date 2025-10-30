@@ -68,8 +68,9 @@ function getDefaultStyle(
   type: ChartConfig['type'],
   variant?: ChartConfig['variant']
 ): EChartsOption {
-  if (!variant || !checkValidVariant(type, variant))
+  if (!variant || !checkValidVariant(type, variant)) {
     return CHART_STYLES[type][getDefaultByType(type)]
+  }
 
   return CHART_STYLES[type][variant]
 }

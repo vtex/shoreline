@@ -97,6 +97,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
       if (!isArray(xAxis) && xAxis.type === 'time') {
         hooks.push(formatTimeAxis(locale))
       }
+
       hooks.push(...chartsDefaultHooks[type][checkedVariant])
       hooks.push(...optionHooks)
 
@@ -285,6 +286,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     )
   }
 )
+
 export interface ChartOptions {
   /**
    * Echarts Series Options, where you put the data for the chart.
