@@ -89,23 +89,28 @@ function barRoundingToggle(
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
   const series = options.series
   const booleanStates = state.map((s) => s.state !== 'off')
-  const visibleSeries: any[] = []
 
   if (!series || !isArray(series)) return options
 
-  series.forEach((serie, index) => {
-    if (booleanStates[index]) visibleSeries.push(cloneDeep(serie))
-  })
+  const visibleSeries = series
+    .filter((_, index) => booleanStates[index])
+    .map((serie) => cloneDeep(serie))
 
-  if (visibleSeries.length >= series.length) {
+  if (
+    visibleSeries.length >= series.length ||
+    visibleSeries.length === 0 ||
+    !visibleSeries.every((serie) => serie.data)
+  ) {
     return options
   }
 
-  for (let i = 0; i < visibleSeries[0].data.length; i++) {
+  // From the checking above we're certain this array is non empty and has series with non null data
+  const safeVisibleSeries = visibleSeries as any
+  for (let i = 0; i < safeVisibleSeries[0].data.length; i++) {
     let top = -1
 
-    for (let j = visibleSeries.length - 1; j > -1; j--) {
-      const data = visibleSeries[j].data
+    for (let j = safeVisibleSeries.length - 1; j > -1; j--) {
+      const data = safeVisibleSeries[j].data
 
       if (data[i].value && data[i].value !== 0) {
         data[i].itemStyle = {
@@ -130,9 +135,9 @@ function barRoundingToggle(
       }
     }
 
-    for (let j = 0; j < visibleSeries.length; j++) {
+    for (let j = 0; j < safeVisibleSeries.length; j++) {
       if (!(j === top)) {
-        const data = visibleSeries[j].data
+        const data = safeVisibleSeries[j].data
 
         if (isObject(data[i])) {
           data[i].itemStyle = {
@@ -149,7 +154,7 @@ function barRoundingToggle(
     }
   }
 
-  return { series: visibleSeries }
+  return { series: safeVisibleSeries }
 }
 
 /**

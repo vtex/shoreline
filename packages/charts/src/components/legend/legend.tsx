@@ -109,7 +109,6 @@ export const Legend = forwardRef<LegendHandle, LegendProps>((props, ref) => {
     ref,
     () => ({
       setState: (index: number, action: string) => {
-        console.log(action)
         changeState(index, action as LegendAction['type'])
       },
     }),
