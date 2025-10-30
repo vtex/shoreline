@@ -31,7 +31,7 @@ import {
   Legend,
   type LegendHandle,
   type LegendAction,
-  handleChanges,
+  handleHooks,
 } from '../legend'
 
 import '../../theme/components/chart.css'
@@ -172,7 +172,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
             action.type satisfies never
         }
 
-        chart.setOption(handleChanges(chartConfig, finalOptions, action))
+        chart.setOption(handleHooks(chartConfig, finalOptions, action))
 
         if (action.chartId !== chart.getId() && legendRef.current) {
           legendRef.current.setState(action.index, action.type)
