@@ -55,17 +55,20 @@ export function checkAllSelected(seriesState: LegendState): LegendState {
   })) as LegendState
 }
 
+/**
+ * Round the border from bar stacked charts
+ */
 export function changeBarRounding(
   options: EChartsOption,
   action: LegendAction
 ): EChartsOption {
   switch (action.type) {
     case 'toggle': {
-      return handleToggleType(options, action.state)
+      return barRoundingToggle(options, action.state)
     }
 
     case 'exclusive': {
-      return handleExclusiveType(options, action.index)
+      return barRoundingExclusive(options, action.index)
     }
 
     default: {
@@ -76,7 +79,10 @@ export function changeBarRounding(
   }
 }
 
-function handleToggleType(
+/**
+ * Round the border for the action.type = 'toggle'
+ */
+function barRoundingToggle(
   options: EChartsOption,
   state: LegendState
 ): EChartsOption {
@@ -146,7 +152,10 @@ function handleToggleType(
   return { series: visibleSeries }
 }
 
-function handleExclusiveType(
+/**
+ * Round the border for the action.type = 'exclusive'
+ */
+function barRoundingExclusive(
   options: EChartsOption,
   index: number
 ): EChartsOption {

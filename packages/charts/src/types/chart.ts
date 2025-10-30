@@ -1,5 +1,5 @@
 import type { EChartsOption, SeriesOption } from 'echarts'
-
+import type { LegendAction } from '../components/legend'
 const BarChartVariantsArray = [
   'vertical',
   'horizontal',
@@ -134,5 +134,10 @@ export type DefaultHooks = {
 }
 
 export type LegendHooks = {
-  bar?: Partial<Record<BarChartVariants, string>>
+  bar?: Partial<
+    Record<
+      BarChartVariants,
+      (option: EChartsOption, action: LegendAction) => EChartsOption
+    >
+  >
 }
