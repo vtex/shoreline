@@ -109,6 +109,7 @@ function barRoundingToggle(
   for (let i = 0; i < safeVisibleSeries[0].data.length; i++) {
     let top = -1
 
+    // rounding the top
     for (let j = safeVisibleSeries.length - 1; j > -1; j--) {
       const data = safeVisibleSeries[j].data
 
@@ -117,7 +118,6 @@ function barRoundingToggle(
           ...data[i].itemStyle,
           borderRadius: defaultBorderRadius,
         }
-
         top = j
 
         break
@@ -128,28 +128,28 @@ function barRoundingToggle(
           value: data[i],
           itemStyle: { borderRadius: defaultBorderRadius },
         }
-
         top = j
 
         break
       }
     }
 
+    // making sure everyone else is not round
     for (let j = 0; j < safeVisibleSeries.length; j++) {
-      if (!(j === top)) {
-        const data = safeVisibleSeries[j].data
+      if (j === top) continue
 
-        if (isObject(data[i])) {
-          data[i].itemStyle = {
-            ...data[i].itemStyle,
-            borderRadius: [0, 0, 0, 0],
-          }
-        } else {
-          data[i] = {
-            value: data[i],
-            itemStyle: { borderRadius: [0, 0, 0, 0] },
-          } as { value: number; itemStyle: { borderRadius: number[] } }
+      const data = safeVisibleSeries[j].data
+
+      if (isObject(data[i])) {
+        data[i].itemStyle = {
+          ...data[i].itemStyle,
+          borderRadius: [0, 0, 0, 0],
         }
+      } else {
+        data[i] = {
+          value: data[i],
+          itemStyle: { borderRadius: [0, 0, 0, 0] },
+        } as { value: number; itemStyle: { borderRadius: number[] } }
       }
     }
   }
