@@ -172,7 +172,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>((props, ref) => {
 })
 
 /**
- * Handles all the Legends hooks
+ * Select and execute a legend hook based on the chart config
  * @returns the resulting options
  */
 export function handleHooks(
@@ -222,6 +222,9 @@ type LegendOptions = {
 type LegendProps = LegendOptions &
   Omit<ComponentPropsWithoutRef<'div'>, 'onClick'>
 
+/**
+ * Function that is called based on a chart config
+ */
 const legendHooks: LegendHooks = {
   bar: {
     stacked: changeBarRounding,
