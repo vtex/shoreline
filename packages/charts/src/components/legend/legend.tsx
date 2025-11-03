@@ -192,7 +192,7 @@ export function handleHooks(
 
   const hookFunction = legendHooks[type][checkedVariant]
 
-  return hookFunction(option, action)
+  return hookFunction ? hookFunction(option, action) : {}
 }
 
 export type LegendState = LegendItemType[]

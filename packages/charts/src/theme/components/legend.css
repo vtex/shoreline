@@ -32,7 +32,8 @@
 
 [data-sl-chart-legend-check] {
   color: var(--sl-fg-inverted);
-  margin: auto;
+  /* Needs to be !important or the margin gets overwritten by 2 separate styles, each leading to the icon not being centered */
+  margin: auto !important;
   width: 10px;
   height: 10px;
 }
