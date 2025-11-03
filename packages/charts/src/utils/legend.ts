@@ -19,6 +19,9 @@ export function turnOffSerie(chart: echarts.ECharts, serie: string) {
   )
 }
 
+/**
+ * Toggles series visibility
+ */
 export function toggleSerie(chart: echarts.ECharts, serie: string) {
   chart.dispatchAction(
     { type: 'legendToggleSelect', name: serie },
