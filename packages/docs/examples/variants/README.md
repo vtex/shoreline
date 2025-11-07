@@ -1,8 +1,8 @@
 # Component Variants
 
-Esta pasta contém exemplos organizados de variantes de componentes do Shoreline.
+This folder contains organized examples of Shoreline component variants.
 
-## Estrutura
+## Structure
 
 ```
 variants/
@@ -25,19 +25,19 @@ variants/
     └── loading.tsx
 ```
 
-## Como Adicionar Novas Variantes
+## How to Add New Variants
 
-1. **Crie uma pasta para o componente** (se ainda não existir):
+1. **Create a folder for the component** (if it doesn't exist yet):
    ```bash
    mkdir -p packages/docs/examples/variants/[component-name]
    ```
 
-2. **Crie um arquivo para cada variante**:
+2. **Create a file for each variant**:
    ```bash
    touch packages/docs/examples/variants/[component-name]/[variant-name].tsx
    ```
 
-3. **Siga o padrão de código**:
+3. **Follow the code pattern**:
    ```tsx
    import { ComponentName } from '@vtex/shoreline'
 
@@ -46,15 +46,15 @@ variants/
    }
    ```
 
-## Benefícios desta Organização
+## Benefits of This Organization
 
-- ✅ **Separação clara**: Cada variante em seu próprio arquivo
-- ✅ **Fácil navegação**: Estrutura de pastas intuitiva
-- ✅ **Reutilizável**: Pode ser importado em documentação ou testes
-- ✅ **Escalável**: Fácil adicionar novos componentes e variantes
-- ✅ **Manutenível**: Mudanças isoladas por variante
+- ✅ **Clear separation**: Each variant in its own file
+- ✅ **Easy navigation**: Intuitive folder structure
+- ✅ **Reusable**: Can be imported in documentation or tests
+- ✅ **Scalable**: Easy to add new components and variants
+- ✅ **Maintainable**: Isolated changes per variant
 
-## Componentes Disponíveis
+## Available Components
 
 - **Button**: primary, secondary, tertiary, critical, criticalTertiary
 - **Alert**: informational, success, critical, warning

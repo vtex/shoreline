@@ -4,9 +4,20 @@ import { Bleed, Button, Stack } from '@vtex/shoreline'
 import type { Contributor } from '../../__contributions__/stats'
 
 export function ContributorStats(props: ContributorStatsProps) {
-  const {
-    contributor: { stats, username, image },
-  } = props
+  const { contributor } = props
+
+  if (!contributor) {
+    return (
+      <div className={styles.contributionsContainer}>
+        <p>
+          Contributor data not available. Please configure the GitHub token to
+          generate contributor statistics.
+        </p>
+      </div>
+    )
+  }
+
+  const { stats, username, image } = contributor
 
   return (
     <Stack horizontal space="$space-16">
@@ -53,5 +64,5 @@ const statsLabels = {
   reviews: 'PRs reviewed',
 }
 interface ContributorStatsProps {
-  contributor: Contributor
+  contributor: Contributor | undefined
 }
