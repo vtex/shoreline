@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.33...@vtex/shoreline@1.12.0) (2025-11-10)
+
+
+### Features
+
+* **css:** allow individual css exports ([74d713a](https://github.com/vtex/shoreline/commit/74d713a63c3c26424452b71d031f5c51b319f02e))
+
+
+
+
+
 ## [1.11.33](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.11.32...@vtex/shoreline@1.11.33) (2025-08-28)
 
 **Note:** Version bump only for package @vtex/shoreline

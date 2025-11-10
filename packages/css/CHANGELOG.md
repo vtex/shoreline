@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.0.103...@vtex/shoreline-css@1.1.0) (2025-11-10)
+
+
+### Bug Fixes
+
+* **css:** unlayered behavior ([a8e8052](https://github.com/vtex/shoreline/commit/a8e805218261edec334c95159603b5bbaeba4234))
+
+
+### Features
+
+* **css:** allow individual css exports ([74d713a](https://github.com/vtex/shoreline/commit/74d713a63c3c26424452b71d031f5c51b319f02e))
+
+
+
+
+
 ## [1.0.103](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.0.102...@vtex/shoreline-css@1.0.103) (2025-08-28)
 
 **Note:** Version bump only for package @vtex/shoreline-css
