@@ -27,12 +27,17 @@ export function bundle(args: BundleArgs) {
 
   try {
     // Derive output filename from input file if not provided
-    const inputBasename = outputFile
+    let inputBasename = outputFile
       ? outputFile.replace(/\.css$/, '')
       : inputFile
           .split('/')
           .pop()
           ?.replace(/\.css$/, '') || 'styles'
+
+    // Remove existing -unlayered suffix if present
+    if (inputBasename.endsWith('-unlayered')) {
+      inputBasename = inputBasename.replace(/-unlayered$/, '')
+    }
 
     const outputFileName = `${outdir}/${inputBasename}${
       layer || includeLayersStatement ? '' : '-unlayered'
