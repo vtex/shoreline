@@ -1,16 +1,16 @@
-import { Button, Flex, ToastStack, toast } from '@vtex/shoreline'
+import { Button, Stack, ToastStack, toast } from '@vtex/shoreline'
 
 export default function Example() {
   return (
-    <Flex>
-      <Button onClick={() => toast.informational('Informational')}>
+    <Stack horizontal>
+      <Button onClick={() => toast.informational('Informational toast')}>
         Informational
       </Button>
-      <Button onClick={() => toast.critical('Critical')}>Critical</Button>
-      <Button onClick={() => toast.success('Success')}>Success</Button>
-      <Button onClick={() => toast.warning('Warning')}>Warning</Button>
-      <Button onClick={() => toast.loading('Loading')}>Loading</Button>
+      <Button onClick={() => toast.success('Success toast')}>Success</Button>
+      <Button onClick={() => toast.critical('Critical toast')}>Critical</Button>
+      <Button onClick={() => toast.warning('Warning toast')}>Warning</Button>
+      <Button onClick={() => toast.loading('Loading toast')}>Loading</Button>
       <ToastStack />
-    </Flex>
+    </Stack>
   )
 }
