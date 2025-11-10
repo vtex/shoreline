@@ -84,3 +84,15 @@ The CSS style is:
 ```css
 @layer sl-reset, sl-base, sl-tokens, sl-components;
 ```
+
+## Importing Individual Layers
+
+You can import individual layers for more granular control. See the [Applying Styles](./applying) guide for more information on importing CSS.
+
+```jsx
+// Import individual layers
+import '@vtex/shoreline/css/tokens'    // sl-tokens layer
+import '@vtex/shoreline/css/reset'     // sl-reset layer
+import '@vtex/shoreline/css/base'      // sl-base layer
+import '@vtex/shoreline/css/components' // sl-components layer
+```

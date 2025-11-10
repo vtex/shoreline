@@ -12,42 +12,21 @@ export function transformTokens(args: TransformTokensArgs) {
 
   const result = transform({
     filename: 'styles.css',
-    code: code,
+    code: code as unknown as Uint8Array,
     targets,
     minify: false,
-    customAtRules: {
-      theme: {
-        prelude: '<custom-ident>',
-        body: 'style-block',
-      },
-    },
-    visitor: {
-      Rule: {
-        custom: {
-          theme(rule) {
-            const prefixedRoot = JSON.parse(
-              JSON.stringify(rule.body.value).replace(/--/gi, '--sl-')
-            )
-
-            if (!useCascadeLayers) {
-              return prefixedRoot
-            }
-
-            return [
-              {
-                type: 'layer-block',
-                value: {
-                  name: ['sl-tokens'],
-                  loc: rule.loc,
-                  rules: prefixedRoot,
-                },
-              },
-            ]
-          },
-        },
-      },
-    },
   })
+
+  // Wrap in layer if useCascadeLayers is true
+  if (useCascadeLayers) {
+    const wrappedCode = Buffer.from(
+      `@layer sl-tokens {\n${result.code.toString()}\n}`
+    )
+    return {
+      ...result,
+      code: wrappedCode,
+    }
+  }
 
   return result
 }

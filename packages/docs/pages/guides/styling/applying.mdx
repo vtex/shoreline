@@ -5,6 +5,66 @@ import { Tabs } from 'nextra/components'
 
 You can refer to the [Foundations section](../../foundations) to understand how is the tokens definition. You can use them in your app as [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) which are defined in the theme, as mentioned in the Theme guide.
 
+## Importing CSS
+
+Shoreline provides several CSS exports that you can import into your application. The simplest way is to import the complete stylesheet:
+
+```jsx
+import '@vtex/shoreline/css'
+```
+
+This imports all styles including tokens, reset, base, and components styles with [cascade layers](./cascade-layers).
+
+### Individual Stylesheets
+
+You can also import individual stylesheets for more granular control:
+
+<Tabs items={['Complete', 'Individual']}>
+
+<Tabs.Tab>
+
+```jsx
+// Import complete stylesheet (layered)
+import '@vtex/shoreline/css'
+
+// Or unlayered version
+import '@vtex/shoreline/css/unlayered'
+```
+
+</Tabs.Tab>
+
+<Tabs.Tab>
+
+```jsx
+// Import individual stylesheets (layered)
+import '@vtex/shoreline/css/tokens'
+import '@vtex/shoreline/css/reset'
+import '@vtex/shoreline/css/base'
+import '@vtex/shoreline/css/components'
+
+// Or unlayered versions
+import '@vtex/shoreline/css/tokens/unlayered'
+import '@vtex/shoreline/css/reset/unlayered'
+import '@vtex/shoreline/css/base/unlayered'
+import '@vtex/shoreline/css/components/unlayered'
+```
+
+</Tabs.Tab>
+
+</Tabs>
+
+### Available CSS Exports
+
+| Export Path | Description | Layered | Unlayered |
+|------------|------------|---------|-----------|
+| `@vtex/shoreline/css` | Complete stylesheet (tokens + reset + base + components) | ✅ | `@vtex/shoreline/css/unlayered` |
+| `@vtex/shoreline/css/tokens` | Design tokens (CSS variables) | ✅ | `@vtex/shoreline/css/tokens/unlayered` |
+| `@vtex/shoreline/css/reset` | CSS reset styles | ✅ | `@vtex/shoreline/css/reset/unlayered` |
+| `@vtex/shoreline/css/base` | Base global styles | ✅ | `@vtex/shoreline/css/base/unlayered` |
+| `@vtex/shoreline/css/components` | Component styles | ✅ | `@vtex/shoreline/css/components/unlayered` |
+
+> **Note:** Layered stylesheets use [CSS cascade layers](./cascade-layers) for better style organization and control. Unlayered versions are available for environments that don't support cascade layers.
+
 The way you will apply the styles in your application depends on the tooling you are using. In the following example we will show how to apply styles using `CSS` and html `style` property.
 
 
