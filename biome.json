@@ -52,7 +52,7 @@
         "noRedeclare": "off"
       },
       "correctness": {
-        "useExhaustiveDependencies": "off",
+        "useExhaustiveDependencies": "warn",
         "noUnusedImports": "error"
       }
     }
