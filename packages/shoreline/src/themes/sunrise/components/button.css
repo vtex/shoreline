@@ -27,6 +27,7 @@
     justify-content: center;
     opacity: 1;
     transition: opacity 300ms;
+    white-space: nowrap;
 
     & [data-sl-icon]:first-child {
       margin-left: calc(var(--sl-space-1) * -1);
