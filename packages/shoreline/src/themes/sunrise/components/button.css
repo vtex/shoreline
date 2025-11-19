@@ -29,6 +29,14 @@
     transition: opacity 300ms;
     white-space: nowrap;
 
+    & [data-sl-icon] {
+      flex-shrink: 0;
+    }
+
+    & [data-sl-icon-small] {
+      flex-shrink: 0;
+    }
+
     & [data-sl-icon]:first-child {
       margin-left: calc(var(--sl-space-1) * -1);
     }
