@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.2...@vtex/shoreline@1.12.3) (2025-11-21)
+
+
+### Bug Fixes
+
+* prevent button text from wrapping on small screens ([71a4a53](https://github.com/vtex/shoreline/commit/71a4a53256177f39d501cc438d2d37381874cca9))
+* prevent icons from shrinking in Button and IconButton components ([f7f4a8a](https://github.com/vtex/shoreline/commit/f7f4a8a8a6b19d1bd37ab0e03e0348b4d30f27b5))
+
+
+
+
+
 ## [1.12.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.1...@vtex/shoreline@1.12.2) (2025-11-19)
 
 **Note:** Version bump only for package @vtex/shoreline
