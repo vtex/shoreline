@@ -1,0 +1,46 @@
+[data-sl-chart-legend] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sl-space-4);
+  margin: var(--sl-space-2);
+}
+
+[data-sl-chart-legend-container] {
+  display: flex;
+  align-items: center;
+  padding: var(--sl-space-0);
+  gap: var(--sl-space-1);
+}
+
+[data-sl-chart-legend-button] {
+  padding: 0%;
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+  min-width: auto;
+  min-height: auto;
+}
+
+[data-sl-chart-legend-button]:focus {
+  box-shadow: var(--sl-focus-ring-base);
+}
+
+[data-sl-chart-legend-check] {
+  color: var(--sl-fg-inverted);
+  /* Needs to be !important or the margin gets overwritten by 2 separate styles, each leading to the icon not being centered */
+  margin: auto !important;
+  width: 10px;
+  height: 10px;
+}
+
+[data-sl-chart-legend-text] {
+  cursor: pointer;
+  font: var(--sl-text-caption-1-font);
+  color: var(--sl-fg-base-soft);
+  font-size: 0.75rem;
+}

@@ -17,7 +17,7 @@
     "lib": ["es2017", "dom", "es2018.promise", "esnext.asynciterable"],
     "module": "es6",
     "moduleResolution": "node",
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,

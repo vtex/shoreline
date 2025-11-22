@@ -1,0 +1,20 @@
+# Chart hooks
+
+The hooks are functions that are applied to the chart options to modify the chart options before it is rendered.
+The component receives an array of hooks as a prop and applies them in the order they are passed.
+All hook functions receive the chart options as a parameter and return the modified options.
+
+## Execution Stack
+
+The hooks are executed in the following order:
+
+1. Default hooks
+2. User hooks
+3. Default Shoreline style options
+4. User style options
+
+This way, the user can modify the chart options and the features still will be calculated based on the user options.
+
+## Example
+
+<Preview name="chart-hooks" />
