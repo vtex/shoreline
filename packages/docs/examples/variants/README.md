@@ -9,8 +9,13 @@ variants/
 ├── alert_variants.tsx
 ├── button_variants.tsx
 ├── checkbox_variants.tsx
+├── checkboxgroup_variants.tsx
+├── collection_variants.tsx
 ├── collectionview_variants.tsx
+├── confirmationmodal_variants.tsx
+├── contextualhelp_variants.tsx
 ├── datepicker_variants.tsx
+├── daterangepicker_variants.tsx
 ├── divider_variants.tsx
 ├── drawer_variants.tsx
 ├── emptystate_variants.tsx
@@ -20,10 +25,15 @@ variants/
 ├── link_variants.tsx
 ├── menu_variants.tsx
 ├── modal_variants.tsx
+├── page_variants.tsx
 ├── pagination_variants.tsx
+├── radiogroup_variants.tsx
 ├── search_variants.tsx
 ├── select_variants.tsx
 ├── skeleton_variants.tsx
+├── spinner_variants.tsx
+├── tablist_variants.tsx
+├── table_variants.tsx
 ├── tag_variants.tsx
 ├── text_variants.tsx
 ├── textarea_variants.tsx
@@ -62,6 +72,18 @@ Each file contains multiple named exports, one for each variant or state of the 
 - `CheckedDisabledCheckbox` - Checked and disabled checkbox
 - `IndeterminateDisabledCheckbox` - Indeterminate and disabled checkbox
 
+### CheckboxGroup Variants (`checkboxgroup_variants.tsx`)
+- `DefaultCheckboxGroup` - Basic vertical checkbox group
+- `HorizontalCheckboxGroup` - Horizontal layout
+- `CheckboxGroupWithError` - Error state with errorText
+- `CheckboxGroupWithDescription` - With description text
+- `HorizontalCheckboxGroupWithError` - Horizontal layout with error
+
+### Collection Variants (`collection_variants.tsx`)
+- `DefaultCollection` - Collection with Search and Pagination
+- `CollectionWithContent` - Collection with content in CollectionView
+- `CollectionWithAlignedRow` - CollectionRow with different align values
+
 ### CollectionView Variants (`collectionview_variants.tsx`)
 - `LoadingCollectionView` - Loading status
 - `ReadyCollectionView` - Ready status with items
@@ -70,10 +92,30 @@ Each file contains multiple named exports, one for each variant or state of the 
 - `NotFoundCollectionView` - Not found status
 - `UnauthorizedCollectionView` - Unauthorized status
 
+### ConfirmationModal Variants (`confirmationmodal_variants.tsx`)
+- `DefaultConfirmationModal` - Basic confirmation modal
+- `ConfirmationModalWithCustomText` - Modal with custom confirmation text
+
+### ContextualHelp Variants (`contextualhelp_variants.tsx`)
+- `DefaultContextualHelp` - Default contextual help
+- `ContextualHelpTopStart` - Placement top-start
+- `ContextualHelpBottomStart` - Placement bottom-start
+- `ContextualHelpTopEnd` - Placement top-end
+- `ContextualHelpBottomEnd` - Placement bottom-end
+
 ### DatePicker Variants (`datepicker_variants.tsx`)
 - `DefaultDatePicker` - Default date picker
 - `DisabledDatePicker` - Disabled date picker
 - `ReadOnlyDatePicker` - Read-only date picker
+- `DatePickerWithError` - Date picker with error state
+- `DatePickerControlled` - Controlled date picker with state
+
+### DateRangePicker Variants (`daterangepicker_variants.tsx`)
+- `DefaultDateRangePicker` - Default date range picker
+- `DisabledDateRangePicker` - Disabled state
+- `ReadOnlyDateRangePicker` - Read-only state
+- `DateRangePickerWithError` - Date range picker with error state
+- `DateRangePickerControlled` - Controlled date range picker with state
 
 ### Divider Variants (`divider_variants.tsx`)
 - `HorizontalDivider` - Horizontal orientation
@@ -84,9 +126,15 @@ Each file contains multiple named exports, one for each variant or state of the 
 - `MediumDrawer` - Medium drawer size
 
 ### EmptyState Variants (`emptystate_variants.tsx`)
+**Size prop:**
 - `SmallEmptyState` - Small empty state size
 - `MediumEmptyState` - Medium empty state size
 - `LargeEmptyState` - Large empty state size
+
+**With illustration and actions:**
+- `EmptyStateWithIllustration` - Empty state with icon illustration
+- `EmptyStateWithActions` - Empty state with action buttons
+- `EmptyStateComplete` - Complete empty state with illustration, heading, text and actions
 
 ### Heading Variants (`heading_variants.tsx`)
 - `Display1Heading` - Display1 heading variant
@@ -125,11 +173,24 @@ Each file contains multiple named exports, one for each variant or state of the 
 - `MediumModal` - Medium modal size
 - `LargeModal` - Large modal size
 
+### Page Variants (`page_variants.tsx`)
+- `DefaultPage` - Basic page with header and content
+- `PageWithButton` - Page with action button in header
+- `PageNarrow` - Page with narrow layout
+- `PageWide` - Page with wide layout
+
 ### Pagination Variants (`pagination_variants.tsx`)
 - `DefaultPagination` - Default pagination
 - `LoadingPagination` - Loading state pagination
 - `SmallPageSizePagination` - Pagination with small page size (10)
 - `LargePageSizePagination` - Pagination with large page size (50)
+
+### RadioGroup Variants (`radiogroup_variants.tsx`)
+- `DefaultRadioGroup` - Basic vertical radio group
+- `HorizontalRadioGroup` - Horizontal layout
+- `RadioGroupWithError` - Error state with errorText
+- `RadioGroupWithDescription` - With description text
+- `HorizontalRadioGroupWithError` - Horizontal layout with error
 
 ### Search Variants (`search_variants.tsx`)
 - `DefaultSearch` - Default search
@@ -144,6 +205,20 @@ Each file contains multiple named exports, one for each variant or state of the 
 ### Skeleton Variants (`skeleton_variants.tsx`)
 - `CircleSkeleton` - Circle shape
 - `RectSkeleton` - Rectangle shape
+
+### Spinner Variants (`spinner_variants.tsx`)
+- `DefaultSpinner` - Default spinner with description
+- `SpinnerWithCustomDescription` - Spinner with custom description text
+
+### TabList Variants (`tablist_variants.tsx`)
+- `DefaultTabList` - Basic tab list with panels
+- `TabListWithThreeTabs` - Tab list with three tabs
+- `TabListWithMultiplePanels` - Extended example with different content
+
+### Table Variants (`table_variants.tsx`)
+- `DefaultTable` - Basic table with data
+- `TableWithTags` - Table with tag components
+- `TableWithCustomWidths` - Table with custom column widths
 
 ### Tag Variants (`tag_variants.tsx`)
 **Variant prop:**
@@ -214,15 +289,26 @@ Import the specific variant you need:
 import { PrimaryButton, LargeSizeButton } from './variants/button_variants'
 import { SuccessAlert } from './variants/alert_variants'
 import { DefaultCheckbox, IndeterminateCheckbox } from './variants/checkbox_variants'
+import { DefaultCheckboxGroup, HorizontalCheckboxGroup } from './variants/checkboxgroup_variants'
+import { DefaultCollection, CollectionWithContent } from './variants/collection_variants'
+import { DefaultConfirmationModal } from './variants/confirmationmodal_variants'
+import { DefaultContextualHelp, ContextualHelpBottomStart } from './variants/contextualhelp_variants'
+import { SmallEmptyState, EmptyStateComplete } from './variants/emptystate_variants'
 import { InputWithPrefix, ErrorInput } from './variants/input_variants'
 import { ResizableTextarea } from './variants/textarea_variants'
 import { DefaultSearch, LoadingSearch } from './variants/search_variants'
 import { DefaultSelect } from './variants/select_variants'
-import { DefaultDatePicker } from './variants/datepicker_variants'
+import { DefaultDatePicker, DatePickerControlled } from './variants/datepicker_variants'
+import { DefaultDateRangePicker, DateRangePickerControlled } from './variants/daterangepicker_variants'
 import { DefaultTimeInput } from './variants/timeinput_variants'
 import { TooltipTop } from './variants/tooltip_variants'
 import { ExternalLink } from './variants/link_variants'
+import { DefaultPage, PageNarrow } from './variants/page_variants'
 import { DefaultPagination } from './variants/pagination_variants'
+import { DefaultRadioGroup, HorizontalRadioGroup } from './variants/radiogroup_variants'
+import { DefaultSpinner } from './variants/spinner_variants'
+import { DefaultTabList, TabListWithThreeTabs } from './variants/tablist_variants'
+import { DefaultTable, TableWithTags } from './variants/table_variants'
 ```
 
 ## How to Add New Variants
@@ -247,4 +333,4 @@ import { DefaultPagination } from './variants/pagination_variants'
 - ✅ **Maintainable**: Easy to see all variants at a glance
 - ✅ **Consistent naming**: Clear convention with `ComponentVariant` pattern
 - ✅ **Complete coverage**: Covers all visual variations and common states
-- ✅ **Comprehensive**: 24 components with 100+ variants total
+- ✅ **Comprehensive**: 35 components with 139+ variants total
