@@ -13,7 +13,7 @@ import { merge } from '@vtex/shoreline-utils'
 import { GRID_DEFAULT_STYLE } from '../../theme/chartStyles'
 import type EChartsReact from 'echarts-for-react'
 import { hooksCompositorAdapter } from '../../utils/hooks'
-import { cloneDeep } from 'lodash'
+import cloneDeep from 'lodash.clonedeep'
 import { chartCompositorDefaultHooks } from '../../utils/defaultHooks'
 
 /**

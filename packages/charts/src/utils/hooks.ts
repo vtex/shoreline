@@ -1,5 +1,4 @@
 import type { EChartsOption, LineSeriesOption, SeriesOption } from 'echarts'
-import { isArray, isDate, isObject } from 'lodash'
 import { defaultTheme } from '../theme/themes'
 import {
   defaultAreaColors,
@@ -30,7 +29,7 @@ export function normalizeBarData(option: EChartsOption): EChartsOption {
 
   if (typeof series === 'undefined') return option
 
-  if (isArray(series)) {
+  if (Array.isArray(series)) {
     option.series = series.map((v: any) => normalizeBarDataInner(v))
     return option
   }
@@ -59,7 +58,7 @@ function normalizeBarDataInner(series: SeriesOption): SeriesOption {
     data: data.map((v) => {
       if (
         typeof v === 'string' ||
-        isDate(v) ||
+        v instanceof Date ||
         Array.isArray(v) || // We could allow this case, but i don't think we allow arrays of arrays anywhere
         v === null ||
         typeof v === 'undefined'
@@ -97,7 +96,7 @@ export function normalizeHorizontalBarData(
 
   if (typeof series === 'undefined') return option
 
-  if (isArray(series)) {
+  if (Array.isArray(series)) {
     option.series = series.map((v: any) => normalizeHorizontalBarDataInner(v))
 
     return option
@@ -129,7 +128,7 @@ function normalizeHorizontalBarDataInner(series: SeriesOption): SeriesOption {
     data: data.map((v) => {
       if (
         typeof v === 'string' ||
-        isDate(v) ||
+        v instanceof Date ||
         Array.isArray(v) || // We could allow this case, but i don't think we allow arrays of arrays anywhere
         v === null ||
         typeof v === 'undefined'
@@ -164,7 +163,7 @@ function normalizeHorizontalBarDataInner(series: SeriesOption): SeriesOption {
 export function roundCap(options: EChartsOption): EChartsOption {
   const series = options.series
 
-  if (!isArray(series) || !isArray(series[0].data)) return options
+  if (!Array.isArray(series) || !Array.isArray(series[0].data)) return options
 
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
   series[0].data.forEach((_, i) => {
@@ -175,7 +174,7 @@ export function roundCap(options: EChartsOption): EChartsOption {
       )[]
 
       // Zero value points aren't rendered and should be skipped
-      if (isObject(data[i]) && data[i].value !== 0) {
+      if (typeof data[i] === 'object' && data[i].value !== 0) {
         data[i] = {
           ...data[i],
           itemStyle: {
@@ -206,7 +205,7 @@ export function roundCap(options: EChartsOption): EChartsOption {
 export function normalizeStackedBars(options: EChartsOption): EChartsOption {
   const series = options.series
 
-  if (!isArray(series) || !isArray(series[0].data)) return options
+  if (!Array.isArray(series) || !Array.isArray(series[0].data)) return options
 
   const seriesSums: number[] = []
   for (let i = 0; i < series[0].data.length; i++) {
@@ -215,7 +214,7 @@ export function normalizeStackedBars(options: EChartsOption): EChartsOption {
       const data = v.data as (number | { value: number })[]
       const current = data[i] as number | { value: number }
 
-      if (isObject(current)) {
+      if (typeof current === 'object') {
         currentTotal += current.value
       } else {
         currentTotal += current
@@ -230,7 +229,7 @@ export function normalizeStackedBars(options: EChartsOption): EChartsOption {
     data.forEach((v, j) => {
       let value = 0
 
-      if (isObject(v)) {
+      if (typeof v === 'object') {
         value = v.value
       } else {
         value = v
@@ -262,7 +261,7 @@ export function setAreaColors(
 ): EChartsOption {
   const { series, ...otherProps } = options
 
-  const arraySeries = isArray(series) ? series : [series]
+  const arraySeries = Array.isArray(series) ? series : [series]
   let nextColorIndex = 0
   arraySeries.forEach((v) => {
     let areaColor: any
@@ -359,7 +358,7 @@ export function formatTimeAxis(
   return (options: EChartsOption) => {
     const series = options.series
 
-    if (!isArray(series) || !isArray(series[0].data)) return options
+    if (!Array.isArray(series) || !Array.isArray(series[0].data)) return options
 
     series.forEach((serie) => {
       const data = serie.data as any[]
@@ -391,17 +390,20 @@ export function sunburstCoreColoring(options: EChartsOption): EChartsOption {
 
   if (!series) return options
 
-  if (isArray(series)) {
+  if (Array.isArray(series)) {
     return options
   }
 
-  if (isArray(series.levels) && Object.keys(series.levels[0]).length === 0) {
+  if (
+    Array.isArray(series.levels) &&
+    Object.keys(series.levels[0]).length === 0
+  ) {
     series.levels[0] = {
       itemStyle: { color: 'var(--sl-color-gray-11)' },
     }
   }
 
-  if (!isArray(series.levels)) {
+  if (!Array.isArray(series.levels)) {
     series.levels = [
       {
         itemStyle: { color: 'var(--sl-color-gray-11)' },

@@ -1,4 +1,3 @@
-import { isArray } from 'lodash'
 import {
   type ComponentPropsWithoutRef,
   forwardRef,
@@ -25,7 +24,7 @@ export const Legend = forwardRef<LegendHandle, LegendProps>((props, ref) => {
 
   if (!series) return
 
-  if (!isArray(series)) return
+  if (!Array.isArray(series)) return
 
   const initialState: LegendState = []
   series.forEach((serie) => {

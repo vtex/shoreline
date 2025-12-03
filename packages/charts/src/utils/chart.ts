@@ -7,7 +7,6 @@ import {
   ChartVariants,
 } from '../types/chart'
 import { merge } from '@vtex/shoreline-utils'
-import { isArray } from 'lodash'
 
 /**
  * Merges series with default styles series, handling both array and scalar form.
@@ -20,7 +19,7 @@ const formatSeries = (
 ) => {
   if (!series) return
 
-  if (isArray(series)) {
+  if (Array.isArray(series)) {
     return series.map((serie) => merge(serie, defaultStyle.series))
   }
 
@@ -51,7 +50,7 @@ export const getChartOptions = (
   const { series: defaultSeries, ...defaultRest } = defaultStyle
   const formattedSeries = formatSeries(series, defaultStyle)
 
-  if (type === 'bar' && isArray(formattedSeries) && chartConfig.gap) {
+  if (type === 'bar' && Array.isArray(formattedSeries) && chartConfig.gap) {
     setBarGap(formattedSeries, chartConfig.gap)
   }
 
@@ -159,7 +158,7 @@ export function getSeriesNames(option: EChartsOption): string[] {
 
   const series = option.series
 
-  if (isArray(series)) {
+  if (Array.isArray(series)) {
     return series.map((v, i) => (v.name ? v.name.toString() : `series${i}`))
   }
 

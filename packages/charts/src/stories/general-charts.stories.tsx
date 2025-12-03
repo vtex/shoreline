@@ -1,4 +1,3 @@
-import { random } from 'lodash'
 import { Chart, ChartCompositor } from '../index'
 import type { StoryObj } from '@storybook/react'
 import { Grid } from '@vtex/shoreline'
@@ -172,11 +171,6 @@ export const SyncWithCompositor: Story = {
 
 export const ManyChartsSync: Story = {
   render: () => {
-    const data: number[] = []
-    for (let i = 0; i < 9; i++) {
-      data.push(random(10, false))
-    }
-
     return (
       <>
         <Chart

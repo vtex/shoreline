@@ -2,7 +2,6 @@ import type { TooltipComponentFormatterCallbackParams } from 'echarts'
 import { renderToStaticMarkup } from 'react-dom/server'
 import '../../theme/components/tooltip.css'
 import { Flex } from '@vtex/shoreline'
-import { isArray } from 'lodash'
 
 /**
  * Tooltip for the Chart component, depending on the tipe of chart it can be
@@ -14,15 +13,15 @@ export default function ChartTooltip({
   percentage = false,
   dimension,
 }: ChartTooltipProps) {
-  if (isArray(params) && invert) params.reverse()
+  if (Array.isArray(params) && invert) params.reverse()
 
   return (
     <>
       <h4 data-sl-chart-tooltip-title>
-        {isArray(params) ? params[0].name : params.name}
+        {Array.isArray(params) ? params[0].name : params.name}
       </h4>
       <div data-sl-chart-tooltip>
-        {isArray(params) ? (
+        {Array.isArray(params) ? (
           params.map((param) => (
             <ChartTooltipLine
               key={param.dataIndex}
@@ -90,7 +89,7 @@ function getValueForTooltip(
     return `${Math.round(params.value * 1000) / 10}%`
   }
 
-  if (!isArray(params.value)) {
+  if (!Array.isArray(params.value)) {
     return params.value
   }
 

@@ -1,8 +1,8 @@
 import type { EChartsOption } from 'echarts'
 import type { LegendAction, LegendState } from '../components/legend'
 import { defaultColorShade } from '../theme/colors'
-import { cloneDeep, isArray, isObject } from 'lodash'
 import { defaultTheme } from '../theme/themes'
+import { cloneDeep } from 'lodash.clonedeep'
 
 export function turnOnAllSeries(chart: echarts.ECharts, series: string[]) {
   series.forEach((serie) => turnOnSerie(chart, serie))
@@ -93,7 +93,7 @@ function barRoundingToggle(
   const series = options.series
   const booleanStates = state.map((s) => s.state !== 'off')
 
-  if (!series || !isArray(series)) return options
+  if (!series || !Array.isArray(series)) return options
 
   const visibleSeries = series
     .filter((_, index) => booleanStates[index])
@@ -143,7 +143,7 @@ function barRoundingToggle(
 
       const data = safeVisibleSeries[j].data
 
-      if (isObject(data[i])) {
+      if (typeof data[i] === 'object') {
         data[i].itemStyle = {
           ...data[i].itemStyle,
           borderRadius: [0, 0, 0, 0],
@@ -170,7 +170,7 @@ function barRoundingExclusive(
   const defaultBorderRadius = defaultTheme.bar.itemStyle.borderRadius
   const series = options.series
 
-  if (!series || !isArray(series)) return options
+  if (!series || !Array.isArray(series)) return options
 
   return {
     series: series.map((serie, i) => {

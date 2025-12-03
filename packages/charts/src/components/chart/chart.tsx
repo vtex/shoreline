@@ -19,7 +19,6 @@ import {
 } from '../../utils/chart'
 import { canUseDOM, useMergeRef } from '@vtex/shoreline-utils'
 import { LEGEND_DEFAULT_STYLE } from '../../theme/chartStyles'
-import { cloneDeep, isArray, type Dictionary } from 'lodash'
 import { formatTimeAxis } from '../../utils/hooks'
 import {
   toggleSerie,
@@ -39,6 +38,7 @@ import { ChartSkeleton } from '../chart-skeleton/chart-skeleton'
 import { chartsDefaultHooks } from '../../utils/defaultHooks'
 import { Flex } from '@vtex/shoreline'
 import type { Locale } from './locales'
+import cloneDeep from 'lodash.clonedeep'
 
 /**
  * Render a Shoreline Chart with Echarts. Mixes user options with defaults determined by chart type.
@@ -94,7 +94,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
 
       const hooks: any[] = []
 
-      if (!isArray(xAxis) && xAxis.type === 'time') {
+      if (!Array.isArray(xAxis) && xAxis.type === 'time') {
         hooks.push(formatTimeAxis(locale))
       }
 
@@ -105,6 +105,7 @@ export const Chart = forwardRef<ReactECharts | undefined, ChartProps>(
     }, [chartConfig, optionHooks, xAxis, locale])
 
     const finalOptions: EChartsOption = useMemo(() => {
+      console.log(typeof cloneDeep)
       const wholeOption = cloneDeep(option) ?? {}
       wholeOption.series = cloneDeep(series)
       wholeOption.xAxis = cloneDeep(xAxis)
@@ -363,7 +364,7 @@ export interface ChartOptions {
    * Overrides default shoreline theme.
    * @default defaultTheme
    */
-  theme?: Dictionary<any> | string
+  theme?: Record<any, any> | string
   /**
    * Wether is loading.
    * @default false
