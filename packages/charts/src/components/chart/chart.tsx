@@ -357,7 +357,8 @@ export interface ChartOptions {
    */
   renderer?: 'svg' | 'canvas'
   /**
-   * Override the locale used to format dates.
+   * Set the locale used to format dates.
+   * @default en
    */
   locale?: Locale
   /**
