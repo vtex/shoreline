@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline",
-  "version": "1.11.31",
+  "version": "1.12.3",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -19,8 +19,24 @@
     },
     "./css": "./dist/themes/sunrise/styles.css",
     "./css/unlayered": "./dist/themes/sunrise/styles-unlayered.css",
+    "./css/tokens": "./dist/themes/sunrise/tokens.css",
+    "./css/tokens/unlayered": "./dist/themes/sunrise/tokens-unlayered.css",
+    "./css/reset": "./dist/themes/sunrise/reset.css",
+    "./css/reset/unlayered": "./dist/themes/sunrise/reset-unlayered.css",
+    "./css/base": "./dist/themes/sunrise/base.css",
+    "./css/base/unlayered": "./dist/themes/sunrise/base-unlayered.css",
+    "./css/components": "./dist/themes/sunrise/components.css",
+    "./css/components/unlayered": "./dist/themes/sunrise/components-unlayered.css",
     "./themes/sunrise": "./dist/themes/sunrise/styles.css",
-    "./themes/sunrise/unlayered": "./dist/themes/sunrise/styles-unlayered.css"
+    "./themes/sunrise/unlayered": "./dist/themes/sunrise/styles-unlayered.css",
+    "./themes/sunrise/tokens": "./dist/themes/sunrise/tokens.css",
+    "./themes/sunrise/tokens/unlayered": "./dist/themes/sunrise/tokens-unlayered.css",
+    "./themes/sunrise/reset": "./dist/themes/sunrise/reset.css",
+    "./themes/sunrise/reset/unlayered": "./dist/themes/sunrise/reset-unlayered.css",
+    "./themes/sunrise/base": "./dist/themes/sunrise/base.css",
+    "./themes/sunrise/base/unlayered": "./dist/themes/sunrise/base-unlayered.css",
+    "./themes/sunrise/components": "./dist/themes/sunrise/components.css",
+    "./themes/sunrise/components/unlayered": "./dist/themes/sunrise/components-unlayered.css"
   },
   "engines": {
     "node": ">=20"
@@ -71,7 +87,7 @@
     "@react-stately/calendar": "3.5.5",
     "@react-stately/datepicker": "3.10.3",
     "@react-stately/toggle": "3.7.4",
-    "@vtex/shoreline-utils": "^1.0.101",
+    "@vtex/shoreline-utils": "^1.0.107",
     "react-hot-toast": "2.4.1",
     "vaul": "0.9.4"
   }

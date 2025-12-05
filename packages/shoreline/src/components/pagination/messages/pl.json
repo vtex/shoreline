@@ -1,0 +1,6 @@
+{
+  "pagination-label": "{firstPosition} - {lastPosition} z {items}",
+  "pagination-label-single-page": "{lastPosition} z {items}",
+  "next-page-action": "Następna strona",
+  "previous-page-action": "Poprzednia strona"
+}

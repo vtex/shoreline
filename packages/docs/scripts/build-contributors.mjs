@@ -299,11 +299,21 @@ async function main() {
     console.log(
       'To run this script locally you must create a .env file with the VTEX_GITHUB_BOT_TOKEN which gives access to the public_repo scope'
     )
+    console.log('⚠️  Skipping contributors generation')
     return
   }
 
-  const pulls = await fetchAllPullRequests()
-  const issues = await fetchAllIssues()
+  let pulls = []
+  let issues = []
+
+  try {
+    pulls = await fetchAllPullRequests()
+    issues = await fetchAllIssues()
+  } catch (error) {
+    console.error('⚠️  Error fetching data from GitHub:', error.message)
+    console.log('⚠️  Skipping contributors generation due to API errors')
+    return
+  }
 
   const contributors = getRepositoryContributors(issues, pulls)
   const issuesOnFire = getIssuesOnFire(issues)

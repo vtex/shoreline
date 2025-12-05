@@ -1,11 +1,11 @@
 {
-  "not-found-heading": "No results found",
-  "not-found-description": "Try using different terms or filters.",
-  "empty-heading": "No items yet",
-  "empty-description": "Create an item to start selling.",
-  "empty-action": "Create item",
-  "error-heading": "Something went wrong",
-  "error-action": "Try again",
-  "unauthorized-heading": "Unauthorized access",
-  "unauthorized-description": "User profile does not have access to the filtered content. Please contact support."
+  "not-found-heading": "Няма резултат",
+  "not-found-description": "Опитайте да използвате различни термини или филтри.",
+  "empty-heading": "Все още няма артикули",
+  "empty-description": "Създайте артикул, за да започнете да продавате",
+  "empty-action": "Създаване на елемент",
+  "error-heading": "Нещо се обърка",
+  "error-action": "Опитай пак",
+  "unauthorized-heading": "Неоторизиран достъп",
+  "unauthorized-description": "Ролята на потребителя няма достъп до филтрираното съдържание. Моля, свържете се с поддръжката."
 }

@@ -27,7 +27,7 @@ export function tokens(args: TokensArgs) {
     }.css`
 
     try {
-      outputFileSync(outputFile, tokens.code)
+      outputFileSync(outputFile, tokens.code.toString())
       console.log(`✅ Generated ${outputFile}`)
     } catch (e) {
       console.log('🚨 Failed to compile styles')

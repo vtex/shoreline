@@ -1,11 +1,11 @@
 {
-  "not-found-heading": "No results found",
-  "not-found-description": "Try using different terms or filters.",
-  "empty-heading": "No items yet",
-  "empty-description": "Create an item to start selling.",
-  "empty-action": "Create item",
-  "error-heading": "Something went wrong",
-  "error-action": "Try again",
-  "unauthorized-heading": "Unauthorized access",
-  "unauthorized-description": "User profile does not have access to the filtered content. Please contact support."
+  "not-found-heading": "Nu s-a găsit niciun rezultat",
+  "not-found-description": "Încercă să folosești termeni sau filtre diferite",
+  "empty-heading": "Deocamdată nu există articole",
+  "empty-description": "Creează un articol pentru a începe să vinzi",
+  "empty-action": "Creare articol",
+  "error-heading": "Ceva nu a mers bine",
+  "error-action": "Încearcă din nou",
+  "unauthorized-heading": "Acces neautorizat",
+  "unauthorized-description": "Rolul utilizatorului nu are acces la conținutul filtrat. Te rugăm sa contactezi departamentul de asistență."
 }

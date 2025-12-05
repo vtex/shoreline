@@ -1,11 +1,11 @@
 {
-  "not-found-heading": "No results found",
-  "not-found-description": "Try using different terms or filters.",
-  "empty-heading": "No items yet",
-  "empty-description": "Create an item to start selling.",
-  "empty-action": "Create item",
-  "error-heading": "Something went wrong",
-  "error-action": "Try again",
-  "unauthorized-heading": "Unauthorized access",
-  "unauthorized-description": "User profile does not have access to the filtered content. Please contact support."
+  "not-found-heading": "Es wurden keine Ergebnisse gefunden",
+  "not-found-description": "Versuchen Sie, andere Begriffe oder Filter zu verwenden.",
+  "empty-heading": "Noch keine Objekte",
+  "empty-description": "Erstellen Sie ein Objekt um mit dem Verkaufen anzufangen",
+  "empty-action": "Objekt erstellen",
+  "error-heading": "Etwas ist schief gelaufen",
+  "error-action": "Erneut versuchen",
+  "unauthorized-heading": "Unbefugter Zugang",
+  "unauthorized-description": "Benutzerrolle hat keinen Zugang zum gefilterten Inhalt. Bitte kontaktieren Sie die Support-Abteilung."
 }

@@ -52,7 +52,12 @@ export default {
  */
 async function main() {
   fse.removeSync(outputDirectory)
-  const files = fse.readdirSync(inputDirectory)
+  const allFiles = fse.readdirSync(inputDirectory)
+
+  const files = allFiles.filter((file) => {
+    const filePath = `${inputDirectory}/${file}`
+    return fse.statSync(filePath).isFile()
+  })
 
   const codePromises = files.map((file) => {
     const fileBuffer = fse.readFileSync(`${inputDirectory}/${file}`)

@@ -1,11 +1,11 @@
 {
-  "not-found-heading": "No results found",
-  "not-found-description": "Try using different terms or filters.",
-  "empty-heading": "No items yet",
-  "empty-description": "Create an item to start selling.",
-  "empty-action": "Create item",
-  "error-heading": "Something went wrong",
-  "error-action": "Try again",
-  "unauthorized-heading": "Unauthorized access",
-  "unauthorized-description": "User profile does not have access to the filtered content. Please contact support."
+  "not-found-heading": "ไม่มีผลลัพธ์!",
+  "not-found-description": "ลองใช้ข้อกำหนดหรือตัวกรองอื่น",
+  "empty-heading": "ยังไม่มีสินค้า",
+  "empty-description": "สร้างสินค้าเพื่อเริ่มการขาย",
+  "empty-action": "สร้างสินค้า",
+  "error-heading": "มีบางอย่างผิดปกติ",
+  "error-action": "ลองอีกครั้ง",
+  "unauthorized-heading": "ไม่มีสิทธิ์การเข้าถึง",
+  "unauthorized-description": "ผู้ใช้ในบทบาทนี้ไม่มีสิทธิ์เข้าถึงเนื้อหาที่กรอง โปรดติดต่อฝ่ายสนับสนุน"
 }

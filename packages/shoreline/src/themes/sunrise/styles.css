@@ -1,3 +1,4 @@
+@import "tokens.css" layer(sl-tokens);
 @import "reset.css" layer(sl-reset);
 @import "base.css" layer(sl-base);
 @import "components/index.css" layer(sl-components);
