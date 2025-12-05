@@ -55,3 +55,5 @@ export const allPrimitivesList = [
   'locale-provider',
   'visually-hidden',
 ]
+
+export const allChartsList = ['bar', 'line', 'area']

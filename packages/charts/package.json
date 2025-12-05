@@ -1,0 +1,56 @@
+{
+  "name": "@vtex/shoreline-charts",
+  "description": "Shoreline datavis library",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./css": "./dist/index.css"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "tsup --watch",
+    "build": "tsup"
+  },
+  "repository": {
+    "directory": "packages/charts",
+    "type": "git",
+    "url": "git+https://github.com/vtex/shoreline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/shoreline/issues"
+  },
+  "peerDependencies": {
+    "@vtex/shoreline": "1.x",
+    "echarts": "6.x",
+    "react": "18.x",
+    "react-dom": "18.x"
+  },
+  "devDependencies": {
+    "@types/lodash.clonedeep": "^4.5.9",
+    "@vtex/shoreline": "workspace:*"
+  },
+  "dependencies": {
+    "@vtex/shoreline-utils": "workspace:*",
+    "echarts": "^6.0.0",
+    "echarts-for-react": "^3.0.4",
+    "lodash.clonedeep": "^4.5.0",
+    "vitest-canvas-mock": "^0.3.3"
+  }
+}

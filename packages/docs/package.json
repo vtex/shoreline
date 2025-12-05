@@ -23,6 +23,7 @@
     "@vtex/shoreline": "workspace:*",
     "@vtex/shoreline-ts-table": "workspace:*",
     "@vtex/shoreline-utils": "workspace:*",
+    "@vtex/shoreline-charts": "workspace:*",
     "fs-extra": "11.2.0",
     "google": "link:@next/third-parties/google",
     "next": "^15.0.0",
