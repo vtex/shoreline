@@ -1,99 +1,135 @@
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import '@vtex/shoreline/css'
 import {
   Button,
   Stack,
   Flex,
-  Grid,
   Heading,
   Text,
   Input,
-  Select,
-  SelectItem,
-  SelectPopover,
-  SelectProvider,
-  SelectTrigger,
-  Checkbox,
-  Radio,
-  RadioGroup,
-  Textarea,
   Search,
-  Alert,
-  Tag,
-  Divider,
-  Link,
-  EmptyState,
-  EmptyStateActions,
-  EmptyStateIllustration,
-  Skeleton,
-  Spinner,
   Label,
-  FieldDescription,
+  Checkbox,
+  IconGearSix,
   IconArrowsClockwise,
   IconArrowLineDown,
   IconArrowLineUp,
-  IconButton,
-  Menu,
-  MenuItem,
+  IconCaretDown,
+  Divider,
+  EmptyState,
+  EmptyStateActions,
+  EmptyStateIllustration,
   Tooltip,
-  Tab,
-  TabList,
-  TabPanel,
-  TabProvider,
-  Pagination,
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableHeaderCell,
-  TableRow,
-  Page,
-  PageContent,
-  PageHeader,
-  PageHeading,
-  Popover,
-  PopoverProvider,
-  PopoverTrigger,
-  Filter,
-  FilterItem,
-  IconGearSix,
-  IconHeart,
-  IconTrash,
-  IconPencil,
-  IconInfo,
-  Bleed,
-  Center,
-  ContextualHelp,
-  Container,
-  Content,
-  Clickable,
-  CheckboxGroup,
-  DatePicker,
-  DateRangePicker,
-  DateField,
-  TimeInput,
-  parseDate,
-  toast,
-  ToastStack,
-  Modal,
-  ModalHeader,
-  ModalHeading,
-  ModalContent,
-  ModalFooter,
-  ModalDismiss,
-  DrawerProvider,
-  DrawerPopover,
-  DrawerHeader,
-  DrawerHeading,
-  DrawerContent,
-  DrawerFooter,
-  DrawerDismiss,
-  ComboboxProvider,
-  ComboboxInput,
-  ComboboxPopover,
-  ComboboxItem,
-  Field,
 } from '../../index'
+
+// Importar exemplos de componentes existentes quando disponíveis
+import {
+  Simple as SelectSimple,
+  Locale as SelectLocale,
+  CustomPlaceholder as SelectCustomPlaceholder,
+  Disabled as SelectDisabled,
+  Controlled as SelectControlled,
+  Multi as SelectMulti,
+  AsField as SelectAsField,
+  WithError as SelectWithError,
+  Composition as SelectComposition,
+  ListBox as SelectListBox,
+  WithCombobox as SelectWithCombobox,
+} from '../select/stories/examples.stories'
+import {
+  AsAlert as AlertAsAlert,
+  Dismiss as AlertDismiss,
+} from '../alert/stories/examples.stories'
+import {
+  AsLink as ButtonAsLink,
+  UploadButton as ButtonUploadButton,
+} from '../button/stories/examples.stories'
+import {
+  Controlled as CalendarControlled,
+  Uncontrolled as CalendarUncontrolled,
+} from '../calendar/stories/examples.stories'
+import {
+  AsField as CheckboxAsField,
+  Controlled as CheckboxControlled,
+  ReactHookForm as CheckboxReactHookForm,
+  ReactHookFormGroup as CheckboxReactHookFormGroup,
+  ReactWindow as CheckboxReactWindow,
+} from '../checkbox/stories/examples.stories'
+import {
+  ClickBubble as ClickableClickBubble,
+  ClickBubbleAllChildren as ClickableClickBubbleAllChildren,
+} from '../clickable/stories/examples.stories'
+import { Filtering as ComboboxFiltering } from '../combobox/stories/examples.stories'
+import { AsChild as ComposeAsChild } from '../compose/stories/examples.stories'
+import {
+  Controlled as DateFieldControlled,
+  Locale as DateFieldLocale,
+  Granularity as DateFieldGranularity,
+} from '../date-field/stories/examples.stories'
+import {
+  Default as DatePickerDefault,
+  Controlled as DatePickerControlled,
+  Locale as DatePickerLocale,
+  AsField as DatePickerAsField,
+  Disabled as DatePickerDisabled,
+} from '../date-picker/stories/examples.stories'
+import {
+  WithField as DateRangePickerWithField,
+  Controlled as DateRangePickerControlled,
+  Locale as DateRangePickerLocale,
+  Disabled as DateRangePickerDisabled,
+} from '../date-range-picker/stories/examples.stories'
+import {
+  FilterError as EmptyStateFilterError,
+  FilterNotFound as EmptyStateFilterNotFound,
+} from '../empty-state/stories/examples.stories'
+import { Controlled as FieldControlled } from '../field/stories/examples.stories'
+import {
+  Controlled as FilterControlled,
+  CustomMessages as FilterCustomMessages,
+  Localization as FilterLocalization,
+  Composition as FilterComposition,
+  WithCombobox as FilterWithCombobox,
+} from '../filter/stories/examples.stories'
+import { AsAnchor as IconButtonAsAnchor } from '../icon-button/stories/examples.stories'
+import { Controlled as InputControlled } from '../input/stories/examples.stories'
+import { Localization as LabelLocalization } from '../label/stories/examples.stories'
+import {
+  FullForm as MenuFullForm,
+  Composition as MenuComposition,
+} from '../menu/stories/examples.stories'
+import { Size as ModalSize } from '../modal/stories/examples.stories'
+import { Localization as PaginationLocalization } from '../pagination/stories/examples.stories'
+import { Composition as PopoverComposition } from '../popover/stories/examples.stories'
+import { Controlled as RadioControlled } from '../radio/stories/examples.stories'
+import {
+  Default as RangeCalendarDefault,
+  Controlled as RangeCalendarControlled,
+  Locale as RangeCalendarLocale,
+} from '../range-calendar/stories/examples.stories'
+import { RowAsLink as TableRowAsLink } from '../table/stories/examples.stories'
+import {
+  NoResize as TextareaNoResize,
+  FormField as TextareaFormField,
+  LongText as TextareaLongText,
+} from '../textarea/stories/examples.stories'
+import {
+  AsChild as TextAsChild,
+  Ref as TextRef,
+} from '../text/stories/examples.stories'
+import {
+  Default as TimeInputDefault,
+  WithError as TimeInputWithError,
+  Controlled as TimeInputControlled,
+  Locale as TimeInputLocale,
+  Granularity as TimeInputGranularity,
+} from '../time-input/stories/examples.stories'
+import { ToastFunction as ToastToastFunction } from '../toast/stories/examples.stories'
+import {
+  Placement as TooltipPlacement,
+  Controlled as TooltipControlled,
+  Composition as TooltipComposition,
+} from '../tooltip/stories/examples.stories'
 
 // Tokens padrão do Sunrise extraídos do CSS
 const SUNRISE_TOKENS: Record<string, string> = {
@@ -393,114 +429,273 @@ const SUNRISE_TOKENS: Record<string, string> = {
 }
 
 const STORAGE_KEY = 'shoreline-theme-builder-tokens'
+const STORAGE_KEY_COMPONENTS = 'shoreline-theme-builder-selected-components'
 
-type TokenCategory = 'colors' | 'spacing' | 'typography' | 'borders' | 'effects'
+// Lista de componentes disponíveis
+const AVAILABLE_COMPONENTS = [
+  'Alert',
+  'Button',
+  'Calendar',
+  'Checkbox',
+  'Clickable',
+  'Combobox',
+  'Compose',
+  'DateField',
+  'DatePicker',
+  'DateRangePicker',
+  'EmptyState',
+  'Field',
+  'Filter',
+  'IconButton',
+  'Input',
+  'Label',
+  'Menu',
+  'Modal',
+  'Pagination',
+  'Popover',
+  'Radio',
+  'RangeCalendar',
+  'Select',
+  'Table',
+  'Text',
+  'Textarea',
+  'TimeInput',
+  'Toast',
+  'Tooltip',
+]
+
+// Mapeamento de componentes para funções de exemplo importadas (pode ser um único componente ou array)
+const COMPONENT_EXAMPLES: Record<
+  string,
+  React.ComponentType | Array<{ label: string; Component: React.ComponentType }>
+> = {
+  Alert: [
+    { label: 'As Alert', Component: AlertAsAlert },
+    { label: 'Dismiss', Component: AlertDismiss },
+  ],
+  Button: [
+    { label: 'As Link', Component: ButtonAsLink },
+    { label: 'Upload Button', Component: ButtonUploadButton },
+  ],
+  Calendar: [
+    { label: 'Controlled', Component: CalendarControlled },
+    { label: 'Uncontrolled', Component: CalendarUncontrolled },
+  ],
+  Checkbox: [
+    { label: 'As Field', Component: CheckboxAsField },
+    { label: 'Controlled', Component: CheckboxControlled },
+    { label: 'React Hook Form', Component: CheckboxReactHookForm },
+    { label: 'React Hook Form Group', Component: CheckboxReactHookFormGroup },
+    { label: 'React Window', Component: CheckboxReactWindow },
+  ],
+  Clickable: [
+    { label: 'Click Bubble', Component: ClickableClickBubble },
+    {
+      label: 'Click Bubble All Children',
+      Component: ClickableClickBubbleAllChildren,
+    },
+  ],
+  Combobox: [{ label: 'Filtering', Component: ComboboxFiltering }],
+  Compose: [{ label: 'As Child', Component: ComposeAsChild }],
+  DateField: [
+    { label: 'Controlled', Component: DateFieldControlled },
+    { label: 'Locale', Component: DateFieldLocale },
+    { label: 'Granularity', Component: DateFieldGranularity },
+  ],
+  DatePicker: [
+    { label: 'Default', Component: DatePickerDefault },
+    { label: 'Controlled', Component: DatePickerControlled },
+    { label: 'Locale', Component: DatePickerLocale },
+    { label: 'As Field', Component: DatePickerAsField },
+    { label: 'Disabled', Component: DatePickerDisabled },
+  ],
+  DateRangePicker: [
+    { label: 'With Field', Component: DateRangePickerWithField },
+    { label: 'Controlled', Component: DateRangePickerControlled },
+    { label: 'Locale', Component: DateRangePickerLocale },
+    { label: 'Disabled', Component: DateRangePickerDisabled },
+  ],
+  EmptyState: [
+    { label: 'Filter Error', Component: EmptyStateFilterError },
+    { label: 'Filter Not Found', Component: EmptyStateFilterNotFound },
+  ],
+  Field: [{ label: 'Controlled', Component: FieldControlled }],
+  Filter: [
+    { label: 'Controlled', Component: FilterControlled },
+    { label: 'Custom Messages', Component: FilterCustomMessages },
+    { label: 'Localization', Component: FilterLocalization },
+    { label: 'Composition', Component: FilterComposition },
+    { label: 'With Combobox', Component: FilterWithCombobox },
+  ],
+  IconButton: [{ label: 'As Anchor', Component: IconButtonAsAnchor }],
+  Input: [{ label: 'Controlled', Component: InputControlled }],
+  Label: [{ label: 'Localization', Component: LabelLocalization }],
+  Menu: [
+    { label: 'Full Form', Component: MenuFullForm },
+    { label: 'Composition', Component: MenuComposition },
+  ],
+  Modal: [{ label: 'Size', Component: ModalSize }],
+  Pagination: [{ label: 'Localization', Component: PaginationLocalization }],
+  Popover: [{ label: 'Composition', Component: PopoverComposition }],
+  Radio: [{ label: 'Controlled', Component: RadioControlled }],
+  RangeCalendar: [
+    { label: 'Default', Component: RangeCalendarDefault },
+    { label: 'Controlled', Component: RangeCalendarControlled },
+    { label: 'Locale', Component: RangeCalendarLocale },
+  ],
+  Select: [
+    { label: 'Simple', Component: SelectSimple },
+    { label: 'Locale', Component: SelectLocale },
+    { label: 'Custom Placeholder', Component: SelectCustomPlaceholder },
+    { label: 'Disabled', Component: SelectDisabled },
+    { label: 'Controlled', Component: SelectControlled },
+    { label: 'Multi', Component: SelectMulti },
+    { label: 'As Field', Component: SelectAsField },
+    { label: 'With Error', Component: SelectWithError },
+    { label: 'Composition', Component: SelectComposition },
+    { label: 'ListBox', Component: SelectListBox },
+    { label: 'With Combobox', Component: SelectWithCombobox },
+  ],
+  Table: [{ label: 'Row As Link', Component: TableRowAsLink }],
+  Text: [
+    { label: 'As Child', Component: TextAsChild },
+    { label: 'Ref', Component: TextRef },
+  ],
+  Textarea: [
+    { label: 'No Resize', Component: TextareaNoResize },
+    { label: 'Form Field', Component: TextareaFormField },
+    { label: 'Long Text', Component: TextareaLongText },
+  ],
+  TimeInput: [
+    { label: 'Default', Component: TimeInputDefault },
+    { label: 'With Error', Component: TimeInputWithError },
+    { label: 'Controlled', Component: TimeInputControlled },
+    { label: 'Locale', Component: TimeInputLocale },
+    { label: 'Granularity', Component: TimeInputGranularity },
+  ],
+  Toast: [{ label: 'Toast Function', Component: ToastToastFunction }],
+  Tooltip: [
+    { label: 'Placement', Component: TooltipPlacement },
+    { label: 'Controlled', Component: TooltipControlled },
+    { label: 'Composition', Component: TooltipComposition },
+  ],
+}
 
 interface TokenGroup {
-  category: TokenCategory
   label: string
   tokens: string[]
 }
 
-// Organizar tokens por categoria
 const TOKEN_GROUPS: TokenGroup[] = [
   {
-    category: 'colors',
     label: 'Cores Primitivas - Gray',
     tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
       k.startsWith('--sl-color-gray-')
     ),
   },
   {
-    category: 'colors',
     label: 'Cores Primitivas - Red',
     tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
       k.startsWith('--sl-color-red-')
     ),
   },
   {
-    category: 'colors',
+    label: 'Cores Primitivas - Orange',
+    tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
+      k.startsWith('--sl-color-orange-')
+    ),
+  },
+  {
+    label: 'Cores Primitivas - Yellow',
+    tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
+      k.startsWith('--sl-color-yellow-')
+    ),
+  },
+  {
+    label: 'Cores Primitivas - Green',
+    tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
+      k.startsWith('--sl-color-green-')
+    ),
+  },
+  {
+    label: 'Cores Primitivas - Teal',
+    tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
+      k.startsWith('--sl-color-teal-')
+    ),
+  },
+  {
     label: 'Cores Primitivas - Blue',
     tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
       k.startsWith('--sl-color-blue-')
     ),
   },
   {
-    category: 'colors',
+    label: 'Cores Primitivas - Purple',
+    tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
+      k.startsWith('--sl-color-purple-')
+    ),
+  },
+  {
+    label: 'Cores Primitivas - Pink',
+    tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
+      k.startsWith('--sl-color-pink-')
+    ),
+  },
+  {
+    label: 'Cores Primitivas - Cyan',
+    tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
+      k.startsWith('--sl-color-cyan-')
+    ),
+  },
+  {
     label: 'Cores Semânticas - Foreground',
     tokens: Object.keys(SUNRISE_TOKENS).filter((k) => k.startsWith('--sl-fg-')),
   },
   {
-    category: 'colors',
     label: 'Cores Semânticas - Background',
     tokens: Object.keys(SUNRISE_TOKENS).filter((k) => k.startsWith('--sl-bg-')),
   },
   {
-    category: 'spacing',
     label: 'Espaçamento',
     tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
       k.startsWith('--sl-space-')
     ),
   },
   {
-    category: 'typography',
     label: 'Tipografia - Fonts',
     tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
       k.startsWith('--sl-font-')
     ),
   },
   {
-    category: 'typography',
     label: 'Tipografia - Text Variants',
     tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
       k.startsWith('--sl-text-')
     ),
   },
   {
-    category: 'borders',
     label: 'Bordas',
     tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
       k.startsWith('--sl-border-')
     ),
   },
   {
-    category: 'borders',
     label: 'Border Radius',
     tokens: Object.keys(SUNRISE_TOKENS).filter((k) =>
       k.startsWith('--sl-radius-')
     ),
   },
   {
-    category: 'effects',
     label: 'Shadows & Focus Rings',
     tokens: Object.keys(SUNRISE_TOKENS).filter(
       (k) => k.startsWith('--sl-shadow-') || k.startsWith('--sl-focus-ring-')
     ),
   },
   {
-    category: 'effects',
     label: 'Z-Index',
     tokens: Object.keys(SUNRISE_TOKENS).filter((k) => k.startsWith('--sl-z-')),
   },
 ]
-
-// Função para extrair valor de cor de uma string CSS
-function extractColorValue(value: string): string {
-  if (value.startsWith('#')) return value
-  if (value.startsWith('rgb') || value.startsWith('rgba')) return value
-  if (value.startsWith('var(')) {
-    // Para variáveis, tentar resolver ou retornar como está
-    return value
-  }
-  return value
-}
-
-// Função para verificar se é uma cor
-function isColorToken(token: string): boolean {
-  return (
-    token.includes('color') || token.includes('fg-') || token.includes('bg-')
-  )
-}
 
 export default {
   title: 'Theme Builder',
@@ -510,9 +705,27 @@ export default {
   },
 }
 
+// Função helper para extrair valor de cor hexadecimal
+function extractHexColor(colorValue: string): string {
+  if (colorValue.startsWith('#')) {
+    return colorValue
+  }
+  if (colorValue.startsWith('rgb')) {
+    // Converter RGB para hex se necessário
+    return colorValue
+  }
+  if (colorValue.startsWith('var(')) {
+    // Para variáveis CSS, retornar padrão
+    return '#000000'
+  }
+  if (colorValue.startsWith('color-mix')) {
+    return '#000000'
+  }
+  return colorValue
+}
+
 export function ThemeBuilder() {
   const [tokens, setTokens] = useState<Record<string, string>>(() => {
-    // Carregar do localStorage ou usar padrão
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem(STORAGE_KEY)
       if (stored) {
@@ -526,14 +739,30 @@ export function ThemeBuilder() {
     return { ...SUNRISE_TOKENS }
   })
 
+  const [selectedComponents, setSelectedComponents] = useState<Set<string>>(
+    () => {
+      if (typeof window !== 'undefined') {
+        const stored = localStorage.getItem(STORAGE_KEY_COMPONENTS)
+        if (stored) {
+          try {
+            return new Set(JSON.parse(stored))
+          } catch {
+            return new Set(AVAILABLE_COMPONENTS)
+          }
+        }
+      }
+      return new Set(AVAILABLE_COMPONENTS)
+    }
+  )
+
   const [searchQuery, setSearchQuery] = useState('')
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(
-    new Set(['colors'])
+    new Set()
   )
+  const [showComponentSelector, setShowComponentSelector] = useState(false)
   const styleRef = useRef<HTMLStyleElement | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
-  // Aplicar tokens ao documento
   useEffect(() => {
     if (typeof document === 'undefined') return
 
@@ -544,20 +773,25 @@ export function ThemeBuilder() {
       styleRef.current = style
     }
 
-    const css = `:root {\n${Object.entries(tokens)
+    const css = `#theme-builder-preview {\n${Object.entries(tokens)
       .map(([key, value]) => `  ${key}: ${value};`)
       .join('\n')}\n}`
     styleRef.current.textContent = css
 
-    // Salvar no localStorage
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tokens))
   }, [tokens])
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(
+        STORAGE_KEY_COMPONENTS,
+        JSON.stringify(Array.from(selectedComponents))
+      )
+    }
+  }, [selectedComponents])
+
   function handleTokenChange(tokenKey: string, value: string) {
-    setTokens((prev) => ({
-      ...prev,
-      [tokenKey]: value,
-    }))
+    setTokens((prev) => ({ ...prev, [tokenKey]: value }))
   }
 
   function handleReset() {
@@ -610,73 +844,127 @@ export function ThemeBuilder() {
     })
   }
 
-  // Filtrar grupos baseado na busca
-  const filteredGroups = useMemo(() => {
-    if (!searchQuery) return TOKEN_GROUPS
+  function toggleComponent(component: string) {
+    setSelectedComponents((prev) => {
+      const next = new Set(prev)
+      if (next.has(component)) {
+        next.delete(component)
+      } else {
+        next.add(component)
+      }
+      return next
+    })
+  }
 
-    const query = searchQuery.toLowerCase()
-    return TOKEN_GROUPS.map((group) => ({
-      ...group,
-      tokens: group.tokens.filter((token) =>
-        token.toLowerCase().includes(query)
-      ),
-    })).filter((group) => group.tokens.length > 0)
-  }, [searchQuery])
+  function selectAllComponents() {
+    setSelectedComponents(new Set(AVAILABLE_COMPONENTS))
+  }
+
+  function deselectAllComponents() {
+    setSelectedComponents(new Set())
+  }
+
+  // Filtrar grupos baseado na busca
+  const filteredGroups = TOKEN_GROUPS.map((group) => ({
+    ...group,
+    tokens: searchQuery
+      ? group.tokens.filter((token) =>
+          token.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      : group.tokens,
+  })).filter((group) => group.tokens.length > 0)
 
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
-      {/* Painel Esquerdo - Editor de Tokens */}
+      {/* Sidebar */}
       <div
         style={{
-          width: '400px',
-          borderRight: '1px solid var(--sl-border-base)',
+          width: '420px',
+          borderRight: '1px solid var(--sl-color-gray-3)',
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden',
-          backgroundColor: 'var(--sl-bg-base)',
+          backgroundColor: '#ffffff',
         }}
       >
+        {/* Header */}
         <div
           style={{
-            padding: 'var(--sl-space-4)',
-            borderBottom: '1px solid var(--sl-border-base)',
+            padding: '24px 20px',
+            borderBottom: '1px solid var(--sl-color-gray-2)',
           }}
         >
-          <Heading
-            variant="display3"
-            style={{ marginBottom: 'var(--sl-space-4)' }}
-          >
+          <Heading variant="display2" style={{ marginBottom: '8px' }}>
             Theme Builder
           </Heading>
+          <Text variant="body" style={{ color: 'var(--sl-color-gray-9)' }}>
+            Customize Shoreline tokens in real-time
+          </Text>
+        </div>
+
+        {/* Toolbar */}
+        <div
+          style={{
+            padding: '16px 20px',
+            borderBottom: '1px solid var(--sl-color-gray-2)',
+          }}
+        >
           <Stack>
             <Search
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Buscar tokens..."
+              placeholder="Search tokens..."
             />
-            <Flex direction="row" style={{ gap: 'var(--sl-space-2)' }}>
-              <Button
-                variant="secondary"
-                onClick={handleReset}
-                style={{ flex: 1 }}
-              >
-                <IconArrowsClockwise /> Reset
-              </Button>
-              <Button
-                variant="secondary"
-                onClick={handleExport}
-                style={{ flex: 1 }}
-              >
-                <IconArrowLineDown /> Export
-              </Button>
-              <Button
-                variant="secondary"
-                onClick={() => fileInputRef.current?.click()}
-                style={{ flex: 1 }}
-              >
-                <IconArrowLineUp /> Import
-              </Button>
+
+            {/* Action Buttons */}
+            <Flex direction="row" style={{ gap: '8px', flexWrap: 'wrap' }}>
+              <Tooltip label="Reset to default theme">
+                <Button
+                  variant="tertiary"
+                  onClick={handleReset}
+                  style={{ flex: 1 }}
+                  size="normal"
+                >
+                  <IconArrowsClockwise />
+                  Reset
+                </Button>
+              </Tooltip>
+              <Tooltip label="Export theme as JSON">
+                <Button
+                  variant="tertiary"
+                  onClick={handleExport}
+                  style={{ flex: 1 }}
+                  size="normal"
+                >
+                  <IconArrowLineDown />
+                  Export
+                </Button>
+              </Tooltip>
+              <Tooltip label="Import theme from JSON">
+                <Button
+                  variant="tertiary"
+                  onClick={() => fileInputRef.current?.click()}
+                  style={{ flex: 1 }}
+                  size="normal"
+                >
+                  <IconArrowLineUp />
+                  Import
+                </Button>
+              </Tooltip>
             </Flex>
+
+            {/* Component Selector Button */}
+            <Button
+              variant="secondary"
+              onClick={() => setShowComponentSelector(!showComponentSelector)}
+              style={{ width: '100%' }}
+            >
+              <IconGearSix />
+              {selectedComponents.size === AVAILABLE_COMPONENTS.length
+                ? 'All Components'
+                : `${selectedComponents.size} Component${selectedComponents.size !== 1 ? 's' : ''}`}
+            </Button>
+
             <input
               ref={fileInputRef}
               type="file"
@@ -687,96 +975,192 @@ export function ThemeBuilder() {
           </Stack>
         </div>
 
-        <div
-          style={{ flex: 1, overflowY: 'auto', padding: 'var(--sl-space-4)' }}
-        >
-          <Stack>
+        {/* Component Selector Panel */}
+        {showComponentSelector && (
+          <div
+            style={{
+              padding: '16px 20px',
+              borderBottom: '1px solid var(--sl-color-gray-2)',
+              backgroundColor: 'var(--sl-color-gray-1)',
+              maxHeight: '40vh',
+              overflowY: 'auto',
+            }}
+          >
+            <Stack>
+              <Flex direction="row" justify="space-between" align="center">
+                <Text variant="emphasis">Select Components</Text>
+                <Flex direction="row" style={{ gap: '8px' }}>
+                  <Button
+                    variant="tertiary"
+                    onClick={selectAllComponents}
+                    size="normal"
+                  >
+                    All
+                  </Button>
+                  <Button
+                    variant="tertiary"
+                    onClick={deselectAllComponents}
+                    size="normal"
+                  >
+                    None
+                  </Button>
+                </Flex>
+              </Flex>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: '8px',
+                }}
+              >
+                {AVAILABLE_COMPONENTS.map((component) => (
+                  <Checkbox
+                    key={component}
+                    checked={selectedComponents.has(component)}
+                    onChange={() => toggleComponent(component)}
+                  >
+                    {component}
+                  </Checkbox>
+                ))}
+              </div>
+            </Stack>
+          </div>
+        )}
+
+        {/* Token List */}
+        <div style={{ flex: 1, overflowY: 'auto', padding: '20px' }}>
+          <Stack style={{ gap: '12px', width: '100%' }}>
             {filteredGroups.map((group) => {
               const isExpanded = expandedCategories.has(group.label)
               return (
-                <div key={group.label}>
+                <div key={group.label} style={{ width: '100%' }}>
                   <button
                     onClick={() => toggleCategory(group.label)}
                     style={{
                       width: '100%',
-                      padding: 'var(--sl-space-2)',
-                      textAlign: 'left',
+                      padding: '12px',
+                      background: 'var(--sl-color-gray-1)',
                       border: 'none',
-                      background: 'var(--sl-bg-muted-plain)',
-                      borderRadius: 'var(--sl-radius-2)',
+                      borderRadius: '8px',
                       cursor: 'pointer',
-                      fontWeight: 'var(--sl-font-weight-medium)',
-                      marginBottom: 'var(--sl-space-2)',
+                      textAlign: 'left',
+                      fontWeight: 500,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      transition: 'background 0.2s',
+                      boxSizing: 'border-box',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background =
+                        'var(--sl-color-gray-2)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background =
+                        'var(--sl-color-gray-1)'
                     }}
                   >
-                    {isExpanded ? '▼' : '▶'} {group.label}
+                    <span>{group.label}</span>
+                    <IconCaretDown
+                      style={{
+                        transform: isExpanded
+                          ? 'rotate(180deg)'
+                          : 'rotate(0deg)',
+                        transition: 'transform 0.2s',
+                        fontSize: '16px',
+                        color: 'var(--sl-color-gray-10)',
+                        flexShrink: 0,
+                      }}
+                    />
                   </button>
                   {isExpanded && (
-                    <Stack
+                    <div
                       style={{
-                        marginLeft: 'var(--sl-space-4)',
-                        marginBottom: 'var(--sl-space-4)',
+                        marginTop: '12px',
+                        maxHeight: '300px',
+                        overflowY: 'auto',
                       }}
                     >
-                      {group.tokens.map((tokenKey) => {
-                        const value =
-                          tokens[tokenKey] || SUNRISE_TOKENS[tokenKey] || ''
-                        const isColor = isColorToken(tokenKey)
+                      <Stack style={{ gap: '12px' }}>
+                        {group.tokens.map((tokenKey) => {
+                          const value =
+                            tokens[tokenKey] || SUNRISE_TOKENS[tokenKey] || ''
+                          const isColorToken =
+                            tokenKey.includes('color') ||
+                            tokenKey.startsWith('--sl-fg-') ||
+                            tokenKey.startsWith('--sl-bg-')
 
-                        return (
-                          <div
-                            key={tokenKey}
-                            style={{ marginBottom: 'var(--sl-space-3)' }}
-                          >
-                            <Label
+                          const hexColor = extractHexColor(value)
+
+                          return (
+                            <div
+                              key={tokenKey}
                               style={{
-                                fontSize: 'var(--sl-font-size-1)',
-                                marginBottom: 'var(--sl-space-1)',
+                                padding: '12px',
+                                backgroundColor: '#ffffff',
+                                borderRadius: '8px',
+                                border: '1px solid var(--sl-color-gray-2)',
                               }}
                             >
-                              {tokenKey.replace('--sl-', '')}
-                            </Label>
-                            {isColor &&
-                            !value.startsWith('var(') &&
-                            !value.startsWith('color-mix') ? (
-                              <Flex
-                                direction="row"
-                                style={{ gap: 'var(--sl-space-2)' }}
+                              <Label
+                                style={{
+                                  fontSize: '11px',
+                                  marginBottom: '6px',
+                                  display: 'block',
+                                  color: 'var(--sl-color-gray-10)',
+                                  fontFamily: 'monospace',
+                                }}
                               >
-                                <input
-                                  type="color"
-                                  value={extractColorValue(value)}
-                                  onChange={(e) =>
-                                    handleTokenChange(tokenKey, e.target.value)
-                                  }
-                                  style={{
-                                    width: '50px',
-                                    height: '32px',
-                                    border: 'var(--sl-border-base)',
-                                    borderRadius: 'var(--sl-radius-1)',
-                                  }}
-                                />
+                                {tokenKey.replace('--sl-', '')}
+                              </Label>
+                              {isColorToken &&
+                              !value.startsWith('var(') &&
+                              !value.startsWith('color-mix') ? (
+                                <Flex
+                                  direction="row"
+                                  style={{ gap: '8px', alignItems: 'center' }}
+                                >
+                                  <input
+                                    type="color"
+                                    value={hexColor}
+                                    onChange={(e) =>
+                                      handleTokenChange(
+                                        tokenKey,
+                                        e.target.value
+                                      )
+                                    }
+                                    style={{
+                                      width: '48px',
+                                      height: '36px',
+                                      border:
+                                        '1px solid var(--sl-color-gray-3)',
+                                      borderRadius: '6px',
+                                      cursor: 'pointer',
+                                      padding: '2px',
+                                      backgroundColor: '#ffffff',
+                                    }}
+                                  />
+                                  <Input
+                                    value={value}
+                                    onChange={(val) =>
+                                      handleTokenChange(tokenKey, val)
+                                    }
+                                    style={{ flex: 1 }}
+                                  />
+                                </Flex>
+                              ) : (
                                 <Input
                                   value={value}
                                   onChange={(val) =>
                                     handleTokenChange(tokenKey, val)
                                   }
-                                  style={{ flex: 1 }}
                                 />
-                              </Flex>
-                            ) : (
-                              <Input
-                                value={value}
-                                onChange={(val) =>
-                                  handleTokenChange(tokenKey, val)
-                                }
-                                placeholder={SUNRISE_TOKENS[tokenKey]}
-                              />
-                            )}
-                          </div>
-                        )
-                      })}
-                    </Stack>
+                              )}
+                            </div>
+                          )
+                        })}
+                      </Stack>
+                    </div>
                   )}
                 </div>
               )
@@ -785,871 +1169,112 @@ export function ThemeBuilder() {
         </div>
       </div>
 
-      {/* Painel Direito - Preview */}
+      {/* Preview */}
       <div
+        id="theme-builder-preview"
         style={{
           flex: 1,
           overflowY: 'auto',
-          padding: 'var(--sl-space-6)',
-          backgroundColor: 'var(--sl-bg-base)',
+          padding: '48px',
+          backgroundColor: '#fafafa',
         }}
       >
-        <Stack fluid>
-          {/* Typography */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Typography
-            </Heading>
-            <Stack>
-              <Heading variant="display1">Display 1 Heading</Heading>
-              <Heading variant="display2">Display 2 Heading</Heading>
-              <Heading variant="display3">Display 3 Heading</Heading>
-              <Heading variant="display4">Display 4 Heading</Heading>
-              <Text variant="body">Body text</Text>
-              <Text variant="emphasis">Emphasis text</Text>
-              <Text variant="action">Action text</Text>
-              <Text variant="caption1">Caption 1 text</Text>
-              <Text variant="caption2">Caption 2 text</Text>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Buttons */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Buttons
-            </Heading>
-            <Stack>
-              <Flex direction="row" style={{ gap: 'var(--sl-space-2)' }}>
-                <Button variant="primary">Primary</Button>
-                <Button variant="secondary">Secondary</Button>
-                <Button variant="tertiary">Tertiary</Button>
-                <Button variant="critical">Critical</Button>
-                <Button variant="criticalTertiary">Critical Tertiary</Button>
-              </Flex>
-              <Flex direction="row" style={{ gap: 'var(--sl-space-2)' }}>
-                <Button size="large" variant="primary">
-                  Large Primary
-                </Button>
-                <Button size="large" variant="secondary">
-                  Large Secondary
-                </Button>
-              </Flex>
-              <Flex direction="row" style={{ gap: 'var(--sl-space-2)' }}>
-                <Button variant="primary" loading>
-                  Loading
-                </Button>
-                <Button variant="primary" disabled>
-                  Disabled
-                </Button>
-              </Flex>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Inputs */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Inputs
-            </Heading>
-            <Stack>
-              <Input placeholder="Default input" />
-              <Input
-                prefix="R$"
-                suffix=".00"
-                placeholder="Input with prefix/suffix"
-              />
-              <Input error placeholder="Input with error" />
-              <Input disabled placeholder="Disabled input" />
-              <Textarea placeholder="Textarea" />
-              <Search placeholder="Search..." />
-              <div>
-                <Label>Field with label</Label>
-                <Input placeholder="Field input" />
-                <FieldDescription>This is a description</FieldDescription>
-              </div>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Selects & Checkboxes */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Selects & Checkboxes
-            </Heading>
-            <Stack>
-              <SelectProvider>
-                <Select>
-                  <SelectTrigger>Select an option</SelectTrigger>
-                  <SelectPopover>
-                    <SelectItem value="option1">Option 1</SelectItem>
-                    <SelectItem value="option2">Option 2</SelectItem>
-                    <SelectItem value="option3">Option 3</SelectItem>
-                  </SelectPopover>
-                </Select>
-              </SelectProvider>
-              <Flex direction="row" style={{ gap: 'var(--sl-space-2)' }}>
-                <Checkbox>Checkbox 1</Checkbox>
-                <Checkbox defaultChecked>Checkbox 2</Checkbox>
-              </Flex>
-              <RadioGroup label="Radio Group">
-                <Radio value="option1">Radio 1</Radio>
-                <Radio value="option2">Radio 2</Radio>
-              </RadioGroup>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Feedback */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Feedback
-            </Heading>
-            <Stack>
-              <Alert variant="informational">Informational alert</Alert>
-              <Alert variant="success">Success alert</Alert>
-              <Alert variant="warning">Warning alert</Alert>
-              <Alert variant="critical">Critical alert</Alert>
-              <EmptyState size="medium">
-                <EmptyStateIllustration>
-                  <div
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      backgroundColor: 'var(--sl-bg-base-soft)',
-                      borderRadius: 'var(--sl-radius-2)',
-                    }}
-                  />
-                </EmptyStateIllustration>
-                <Heading variant="display3">Empty State</Heading>
-                <Text>This is an empty state example</Text>
-                <EmptyStateActions>
-                  <Button variant="primary">Action</Button>
-                </EmptyStateActions>
-              </EmptyState>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Tags & Links */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Tags & Links
-            </Heading>
-            <Stack>
-              <Flex direction="row" style={{ gap: 'var(--sl-space-2)' }}>
-                <Tag variant="primary" color="blue">
-                  Tag Primary
-                </Tag>
-                <Tag variant="secondary" color="red">
-                  Tag Secondary
-                </Tag>
-                <Tag variant="primary" color="green">
-                  Tag Green
-                </Tag>
-              </Flex>
-              <Link href="#">Link example</Link>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Layout Components */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Layout
-            </Heading>
-            <Stack>
-              <Grid
-                style={{
-                  gridTemplateColumns: 'repeat(3, 1fr)',
-                  gap: 'var(--sl-space-4)',
-                }}
-              >
-                <div
-                  style={{
-                    padding: 'var(--sl-space-4)',
-                    backgroundColor: 'var(--sl-bg-base-soft)',
-                    borderRadius: 'var(--sl-radius-2)',
-                  }}
-                >
-                  Grid Item 1
-                </div>
-                <div
-                  style={{
-                    padding: 'var(--sl-space-4)',
-                    backgroundColor: 'var(--sl-bg-base-soft)',
-                    borderRadius: 'var(--sl-radius-2)',
-                  }}
-                >
-                  Grid Item 2
-                </div>
-                <div
-                  style={{
-                    padding: 'var(--sl-space-4)',
-                    backgroundColor: 'var(--sl-bg-base-soft)',
-                    borderRadius: 'var(--sl-radius-2)',
-                  }}
-                >
-                  Grid Item 3
-                </div>
-              </Grid>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Loading States */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Loading States
-            </Heading>
-            <Stack>
-              <Flex direction="row" style={{ gap: 'var(--sl-space-2)' }}>
-                <Spinner size={24} />
-                <Spinner size={16} />
-                <Spinner size={32} />
-              </Flex>
-              <Flex direction="row" style={{ gap: 'var(--sl-space-2)' }}>
-                <Skeleton style={{ width: '200px', height: '20px' }} />
-                <Skeleton
-                  data-sl-skeleton-shape="circle"
-                  style={{ width: '100px', height: '100px' }}
-                />
-              </Flex>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Icon Buttons */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Icon Buttons
-            </Heading>
-            <Stack>
-              <Flex direction="row" style={{ gap: 'var(--sl-space-2)' }}>
-                <IconButton variant="primary" label="Settings">
-                  <IconGearSix />
-                </IconButton>
-                <IconButton variant="secondary" label="Favorite">
-                  <IconHeart />
-                </IconButton>
-                <IconButton variant="tertiary" label="Delete">
-                  <IconTrash />
-                </IconButton>
-                <IconButton variant="critical" label="Edit">
-                  <IconPencil />
-                </IconButton>
-              </Flex>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Tooltips */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Tooltips
-            </Heading>
-            <Stack>
-              <Flex direction="row" style={{ gap: 'var(--sl-space-2)' }}>
-                <Tooltip label="This is a tooltip">
-                  <Button variant="secondary">Hover me</Button>
-                </Tooltip>
-                <Tooltip label="Information tooltip">
-                  <IconButton variant="tertiary" label="Info">
-                    <IconInfo />
-                  </IconButton>
-                </Tooltip>
-              </Flex>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Menu */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Menu
-            </Heading>
-            <Stack>
-              <Menu label="Open">
-                <MenuItem>Edit</MenuItem>
-                <MenuItem>Duplicate</MenuItem>
-                <MenuItem>Delete</MenuItem>
-              </Menu>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Tabs */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Tabs
-            </Heading>
-            <Stack>
-              <TabProvider defaultSelectedId="tab1">
-                <TabList>
-                  <Tab id="tab1">Tab 1</Tab>
-                  <Tab id="tab2">Tab 2</Tab>
-                  <Tab id="tab3">Tab 3</Tab>
-                </TabList>
-                <TabPanel tabId="tab1">
-                  <Text>Content for Tab 1</Text>
-                </TabPanel>
-                <TabPanel tabId="tab2">
-                  <Text>Content for Tab 2</Text>
-                </TabPanel>
-                <TabPanel tabId="tab3">
-                  <Text>Content for Tab 3</Text>
-                </TabPanel>
-              </TabProvider>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Pagination */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Pagination
-            </Heading>
-            <Stack>
-              <Pagination page={1} total={100} onPageChange={() => {}} />
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Table */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Table
-            </Heading>
-            <Stack>
-              <Table
-                columnWidths={[
-                  'minmax(min-content, auto)',
-                  'minmax(min-content, auto)',
-                  'minmax(min-content, auto)',
-                ]}
-              >
-                <TableHeader>
-                  <TableRow>
-                    <TableHeaderCell>Name</TableHeaderCell>
-                    <TableHeaderCell>Email</TableHeaderCell>
-                    <TableHeaderCell>Status</TableHeaderCell>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow>
-                    <TableCell>John Doe</TableCell>
-                    <TableCell>john@example.com</TableCell>
-                    <TableCell>Active</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Jane Smith</TableCell>
-                    <TableCell>jane@example.com</TableCell>
-                    <TableCell>Inactive</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Bob Johnson</TableCell>
-                    <TableCell>bob@example.com</TableCell>
-                    <TableCell>Active</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Page Component */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Page Component
-            </Heading>
-            <Page>
-              <PageHeader>
-                <PageHeading>Page Title</PageHeading>
-              </PageHeader>
-              <PageContent>
-                <Text>This is page content using Page components.</Text>
-              </PageContent>
-            </Page>
-          </div>
-
-          <Divider />
-
-          {/* Filter */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Filter
-            </Heading>
-            <Stack>
-              <Filter label="Filter Options">
-                <FilterItem value="option1">Option 1</FilterItem>
-                <FilterItem value="option2">Option 2</FilterItem>
-                <FilterItem value="option3">Option 3</FilterItem>
-              </Filter>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Popover */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Popover
-            </Heading>
-            <Stack>
-              <PopoverProvider>
-                <PopoverTrigger asChild>
-                  <Button variant="secondary">Open Popover</Button>
-                </PopoverTrigger>
-                <Popover>
-                  <Stack style={{ padding: 'var(--sl-space-4)' }}>
-                    <Heading variant="display4">Popover Title</Heading>
-                    <Text>This is popover content</Text>
-                  </Stack>
-                </Popover>
-              </PopoverProvider>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Layout Components - Bleed & Center */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Layout - Bleed & Center
-            </Heading>
-            <Stack>
-              <Bleed>
-                <div
-                  style={{
-                    padding: 'var(--sl-space-4)',
-                    backgroundColor: 'var(--sl-bg-base-soft)',
-                  }}
-                >
-                  <Text>Bleed component example</Text>
-                </div>
-              </Bleed>
-              <Center
-                style={{ height: '100px', border: 'var(--sl-border-base)' }}
-              >
-                <Text>Centered content</Text>
-              </Center>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Checkbox Group */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Checkbox Group
-            </Heading>
-            <Stack>
-              <CheckboxGroup label="Select options">
-                <Checkbox value="option1">Option 1</Checkbox>
-                <Checkbox value="option2">Option 2</Checkbox>
-                <Checkbox value="option3">Option 3</Checkbox>
-              </CheckboxGroup>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Clickable */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Clickable
-            </Heading>
-            <Stack>
-              <Clickable asChild>
-                <div
-                  style={{
-                    padding: 'var(--sl-space-4)',
-                    border: 'var(--sl-border-base)',
-                    borderRadius: 'var(--sl-radius-2)',
-                  }}
-                >
-                  <Text>Click me - I'm a clickable div</Text>
-                </div>
-              </Clickable>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Container & Content */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Container & Content
-            </Heading>
-            <Stack fluid>
-              <Container>
-                <Content narrow>
-                  <Text>Content inside a Container component</Text>
-                </Content>
-              </Container>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Date & Time Pickers */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Date & Time Pickers
-            </Heading>
-            <Stack>
-              <div>
-                <Label>Date Picker</Label>
-                <DatePicker defaultValue={parseDate('2024-01-15')} />
-              </div>
-              <div>
-                <Label>Date Range Picker</Label>
-                <DateRangePicker />
-              </div>
-              <div>
-                <Label>Date Field</Label>
-                <DateField defaultValue={parseDate('2024-01-15')} />
-              </div>
-              <div>
-                <Label>Time Input</Label>
-                <TimeInput />
-              </div>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Contextual Help */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Contextual Help
-            </Heading>
-            <Stack>
-              <Flex direction="row" style={{ gap: 'var(--sl-space-2)' }}>
-                <Label>Field with help</Label>
-                <ContextualHelp label="Help">
-                  <Text>This is helpful information about the field.</Text>
-                </ContextualHelp>
-              </Flex>
-              <Input placeholder="Input with contextual help" />
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Toast */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Toast
-            </Heading>
-            <Stack>
+        {selectedComponents.size === 0 ? (
+          <EmptyState size="large">
+            <EmptyStateIllustration>
+              <IconGearSix style={{ fontSize: '64px' }} />
+            </EmptyStateIllustration>
+            <Heading variant="display2">No Components Selected</Heading>
+            <Text>Select components to preview theme changes</Text>
+            <EmptyStateActions>
               <Button
-                onClick={() => toast.informational('Informational toast')}
+                variant="primary"
+                onClick={() => setShowComponentSelector(true)}
               >
-                Informational
+                Select Components
               </Button>
-              <Button onClick={() => toast.success('Success toast')}>
-                Success
-              </Button>
-              <Button onClick={() => toast.warning('Warning toast')}>
-                Warning
-              </Button>
-              <Button onClick={() => toast.critical('Critical toast')}>
-                Critical
-              </Button>
-            </Stack>
-            <ToastStack />
-          </div>
+            </EmptyStateActions>
+          </EmptyState>
+        ) : (
+          <Stack style={{ gap: '48px' }}>
+            {Array.from(selectedComponents)
+              .sort()
+              .map((componentName) => {
+                const componentData = COMPONENT_EXAMPLES[componentName]
+                if (!componentData) return null
 
-          <Divider />
+                // Verificar se é um array de exemplos ou um único componente
+                if (Array.isArray(componentData)) {
+                  return (
+                    <div key={componentName}>
+                      <div
+                        style={{
+                          backgroundColor: '#ffffff',
+                          padding: '32px',
+                          borderRadius: '12px',
+                          border: '1px solid var(--sl-color-gray-2)',
+                          boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+                        }}
+                      >
+                        <Heading
+                          variant="display2"
+                          style={{ marginBottom: '24px' }}
+                        >
+                          {componentName}
+                        </Heading>
+                        <Stack style={{ gap: '32px' }}>
+                          {componentData.map(({ label, Component }, index) => (
+                            <div key={label}>
+                              <Text
+                                variant="emphasis"
+                                style={{
+                                  marginBottom: '12px',
+                                  display: 'block',
+                                }}
+                              >
+                                {label}
+                              </Text>
+                              <Component />
+                              {index < componentData.length - 1 && (
+                                <Divider style={{ marginTop: '24px' }} />
+                              )}
+                            </div>
+                          ))}
+                        </Stack>
+                      </div>
+                      <Divider />
+                    </div>
+                  )
+                }
 
-          {/* Modal */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Modal
-            </Heading>
-            <ModalExample />
-          </div>
-
-          <Divider />
-
-          {/* Drawer */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Drawer
-            </Heading>
-            <DrawerExample />
-          </div>
-
-          <Divider />
-
-          {/* Tag Variants */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Tag Variants
-            </Heading>
-            <Stack>
-              <Text variant="emphasis">Primary Tags</Text>
-              <Flex gap="$space-2" align="center" direction="row" wrap="wrap">
-                <Tag variant="primary" color="gray">
-                  Gray
-                </Tag>
-                <Tag variant="primary" color="red">
-                  Red
-                </Tag>
-                <Tag variant="primary" color="yellow">
-                  Yellow
-                </Tag>
-                <Tag variant="primary" color="orange">
-                  Orange
-                </Tag>
-                <Tag variant="primary" color="pink">
-                  Pink
-                </Tag>
-                <Tag variant="primary" color="purple">
-                  Purple
-                </Tag>
-                <Tag variant="primary" color="blue">
-                  Blue
-                </Tag>
-                <Tag variant="primary" color="cyan">
-                  Cyan
-                </Tag>
-                <Tag variant="primary" color="teal">
-                  Teal
-                </Tag>
-                <Tag variant="primary" color="green">
-                  Green
-                </Tag>
-              </Flex>
-              <Text variant="emphasis">Secondary Tags</Text>
-              <Flex gap="$space-2" align="center" direction="row" wrap="wrap">
-                <Tag variant="secondary" color="gray">
-                  Gray
-                </Tag>
-                <Tag variant="secondary" color="red">
-                  Red
-                </Tag>
-                <Tag variant="secondary" color="yellow">
-                  Yellow
-                </Tag>
-                <Tag variant="secondary" color="orange">
-                  Orange
-                </Tag>
-                <Tag variant="secondary" color="pink">
-                  Pink
-                </Tag>
-                <Tag variant="secondary" color="purple">
-                  Purple
-                </Tag>
-                <Tag variant="secondary" color="blue">
-                  Blue
-                </Tag>
-                <Tag variant="secondary" color="cyan">
-                  Cyan
-                </Tag>
-                <Tag variant="secondary" color="teal">
-                  Teal
-                </Tag>
-                <Tag variant="secondary" color="green">
-                  Green
-                </Tag>
-              </Flex>
-              <Text variant="emphasis">Sizes</Text>
-              <Flex gap="$space-2" align="center" direction="row" wrap="wrap">
-                <Tag size="normal">Normal</Tag>
-                <Tag size="large">Large</Tag>
-              </Flex>
-            </Stack>
-          </div>
-
-          <Divider />
-
-          {/* Combobox */}
-          <div>
-            <Heading
-              variant="display3"
-              style={{ marginBottom: 'var(--sl-space-4)' }}
-            >
-              Combobox
-            </Heading>
-            <ComboboxExample />
-          </div>
-        </Stack>
+                // Renderizar componente único
+                const Component = componentData
+                return (
+                  <div key={componentName}>
+                    <div
+                      style={{
+                        backgroundColor: '#ffffff',
+                        padding: '32px',
+                        borderRadius: '12px',
+                        border: '1px solid var(--sl-color-gray-2)',
+                        boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+                      }}
+                    >
+                      <Heading
+                        variant="display2"
+                        style={{ marginBottom: '24px' }}
+                      >
+                        {componentName}
+                      </Heading>
+                      <Component />
+                    </div>
+                    <Divider />
+                  </div>
+                )
+              })}
+          </Stack>
+        )}
       </div>
     </div>
-  )
-}
-
-function ModalExample() {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>Open Modal</Button>
-      <Modal open={open} onClose={() => setOpen(false)} size="medium">
-        <ModalHeader>
-          <ModalHeading>Modal Title</ModalHeading>
-          <ModalDismiss />
-        </ModalHeader>
-        <ModalContent>
-          <Text>This is the modal content. You can put any content here.</Text>
-        </ModalContent>
-        <ModalFooter>
-          <Button onClick={() => setOpen(false)}>Cancel</Button>
-          <Button variant="primary" onClick={() => setOpen(false)}>
-            Confirm
-          </Button>
-        </ModalFooter>
-      </Modal>
-    </>
-  )
-}
-
-function DrawerExample() {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>Open Drawer</Button>
-      <DrawerProvider open={open} onOpenChange={setOpen}>
-        <DrawerPopover size="medium">
-          <DrawerHeader>
-            <DrawerHeading>Drawer Title</DrawerHeading>
-            <DrawerDismiss />
-          </DrawerHeader>
-          <DrawerContent>
-            <Text>This is the drawer content.</Text>
-          </DrawerContent>
-          <DrawerFooter>
-            <Button onClick={() => setOpen(false)} size="large">
-              Close
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => setOpen(false)}
-              size="large"
-            >
-              Confirm
-            </Button>
-          </DrawerFooter>
-        </DrawerPopover>
-      </DrawerProvider>
-    </>
-  )
-}
-
-function ComboboxExample() {
-  const fruits = ['Apple', 'Banana', 'Cherry', 'Grape', 'Orange']
-
-  return (
-    <ComboboxProvider>
-      <Field>
-        <Label>Select a fruit</Label>
-        <ComboboxInput placeholder="e.g., Apple" />
-      </Field>
-      <ComboboxPopover>
-        {fruits.map((fruit) => (
-          <ComboboxItem key={fruit} value={fruit}>
-            {fruit}
-          </ComboboxItem>
-        ))}
-      </ComboboxPopover>
-    </ComboboxProvider>
   )
 }
