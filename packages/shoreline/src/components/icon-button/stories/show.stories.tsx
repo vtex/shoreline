@@ -35,25 +35,52 @@ export function Show() {
   const permutations = generatePermutations()
 
   return (
-    <Grid columns={`repeat(${variants.length}, 1fr)`}>
-      {permutations.map((permutation) => {
-        return (
-          <GridCell key={`${permutation.size}-${permutation.variant}`}>
-            <IconButton
-              label="Delete"
-              size={permutation.size}
-              variant={permutation.variant}
+    <div>
+      <h3>Default</h3>
+      <Grid columns={`repeat(${variants.length}, 1fr)`}>
+        {permutations.map((permutation) => {
+          return (
+            <GridCell key={`${permutation.size}-${permutation.variant}`}>
+              <IconButton
+                label="Delete"
+                size={permutation.size}
+                variant={permutation.variant}
+              >
+                <IconTrash />
+              </IconButton>
+            </GridCell>
+          )
+        })}
+        <GridCell>
+          <IconButton label="Delete" onClick={() => null} loading>
+            <IconTrash />
+          </IconButton>
+        </GridCell>
+      </Grid>
+      <h3>Rounded</h3>
+      <Grid columns={`repeat(${variants.length}, 1fr)`}>
+        {permutations.map((permutation) => {
+          return (
+            <GridCell
+              key={`rounded-${permutation.size}-${permutation.variant}`}
             >
-              <IconTrash />
-            </IconButton>
-          </GridCell>
-        )
-      })}
-      <GridCell>
-        <IconButton label="Delete" onClick={() => null} loading>
-          <IconTrash />
-        </IconButton>
-      </GridCell>
-    </Grid>
+              <IconButton
+                label="Delete"
+                size={permutation.size}
+                variant={permutation.variant}
+                rounded
+              >
+                <IconTrash />
+              </IconButton>
+            </GridCell>
+          )
+        })}
+        <GridCell>
+          <IconButton label="Delete" onClick={() => null} loading rounded>
+            <IconTrash />
+          </IconButton>
+        </GridCell>
+      </Grid>
+    </div>
   )
 }

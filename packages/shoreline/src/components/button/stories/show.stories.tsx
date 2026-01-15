@@ -20,34 +20,34 @@ export function Show() {
     'criticalTertiary',
   ]
 
-  const getGrid = (size: 'normal' | 'large') => (
+  const getGrid = (size: 'normal' | 'large', rounded = false) => (
     <div className="variants--grid">
       {variants.map((variant) => (
         <Fragment key={variant}>
           <div className="variants--grid-leading">{variant}</div>
           <div>
-            <Button size={size} variant={variant}>
+            <Button size={size} variant={variant} rounded={rounded}>
               Default
             </Button>
           </div>
           <div>
-            <Button size={size} variant={variant} loading>
+            <Button size={size} variant={variant} rounded={rounded} loading>
               Loading
             </Button>
           </div>
           <div>
-            <Button size={size} variant={variant} disabled>
+            <Button size={size} variant={variant} rounded={rounded} disabled>
               Disabled
             </Button>
           </div>
           <div>
-            <Button size={size} variant={variant}>
+            <Button size={size} variant={variant} rounded={rounded}>
               <IconTrash />
               Icon
             </Button>
           </div>
           <div>
-            <Button size={size} variant={variant}>
+            <Button size={size} variant={variant} rounded={rounded}>
               Icon
               <IconArrowUpRightSmall />
             </Button>
@@ -59,8 +59,14 @@ export function Show() {
 
   return (
     <div>
+      <h3>Normal</h3>
       {getGrid('normal')}
+      <h3>Large</h3>
       {getGrid('large')}
+      <h3>Rounded Normal</h3>
+      {getGrid('normal', true)}
+      <h3>Rounded Large</h3>
+      {getGrid('large', true)}
     </div>
   )
 }
