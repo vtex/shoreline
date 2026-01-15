@@ -163,6 +163,29 @@ import { Show as TextareaShow } from '../textarea/stories/show.stories'
 import { Show as TimeInputShow } from '../time-input/stories/show.stories'
 import { Show as ToastShow } from '../toast/stories/show.stories'
 import { Show as TooltipShow } from '../tooltip/stories/show.stories'
+import { Show as BleedShow } from '../bleed/stories/show.stories'
+import { Show as CenterShow } from '../center/stories/show.stories'
+import { Show as CollectionShow } from '../collection/stories/show.stories'
+import { Play as ConfirmationModalShow } from '../confirmation-modal/stories/play.stories'
+import { Show as ContentShow } from '../content/stories/show.stories'
+import { Show as ContextualHelpShow } from '../contextual-help/stories/show.stories'
+import { Show as DividerShow } from '../divider/stories/show.stories'
+import { Show as FlexShow } from '../flex/stories/show.stories'
+import { Show as GridShow } from '../grid/stories/show.stories'
+import { Show as HeadingShow } from '../heading/stories/show.stories'
+import { Show as LinkShow } from '../link/stories/show.stories'
+import { Show as LinkBoxShow } from '../link-box/stories/show.stories'
+import { Show as PageShow } from '../page/stories/show.stories'
+import { Show as SearchShow } from '../search/stories/show.stories'
+import { Show as SkeletonShow } from '../skeleton/stories/show.stories'
+import { Show as SpinnerShow } from '../spinner/stories/show.stories'
+import { Show as StackShow } from '../stack/stories/show.stories'
+import { Show as TabShow } from '../tab/stories/show.stories'
+import { Show as TagShow } from '../tag/stories/show.stories'
+import { Controlled as DrawerControlled } from '../drawer/stories/controlled.stories'
+import { ShortText as DrawerShortText } from '../drawer/stories/short-text.stories'
+import { LongText as DrawerLongText } from '../drawer/stories/long-text.stories'
+import { PopoverAsChild as DrawerPopoverAsChild } from '../drawer/stories/popover-as-child.stories'
 
 // Tokens padrão do Sunrise extraídos do CSS
 const SUNRISE_TOKENS: Record<string, string> = {
@@ -467,29 +490,49 @@ const STORAGE_KEY_COMPONENTS = 'shoreline-theme-builder-selected-components'
 // Lista de componentes disponíveis
 const AVAILABLE_COMPONENTS = [
   'Alert',
+  'Bleed',
   'Button',
   'Calendar',
+  'Center',
   'Checkbox',
   'Clickable',
+  'Collection',
   'Combobox',
   'Compose',
+  'ConfirmationModal',
+  'Content',
+  'ContextualHelp',
   'DateField',
   'DatePicker',
   'DateRangePicker',
+  'Divider',
+  'Drawer',
   'EmptyState',
   'Field',
   'Filter',
+  'Flex',
+  'Grid',
+  'Heading',
   'IconButton',
   'Input',
   'Label',
+  'Link',
+  'LinkBox',
   'Menu',
   'Modal',
+  'Page',
   'Pagination',
   'Popover',
   'Radio',
   'RangeCalendar',
+  'Search',
   'Select',
+  'Skeleton',
+  'Spinner',
+  'Stack',
+  'Tab',
   'Table',
+  'Tag',
   'Text',
   'Textarea',
   'TimeInput',
@@ -507,6 +550,7 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'Dismiss', Component: AlertDismiss },
     { label: 'Show', Component: AlertShow },
   ],
+  Bleed: [{ label: 'Show', Component: BleedShow }],
   Button: [
     { label: 'As Link', Component: ButtonAsLink },
     { label: 'Upload Button', Component: ButtonUploadButton },
@@ -517,6 +561,7 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'Uncontrolled', Component: CalendarUncontrolled },
     { label: 'Show', Component: CalendarShow },
   ],
+  Center: [{ label: 'Show', Component: CenterShow }],
   Checkbox: [
     { label: 'As Field', Component: CheckboxAsField },
     { label: 'Controlled', Component: CheckboxControlled },
@@ -533,6 +578,7 @@ const COMPONENT_EXAMPLES: Record<
     },
     { label: 'Show', Component: ClickableShow },
   ],
+  Collection: [{ label: 'Show', Component: CollectionShow }],
   Combobox: [
     { label: 'Filtering', Component: ComboboxFiltering },
     { label: 'Show', Component: ComboboxShow },
@@ -541,6 +587,11 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'As Child', Component: ComposeAsChild },
     { label: 'Show', Component: ComposeShow },
   ],
+  ConfirmationModal: [
+    { label: 'Show', Component: ConfirmationModalShow as any },
+  ],
+  Content: [{ label: 'Show', Component: ContentShow }],
+  ContextualHelp: [{ label: 'Show', Component: ContextualHelpShow }],
   DateField: [
     { label: 'Controlled', Component: DateFieldControlled },
     { label: 'Locale', Component: DateFieldLocale },
@@ -562,6 +613,13 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'Disabled', Component: DateRangePickerDisabled },
     { label: 'Show', Component: DateRangePickerShow },
   ],
+  Divider: [{ label: 'Show', Component: DividerShow }],
+  Drawer: [
+    { label: 'Controlled', Component: DrawerControlled },
+    { label: 'Short Text', Component: DrawerShortText },
+    { label: 'Long Text', Component: DrawerLongText },
+    { label: 'Popover As Child', Component: DrawerPopoverAsChild },
+  ],
   EmptyState: [
     { label: 'Filter Error', Component: EmptyStateFilterError },
     { label: 'Filter Not Found', Component: EmptyStateFilterNotFound },
@@ -579,6 +637,9 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'With Combobox', Component: FilterWithCombobox },
     { label: 'Show', Component: FilterShow },
   ],
+  Flex: [{ label: 'Show', Component: FlexShow }],
+  Grid: [{ label: 'Show', Component: GridShow }],
+  Heading: [{ label: 'Show', Component: HeadingShow }],
   IconButton: [
     { label: 'As Anchor', Component: IconButtonAsAnchor },
     { label: 'Show', Component: IconButtonShow },
@@ -591,12 +652,15 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'Localization', Component: LabelLocalization },
     { label: 'Show', Component: LabelShow },
   ],
+  Link: [{ label: 'Show', Component: LinkShow }],
+  LinkBox: [{ label: 'Show', Component: LinkBoxShow }],
   Menu: [
     { label: 'Full Form', Component: MenuFullForm },
     { label: 'Composition', Component: MenuComposition },
     { label: 'Show', Component: MenuShow },
   ],
   Modal: [{ label: 'Size', Component: ModalSize }],
+  Page: [{ label: 'Show', Component: PageShow }],
   Pagination: [
     { label: 'Localization', Component: PaginationLocalization },
     { label: 'Show', Component: PaginationShow },
@@ -615,6 +679,7 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'Locale', Component: RangeCalendarLocale },
     { label: 'Show', Component: RangeCalendarShow },
   ],
+  Search: [{ label: 'Show', Component: SearchShow }],
   Select: [
     { label: 'Simple', Component: SelectSimple },
     { label: 'Locale', Component: SelectLocale },
@@ -629,10 +694,15 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'With Combobox', Component: SelectWithCombobox },
     { label: 'Show', Component: SelectShow },
   ],
+  Skeleton: [{ label: 'Show', Component: SkeletonShow }],
+  Spinner: [{ label: 'Show', Component: SpinnerShow }],
+  Stack: [{ label: 'Show', Component: StackShow }],
+  Tab: [{ label: 'Show', Component: TabShow }],
   Table: [
     { label: 'Row As Link', Component: TableRowAsLink },
     { label: 'Show', Component: TableShow },
   ],
+  Tag: [{ label: 'Show', Component: TagShow }],
   Text: [
     { label: 'As Child', Component: TextAsChild },
     { label: 'Ref', Component: TextRef },
