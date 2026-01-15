@@ -131,6 +131,40 @@ import {
   Composition as TooltipComposition,
 } from '../tooltip/stories/examples.stories'
 
+// Importar exemplos de show.stories quando disponíveis
+import { Show as AlertShow } from '../alert/stories/show.stories'
+import { Show as ButtonShow } from '../button/stories/show.stories'
+import { Show as CalendarShow } from '../calendar/stories/show.stories'
+import { Show as CheckboxShow } from '../checkbox/stories/show.stories'
+import { Show as ClickableShow } from '../clickable/stories/show.stories'
+import { Show as ComboboxShow } from '../combobox/stories/show.stories'
+import { Show as ComposeShow } from '../compose/stories/show.stories'
+import { Show as DateFieldShow } from '../date-field/stories/show.stories'
+import { Show as DatePickerShow } from '../date-picker/stories/show.stories'
+import { Show as DateRangePickerShow } from '../date-range-picker/stories/show.stories'
+import { Show as EmptyStateShowRaw } from '../empty-state/stories/show.stories'
+
+// Wrapper para EmptyStateShow que requer prop size
+const EmptyStateShow = () => <EmptyStateShowRaw size="medium" />
+import { Show as FieldShow } from '../field/stories/show.stories'
+import { Show as FilterShow } from '../filter/stories/show.stories'
+import { Show as IconButtonShow } from '../icon-button/stories/show.stories'
+import { Show as InputShow } from '../input/stories/show.stories'
+import { Show as LabelShow } from '../label/stories/show.stories'
+import { Show as MenuShow } from '../menu/stories/show.stories'
+import { Show as ModalShow } from '../modal/stories/show.stories'
+import { Show as PaginationShow } from '../pagination/stories/show.stories'
+import { Show as PopoverShow } from '../popover/stories/show.stories'
+import { Show as RadioShow } from '../radio/stories/show.stories'
+import { Show as RangeCalendarShow } from '../range-calendar/stories/show.stories'
+import { Show as SelectShow } from '../select/stories/show.stories'
+import { Show as TableShow } from '../table/stories/show.stories'
+import { Show as TextShow } from '../text/stories/show.stories'
+import { Show as TextareaShow } from '../textarea/stories/show.stories'
+import { Show as TimeInputShow } from '../time-input/stories/show.stories'
+import { Show as ToastShow } from '../toast/stories/show.stories'
+import { Show as TooltipShow } from '../tooltip/stories/show.stories'
+
 // Tokens padrão do Sunrise extraídos do CSS
 const SUNRISE_TOKENS: Record<string, string> = {
   '--sl-space-0': '0rem',
@@ -472,14 +506,17 @@ const COMPONENT_EXAMPLES: Record<
   Alert: [
     { label: 'As Alert', Component: AlertAsAlert },
     { label: 'Dismiss', Component: AlertDismiss },
+    { label: 'Show', Component: AlertShow },
   ],
   Button: [
     { label: 'As Link', Component: ButtonAsLink },
     { label: 'Upload Button', Component: ButtonUploadButton },
+    { label: 'Show', Component: ButtonShow },
   ],
   Calendar: [
     { label: 'Controlled', Component: CalendarControlled },
     { label: 'Uncontrolled', Component: CalendarUncontrolled },
+    { label: 'Show', Component: CalendarShow },
   ],
   Checkbox: [
     { label: 'As Field', Component: CheckboxAsField },
@@ -487,6 +524,7 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'React Hook Form', Component: CheckboxReactHookForm },
     { label: 'React Hook Form Group', Component: CheckboxReactHookFormGroup },
     { label: 'React Window', Component: CheckboxReactWindow },
+    { label: 'Show', Component: CheckboxShow },
   ],
   Clickable: [
     { label: 'Click Bubble', Component: ClickableClickBubble },
@@ -494,13 +532,21 @@ const COMPONENT_EXAMPLES: Record<
       label: 'Click Bubble All Children',
       Component: ClickableClickBubbleAllChildren,
     },
+    { label: 'Show', Component: ClickableShow },
   ],
-  Combobox: [{ label: 'Filtering', Component: ComboboxFiltering }],
-  Compose: [{ label: 'As Child', Component: ComposeAsChild }],
+  Combobox: [
+    { label: 'Filtering', Component: ComboboxFiltering },
+    { label: 'Show', Component: ComboboxShow },
+  ],
+  Compose: [
+    { label: 'As Child', Component: ComposeAsChild },
+    { label: 'Show', Component: ComposeShow },
+  ],
   DateField: [
     { label: 'Controlled', Component: DateFieldControlled },
     { label: 'Locale', Component: DateFieldLocale },
     { label: 'Granularity', Component: DateFieldGranularity },
+    { label: 'Show', Component: DateFieldShow },
   ],
   DatePicker: [
     { label: 'Default', Component: DatePickerDefault },
@@ -508,40 +554,70 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'Locale', Component: DatePickerLocale },
     { label: 'As Field', Component: DatePickerAsField },
     { label: 'Disabled', Component: DatePickerDisabled },
+    { label: 'Show', Component: DatePickerShow },
   ],
   DateRangePicker: [
     { label: 'With Field', Component: DateRangePickerWithField },
     { label: 'Controlled', Component: DateRangePickerControlled },
     { label: 'Locale', Component: DateRangePickerLocale },
     { label: 'Disabled', Component: DateRangePickerDisabled },
+    { label: 'Show', Component: DateRangePickerShow },
   ],
   EmptyState: [
     { label: 'Filter Error', Component: EmptyStateFilterError },
     { label: 'Filter Not Found', Component: EmptyStateFilterNotFound },
+    { label: 'Show', Component: EmptyStateShow },
   ],
-  Field: [{ label: 'Controlled', Component: FieldControlled }],
+  Field: [
+    { label: 'Controlled', Component: FieldControlled },
+    { label: 'Show', Component: FieldShow },
+  ],
   Filter: [
     { label: 'Controlled', Component: FilterControlled },
     { label: 'Custom Messages', Component: FilterCustomMessages },
     { label: 'Localization', Component: FilterLocalization },
     { label: 'Composition', Component: FilterComposition },
     { label: 'With Combobox', Component: FilterWithCombobox },
+    { label: 'Show', Component: FilterShow },
   ],
-  IconButton: [{ label: 'As Anchor', Component: IconButtonAsAnchor }],
-  Input: [{ label: 'Controlled', Component: InputControlled }],
-  Label: [{ label: 'Localization', Component: LabelLocalization }],
+  IconButton: [
+    { label: 'As Anchor', Component: IconButtonAsAnchor },
+    { label: 'Show', Component: IconButtonShow },
+  ],
+  Input: [
+    { label: 'Controlled', Component: InputControlled },
+    { label: 'Show', Component: InputShow },
+  ],
+  Label: [
+    { label: 'Localization', Component: LabelLocalization },
+    { label: 'Show', Component: LabelShow },
+  ],
   Menu: [
     { label: 'Full Form', Component: MenuFullForm },
     { label: 'Composition', Component: MenuComposition },
+    { label: 'Show', Component: MenuShow },
   ],
-  Modal: [{ label: 'Size', Component: ModalSize }],
-  Pagination: [{ label: 'Localization', Component: PaginationLocalization }],
-  Popover: [{ label: 'Composition', Component: PopoverComposition }],
-  Radio: [{ label: 'Controlled', Component: RadioControlled }],
+  Modal: [
+    { label: 'Size', Component: ModalSize },
+    { label: 'Show', Component: ModalShow },
+  ],
+  Pagination: [
+    { label: 'Localization', Component: PaginationLocalization },
+    { label: 'Show', Component: PaginationShow },
+  ],
+  Popover: [
+    { label: 'Composition', Component: PopoverComposition },
+    { label: 'Show', Component: PopoverShow },
+  ],
+  Radio: [
+    { label: 'Controlled', Component: RadioControlled },
+    { label: 'Show', Component: RadioShow },
+  ],
   RangeCalendar: [
     { label: 'Default', Component: RangeCalendarDefault },
     { label: 'Controlled', Component: RangeCalendarControlled },
     { label: 'Locale', Component: RangeCalendarLocale },
+    { label: 'Show', Component: RangeCalendarShow },
   ],
   Select: [
     { label: 'Simple', Component: SelectSimple },
@@ -555,16 +631,22 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'Composition', Component: SelectComposition },
     { label: 'ListBox', Component: SelectListBox },
     { label: 'With Combobox', Component: SelectWithCombobox },
+    { label: 'Show', Component: SelectShow },
   ],
-  Table: [{ label: 'Row As Link', Component: TableRowAsLink }],
+  Table: [
+    { label: 'Row As Link', Component: TableRowAsLink },
+    { label: 'Show', Component: TableShow },
+  ],
   Text: [
     { label: 'As Child', Component: TextAsChild },
     { label: 'Ref', Component: TextRef },
+    { label: 'Show', Component: TextShow },
   ],
   Textarea: [
     { label: 'No Resize', Component: TextareaNoResize },
     { label: 'Form Field', Component: TextareaFormField },
     { label: 'Long Text', Component: TextareaLongText },
+    { label: 'Show', Component: TextareaShow },
   ],
   TimeInput: [
     { label: 'Default', Component: TimeInputDefault },
@@ -572,12 +654,17 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'Controlled', Component: TimeInputControlled },
     { label: 'Locale', Component: TimeInputLocale },
     { label: 'Granularity', Component: TimeInputGranularity },
+    { label: 'Show', Component: TimeInputShow },
   ],
-  Toast: [{ label: 'Toast Function', Component: ToastToastFunction }],
+  Toast: [
+    { label: 'Toast Function', Component: ToastToastFunction },
+    { label: 'Show', Component: ToastShow },
+  ],
   Tooltip: [
     { label: 'Placement', Component: TooltipPlacement },
     { label: 'Controlled', Component: TooltipControlled },
     { label: 'Composition', Component: TooltipComposition },
+    { label: 'Show', Component: TooltipShow },
   ],
 }
 
@@ -1196,7 +1283,7 @@ export function ThemeBuilder() {
             </EmptyStateActions>
           </EmptyState>
         ) : (
-          <Stack style={{ gap: '48px' }}>
+          <Stack style={{ gap: '48px', width: '100%' }}>
             {Array.from(selectedComponents)
               .sort()
               .map((componentName) => {
@@ -1206,43 +1293,35 @@ export function ThemeBuilder() {
                 // Verificar se é um array de exemplos ou um único componente
                 if (Array.isArray(componentData)) {
                   return (
-                    <div key={componentName}>
-                      <div
-                        style={{
-                          backgroundColor: '#ffffff',
-                          padding: '32px',
-                          borderRadius: '12px',
-                          border: '1px solid var(--sl-color-gray-2)',
-                          boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
-                        }}
+                    <div key={componentName} style={{ width: '100%' }}>
+                      <Heading
+                        variant="display2"
+                        style={{ marginBottom: '24px' }}
                       >
-                        <Heading
-                          variant="display2"
-                          style={{ marginBottom: '24px' }}
-                        >
-                          {componentName}
-                        </Heading>
-                        <Stack style={{ gap: '32px' }}>
-                          {componentData.map(({ label, Component }, index) => (
-                            <div key={label}>
-                              <Text
-                                variant="emphasis"
-                                style={{
-                                  marginBottom: '12px',
-                                  display: 'block',
-                                }}
-                              >
-                                {label}
-                              </Text>
+                        {componentName}
+                      </Heading>
+                      <Stack style={{ gap: '32px', width: '100%' }}>
+                        {componentData.map(({ label, Component }, index) => (
+                          <div key={label} style={{ width: '100%' }}>
+                            <Text
+                              variant="emphasis"
+                              style={{
+                                marginBottom: '12px',
+                                display: 'block',
+                              }}
+                            >
+                              {label}
+                            </Text>
+                            <div style={{ width: '100%' }}>
                               <Component />
-                              {index < componentData.length - 1 && (
-                                <Divider style={{ marginTop: '24px' }} />
-                              )}
                             </div>
-                          ))}
-                        </Stack>
-                      </div>
-                      <Divider />
+                            {index < componentData.length - 1 && (
+                              <Divider style={{ marginTop: '24px' }} />
+                            )}
+                          </div>
+                        ))}
+                      </Stack>
+                      <Divider style={{ marginTop: '48px' }} />
                     </div>
                   )
                 }
@@ -1250,25 +1329,17 @@ export function ThemeBuilder() {
                 // Renderizar componente único
                 const Component = componentData
                 return (
-                  <div key={componentName}>
-                    <div
-                      style={{
-                        backgroundColor: '#ffffff',
-                        padding: '32px',
-                        borderRadius: '12px',
-                        border: '1px solid var(--sl-color-gray-2)',
-                        boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
-                      }}
+                  <div key={componentName} style={{ width: '100%' }}>
+                    <Heading
+                      variant="display2"
+                      style={{ marginBottom: '24px' }}
                     >
-                      <Heading
-                        variant="display2"
-                        style={{ marginBottom: '24px' }}
-                      >
-                        {componentName}
-                      </Heading>
+                      {componentName}
+                    </Heading>
+                    <div style={{ width: '100%' }}>
                       <Component />
                     </div>
-                    <Divider />
+                    <Divider style={{ marginTop: '48px' }} />
                   </div>
                 )
               })}
