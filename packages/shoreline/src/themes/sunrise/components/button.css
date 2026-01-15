@@ -192,4 +192,8 @@
       }
     }
   }
+
+  &[data-rounded="true"] {
+    border-radius: var(--sl-radius-full);
+  }
 }

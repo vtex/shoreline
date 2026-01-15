@@ -27,6 +27,10 @@ export default {
       control: { type: 'boolean' },
       description: 'Disable the button and show a spinner.',
     },
+    rounded: {
+      control: { type: 'boolean' },
+      description: 'Render button with fully rounded corners.',
+    },
     children: {
       control: { type: 'text' },
       description: 'Content of the contextual help',
@@ -36,6 +40,7 @@ export default {
     size: 'normal',
     variant: 'secondary',
     loading: false,
+    rounded: false,
     children: 'Shoreline',
   },
   parameters: {

@@ -21,6 +21,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loading = false,
       asChild = false,
       disabled = false,
+      rounded = false,
       children,
       ...buttonProps
     } = props
@@ -35,6 +36,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-variant={variant}
         data-size={size}
         data-loading={loading}
+        data-rounded={rounded}
         type={type}
         disabled={disabled || loading}
         {...buttonProps}
@@ -96,6 +98,11 @@ export interface ButtonOptions {
    * @default false
    */
   asChild?: boolean
+  /**
+   * Render button with fully rounded corners (pill shape).
+   * @default false
+   */
+  rounded?: boolean
 }
 
 export type ButtonProps = ButtonOptions & ComponentPropsWithoutRef<'button'>
