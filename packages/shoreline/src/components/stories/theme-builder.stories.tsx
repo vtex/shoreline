@@ -152,7 +152,6 @@ import { Show as IconButtonShow } from '../icon-button/stories/show.stories'
 import { Show as InputShow } from '../input/stories/show.stories'
 import { Show as LabelShow } from '../label/stories/show.stories'
 import { Show as MenuShow } from '../menu/stories/show.stories'
-import { Show as ModalShow } from '../modal/stories/show.stories'
 import { Show as PaginationShow } from '../pagination/stories/show.stories'
 import { Show as PopoverShow } from '../popover/stories/show.stories'
 import { Show as RadioShow } from '../radio/stories/show.stories'
@@ -597,10 +596,7 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'Composition', Component: MenuComposition },
     { label: 'Show', Component: MenuShow },
   ],
-  Modal: [
-    { label: 'Size', Component: ModalSize },
-    { label: 'Show', Component: ModalShow },
-  ],
+  Modal: [{ label: 'Size', Component: ModalSize }],
   Pagination: [
     { label: 'Localization', Component: PaginationLocalization },
     { label: 'Show', Component: PaginationShow },
