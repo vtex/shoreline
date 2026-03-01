@@ -8,7 +8,11 @@ export function flattenObject<T extends AnyObject>(
   const result: Dict = {}
 
   for (const i in object) {
-    if (typeof object[i] === 'object' && !Array.isArray(object[i])) {
+    if (
+      typeof object[i] === 'object' &&
+      object[i] !== null &&
+      !Array.isArray(object[i])
+    ) {
       const temp = flattenObject(object[i], joinString, defaultString)
 
       for (const j in temp) {
