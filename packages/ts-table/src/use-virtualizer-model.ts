@@ -1,5 +1,6 @@
 import type { VirtualItem } from '@tanstack/react-virtual'
 import { useVirtualizer } from '@tanstack/react-virtual'
+import type { RefObject } from 'react'
 import { useRef } from 'react'
 
 const FIXED_SIZE_VALUE = 40
@@ -14,7 +15,7 @@ export function useVirtualizerModel(
     dynamic = false,
   } = props
 
-  const ref = useRef(null)
+  const ref = useRef<HTMLElement | null>(null)
 
   const virtualizer = useVirtualizer({
     getScrollElement: () => ref.current,
@@ -63,7 +64,7 @@ export type UseVirtualizerModelProps = {
 export type UseVirtualizerModelReturn = {
   virtualItems: VirtualItem[]
   count: number
-  ref: React.MutableRefObject<null>
+  ref: RefObject<HTMLElement | null>
   totalSize: number
   measure: (node: Element | null) => void
   top: number

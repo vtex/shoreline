@@ -1,11 +1,11 @@
-import type { MutableRefObject, Ref, RefCallback } from 'react'
+import type { Ref, RefCallback } from 'react'
 import { useMemo } from 'react'
 
 /**
  * Sets both a function and object React ref.
  */
 function setRef<T>(
-  ref: RefCallback<T> | MutableRefObject<T> | null | undefined,
+  ref: RefCallback<T> | { current: T } | null | undefined,
   value: T
 ) {
   if (typeof ref === 'function') {
