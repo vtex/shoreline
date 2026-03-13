@@ -273,7 +273,7 @@ importers:
         specifier: 3.7.4
         version: 3.7.4(react@18.3.1)
       '@vtex/shoreline-utils':
-        specifier: ^1.0.110
+        specifier: ^1.0.111
         version: link:../utils
       react:
         specifier: '>=18.3'
@@ -356,7 +356,7 @@ importers:
         specifier: 3.13.22
         version: 3.13.22(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@vtex/shoreline-utils':
-        specifier: ^1.0.110
+        specifier: ^1.0.111
         version: link:../utils
       react:
         specifier: '>=18.3'
@@ -1501,6 +1501,7 @@ packages:
   '@lerna/create@8.1.4':
     resolution: {integrity: sha512-lcfDXrDIESnpATGwIMCy0b/PcIVbha8q0d1WbXixFox+m2eno5MNHoteddUjhFY0CN1xM2259a8TyznCoY8GHw==}
     engines: {node: '>=18.0.0'}
+    deprecated: This package is an implementation detail of Lerna and is no longer published separately.
 
   '@mdx-js/mdx@3.1.0':
     resolution: {integrity: sha512-/QxEhPAvGwbQmy1Px8F899L5Uc2KZ6JtXwlCgJmjSTBedwOZkByYcBG4GceIGPXRDsmfxhHazuS+hlOShRLeDw==}
@@ -5458,11 +5459,13 @@ packages:
   git-raw-commits@2.0.11:
     resolution: {integrity: sha512-VnctFhw+xfj8Va1xtfEqCUD2XDrbAPSJx+hSrE5K7fGdjZruW7XV+QOrN7LF/RJyvspRiD2I0asWsxFp0ya26A==}
     engines: {node: '>=10'}
+    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
     hasBin: true
 
   git-raw-commits@3.0.0:
     resolution: {integrity: sha512-b5OHmZ3vAgGrDn/X0kS+9qCfNKWe4K/jFnhwzVWWg0/k5eLa3060tZShrRg8Dja5kPc+YjS0Gc6y7cRr44Lpjw==}
     engines: {node: '>=14'}
+    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
     hasBin: true
 
   git-remote-origin-url@2.0.0:
@@ -5472,6 +5475,7 @@ packages:
   git-semver-tags@5.0.1:
     resolution: {integrity: sha512-hIvOeZwRbQ+7YEUmCkHqo8FOLQZCEn18yevLHADlFPZY02KJGsu5FZt9YW/lybfK2uhWFI7Qg/07LekJiTv7iA==}
     engines: {node: '>=14'}
+    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
     hasBin: true
 
   git-up@7.0.0:
