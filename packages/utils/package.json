@@ -21,6 +21,10 @@
     "dev": "tsup --watch",
     "build": "npm run prebuild && tsup"
   },
+  "peerDependencies": {
+    "react": "^18.3.0 || ^19.0.0",
+    "react-dom": "^18.3.0 || ^19.0.0"
+  },
   "devDependencies": {
     "@types/use-sync-external-store": "0.0.6"
   },
