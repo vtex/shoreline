@@ -1,5 +1,5 @@
 import { Tab, TabList, TabPanel, TabProvider } from '@vtex/shoreline'
-import { DecorativeBox } from '../components/decorative-box'
+import { DecorativeBox } from '../../components/decorative-box'
 
 export function DefaultTabList() {
   return (

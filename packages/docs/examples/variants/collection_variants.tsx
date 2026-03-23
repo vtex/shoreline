@@ -5,7 +5,7 @@ import {
   Pagination,
   Search,
 } from '@vtex/shoreline'
-import { DecorativeBox } from '../components/decorative-box'
+import { DecorativeBox } from '../../components/decorative-box'
 
 export function DefaultCollection() {
   return (
