@@ -12,6 +12,7 @@ variants/
 ├── checkboxgroup_variants.tsx
 ├── collection_variants.tsx
 ├── collectionview_variants.tsx
+├── combobox_variants.tsx
 ├── confirmationmodal_variants.tsx
 ├── contextualhelp_variants.tsx
 ├── datepicker_variants.tsx
@@ -19,14 +20,17 @@ variants/
 ├── divider_variants.tsx
 ├── drawer_variants.tsx
 ├── emptystate_variants.tsx
+├── filter_variants.tsx
 ├── heading_variants.tsx
 ├── iconbutton_variants.tsx
 ├── input_variants.tsx
 ├── link_variants.tsx
+├── linkbox_variants.tsx
 ├── menu_variants.tsx
 ├── modal_variants.tsx
 ├── page_variants.tsx
 ├── pagination_variants.tsx
+├── popover_variants.tsx
 ├── radiogroup_variants.tsx
 ├── search_variants.tsx
 ├── select_variants.tsx
@@ -92,6 +96,12 @@ Each file contains multiple named exports, one for each variant or state of the 
 - `NotFoundCollectionView` - Not found status
 - `UnauthorizedCollectionView` - Unauthorized status
 
+### Combobox Variants (`combobox_variants.tsx`)
+- `DefaultCombobox` - Basic combobox with items
+- `ComboboxWithList` - Combobox using ComboboxList wrapper
+- `ComboboxWithAutoSelect` - Combobox with auto-select first match
+- `DisabledCombobox` - Disabled combobox
+
 ### ConfirmationModal Variants (`confirmationmodal_variants.tsx`)
 - `DefaultConfirmationModal` - Basic confirmation modal
 - `ConfirmationModalWithCustomText` - Modal with custom confirmation text
@@ -136,6 +146,13 @@ Each file contains multiple named exports, one for each variant or state of the 
 - `EmptyStateWithActions` - Empty state with action buttons
 - `EmptyStateComplete` - Complete empty state with illustration, heading, text and actions
 
+### Filter Variants (`filter_variants.tsx`)
+- `SingleFilter` - Single selection filter
+- `MultipleFilter` - Multiple selection filter
+- `ControlledFilter` - Controlled filter with state
+- `LoadingFilter` - Filter with loading skeleton
+- `DisabledFilter` - Disabled filter
+
 ### Heading Variants (`heading_variants.tsx`)
 - `Display1Heading` - Display1 heading variant
 - `Display2Heading` - Display2 heading variant
@@ -163,6 +180,11 @@ Each file contains multiple named exports, one for each variant or state of the 
 - `ExternalLink` - External link with target="_blank"
 - `LinkWithTitle` - Link with title attribute
 
+### LinkBox Variants (`linkbox_variants.tsx`)
+- `DefaultLinkBox` - Basic link box container
+- `LinkBoxWithNestedLink` - Link box with nested interactive elements
+- `LinkBoxBlankTarget` - Link box opening in a new tab
+
 ### Menu Variants (`menu_variants.tsx`)
 - `PrimaryMenu` - Primary menu variant
 - `SecondaryMenu` - Secondary menu variant
@@ -184,6 +206,11 @@ Each file contains multiple named exports, one for each variant or state of the 
 - `LoadingPagination` - Loading state pagination
 - `SmallPageSizePagination` - Pagination with small page size (10)
 - `LargePageSizePagination` - Pagination with large page size (50)
+
+### Popover Variants (`popover_variants.tsx`)
+- `DefaultPopover` - Basic popover with content
+- `PopoverWithDismiss` - Popover with dismiss button
+- `PopoverWithPlacement` - Popover with custom placement
 
 ### RadioGroup Variants (`radiogroup_variants.tsx`)
 - `DefaultRadioGroup` - Basic vertical radio group
@@ -291,9 +318,11 @@ import { SuccessAlert } from './variants/alert_variants'
 import { DefaultCheckbox, IndeterminateCheckbox } from './variants/checkbox_variants'
 import { DefaultCheckboxGroup, HorizontalCheckboxGroup } from './variants/checkboxgroup_variants'
 import { DefaultCollection, CollectionWithContent } from './variants/collection_variants'
+import { DefaultCombobox, ComboboxWithList } from './variants/combobox_variants'
 import { DefaultConfirmationModal } from './variants/confirmationmodal_variants'
 import { DefaultContextualHelp, ContextualHelpBottomStart } from './variants/contextualhelp_variants'
 import { SmallEmptyState, EmptyStateComplete } from './variants/emptystate_variants'
+import { SingleFilter, DisabledFilter } from './variants/filter_variants'
 import { InputWithPrefix, ErrorInput } from './variants/input_variants'
 import { ResizableTextarea } from './variants/textarea_variants'
 import { DefaultSearch, LoadingSearch } from './variants/search_variants'
@@ -303,8 +332,10 @@ import { DefaultDateRangePicker, DateRangePickerControlled } from './variants/da
 import { DefaultTimeInput } from './variants/timeinput_variants'
 import { TooltipTop } from './variants/tooltip_variants'
 import { ExternalLink } from './variants/link_variants'
+import { DefaultLinkBox, LinkBoxBlankTarget } from './variants/linkbox_variants'
 import { DefaultPage, PageNarrow } from './variants/page_variants'
 import { DefaultPagination } from './variants/pagination_variants'
+import { DefaultPopover, PopoverWithDismiss } from './variants/popover_variants'
 import { DefaultRadioGroup, HorizontalRadioGroup } from './variants/radiogroup_variants'
 import { DefaultSpinner } from './variants/spinner_variants'
 import { DefaultTabList, TabListWithThreeTabs } from './variants/tablist_variants'
@@ -333,4 +364,4 @@ import { DefaultTable, TableWithTags } from './variants/table_variants'
 - ✅ **Maintainable**: Easy to see all variants at a glance
 - ✅ **Consistent naming**: Clear convention with `ComponentVariant` pattern
 - ✅ **Complete coverage**: Covers all visual variations and common states
-- ✅ **Comprehensive**: 35 components with 139+ variants total
+- ✅ **Comprehensive**: 39 components with 154+ variants total
