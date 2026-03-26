@@ -18,31 +18,54 @@ export const GridCell = forwardRef<HTMLDivElement, GridCellProps>(
   function GridCell(props, ref) {
     const {
       asChild = false,
-      columnStart = 'auto',
-      columnEnd = 'auto',
-      rowStart = 'auto',
-      rowEnd = 'auto',
-      column = 'auto',
-      row = 'auto',
-      area = 'auto',
+      columnStart,
+      columnEnd,
+      rowStart,
+      rowEnd,
+      column,
+      row,
+      area,
       style: styleObject = {},
       ...domProps
     } = props
 
     const Comp = asChild ? Compose : 'div'
+    const placementStyle: GridCellStyle = {}
+
+    if (columnStart !== undefined) {
+      placementStyle['--sl-grid-cell-column-start'] = columnStart
+    }
+
+    if (columnEnd !== undefined) {
+      placementStyle['--sl-grid-cell-column-end'] = columnEnd
+    }
+
+    if (rowStart !== undefined) {
+      placementStyle['--sl-grid-cell-row-start'] = rowStart
+    }
+
+    if (rowEnd !== undefined) {
+      placementStyle['--sl-grid-cell-row-end'] = rowEnd
+    }
+
+    if (column !== undefined) {
+      placementStyle['--sl-grid-cell-column'] = column
+    }
+
+    if (row !== undefined) {
+      placementStyle['--sl-grid-cell-row'] = row
+    }
+
+    if (area !== undefined) {
+      placementStyle['--sl-grid-cell-area'] = area
+    }
 
     return (
       <Comp
         data-sl-grid-cell
         ref={ref}
         style={style({
-          '--sl-grid-cell-column-start': columnStart,
-          '--sl-grid-cell-column-end': columnEnd,
-          '--sl-grid-cell-row-start': rowStart,
-          '--sl-grid-cell-row-end': rowEnd,
-          '--sl-grid-cell-column': column,
-          '--sl-grid-cell-row': row,
-          '--sl-grid-cell-area': area,
+          ...placementStyle,
           ...styleObject,
         })}
         {...domProps}
@@ -102,3 +125,6 @@ export interface GridCellOptions {
 }
 
 export type GridCellProps = GridCellOptions & ComponentPropsWithoutRef<'div'>
+
+type GridCellStyle = NonNullable<ComponentPropsWithoutRef<'div'>['style']> &
+  Record<`--${string}`, string | number | boolean>
