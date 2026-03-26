@@ -18,14 +18,6 @@
 }
 
 [data-sl-grid-cell] {
-  --sl-grid-cell-area: auto;
-  --sl-grid-cell-column: auto;
-  --sl-grid-cell-row: auto;
-  --sl-grid-cell-column-start: auto;
-  --sl-grid-cell-column-end: auto;
-  --sl-grid-cell-row-start: auto;
-  --sl-grid-cell-row-end: auto;
-
   grid-area: var(--sl-grid-cell-area);
   grid-column: var(--sl-grid-cell-column);
   grid-row: var(--sl-grid-cell-row);
