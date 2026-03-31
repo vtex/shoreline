@@ -22,7 +22,6 @@ export class Store<
     const unsub = this._options?.onSubscribe?.(listener, this)
 
     return () => {
-      this.listeners.delete(listener)
       unsub?.()
     }
   }
