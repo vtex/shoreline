@@ -3,7 +3,7 @@ export class Store<
   TUpdater extends AnyUpdater = (cb: TState) => TState,
 > {
   private listeners = new Set<Listener>()
-  private _state: TState
+  public _state: TState
   private _options?: StoreOptions<TState, TUpdater>
   private _batching = false
   private _flushing = 0
