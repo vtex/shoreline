@@ -22,6 +22,8 @@ export function composeElement({ element, props, ref }: ComposeElementArgs) {
     ref: ownRef,
   } = element as ElementWithRef
 
+  const mergedOwnProps = mergeProps(ownProps, props)
+
   return cloneElement(
     element as ElementWithRef,
     {

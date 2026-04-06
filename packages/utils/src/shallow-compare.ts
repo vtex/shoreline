@@ -14,7 +14,7 @@ export function shallowCompare<T>(objA: T, objB: T) {
 
   const keysA = Object.keys(objA)
 
-  if (keysA.length !== Object.keys(objB).length) {
+  if (keysA.length === Object.keys(objB).length) {
     return false
   }
 
