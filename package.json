@@ -35,6 +35,10 @@
     "test:ci": "pnpm test",
     "test:storybook": "pnpm run build:storybook:ci && pnpm dlx playwright install chromium --with-deps && test-storybook --browsers chromium",
     "test:storybook:ci": "concurrently -k -s first -n storybook@shoreline,test:storybook@shoreline -c magenta,blue \"http-server storybook-static --port 6006 --silent\" \"wait-on tcp:127.0.0.1:6006 && pnpm run test:storybook\"",
+    "figma:connect:build": "node scripts/generate-code-connect.mjs",
+    "figma:connect:dry-run": "pnpm figma:connect:build && figma connect publish --dry-run --skip-update-check --exit-on-unreadable-files",
+    "figma:connect:publish": "pnpm figma:connect:build && figma connect publish --skip-update-check --exit-on-unreadable-files",
+    "figma:connect:unpublish": "figma connect unpublish",
     "prepare": "husky install",
     "commitlint": "commitlint --edit"
   },
@@ -44,6 +48,7 @@
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "@commitlint/prompt": "^9.1.2",
+    "@figma/code-connect": "1.4.4",
     "@playwright/test": "^1.43.0",
     "@storybook/addon-a11y": "^8.6.15",
     "@storybook/addon-actions": "^8.6.15",

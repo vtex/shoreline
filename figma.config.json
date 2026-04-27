@@ -1,0 +1,10 @@
+{
+  "codeConnect": {
+    "parser": "react",
+    "include": ["code-connect/generated/**/*.figma.ts"],
+    "label": "React",
+    "language": "tsx",
+    "defaultBranch": "main",
+    "interactiveSetupFigmaFileUrl": "https://www.figma.com/design/PWGSQ26U55u8E34JWn9ZYE/Shoreline-Components"
+  }
+}
