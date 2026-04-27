@@ -1,66 +1,107 @@
 {
+  "figmaFileUrl": "https://www.figma.com/design/PWGSQ26U55u8E34JWn9ZYE/Shoreline-Components",
   "components": [
     {
       "id": "alert",
       "component": "Alert",
       "source": "packages/shoreline/src/components/alert/alert.tsx",
-      "figmaUrl": "",
+      "nodeId": "1940-51318",
       "children": "Short message"
+    },
+    {
+      "id": "alert-critical",
+      "component": "Alert",
+      "source": "packages/shoreline/src/components/alert/alert.tsx",
+      "nodeId": "1940-51332",
+      "props": " variant=\"critical\"",
+      "children": "Critical message"
     },
     {
       "id": "button",
       "component": "Button",
       "source": "packages/shoreline/src/components/button/button.tsx",
-      "figmaUrl": "",
+      "nodeId": "1940-53925",
       "children": "Action label"
     },
     {
       "id": "checkbox",
       "component": "Checkbox",
       "source": "packages/shoreline/src/components/checkbox/checkbox.tsx",
-      "figmaUrl": "",
+      "nodeId": "1940-55957",
       "children": "Option"
+    },
+    {
+      "id": "checkbox-group",
+      "component": "CheckboxGroup",
+      "source": "packages/shoreline/src/components/checkbox/checkbox-group.tsx",
+      "nodeId": "1940-55904",
+      "imports": ["CheckboxGroup", "Checkbox"],
+      "props": " label=\"Options\"",
+      "children": "\n  <Checkbox>Everything</Checkbox>\n  <Checkbox>Everywhere</Checkbox>\n  <Checkbox>All at once</Checkbox>\n"
+    },
+    {
+      "id": "collection",
+      "component": "Collection",
+      "source": "packages/shoreline/src/components/collection/collection.tsx",
+      "nodeId": "1940-56763",
+      "imports": [
+        "Collection",
+        "CollectionRow",
+        "CollectionView",
+        "Search",
+        "Pagination"
+      ],
+      "children": "\n  <CollectionRow>\n    <Search />\n    <Pagination page={1} total={74} />\n  </CollectionRow>\n  <CollectionView status=\"ready\">Collection content</CollectionView>\n"
+    },
+    {
+      "id": "confirmation-modal",
+      "component": "ConfirmationModal",
+      "source": "packages/shoreline/src/components/confirmation-modal/confirmation-modal.tsx",
+      "nodeId": "1550-25003",
+      "imports": ["ConfirmationModal", "Text"],
+      "props": " open messages={{ title: \"Confirm action\", confirm: \"Confirm\", cancel: \"Cancel\" }}",
+      "children": "\n  <Text variant=\"body\">This is a confirmation modal</Text>\n"
     },
     {
       "id": "contextual-help",
       "component": "ContextualHelp",
       "source": "packages/shoreline/src/components/contextual-help/contextual-help.tsx",
-      "figmaUrl": "",
+      "nodeId": "1324-1030",
       "children": "Help content"
     },
     {
       "id": "date-field",
       "component": "DateField",
       "source": "packages/shoreline/src/components/date-field/date-field.tsx",
-      "figmaUrl": "",
+      "nodeId": "",
       "selfClosing": true
     },
     {
       "id": "date-picker",
       "component": "DatePicker",
       "source": "packages/shoreline/src/components/date-picker/date-picker.tsx",
-      "figmaUrl": "",
+      "nodeId": "1418-1340",
       "selfClosing": true
     },
     {
       "id": "date-range-picker",
       "component": "DateRangePicker",
       "source": "packages/shoreline/src/components/date-range-picker/date-range-picker.tsx",
-      "figmaUrl": "",
+      "nodeId": "1451-34332",
       "selfClosing": true
     },
     {
       "id": "divider",
       "component": "Divider",
       "source": "packages/shoreline/src/components/divider/divider.tsx",
-      "figmaUrl": "",
+      "nodeId": "",
       "selfClosing": true
     },
     {
       "id": "drawer",
       "component": "DrawerPopover",
       "source": "packages/shoreline/src/components/drawer/drawer-popover.tsx",
-      "figmaUrl": "",
+      "nodeId": "",
       "imports": ["DrawerPopover", "DrawerContent"],
       "children": "Drawer content"
     },
@@ -68,37 +109,45 @@
       "id": "empty-state",
       "component": "EmptyState",
       "source": "packages/shoreline/src/components/empty-state/empty-state.tsx",
-      "figmaUrl": "",
-      "imports": ["EmptyState", "EmptyStateActions", "EmptyStateIllustration"],
-      "children": "Empty state content"
+      "nodeId": "1940-79645",
+      "imports": [
+        "EmptyState",
+        "EmptyStateActions",
+        "Heading",
+        "Text",
+        "Button"
+      ],
+      "children": "\n  <Heading>Title goes here</Heading>\n  <Text>Use this area to describe the empty state.</Text>\n  <EmptyStateActions>\n    <Button>Cancel</Button>\n    <Button variant=\"primary\">Create</Button>\n  </EmptyStateActions>\n"
     },
     {
       "id": "filter",
       "component": "Filter",
       "source": "packages/shoreline/src/components/filter/filter.tsx",
-      "figmaUrl": "",
-      "children": "Filter content"
+      "nodeId": "907-78259",
+      "imports": ["Filter", "FilterItem"],
+      "props": " label=\"Status\"",
+      "children": "\n  <FilterItem value=\"stable\">Stable</FilterItem>\n  <FilterItem value=\"experimental\">Experimental</FilterItem>\n  <FilterItem value=\"deprecated\">Deprecated</FilterItem>\n"
     },
     {
       "id": "heading",
       "component": "Heading",
       "source": "packages/shoreline/src/components/heading/heading.tsx",
-      "figmaUrl": "",
+      "nodeId": "",
       "children": "Heading"
     },
     {
       "id": "icon-button",
       "component": "IconButton",
       "source": "packages/shoreline/src/components/icon-button/icon-button.tsx",
-      "figmaUrl": "",
-      "props": " label=\"Delete\"",
-      "children": "Icon"
+      "nodeId": "1544-40665",
+      "props": " label=\"Add\"",
+      "children": "\n  <span aria-hidden=\"true\">+</span>\n"
     },
     {
       "id": "input",
       "component": "Input",
       "source": "packages/shoreline/src/components/input/input.tsx",
-      "figmaUrl": "",
+      "nodeId": "235-485",
       "props": " placeholder=\"Placeholder\"",
       "selfClosing": true
     },
@@ -106,7 +155,7 @@
       "id": "link",
       "component": "Link",
       "source": "packages/shoreline/src/components/link/link.tsx",
-      "figmaUrl": "",
+      "nodeId": "1072-7828",
       "props": " href=\"#\"",
       "children": "Link"
     },
@@ -114,23 +163,41 @@
       "id": "menu",
       "component": "Menu",
       "source": "packages/shoreline/src/components/menu/menu.tsx",
-      "figmaUrl": "",
-      "imports": ["Menu", "MenuItem"],
-      "children": "Menu items"
+      "nodeId": "845-6768",
+      "imports": ["Menu", "MenuItem", "MenuSeparator"],
+      "props": " label=\"Open\"",
+      "children": "\n  <MenuItem>New Tab</MenuItem>\n  <MenuItem>New Item</MenuItem>\n  <MenuSeparator />\n  <MenuItem>Downloads</MenuItem>\n"
     },
     {
       "id": "modal",
       "component": "Modal",
       "source": "packages/shoreline/src/components/modal/modal.tsx",
-      "figmaUrl": "",
-      "imports": ["Modal", "ModalContent"],
-      "children": "Modal content"
+      "nodeId": "1158-11090",
+      "imports": [
+        "Modal",
+        "ModalContent",
+        "ModalDismiss",
+        "ModalFooter",
+        "ModalHeader",
+        "ModalHeading",
+        "Button"
+      ],
+      "props": " open onClose={() => null}",
+      "children": "\n  <ModalHeader>\n    <ModalHeading>Confirm action</ModalHeading>\n    <ModalDismiss />\n  </ModalHeader>\n  <ModalContent>Modal content</ModalContent>\n  <ModalFooter>\n    <Button>Cancel</Button>\n    <Button variant=\"primary\">Confirm</Button>\n  </ModalFooter>\n"
+    },
+    {
+      "id": "page",
+      "component": "Page",
+      "source": "packages/shoreline/src/components/page/page.tsx",
+      "nodeId": "1166-42073",
+      "imports": ["Page", "PageContent", "PageHeader", "PageHeading"],
+      "children": "\n  <PageHeader>\n    <PageHeading>Products</PageHeading>\n  </PageHeader>\n  <PageContent>Page content</PageContent>\n"
     },
     {
       "id": "pagination",
       "component": "Pagination",
       "source": "packages/shoreline/src/components/pagination/pagination.tsx",
-      "figmaUrl": "",
+      "nodeId": "1181-24929",
       "props": " page={1} total={10}",
       "selfClosing": true
     },
@@ -138,15 +205,24 @@
       "id": "radio",
       "component": "Radio",
       "source": "packages/shoreline/src/components/radio/radio.tsx",
-      "figmaUrl": "",
+      "nodeId": "",
       "props": " value=\"option\"",
       "children": "Option"
+    },
+    {
+      "id": "radio-group",
+      "component": "RadioGroup",
+      "source": "packages/shoreline/src/components/radio/radio-group.tsx",
+      "nodeId": "1958-102881",
+      "imports": ["RadioGroup", "Radio"],
+      "props": " label=\"Options\"",
+      "children": "\n  <Radio value=\"one\">One</Radio>\n  <Radio value=\"two\">Two</Radio>\n  <Radio value=\"three\">Three</Radio>\n"
     },
     {
       "id": "search",
       "component": "Search",
       "source": "packages/shoreline/src/components/search/search.tsx",
-      "figmaUrl": "",
+      "nodeId": "312-2371",
       "props": " placeholder=\"Search\"",
       "selfClosing": true
     },
@@ -154,7 +230,7 @@
       "id": "select",
       "component": "Select",
       "source": "packages/shoreline/src/components/select/select.tsx",
-      "figmaUrl": "",
+      "nodeId": "255-747",
       "imports": ["Select", "SelectItem"],
       "children": "\n  <SelectItem value=\"item-1\">Item 1</SelectItem>\n  <SelectItem value=\"item-2\">Item 2</SelectItem>\n"
     },
@@ -162,21 +238,37 @@
       "id": "skeleton",
       "component": "Skeleton",
       "source": "packages/shoreline/src/components/skeleton/skeleton.tsx",
-      "figmaUrl": "",
+      "nodeId": "2053-102455",
+      "selfClosing": true
+    },
+    {
+      "id": "skeleton-border-radius-full",
+      "component": "Skeleton",
+      "source": "packages/shoreline/src/components/skeleton/skeleton.tsx",
+      "nodeId": "2053-102456",
+      "props": " shape=\"circle\"",
       "selfClosing": true
     },
     {
       "id": "spinner",
       "component": "Spinner",
       "source": "packages/shoreline/src/components/spinner/spinner.tsx",
-      "figmaUrl": "",
+      "nodeId": "2-138",
       "selfClosing": true
+    },
+    {
+      "id": "tab-list",
+      "component": "TabList",
+      "source": "packages/shoreline/src/components/tab/tab-list.tsx",
+      "nodeId": "1020-1892",
+      "imports": ["TabProvider", "TabList", "Tab"],
+      "example": "<TabProvider>\n  <TabList>\n    <Tab>Tab 1</Tab>\n    <Tab>Tab 2</Tab>\n    <Tab>Tab 3</Tab>\n  </TabList>\n</TabProvider>"
     },
     {
       "id": "table",
       "component": "Table",
       "source": "packages/shoreline/src/components/table/table.tsx",
-      "figmaUrl": "https://www.figma.com/file/PWGSQ26U55u8E34JWn9ZYE/Shoreline-%E2%80%93-Components?type=design&node-id=1940-92476&mode=design",
+      "nodeId": "1428-9208",
       "imports": [
         "Table",
         "TableBody",
@@ -192,30 +284,46 @@
       "id": "tag",
       "component": "Tag",
       "source": "packages/shoreline/src/components/tag/tag.tsx",
-      "figmaUrl": "",
-      "children": "Tag"
+      "nodeId": "776-10045",
+      "props": " color=\"green\" variant=\"secondary\" size=\"large\"",
+      "children": "Active"
     },
     {
       "id": "text",
       "component": "Text",
       "source": "packages/shoreline/src/components/text/text.tsx",
-      "figmaUrl": "",
+      "nodeId": "",
       "children": "Text"
     },
     {
       "id": "textarea",
       "component": "Textarea",
       "source": "packages/shoreline/src/components/textarea/textarea.tsx",
-      "figmaUrl": "",
+      "nodeId": "2053-102435",
       "props": " placeholder=\"Placeholder\"",
+      "selfClosing": true
+    },
+    {
+      "id": "time-input",
+      "component": "TimeInput",
+      "source": "packages/shoreline/src/components/time-input/time-input.tsx",
+      "nodeId": "1648-24473",
+      "selfClosing": true
+    },
+    {
+      "id": "toast",
+      "component": "ToastStack",
+      "source": "packages/shoreline/src/components/toast/toast-stack.tsx",
+      "nodeId": "74-6399",
       "selfClosing": true
     },
     {
       "id": "tooltip",
       "component": "Tooltip",
       "source": "packages/shoreline/src/components/tooltip/tooltip.tsx",
-      "figmaUrl": "",
-      "children": "Tooltip content"
+      "nodeId": "1322-948",
+      "props": " label=\"Tooltip\"",
+      "children": "\n  <button type=\"button\">Trigger</button>\n"
     }
   ]
 }
