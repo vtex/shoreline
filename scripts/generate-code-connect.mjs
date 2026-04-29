@@ -9,6 +9,19 @@ const manifest = JSON.parse(await readFile(manifestPath, 'utf8'))
 const figmaFileUrl = manifest.figmaFileUrl
 
 const components = manifest.components ?? []
+const componentIds = components.map((component) => component.id)
+const duplicateComponentIds = [
+  ...new Set(
+    componentIds.filter((id, index) => componentIds.indexOf(id) !== index)
+  ),
+]
+
+if (duplicateComponentIds.length > 0) {
+  throw new Error(
+    `Duplicate Code Connect component id${duplicateComponentIds.length === 1 ? '' : 's'} found: ${duplicateComponentIds.map(String).join(', ')}`
+  )
+}
+
 const readyComponents = components.filter((component) =>
   isPublishableFigmaUrl(getFigmaUrl(component))
 )
