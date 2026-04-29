@@ -54,10 +54,10 @@ if (missingComponents.length > 0) {
 function createTemplate(component, figmaUrl) {
   const imports = component.imports ?? [component.component]
   const importStatement = `import { ${imports.join(', ')} } from '@vtex/shoreline'`
-  const props = component.props ?? ''
-  const children = component.children ?? 'Children'
+  const props = escapeTemplateLiteral(component.props ?? '')
+  const children = escapeTemplateLiteral(component.children ?? 'Children')
   const example = component.example
-    ? `figma.code\`${component.example}\``
+    ? `figma.code\`${escapeTemplateLiteral(component.example)}\``
     : createExample(component.component, props, children, component.selfClosing)
 
   return `/// <reference types="@figma/code-connect/figma-types" />
@@ -95,6 +95,10 @@ function createExample(component, props, children, selfClosing) {
   }
 
   return `figma.code\`<${component}${props}>${children}</${component}>\``
+}
+
+function escapeTemplateLiteral(value) {
+  return String(value).replace(/`/g, '\\`').replace(/\$\{/g, '\\${')
 }
 
 function isPublishableFigmaUrl(url) {
