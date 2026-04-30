@@ -28,6 +28,12 @@ FIGMA_ACCESS_TOKEN=<token> pnpm figma:connect:publish
 
 The token needs permission to publish Code Connect data for the Shoreline Figma library.
 
+## Publishing from CI
+
+`.github/workflows/figma-code-connect.yml` publishes Code Connect mappings to Figma after changes land on `main` for the manifest, generated templates, generator, config, or workflow. Configure the `FIGMA_ACCESS_TOKEN` repository secret with Code Connect write access.
+
+The workflow uses `pnpm figma:connect:publish`, which does not pass `--force`. That keeps UI-created Code Connect mappings from being overwritten by CI; repo-owned mappings for the same Figma node and label are updated to match the generated files.
+
 ## Notes
 
 - Leave `nodeId` and `figmaUrl` blank for components that are already connected through Code Connect UI unless you intend to replace that connection with the CLI version.
