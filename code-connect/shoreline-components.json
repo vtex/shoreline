@@ -101,7 +101,7 @@
       "id": "drawer",
       "component": "DrawerPopover",
       "source": "packages/shoreline/src/components/drawer/drawer-popover.tsx",
-      "nodeId": "",
+      "nodeId": "5744-33659",
       "imports": ["DrawerPopover", "DrawerContent"],
       "children": "Drawer content"
     },
@@ -205,7 +205,7 @@
       "id": "radio",
       "component": "Radio",
       "source": "packages/shoreline/src/components/radio/radio.tsx",
-      "nodeId": "",
+      "nodeId": "1958-102836",
       "props": " value=\"option\"",
       "children": "Option"
     },
@@ -255,6 +255,14 @@
       "source": "packages/shoreline/src/components/spinner/spinner.tsx",
       "nodeId": "2-138",
       "selfClosing": true
+    },
+    {
+      "id": "tab",
+      "component": "Tab",
+      "source": "packages/shoreline/src/components/tab/tab.tsx",
+      "nodeId": "58-2017",
+      "children": "Tab",
+      "nestable": true
     },
     {
       "id": "tab-list",
