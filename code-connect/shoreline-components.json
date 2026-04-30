@@ -319,7 +319,7 @@
       "id": "textarea",
       "component": "Textarea",
       "source": "packages/shoreline/src/components/textarea/textarea.tsx",
-      "nodeId": "2053-102435",
+      "nodeId": "",
       "props": " placeholder=\"Placeholder\"",
       "selfClosing": true
     },
