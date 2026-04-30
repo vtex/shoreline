@@ -8,7 +8,10 @@ const outputDir = path.join(root, 'code-connect/generated')
 const manifest = JSON.parse(await readFile(manifestPath, 'utf8'))
 const figmaFileUrl = manifest.figmaFileUrl
 
-const components = manifest.components ?? []
+const components = (manifest.components ?? []).map((component) => ({
+  ...component,
+  id: validateComponentId(component.id),
+}))
 const componentIds = components.map((component) => component.id)
 const duplicateComponentIds = [
   ...new Set(
@@ -95,6 +98,18 @@ function createExample(component, props, children, selfClosing) {
   }
 
   return `figma.code\`<${component}${props}>${children}</${component}>\``
+}
+
+function validateComponentId(id) {
+  if (typeof id !== 'string' || id.length === 0) {
+    throw new Error('Code Connect component id must be a non-empty string.')
+  }
+
+  if (path.basename(id) !== id || /[\\/]/.test(id) || id.includes('..')) {
+    throw new Error(`Invalid Code Connect component id found: ${id}`)
+  }
+
+  return id
 }
 
 function escapeTemplateLiteral(value) {
