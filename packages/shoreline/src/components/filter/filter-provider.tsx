@@ -45,9 +45,12 @@ export function FilterProvider(props: FilterProviderProps) {
     defaultValue,
   })
 
-  useEffect(function syncState() {
-    selectStore.setValue(filterStore.getState().value)
-  }, [])
+  useEffect(
+    function syncState() {
+      selectStore.setValue(filterStore.getState().value)
+    },
+    [selectStore, filterStore]
+  )
 
   const searchable = !!searchValue || !!setSearchValue || !!defaultSearchValue
 
