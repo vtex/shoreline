@@ -1,0 +1,60 @@
+name: Figma Code Connect
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/figma-code-connect.yml"
+      - "code-connect/**"
+      - "figma.config.json"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "scripts/generate-code-connect.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: figma-code-connect-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish Code Connect mappings
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, '[skip-ci]') }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.4.0
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Ensure Figma token is configured
+        run: |
+          if [ -z "$FIGMA_ACCESS_TOKEN" ]; then
+            echo "::error::Set the FIGMA_ACCESS_TOKEN repository secret to publish Code Connect mappings."
+            exit 1
+          fi
+        env:
+          FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+
+      - name: Publish Code Connect mappings
+        run: pnpm figma:connect:publish
+        env:
+          FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
