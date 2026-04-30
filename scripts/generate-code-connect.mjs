@@ -57,8 +57,19 @@ if (missingComponents.length > 0) {
 function createTemplate(component, figmaUrl) {
   const imports = component.imports ?? [component.component]
   const importStatement = `import { ${imports.join(', ')} } from '@vtex/shoreline'`
-  const props = escapeTemplateLiteral(component.props ?? '')
-  const children = escapeTemplateLiteral(component.children ?? 'Children')
+  const dynamicTemplate = createDynamicTemplate(component)
+  const props = `${escapeTemplateLiteral(component.props ?? '')}${dynamicTemplate.props}`
+  const children =
+    dynamicTemplate.children ??
+    escapeTemplateLiteral(component.children ?? 'Children')
+
+  if (component.example && dynamicTemplate.hasDynamicParts) {
+    throw new Error(
+      `Code Connect component ${component.id} cannot use example with figmaProps or figmaChildren.`
+    )
+  }
+
+  const prelude = dynamicTemplate.prelude ? `\n${dynamicTemplate.prelude}` : ''
   const example = component.example
     ? `figma.code\`${escapeTemplateLiteral(component.example)}\``
     : createExample(component.component, props, children, component.selfClosing)
@@ -70,7 +81,7 @@ function createTemplate(component, figmaUrl) {
 // source=${component.source}
 // component=${component.component}
 import figma from 'figma'
-
+${prelude}
 export default {
   imports: ${createImports(importStatement)},
   example: ${example},
@@ -92,12 +103,226 @@ function createImports(importStatement) {
   return `["${importStatement}"]`
 }
 
+function createDynamicTemplate(component) {
+  const figmaProps = component.figmaProps ?? []
+  const hasFigmaChildren = component.figmaChildren !== undefined
+  const hasDynamicParts = figmaProps.length > 0 || hasFigmaChildren
+
+  if (!hasDynamicParts) {
+    return { children: undefined, hasDynamicParts, prelude: '', props: '' }
+  }
+
+  if (component.selfClosing && hasFigmaChildren) {
+    throw new Error(
+      `Code Connect component ${component.id} cannot use figmaChildren with selfClosing.`
+    )
+  }
+
+  const usedIdentifiers = new Set(['figma', 'instance'])
+  const dynamicPropLines = []
+  const dynamicPropInterpolations = []
+  let usesStringPropHelper = false
+
+  for (const figmaProp of figmaProps) {
+    validateFigmaProp(component.id, figmaProp)
+
+    const valueIdentifier = createIdentifier(
+      usedIdentifiers,
+      figmaProp.variable ?? figmaProp.prop,
+      'Value'
+    )
+    const propIdentifier = createIdentifier(
+      usedIdentifiers,
+      figmaProp.variable ?? figmaProp.prop,
+      'Prop'
+    )
+
+    if (figmaProp.kind === 'enum') {
+      usesStringPropHelper = true
+      dynamicPropLines.push(
+        `const ${valueIdentifier} = instance.getEnum(${createStringLiteral(figmaProp.figmaProp)}, ${createEnumOptions(figmaProp)})`
+      )
+      dynamicPropLines.push(
+        `const ${propIdentifier} = createStringProp(${createStringLiteral(figmaProp.prop)}, ${valueIdentifier})`
+      )
+    } else if (figmaProp.kind === 'boolean') {
+      dynamicPropLines.push(
+        `const ${valueIdentifier} = instance.getBoolean(${createStringLiteral(figmaProp.figmaProp)})`
+      )
+      dynamicPropLines.push(
+        `const ${propIdentifier} = ${valueIdentifier} ? ${createStringLiteral(` ${figmaProp.prop}`)} : ''`
+      )
+    } else if (figmaProp.kind === 'string') {
+      usesStringPropHelper = true
+      dynamicPropLines.push(
+        `const ${valueIdentifier} = instance.getString(${createStringLiteral(figmaProp.figmaProp)})`
+      )
+      dynamicPropLines.push(
+        `const ${propIdentifier} = createStringProp(${createStringLiteral(figmaProp.prop)}, ${valueIdentifier})`
+      )
+    }
+
+    dynamicPropInterpolations.push(`\${${propIdentifier}}`)
+  }
+
+  let dynamicChildren
+
+  if (hasFigmaChildren) {
+    validateFigmaChildren(component.id, component.figmaChildren)
+    const childrenIdentifier = createIdentifier(
+      usedIdentifiers,
+      component.figmaChildren.variable ?? 'children'
+    )
+    const fallback = component.figmaChildren.fallback
+    const fallbackExpression =
+      fallback === undefined ? '' : ` || ${createStringLiteral(fallback)}`
+
+    dynamicPropLines.push(
+      `const ${childrenIdentifier} = instance.getString(${createStringLiteral(component.figmaChildren.figmaProp)})${fallbackExpression}`
+    )
+    dynamicChildren = `\${${childrenIdentifier}}`
+  }
+
+  const preludeLines = ['const instance = figma.selectedInstance']
+
+  if (usesStringPropHelper) {
+    preludeLines.push(
+      '',
+      'function createStringProp(name, value) {',
+      "  return value === undefined || value === ''",
+      "    ? ''",
+      '    : ` ${name}=${JSON.stringify(String(value))}`',
+      '}'
+    )
+  }
+
+  preludeLines.push('', ...dynamicPropLines)
+
+  return {
+    children: dynamicChildren,
+    hasDynamicParts,
+    prelude: `${preludeLines.join('\n')}\n`,
+    props: dynamicPropInterpolations.join(''),
+  }
+}
+
 function createExample(component, props, children, selfClosing) {
   if (selfClosing) {
     return `figma.code\`<${component}${props} />\``
   }
 
   return `figma.code\`<${component}${props}>${children}</${component}>\``
+}
+
+function validateFigmaProp(componentId, figmaProp) {
+  if (!['enum', 'boolean', 'string'].includes(figmaProp?.kind)) {
+    throw new Error(
+      `Code Connect component ${componentId} has an invalid figmaProps kind.`
+    )
+  }
+
+  if (
+    typeof figmaProp.figmaProp !== 'string' ||
+    figmaProp.figmaProp.length === 0 ||
+    typeof figmaProp.prop !== 'string' ||
+    figmaProp.prop.length === 0
+  ) {
+    throw new Error(
+      `Code Connect component ${componentId} figmaProps entries need figmaProp and prop strings.`
+    )
+  }
+}
+
+function validateFigmaChildren(componentId, figmaChildren) {
+  if (
+    figmaChildren?.kind !== 'string' ||
+    typeof figmaChildren.figmaProp !== 'string' ||
+    figmaChildren.figmaProp.length === 0
+  ) {
+    throw new Error(
+      `Code Connect component ${componentId} figmaChildren must map a string figmaProp.`
+    )
+  }
+}
+
+function createEnumOptions(figmaProp) {
+  const values = { ...(figmaProp.values ?? {}) }
+
+  if (
+    figmaProp.default !== undefined &&
+    !Object.hasOwn(values, figmaProp.default)
+  ) {
+    values[figmaProp.default] = undefined
+  }
+
+  return createObjectLiteral(values)
+}
+
+function createObjectLiteral(values) {
+  const entries = Object.entries(values)
+
+  if (entries.length === 0) {
+    return '{}'
+  }
+
+  return `{
+${entries
+  .map(
+    ([key, value]) =>
+      `  ${createPropertyKey(key)}: ${value === undefined || value === null || value === '' ? 'undefined' : createStringLiteral(value)},`
+  )
+  .join('\n')}
+}`
+}
+
+function createPropertyKey(key) {
+  if (/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key)) {
+    return key
+  }
+
+  return createStringLiteral(key)
+}
+
+function createStringLiteral(value) {
+  const json = JSON.stringify(String(value))
+  const body = json.slice(1, -1).replace(/'/g, "\\'")
+
+  return `'${body}'`
+}
+
+function createIdentifier(usedIdentifiers, name, suffix = '') {
+  const words = String(name)
+    .split(/[^a-zA-Z0-9]+/)
+    .filter(Boolean)
+
+  const base =
+    words.length === 0
+      ? 'value'
+      : words
+          .map((word, index) =>
+            index === 0
+              ? word[0].toLowerCase() + word.slice(1)
+              : word[0].toUpperCase() + word.slice(1)
+          )
+          .join('')
+  const suffixName = suffix ? suffix[0].toUpperCase() + suffix.slice(1) : ''
+  const identifier = `${/^[a-zA-Z_$]/.test(base) ? base : `value${base}`}${suffixName}`
+
+  if (!usedIdentifiers.has(identifier)) {
+    usedIdentifiers.add(identifier)
+    return identifier
+  }
+
+  let counter = 2
+  let nextIdentifier = `${identifier}${counter}`
+
+  while (usedIdentifiers.has(nextIdentifier)) {
+    counter += 1
+    nextIdentifier = `${identifier}${counter}`
+  }
+
+  usedIdentifiers.add(nextIdentifier)
+  return nextIdentifier
 }
 
 function validateComponentId(id) {

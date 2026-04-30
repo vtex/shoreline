@@ -36,3 +36,5 @@ The token needs permission to publish Code Connect data for the Shoreline Figma 
 - Use `example` for composed snippets that cannot be represented as a single root component, like `TabProvider` wrapping `TabList`.
 - Prefer mapping high-level public components first. Smaller composition primitives can be connected later when they appear as reusable Figma components.
 - Once a component has real Figma property names, add a dedicated template for it if the generic snippet is not expressive enough.
+- Prefer one mapping per Figma component set. Use `figmaProps` for code-relevant Figma properties and `figmaChildren` for text content instead of creating separate entries for visual variants.
+- `figmaProps` supports `enum`, `boolean`, and `string` mappings. Enum defaults are omitted from the snippet, so a Figma `variant=informational` can render `<Alert>...` while `variant=critical` renders `<Alert variant="critical">...`.

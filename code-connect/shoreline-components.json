@@ -5,16 +5,25 @@
       "id": "alert",
       "component": "Alert",
       "source": "packages/shoreline/src/components/alert/alert.tsx",
-      "nodeId": "1940-51318",
-      "children": "Short message"
-    },
-    {
-      "id": "alert-critical",
-      "component": "Alert",
-      "source": "packages/shoreline/src/components/alert/alert.tsx",
-      "nodeId": "1940-51332",
-      "props": " variant=\"critical\"",
-      "children": "Critical message"
+      "nodeId": "1940-51317",
+      "figmaProps": [
+        {
+          "kind": "enum",
+          "figmaProp": "variant",
+          "prop": "variant",
+          "default": "informational",
+          "values": {
+            "success": "success",
+            "warning": "warning",
+            "critical": "critical"
+          }
+        }
+      ],
+      "figmaChildren": {
+        "kind": "string",
+        "figmaProp": "message.",
+        "fallback": "Short message"
+      }
     },
     {
       "id": "button",
@@ -238,15 +247,18 @@
       "id": "skeleton",
       "component": "Skeleton",
       "source": "packages/shoreline/src/components/skeleton/skeleton.tsx",
-      "nodeId": "2053-102455",
-      "selfClosing": true
-    },
-    {
-      "id": "skeleton-border-radius-full",
-      "component": "Skeleton",
-      "source": "packages/shoreline/src/components/skeleton/skeleton.tsx",
-      "nodeId": "2053-102456",
-      "props": " shape=\"circle\"",
+      "nodeId": "1958-103036",
+      "figmaProps": [
+        {
+          "kind": "enum",
+          "figmaProp": "shape",
+          "prop": "shape",
+          "default": "rect",
+          "values": {
+            "circle": "circle"
+          }
+        }
+      ],
       "selfClosing": true
     },
     {
