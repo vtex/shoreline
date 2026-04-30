@@ -56,13 +56,13 @@ importers:
         version: 8.6.15(storybook@8.6.15(prettier@3.3.3))
       '@storybook/react':
         specifier: ^8.6.15
-        version: 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)
+        version: 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)
       '@storybook/react-vite':
         specifier: ^8.6.15
-        version: 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.24.0)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)(vite@5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0))
+        version: 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.24.0)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)(vite@5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0))
       '@storybook/react-webpack5':
         specifier: ^8.6.15
-        version: 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)
+        version: 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)
       '@storybook/test-runner':
         specifier: ^0.17.0
         version: 0.17.0(@swc/helpers@0.5.13)(@types/node@20.14.9)(encoding@0.1.13)(prettier@3.3.3)
@@ -89,7 +89,7 @@ importers:
         version: 9.1.0
       commitizen:
         specifier: ^4.2.0
-        version: 4.3.0(@types/node@20.14.9)(typescript@5.5.2)
+        version: 4.3.0(@types/node@20.14.9)(typescript@5.9.3)
       concurrently:
         specifier: ^8.2.2
         version: 8.2.2
@@ -134,13 +134,13 @@ importers:
         version: 2.6.3
       tsup:
         specifier: 8.1.0
-        version: 8.1.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(postcss@8.4.47)(typescript@5.5.2)
+        version: 8.1.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(postcss@8.4.47)(typescript@5.9.3)
       turbo:
         specifier: 2.2.3
         version: 2.2.3
       typescript:
-        specifier: 5.5.2
-        version: 5.5.2
+        specifier: 5.9.3
+        version: 5.9.3
       vite:
         specifier: 5.4.9
         version: 5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0)
@@ -9580,10 +9580,12 @@ packages:
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   v8-to-istanbul@9.2.0:
@@ -10447,15 +10449,15 @@ snapshots:
       '@commitlint/rules': 9.1.2
       '@commitlint/types': 9.1.2
 
-  '@commitlint/load@19.2.0(@types/node@20.14.9)(typescript@5.5.2)':
+  '@commitlint/load@19.2.0(@types/node@20.14.9)(typescript@5.9.3)':
     dependencies:
       '@commitlint/config-validator': 19.0.3
       '@commitlint/execute-rule': 19.0.0
       '@commitlint/resolve-extends': 19.1.0
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
-      cosmiconfig: 9.0.0(typescript@5.5.2)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.14.9)(cosmiconfig@9.0.0(typescript@5.5.2))(typescript@5.5.2)
+      cosmiconfig: 9.0.0(typescript@5.9.3)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.14.9)(cosmiconfig@9.0.0(typescript@5.9.3))(typescript@5.9.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -11157,14 +11159,14 @@ snapshots:
       '@types/yargs': 17.0.32
       chalk: 4.1.2
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.5.0(typescript@5.5.2)(vite@5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0))':
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.5.0(typescript@5.9.3)(vite@5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0))':
     dependencies:
       glob: 10.4.1
       magic-string: 0.27.0
-      react-docgen-typescript: 2.2.2(typescript@5.5.2)
+      react-docgen-typescript: 2.2.2(typescript@5.9.3)
       vite: 5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0)
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.9.3
 
   '@jridgewell/gen-mapping@0.3.5':
     dependencies:
@@ -11188,7 +11190,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  '@lerna/create@8.1.4(@swc/core@1.5.24(@swc/helpers@0.5.13))(encoding@0.1.13)(typescript@5.5.2)':
+  '@lerna/create@8.1.4(@swc/core@1.5.24(@swc/helpers@0.5.13))(encoding@0.1.13)(typescript@5.9.3)':
     dependencies:
       '@npmcli/run-script': 7.0.2
       '@nx/devkit': 19.3.2(nx@19.3.2(@swc/core@1.5.24(@swc/helpers@0.5.13)))
@@ -11201,7 +11203,7 @@ snapshots:
       columnify: 1.6.0
       conventional-changelog-core: 5.0.1
       conventional-recommended-bump: 7.0.1
-      cosmiconfig: 8.3.6(typescript@5.5.2)
+      cosmiconfig: 8.3.6(typescript@5.9.3)
       dedent: 0.7.0
       execa: 5.0.0
       fs-extra: 11.2.0
@@ -12885,7 +12887,7 @@ snapshots:
       ts-dedent: 2.2.0
       vite: 5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0)
 
-  '@storybook/builder-webpack5@8.6.15(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)':
+  '@storybook/builder-webpack5@8.6.15(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)':
     dependencies:
       '@storybook/core-webpack': 8.6.15(storybook@8.6.15(prettier@3.3.3))
       '@types/semver': 7.5.8
@@ -12895,7 +12897,7 @@ snapshots:
       constants-browserify: 1.0.0
       css-loader: 6.11.0(webpack@5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5))
       es-module-lexer: 1.5.3
-      fork-ts-checker-webpack-plugin: 8.0.0(typescript@5.5.2)(webpack@5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5))
+      fork-ts-checker-webpack-plugin: 8.0.0(typescript@5.9.3)(webpack@5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5))
       html-webpack-plugin: 5.6.0(webpack@5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5))
       magic-string: 0.30.10
       path-browserify: 1.0.1
@@ -12913,7 +12915,7 @@ snapshots:
       webpack-hot-middleware: 2.26.1
       webpack-virtual-modules: 0.6.1
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.9.3
     transitivePeerDependencies:
       - '@rspack/core'
       - '@swc/core'
@@ -13047,11 +13049,11 @@ snapshots:
 
   '@storybook/node-logger@8.1.5': {}
 
-  '@storybook/preset-react-webpack@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)':
+  '@storybook/preset-react-webpack@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)':
     dependencies:
       '@storybook/core-webpack': 8.6.15(storybook@8.6.15(prettier@3.3.3))
-      '@storybook/react': 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)
-      '@storybook/react-docgen-typescript-plugin': 1.0.6--canary.9.0c3f3b7.0(typescript@5.5.2)(webpack@5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5))
+      '@storybook/react': 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)
+      '@storybook/react-docgen-typescript-plugin': 1.0.6--canary.9.0c3f3b7.0(typescript@5.9.3)(webpack@5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5))
       '@types/semver': 7.5.8
       find-up: 5.0.0
       magic-string: 0.30.10
@@ -13064,7 +13066,7 @@ snapshots:
       tsconfig-paths: 4.2.0
       webpack: 5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.9.3
     transitivePeerDependencies:
       - '@storybook/test'
       - '@swc/core'
@@ -13094,16 +13096,16 @@ snapshots:
     dependencies:
       storybook: 8.6.15(prettier@3.3.3)
 
-  '@storybook/react-docgen-typescript-plugin@1.0.6--canary.9.0c3f3b7.0(typescript@5.5.2)(webpack@5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5))':
+  '@storybook/react-docgen-typescript-plugin@1.0.6--canary.9.0c3f3b7.0(typescript@5.9.3)(webpack@5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5))':
     dependencies:
       debug: 4.3.7
       endent: 2.1.0
       find-cache-dir: 3.3.2
       flat-cache: 3.2.0
       micromatch: 4.0.7
-      react-docgen-typescript: 2.2.2(typescript@5.5.2)
+      react-docgen-typescript: 2.2.2(typescript@5.9.3)
       tslib: 2.6.3
-      typescript: 5.5.2
+      typescript: 5.9.3
       webpack: 5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)
     transitivePeerDependencies:
       - supports-color
@@ -13114,12 +13116,12 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       storybook: 8.6.15(prettier@3.3.3)
 
-  '@storybook/react-vite@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.24.0)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)(vite@5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0))':
+  '@storybook/react-vite@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.24.0)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)(vite@5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.5.2)(vite@5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.5.0(typescript@5.9.3)(vite@5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0))
       '@rollup/pluginutils': 5.1.0(rollup@4.24.0)
       '@storybook/builder-vite': 8.6.15(storybook@8.6.15(prettier@3.3.3))(vite@5.4.9(@types/node@20.14.9)(lightningcss@1.27.0)(terser@5.31.0))
-      '@storybook/react': 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)
+      '@storybook/react': 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)
       find-up: 5.0.0
       magic-string: 0.30.10
       react: 18.3.1
@@ -13136,16 +13138,16 @@ snapshots:
       - supports-color
       - typescript
 
-  '@storybook/react-webpack5@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)':
+  '@storybook/react-webpack5@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)':
     dependencies:
-      '@storybook/builder-webpack5': 8.6.15(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)
-      '@storybook/preset-react-webpack': 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)
-      '@storybook/react': 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)
+      '@storybook/builder-webpack5': 8.6.15(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)
+      '@storybook/preset-react-webpack': 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)
+      '@storybook/react': 8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       storybook: 8.6.15(prettier@3.3.3)
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.9.3
     transitivePeerDependencies:
       - '@rspack/core'
       - '@storybook/test'
@@ -13155,7 +13157,7 @@ snapshots:
       - uglify-js
       - webpack-cli
 
-  '@storybook/react@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.5.2)':
+  '@storybook/react@8.6.15(@storybook/test@8.6.15(storybook@8.6.15(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.15(prettier@3.3.3))(typescript@5.9.3)':
     dependencies:
       '@storybook/components': 8.6.15(storybook@8.6.15(prettier@3.3.3))
       '@storybook/global': 5.0.0
@@ -13168,7 +13170,7 @@ snapshots:
       storybook: 8.6.15(prettier@3.3.3)
     optionalDependencies:
       '@storybook/test': 8.6.15(storybook@8.6.15(prettier@3.3.3))
-      typescript: 5.5.2
+      typescript: 5.9.3
 
   '@storybook/source-loader@8.6.15(storybook@8.6.15(prettier@3.3.3))':
     dependencies:
@@ -14610,10 +14612,10 @@ snapshots:
 
   commander@9.2.0: {}
 
-  commitizen@4.3.0(@types/node@20.14.9)(typescript@5.5.2):
+  commitizen@4.3.0(@types/node@20.14.9)(typescript@5.9.3):
     dependencies:
       cachedir: 2.3.0
-      cz-conventional-changelog: 3.3.0(@types/node@20.14.9)(typescript@5.5.2)
+      cz-conventional-changelog: 3.3.0(@types/node@20.14.9)(typescript@5.9.3)
       dedent: 0.7.0
       detect-indent: 6.1.0
       find-node-modules: 2.1.3
@@ -14775,12 +14777,12 @@ snapshots:
     dependencies:
       layout-base: 2.0.1
 
-  cosmiconfig-typescript-loader@5.0.0(@types/node@20.14.9)(cosmiconfig@9.0.0(typescript@5.5.2))(typescript@5.5.2):
+  cosmiconfig-typescript-loader@5.0.0(@types/node@20.14.9)(cosmiconfig@9.0.0(typescript@5.9.3))(typescript@5.9.3):
     dependencies:
       '@types/node': 20.14.9
-      cosmiconfig: 9.0.0(typescript@5.5.2)
+      cosmiconfig: 9.0.0(typescript@5.9.3)
       jiti: 1.21.0
-      typescript: 5.5.2
+      typescript: 5.9.3
     optional: true
 
   cosmiconfig@6.0.0:
@@ -14799,23 +14801,23 @@ snapshots:
       path-type: 4.0.0
       yaml: 1.10.2
 
-  cosmiconfig@8.3.6(typescript@5.5.2):
+  cosmiconfig@8.3.6(typescript@5.9.3):
     dependencies:
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.9.3
 
-  cosmiconfig@9.0.0(typescript@5.5.2):
+  cosmiconfig@9.0.0(typescript@5.9.3):
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.9.3
     optional: true
 
   create-jest@29.7.0(@types/node@20.14.9):
@@ -14910,16 +14912,16 @@ snapshots:
 
   cytoscape@3.29.2: {}
 
-  cz-conventional-changelog@3.3.0(@types/node@20.14.9)(typescript@5.5.2):
+  cz-conventional-changelog@3.3.0(@types/node@20.14.9)(typescript@5.9.3):
     dependencies:
       chalk: 2.4.2
-      commitizen: 4.3.0(@types/node@20.14.9)(typescript@5.5.2)
+      commitizen: 4.3.0(@types/node@20.14.9)(typescript@5.9.3)
       conventional-commit-types: 3.0.0
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.5
     optionalDependencies:
-      '@commitlint/load': 19.2.0(@types/node@20.14.9)(typescript@5.5.2)
+      '@commitlint/load': 19.2.0(@types/node@20.14.9)(typescript@5.9.3)
     transitivePeerDependencies:
       - '@types/node'
       - typescript
@@ -15845,7 +15847,7 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
-  fork-ts-checker-webpack-plugin@8.0.0(typescript@5.5.2)(webpack@5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)):
+  fork-ts-checker-webpack-plugin@8.0.0(typescript@5.9.3)(webpack@5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)):
     dependencies:
       '@babel/code-frame': 7.24.6
       chalk: 4.1.2
@@ -15859,7 +15861,7 @@ snapshots:
       schema-utils: 3.3.0
       semver: 7.6.3
       tapable: 2.2.1
-      typescript: 5.5.2
+      typescript: 5.9.3
       webpack: 5.91.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(esbuild@0.21.5)
 
   form-data@4.0.0:
@@ -17463,7 +17465,7 @@ snapshots:
 
   lerna@8.1.4(@swc/core@1.5.24(@swc/helpers@0.5.13))(encoding@0.1.13):
     dependencies:
-      '@lerna/create': 8.1.4(@swc/core@1.5.24(@swc/helpers@0.5.13))(encoding@0.1.13)(typescript@5.5.2)
+      '@lerna/create': 8.1.4(@swc/core@1.5.24(@swc/helpers@0.5.13))(encoding@0.1.13)(typescript@5.9.3)
       '@npmcli/run-script': 7.0.2
       '@nx/devkit': 19.3.2(nx@19.3.2(@swc/core@1.5.24(@swc/helpers@0.5.13)))
       '@octokit/plugin-enterprise-rest': 6.0.1
@@ -17476,7 +17478,7 @@ snapshots:
       conventional-changelog-angular: 7.0.0
       conventional-changelog-core: 5.0.1
       conventional-recommended-bump: 7.0.1
-      cosmiconfig: 8.3.6(typescript@5.5.2)
+      cosmiconfig: 8.3.6(typescript@5.9.3)
       dedent: 0.7.0
       envinfo: 7.8.1
       execa: 5.0.0
@@ -17528,7 +17530,7 @@ snapshots:
       strong-log-transformer: 2.1.0
       tar: 6.2.1
       temp-dir: 1.0.0
-      typescript: 5.5.2
+      typescript: 5.9.3
       upath: 2.0.1
       uuid: 9.0.1
       validate-npm-package-license: 3.0.4
@@ -19596,9 +19598,9 @@ snapshots:
       react: 18.3.1
       tween-functions: 1.2.0
 
-  react-docgen-typescript@2.2.2(typescript@5.5.2):
+  react-docgen-typescript@2.2.2(typescript@5.9.3):
     dependencies:
-      typescript: 5.5.2
+      typescript: 5.9.3
 
   react-docgen@7.0.3:
     dependencies:
@@ -20836,7 +20838,7 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tsup@8.1.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(postcss@8.4.47)(typescript@5.5.2):
+  tsup@8.1.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(postcss@8.4.47)(typescript@5.9.3):
     dependencies:
       bundle-require: 4.2.1(esbuild@0.21.5)
       cac: 6.7.14
@@ -20855,7 +20857,7 @@ snapshots:
     optionalDependencies:
       '@swc/core': 1.5.24(@swc/helpers@0.5.13)
       postcss: 8.4.47
-      typescript: 5.5.2
+      typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
       - ts-node
