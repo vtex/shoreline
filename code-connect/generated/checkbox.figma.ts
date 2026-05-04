@@ -8,7 +8,7 @@ import figma from 'figma'
 
 export default {
   imports: ["import { Checkbox } from '@vtex/shoreline'"],
-  example: figma.code`<Checkbox>Option</Checkbox>`,
+  example: figma.code`<Checkbox>I agree with all the terms of service</Checkbox>`,
   id: 'checkbox',
   metadata: {
     nestable: false,

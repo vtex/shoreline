@@ -8,7 +8,9 @@ import figma from 'figma'
 
 export default {
   imports: ["import { Link } from '@vtex/shoreline'"],
-  example: figma.code`<Link href="#">Link</Link>`,
+  example: figma.code`<Link href="https://vtex.com" target="_blank">
+      VTEX site
+    </Link>`,
   id: 'link',
   metadata: {
     nestable: false,

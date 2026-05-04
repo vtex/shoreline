@@ -9,11 +9,11 @@ import figma from 'figma'
 export default {
   imports: ["import { Menu, MenuItem, MenuSeparator } from '@vtex/shoreline'"],
   example: figma.code`<Menu label="Open">
-  <MenuItem>New Tab</MenuItem>
-  <MenuItem>New Item</MenuItem>
-  <MenuSeparator />
-  <MenuItem>Downloads</MenuItem>
-</Menu>`,
+      <MenuItem>New Tab</MenuItem>
+      <MenuItem>New Item</MenuItem>
+      <MenuSeparator />
+      <MenuItem>Downloads</MenuItem>
+    </Menu>`,
   id: 'menu',
   metadata: {
     nestable: false,

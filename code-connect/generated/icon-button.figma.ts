@@ -7,10 +7,10 @@
 import figma from 'figma'
 
 export default {
-  imports: ["import { IconButton } from '@vtex/shoreline'"],
-  example: figma.code`<IconButton label="Add">
-  <span aria-hidden="true">+</span>
-</IconButton>`,
+  imports: ["import { IconButton, IconTrash } from '@vtex/shoreline'"],
+  example: figma.code`<IconButton label="Delete">
+      <IconTrash />
+    </IconButton>`,
   id: 'icon-button',
   metadata: {
     nestable: false,

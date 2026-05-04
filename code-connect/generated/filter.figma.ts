@@ -9,10 +9,10 @@ import figma from 'figma'
 export default {
   imports: ["import { Filter, FilterItem } from '@vtex/shoreline'"],
   example: figma.code`<Filter label="Status">
-  <FilterItem value="stable">Stable</FilterItem>
-  <FilterItem value="experimental">Experimental</FilterItem>
-  <FilterItem value="deprecated">Deprecated</FilterItem>
-</Filter>`,
+      <FilterItem value="Stable">Stable</FilterItem>
+      <FilterItem value="Experimental">Experimental</FilterItem>
+      <FilterItem value="Deprecated">Deprecated</FilterItem>
+    </Filter>`,
   id: 'filter',
   metadata: {
     nestable: false,

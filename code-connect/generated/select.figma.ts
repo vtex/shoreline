@@ -9,9 +9,12 @@ import figma from 'figma'
 export default {
   imports: ["import { Select, SelectItem } from '@vtex/shoreline'"],
   example: figma.code`<Select>
-  <SelectItem value="item-1">Item 1</SelectItem>
-  <SelectItem value="item-2">Item 2</SelectItem>
-</Select>`,
+      <SelectItem value="option 1">option 1</SelectItem>
+      <SelectItem value="option 2">option 2</SelectItem>
+      <SelectItem value="option 3">option 3</SelectItem>
+      <SelectItem value="option 4">option 4</SelectItem>
+      <SelectItem value="option 5">option 5</SelectItem>
+    </Select>`,
   id: 'select',
   metadata: {
     nestable: false,

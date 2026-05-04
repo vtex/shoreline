@@ -8,7 +8,7 @@ import figma from 'figma'
 
 export default {
   imports: ["import { Search } from '@vtex/shoreline'"],
-  example: figma.code`<Search placeholder="Search" />`,
+  example: figma.code`<Search />`,
   id: 'search',
   metadata: {
     nestable: false,

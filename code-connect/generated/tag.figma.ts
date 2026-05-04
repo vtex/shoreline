@@ -8,7 +8,7 @@ import figma from 'figma'
 
 export default {
   imports: ["import { Tag } from '@vtex/shoreline'"],
-  example: figma.code`<Tag color="green" variant="secondary" size="large">Active</Tag>`,
+  example: figma.code`<Tag>Active</Tag>`,
   id: 'tag',
   metadata: {
     nestable: false,

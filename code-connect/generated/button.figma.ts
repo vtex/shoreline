@@ -6,9 +6,32 @@
 // component=Button
 import figma from 'figma'
 
+const instance = figma.selectedInstance
+
+function createStringProp(name, value) {
+  return value === undefined || value === ''
+    ? ''
+    : ` ${name}=${JSON.stringify(String(value))}`
+}
+
+const variantValue = instance.getEnum('variant', {
+  primary: 'primary',
+  tertiary: 'tertiary',
+  critical: 'critical',
+  tertiaryCritical: 'criticalTertiary',
+  secondary: undefined,
+})
+const variantProp = createStringProp('variant', variantValue)
+const sizeValue = instance.getEnum('size', {
+  large: 'large',
+  normal: undefined,
+})
+const sizeProp = createStringProp('size', sizeValue)
+const children = instance.getString('label.') || 'Action label'
+
 export default {
   imports: ["import { Button } from '@vtex/shoreline'"],
-  example: figma.code`<Button>Action label</Button>`,
+  example: figma.code`<Button${variantProp}${sizeProp}>${children}</Button>`,
   id: 'button',
   metadata: {
     nestable: false,

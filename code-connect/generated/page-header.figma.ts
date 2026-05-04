@@ -6,11 +6,67 @@
 // component=PageHeader
 import figma from 'figma'
 
+const instance = figma.selectedInstance
+const backValue = instance.getBoolean('back')
+const tagValue = instance.getBoolean('tag')
+const actionsValue = instance.getBoolean('actions')
+const tabsValue = instance.getEnum('tabs', {
+  true: 'true',
+})
+
+const example =
+  backValue === true && tagValue === true
+    ? figma.code`<PageHeader>
+        <PageHeaderRow>
+          <Flex align="center">
+            <Bleed top="$space-2" bottom="$space-2">
+              <IconButton
+                label="Return"
+                asChild
+                variant="tertiary"
+                size="large"
+              >
+                <IconArrowLeft />
+              </IconButton>
+            </Bleed>
+            <PageHeading>Product Details</PageHeading>
+            <Tag variant="secondary">Draft</Tag>
+          </Flex>
+        </PageHeaderRow>
+      </PageHeader>`
+    : actionsValue === true
+      ? figma.code`<PageHeader>
+        <PageHeaderRow>
+          <PageHeading>Orders</PageHeading>
+          <Bleed top="$space-2" bottom="$space-2">
+            <Button variant="primary" size="large">
+              Create Order
+            </Button>
+          </Bleed>
+        </PageHeaderRow>
+      </PageHeader>`
+      : tabsValue === 'true'
+        ? figma.code`<PageHeader>
+          <PageHeaderRow>
+            <PageHeading>Products</PageHeading>
+          </PageHeaderRow>
+          <PageHeaderRow>
+            <TabList>
+              <Tab>Products</Tab>
+              <Tab>Categories</Tab>
+              <Tab>Analytics</Tab>
+            </TabList>
+          </PageHeaderRow>
+        </PageHeader>`
+        : figma.code`<PageHeader>
+        <PageHeading>Products</PageHeading>
+      </PageHeader>`
+
 export default {
-  imports: ["import { PageHeader, PageHeading } from '@vtex/shoreline'"],
-  example: figma.code`<PageHeader>
-  <PageHeading>Products</PageHeading>
-</PageHeader>`,
+  imports: [
+    "import { PageHeader, PageHeaderRow, Flex, Bleed, IconButton, IconArrowLeft, PageHeading, Tag, Button, TabList, Tab } from '@vtex/shoreline'",
+  ],
+  example: example,
   id: 'page-header',
   metadata: {
     nestable: false,

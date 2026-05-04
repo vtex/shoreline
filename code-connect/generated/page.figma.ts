@@ -6,16 +6,476 @@
 // component=Page
 import figma from 'figma'
 
+const instance = figma.selectedInstance
+const layoutValue = instance.getEnum('layout', {
+  narrow: 'narrow',
+  wide: 'wide',
+})
+const tabsValue = instance.getEnum('tabs', {
+  true: 'true',
+})
+
+const example =
+  layoutValue === 'narrow' && tabsValue === 'true'
+    ? figma.code`<TabProvider>
+      <Page>
+        <PageHeader>
+          <PageHeaderRow>
+            <PageHeading>Account Settings</PageHeading>
+          </PageHeaderRow>
+          <PageHeaderRow>
+            <TabList>
+              <Tab>Personal Information</Tab>
+              <Tab>Company Details</Tab>
+              <Tab>Security</Tab>
+            </TabList>
+          </PageHeaderRow>
+        </PageHeader>
+        <PageContent layout="narrow">
+          <TabPanel>
+            <Table
+              columnWidths={[
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+              ]}
+            >
+              <TableHeader>
+                <TableRow>
+                  <TableHeaderCell>Full Name</TableHeaderCell>
+                  <TableHeaderCell>Email Address</TableHeaderCell>
+                  <TableHeaderCell>Phone Number</TableHeaderCell>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Jane Smith</TableCell>
+                  <TableCell>jane.smith@example.com</TableCell>
+                  <TableCell>+1 (555) 123-4567</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>John Doe</TableCell>
+                  <TableCell>john.doe@example.com</TableCell>
+                  <TableCell>+1 (555) 987-6543</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Maria Garcia</TableCell>
+                  <TableCell>maria.garcia@example.com</TableCell>
+                  <TableCell>+1 (555) 456-7890</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Alex Johnson</TableCell>
+                  <TableCell>alex.johnson@example.com</TableCell>
+                  <TableCell>+1 (555) 234-5678</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TabPanel>
+
+          <TabPanel>
+            <Table
+              columnWidths={[
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+              ]}
+            >
+              <TableHeader>
+                <TableRow>
+                  <TableHeaderCell>Field</TableHeaderCell>
+                  <TableHeaderCell>Value</TableHeaderCell>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Company Name</TableCell>
+                  <TableCell>Acme Corporation</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Position</TableCell>
+                  <TableCell>Product Manager</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Department</TableCell>
+                  <TableCell>Marketing</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TabPanel>
+
+          <TabPanel>
+            <Table
+              columnWidths={[
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+              ]}
+            >
+              <TableHeader>
+                <TableRow>
+                  <TableHeaderCell>Field</TableHeaderCell>
+                  <TableHeaderCell>Value</TableHeaderCell>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Last Password Change</TableCell>
+                  <TableCell>3 months ago</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Two-Factor Authentication</TableCell>
+                  <TableCell>Enabled</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TabPanel>
+        </PageContent>
+      </Page>
+    </TabProvider>`
+    : tabsValue === 'true'
+      ? figma.code`<Page>
+      <TabProvider>
+        <PageHeader>
+          <PageHeaderRow>
+            <PageHeading>Products</PageHeading>
+          </PageHeaderRow>
+          <PageHeaderRow>
+            <TabList>
+              <Tab>Products</Tab>
+              <Tab>Categories</Tab>
+              <Tab>Analytics</Tab>
+            </TabList>
+          </PageHeaderRow>
+        </PageHeader>
+        <PageContent layout="standard">
+          <TabPanel>
+            <Collection>
+              <CollectionRow>
+                <Search />
+                <Pagination page={1} total={74} />
+              </CollectionRow>
+              <CollectionView status="ready">
+                <Table
+                  columnWidths={[
+                    'minmax(min-content, auto)',
+                    'minmax(min-content, auto)',
+                    'minmax(min-content, auto)',
+                    'minmax(min-content, auto)',
+                  ]}
+                >
+                  <TableHeader>
+                    <TableRow>
+                      <TableHeaderCell>Product</TableHeaderCell>
+                      <TableHeaderCell>Description</TableHeaderCell>
+                      <TableHeaderCell>Brand</TableHeaderCell>
+                      <TableHeaderCell>Category</TableHeaderCell>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>iPhone 15</TableCell>
+                      <TableCell>Latest model smartphone</TableCell>
+                      <TableCell>Apple</TableCell>
+                      <TableCell>
+                        <Tag variant="secondary">Electronics</Tag>
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>MacBook Pro</TableCell>
+                      <TableCell>Powerful laptop for professionals</TableCell>
+                      <TableCell>Apple</TableCell>
+                      <TableCell>
+                        <Tag variant="secondary">Electronics</Tag>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </CollectionView>
+              <CollectionRow justify="flex-end">
+                <Pagination page={1} total={74} />
+              </CollectionRow>
+            </Collection>
+          </TabPanel>
+          <TabPanel>
+            <Table
+              columnWidths={[
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+              ]}
+            >
+              <TableHeader>
+                <TableRow>
+                  <TableHeaderCell>Category</TableHeaderCell>
+                  <TableHeaderCell>Products Count</TableHeaderCell>
+                  <TableHeaderCell>Status</TableHeaderCell>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Electronics</TableCell>
+                  <TableCell>235</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="green">
+                      Active
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Clothing</TableCell>
+                  <TableCell>512</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="green">
+                      Active
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Home & Garden</TableCell>
+                  <TableCell>189</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="green">
+                      Active
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TabPanel>
+          <TabPanel>
+            <Table
+              columnWidths={[
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+              ]}
+            >
+              <TableHeader>
+                <TableRow>
+                  <TableHeaderCell>Metric</TableHeaderCell>
+                  <TableHeaderCell>Today</TableHeaderCell>
+                  <TableHeaderCell>Last Week</TableHeaderCell>
+                  <TableHeaderCell>Change</TableHeaderCell>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>Sessions</TableCell>
+                  <TableCell>5,324</TableCell>
+                  <TableCell>4,981</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="green">
+                      +6.8%
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Conversions</TableCell>
+                  <TableCell>189</TableCell>
+                  <TableCell>165</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="green">
+                      +14.5%
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Revenue</TableCell>
+                  <TableCell>$12,450</TableCell>
+                  <TableCell>$11,280</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="green">
+                      +10.4%
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TabPanel>
+        </PageContent>
+      </TabProvider>
+    </Page>`
+      : layoutValue === 'wide'
+        ? figma.code`<Page>
+      <PageHeader>
+        <PageHeading>Inventory Dashboard</PageHeading>
+      </PageHeader>
+      <PageContent layout="wide">
+        <Collection>
+          <CollectionRow>
+            <Search messages={{ placeholder: 'Search products...' }} />
+            <Pagination page={1} total={120} />
+          </CollectionRow>
+          <CollectionView status="ready">
+            <Table
+              columnWidths={[
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+                'minmax(min-content, auto)',
+              ]}
+            >
+              <TableHeader>
+                <TableRow>
+                  <TableHeaderCell>SKU</TableHeaderCell>
+                  <TableHeaderCell>Product</TableHeaderCell>
+                  <TableHeaderCell>Category</TableHeaderCell>
+                  <TableHeaderCell>In Stock</TableHeaderCell>
+                  <TableHeaderCell>Reserved</TableHeaderCell>
+                  <TableHeaderCell>Available</TableHeaderCell>
+                  <TableHeaderCell>Status</TableHeaderCell>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>SKU12345</TableCell>
+                  <TableCell>Wireless Headphones</TableCell>
+                  <TableCell>Electronics</TableCell>
+                  <TableCell>156</TableCell>
+                  <TableCell>24</TableCell>
+                  <TableCell>132</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="green">
+                      In Stock
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>SKU12346</TableCell>
+                  <TableCell>Smartphone Case</TableCell>
+                  <TableCell>Accessories</TableCell>
+                  <TableCell>423</TableCell>
+                  <TableCell>51</TableCell>
+                  <TableCell>372</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="green">
+                      In Stock
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>SKU12347</TableCell>
+                  <TableCell>Bluetooth Speaker</TableCell>
+                  <TableCell>Electronics</TableCell>
+                  <TableCell>89</TableCell>
+                  <TableCell>35</TableCell>
+                  <TableCell>54</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="green">
+                      In Stock
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>SKU12348</TableCell>
+                  <TableCell>USB-C Cable</TableCell>
+                  <TableCell>Accessories</TableCell>
+                  <TableCell>278</TableCell>
+                  <TableCell>42</TableCell>
+                  <TableCell>236</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="green">
+                      In Stock
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>SKU12349</TableCell>
+                  <TableCell>Wireless Mouse</TableCell>
+                  <TableCell>Peripherals</TableCell>
+                  <TableCell>12</TableCell>
+                  <TableCell>10</TableCell>
+                  <TableCell>2</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="yellow">
+                      Low Stock
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>SKU12350</TableCell>
+                  <TableCell>External Hard Drive</TableCell>
+                  <TableCell>Storage</TableCell>
+                  <TableCell>0</TableCell>
+                  <TableCell>0</TableCell>
+                  <TableCell>0</TableCell>
+                  <TableCell>
+                    <Tag variant="secondary" color="red">
+                      Out of Stock
+                    </Tag>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </CollectionView>
+          <CollectionRow justify="flex-end">
+            <Pagination page={1} total={120} />
+          </CollectionRow>
+        </Collection>
+      </PageContent>
+    </Page>`
+        : figma.code`<Page>
+      <PageHeader>
+        <PageHeading>Products</PageHeading>
+      </PageHeader>
+      <PageContent>
+        <Table
+          columnWidths={[
+            'minmax(min-content, auto)',
+            'minmax(min-content, auto)',
+            'minmax(min-content, auto)',
+            'minmax(min-content, auto)',
+          ]}
+        >
+          <TableHeader>
+            <TableRow>
+              <TableHeaderCell>Name</TableHeaderCell>
+              <TableHeaderCell>Description</TableHeaderCell>
+              <TableHeaderCell>Brand</TableHeaderCell>
+              <TableHeaderCell>Category</TableHeaderCell>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell>iPhone 15</TableCell>
+              <TableCell>A nice phone</TableCell>
+              <TableCell>Apple</TableCell>
+              <TableCell>
+                <Tag variant="secondary">smartphones</Tag>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Aventador SVJ</TableCell>
+              <TableCell>Good italian car</TableCell>
+              <TableCell>Lamborghini</TableCell>
+              <TableCell>
+                <Tag variant="secondary" color="cyan">
+                  cars
+                </Tag>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Uno with stair</TableCell>
+              <TableCell>Fastest car on earth</TableCell>
+              <TableCell>Fiat</TableCell>
+              <TableCell>
+                <Tag variant="secondary" color="cyan">
+                  cars
+                </Tag>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </PageContent>
+    </Page>`
+
 export default {
   imports: [
-    "import { Page, PageContent, PageHeader, PageHeading } from '@vtex/shoreline'",
+    "import { TabProvider, Page, PageHeader, PageHeaderRow, PageHeading, TabList, Tab, PageContent, TabPanel, Table, TableHeader, TableRow, TableHeaderCell, TableBody, TableCell, Collection, CollectionRow, Search, Pagination, CollectionView, Tag } from '@vtex/shoreline'",
   ],
-  example: figma.code`<Page>
-  <PageHeader>
-    <PageHeading>Products</PageHeading>
-  </PageHeader>
-  <PageContent>Page content</PageContent>
-</Page>`,
+  example: example,
   id: 'page',
   metadata: {
     nestable: false,

@@ -8,7 +8,7 @@ import figma from 'figma'
 
 export default {
   imports: ["import { Spinner } from '@vtex/shoreline'"],
-  example: figma.code`<Spinner />`,
+  example: figma.code`<Spinner description="loading" />`,
   id: 'spinner',
   metadata: {
     nestable: false,
