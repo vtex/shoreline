@@ -203,6 +203,14 @@
       "children": "\n  <PageHeader>\n    <PageHeading>Products</PageHeading>\n  </PageHeader>\n  <PageContent>Page content</PageContent>\n"
     },
     {
+      "id": "page-header",
+      "component": "PageHeader",
+      "source": "packages/shoreline/src/components/page/page-header.tsx",
+      "nodeId": "1540-33327",
+      "imports": ["PageHeader", "PageHeading"],
+      "children": "\n  <PageHeading>Products</PageHeading>\n"
+    },
+    {
       "id": "pagination",
       "component": "Pagination",
       "source": "packages/shoreline/src/components/pagination/pagination.tsx",
