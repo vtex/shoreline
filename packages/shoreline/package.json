@@ -76,7 +76,7 @@
     "sucrase": " 3.35.0"
   },
   "dependencies": {
-    "@ariakit/react": "0.4.23",
+    "@ariakit/react": "0.0.999",
     "@internationalized/date": "3.5.6",
     "@react-aria/calendar": "3.5.12",
     "@react-aria/checkbox": "3.14.7",
