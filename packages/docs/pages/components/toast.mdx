@@ -12,3 +12,27 @@
 ### Watch promises
 
 <Preview name="toast-promise" />
+
+## Functions
+
+The `toast` object exposes the following methods to dispatch toasts imperatively. Each method accepts a `message` argument of type `string | JSX.Element` and returns a toast `id`.
+
+| Method | Description |
+| --- | --- |
+| `toast.informational(message)` | Dispatches an informational toast |
+| `toast.success(message)` | Dispatches a success toast |
+| `toast.critical(message)` | Dispatches a critical toast |
+| `toast.warning(message)` | Dispatches a warning toast |
+| `toast.loading(message)` | Dispatches a loading toast with a spinner |
+| `toast.promise(promise, messages)` | Tracks a promise and dispatches loading, success, or error toasts accordingly. The `messages` argument is an object with `loading`, `success`, and `error` keys, each accepting `string \| JSX.Element` |
+| `toast.dismiss(toastId?)` | Dismisses a toast by id, or all toasts if no id is provided |
+
+> **Note:** A [`ToastStack`](/components/toast/toast-stack) must be rendered in your application for toasts to appear.
+
+## Related components
+
+<ComponentSummaryGrid>
+  <ComponentSummary name="toast-stack" />
+  <ComponentSummary name="alert" />
+  <ComponentSummary name="modal" />
+</ComponentSummaryGrid>
