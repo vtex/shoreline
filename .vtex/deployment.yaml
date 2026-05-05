@@ -1,5 +1,5 @@
 - name: shoreline
-  referenceId: PLACEHOLDER
+  referenceId: GDD93V8D
   description: SonarQube scan for shoreline
   build:
     provider: dkcicd
