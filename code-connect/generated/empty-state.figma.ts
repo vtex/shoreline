@@ -8,16 +8,14 @@ import figma from 'figma'
 
 export default {
   imports: [
-    "import { EmptyState, EmptyStateActions, Heading, Text, Button } from '@vtex/shoreline'",
+    "import { EmptyState, Heading, EmptyStateActions, Button } from '@vtex/shoreline'",
   ],
   example: figma.code`<EmptyState>
-  <Heading>Title goes here</Heading>
-  <Text>Use this area to describe the empty state.</Text>
-  <EmptyStateActions>
-    <Button>Cancel</Button>
-    <Button variant="primary">Create</Button>
-  </EmptyStateActions>
-</EmptyState>`,
+      <Heading>Title goes here</Heading>
+      <EmptyStateActions>
+        <Button variant="primary">label</Button>
+      </EmptyStateActions>
+    </EmptyState>`,
   id: 'empty-state',
   metadata: {
     nestable: false,

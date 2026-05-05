@@ -8,7 +8,7 @@ import figma from 'figma'
 
 export default {
   imports: ["import { Pagination } from '@vtex/shoreline'"],
-  example: figma.code`<Pagination page={1} total={10} />`,
+  example: figma.code`<Pagination page={10} total={10} />`,
   id: 'pagination',
   metadata: {
     nestable: false,

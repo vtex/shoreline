@@ -8,7 +8,10 @@ import figma from 'figma'
 
 export default {
   imports: ["import { ContextualHelp } from '@vtex/shoreline'"],
-  example: figma.code`<ContextualHelp>Help content</ContextualHelp>`,
+  example: figma.code`<ContextualHelp placement="bottom-start" label="Message">
+      Visits to the store which can include a series of user interactions and
+      end after 30 minutes of inactivity.
+    </ContextualHelp>`,
   id: 'contextual-help',
   metadata: {
     nestable: false,

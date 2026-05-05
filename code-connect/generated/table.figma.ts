@@ -8,22 +8,55 @@ import figma from 'figma'
 
 export default {
   imports: [
-    "import { Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow } from '@vtex/shoreline'",
+    "import { Table, TableHeader, TableRow, TableHeaderCell, TableBody, TableCell, Tag } from '@vtex/shoreline'",
   ],
-  example: figma.code`<Table columnWidths={["minmax(0, 1fr)", "8rem"]}>
-  <TableHeader>
-    <TableRow>
-      <TableHeaderCell>Name</TableHeaderCell>
-      <TableHeaderCell align="end">Status</TableHeaderCell>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>Order #1234</TableCell>
-      <TableCell align="end">Ready</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>`,
+  example: figma.code`<Table
+      columnWidths={[
+        'minmax(min-content, auto)',
+        'minmax(min-content, auto)',
+        'minmax(min-content, auto)',
+        'minmax(min-content, auto)',
+      ]}
+    >
+      <TableHeader>
+        <TableRow>
+          <TableHeaderCell>Name</TableHeaderCell>
+          <TableHeaderCell>Description</TableHeaderCell>
+          <TableHeaderCell>Brand</TableHeaderCell>
+          <TableHeaderCell>Category</TableHeaderCell>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell>iPhone 15</TableCell>
+          <TableCell>A nice phone</TableCell>
+          <TableCell>Apple</TableCell>
+          <TableCell>
+            <Tag variant="secondary">smartphones</Tag>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Aventador SVJ</TableCell>
+          <TableCell>Good italian car</TableCell>
+          <TableCell>Lamborghini</TableCell>
+          <TableCell>
+            <Tag variant="secondary" color="cyan">
+              cars
+            </Tag>
+          </TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell>Uno with stair</TableCell>
+          <TableCell>Fastest car on earth</TableCell>
+          <TableCell>Fiat</TableCell>
+          <TableCell>
+            <Tag variant="secondary" color="cyan">
+              cars
+            </Tag>
+          </TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>`,
   id: 'table',
   metadata: {
     nestable: false,

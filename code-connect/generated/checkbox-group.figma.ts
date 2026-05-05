@@ -8,11 +8,10 @@ import figma from 'figma'
 
 export default {
   imports: ["import { CheckboxGroup, Checkbox } from '@vtex/shoreline'"],
-  example: figma.code`<CheckboxGroup label="Options">
-  <Checkbox>Everything</Checkbox>
-  <Checkbox>Everywhere</Checkbox>
-  <Checkbox>All at once</Checkbox>
-</CheckboxGroup>`,
+  example: figma.code`<CheckboxGroup label="Checkbox group">
+      <Checkbox value="1">Option 1</Checkbox>
+      <Checkbox value="2">Option 2</Checkbox>
+    </CheckboxGroup>`,
   id: 'checkbox-group',
   metadata: {
     nestable: false,

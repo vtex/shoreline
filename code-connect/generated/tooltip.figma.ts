@@ -7,10 +7,12 @@
 import figma from 'figma'
 
 export default {
-  imports: ["import { Tooltip } from '@vtex/shoreline'"],
-  example: figma.code`<Tooltip label="Tooltip">
-  <button type="button">Trigger</button>
-</Tooltip>`,
+  imports: ["import { Tooltip, IconButton, IconInfo } from '@vtex/shoreline'"],
+  example: figma.code`<Tooltip label="Tooltip text">
+      <IconButton label="info">
+        <IconInfo />
+      </IconButton>
+    </Tooltip>`,
   id: 'tooltip',
   metadata: {
     nestable: false,
