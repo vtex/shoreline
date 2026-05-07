@@ -1,8 +1,7 @@
-import './style.css'
 import React from 'react'
 
-import { Textarea } from '../index'
 import { Stack } from '../../stack'
+import { Textarea } from '../index'
 
 export default {
   title: 'components/textarea',
@@ -15,63 +14,30 @@ export function NoResize() {
   const [value, setValue] = React.useState('')
 
   return (
-    <>
-      <Textarea
-        value={value}
-        onChange={setValue}
-        className="textarea-container"
-        resizable={false}
-        optional
-      />
-      <Textarea
-        value={value}
-        onChange={setValue}
-        className="textarea-container"
-        resizable={false}
-      />
-      <Textarea
-        value={value}
-        onChange={setValue}
-        className="textarea-container"
-        error
-        resizable={false}
-      />
-      <Textarea
-        value={value}
-        onChange={setValue}
-        className="textarea-container"
-        disabled
-        resizable={false}
-      />
+    <Stack>
+      <Textarea value={value} onChange={setValue} resizable={false} optional />
+      <Textarea value={value} onChange={setValue} resizable={false} />
+      <Textarea value={value} onChange={setValue} error resizable={false} />
+      <Textarea value={value} onChange={setValue} disabled resizable={false} />
       <Textarea
         value="The quick brown fox is tired right now"
-        className="textarea-container"
         disabled
         resizable={false}
       />
       <Textarea
         value={value}
         onChange={setValue}
-        className="textarea-container"
         maxLength={120}
         resizable={false}
       />
-    </>
+    </Stack>
   )
 }
 
 export function FormField() {
   const [value, setValue] = React.useState('')
 
-  return (
-    <Textarea
-      error
-      className="textarea-container"
-      value={value}
-      onChange={setValue}
-      maxLength={120}
-    />
-  )
+  return <Textarea error value={value} onChange={setValue} maxLength={120} />
 }
 
 export function LongText() {
@@ -79,20 +45,9 @@ export function LongText() {
 
   return (
     <Stack>
-      <Textarea
-        error
-        className="textarea-container"
-        value={value}
-        onChange={setValue}
-        maxLength={120}
-      />
+      <Textarea error value={value} onChange={setValue} maxLength={120} />
 
-      <Textarea
-        error
-        className="textarea-container"
-        value={value}
-        onChange={setValue}
-      />
+      <Textarea error value={value} onChange={setValue} />
     </Stack>
   )
 }
