@@ -8,7 +8,7 @@
   font: var(--sl-text-emphasis-font);
   padding: var(--sl-space-4) var(--sl-space-5);
   width: 22.5rem;
-  border-radius: var(--sl-radius-2);
+  border-radius: var(--sl-radius-3);
   box-shadow: var(--sl-shadow-2);
 
   & [data-sl-toast-icon-container] {
