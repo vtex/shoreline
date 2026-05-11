@@ -27,7 +27,7 @@ export function createComposition({ props, ref, element }: ComposeElementArgs) {
           return <Fragment key={child.key}>{render(children)}</Fragment>
         }
 
-        return children
+          return children
       }
 
       return child

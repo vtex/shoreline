@@ -18,7 +18,7 @@ export function mergeRefs(
     for (const ref of refs) {
       if (typeof ref === 'function') {
         ref(value)
-      } else if (ref != null) {
+      } else {
         ref.current = value
       }
     }

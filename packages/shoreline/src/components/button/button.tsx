@@ -46,17 +46,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         <Composable
           render={(node) => (
-            <span data-sl-button-content>{spanizeString(node)}</span>
+            <span data-sl-button-content>{fn(node)}</span>
           )}
         >
-          {asChild ? children : spanizeString(children)}
+          {asChild ? children : fn(children)}
         </Composable>
       </Comp>
     )
   }
 )
 
-function spanizeString(children: ReactNode) {
+function fn(children: ReactNode) {
   return Children.map(children, (child) => {
     if (typeof child === 'string') {
       return <span>{child}</span>
