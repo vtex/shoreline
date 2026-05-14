@@ -1,20 +1,20 @@
-import { useState, useMemo, startTransition } from 'react'
 import { matchSorter } from 'match-sorter'
+import { startTransition, useMemo, useState } from 'react'
 
+import { EmptyState, Heading, Text } from '../..'
+import { IconMagnifyingGlass } from '../../../icons'
+import { EmptyStateIllustration } from '../../empty-state'
+import { LocaleProvider } from '../../locale'
 import {
-  FilterProvider,
-  FilterPopover,
-  FilterList,
-  FilterItem,
-  FilterTrigger,
   Filter,
+  FilterItem,
+  FilterList,
+  FilterPopover,
+  FilterProvider,
+  FilterTrigger,
 } from '../index'
 import type { Country } from './countries'
 import { countries } from './countries'
-import { LocaleProvider } from '../../locale'
-import { IconMagnifyingGlass } from '../../../icons'
-import { EmptyState, Text, Heading } from '../..'
-import { EmptyStateIllustration } from '../../empty-state'
 
 export default {
   title: 'components/filter',
@@ -31,6 +31,18 @@ export function Controlled() {
       <FilterItem value="Stable">Stable</FilterItem>
       <FilterItem value="Experimental">Experimental</FilterItem>
       <FilterItem value="Deprecated">Deprecated</FilterItem>
+    </Filter>
+  )
+}
+
+export function CustomLabel() {
+  const [city, setCity] = useState<string>('')
+
+  return (
+    <Filter label="Cidade" value={city} setValue={setCity}>
+      <FilterItem value="rj">Rio de Janeiro</FilterItem>
+      <FilterItem value="sp">São Paulo</FilterItem>
+      <FilterItem value="mg">Minas Gerais</FilterItem>
     </Filter>
   )
 }
