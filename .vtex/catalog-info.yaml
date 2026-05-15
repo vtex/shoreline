@@ -10,6 +10,8 @@ metadata:
     github.com/project-slug: vtex/shoreline
     backstage.io/techdocs-ref: dir:../
     vtex.com/application-id: GDD93V8D
+    vtex.com/sdd-check-skip: 'true'
+    vtex.com/sdd-check-skip-reason: Shoreline is a public repository, so the specs shouldn't live there. Because of that we've created Shoreline Specs repository (https://github.com/vtex/shoreline-specs) with the Spec Kit setup
 spec:
   system: admin
   lifecycle: stable
