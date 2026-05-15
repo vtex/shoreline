@@ -1,0 +1,21 @@
+- name: shoreline
+  referenceId: GDD93V8D
+  description: SonarQube scan for shoreline
+  build:
+    provider: dkcicd
+    pipelines:
+      - name: node-ci-v2
+        parameters:
+          sonarProjectName: shoreline
+          nodeVersion: 20-bookworm
+          packageManager: pnpm
+          nodeCommands:
+            - test -- --coverage
+        runtime:
+          architecture: amd64
+        when:
+          - event: pull_request
+            source: branch
+          - event: push
+            source: branch
+            regex: main
