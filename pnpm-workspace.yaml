@@ -1,4 +1,12 @@
 packages:
+  # Globs cover all current packages, including:
+  #   - packages/shoreline
+  #   - packages/shoreline-ai     # New AI surface package (spec 001-shoreline-ai)
+  #   - packages/css
+  #   - packages/utils
+  #   - packages/test-utils
+  #   - packages/ts-table
+  #   - packages/docs
   - 'packages/**'
   - 'examples/**'
   - '!**/test/**'

@@ -1,0 +1,61 @@
+{
+  "name": "@vtex/shoreline-ai",
+  "version": "0.0.0",
+  "description": "Composable, accessible, backend-agnostic React component library for AI agent surfaces in the VTEX Admin. Built on Shoreline tokens; bridges to @assistant-ui/react internally; consumes a backend-agnostic AdapterContract.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "tsup --watch",
+    "build": "pnpm run prebuild && tsup",
+    "test": "vitest run"
+  },
+  "repository": {
+    "directory": "packages/shoreline-ai",
+    "type": "git",
+    "url": "git+https://github.com/vtex/shoreline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/shoreline/issues"
+  },
+  "peerDependencies": {
+    "react": ">=18.3",
+    "react-dom": ">=18.3",
+    "@vtex/shoreline": "workspace:*",
+    "@vtex/shoreline-css": "workspace:*"
+  },
+  "dependencies": {
+    "@ariakit/react": "0.4.23",
+    "@assistant-ui/react": "^0.5.0",
+    "@vtex/shoreline-utils": "workspace:*",
+    "react-markdown": "^9.0.1",
+    "rehype-sanitize": "^6.0.0",
+    "remark-gfm": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.9",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "tsd": "^0.31.0",
+    "tsup": "^8.0.0",
+    "vitest": "^1.6.0"
+  }
+}

@@ -1,7 +1,12 @@
 import { dirname, join } from 'node:path'
 
 module.exports = {
-  stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: [
+    '../packages/**/*.stories.@(js|jsx|ts|tsx)',
+    '../packages/**/*.show.stories.@(js|jsx|ts|tsx)',
+    '../packages/**/*.play.stories.@(js|jsx|ts|tsx)',
+    '../packages/shoreline-ai/.storybook/examples/*.stories.@(js|jsx|ts|tsx)',
+  ],
   staticDirs: ['./public'],
   addons: [
     getAbsolutePath('@storybook/addon-links'),
