@@ -1,0 +1,50 @@
+{
+  "name": "@vtex/shoreline-ai",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "pnpm run prebuild && tsup",
+    "dev": "tsup --watch"
+  },
+  "repository": {
+    "directory": "packages/shoreline-ai",
+    "type": "git",
+    "url": "git+https://github.com/vtex/shoreline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/shoreline/issues"
+  },
+  "peerDependencies": {
+    "@assistant-ui/react": ">=0.14.0",
+    "react": ">=18.3",
+    "react-dom": ">=18.3",
+    "typescript": ">=5"
+  },
+  "devDependencies": {
+    "@assistant-ui/react": "0.14.5",
+    "@types/node": "20.14.9",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0"
+  },
+  "dependencies": {}
+}
