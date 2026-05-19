@@ -14,6 +14,8 @@ import {
 
 import { AssistantRuntimeProvider } from '@assistant-ui/react'
 
+import { loadThreadMessages } from '../../runtime/load-thread-messages'
+import type { AIMessage } from '../../types/public'
 import type { AIRuntime } from '../../types/runtime'
 import { AIStreamDebugProvider } from '../debug/stream-debug-context'
 import { AIContext, DEFAULT_CANVAS, type CanvasState } from './ai-context'
@@ -33,10 +35,15 @@ import { AIContext, DEFAULT_CANVAS, type CanvasState } from './ai-context'
 export interface AIProviderOptions {
   /** Runtime from `useRuntime(built)`. */
   runtime: AIRuntime
-  /** Controlled persistence thread id (e.g. conversation id). */
+  /**
+   * Active conversation id. Pass for controlled mode (you own state).
+   * Omit for uncontrolled mode (provider keeps the id internally).
+   */
   threadId?: string | null
   /** Called when the active thread id changes. */
   onThreadChange?: (id: string | null) => void
+  /** Returns persisted messages when a conversation opens. */
+  onThreadOpen?: (threadId: string) => Promise<AIMessage[]>
   /** Enable stream debug callbacks. */
   debugStream?: boolean
   children?: ReactNode
@@ -46,7 +53,13 @@ export type AIProviderProps = AIProviderOptions
 
 const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
   function AIProviderInner(props, ref) {
-    const { runtime, children, threadId: threadIdProp, onThreadChange } = props
+    const {
+      runtime,
+      children,
+      threadId: threadIdProp,
+      onThreadChange,
+      onThreadOpen,
+    } = props
 
     const isControlled = threadIdProp !== undefined
     const [uncontrolledThreadId, setUncontrolledThreadId] = useState<
@@ -57,7 +70,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       : uncontrolledThreadId
 
     const [canvas, setCanvas] = useState<CanvasState>(DEFAULT_CANVAS)
-    const prevControlledThreadId = useRef(threadIdProp)
+    const prevControlledThreadId = useRef<string | null | undefined>(undefined)
 
     const setThreadId = useCallback(
       (id: string | null) => {
@@ -72,11 +85,33 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
 
     useEffect(() => {
       if (!isControlled) return
-      if (prevControlledThreadId.current === threadIdProp) return
+
+      const prev = prevControlledThreadId.current
+
+      if (prev === threadIdProp) return
 
       prevControlledThreadId.current = threadIdProp
-      runtime.thread.reset([])
-    }, [isControlled, threadIdProp, runtime])
+
+      if (prev != null && threadIdProp != null) {
+        runtime.thread.reset([])
+      } else if (threadIdProp === null) {
+        runtime.thread.reset([])
+      }
+
+      if (!threadIdProp || !onThreadOpen) return
+
+      let cancelled = false
+      const id = threadIdProp
+
+      onThreadOpen(id).then((messages) => {
+        if (cancelled || id !== threadIdProp) return
+        if (messages.length > 0) loadThreadMessages(runtime, messages)
+      })
+
+      return () => {
+        cancelled = true
+      }
+    }, [isControlled, threadIdProp, runtime, onThreadOpen])
 
     const handleOpenCanvas = useCallback((state: Omit<CanvasState, 'open'>) => {
       setCanvas({ ...state, open: true })

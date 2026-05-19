@@ -76,7 +76,7 @@ export function AIStreamDebugProvider(props: {
       onEnvelope: (runId, row) => {
         setSessions((prev) => appendRow(prev, runId, row))
       },
-      onRunEnd: (runId, finalParts) => {
+      onRunEnd: (runId, finalParts, meta) => {
         setSessions((prev) =>
           prev.map((session) =>
             session.runId === runId
@@ -84,6 +84,7 @@ export function AIStreamDebugProvider(props: {
                   ...session,
                   endedAt: new Date().toISOString(),
                   finalParts,
+                  errorMessage: meta?.errorMessage,
                 }
               : session
           )

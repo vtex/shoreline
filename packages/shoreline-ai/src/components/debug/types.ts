@@ -26,6 +26,7 @@ export interface AIStreamDebugSession {
   userMessageId: string
   startedAt: string
   endedAt?: string
+  errorMessage?: string
   rows: AIStreamDebugRow[]
   finalParts: AIMessagePart[]
 }
@@ -33,5 +34,9 @@ export interface AIStreamDebugSession {
 export interface StreamDebugCallbacks {
   onRunStart: (meta: AIStreamDebugRunMeta) => void
   onEnvelope: (runId: string, row: Omit<AIStreamDebugRow, 'index'>) => void
-  onRunEnd: (runId: string, finalParts: AIMessagePart[]) => void
+  onRunEnd: (
+    runId: string,
+    finalParts: AIMessagePart[],
+    meta?: { errorMessage?: string }
+  ) => void
 }

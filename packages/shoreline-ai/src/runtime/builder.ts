@@ -16,11 +16,18 @@ class RuntimeBuilderImpl<HasTransport extends boolean = false>
 {
   private _transport: StreamTransport | null = null
   private _attachmentHandler: AttachmentHandler | undefined
+  private _getThreadId: (() => string | null) | undefined
 
   transport(transport: StreamTransport): RuntimeBuilder<true> {
     this._transport = transport
 
     return this as unknown as RuntimeBuilder<true>
+  }
+
+  threadId(getThreadId: () => string | null): RuntimeBuilder<HasTransport> {
+    this._getThreadId = getThreadId
+
+    return this
   }
 
   attachments(handler: AttachmentHandler): RuntimeBuilder<HasTransport> {
@@ -41,6 +48,7 @@ class RuntimeBuilderImpl<HasTransport extends boolean = false>
     return {
       transport: self._transport,
       attachmentHandler: self._attachmentHandler,
+      getThreadId: self._getThreadId,
     }
   }
 }

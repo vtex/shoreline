@@ -67,10 +67,12 @@ export function useAIThread(): {
         aui.thread().cancelRun()
       }
 
+      if (newThreadId === threadId) return
+
       runtime.thread.reset([])
       setThreadId(newThreadId)
     },
-    [aui, runtime, setThreadId]
+    [aui, runtime, setThreadId, threadId]
   )
 
   const createThread = useCallback(() => {

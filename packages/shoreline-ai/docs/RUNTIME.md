@@ -61,6 +61,7 @@ function ChatRoot({ children }: { children: React.ReactNode }) {
 
 ```ts
 const built = createRuntimeBuilder()
+  .threadId(() => activeThreadId)
   .transport(myStreamTransport)
   .attachments(myAttachmentHandler) // optional
   .build()
@@ -85,6 +86,7 @@ interface RuntimeRunInput {
   trigger: RuntimeRunTrigger
   abortSignal: AbortSignal
   runResponseId: string // assistant slot id for this run
+  threadId?: string | null // active persistence id when set on the builder
 }
 ```
 

@@ -30,11 +30,15 @@ export interface RuntimeRunInput {
   abortSignal: AbortSignal
   /** Assistant message slot id for this run (from Assistant-UI). */
   runResponseId: string
+  /** Active persistence thread id (e.g. conversation id), when known. */
+  threadId?: string | null
 }
 
 export interface RuntimeSnapshot {
   parts: AIMessagePart[]
   status?: StreamStatus
+  /** Set when the SSE transport fails before emitting content. */
+  errorMessage?: string
 }
 
 /**
@@ -74,10 +78,13 @@ export interface AttachmentHandler {
 export interface BuiltRuntime {
   transport: StreamTransport
   attachmentHandler?: AttachmentHandler
+  /** Optional source for {@link RuntimeRunInput.threadId} on each run. */
+  getThreadId?: () => string | null
 }
 
 export interface RuntimeBuilder<HasTransport extends boolean = false> {
   transport(transport: StreamTransport): RuntimeBuilder<true>
+  threadId(getThreadId: () => string | null): RuntimeBuilder<HasTransport>
   attachments(handler: AttachmentHandler): RuntimeBuilder<HasTransport>
   build(this: RuntimeBuilder<true>): BuiltRuntime
 }

@@ -21,7 +21,8 @@ import {
 } from './bridge/map-to-assistant-ui'
 
 function optionsToRunInput(
-  options: ChatModelRunOptions
+  options: ChatModelRunOptions,
+  getThreadId?: () => string | null
 ): RuntimeRunInput | null {
   const lastUser = getLastThreadUserMessage(options.messages)
 
@@ -35,6 +36,7 @@ function optionsToRunInput(
     },
     abortSignal: options.abortSignal,
     runResponseId: options.unstable_assistantMessageId ?? `asst-${Date.now()}`,
+    threadId: getThreadId?.() ?? null,
   }
 }
 
@@ -49,7 +51,7 @@ export function createChatModelAdapterFromTransport(
     async *run(
       options: ChatModelRunOptions
     ): AsyncGenerator<ChatModelRunResult, void> {
-      const input = optionsToRunInput(options)
+      const input = optionsToRunInput(options, built.getThreadId)
 
       if (!input) {
         yield {
@@ -81,11 +83,18 @@ export function createChatModelAdapterFromTransport(
       }
 
       const final = result.value
-      const finalJson = snapshotJson(final.parts)
+      const parts =
+        final.parts.length > 0
+          ? final.parts
+          : final.status === 'error' && final.errorMessage
+            ? [{ type: 'text' as const, text: final.errorMessage }]
+            : final.parts
 
-      if (finalJson !== lastEmittedJson) {
+      const emittedJson = snapshotJson(parts)
+
+      if (emittedJson !== lastEmittedJson) {
         yield {
-          content: mapAIMessagePartsToContentParts(final.parts),
+          content: mapAIMessagePartsToContentParts(parts),
           status: mapStreamStatus(final.status) ?? {
             type: 'complete' as const,
             reason: 'stop' as const,
