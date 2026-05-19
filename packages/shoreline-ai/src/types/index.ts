@@ -7,6 +7,7 @@ export type {
   AIMessage,
   AIThreadData,
   AIMessageInput,
+  AIMessageInputPart,
   AIToolRenderMode,
   AIToolUIRenderProps,
   AIToolUITriggerProps,

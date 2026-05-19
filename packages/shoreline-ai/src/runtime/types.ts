@@ -12,12 +12,24 @@ import type {
 } from '../types/public'
 
 /**
- * Payload for a single model run.
+ * What initiated a model run.
+ */
+export interface RuntimeRunTrigger {
+  type: 'message'
+  /** User message that started this run. */
+  message: AIMessage
+}
+
+/**
+ * Input passed to {@link StreamTransport.run} for each model run.
  */
 export interface RuntimeRunInput {
+  /** Full thread history at run time. */
   messages: AIMessage[]
+  trigger: RuntimeRunTrigger
   abortSignal: AbortSignal
-  assistantMessageId: string
+  /** Assistant message slot id for this run (from Assistant-UI). */
+  runResponseId: string
 }
 
 export interface RuntimeSnapshot {

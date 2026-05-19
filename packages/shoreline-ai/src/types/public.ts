@@ -71,17 +71,38 @@ export interface AIThreadData {
   archived?: boolean
 }
 
-export interface AIMessageInput {
-  text: string
-  resourceLinks?: Array<{
-    uri: string
-    name: string
-    description?: string
-    mimeType?: string
-    size?: number
-  }>
-  metadata?: Record<string, unknown>
-}
+/** User message part for {@link AIMessageInput}. */
+export type AIMessageInputPart =
+  | { type: 'text'; text: string }
+  | {
+      type: 'file'
+      uri: string
+      name: string
+      mimeType?: string
+      size?: number
+      metadata?: Record<string, unknown>
+    }
+  | {
+      type: 'image'
+      uri: string
+      name?: string
+      mimeType?: string
+      metadata?: Record<string, unknown>
+    }
+
+/**
+ * Input for {@link useAIThread.sendMessage}.
+ * Pass `parts` or the `text` shorthand for a single text part.
+ */
+export type AIMessageInput =
+  | {
+      parts: AIMessageInputPart[]
+      metadata?: Record<string, unknown>
+    }
+  | {
+      text: string
+      metadata?: Record<string, unknown>
+    }
 
 export type AIToolRenderMode = 'widget' | 'canvas'
 

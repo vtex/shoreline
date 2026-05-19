@@ -3,7 +3,7 @@
  * or from a specific messageId.
  */
 
-import { useMessage, useThread } from '@assistant-ui/react'
+import { useAui, useAuiState } from '@assistant-ui/react'
 import { useMemo } from 'react'
 import type { AIToolPart, ToolStatus } from '../types/public'
 
@@ -40,12 +40,17 @@ function mapToolParts(content: readonly ContentPart[]): AIToolPart[] {
 }
 
 export function useAITools(messageId?: string): AIToolPart[] {
-  const contextMessage = useMessage({ optional: true })
-  const threadState = useThread({ optional: true })
+  const aui = useAui()
+  const contextMessage = useAuiState((s) =>
+    aui.message.source ? s.message : null
+  )
+  const threadMessages = useAuiState((s) =>
+    aui.thread.source ? s.thread.messages : []
+  )
 
   return useMemo(() => {
-    if (messageId && threadState) {
-      const msg = threadState.messages.find((m) => m.id === messageId)
+    if (messageId) {
+      const msg = threadMessages.find((m) => m.id === messageId)
 
       if (!msg) return []
 
@@ -57,5 +62,5 @@ export function useAITools(messageId?: string): AIToolPart[] {
     }
 
     return []
-  }, [messageId, contextMessage, threadState])
+  }, [messageId, contextMessage, threadMessages])
 }

@@ -1,95 +1,18 @@
 /**
- * useAIThread — provides thread-level operations and message access.
+ * Thread-level operations and message access.
+ *
+ * @status experimental
  */
 
-import { useThread, useThreadRuntime } from '@assistant-ui/react'
-import type { ThreadMessage } from '@assistant-ui/react'
+import { useAui, useAuiState } from '@assistant-ui/react'
 import { useCallback, useMemo } from 'react'
-import type { AIMessage, AIMessageInput, AIMessagePart } from '../types/public'
-import { useAIContext } from '../components/provider/ai-context'
+
+import { useAIContextInternal } from '../components/provider/ai-context'
+import { loadThreadMessages } from '../runtime/load-thread-messages'
+import { mapThreadMessageToAIMessage } from '../runtime/bridge/map-thread-messages'
+import { mapAIMessageInputToContent } from '../runtime/map-message-input'
+import type { AIMessage, AIMessageInput } from '../types/public'
 import { generateThreadId } from '../utils/generate-id'
-
-interface ContentPart {
-  type: string
-  text?: string
-  toolName?: string
-  args?: Record<string, unknown>
-  result?: unknown
-  isError?: boolean
-  name?: string
-  data?: Record<string, unknown>
-  metadata?: Record<string, unknown>
-}
-
-function mapMessageParts(content: readonly ContentPart[]): AIMessagePart[] {
-  return content
-    .map((part): AIMessagePart | null => {
-      if (part.type === 'text') {
-        return {
-          type: 'text' as const,
-          text: part.text ?? '',
-          metadata: part.metadata,
-        }
-      }
-
-      if (part.type === 'reasoning') {
-        return {
-          type: 'reasoning' as const,
-          text: part.text ?? '',
-          status: 'complete' as const,
-          metadata: part.metadata,
-        }
-      }
-
-      if (part.type === 'tool-call') {
-        return {
-          type: 'tool' as const,
-          name: part.toolName ?? '',
-          args: part.args ?? {},
-          output: part.result,
-          error: part.isError
-            ? ((part.result as { message: string }) ?? {
-                message: 'Unknown error',
-              })
-            : undefined,
-          status: part.isError ? ('error' as const) : ('complete' as const),
-          metadata: part.args?.metadata as Record<string, unknown> | undefined,
-        }
-      }
-
-      if (part.type === 'data' && part.name === 'resource') {
-        const data = part.data ?? {}
-
-        return {
-          type: 'resource' as const,
-          uri: (data.uri as string) ?? '',
-          name: (data.name as string) ?? '',
-          description: data.description as string | undefined,
-          mimeType: data.mimeType as string | undefined,
-          size: data.size as number | undefined,
-          metadata: data.metadata as Record<string, unknown> | undefined,
-        }
-      }
-
-      return null
-    })
-    .filter((p): p is AIMessagePart => p !== null)
-}
-
-function threadMessageToAIMessage(msg: ThreadMessage): AIMessage {
-  return {
-    id: msg.id,
-    role: msg.role as 'user' | 'assistant' | 'system',
-    parts: mapMessageParts(msg.content as readonly ContentPart[]),
-    createdAt:
-      msg.createdAt instanceof Date
-        ? msg.createdAt.toISOString()
-        : new Date().toISOString(),
-    metadata: (msg as Record<string, unknown>).metadata as
-      | Record<string, unknown>
-      | undefined,
-  }
-}
 
 export function useAIThread(): {
   messages: AIMessage[]
@@ -98,47 +21,70 @@ export function useAIThread(): {
   stopGeneration: () => void
   switchThread: (threadId: string) => void
   createThread: () => string
+  loadMessages: (messages: AIMessage[]) => void
 } {
-  const { threadId, setThreadId } = useAIContext()
-  const threadState = useThread({ optional: true })
-  const threadRuntime = useThreadRuntime({ optional: true })
+  const { threadId, setThreadId, runtime } = useAIContextInternal()
+  const aui = useAui()
+  const threadMessages = useAuiState((s) =>
+    aui.thread.source ? s.thread.messages : []
+  )
 
-  const messages: AIMessage[] = useMemo(() => {
-    if (!threadState) return []
-
-    return threadState.messages.map(threadMessageToAIMessage)
-  }, [threadState])
+  const messages: AIMessage[] = useMemo(
+    () => threadMessages.map(mapThreadMessageToAIMessage),
+    [threadMessages]
+  )
 
   const sendMessage = useCallback(
     (input: AIMessageInput) => {
-      if (!threadRuntime) return
+      if (!aui.thread.source) return
 
-      threadRuntime.append({
+      const content = mapAIMessageInputToContent(input)
+
+      aui.thread().append({
         role: 'user',
-        content: [{ type: 'text' as const, text: input.text }],
+        content,
       })
     },
-    [threadRuntime]
+    [aui]
   )
 
   const stopGeneration = useCallback(() => {
-    threadRuntime?.cancelRun()
-  }, [threadRuntime])
+    if (!aui.thread.source) return
+
+    aui.thread().cancelRun()
+  }, [aui])
+
+  const loadMessages = useCallback(
+    (history: AIMessage[]) => {
+      loadThreadMessages(runtime, history)
+    },
+    [runtime]
+  )
 
   const switchThread = useCallback(
     (newThreadId: string) => {
+      if (aui.thread.source) {
+        aui.thread().cancelRun()
+      }
+
+      runtime.thread.reset([])
       setThreadId(newThreadId)
     },
-    [setThreadId]
+    [aui, runtime, setThreadId]
   )
 
   const createThread = useCallback(() => {
     const newId = generateThreadId()
 
+    if (aui.thread.source) {
+      aui.thread().cancelRun()
+    }
+
+    runtime.thread.reset([])
     setThreadId(newId)
 
     return newId
-  }, [setThreadId])
+  }, [aui, runtime, setThreadId])
 
   return {
     messages,
@@ -147,5 +93,6 @@ export function useAIThread(): {
     stopGeneration,
     switchThread,
     createThread,
+    loadMessages,
   }
 }

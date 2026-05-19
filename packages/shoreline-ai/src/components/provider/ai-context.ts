@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react'
 
+import type { AIRuntime } from '../../types/runtime'
+
 interface CanvasState {
   toolCallId: string | null
   component: string | null
@@ -9,12 +11,18 @@ interface CanvasState {
   open: boolean
 }
 
+/** Public AI provider context. */
 export interface AIContextValue {
+  runtime: AIRuntime
   threadId: string | null
-  setThreadId: (id: string | null) => void
   canvas: CanvasState
   openCanvas: (state: Omit<CanvasState, 'open'>) => void
   closeCanvas: () => void
+}
+
+/** @internal Used by hooks to update persistence thread id. */
+export interface AIContextValueInternal extends AIContextValue {
+  setThreadId: (id: string | null) => void
 }
 
 const DEFAULT_CANVAS: CanvasState = {
@@ -26,9 +34,9 @@ const DEFAULT_CANVAS: CanvasState = {
   open: false,
 }
 
-export const AIContext = createContext<AIContextValue | null>(null)
+export const AIContext = createContext<AIContextValueInternal | null>(null)
 
-export function useAIContext(): AIContextValue {
+export function useAIContextInternal(): AIContextValueInternal {
   const context = useContext(AIContext)
 
   if (!context) {
@@ -36,6 +44,18 @@ export function useAIContext(): AIContextValue {
   }
 
   return context
+}
+
+/**
+ * Access AI provider state (runtime, thread id, canvas).
+ *
+ * @status experimental
+ */
+export function useAIContext(): AIContextValue {
+  const { runtime, threadId, canvas, openCanvas, closeCanvas } =
+    useAIContextInternal()
+
+  return { runtime, threadId, canvas, openCanvas, closeCanvas }
 }
 
 export { DEFAULT_CANVAS }

@@ -14,6 +14,7 @@ import {
   getLastThreadUserMessage,
   mapThreadUserMessageToAIMessage,
 } from './bridge/map-from-assistant-ui'
+import { mapThreadMessagesToAIMessages } from './bridge/map-thread-messages'
 import {
   mapAIMessagePartsToContentParts,
   mapStreamStatus,
@@ -27,10 +28,13 @@ function optionsToRunInput(
   if (!lastUser) return null
 
   return {
-    messages: [mapThreadUserMessageToAIMessage(lastUser)],
+    messages: mapThreadMessagesToAIMessages(options.messages),
+    trigger: {
+      type: 'message',
+      message: mapThreadUserMessageToAIMessage(lastUser),
+    },
     abortSignal: options.abortSignal,
-    assistantMessageId:
-      options.unstable_assistantMessageId ?? `asst-${Date.now()}`,
+    runResponseId: options.unstable_assistantMessageId ?? `asst-${Date.now()}`,
   }
 }
 

@@ -14,6 +14,7 @@ export type {
   AIMessage,
   AIThreadData,
   AIMessageInput,
+  AIMessageInputPart,
   AIToolRenderMode,
   AIToolUIRenderProps,
   AIToolUITriggerProps,
@@ -21,16 +22,19 @@ export type {
   ToolStatus,
 } from './types'
 
+export type { AIRuntime } from './types/runtime'
+
 // Runtime builder (agnostic to Assistant-UI for consumers wiring transport)
 export { createRuntimeBuilder } from './runtime/builder'
 export { useRuntime } from './runtime/use-runtime'
-export { mapAIMessagesToThreadMessages } from './runtime/bridge/map-from-assistant-ui'
+export { loadThreadMessages } from './runtime/load-thread-messages'
 export { generateId, generateThreadId } from './utils/generate-id'
 export type {
   StreamTransport,
   RuntimeBuilder,
   BuiltRuntime,
   RuntimeRunInput,
+  RuntimeRunTrigger,
   RuntimeSnapshot,
   AttachmentHandler,
   PendingAttachment,

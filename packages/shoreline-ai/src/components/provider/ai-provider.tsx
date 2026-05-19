@@ -1,22 +1,20 @@
 /**
  * <AIProvider> — root provider for @vtex/shoreline-ai.
- *
- * Receives a pre-built Assistant runtime (from useRuntime) and wires AIContext.
  */
 
 import {
   type ReactNode,
   forwardRef,
   useCallback,
+  useEffect,
   useMemo,
+  useRef,
   useState,
 } from 'react'
 
-import {
-  AssistantRuntimeProvider,
-  type AssistantRuntime,
-} from '@assistant-ui/react'
+import { AssistantRuntimeProvider } from '@assistant-ui/react'
 
+import type { AIRuntime } from '../../types/runtime'
 import { AIStreamDebugProvider } from '../debug/stream-debug-context'
 import { AIContext, DEFAULT_CANVAS, type CanvasState } from './ai-context'
 
@@ -32,11 +30,14 @@ import { AIContext, DEFAULT_CANVAS, type CanvasState } from './ai-context'
  * </AIProvider>
  * ```
  */
-
 export interface AIProviderOptions {
-  runtime: AssistantRuntime
+  /** Runtime from `useRuntime(built)`. */
+  runtime: AIRuntime
+  /** Controlled persistence thread id (e.g. conversation id). */
   threadId?: string | null
+  /** Called when the active thread id changes. */
   onThreadChange?: (id: string | null) => void
+  /** Enable stream debug callbacks. */
   debugStream?: boolean
   children?: ReactNode
 }
@@ -45,25 +46,37 @@ export type AIProviderProps = AIProviderOptions
 
 const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
   function AIProviderInner(props, ref) {
-    const {
-      runtime,
-      children,
-      threadId: initialThreadId,
-      onThreadChange,
-    } = props
+    const { runtime, children, threadId: threadIdProp, onThreadChange } = props
 
-    const [threadId, setThreadIdState] = useState<string | null>(
-      initialThreadId ?? null
-    )
+    const isControlled = threadIdProp !== undefined
+    const [uncontrolledThreadId, setUncontrolledThreadId] = useState<
+      string | null
+    >(threadIdProp ?? null)
+    const threadId = isControlled
+      ? (threadIdProp ?? null)
+      : uncontrolledThreadId
+
     const [canvas, setCanvas] = useState<CanvasState>(DEFAULT_CANVAS)
+    const prevControlledThreadId = useRef(threadIdProp)
 
     const setThreadId = useCallback(
       (id: string | null) => {
-        setThreadIdState(id)
+        if (!isControlled) {
+          setUncontrolledThreadId(id)
+        }
+
         onThreadChange?.(id)
       },
-      [onThreadChange]
+      [isControlled, onThreadChange]
     )
+
+    useEffect(() => {
+      if (!isControlled) return
+      if (prevControlledThreadId.current === threadIdProp) return
+
+      prevControlledThreadId.current = threadIdProp
+      runtime.thread.reset([])
+    }, [isControlled, threadIdProp, runtime])
 
     const handleOpenCanvas = useCallback((state: Omit<CanvasState, 'open'>) => {
       setCanvas({ ...state, open: true })
@@ -75,13 +88,21 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
 
     const contextValue = useMemo(
       () => ({
+        runtime,
         threadId,
         setThreadId,
         canvas,
         openCanvas: handleOpenCanvas,
         closeCanvas: handleCloseCanvas,
       }),
-      [threadId, setThreadId, canvas, handleOpenCanvas, handleCloseCanvas]
+      [
+        runtime,
+        threadId,
+        setThreadId,
+        canvas,
+        handleOpenCanvas,
+        handleCloseCanvas,
+      ]
     )
 
     return (

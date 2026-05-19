@@ -2,7 +2,7 @@
  * useAIStatus — returns the current streaming status with derived booleans.
  */
 
-import { useThread } from '@assistant-ui/react'
+import { useAui, useAuiState } from '@assistant-ui/react'
 import { useMemo } from 'react'
 import type { StreamStatus } from '../types/public'
 
@@ -11,8 +11,10 @@ export function useAIStatus(): {
   isLoading: boolean
   isStreaming: boolean
 } {
-  const threadState = useThread({ optional: true })
-  const isRunning = threadState?.isRunning ?? false
+  const aui = useAui()
+  const isRunning = useAuiState((s) =>
+    aui.thread.source ? s.thread.isRunning : false
+  )
 
   return useMemo(() => {
     const status: StreamStatus = isRunning ? 'streaming' : 'ready'
