@@ -1,5 +1,6 @@
 import { createContext, useContext } from 'react'
 
+import type { AIThreadError } from '../../types/public'
 import type { AIRuntime } from '../../types/runtime'
 
 interface CanvasState {
@@ -23,6 +24,8 @@ export interface AIContextValue {
 /** @internal Used by hooks to update persistence thread id. */
 export interface AIContextValueInternal extends AIContextValue {
   setThreadId: (id: string | null) => void
+  isOpeningThread: boolean
+  error: AIThreadError | null
 }
 
 const DEFAULT_CANVAS: CanvasState = {

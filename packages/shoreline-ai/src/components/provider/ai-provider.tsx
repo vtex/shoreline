@@ -15,8 +15,9 @@ import {
 import { AssistantRuntimeProvider } from '@assistant-ui/react'
 
 import { loadThreadMessages } from '../../runtime/load-thread-messages'
-import type { AIMessage } from '../../types/public'
+import type { AIMessage, AIThreadError } from '../../types/public'
 import type { AIRuntime } from '../../types/runtime'
+import { toAIThreadError } from '../../utils/to-ai-thread-error'
 import { AIStreamDebugProvider } from '../debug/stream-debug-context'
 import { AIContext, DEFAULT_CANVAS, type CanvasState } from './ai-context'
 
@@ -70,6 +71,8 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       : uncontrolledThreadId
 
     const [canvas, setCanvas] = useState<CanvasState>(DEFAULT_CANVAS)
+    const [isOpeningThread, setIsOpeningThread] = useState(false)
+    const [error, setError] = useState<AIThreadError | null>(null)
     const prevControlledThreadId = useRef<string | null | undefined>(undefined)
 
     const setThreadId = useCallback(
@@ -98,15 +101,32 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
         runtime.thread.reset([])
       }
 
-      if (!threadIdProp || !onThreadOpen) return
+      if (!threadIdProp || !onThreadOpen) {
+        setIsOpeningThread(false)
+        setError(null)
+        return
+      }
 
       let cancelled = false
       const id = threadIdProp
 
-      onThreadOpen(id).then((messages) => {
-        if (cancelled || id !== threadIdProp) return
-        if (messages.length > 0) loadThreadMessages(runtime, messages)
-      })
+      setIsOpeningThread(true)
+      setError(null)
+
+      onThreadOpen(id)
+        .then((messages) => {
+          if (cancelled || id !== threadIdProp) return
+          if (messages.length > 0) loadThreadMessages(runtime, messages)
+        })
+        .catch((cause) => {
+          if (cancelled || id !== threadIdProp) return
+          setError(toAIThreadError('thread_open', cause))
+        })
+        .finally(() => {
+          if (!cancelled && id === threadIdProp) {
+            setIsOpeningThread(false)
+          }
+        })
 
       return () => {
         cancelled = true
@@ -126,6 +146,8 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
         runtime,
         threadId,
         setThreadId,
+        isOpeningThread,
+        error,
         canvas,
         openCanvas: handleOpenCanvas,
         closeCanvas: handleCloseCanvas,
@@ -134,6 +156,8 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
         runtime,
         threadId,
         setThreadId,
+        isOpeningThread,
+        error,
         canvas,
         handleOpenCanvas,
         handleCloseCanvas,

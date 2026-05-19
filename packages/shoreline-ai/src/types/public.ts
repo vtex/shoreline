@@ -71,6 +71,15 @@ export interface AIThreadData {
   archived?: boolean
 }
 
+/** Category of errors exposed on {@link useAIThread}. */
+export type AIThreadErrorType = 'thread_open'
+
+/** Serializable thread error for UI, logging, and i18n. */
+export interface AIThreadError {
+  type: AIThreadErrorType
+  message: string
+}
+
 /** User message part for {@link AIMessageInput}. */
 export type AIMessageInputPart =
   | { type: 'text'; text: string }

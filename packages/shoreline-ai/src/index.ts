@@ -20,6 +20,8 @@ export type {
   AIToolUITriggerProps,
   StreamStatus,
   ToolStatus,
+  AIThreadError,
+  AIThreadErrorType,
 } from './types'
 
 export type { AIRuntime } from './types/runtime'

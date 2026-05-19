@@ -13,4 +13,6 @@ export type {
   AIToolUITriggerProps,
   StreamStatus,
   ToolStatus,
+  AIThreadError,
+  AIThreadErrorType,
 } from './public'
