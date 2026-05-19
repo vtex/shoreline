@@ -20,6 +20,22 @@ describe('flattenObject', () => {
     expect(result).toStrictEqual(expectation)
   })
 
+  it('should preserve null values', () => {
+    const result = flattenObject({
+      a: {
+        b: null,
+        c: 'value',
+      },
+    })
+
+    const expectation = {
+      'a-b': null,
+      'a-c': 'value',
+    }
+
+    expect(result).toStrictEqual(expectation)
+  })
+
   it('should handle default values', () => {
     const result = flattenObject({
       a: {

@@ -41,7 +41,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
       const lastPosition = Math.min(page * size, total)
 
       return { firstPosition, lastPosition }
-    }, [page, total])
+    }, [page, total, size])
 
     const isSinglePage = total <= size
     const paginationLabel = isSinglePage
