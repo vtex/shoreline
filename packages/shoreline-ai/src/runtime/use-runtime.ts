@@ -1,5 +1,8 @@
 /**
- * useRuntime — mounts BuiltRuntime on Assistant-UI LocalRuntime.
+ * Mounts a {@link BuiltRuntime} on Assistant-UI `LocalRuntime`.
+ *
+ * Memoize the result of `createRuntimeBuilder()…build()` (e.g. with `useMemo`)
+ * so adapters are not recreated every render.
  *
  * @status experimental
  */
@@ -24,8 +27,8 @@ export function useRuntime(built: BuiltRuntime): AssistantRuntime {
   }, [built.attachmentHandler])
 
   return useLocalRuntime(chatModelAdapter, {
-    adapters: {
-      ...(attachmentAdapter ? { attachments: attachmentAdapter as never } : {}),
-    },
+    adapters: attachmentAdapter
+      ? { attachments: attachmentAdapter }
+      : undefined,
   })
 }

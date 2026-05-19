@@ -3,7 +3,11 @@
  * Internal — not exported from the package barrel.
  */
 
-import type { ChatModelRunResult } from '@assistant-ui/react'
+import type {
+  ChatModelRunResult,
+  ThreadAssistantMessagePart,
+  ToolCallMessagePart,
+} from '@assistant-ui/react'
 
 import type {
   AIMessagePart,
@@ -14,7 +18,7 @@ import type {
   StreamStatus,
 } from '../../types/public'
 
-export type AssistantContentPart = ChatModelRunResult['content'][number]
+export type AssistantContentPart = ThreadAssistantMessagePart
 
 function mapTextPart(part: AITextPart): AssistantContentPart {
   return { type: 'text', text: part.text }
@@ -33,7 +37,9 @@ function mapToolPart(part: AIToolPart, index: number): AssistantContentPart {
     type: 'tool-call',
     toolCallId,
     toolName: part.name,
-    args: part.metadata ? { ...part.args, metadata: part.metadata } : part.args,
+    args: (part.metadata
+      ? { ...part.args, metadata: part.metadata }
+      : part.args) as unknown as ToolCallMessagePart['args'],
     result: part.error ?? part.output,
     isError: part.status === 'error',
     argsText: JSON.stringify(part.args),
@@ -58,29 +64,38 @@ function mapResourcePart(part: AIResourcePart): AssistantContentPart {
 export function mapAIMessagePartsToContentParts(
   parts: AIMessagePart[]
 ): AssistantContentPart[] {
+  const mapped: AssistantContentPart[] = []
   let toolIndex = 0
 
-  return parts.map((part) => {
+  for (const part of parts) {
     switch (part.type) {
       case 'text':
-        return mapTextPart(part)
+        mapped.push(mapTextPart(part))
+        break
       case 'reasoning':
-        return mapReasoningPart(part)
+        mapped.push(mapReasoningPart(part))
+        break
       case 'tool':
-        return mapToolPart(part, toolIndex++)
+        mapped.push(mapToolPart(part, toolIndex))
+        toolIndex += 1
+        break
       case 'resource':
-        return mapResourcePart(part)
+        mapped.push(mapResourcePart(part))
+        break
       default:
-        return { type: 'text', text: '' }
+        break
     }
-  })
+  }
+
+  return mapped
 }
 
+/** Maps Shoreline stream status to Assistant-UI message status. */
 export function mapStreamStatus(
   status?: StreamStatus
 ): ChatModelRunResult['status'] {
   if (!status || status === 'ready') {
-    return { type: 'complete' }
+    return { type: 'complete', reason: 'stop' }
   }
 
   if (status === 'error') {

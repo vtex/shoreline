@@ -11,8 +11,9 @@ import type {
   StreamStatus,
 } from '../types/public'
 
-export type { StreamStatus }
-
+/**
+ * Payload for a single model run.
+ */
 export interface RuntimeRunInput {
   messages: AIMessage[]
   abortSignal: AbortSignal
@@ -24,7 +25,16 @@ export interface RuntimeSnapshot {
   status?: StreamStatus
 }
 
-/** Plugin implemented by protocol runtimes (e.g. VTEX in agentic-ui). */
+/**
+ * Streaming plugin implemented by protocol runtimes.
+ *
+ * Contract:
+ * - **`yield`** — partial snapshots while the stream is in progress.
+ * - **`return`** — final authoritative snapshot when the stream ends.
+ *
+ * Consumers (e.g. `createChatModelAdapterFromTransport`) must handle both:
+ * `for await` alone does not read the generator `return` value.
+ */
 export interface StreamTransport {
   run(input: RuntimeRunInput): AsyncGenerator<RuntimeSnapshot, RuntimeSnapshot>
 }
@@ -54,8 +64,8 @@ export interface BuiltRuntime {
   attachmentHandler?: AttachmentHandler
 }
 
-export interface RuntimeBuilder {
-  transport(transport: StreamTransport): RuntimeBuilder
-  attachments(handler: AttachmentHandler): RuntimeBuilder
-  build(): BuiltRuntime
+export interface RuntimeBuilder<HasTransport extends boolean = false> {
+  transport(transport: StreamTransport): RuntimeBuilder<true>
+  attachments(handler: AttachmentHandler): RuntimeBuilder<HasTransport>
+  build(this: RuntimeBuilder<true>): BuiltRuntime
 }

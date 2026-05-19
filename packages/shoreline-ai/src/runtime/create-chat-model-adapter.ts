@@ -8,8 +8,12 @@ import type {
   ChatModelRunResult,
 } from '@assistant-ui/react'
 
-import type { AIMessage } from '../types/public'
+import type { AIMessagePart } from '../types/public'
 import type { BuiltRuntime, RuntimeRunInput } from './types'
+import {
+  getLastThreadUserMessage,
+  mapThreadUserMessageToAIMessage,
+} from './bridge/map-from-assistant-ui'
 import {
   mapAIMessagePartsToContentParts,
   mapStreamStatus,
@@ -18,59 +22,20 @@ import {
 function optionsToRunInput(
   options: ChatModelRunOptions
 ): RuntimeRunInput | null {
-  const lastUser = [...options.messages]
-    .reverse()
-    .find((m) => m.role === 'user')
+  const lastUser = getLastThreadUserMessage(options.messages)
 
   if (!lastUser) return null
 
-  const parts: AIMessage['parts'] = []
-
-  for (const part of lastUser.content) {
-    if (part.type === 'text' && 'text' in part) {
-      parts.push({ type: 'text', text: part.text })
-    }
-  }
-
-  const attachments = (lastUser as Record<string, unknown>).attachments as
-    | ReadonlyArray<{
-        content: ReadonlyArray<{
-          type: string
-          data?: string
-          mimeType?: string
-        }>
-        name?: string
-      }>
-    | undefined
-
-  if (attachments) {
-    for (const attachment of attachments) {
-      for (const content of attachment.content) {
-        if (content.type === 'file' && content.data) {
-          parts.push({
-            type: 'resource',
-            uri: content.data,
-            name: attachment.name ?? 'file',
-            mimeType: content.mimeType ?? 'application/octet-stream',
-          })
-        }
-      }
-    }
-  }
-
   return {
-    messages: [
-      {
-        id: lastUser.id ?? 'user-msg',
-        role: 'user',
-        parts,
-        createdAt: new Date().toISOString(),
-      },
-    ],
+    messages: [mapThreadUserMessageToAIMessage(lastUser)],
     abortSignal: options.abortSignal,
     assistantMessageId:
       options.unstable_assistantMessageId ?? `asst-${Date.now()}`,
   }
+}
+
+function snapshotJson(parts: AIMessagePart[]): string {
+  return JSON.stringify(parts)
 }
 
 export function createChatModelAdapterFromTransport(
@@ -85,7 +50,7 @@ export function createChatModelAdapterFromTransport(
       if (!input) {
         yield {
           content: [{ type: 'text' as const, text: '' }],
-          status: { type: 'complete' as const },
+          status: { type: 'complete' as const, reason: 'stop' as const },
         }
 
         return
@@ -93,23 +58,35 @@ export function createChatModelAdapterFromTransport(
 
       const generator = built.transport.run(input)
       let result = await generator.next()
+      let lastEmittedJson = ''
 
       while (!result.done) {
         const snapshot = result.value
+        const json = snapshotJson(snapshot.parts)
 
-        yield {
-          content: mapAIMessagePartsToContentParts(snapshot.parts),
-          status: mapStreamStatus(snapshot.status),
+        if (json !== lastEmittedJson) {
+          yield {
+            content: mapAIMessagePartsToContentParts(snapshot.parts),
+            status: mapStreamStatus(snapshot.status),
+          }
+
+          lastEmittedJson = json
         }
 
         result = await generator.next()
       }
 
       const final = result.value
+      const finalJson = snapshotJson(final.parts)
 
-      yield {
-        content: mapAIMessagePartsToContentParts(final.parts),
-        status: mapStreamStatus(final.status) ?? { type: 'complete' as const },
+      if (finalJson !== lastEmittedJson) {
+        yield {
+          content: mapAIMessagePartsToContentParts(final.parts),
+          status: mapStreamStatus(final.status) ?? {
+            type: 'complete' as const,
+            reason: 'stop' as const,
+          },
+        }
       }
     },
   }

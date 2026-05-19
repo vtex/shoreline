@@ -11,32 +11,36 @@ import type {
   StreamTransport,
 } from './types'
 
-class RuntimeBuilderImpl implements RuntimeBuilder {
+class RuntimeBuilderImpl<HasTransport extends boolean = false>
+  implements RuntimeBuilder<HasTransport>
+{
   private _transport: StreamTransport | null = null
   private _attachmentHandler: AttachmentHandler | undefined
 
-  transport(transport: StreamTransport): RuntimeBuilder {
+  transport(transport: StreamTransport): RuntimeBuilder<true> {
     this._transport = transport
 
-    return this
+    return this as unknown as RuntimeBuilder<true>
   }
 
-  attachments(handler: AttachmentHandler): RuntimeBuilder {
+  attachments(handler: AttachmentHandler): RuntimeBuilder<HasTransport> {
     this._attachmentHandler = handler
 
     return this
   }
 
-  build(): BuiltRuntime {
-    if (!this._transport) {
+  build(this: RuntimeBuilder<true>): BuiltRuntime {
+    const self = this as unknown as RuntimeBuilderImpl<true>
+
+    if (!self._transport) {
       throw new Error(
         'createRuntimeBuilder: transport() is required before build()'
       )
     }
 
     return {
-      transport: this._transport,
-      attachmentHandler: this._attachmentHandler,
+      transport: self._transport,
+      attachmentHandler: self._attachmentHandler,
     }
   }
 }

@@ -2,15 +2,10 @@
  * Bridges AttachmentHandler to Assistant-UI attachment adapter shape.
  */
 
+import type { AttachmentAdapter } from '@assistant-ui/react'
+
+import { generateId } from '../../utils/generate-id'
 import type { AttachmentHandler, PendingAttachment } from '../types'
-
-function generateId(): string {
-  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
-    return crypto.randomUUID()
-  }
-
-  return `att-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`
-}
 
 function getAttachmentType(file: File): 'image' | 'document' | 'file' {
   if (file.type.startsWith('image/')) return 'image'
@@ -25,14 +20,26 @@ function getAttachmentType(file: File): 'image' | 'document' | 'file' {
   return 'file'
 }
 
-export function createAssistantAttachmentAdapter(handler: AttachmentHandler) {
+export function createAssistantAttachmentAdapter(
+  handler: AttachmentHandler
+): AttachmentAdapter {
   const pendingMap = new Map<string, PendingAttachment>()
+  const objectUrlByAttachmentId = new Map<string, string>()
+
+  function revokeObjectUrl(attachmentId: string): void {
+    const url = objectUrlByAttachmentId.get(attachmentId)
+
+    if (url) {
+      URL.revokeObjectURL(url)
+      objectUrlByAttachmentId.delete(attachmentId)
+    }
+  }
 
   return {
     accept: '*',
 
-    async add({ file }: { file: File }) {
-      const id = generateId()
+    async add({ file }) {
+      const id = generateId('att')
       const pending: PendingAttachment = {
         id,
         file,
@@ -43,15 +50,16 @@ export function createAssistantAttachmentAdapter(handler: AttachmentHandler) {
       pendingMap.set(id, pending)
 
       const upload = handler.add(file)
-      let progress = 0
 
       for await (const state of upload) {
-        progress = state.progress
-
         if (state.status === 'error') {
           throw new Error(state.error ?? 'Upload failed')
         }
       }
+
+      const objectUrl = URL.createObjectURL(file)
+
+      objectUrlByAttachmentId.set(id, objectUrl)
 
       return {
         id,
@@ -66,24 +74,21 @@ export function createAssistantAttachmentAdapter(handler: AttachmentHandler) {
         content: [
           {
             type: 'file',
-            data: URL.createObjectURL(file),
+            data: objectUrl,
             mimeType: file.type,
           },
         ],
       }
     },
 
-    async send(attachment: {
-      id: string
-      type: string
-      name: string
-      contentType: string
-    }) {
+    async send(attachment) {
       const pending = pendingMap.get(attachment.id)
 
       if (!pending) {
         throw new Error(`No pending attachment for ${attachment.id}`)
       }
+
+      revokeObjectUrl(attachment.id)
 
       const resource = await handler.send(pending)
 
@@ -97,14 +102,19 @@ export function createAssistantAttachmentAdapter(handler: AttachmentHandler) {
           {
             type: 'file',
             data: resource.uri,
-            mimeType: resource.mimeType ?? attachment.contentType,
+            mimeType:
+              resource.mimeType ??
+              attachment.contentType ??
+              'application/octet-stream',
           },
         ],
       }
     },
 
-    async remove(attachment: { id: string }) {
+    async remove(attachment) {
       const pending = pendingMap.get(attachment.id)
+
+      revokeObjectUrl(attachment.id)
 
       if (pending) {
         await handler.remove(pending)

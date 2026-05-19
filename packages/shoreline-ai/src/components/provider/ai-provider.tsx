@@ -18,7 +18,6 @@ import {
 } from '@assistant-ui/react'
 
 import { AIStreamDebugProvider } from '../debug/stream-debug-context'
-import type { BuiltRuntime } from '../../runtime/types'
 import { AIContext, DEFAULT_CANVAS, type CanvasState } from './ai-context'
 
 /**
@@ -35,7 +34,7 @@ import { AIContext, DEFAULT_CANVAS, type CanvasState } from './ai-context'
  */
 
 export interface AIProviderOptions {
-  runtime: AssistantRuntime | BuiltRuntime
+  runtime: AssistantRuntime
   threadId?: string | null
   onThreadChange?: (id: string | null) => void
   debugStream?: boolean
@@ -43,12 +42,6 @@ export interface AIProviderOptions {
 }
 
 export type AIProviderProps = AIProviderOptions
-
-function isBuiltRuntime(
-  value: AssistantRuntime | BuiltRuntime
-): value is BuiltRuntime {
-  return 'transport' in value && typeof value.transport === 'object'
-}
 
 const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
   function AIProviderInner(props, ref) {
@@ -58,12 +51,6 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       threadId: initialThreadId,
       onThreadChange,
     } = props
-
-    if (isBuiltRuntime(runtime)) {
-      throw new Error(
-        'AIProvider expects an AssistantRuntime from useRuntime(), not BuiltRuntime. Call useRuntime(built) first.'
-      )
-    }
 
     const [threadId, setThreadIdState] = useState<string | null>(
       initialThreadId ?? null
