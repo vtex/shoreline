@@ -9,6 +9,7 @@ Backend-agnostic React runtime for AI chat on top of [Assistant UI](https://www.
 | [**RUNTIME.md**](./RUNTIME.md) | `StreamTransport`, builder, `useRuntime`, attachments, hydrate, stream debug |
 | [**PROVIDER.md**](./PROVIDER.md) | `<AIProvider>`, `useAIContext`, thread id, canvas |
 | [**HOOKS.md**](./HOOKS.md) | `useAIThread`, `useAIStatus`, message part hooks |
+| [**COMPOSER.md**](./COMPOSER.md) | `AIComposer*`, layout, attachments, i18n |
 | [**TOOL-UI.md**](./TOOL-UI.md) | `makeAIToolUI`, `<AICanvas>`, fallback |
 
 Package entry: [`../src/index.ts`](../src/index.ts).
