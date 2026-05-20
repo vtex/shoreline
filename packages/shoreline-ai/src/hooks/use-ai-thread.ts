@@ -19,6 +19,7 @@ export function useAIThread(): {
   threadId: string | null
   isOpeningThread: boolean
   error: AIThreadError | null
+  isEmpty: boolean
   sendMessage: (input: AIMessageInput) => void
   stopGeneration: () => void
   switchThread: (threadId: string) => void
@@ -36,6 +37,8 @@ export function useAIThread(): {
     () => threadMessages.map(mapThreadMessageToAIMessage),
     [threadMessages]
   )
+
+  const isEmpty = threadMessages.length === 0
 
   const sendMessage = useCallback(
     (input: AIMessageInput) => {
@@ -97,6 +100,7 @@ export function useAIThread(): {
     threadId,
     isOpeningThread,
     error,
+    isEmpty,
     sendMessage,
     stopGeneration,
     switchThread,

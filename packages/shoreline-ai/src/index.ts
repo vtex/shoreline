@@ -68,6 +68,25 @@ export { useAIThread } from './hooks/use-ai-thread'
 export { useAIComposer } from './hooks/use-ai-composer'
 export { useAIMessageParts } from './hooks/use-ai-message-parts'
 
+// Thread
+export {
+  AIThread,
+  AIThreadViewport,
+  AIThreadEmpty,
+  AIThreadViewportFooter,
+  AIThreadScrollToBottom,
+} from './components/thread'
+export type {
+  AIThreadProps,
+  AIThreadOptions,
+  AIThreadViewportProps,
+  AIThreadViewportOptions,
+  AIThreadEmptyProps,
+  AIThreadViewportFooterProps,
+  AIThreadScrollToBottomProps,
+  AIThreadMessages,
+} from './components/thread'
+
 // Composer
 export {
   AIComposer,
