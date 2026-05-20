@@ -1,4 +1,4 @@
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef } from '@vtex/shoreline'
 
 import type { AIComposerFieldProps } from './types'
 

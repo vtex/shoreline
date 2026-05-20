@@ -3,13 +3,7 @@ import { defineConfig } from 'tsup'
 export default defineConfig({
   entry: ['src/index.ts'],
   format: ['cjs', 'esm'],
-  external: [
-    'react',
-    'react-dom',
-    '@assistant-ui/react',
-    '@vtex/shoreline',
-    '@vtex/shoreline-utils',
-  ],
+  external: ['react', 'react-dom', '@assistant-ui/react', '@vtex/shoreline'],
   splitting: false,
   sourcemap: true,
   clean: true,

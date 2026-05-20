@@ -1,5 +1,5 @@
 import { Skeleton } from '@vtex/shoreline'
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef } from '@vtex/shoreline'
 
 import type { AIComposerSkeletonProps } from './types'
 

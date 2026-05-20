@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef } from '@vtex/shoreline'
 
 import type { AIComposerActionsProps } from './types'
 

@@ -1,6 +1,6 @@
 import { ComposerPrimitive } from '@assistant-ui/react'
 import { memo } from 'react'
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef } from '@vtex/shoreline'
 
 import { AIComposerAttachment } from './ai-composer-attachment'
 import type { AIComposerAttachmentsProps } from './types'

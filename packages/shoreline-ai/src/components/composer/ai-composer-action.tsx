@@ -1,4 +1,4 @@
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef } from '@vtex/shoreline'
 
 import { useAIStatus } from '../../hooks/use-ai-status'
 import { AIComposerCancel } from './ai-composer-cancel'

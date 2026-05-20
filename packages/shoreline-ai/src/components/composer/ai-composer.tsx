@@ -1,5 +1,5 @@
 import { ComposerPrimitive } from '@assistant-ui/react'
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef } from '@vtex/shoreline'
 
 import { ComposerMessagesProvider } from './composer-messages-context'
 import { AIComposerSkeleton } from './ai-composer-skeleton'

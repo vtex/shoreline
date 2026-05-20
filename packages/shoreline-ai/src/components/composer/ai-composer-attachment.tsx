@@ -7,7 +7,7 @@ import {
   Text,
 } from '@vtex/shoreline'
 import { useEffect, useState } from 'react'
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef } from '@vtex/shoreline'
 
 import { useComposerMessagesContext } from './composer-messages-context'
 import type { AIComposerAttachmentProps } from './types'

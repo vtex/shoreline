@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react'
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef } from '@vtex/shoreline'
 
 export const IconSquareFill = forwardRef<
   SVGSVGElement,

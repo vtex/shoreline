@@ -1,5 +1,5 @@
 import { Children } from 'react'
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef } from '@vtex/shoreline'
 
 import { isAIComposerActions } from './ai-composer-actions'
 import type { AIComposerFooterProps } from './types'

@@ -1,6 +1,6 @@
 import { ComposerPrimitive } from '@assistant-ui/react'
 import { IconButton } from '@vtex/shoreline'
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef } from '@vtex/shoreline'
 
 import { IconSquareFill } from '../icons/icon-square-fill'
 import { useComposerMessagesContext } from './composer-messages-context'

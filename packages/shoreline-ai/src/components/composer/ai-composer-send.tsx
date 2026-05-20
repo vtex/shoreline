@@ -1,6 +1,6 @@
 import { ComposerPrimitive, useAuiState } from '@assistant-ui/react'
 import { IconArrowUp, IconButton } from '@vtex/shoreline'
-import { forwardRef } from '@vtex/shoreline-utils'
+import { forwardRef } from '@vtex/shoreline'
 
 import { useComposerMessagesContext } from './composer-messages-context'
 import type { AIComposerSendProps } from './types'

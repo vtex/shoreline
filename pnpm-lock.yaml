@@ -333,9 +333,6 @@ importers:
 
   packages/shoreline-ai:
     dependencies:
-      '@vtex/shoreline-utils':
-        specifier: workspace:*
-        version: link:../utils
       react:
         specifier: '>=18.3'
         version: 18.3.1

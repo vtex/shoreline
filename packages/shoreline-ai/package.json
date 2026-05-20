@@ -54,7 +54,6 @@
     "@vtex/shoreline-test-utils": "workspace:*"
   },
   "dependencies": {
-    "tiny-invariant": "^1.3.3",
-    "@vtex/shoreline-utils": "workspace:*"
+    "tiny-invariant": "^1.3.3"
   }
 }
