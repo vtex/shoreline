@@ -10,6 +10,9 @@ Use inside `<AIProvider>`. Runtime setup: [RUNTIME.md](./RUNTIME.md). Provider p
 const {
   messages,
   threadId,
+  isEmpty,
+  isOpeningThread,
+  error,
   sendMessage,
   stopGeneration,
   switchThread,
@@ -22,11 +25,16 @@ const {
 |--------|-------------|
 | `messages` | Current thread as `AIMessage[]` |
 | `threadId` | Active persistence id |
+| `isEmpty` | `true` when the active thread has no messages |
+| `isOpeningThread` | `true` while initial thread open is pending |
+| `error` | `AIThreadError \| null` (e.g. `thread_open`) |
 | `sendMessage` | Append user message and start a run |
 | `stopGeneration` | Cancel active run (`abortSignal`) |
 | `switchThread` | Cancel, clear UI, update thread id |
 | `createThread` | New id, clear UI, set active |
 | `loadMessages` | Replace thread content from `AIMessage[]` |
+
+Thread layout (`AIThread*`, empty slot, footer): [THREAD.md](./THREAD.md).
 
 ### `sendMessage`
 
@@ -56,7 +64,7 @@ switchThread(newId)
 loadMessages(history)
 ```
 
-`switchThread` clears the Assistant-UI thread and updates `threadId`. Fetch and hydrate in your app layer.
+`switchThread` clears the in-memory thread and updates `threadId`. Fetch and hydrate in your app layer.
 
 ## `useAIComposer()`
 

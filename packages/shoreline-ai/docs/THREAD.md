@@ -2,11 +2,11 @@
 
 > **Status:** experimental
 
-Shoreline-styled chat **layout** for AI apps: the **`AIThread*`** family from `@vtex/shoreline-ai` (scrollable viewport, empty slot, sticky viewport footer, scroll-to-bottom). Message rendering stays on `ThreadPrimitive.Messages` from `@assistant-ui/react` in v0.
+Shoreline-styled chat **layout** for AI apps: the **`AIThread*`** family from `@vtex/shoreline-ai` (scrollable viewport, empty slot, sticky viewport footer, scroll-to-bottom). Mount inside `<AIProvider>`.
 
-Related guides: [PROVIDER.md](./PROVIDER.md), [HOOKS.md](./HOOKS.md) (`useAIThread`, `isEmpty`), [COMPOSER.md](./COMPOSER.md) (mount `AIComposer` inside `AIThreadViewportFooter`).
+Related guides: [PROVIDER.md](./PROVIDER.md), [HOOKS.md](./HOOKS.md) (`useAIThread`, `sendMessage`, multi-thread), [RUNTIME.md](./RUNTIME.md) (`loadMessages`).
 
-**Prerequisites:** `<AIProvider runtime={runtime}>` wrapping your chat UI.
+**Prerequisites:** `<AIProvider runtime={runtime}>` wrapping your chat UI. Import `@vtex/shoreline/css` and `@vtex/shoreline-ai/css`. Wrap with `LocaleProvider` so built-in labels use the `en-US` / `pt-BR` catalogs.
 
 ## Setup
 
@@ -14,107 +14,244 @@ Related guides: [PROVIDER.md](./PROVIDER.md), [HOOKS.md](./HOOKS.md) (`useAIThre
 import '@vtex/shoreline/css'
 import '@vtex/shoreline-ai/css'
 
-import { ThreadPrimitive } from '@assistant-ui/react'
+import { LocaleProvider } from '@vtex/shoreline'
 import {
   AIProvider,
   AIThread,
   AIThreadViewport,
   AIThreadEmpty,
-  AIThreadScrollToBottom,
   AIThreadViewportFooter,
-  AIComposer,
+  AIThreadScrollToBottom,
   useAIThread,
 } from '@vtex/shoreline-ai'
 ```
 
-## Normative composition
+## Quick start
 
-Inside `AIThreadViewport`, mount slots in this order (each slot except the footer is optional per route):
-
-1. `AIThreadEmpty` (optional)
-2. `ThreadPrimitive.Messages` (optional in v0 — app-owned)
-3. `AIThreadViewportFooter` (required when the surface includes a composer)
-   - `AIThreadScrollToBottom` (optional, **first child**)
-   - `AIComposer` (+ banners de erro do app)
-
-`ThreadPrimitive.Viewport` is the scroll container. `AIThreadViewportFooter` is `position: sticky` at the bottom of the viewport (same pattern as `@assistant-ui/react-ui` `Thread`). The scroll-to-bottom control floats above the composer via `position: absolute` on `[data-sl-ai-thread-scroll-to-bottom]` inside the sticky footer.
-
-### Single-surface (empty + messages)
+Normative tree: empty slot and message area inside the viewport; sticky footer with scroll control first, then app footer content.
 
 ```tsx
-const { isOpeningThread, error } = useAIThread()
-const openError = error?.type === 'thread_open' ? error.message : null
-
-<AIThread>
-  <AIThreadViewport autoScroll>
-    <AIThreadEmpty>{/* welcome */}</AIThreadEmpty>
-    <ThreadPrimitive.Messages components={{ UserMessage, AssistantMessage }} />
-    <AIThreadViewportFooter>
-      <AIThreadScrollToBottom />
-      {openError ? (
-        <p role="alert" data-sl-ai-thread-error>
-          {openError}
-        </p>
-      ) : null}
-      <AIComposer loading={isOpeningThread}>{/* … */}</AIComposer>
-    </AIThreadViewportFooter>
-  </AIThreadViewport>
-</AIThread>
+<LocaleProvider locale="pt-BR">
+  <AIProvider runtime={runtime}>
+    <AIThread>
+      <AIThreadViewport autoScroll>
+        <AIThreadEmpty>{/* welcome */}</AIThreadEmpty>
+        {/* messages */}
+        <AIThreadViewportFooter>
+          <AIThreadScrollToBottom />
+          {/* footer: input, alerts */}
+        </AIThreadViewportFooter>
+      </AIThreadViewport>
+    </AIThread>
+  </AIProvider>
+</LocaleProvider>
 ```
 
-### Home route (empty only)
+**Child order inside `AIThreadViewport`:** `AIThreadEmpty` (optional) → messages (optional) → `AIThreadViewportFooter` (when the surface has a fixed footer). Inside the footer, mount `AIThreadScrollToBottom` as the **first child** so it floats above later footer slots.
 
-Omit `ThreadPrimitive.Messages`; keep `AIThreadEmpty` + footer composer.
-
-### Thread route (messages only)
-
-Omit `AIThreadEmpty`; keep `ThreadPrimitive.Messages` + footer composer.
+`AIThreadViewport` is the scroll container. `AIThreadViewportFooter` stays sticky at the bottom of the viewport. The scroll-to-bottom control is positioned above the footer via `[data-sl-ai-thread-scroll-to-bottom]`.
 
 ## Components
 
 | Component | Purpose |
 |-----------|---------|
-| `AIThread` | Root container |
-| `AIThreadViewport` | `ThreadPrimitive.Viewport` + auto-scroll (scroll container) |
-| `AIThreadEmpty` | Welcome when `thread.isEmpty` and not `isOpeningThread` |
-| `AIThreadViewportFooter` | Sticky footer; measures height for scroll inset |
-| `AIThreadScrollToBottom` | Jump to latest (`ThreadPrimitive.ScrollToBottom`) |
+| `AIThread` | Root container; optional `messages` overrides i18n |
+| `AIThreadViewport` | Scrollable viewport with auto-scroll on new messages and thread switches |
+| `AIThreadEmpty` | Renders children only when the thread is empty and not opening |
+| `AIThreadViewportFooter` | Sticky footer; height is measured for scroll inset |
+| `AIThreadScrollToBottom` | Button to jump to the latest messages when not at the bottom |
 
-## Opening a thread
+## Composition variants
+
+The quick start tree is the default. Use these variants only when behavior differs:
+
+### Without scroll-to-bottom
+
+Omit `AIThreadScrollToBottom` and keep only app content in the footer:
+
+```tsx
+<AIThreadViewportFooter>
+  {/* footer slots */}
+</AIThreadViewportFooter>
+```
+
+### Error banner in the footer
+
+Read `useAIThread().error` and render an alert with `data-sl-ai-thread-error`:
+
+```tsx
+const { error } = useAIThread()
+const openError = error?.type === 'thread_open' ? error.message : null
+
+<AIThreadViewportFooter>
+  <AIThreadScrollToBottom />
+  {openError ? (
+    <p role="alert" data-sl-ai-thread-error>
+      {openError}
+    </p>
+  ) : null}
+  {/* footer slots */}
+</AIThreadViewportFooter>
+```
+
+### Opening a thread
 
 While `useAIThread().isOpeningThread` is `true`:
 
 - `AIThreadEmpty` does not render (avoids welcome flash before history hydrates).
-- Use `AIComposer loading={isOpeningThread}` in the footer for input skeleton (see [COMPOSER.md](./COMPOSER.md)).
+- Mount loading UI in the footer in your app layer (for example a composer skeleton — see [COMPOSER.md](./COMPOSER.md)).
 
-## `useAIThread().isEmpty`
-
-```tsx
-const { isEmpty, messages } = useAIThread()
+```mermaid
+flowchart TB
+  root[AIThread]
+  vp[AIThreadViewport]
+  empty[AIThreadEmpty]
+  content[Messages]
+  footer[AIThreadViewportFooter]
+  scroll[AIThreadScrollToBottom]
+  slot["App footer slots"]
+  root --> vp
+  vp --> empty
+  vp --> content
+  vp --> footer
+  footer --> scroll
+  footer --> slot
 ```
 
-`isEmpty` is `true` when the active thread has zero messages (same as `useAuiState((s) => s.thread.isEmpty)` when the thread source is active).
+## `<AIThread>`
 
-## Viewport props
+| Prop | Default | Purpose |
+|------|---------|---------|
+| `messages` | — | Partial override of the internal i18n catalog |
+| `children` | — | Thread subtree (`AIThreadViewport`, etc.) |
 
-`AIThreadViewport` forwards these to `ThreadPrimitive.Viewport` (defaults `true`):
+Also accepts native `div` attributes (`className`, `style`, `id`, …).
 
-- `autoScroll`
-- `scrollToBottomOnRunStart`
-- `scrollToBottomOnInitialize`
-- `scrollToBottomOnThreadSwitch`
+Message ids: `scrollToBottom`.
+
+```tsx
+<AIThread messages={{ scrollToBottom: 'Ir para o fim' }} />
+```
+
+Only `AIThread` accepts `messages`; child components read from context.
+
+## Subcomponent props
+
+### `AIThreadViewport`
+
+| Prop | Default | Purpose |
+|------|---------|---------|
+| `autoScroll` | `true` | Scroll to bottom when new messages arrive |
+| `scrollToBottomOnRunStart` | `true` | Scroll to bottom when a new run starts |
+| `scrollToBottomOnInitialize` | `true` | Scroll to bottom when thread history is first loaded |
+| `scrollToBottomOnThreadSwitch` | `true` | Scroll to bottom when switching to a different thread |
+| `children` | — | Empty slot, message area, footer |
+
+Also accepts native `div` attributes.
+
+### `AIThreadEmpty`
+
+| Prop | Purpose |
+|------|---------|
+| `children` | Welcome or onboarding UI |
+
+Standard `div` props. **Behavior:** renders children only when `useAIThread().isEmpty` is `true` and `isOpeningThread` is `false`; otherwise returns `null`. No package layout styles on this slot.
+
+### `AIThreadViewportFooter`
+
+| Prop | Purpose |
+|------|---------|
+| `children` | Footer slots (scroll control, input, alerts) |
+
+Standard `div` props. Sticky at the bottom of the viewport; footer height is used to inset auto-scroll so content is not hidden behind the footer.
+
+### `AIThreadScrollToBottom`
+
+| Prop | Purpose |
+|------|---------|
+| `children` | Optional custom control content (default: caret icon) |
+
+Standard `button` props. Hidden via `disabled` and `opacity: 0` when the viewport is already at the bottom. Must be the **first child** of `AIThreadViewportFooter`.
+
+## Types
+
+Exported from `@vtex/shoreline-ai`:
+
+| Type | Description |
+|------|-------------|
+| `AIThreadOptions` | `messages`, `children` |
+| `AIThreadProps` | `AIThreadOptions` + `div` HTML attributes |
+| `AIThreadViewportOptions` | Viewport scroll props + `children` |
+| `AIThreadViewportProps` | `AIThreadViewportOptions` + `div` HTML attributes |
+| `AIThreadEmptyProps` | `div` HTML attributes |
+| `AIThreadViewportFooterProps` | `div` HTML attributes |
+| `AIThreadScrollToBottomProps` | `button` HTML attributes |
+| `AIThreadMessages` | `{ scrollToBottom?: string }` |
+
+Thread errors surfaced on `useAIThread().error`:
+
+| Type | Description |
+|------|-------------|
+| `AIThreadErrorType` | `'thread_open'` |
+| `AIThreadError` | `{ type: AIThreadErrorType; message: string }` |
+
+## Hooks
+
+Use `useAIThread()` inside `<AIProvider>` for thread layout and operations.
+
+| Member | Use with `AIThread*` |
+|--------|----------------------|
+| `isEmpty` | `true` when the active thread has zero messages; mirrors when `AIThreadEmpty` would show |
+| `isOpeningThread` | `true` while initial thread open is pending; suppresses `AIThreadEmpty` |
+| `error` | `AIThreadError \| null` — e.g. `thread_open` for a footer alert |
+| `messages` | Current thread as `AIMessage[]` |
+| `threadId` | Active persistence id |
+| `sendMessage` | Append user message and start a run |
+| `stopGeneration` | Cancel the active run |
+| `switchThread` | Cancel run, clear UI, set active thread id |
+| `createThread` | New id, clear UI, return id |
+| `loadMessages` | Replace thread content from `AIMessage[]` |
+
+```tsx
+const { isEmpty, isOpeningThread, error, messages } = useAIThread()
+const openError = error?.type === 'thread_open' ? error.message : null
+```
+
+`isEmpty` is derived from `messages.length === 0` on the active thread.
+
+Full `sendMessage` shapes and multi-thread flows: [HOOKS.md](./HOOKS.md#useaithread).
+
+## i18n
+
+Built-in locales: `en-US`, `pt-BR` (see `components/thread/messages/` in the package).
+
+| Message id | Default (`en-US`) |
+|------------|-------------------|
+| `scrollToBottom` | Scroll to bottom |
+
+Override only on the root:
+
+```tsx
+<AIThread messages={{ scrollToBottom: 'Rolar para o final' }} />
+```
+
+Unset keys fall back to the active `LocaleProvider` catalog.
 
 ## Styling hooks
+
+Import package CSS once:
+
+```tsx
+import '@vtex/shoreline-ai/css'
+```
+
+Stable `data-sl-*` hooks for app overrides:
 
 | Attribute | Region |
 |-----------|--------|
 | `[data-sl-ai-thread]` | Root |
-| `[data-sl-ai-thread-viewport]` | Scrollable viewport (`ThreadPrimitive.Viewport`) |
-| `[data-sl-ai-thread-empty]` | Empty slot |
-| `[data-sl-ai-thread-viewport-footer]` | Sticky footer (composer, scroll control anchor) |
+| `[data-sl-ai-thread-viewport]` | Scrollable viewport |
+| `[data-sl-ai-thread-empty]` | Empty slot (no package layout styles) |
+| `[data-sl-ai-thread-viewport-footer]` | Sticky footer |
 | `[data-sl-ai-thread-scroll-to-bottom]` | Scroll control (floated above footer) |
-| `[data-sl-ai-thread-error]` | App error banner in footer |
-
-## i18n
-
-Pass `messages` on `AIThread` to override `scrollToBottom` (see package locale files under `components/thread/messages/`).
+| `[data-sl-ai-thread-error]` | App error banner in footer (convention) |
