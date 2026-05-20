@@ -46,6 +46,7 @@ export function useAIThread(): {
       aui.thread().append({
         role: 'user',
         content,
+        startRun: true,
       })
     },
     [aui]

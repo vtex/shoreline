@@ -1,0 +1,395 @@
+@layer sl-components {
+  [data-sl-ai-composer] {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* TODO(token): add --sl-radius-4: 1.5rem to @vtex/shoreline-css (sunrise); matches ai-workspace-shell theme.css */
+  [data-sl-ai-composer-field],
+  [data-sl-ai-composer-skeleton-field] {
+    border-radius: var(--sl-radius-4, 1.5rem);
+  }
+
+  [data-sl-ai-composer-field] {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 72px; /* TODO(token): pill min-height */
+    max-height: 200px; /* TODO(token): pill max-height */
+    height: auto;
+    padding-block: var(--sl-space-3);
+    padding-inline: var(--sl-space-4) var(--sl-space-3);
+    border: 1px solid var(--sl-color-gray-4);
+    background: var(--sl-bg-base);
+    box-sizing: border-box;
+  }
+
+  [data-sl-ai-composer-field]:focus-within {
+    box-shadow: none;
+    outline: none;
+  }
+
+  [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sl-space-2);
+    margin-bottom: var(--sl-space-2);
+  }
+
+  [data-sl-ai-composer-field] [data-sl-textarea] {
+    flex: 1 1 0;
+    min-height: var(--sl-space-8); /* TODO(token): textarea min-height 32px */
+    min-width: 0;
+    width: 100%;
+    max-width: none;
+    align-self: stretch;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 0;
+  }
+
+  [data-sl-ai-composer-field] [data-sl-textarea-input],
+  [data-sl-ai-composer-field] [data-sl-textarea] textarea {
+    min-height: var(--sl-space-8);
+    padding: var(--sl-space-1) var(--sl-space-1) var(--sl-space-1) 0; /* TODO(token): 6px 4px 6px 0 */
+    box-sizing: border-box;
+    height: 100%;
+    border: none;
+    background: transparent;
+    resize: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--sl-fg-base);
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-letter-spacing);
+  }
+
+  [data-sl-ai-composer-field] [data-sl-textarea-input]:hover,
+  [data-sl-ai-composer-field] [data-sl-textarea] textarea:hover,
+  [data-sl-ai-composer-field] [data-sl-textarea-input]:focus,
+  [data-sl-ai-composer-field] [data-sl-textarea-input]:focus-within,
+  [data-sl-ai-composer-field] [data-sl-textarea] textarea:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+  }
+
+  [data-sl-ai-composer-field] [data-sl-textarea-input]::placeholder,
+  [data-sl-ai-composer-field] [data-sl-textarea] textarea::placeholder {
+    color: var(--sl-color-gray-6);
+    opacity: 1;
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-letter-spacing);
+  }
+
+  [data-sl-ai-composer-footer] {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 0;
+    min-height: 2.25rem; /* TODO(token): footer min-height 36px */
+    flex-shrink: 0;
+    margin-top: auto;
+    padding-top: var(--sl-space-05);
+    gap: var(--sl-space-2);
+  }
+
+  [data-sl-ai-composer-footer] > * {
+    align-self: flex-end;
+    min-width: 0;
+  }
+
+  [data-sl-ai-composer-footer-start] {
+    display: flex;
+    gap: var(--sl-space-1); /* TODO(token): 4px */
+    align-items: center;
+  }
+
+  [data-sl-ai-composer-actions] {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-send]:not(:disabled):not(
+      [aria-disabled="true"]
+    ),
+  [data-sl-ai-composer-send]:not(:disabled):not([aria-disabled="true"]) {
+    width: var(--sl-space-10);
+    height: var(--sl-space-10);
+    min-width: var(--sl-space-10);
+    min-height: var(--sl-space-10);
+    padding: 0;
+    border-radius: 50%;
+    background: var(--sl-color-blue-10);
+    color: var(--sl-color-gray-0);
+  }
+
+  [data-sl-ai-composer-send]:not(:disabled):not([aria-disabled="true"]) svg,
+  [data-sl-ai-composer-send]:not(:disabled):not([aria-disabled="true"])
+    svg
+    path {
+    width: var(--sl-space-5);
+    height: var(--sl-space-5);
+    color: var(--sl-color-gray-0);
+    fill: var(--sl-color-gray-0);
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-send]:not(:disabled):not(
+      [aria-disabled="true"]
+    ):hover,
+  [data-sl-ai-composer-send]:not(:disabled):not([aria-disabled="true"]):hover {
+    background: var(--sl-color-blue-11);
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-send]:disabled,
+  [data-sl-icon-button][data-sl-ai-composer-send][aria-disabled="true"],
+  [data-sl-ai-composer-send]:disabled,
+  [data-sl-ai-composer-send][aria-disabled="true"] {
+    width: var(--sl-space-10);
+    height: var(--sl-space-10);
+    min-width: var(--sl-space-10);
+    min-height: var(--sl-space-10);
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  [data-sl-ai-composer-send]:disabled svg,
+  [data-sl-ai-composer-send]:disabled svg path,
+  [data-sl-ai-composer-send][aria-disabled="true"] svg,
+  [data-sl-ai-composer-send][aria-disabled="true"] svg path {
+    width: var(--sl-space-5);
+    height: var(--sl-space-5);
+    color: currentColor;
+    fill: currentColor;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-cancel],
+  [data-sl-ai-composer-cancel] {
+    width: var(--sl-space-10);
+    height: var(--sl-space-10);
+    min-width: var(--sl-space-10);
+    min-height: var(--sl-space-10);
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  [data-sl-ai-composer-cancel] svg,
+  [data-sl-ai-composer-cancel] svg path {
+    width: var(--sl-space-5);
+    height: var(--sl-space-5);
+    color: currentColor;
+    fill: currentColor;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-add-attachment] {
+    flex-shrink: 0;
+    border-radius: var(--sl-radius-full);
+    background: transparent;
+    color: var(--sl-fg-muted);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 0;
+    box-sizing: border-box;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-add-attachment]:hover {
+    background: var(--sl-bg-muted);
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-add-attachment]
+    > [data-sl-button-content] {
+    width: auto;
+    gap: 0;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-add-attachment]
+    > [data-sl-button-content]
+    > [data-sl-icon]:first-child {
+    margin: 0;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-add-attachment] svg {
+    width: 1.5rem; /* TODO(token): icon size 24px in composer */
+    height: 1.5rem;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  /* Attachment chips — visual parity with agentic-ui Artifact (composer variant) */
+  [data-sl-ai-composer-attachment] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--sl-space-3);
+    background: var(--sl-bg-base-soft);
+    border-radius: var(--sl-radius-2);
+    padding: var(--sl-space-2) var(--sl-space-3);
+    max-width: 20rem;
+    transition: background-color 0.15s ease;
+  }
+
+  [data-sl-ai-composer-attachment][data-type="file"],
+  [data-sl-ai-composer-attachment][data-type="document"] {
+    padding-left: var(--sl-space-3);
+    padding-right: var(--sl-space-5);
+    padding-top: var(--sl-space-2);
+    padding-bottom: var(--sl-space-2);
+  }
+
+  [data-sl-ai-composer-attachment]:hover {
+    background: var(--sl-bg-muted-hover);
+  }
+
+  [data-sl-ai-composer-attachment]:focus-within {
+    outline: none;
+    box-shadow: var(--sl-focus-ring-base);
+  }
+
+  [data-sl-ai-composer-attachment][data-status="error"] {
+    box-shadow: 0 0 0 1px var(--sl-color-red-8);
+  }
+
+  [data-sl-ai-composer-attachment][data-type="image"] {
+    min-width: 3rem;
+    height: 3rem;
+    padding: var(--sl-space-05);
+    border: 1px solid var(--sl-border-base);
+  }
+
+  [data-sl-ai-composer-attachment-image] {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [data-sl-ai-composer-attachment-image] img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--sl-radius-2);
+    transition: opacity 0.15s ease;
+  }
+
+  [data-sl-ai-composer-attachment-image]:hover img {
+    opacity: 0.8;
+  }
+
+  [data-sl-ai-composer-attachment-icon] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    color: var(--sl-fg-muted);
+  }
+
+  [data-sl-ai-composer-attachment-icon] [data-sl-icon] {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  [data-sl-ai-composer-attachment-info] {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  [data-sl-ai-composer-attachment-info] [data-sl-text] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-attachment-remove] {
+    position: absolute;
+    top: -0.25rem;
+    right: -0.75rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    min-width: 1.5rem;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--sl-bg-base-soft);
+    border: 2px solid var(--sl-bg-base);
+    flex-shrink: 0;
+    z-index: 1;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-attachment-remove]:hover,
+  [data-sl-icon-button][data-sl-ai-composer-attachment-remove]:active,
+  [data-sl-icon-button][data-sl-ai-composer-attachment-remove]:focus-visible {
+    background-color: var(--sl-bg-base-soft);
+    border: 2px solid var(--sl-bg-base);
+    color: var(--sl-fg-muted);
+  }
+
+  [data-sl-ai-composer-attachment][data-type="image"]
+    [data-sl-icon-button][data-sl-ai-composer-attachment-remove] {
+    right: -0.8125rem;
+    top: -0.3125rem;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-attachment-remove]
+    [data-sl-icon-small] {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  [data-sl-ai-composer-attachment-spinner] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [data-sl-ai-composer-skeleton] {
+    width: 100%;
+    padding-bottom: var(--sl-space-4);
+  }
+
+  [data-sl-ai-composer-skeleton-field] {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 72px; /* TODO(token) */
+    padding-block: var(--sl-space-3);
+    padding-inline: var(--sl-space-4) var(--sl-space-3);
+    border: 1px solid var(--sl-color-gray-4);
+    background: var(--sl-bg-base);
+    box-sizing: border-box;
+  }
+
+  [data-sl-ai-composer-skeleton-prompt] {
+    align-self: flex-start;
+  }
+
+  [data-sl-ai-composer-skeleton-footer] {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: auto;
+    min-height: var(--sl-space-10);
+    gap: var(--sl-space-2);
+  }
+
+  [data-sl-ai-composer-skeleton-footer-start] {
+    flex-shrink: 0;
+  }
+}

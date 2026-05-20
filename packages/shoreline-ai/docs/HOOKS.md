@@ -58,6 +58,23 @@ loadMessages(history)
 
 `switchThread` clears the Assistant-UI thread and updates `threadId`. Fetch and hydrate in your app layer.
 
+## `useAIComposer()`
+
+```ts
+const { text, disabled, attachments, setText, send, reset } = useAIComposer()
+```
+
+| Member | Description |
+|--------|-------------|
+| `text` | Current draft in the composer |
+| `disabled` | `true` when send is not allowed (`!canSend`) |
+| `attachments` | Pending attachments before send |
+| `setText` | Updates draft text |
+| `send` | Same as `ComposerPrimitive.Send` |
+| `reset` | Clears draft text and attachments |
+
+Use inside `<AIProvider>` with a mounted `AIComposer` tree.
+
 ## `useAIStatus()`
 
 ```ts

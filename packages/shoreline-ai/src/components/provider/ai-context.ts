@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react'
+import invariant from 'tiny-invariant'
 
 import type { AIThreadError } from '../../types/public'
 import type { AIRuntime } from '../../types/runtime'
@@ -42,9 +43,7 @@ export const AIContext = createContext<AIContextValueInternal | null>(null)
 export function useAIContextInternal(): AIContextValueInternal {
   const context = useContext(AIContext)
 
-  if (!context) {
-    throw new Error('useAIContext must be used within an <AIProvider>')
-  }
+  invariant(context, 'useAIContext must be used within an <AIProvider>')
 
   return context
 }

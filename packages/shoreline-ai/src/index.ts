@@ -65,7 +65,45 @@ export { useAITools } from './hooks/use-ai-tools'
 export { useAIResources } from './hooks/use-ai-resources'
 export { useAIStatus } from './hooks/use-ai-status'
 export { useAIThread } from './hooks/use-ai-thread'
+export { useAIComposer } from './hooks/use-ai-composer'
 export { useAIMessageParts } from './hooks/use-ai-message-parts'
+
+// Composer
+export {
+  AIComposer,
+  AIComposerAttachments,
+  AIComposerAttachment,
+  AIComposerAddAttachment,
+  AIComposerField,
+  AIComposerFooter,
+  AIComposerInput,
+  AIComposerActions,
+  AIComposerSend,
+  AIComposerCancel,
+  AIComposerAction,
+  AIComposerSkeleton,
+} from './components/composer'
+export type {
+  AIComposerProps,
+  AIComposerOptions,
+  AIComposerMessages,
+  AIComposerFieldProps,
+  AIComposerFooterProps,
+  AIComposerInputProps,
+  AIComposerInputOptions,
+  AIComposerActionsProps,
+  AIComposerSendProps,
+  AIComposerCancelProps,
+  AIComposerActionProps,
+  AIComposerAddAttachmentProps,
+  AIComposerAddAttachmentOptions,
+  AIComposerAttachmentsProps,
+  AIComposerAttachmentsOptions,
+  AIComposerAttachmentProps,
+  AIComposerAttachmentOptions,
+  AIComposerSkeletonProps,
+  AIComposerSkeletonOptions,
+} from './components/composer'
 
 // Tool UI
 export { makeAIToolUI } from './components/tool-ui/make-ai-tool-ui'

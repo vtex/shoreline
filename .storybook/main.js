@@ -1,4 +1,11 @@
 import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const storybookDir = dirname(fileURLToPath(import.meta.url))
+const shorelineAiCssSrc = join(
+  storybookDir,
+  '../packages/shoreline-ai/src/styles/index.css'
+)
 
 module.exports = {
   stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -26,6 +33,18 @@ module.exports = {
   },
   docs: {
     autodocs: false,
+  },
+  async viteFinal(config) {
+    return {
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve?.alias,
+          '@vtex/shoreline-ai/css': shorelineAiCssSrc,
+        },
+      },
+    }
   },
 }
 
