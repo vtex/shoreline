@@ -1,8 +1,3 @@
-import {
-  MessagePrimitive,
-  ThreadPrimitive,
-  useMessagePartText,
-} from '@assistant-ui/react'
 import { Text } from '@vtex/shoreline'
 import { useEffect, useLayoutEffect, useMemo, type ReactNode } from 'react'
 
@@ -14,6 +9,7 @@ import {
   AIComposerFooter,
   AIComposerInput,
 } from '../../composer'
+import { AIMessages } from '../../messages'
 import { useAIThread } from '../../../hooks/use-ai-thread'
 import type { AIMessage } from '../../../types/public'
 import {
@@ -63,72 +59,6 @@ export function createMockThreadMessages(
       parts: [{ type: 'text', text: isUser ? userText : assistantText }],
     }
   })
-}
-
-function StoryMessageText() {
-  const part = useMessagePartText()
-
-  if (part.type !== 'text' && part.type !== 'reasoning') {
-    return null
-  }
-
-  return (
-    <p style={{ margin: 0, whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
-      {part.text}
-    </p>
-  )
-}
-
-function StoryUserMessage() {
-  return (
-    <MessagePrimitive.Root
-      data-story-message="user"
-      style={{
-        alignSelf: 'flex-end',
-        maxWidth: '85%',
-        padding: 'var(--sl-space-3) var(--sl-space-4)',
-        borderRadius: 'var(--sl-radius-3)',
-        background: 'var(--sl-bg-muted-1)',
-        color: 'var(--sl-fg-base)',
-        font: 'var(--sl-text-body-font)',
-      }}
-    >
-      <MessagePrimitive.Content
-        components={{
-          Text: StoryMessageText,
-        }}
-      />
-    </MessagePrimitive.Root>
-  )
-}
-
-function StoryAssistantMessage() {
-  return (
-    <MessagePrimitive.Root
-      data-story-message="assistant"
-      style={{
-        alignSelf: 'flex-start',
-        maxWidth: '90%',
-        padding: 'var(--sl-space-3) var(--sl-space-4)',
-        borderRadius: 'var(--sl-radius-3)',
-        border: '1px solid var(--sl-color-gray-4)',
-        background: 'var(--sl-bg-base)',
-        color: 'var(--sl-fg-base)',
-        font: 'var(--sl-text-body-font)',
-      }}
-    >
-      <MessagePrimitive.Content
-        components={{
-          Text: StoryMessageText,
-        }}
-      />
-    </MessagePrimitive.Root>
-  )
-}
-
-export const storyMessageComponents = {
-  UserMessage: StoryUserMessage,
-  AssistantMessage: StoryAssistantMessage,
 }
 
 export function Welcome() {
@@ -266,7 +196,7 @@ export function NormativeThreadTree(props: NormativeThreadTreeOptions) {
               boxSizing: 'border-box',
             }}
           >
-            <ThreadPrimitive.Messages components={storyMessageComponents} />
+            <AIMessages />
           </div>
         ) : null}
         <ComposerFooter

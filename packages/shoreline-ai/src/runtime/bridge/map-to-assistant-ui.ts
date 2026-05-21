@@ -47,17 +47,19 @@ function mapToolPart(part: AIToolPart, index: number): AssistantContentPart {
 }
 
 function mapResourcePart(part: AIResourcePart): AssistantContentPart {
+  if (part.mimeType?.startsWith('image/')) {
+    return {
+      type: 'image',
+      image: part.uri,
+      filename: part.name,
+    }
+  }
+
   return {
-    type: 'data',
-    name: 'resource',
-    data: {
-      uri: part.uri,
-      name: part.name,
-      description: part.description,
-      mimeType: part.mimeType,
-      size: part.size,
-      metadata: part.metadata,
-    },
+    type: 'file',
+    data: part.uri,
+    mimeType: part.mimeType ?? 'application/octet-stream',
+    filename: part.name,
   }
 }
 

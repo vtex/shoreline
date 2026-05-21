@@ -70,13 +70,25 @@ describe('mapAIMessagePartsToContentParts', () => {
         name: 'doc.pdf',
         mimeType: 'application/pdf',
       },
+      {
+        type: 'resource',
+        uri: 'data:image/png;base64,x',
+        name: 'photo.png',
+        mimeType: 'image/png',
+      },
     ])
 
     expect(mapped[0]).toEqual({ type: 'reasoning', text: 'thinking…' })
     expect(mapped[1]).toMatchObject({
-      type: 'data',
-      name: 'resource',
-      data: expect.objectContaining({ uri: 'vtex-artifact://1' }),
+      type: 'file',
+      data: 'vtex-artifact://1',
+      filename: 'doc.pdf',
+      mimeType: 'application/pdf',
+    })
+    expect(mapped[2]).toMatchObject({
+      type: 'image',
+      image: 'data:image/png;base64,x',
+      filename: 'photo.png',
     })
   })
 

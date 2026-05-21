@@ -69,12 +69,15 @@ function mapAIMessagePartToAssistantContent(
   }
 
   if (part.type === 'resource') {
-    return {
-      type: 'file',
-      data: part.uri,
-      mimeType: part.mimeType ?? 'application/octet-stream',
-      filename: part.name,
+    if (part.mimeType?.startsWith('image/')) {
+      return {
+        type: 'image',
+        image: part.uri,
+        filename: part.name,
+      }
     }
+
+    return mapResourceToFilePart(part)
   }
 
   return null

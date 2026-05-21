@@ -124,6 +124,62 @@ export type {
   AIComposerSkeletonOptions,
 } from './components/composer'
 
+// Messages
+export {
+  AIMessages,
+  AIMessageUser,
+  AIMessageAssistant,
+  AIMessageRoot,
+  AIMessageParts,
+  AIMessageText,
+  AIMarkdown,
+  AIMessageReasoningRoot,
+  AIMessageReasoningHeader,
+  AIMessageReasoningTrigger,
+  AIMessageReasoningContent,
+  AIMessageReasoningText,
+  AIMessageReasoningToolStep,
+  AIMessageResources,
+  AIMessageResource,
+  AIMessageResourceFile,
+  AIMessageResourceImage,
+  renderDefaultParts,
+} from './components/messages'
+export type {
+  AIMessagesProps,
+  AIMessagesOptions,
+  AIMessageUserProps,
+  AIMessageAssistantProps,
+  AIMessageAssistantOptions,
+  AIMessageRootProps,
+  AIMessageRootOptions,
+  AIMessagePartsProps,
+  AIMessagePartsOptions,
+  AIMessageTextProps,
+  AIMarkdownProps,
+  AIMarkdownOptions,
+  AIMessageReasoningRootProps,
+  AIMessageReasoningRootOptions,
+  AIMessageReasoningTriggerProps,
+  AIMessageReasoningTriggerOptions,
+  AIMessageReasoningContentProps,
+  AIMessageReasoningTextProps,
+  AIMessageReasoningToolStepProps,
+  AIMessageReasoningToolStepOptions,
+  AIMessageResourceProps,
+  AIMessageResourcesProps,
+  AIMessageMessages,
+  AIMessagePartMeta,
+  AIMessagePartRenderer,
+  GroupByContext,
+  AIToolRegistration,
+  RenderDefaultPartsOptions,
+} from './components/messages'
+export type {
+  AIMessageResourceFileProps,
+  AIMessageResourceImageProps,
+} from './components/messages/ai-message-resource'
+
 // Tool UI
 export { makeAIToolUI } from './components/tool-ui/make-ai-tool-ui'
 export { AICanvas } from './components/tool-ui/ai-canvas'

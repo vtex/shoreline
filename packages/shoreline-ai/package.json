@@ -27,7 +27,7 @@
   },
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "pnpm run prebuild && tsup && mkdir -p dist/css/components && cp src/styles/index.css dist/css/index.css && cp src/styles/components/ai-composer.css dist/css/components/ai-composer.css && cp src/styles/components/ai-thread.css dist/css/components/ai-thread.css",
+    "build": "pnpm run prebuild && tsup && mkdir -p dist/css/components && cp src/styles/index.css dist/css/index.css && cp src/styles/components/ai-composer.css dist/css/components/ai-composer.css && cp src/styles/components/ai-thread.css dist/css/components/ai-thread.css && cp src/styles/components/ai-messages.css dist/css/components/ai-messages.css",
     "dev": "tsup --watch"
   },
   "repository": {
@@ -54,6 +54,9 @@
     "@vtex/shoreline-test-utils": "workspace:*"
   },
   "dependencies": {
+    "react-collapsed": "^4.1.2",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
     "tiny-invariant": "^1.3.3"
   }
 }

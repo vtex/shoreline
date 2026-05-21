@@ -1,0 +1,181 @@
+@layer sl-components {
+  [data-sl-ai-messages] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-4);
+    width: 100%;
+  }
+
+  [data-sl-ai-message][data-sl-ai-message-role="user"] {
+    align-self: flex-end;
+    max-width: 85%;
+  }
+
+  [data-sl-ai-message][data-sl-ai-message-role="assistant"] {
+    align-self: flex-start;
+    max-width: 100%;
+  }
+
+  [data-sl-ai-message][data-sl-ai-message-role="user"]
+    [data-sl-ai-message-content] {
+    border-radius: var(--sl-radius-3) 2px var(--sl-radius-3) var(--sl-radius-3);
+    background-color: var(--sl-bg-base-soft);
+    padding: var(--sl-space-3) var(--sl-space-4);
+    width: fit-content;
+  }
+
+  [data-sl-ai-message-content] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-2);
+    width: 100%;
+  }
+
+  [data-sl-ai-message-parts] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-2);
+    width: 100%;
+  }
+
+  [data-sl-ai-message-reasoning] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-2);
+  }
+
+  [data-sl-ai-message-reasoning-header] {
+    gap: var(--sl-space-0);
+  }
+
+  [data-sl-ai-message-reasoning-header] [data-sl-ai-message-reasoning-trigger] {
+    margin-left: calc(var(--sl-space-3) * -1);
+    font: var(--sl-text-caption-1-font);
+    letter-spacing: var(--sl-text-caption-1-letter-spacing);
+    color: var(--sl-fg-base-soft);
+  }
+
+  [data-sl-ai-message-reasoning-content] {
+    border-left: var(--sl-border-base);
+    border-left-width: 3px;
+    padding-left: var(--sl-space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-2);
+  }
+
+  [data-sl-ai-message-text] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-2);
+  }
+
+  [data-sl-ai-markdown] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-2);
+  }
+
+  [data-sl-ai-dots-loader] {
+    display: flex;
+    justify-content: center;
+  }
+
+  [data-sl-ai-dots-loader] > div {
+    width: 5px;
+    height: 5px;
+    margin: 0 2px;
+    border-radius: 50%;
+    background-color: var(--sl-color-blue-4);
+    animation: sl-ai-dots-loader-bounce 0.6s infinite alternate;
+  }
+
+  @keyframes sl-ai-dots-loader-bounce {
+    to {
+      background-color: var(--sl-color-blue-9);
+      transform: translateY(-2px);
+    }
+  }
+
+  [data-sl-ai-dots-loader] > div:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+
+  [data-sl-ai-dots-loader] > div:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  [data-sl-ai-message-resources] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sl-space-2);
+  }
+
+  [data-sl-ai-message-resource] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--sl-space-3);
+    background: var(--sl-bg-base-soft);
+    border-radius: var(--sl-radius-2);
+    padding: var(--sl-space-2) var(--sl-space-3);
+    max-width: 20rem;
+  }
+
+  [data-sl-ai-message-resource][data-type="file"] {
+    padding-right: var(--sl-space-5);
+  }
+
+  [data-sl-ai-message-resource][data-type="image"] {
+    min-width: 3rem;
+    height: 3rem;
+    padding: var(--sl-space-05);
+    border: 1px solid var(--sl-border-base);
+  }
+
+  [data-sl-ai-message-resource-image] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [data-sl-ai-message-resource-image] img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--sl-radius-2);
+  }
+
+  [data-sl-ai-message-resource-icon] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    color: var(--sl-fg-muted);
+  }
+
+  [data-sl-ai-message-resource-info] {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  [data-sl-ai-message-resource-info] [data-sl-text] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-sl-ai-message-reasoning-tool-step] {
+    display: flex;
+    align-items: center;
+  }
+}
