@@ -1,0 +1,23 @@
+@layer sl-components {
+  [data-sl-ai-canvas] {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  [data-sl-ai-canvas-header] {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    padding: var(--sl-space-2);
+    border-bottom: var(--sl-border-base);
+  }
+
+  [data-sl-ai-canvas-body] {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+}

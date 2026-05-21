@@ -27,7 +27,7 @@
   },
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "pnpm run prebuild && tsup && mkdir -p dist/css/components && cp src/styles/index.css dist/css/index.css && cp src/styles/components/ai-composer.css dist/css/components/ai-composer.css && cp src/styles/components/ai-thread.css dist/css/components/ai-thread.css && cp src/styles/components/ai-messages.css dist/css/components/ai-messages.css",
+    "build": "pnpm run prebuild && tsup && mkdir -p dist/css/components && cp src/styles/index.css dist/css/index.css && cp src/styles/components/ai-composer.css dist/css/components/ai-composer.css && cp src/styles/components/ai-thread.css dist/css/components/ai-thread.css && cp src/styles/components/ai-messages.css dist/css/components/ai-messages.css && cp src/styles/components/ai-canvas.css dist/css/components/ai-canvas.css",
     "dev": "tsup --watch"
   },
   "repository": {
