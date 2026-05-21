@@ -11,6 +11,7 @@ Backend-agnostic React runtime for AI chat on top of [Assistant UI](https://www.
 | [**HOOKS.md**](./HOOKS.md) | `useAIThread`, `useAIStatus`, message part hooks |
 | [**COMPOSER.md**](./COMPOSER.md) | `AIComposer*`, layout, attachments, i18n |
 | [**THREAD.md**](./THREAD.md) | `AIThread*`, viewport, empty slot, footer, scroll-to-bottom |
+| [**MESSAGES.md**](./MESSAGES.md) | `AIMessages*`, CoT grouping, part overrides, resources |
 | [**TOOL-UI.md**](./TOOL-UI.md) | `makeAIToolUI`, `<AICanvas>`, fallback |
 
 Package entry: [`../src/index.ts`](../src/index.ts).

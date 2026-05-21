@@ -4,7 +4,7 @@
 
 Shoreline-styled chat **layout** for AI apps: the **`AIThread*`** family from `@vtex/shoreline-ai` (scrollable viewport, empty slot, sticky viewport footer, scroll-to-bottom). Mount inside `<AIProvider>`.
 
-Related guides: [PROVIDER.md](./PROVIDER.md), [HOOKS.md](./HOOKS.md) (`useAIThread`, `sendMessage`, multi-thread), [RUNTIME.md](./RUNTIME.md) (`loadMessages`).
+Related guides: [PROVIDER.md](./PROVIDER.md), [HOOKS.md](./HOOKS.md) (`useAIThread`, `sendMessage`, multi-thread), [RUNTIME.md](./RUNTIME.md) (`loadMessages`), [MESSAGES.md](./MESSAGES.md) (`AIMessages`).
 
 **Prerequisites:** `<AIProvider runtime={runtime}>` wrapping your chat UI. Import `@vtex/shoreline/css` and `@vtex/shoreline-ai/css`. Wrap with `LocaleProvider` so built-in labels use the `en-US` / `pt-BR` catalogs.
 
@@ -22,6 +22,7 @@ import {
   AIThreadEmpty,
   AIThreadViewportFooter,
   AIThreadScrollToBottom,
+  AIMessages,
   useAIThread,
 } from '@vtex/shoreline-ai'
 ```
@@ -36,7 +37,7 @@ Normative tree: empty slot and message area inside the viewport; sticky footer w
     <AIThread>
       <AIThreadViewport autoScroll>
         <AIThreadEmpty>{/* welcome */}</AIThreadEmpty>
-        {/* messages */}
+        <AIMessages />
         <AIThreadViewportFooter>
           <AIThreadScrollToBottom />
           {/* footer: input, alerts */}
@@ -47,7 +48,9 @@ Normative tree: empty slot and message area inside the viewport; sticky footer w
 </LocaleProvider>
 ```
 
-**Child order inside `AIThreadViewport`:** `AIThreadEmpty` (optional) → messages (optional) → `AIThreadViewportFooter` (when the surface has a fixed footer). Inside the footer, mount `AIThreadScrollToBottom` as the **first child** so it floats above later footer slots.
+**Child order inside `AIThreadViewport`:** `AIThreadEmpty` (optional) → `<AIMessages />` (optional) → `AIThreadViewportFooter` (when the surface has a fixed footer). Inside the footer, mount `AIThreadScrollToBottom` as the **first child** so it floats above later footer slots.
+
+Message rendering, part overrides, and CoT grouping: [MESSAGES.md](./MESSAGES.md).
 
 `AIThreadViewport` is the scroll container. `AIThreadViewportFooter` stays sticky at the bottom of the viewport. The scroll-to-bottom control is positioned above the footer via `[data-sl-ai-thread-scroll-to-bottom]`.
 
@@ -106,7 +109,7 @@ flowchart TB
   root[AIThread]
   vp[AIThreadViewport]
   empty[AIThreadEmpty]
-  content[Messages]
+  content[AIMessages]
   footer[AIThreadViewportFooter]
   scroll[AIThreadScrollToBottom]
   slot["App footer slots"]
