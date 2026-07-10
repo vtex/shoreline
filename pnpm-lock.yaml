@@ -151,6 +151,37 @@ importers:
         specifier: 7.2.0
         version: 7.2.0
 
+  packages/charts:
+    dependencies:
+      '@vtex/shoreline-utils':
+        specifier: workspace:*
+        version: link:../utils
+      echarts:
+        specifier: 5.6.0
+        version: 5.6.0
+      react:
+        specifier: '>=18.3'
+        version: 18.3.1
+      react-dom:
+        specifier: '>=18.3'
+        version: 18.3.1(react@18.3.1)
+      typescript:
+        specifier: '>=5'
+        version: 5.5.2
+    devDependencies:
+      '@types/node':
+        specifier: 20.14.9
+        version: 20.14.9
+      '@vtex/shoreline-css':
+        specifier: workspace:*
+        version: link:../css
+      concurrently:
+        specifier: 8.2.2
+        version: 8.2.2
+      sucrase:
+        specifier: 3.35.0
+        version: 3.35.0
+
   packages/css:
     dependencies:
       '@vtex/shoreline-utils':
@@ -5006,6 +5037,9 @@ packages:
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
+  echarts@5.6.0:
+    resolution: {integrity: sha512-oTbVTsXfKuEhxftHqL5xprgLoc0k7uScAwtryCgWF6hPYFLRwOUHiFmHGCBKP5NPFNkDVopOieyUqYGH8Fa3kA==}
+
   ejs@3.1.10:
     resolution: {integrity: sha512-UeJmFfOrAQS8OJWPZ4qtgHyWExa088/MtK5UEyoJGFH67cDEXkZSviOiKRCZ4Xij0zxI3JECgYs3oKx+AizQBA==}
     engines: {node: '>=0.10.0'}
@@ -9275,6 +9309,9 @@ packages:
   tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
 
+  tslib@2.3.0:
+    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
+
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
@@ -10034,10 +10071,6 @@ packages:
     resolution: {integrity: sha512-o50j0JeToy/4K6OZcaQmW6lyXXKhq7csREXcDwk2omFPJEwUNOVtJKvmDr9EI1fAJZUyZcRF7kxGBWmRXudrCQ==}
     engines: {node: '>=6'}
 
-  yargs-parser@20.2.4:
-    resolution: {integrity: sha512-WOkpgNhPTlE73h4VFAFsOnomJVaovO8VqLDzy5saChRBFQFBoMYirowyW+Q9HB4HFF4Z7VZTiG3iSzJJA29yRA==}
-    engines: {node: '>=10'}
-
   yargs-parser@20.2.9:
     resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}
     engines: {node: '>=10'}
@@ -10077,6 +10110,9 @@ packages:
 
   zod@3.25.58:
     resolution: {integrity: sha512-DVLmMQzSZwNYzQoMaM3MQWnxr2eq+AtM9Hx3w1/Yl0pH8sLTSjN4jGP7w6f7uand6Hw44tsnSu1hz1AOA6qI2Q==}
+
+  zrender@5.6.1:
+    resolution: {integrity: sha512-OFXkDJKcrlx5su2XbzJvj/34Q3m6PvyCZkVPHGYpcCJ52ek4U/ymZyfuV1nKE23AyBJ51E/6Yr0mhZ7xGTO4ag==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -10426,7 +10462,7 @@ snapshots:
   '@commitlint/ensure@9.1.2':
     dependencies:
       '@commitlint/types': 9.1.2
-      lodash: 4.17.21
+      lodash: 4.18.1
 
   '@commitlint/execute-rule@19.0.0':
     optional: true
@@ -10436,7 +10472,7 @@ snapshots:
   '@commitlint/format@9.1.2':
     dependencies:
       '@commitlint/types': 9.1.2
-      chalk: 4.1.0
+      chalk: 4.1.2
 
   '@commitlint/is-ignored@9.1.2':
     dependencies:
@@ -10474,7 +10510,7 @@ snapshots:
       '@commitlint/types': 9.1.2
       chalk: 4.1.0
       cosmiconfig: 6.0.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       resolve-from: 5.0.0
 
   '@commitlint/message@9.1.2': {}
@@ -10512,7 +10548,7 @@ snapshots:
   '@commitlint/resolve-extends@9.1.2':
     dependencies:
       import-fresh: 3.3.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       resolve-from: 5.0.0
       resolve-global: 1.0.0
 
@@ -11222,7 +11258,7 @@ snapshots:
       js-yaml: 4.1.0
       libnpmpublish: 7.3.0
       load-json-file: 6.2.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       make-dir: 4.0.0
       minimatch: 3.0.5
       multimatch: 5.0.0
@@ -13086,7 +13122,7 @@ snapshots:
       '@storybook/types': 8.1.5
       '@types/qs': 6.9.15
       dequal: 2.0.3
-      lodash: 4.17.21
+      lodash: 4.18.1
       memoizerific: 1.11.3
       qs: 6.12.1
       tiny-invariant: 1.3.3
@@ -13363,7 +13399,7 @@ snapshots:
       chalk: 3.0.0
       css.escape: 1.5.1
       dom-accessibility-api: 0.6.3
-      lodash: 4.17.21
+      lodash: 4.18.1
       redent: 3.0.0
 
   '@testing-library/react@14.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
@@ -14070,7 +14106,7 @@ snapshots:
 
   async@2.6.4:
     dependencies:
-      lodash: 4.17.21
+      lodash: 4.18.1
 
   async@3.2.5: {}
 
@@ -14662,7 +14698,7 @@ snapshots:
     dependencies:
       chalk: 4.1.2
       date-fns: 2.30.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       rxjs: 7.8.1
       shell-quote: 1.8.1
       spawn-command: 0.0.2
@@ -14736,7 +14772,7 @@ snapshots:
     dependencies:
       JSONStream: 1.3.5
       is-text-path: 1.0.1
-      lodash: 4.17.21
+      lodash: 4.18.1
       meow: 8.1.2
       split2: 3.2.2
       through2: 4.0.2
@@ -15322,6 +15358,11 @@ snapshots:
   duplexer@0.1.2: {}
 
   eastasianwidth@0.2.0: {}
+
+  echarts@5.6.0:
+    dependencies:
+      tslib: 2.3.0
+      zrender: 5.6.1
 
   ejs@3.1.10:
     dependencies:
@@ -15987,7 +16028,7 @@ snapshots:
   git-raw-commits@2.0.11:
     dependencies:
       dargs: 7.0.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       meow: 8.1.2
       split2: 3.2.2
       through2: 4.0.2
@@ -16402,7 +16443,7 @@ snapshots:
     dependencies:
       '@types/html-minifier-terser': 6.1.0
       html-minifier-terser: 6.1.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       pretty-error: 4.0.0
       tapable: 2.2.1
     optionalDependencies:
@@ -16600,7 +16641,7 @@ snapshots:
       cli-width: 3.0.0
       external-editor: 3.1.0
       figures: 3.2.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       mute-stream: 0.0.8
       ora: 5.4.1
       run-async: 2.4.1
@@ -16618,7 +16659,7 @@ snapshots:
       cli-width: 3.0.0
       external-editor: 3.1.0
       figures: 3.2.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       mute-stream: 0.0.8
       ora: 5.4.1
       run-async: 2.4.1
@@ -18141,7 +18182,7 @@ snapshots:
       redent: 3.0.0
       trim-newlines: 3.0.1
       type-fest: 0.18.1
-      yargs-parser: 20.2.4
+      yargs-parser: 20.2.9
 
   merge-stream@2.0.0: {}
 
@@ -19507,7 +19548,7 @@ snapshots:
 
   pretty-error@4.0.0:
     dependencies:
-      lodash: 4.17.21
+      lodash: 4.18.1
       renderkid: 3.0.0
 
   pretty-format@27.5.1:
@@ -19981,7 +20022,7 @@ snapshots:
       css-select: 4.3.0
       dom-converter: 0.2.0
       htmlparser2: 6.1.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       strip-ansi: 6.0.1
 
   require-directory@2.1.1: {}
@@ -20837,6 +20878,8 @@ snapshots:
 
   tslib@1.14.1: {}
 
+  tslib@2.3.0: {}
+
   tslib@2.6.3: {}
 
   tsup@8.1.0(@swc/core@1.5.24(@swc/helpers@0.5.13))(postcss@8.4.47)(typescript@5.5.2):
@@ -21337,7 +21380,7 @@ snapshots:
       chalk: 1.1.3
       in-publish: 2.0.1
       inquirer: 0.11.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       log-update: 1.0.2
       minimist: 1.2.8
       node-localstorage: 0.6.0
@@ -21637,8 +21680,6 @@ snapshots:
       camelcase: 5.3.1
       decamelize: 1.2.0
 
-  yargs-parser@20.2.4: {}
-
   yargs-parser@20.2.9: {}
 
   yargs-parser@21.1.1: {}
@@ -21692,5 +21733,9 @@ snapshots:
   zod@3.23.8: {}
 
   zod@3.25.58: {}
+
+  zrender@5.6.1:
+    dependencies:
+      tslib: 2.3.0
 
   zwitch@2.0.4: {}
