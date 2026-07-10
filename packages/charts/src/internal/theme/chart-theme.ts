@@ -38,6 +38,7 @@ const fontFamily = '--sl-font-family-sans'
 const fontSizeCaption = '--sl-font-size-1'
 const fgBase = '--sl-fg-base'
 const fgMuted = '--sl-fg-muted'
+const bgBase = '--sl-bg-base'
 // color component of --sl-border-base, which is a full border shorthand
 const lineColor = '--sl-color-gray-3'
 
@@ -77,6 +78,15 @@ export function createChartTheme(tokens: ChartTokens) {
     categoryAxis: axis,
     valueAxis: axis,
     legend: {
+      textStyle: {
+        color: get(fgBase),
+        fontFamily: get(fontFamily),
+        fontSize: px(fontSizeCaption),
+      },
+    },
+    tooltip: {
+      backgroundColor: get(bgBase),
+      borderColor: get(lineColor),
       textStyle: {
         color: get(fgBase),
         fontFamily: get(fontFamily),

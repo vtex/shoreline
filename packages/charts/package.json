@@ -39,12 +39,14 @@
     "url": "https://github.com/vtex/shoreline/issues"
   },
   "peerDependencies": {
+    "@vtex/shoreline": ">=1",
     "react": ">=18.3",
     "react-dom": ">=18.3",
     "typescript": ">=5"
   },
   "devDependencies": {
     "@types/node": "20.14.9",
+    "@vtex/shoreline": "workspace:*",
     "@vtex/shoreline-css": "workspace:*",
     "concurrently": "8.2.2",
     "sucrase": "3.35.0"
