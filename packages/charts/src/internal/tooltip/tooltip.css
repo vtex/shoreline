@@ -1,0 +1,97 @@
+[data-sl-chart-tooltip] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sl-space-2);
+  /* design-notes/tooltip.md: small (128px, no deltas) / max (268px, with deltas) Figma frames */
+  min-width: 8rem;
+  max-width: 16.75rem;
+  padding: var(--sl-space-3) var(--sl-space-4);
+  background: var(--sl-bg-base);
+  border: var(--sl-border-base);
+  border-radius: var(--sl-radius-2);
+  box-shadow: var(--sl-shadow-1);
+}
+
+[data-sl-chart-tooltip-title] {
+  color: var(--sl-fg-base);
+  font: var(--sl-text-caption-1-font);
+  letter-spacing: var(--sl-text-caption-1-letter-spacing);
+}
+
+[data-sl-chart-tooltip-rows] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sl-space-2);
+}
+
+[data-sl-chart-tooltip-row] {
+  display: flex;
+  align-items: stretch;
+  gap: var(--sl-space-2);
+}
+
+[data-sl-chart-tooltip-row-line] {
+  flex-shrink: 0;
+  width: 0.25rem;
+  margin-block: var(--sl-space-05);
+  border-radius: var(--sl-radius-1);
+}
+
+[data-sl-chart-tooltip-row-content] {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+[data-sl-chart-tooltip-row-label] {
+  color: var(--sl-fg-base-soft);
+  font: var(--sl-text-body-font);
+  letter-spacing: var(--sl-text-body-letter-spacing);
+}
+
+[data-sl-chart-tooltip-row-value-group] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sl-space-4);
+}
+
+[data-sl-chart-tooltip-row-value] {
+  color: var(--sl-fg-base);
+  font: var(--sl-text-display-3-font);
+  letter-spacing: var(--sl-text-display-3-letter-spacing);
+}
+
+[data-sl-chart-tooltip-row-variation] {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--sl-space-05);
+  font: var(--sl-text-emphasis-font);
+  letter-spacing: var(--sl-text-emphasis-letter-spacing);
+  white-space: nowrap;
+}
+
+[data-sl-chart-tooltip-row-variation][data-tone="success"] {
+  color: var(--sl-fg-success);
+}
+
+[data-sl-chart-tooltip-row-variation][data-tone="critical"] {
+  color: var(--sl-fg-critical);
+}
+
+[data-sl-chart-tooltip-row-variation][data-tone="neutral"] {
+  color: var(--sl-fg-base-soft);
+}
+
+[data-sl-chart-tooltip-row-variation-icon] {
+  width: 0.625rem;
+  height: 0.5rem;
+}
+
+[data-sl-chart-tooltip-row-variation][data-direction="down"]
+  [data-sl-chart-tooltip-row-variation-icon] {
+  transform: rotate(180deg);
+}
