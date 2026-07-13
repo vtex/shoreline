@@ -1,6 +1,10 @@
 import type { EChartsCoreOption } from '../../internal/echarts'
 import type { ChartTokens } from '../../internal/theme'
 import { chartSeriesTokens } from '../../internal/theme'
+import {
+  createTooltipPositioner,
+  formatAxisTooltip,
+} from '../../internal/tooltip'
 
 /**
  * A single bar series.
@@ -91,6 +95,11 @@ export function collapseSeries(
 const radiusToken = '--sl-radius-1'
 const spaceSmall = '--sl-space-2'
 const spaceLegend = '--sl-space-10'
+// design-notes/tooltip.md, Positioning: 8px between the hovered bar and the tooltip
+const tooltipOffsetToken = '--sl-space-2'
+const tooltipOffsetFallback = 8
+// design-notes/bar-chart.md, Behaviour: hover overlay over the selected category
+const hoverOverlayToken = '--sl-bg-muted-plain-hover'
 
 type BorderRadius = [number, number, number, number]
 
@@ -172,7 +181,20 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
     legend: { show: showLegend, left: 0, bottom: 0 },
     tooltip: {
       trigger: 'axis',
-      axisPointer: { type: 'shadow' },
+      axisPointer: {
+        type: 'shadow',
+        shadowStyle: { color: tokens.get(hoverOverlayToken) },
+      },
+      // Visuals come entirely from the formatter's own markup + tooltip.css
+      // (data-sl-chart-tooltip*), not from the engine's tooltip container.
+      backgroundColor: 'transparent',
+      borderWidth: 0,
+      padding: 0,
+      extraCssText: 'box-shadow: none;',
+      formatter: formatAxisTooltip,
+      position: createTooltipPositioner(
+        tokens.px(tooltipOffsetToken) ?? tooltipOffsetFallback
+      ),
     },
     grid: {
       containLabel: true,

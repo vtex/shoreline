@@ -21,6 +21,13 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
     ...overrides,
   }) as {
     legend: { show: boolean }
+    tooltip: {
+      trigger: string
+      axisPointer: { type: string }
+      backgroundColor: string
+      formatter: unknown
+      position: unknown
+    }
     xAxis: { type: string; data?: string[] }
     yAxis: { type: string; data?: string[] }
     series: Array<{
@@ -275,6 +282,16 @@ describe('buildBarOption', () => {
     // The aggregate is last in the collapsed list, so it owns the rounding.
     expect(radiusAt(option, 1, 0)).toEqual([0, 0, 0, 0])
     expect(radiusAt(option, 2, 0)).toEqual([4, 4, 0, 0])
+  })
+
+  test('configures an axis-trigger tooltip with a DOM formatter and position function', () => {
+    const option = build()
+
+    expect(option.tooltip.trigger).toBe('axis')
+    expect(option.tooltip.axisPointer.type).toBe('shadow')
+    expect(option.tooltip.backgroundColor).toBe('transparent')
+    expect(typeof option.tooltip.formatter).toBe('function')
+    expect(typeof option.tooltip.position).toBe('function')
   })
 
   test('skips rounding for null, zero, and unresolvable radius', () => {

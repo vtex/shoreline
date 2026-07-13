@@ -41,7 +41,6 @@ const fontFamily = '--sl-font-family-sans'
 const fontSizeCaption = '--sl-font-size-1'
 const fgBase = '--sl-fg-base'
 const fgMuted = '--sl-fg-muted'
-const bgBase = '--sl-bg-base'
 // color component of --sl-border-base, which is a full border shorthand
 const lineColor = '--sl-color-gray-3'
 // legend symbols are square, so one token drives both of their dimensions
@@ -93,15 +92,9 @@ export function createChartTheme(tokens: ChartTokens) {
         fontSize: px(fontSizeCaption),
       },
     },
-    tooltip: {
-      backgroundColor: get(bgBase),
-      borderColor: get(lineColor),
-      textStyle: {
-        color: get(fgBase),
-        fontFamily: get(fontFamily),
-        fontSize: px(fontSizeCaption),
-      },
-    },
+    // No theme-level tooltip styling: every chart renders its tooltip
+    // through a custom `formatter` + `data-sl-chart-tooltip*` CSS (see
+    // internal/tooltip), which fully overrides whatever the theme sets here.
   }
 }
 
