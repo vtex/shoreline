@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--sl-space-2);
-  /* design-notes/tooltip.md: small (128px, no deltas) / max (268px, with deltas) Figma frames */
+  /* Figma frames: small (128px, no deltas) / max (268px, with deltas) */
   min-width: 8rem;
   max-width: 16.75rem;
   padding: var(--sl-space-3) var(--sl-space-4);

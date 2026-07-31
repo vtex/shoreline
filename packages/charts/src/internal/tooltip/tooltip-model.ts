@@ -1,9 +1,9 @@
 /**
  * A row's trend indicator. Bar charts never produce one today (their data
  * model carries no deltas); the type exists now because the tooltip row
- * model (title / value / variation) is shared design, per
- * design-notes/tooltip.md — a future chart with period-over-period data
- * (e.g. LineChart) renders it through the same `renderChartTooltip`.
+ * model (title / value / variation) is shared design — a future chart with
+ * period-over-period data (e.g. LineChart) renders it through the same
+ * `renderChartTooltip`.
  */
 export interface ChartTooltipVariation {
   /**

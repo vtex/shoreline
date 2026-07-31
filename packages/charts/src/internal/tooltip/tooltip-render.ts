@@ -37,8 +37,8 @@ function renderRow(row: ChartTooltipRow): string {
 }
 
 /**
- * Renders the tooltip row model (design-notes/tooltip.md) to an HTML string
- * for the engine's tooltip `formatter`. The engine mounts this markup in its
+ * Renders the tooltip row model to an HTML string for the engine's tooltip
+ * `formatter`. The engine mounts this markup in its
  * own floating DOM node outside the React tree, so it is styled entirely
  * through the `data-sl-chart-tooltip*` hooks in `tooltip.css` — the only way
  * this DOM-rendered part reaches `--sl-*` tokens, per FR-007.
