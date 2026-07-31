@@ -1,6 +1,10 @@
-export { createTooltipPositioner, formatAxisTooltip } from './tooltip-echarts'
+export {
+  createAxisTooltipFormatter,
+  createTooltipPositioner,
+} from './tooltip-echarts'
 export type {
   AxisTooltipItem,
+  AxisTooltipOptions,
   ChartTooltipData,
   ChartTooltipRow,
   ChartTooltipVariation,

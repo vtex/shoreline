@@ -1,10 +1,13 @@
 import { describe, expect, test } from 'vitest'
 
-import { createTooltipPositioner, formatAxisTooltip } from '../tooltip-echarts'
+import {
+  createAxisTooltipFormatter,
+  createTooltipPositioner,
+} from '../tooltip-echarts'
 
-describe('formatAxisTooltip', () => {
+describe('createAxisTooltipFormatter', () => {
   test('wraps a single item param in an array', () => {
-    const html = formatAxisTooltip({
+    const html = createAxisTooltipFormatter()({
       name: 'Jan',
       seriesName: 'Revenue',
       value: 10,
@@ -15,7 +18,7 @@ describe('formatAxisTooltip', () => {
   })
 
   test('renders one row per series in an axis-trigger array', () => {
-    const html = formatAxisTooltip([
+    const html = createAxisTooltipFormatter()([
       { name: 'Jan', seriesName: 'Revenue', value: 10, color: '#3993f4' },
       { name: 'Jan', seriesName: 'Costs', value: 4, color: '#9c56f3' },
     ])
@@ -24,8 +27,26 @@ describe('formatAxisTooltip', () => {
     expect(html).toContain('Costs')
   })
 
+  test('keeps the engine series order by default', () => {
+    const html = createAxisTooltipFormatter()([
+      { name: 'Jan', seriesName: 'Revenue', value: 10, color: '#3993f4' },
+      { name: 'Jan', seriesName: 'Costs', value: 4, color: '#9c56f3' },
+    ])
+
+    expect(html.indexOf('Revenue')).toBeLessThan(html.indexOf('Costs'))
+  })
+
+  test('reverses the rows when bound to reverse order', () => {
+    const html = createAxisTooltipFormatter({ reverse: true })([
+      { name: 'Jan', seriesName: 'Revenue', value: 10, color: '#3993f4' },
+      { name: 'Jan', seriesName: 'Costs', value: 4, color: '#9c56f3' },
+    ])
+
+    expect(html.indexOf('Costs')).toBeLessThan(html.indexOf('Revenue'))
+  })
+
   test('ignores non-numeric values and non-string colors from the engine', () => {
-    const html = formatAxisTooltip([
+    const html = createAxisTooltipFormatter()([
       { name: 'Jan', seriesName: 'Revenue', value: '-', color: {} },
     ])
 

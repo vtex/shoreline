@@ -43,4 +43,30 @@ describe('buildAxisTooltipData', () => {
   test('has no title when there are no items', () => {
     expect(buildAxisTooltipData([]).title).toBeUndefined()
   })
+
+  test('reverses row order on request, keeping the title', () => {
+    const data = buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'Revenue', value: 10 },
+        { name: 'Jan', seriesName: 'Costs', value: 4 },
+      ],
+      { reverse: true }
+    )
+
+    expect(data.rows.map((row) => row.label)).toEqual(['Costs', 'Revenue'])
+    expect(data.title).toBe('Jan')
+  })
+
+  test('reverses only the rows that survive filtering', () => {
+    const data = buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'Revenue', value: 10 },
+        { name: 'Jan', seriesName: 'Costs', value: null },
+        { name: 'Jan', seriesName: 'Other', value: 7 },
+      ],
+      { reverse: true }
+    )
+
+    expect(data.rows.map((row) => row.label)).toEqual(['Other', 'Revenue'])
+  })
 })

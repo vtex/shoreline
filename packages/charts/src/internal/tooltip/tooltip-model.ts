@@ -47,13 +47,28 @@ export interface AxisTooltipItem {
   color?: string
 }
 
+export interface AxisTooltipOptions {
+  /**
+   * Lists the rows in reverse series order. Set it when the chart paints later
+   * series *before* earlier ones along the reader's axis, so that the rows,
+   * read top-down, name the segments in the order they appear.
+   * @default false
+   */
+  reverse?: boolean
+}
+
 /**
  * Compiles an axis-trigger tooltip's raw item list — one item per series at
  * the hovered category — into the row model. A series with no bar at this
  * category (`null` value) drops its row instead of showing an empty value.
+ *
+ * The engine always hands the items over in series order; only the caller
+ * knows how its own geometry maps that order onto the screen, so row order is
+ * its call to make via `reverse`.
  */
 export function buildAxisTooltipData(
-  items: AxisTooltipItem[]
+  items: AxisTooltipItem[],
+  options: AxisTooltipOptions = {}
 ): ChartTooltipData {
   const rows = items
     .filter(
@@ -66,5 +81,10 @@ export function buildAxisTooltipData(
       color: item.color,
     }))
 
+  // Safe to mutate: `map` above already returned a fresh array.
+  if (options.reverse) rows.reverse()
+
+  // Every item in an axis trigger carries the same category name, so the
+  // first one still titles the tooltip whichever way the rows run.
   return { title: items[0]?.name, rows }
 }
