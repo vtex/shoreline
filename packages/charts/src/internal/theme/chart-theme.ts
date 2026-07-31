@@ -17,16 +17,24 @@ export interface ChartTokens {
 }
 
 /**
- * Categorical series palette, assigned to series in this fixed order (never
- * cycled). The first three are the primary, secondary and tertiary series
- * colors; the fourth is reserved for the aggregated "Others" series, so a
- * chart never needs a fifth color (see `collapseSeries` in the bar chart).
+ * Categorical series palette, assigned to series in this fixed order and
+ * never cycled — a repeated color would read as a repeated series. The first
+ * three are the designed primary, secondary and tertiary colors, which cover
+ * the default three-series chart; the rest extend the scale for charts that
+ * opt out of aggregation via `maxSeries`, ordered to keep adjacent pairs
+ * distinguishable under color-vision deficiency.
+ *
+ * The length of this list is the hard ceiling on how many series a chart can
+ * render (`seriesLimit` in the bar chart derives from it). Red is deliberately
+ * absent: it carries error semantics elsewhere in Shoreline.
  */
 export const chartSeriesTokens = [
   '--sl-color-blue-8',
   '--sl-color-purple-9',
   '--sl-color-orange-6',
   '--sl-color-pink-9',
+  '--sl-color-teal-9',
+  '--sl-color-green-9',
 ]
 
 const fontFamily = '--sl-font-family-sans'

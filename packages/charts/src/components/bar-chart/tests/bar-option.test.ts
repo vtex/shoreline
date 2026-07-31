@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest'
 
 import type { ChartTokens } from '../../../internal/theme'
 import type { BuildBarOptionArgs } from '../bar-option'
-import { buildBarOption } from '../bar-option'
+import { buildBarOption, defaultMaxSeries, seriesLimit } from '../bar-option'
 
 const tokens: ChartTokens = {
   get: () => undefined,
@@ -16,6 +16,7 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
     direction: 'vertical',
     grouping: 'grouped',
     othersLabel: 'Others',
+    maxSeries: defaultMaxSeries,
     tokens,
     ...overrides,
   }) as {
@@ -118,7 +119,7 @@ describe('buildBarOption', () => {
     expect(radiusAt(option, 1, 1)).toEqual([4, 4, 0, 0])
   })
 
-  test('sums series past the third into a single aggregate series', () => {
+  test('renders two named series plus the aggregate by default', () => {
     const option = build({
       categories: ['Jan', 'Feb'],
       series: [
@@ -130,12 +131,14 @@ describe('buildBarOption', () => {
       ],
     })
 
-    expect(option.series.map((s) => s.name)).toEqual(['A', 'B', 'C', 'Others'])
-    expect(option.series[3]?.data.map((d) => d.value)).toEqual([110, 220])
+    expect(defaultMaxSeries).toBe(3)
+    expect(option.series.map((s) => s.name)).toEqual(['A', 'B', 'Others'])
+    // The aggregate takes the tertiary slot, so it folds C, D and E.
+    expect(option.series[2]?.data.map((d) => d.value)).toEqual([115, 226])
   })
 
-  test('leaves three or fewer series untouched', () => {
-    const option = build({
+  test('leaves the series untouched when they fit within maxSeries', () => {
+    const three = build({
       series: [
         { name: 'A', data: [1] },
         { name: 'B', data: [2] },
@@ -143,7 +146,79 @@ describe('buildBarOption', () => {
       ],
     })
 
-    expect(option.series.map((s) => s.name)).toEqual(['A', 'B', 'C'])
+    expect(three.series.map((s) => s.name)).toEqual(['A', 'B', 'C'])
+
+    const five = build({
+      maxSeries: 5,
+      series: Array.from({ length: 5 }, (_, i) => ({
+        name: `S${i}`,
+        data: [1],
+      })),
+    })
+
+    expect(five.series.map((s) => s.name)).toEqual([
+      'S0',
+      'S1',
+      'S2',
+      'S3',
+      'S4',
+    ])
+  })
+
+  test('raising maxSeries gives more series their own name', () => {
+    const option = build({
+      maxSeries: 5,
+      series: Array.from({ length: 8 }, (_, i) => ({
+        name: `S${i}`,
+        data: [1],
+      })),
+    })
+
+    expect(option.series.map((s) => s.name)).toEqual([
+      'S0',
+      'S1',
+      'S2',
+      'S3',
+      'Others',
+    ])
+    expect(option.series[4]?.data.map((d) => d.value)).toEqual([4])
+  })
+
+  test('clamps maxSeries to the palette limit and still aggregates the rest', () => {
+    const option = build({
+      maxSeries: 99,
+      series: Array.from({ length: 10 }, (_, i) => ({
+        name: `S${i}`,
+        data: [1],
+      })),
+    })
+
+    expect(seriesLimit).toBe(6)
+    expect(option.series).toHaveLength(seriesLimit)
+    expect(option.series[seriesLimit - 1]?.name).toBe('Others')
+    // 10 series in, none dropped: 5 named + 5 folded into the aggregate.
+    expect(option.series[seriesLimit - 1]?.data.map((d) => d.value)).toEqual([
+      5,
+    ])
+  })
+
+  test('coerces a maxSeries below one, fractional, or non-finite', () => {
+    const series = Array.from({ length: 4 }, (_, i) => ({
+      name: `S${i}`,
+      data: [1],
+    }))
+
+    for (const maxSeries of [0, -3, Number.NaN]) {
+      const option = build({ maxSeries, series })
+
+      expect(option.series.map((s) => s.name)).toEqual(['Others'])
+      expect(option.series[0]?.data.map((d) => d.value)).toEqual([4])
+    }
+
+    // 3.7 floors to 3, matching the default shape rather than rounding up.
+    expect(build({ maxSeries: 3.7, series }).series.map((s) => s.name)).toEqual(
+      ['S0', 'S1', 'Others']
+    )
   })
 
   test('names the aggregate series from othersLabel', () => {
@@ -155,7 +230,7 @@ describe('buildBarOption', () => {
       })),
     })
 
-    expect(option.series[3]?.name).toBe('Outros')
+    expect(option.series[2]?.name).toBe('Outros')
   })
 
   test('keeps the aggregate null where every collapsed series is null', () => {
@@ -164,18 +239,18 @@ describe('buildBarOption', () => {
       series: [
         { name: 'A', data: [1, 1, 1] },
         { name: 'B', data: [1, 1, 1] },
-        { name: 'C', data: [1, 1, 1] },
-        { name: 'D', data: [null, 5, null] },
-        { name: 'E', data: [null, null, 7] },
+        { name: 'C', data: [null, 5, null] },
+        { name: 'D', data: [null, null, 7] },
       ],
     })
 
     // Jan: both null -> no bar. Feb/Mar: null skipped, not coerced to zero.
-    expect(option.series[3]?.data.map((d) => d.value)).toEqual([null, 5, 7])
+    expect(option.series[2]?.data.map((d) => d.value)).toEqual([null, 5, 7])
   })
 
   test('shows the legend for a single named series plus the aggregate', () => {
     const option = build({
+      maxSeries: 2,
       series: Array.from({ length: 5 }, (_, i) => ({
         name: `S${i}`,
         data: [1],
@@ -183,7 +258,7 @@ describe('buildBarOption', () => {
     })
 
     expect(option.legend.show).toBe(true)
-    expect(option.series).toHaveLength(4)
+    expect(option.series.map((s) => s.name)).toEqual(['S0', 'Others'])
   })
 
   test('rounds the aggregate as the outermost stack segment', () => {
@@ -194,13 +269,12 @@ describe('buildBarOption', () => {
         { name: 'B', data: [10] },
         { name: 'C', data: [10] },
         { name: 'D', data: [10] },
-        { name: 'E', data: [10] },
       ],
     })
 
     // The aggregate is last in the collapsed list, so it owns the rounding.
-    expect(radiusAt(option, 2, 0)).toEqual([0, 0, 0, 0])
-    expect(radiusAt(option, 3, 0)).toEqual([4, 4, 0, 0])
+    expect(radiusAt(option, 1, 0)).toEqual([0, 0, 0, 0])
+    expect(radiusAt(option, 2, 0)).toEqual([4, 4, 0, 0])
   })
 
   test('skips rounding for null, zero, and unresolvable radius', () => {

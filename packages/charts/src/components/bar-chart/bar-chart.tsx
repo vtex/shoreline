@@ -9,7 +9,7 @@ import type {
   BarChartGrouping,
   BarChartSeries,
 } from './bar-option'
-import { buildBarOption } from './bar-option'
+import { buildBarOption, defaultMaxSeries } from './bar-option'
 import './register'
 
 /**
@@ -35,6 +35,7 @@ export const BarChart = forwardRef<HTMLDivElement, BarChartProps>(
       loading = false,
       emptyLabel = 'No data',
       othersLabel = 'Others',
+      maxSeries = defaultMaxSeries,
       ...htmlProps
     } = props
 
@@ -49,9 +50,10 @@ export const BarChart = forwardRef<HTMLDivElement, BarChartProps>(
           direction,
           grouping,
           othersLabel,
+          maxSeries,
           tokens,
         }),
-      [series, categories, direction, grouping, othersLabel]
+      [series, categories, direction, grouping, othersLabel, maxSeries]
     )
 
     return (
@@ -83,9 +85,9 @@ export const BarChart = forwardRef<HTMLDivElement, BarChartProps>(
 
 export interface BarChartOptions {
   /**
-   * Chart series. Multiple series render per the `grouping` prop. Only the
-   * first three keep their own name and color — any beyond that are summed
-   * per category into a single `othersLabel` series.
+   * Chart series. Multiple series render per the `grouping` prop. At most
+   * `maxSeries` of them render: past that, the tail is summed per category
+   * into a single `othersLabel` series.
    */
   series: BarChartSeries[]
   /**
@@ -123,10 +125,20 @@ export interface BarChartOptions {
    */
   emptyLabel?: string
   /**
-   * Name of the series that aggregates everything past the third one.
+   * Name of the series that aggregates the tail of `series`.
    * @default 'Others'
    */
   othersLabel?: string
+  /**
+   * How many series render at most. Raise it to give more series their own
+   * name and color instead of aggregating them; the default keeps the chart
+   * to the primary and secondary series plus the aggregate.
+   *
+   * Capped at 6 — the palette has that many colors and never cycles them.
+   * Series past the cap still aggregate, so no data is dropped.
+   * @default 3
+   */
+  maxSeries?: number
 }
 
 export type BarChartProps = BarChartOptions & ComponentPropsWithoutRef<'div'>

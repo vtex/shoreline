@@ -75,25 +75,39 @@ describe('bar-chart', () => {
     expect(container.querySelector('svg')).not.toBeInTheDocument()
   })
 
-  test('legends series past the third as a single aggregate entry', () => {
+  const channels = [
+    { name: 'Website', data: [10, 20] },
+    { name: 'Marketplace', data: [5, 6] },
+    { name: 'Physical store', data: [3, 4] },
+    { name: 'Social', data: [2, 2] },
+    { name: 'Phone', data: [1, 1] },
+  ]
+
+  test('legends the aggregate as a single entry past the second series', () => {
+    const { container } = render(<BarChart {...data} series={channels} />)
+
+    const legend = container.querySelector('svg')?.textContent
+
+    expect(legend).toContain('Website')
+    expect(legend).toContain('Marketplace')
+    expect(legend).toContain('Others')
+    expect(legend).not.toContain('Physical store')
+    expect(legend).not.toContain('Social')
+    expect(legend).not.toContain('Phone')
+  })
+
+  test('maxSeries opts out of aggregating', () => {
     const { container } = render(
-      <BarChart
-        {...data}
-        series={[
-          { name: 'Website', data: [10, 20] },
-          { name: 'Marketplace', data: [5, 6] },
-          { name: 'Physical store', data: [3, 4] },
-          { name: 'Social', data: [2, 2] },
-          { name: 'Phone', data: [1, 1] },
-        ]}
-      />
+      <BarChart {...data} series={channels} maxSeries={5} />
     )
 
     const legend = container.querySelector('svg')?.textContent
 
-    expect(legend).toContain('Others')
-    expect(legend).not.toContain('Social')
-    expect(legend).not.toContain('Phone')
+    for (const { name } of channels) {
+      expect(legend).toContain(name)
+    }
+
+    expect(legend).not.toContain('Others')
   })
 
   test('renders category labels through the engine', () => {

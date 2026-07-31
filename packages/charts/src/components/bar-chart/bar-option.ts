@@ -1,5 +1,6 @@
 import type { EChartsCoreOption } from '../../internal/echarts'
 import type { ChartTokens } from '../../internal/theme'
+import { chartSeriesTokens } from '../../internal/theme'
 
 /**
  * A single bar series.
@@ -32,29 +33,48 @@ export interface BuildBarOptionArgs {
   direction: BarChartDirection
   grouping: BarChartGrouping
   othersLabel: string
+  maxSeries: number
   tokens: ChartTokens
 }
 
 /**
- * How many series keep their own name and color. The palette has one color
- * past this point, reserved for the aggregate, so the chart stays readable
- * instead of cycling colors across an unbounded series count.
+ * Hard ceiling on rendered series, set by the palette itself: there are only
+ * this many designed colors and they are never cycled, so no chart can show
+ * more distinct series than this regardless of what `maxSeries` asks for.
  */
-export const maxNamedSeries = 3
+export const seriesLimit = chartSeriesTokens.length
 
 /**
- * Folds every series past `maxNamedSeries` into a single aggregate series.
- * Values are summed per category; a null contributes nothing, and a category
- * stays null when every folded series is null there, so the aggregate renders
- * no bar rather than a spurious zero.
+ * Default number of rendered series: the primary and secondary series plus the
+ * aggregate in the tertiary color.
+ */
+export const defaultMaxSeries = 3
+
+/**
+ * Folds the tail of `series` into a single aggregate so that no more than
+ * `maxSeries` series render, keeping every value represented instead of
+ * dropping data. Requests above `seriesLimit` clamp to it, because past that
+ * point the palette has no color left to tell series apart.
+ *
+ * The aggregate takes the last rendered slot, so it wears that slot's color —
+ * the tertiary color at the default `maxSeries`.
+ *
+ * Values are summed per category. A null contributes nothing, and a category
+ * where every folded series is null stays null, so the aggregate renders no
+ * bar rather than a spurious zero.
  */
 export function collapseSeries(
   series: BarChartSeries[],
-  othersLabel: string
+  othersLabel: string,
+  maxSeries: number
 ): BarChartSeries[] {
-  if (series.length <= maxNamedSeries) return series
+  // A fractional or non-finite request would otherwise slice unpredictably.
+  const limit = Math.min(Math.max(Math.floor(maxSeries) || 1, 1), seriesLimit)
 
-  const rest = series.slice(maxNamedSeries)
+  if (series.length <= limit) return series
+
+  // The aggregate occupies the last slot, so one fewer series keeps its name.
+  const rest = series.slice(limit - 1)
   const length = Math.max(...rest.map((item) => item.data.length))
 
   const data = Array.from({ length }, (_, index) =>
@@ -65,7 +85,7 @@ export function collapseSeries(
     }, null)
   )
 
-  return [...series.slice(0, maxNamedSeries), { name: othersLabel, data }]
+  return [...series.slice(0, limit - 1), { name: othersLabel, data }]
 }
 
 const radiusToken = '--sl-radius-1'
@@ -135,11 +155,12 @@ function isStackEnd(args: {
  * style values come from the resolved tokens.
  */
 export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
-  const { categories, direction, grouping, othersLabel, tokens } = args
+  const { categories, direction, grouping, othersLabel, maxSeries, tokens } =
+    args
 
   // Everything downstream — legend, palette order, stack-end resolution —
   // reads the collapsed list, so the aggregate behaves like any other series.
-  const series = collapseSeries(args.series, othersLabel)
+  const series = collapseSeries(args.series, othersLabel, maxSeries)
 
   const radius = tokens.px(radiusToken)
   const showLegend = series.length > 1

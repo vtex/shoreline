@@ -53,20 +53,59 @@ export function Stacked() {
   )
 }
 
+const channels = [
+  { name: 'Website', data: [2300, 2900, 2500, 3400, 3100, 3800] },
+  { name: 'Marketplace', data: [1200, 1400, 1500, 1800, 1900, 2200] },
+  { name: 'Physical store', data: [700, 800, 800, 1100, 900, 1200] },
+  { name: 'Social', data: [300, 350, 400, 500, 450, 600] },
+  { name: 'Phone', data: [120, 140, 90, 200, 160, 180] },
+]
+
+/**
+ * Five series, default `maxSeries`: Website and Marketplace keep their names,
+ * the other three fold into "Others" in the tertiary color.
+ */
 export function GroupedIntoOthers() {
   return (
     <BarChart
       label="Sales by channel"
       grouping="stacked"
       categories={months}
-      series={[
-        { name: 'Website', data: [2300, 2900, 2500, 3400, 3100, 3800] },
-        { name: 'Marketplace', data: [1200, 1400, 1500, 1800, 1900, 2200] },
-        { name: 'Physical store', data: [700, 800, 800, 1100, 900, 1200] },
-        // Beyond the third series, so both fold into "Others".
-        { name: 'Social', data: [300, 350, 400, 500, 450, 600] },
-        { name: 'Phone', data: [120, 140, 90, 200, 160, 180] },
-      ]}
+      series={channels}
+    />
+  )
+}
+
+/**
+ * The same five series with aggregation opted out, so each gets its own color
+ * from the extended palette.
+ */
+export function AllSeries() {
+  return (
+    <BarChart
+      label="Sales by channel"
+      grouping="stacked"
+      categories={months}
+      series={channels}
+      maxSeries={5}
+    />
+  )
+}
+
+/**
+ * Nine series against a `maxSeries` above the palette limit: five keep their
+ * names, the remaining four still fold into "Others" so no data is dropped.
+ */
+export function BeyondTheLimit() {
+  return (
+    <BarChart
+      label="Sales by channel"
+      categories={months}
+      maxSeries={99}
+      series={Array.from({ length: 9 }, (_, i) => ({
+        name: `Channel ${i + 1}`,
+        data: months.map((_, month) => 400 + i * 120 + month * 60),
+      }))}
     />
   )
 }
