@@ -13,8 +13,8 @@ export interface TooltipPositionInput {
 
 /**
  * `offset` px to the left or right of the hovered point, flipping sides by
- * which half of the chart it falls in, vertically centered on the point —
- * design-notes/tooltip.md, Positioning. Clamped so the tooltip never renders
+ * which half of the chart it falls in, vertically centered on the point, per
+ * the design spec's positioning rule. Clamped so the tooltip never renders
  * outside the chart's own bounds.
  */
 export function getTooltipPosition(

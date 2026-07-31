@@ -95,10 +95,10 @@ export function collapseSeries(
 const radiusToken = '--sl-radius-1'
 const spaceSmall = '--sl-space-2'
 const spaceLegend = '--sl-space-10'
-// design-notes/tooltip.md, Positioning: 8px between the hovered bar and the tooltip
+// Design spec, positioning: 8px between the hovered bar and the tooltip
 const tooltipOffsetToken = '--sl-space-2'
 const tooltipOffsetFallback = 8
-// design-notes/bar-chart.md, Behaviour: hover overlay over the selected category
+// Design spec, behaviour: hover overlay over the selected category
 const hoverOverlayToken = '--sl-bg-muted-plain-hover'
 
 type BorderRadius = [number, number, number, number]

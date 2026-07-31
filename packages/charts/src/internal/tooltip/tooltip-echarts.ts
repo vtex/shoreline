@@ -21,8 +21,8 @@ interface EChartsTooltipPositionSize {
 
 /**
  * Engine tooltip `formatter` for an axis-trigger tooltip: one row per series
- * at the hovered category (design-notes/bar-chart.md, Behaviour — "tooltip
- * shows data for the selected bars").
+ * at the hovered category, per the design spec's "tooltip shows data for the
+ * selected bars" behaviour.
  */
 export function formatAxisTooltip(
   params: EChartsAxisTooltipParam | EChartsAxisTooltipParam[]
