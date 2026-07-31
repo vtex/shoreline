@@ -44,6 +44,8 @@ const fgMuted = '--sl-fg-muted'
 const bgBase = '--sl-bg-base'
 // color component of --sl-border-base, which is a full border shorthand
 const lineColor = '--sl-color-gray-3'
+// legend symbols are square, so one token drives both of their dimensions
+const legendSymbolSize = '--sl-space-3'
 
 /**
  * Compiles `--sl-*` design tokens into an engine theme object. This bridge is
@@ -81,6 +83,10 @@ export function createChartTheme(tokens: ChartTokens) {
     categoryAxis: axis,
     valueAxis: axis,
     legend: {
+      // The engine's default symbol is a wide rectangle (25×14). Driving both
+      // dimensions from one token squares it off.
+      itemWidth: px(legendSymbolSize),
+      itemHeight: px(legendSymbolSize),
       textStyle: {
         color: get(fgBase),
         fontFamily: get(fontFamily),
