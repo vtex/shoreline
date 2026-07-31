@@ -2,8 +2,8 @@ import type { EChartsCoreOption } from '../../internal/echarts'
 import type { ChartTokens } from '../../internal/theme'
 import { chartSeriesTokens } from '../../internal/theme'
 import {
+  createAxisTooltipFormatter,
   createTooltipPositioner,
-  formatAxisTooltip,
 } from '../../internal/tooltip'
 
 /**
@@ -174,6 +174,13 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
   const radius = tokens.px(radiusToken)
   const showLegend = series.length > 1
 
+  // A vertical stack piles the first series at the bottom, so its segments run
+  // last-to-first down the bar and the tooltip has to list them in reverse to
+  // read in the same order. No other geometry needs it: a horizontal stack
+  // grows left to right, and grouped bars sit side by side — both already put
+  // the first series where the reader starts.
+  const reverseTooltipRows = direction === 'vertical' && grouping === 'stacked'
+
   const categoryAxis = { type: 'category', data: categories }
   const valueAxis = { type: 'value' }
 
@@ -191,7 +198,7 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
       borderWidth: 0,
       padding: 0,
       extraCssText: 'box-shadow: none;',
-      formatter: formatAxisTooltip,
+      formatter: createAxisTooltipFormatter({ reverse: reverseTooltipRows }),
       position: createTooltipPositioner(
         tokens.px(tooltipOffsetToken) ?? tooltipOffsetFallback
       ),

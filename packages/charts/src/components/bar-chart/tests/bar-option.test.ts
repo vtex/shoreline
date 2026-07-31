@@ -25,7 +25,7 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
       trigger: string
       axisPointer: { type: string }
       backgroundColor: string
-      formatter: unknown
+      formatter: (params: unknown) => string
       position: unknown
     }
     xAxis: { type: string; data?: string[] }
@@ -40,6 +40,13 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
     }>
   }
 }
+
+// What the engine passes the tooltip formatter on hover: one item per series
+// at the hovered category, always in series order.
+const hoveredParams = [
+  { name: 'Jan', seriesName: 'Website', value: 10, color: '#3993f4' },
+  { name: 'Jan', seriesName: 'Marketplace', value: 20, color: '#9c56f3' },
+]
 
 function radiusAt(
   option: ReturnType<typeof build>,
@@ -292,6 +299,41 @@ describe('buildBarOption', () => {
     expect(option.tooltip.backgroundColor).toBe('transparent')
     expect(typeof option.tooltip.formatter).toBe('function')
     expect(typeof option.tooltip.position).toBe('function')
+  })
+
+  test('lists tooltip rows top-down for a vertical stack', () => {
+    const option = build({
+      series: [
+        { name: 'Website', data: [10] },
+        { name: 'Marketplace', data: [20] },
+      ],
+      direction: 'vertical',
+      grouping: 'stacked',
+    })
+
+    const html = option.tooltip.formatter(hoveredParams)
+
+    // Marketplace stacks on top of Website, so it heads the tooltip.
+    expect(html.indexOf('Marketplace')).toBeLessThan(html.indexOf('Website'))
+  })
+
+  test('keeps series order for a horizontal stack and for grouped bars', () => {
+    const series = [
+      { name: 'Website', data: [10] },
+      { name: 'Marketplace', data: [20] },
+    ]
+
+    for (const overrides of [
+      { direction: 'horizontal', grouping: 'stacked' },
+      { direction: 'vertical', grouping: 'grouped' },
+      { direction: 'horizontal', grouping: 'grouped' },
+    ] as const) {
+      const html = build({ series, ...overrides }).tooltip.formatter(
+        hoveredParams
+      )
+
+      expect(html.indexOf('Website')).toBeLessThan(html.indexOf('Marketplace'))
+    }
   })
 
   test('skips rounding for null, zero, and unresolvable radius', () => {

@@ -1,3 +1,4 @@
+import type { AxisTooltipOptions } from './tooltip-model'
 import { buildAxisTooltipData } from './tooltip-model'
 import { getTooltipPosition } from './tooltip-position'
 import { renderChartTooltip } from './tooltip-render'
@@ -20,25 +21,29 @@ interface EChartsTooltipPositionSize {
 }
 
 /**
- * Engine tooltip `formatter` for an axis-trigger tooltip: one row per series
- * at the hovered category, per the design spec's "tooltip shows data for the
- * selected bars" behaviour.
+ * Builds an engine tooltip `formatter` for an axis-trigger tooltip: one row
+ * per series at the hovered category, per the design spec's "tooltip shows
+ * data for the selected bars" behaviour. Bound to the row order the calling
+ * chart's geometry calls for — see `AxisTooltipOptions.reverse`.
  */
-export function formatAxisTooltip(
-  params: EChartsAxisTooltipParam | EChartsAxisTooltipParam[]
-): string {
-  const items = Array.isArray(params) ? params : [params]
+export function createAxisTooltipFormatter(options: AxisTooltipOptions = {}) {
+  return (
+    params: EChartsAxisTooltipParam | EChartsAxisTooltipParam[]
+  ): string => {
+    const items = Array.isArray(params) ? params : [params]
 
-  return renderChartTooltip(
-    buildAxisTooltipData(
-      items.map((item) => ({
-        name: item.name,
-        seriesName: item.seriesName,
-        value: typeof item.value === 'number' ? item.value : null,
-        color: typeof item.color === 'string' ? item.color : undefined,
-      }))
+    return renderChartTooltip(
+      buildAxisTooltipData(
+        items.map((item) => ({
+          name: item.name,
+          seriesName: item.seriesName,
+          value: typeof item.value === 'number' ? item.value : null,
+          color: typeof item.color === 'string' ? item.color : undefined,
+        })),
+        options
+      )
     )
-  )
+  }
 }
 
 /**
