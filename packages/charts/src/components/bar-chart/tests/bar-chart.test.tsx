@@ -75,6 +75,27 @@ describe('bar-chart', () => {
     expect(container.querySelector('svg')).not.toBeInTheDocument()
   })
 
+  test('legends series past the third as a single aggregate entry', () => {
+    const { container } = render(
+      <BarChart
+        {...data}
+        series={[
+          { name: 'Website', data: [10, 20] },
+          { name: 'Marketplace', data: [5, 6] },
+          { name: 'Physical store', data: [3, 4] },
+          { name: 'Social', data: [2, 2] },
+          { name: 'Phone', data: [1, 1] },
+        ]}
+      />
+    )
+
+    const legend = container.querySelector('svg')?.textContent
+
+    expect(legend).toContain('Others')
+    expect(legend).not.toContain('Social')
+    expect(legend).not.toContain('Phone')
+  })
+
   test('renders category labels through the engine', () => {
     const { container } = render(<BarChart {...data} />)
 

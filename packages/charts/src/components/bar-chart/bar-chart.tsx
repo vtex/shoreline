@@ -34,6 +34,7 @@ export const BarChart = forwardRef<HTMLDivElement, BarChartProps>(
       grouping = 'grouped',
       loading = false,
       emptyLabel = 'No data',
+      othersLabel = 'Others',
       ...htmlProps
     } = props
 
@@ -42,8 +43,15 @@ export const BarChart = forwardRef<HTMLDivElement, BarChartProps>(
 
     const option = useMemo(
       () => (tokens: ChartTokens) =>
-        buildBarOption({ series, categories, direction, grouping, tokens }),
-      [series, categories, direction, grouping]
+        buildBarOption({
+          series,
+          categories,
+          direction,
+          grouping,
+          othersLabel,
+          tokens,
+        }),
+      [series, categories, direction, grouping, othersLabel]
     )
 
     return (
@@ -75,7 +83,9 @@ export const BarChart = forwardRef<HTMLDivElement, BarChartProps>(
 
 export interface BarChartOptions {
   /**
-   * Chart series. Multiple series render per the `grouping` prop.
+   * Chart series. Multiple series render per the `grouping` prop. Only the
+   * first three keep their own name and color — any beyond that are summed
+   * per category into a single `othersLabel` series.
    */
   series: BarChartSeries[]
   /**
@@ -112,6 +122,11 @@ export interface BarChartOptions {
    * @default 'No data'
    */
   emptyLabel?: string
+  /**
+   * Name of the series that aggregates everything past the third one.
+   * @default 'Others'
+   */
+  othersLabel?: string
 }
 
 export type BarChartProps = BarChartOptions & ComponentPropsWithoutRef<'div'>

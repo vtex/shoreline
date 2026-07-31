@@ -18,20 +18,15 @@ export interface ChartTokens {
 
 /**
  * Categorical series palette, assigned to series in this fixed order (never
- * cycled). The order interleaves warm and cool hues so adjacent series stay
- * distinguishable under color-vision deficiency (worst adjacent-pair CVD
- * ΔE 17.1 against the base surface). Provisional until designer sign-off on
- * the Data Visualization spec.
+ * cycled). The first three are the primary, secondary and tertiary series
+ * colors; the fourth is reserved for the aggregated "Others" series, so a
+ * chart never needs a fifth color (see `collapseSeries` in the bar chart).
  */
 export const chartSeriesTokens = [
-  '--sl-color-blue-9',
-  '--sl-color-orange-9',
-  '--sl-color-teal-9',
-  '--sl-color-pink-9',
-  '--sl-color-green-9',
+  '--sl-color-blue-8',
   '--sl-color-purple-9',
-  '--sl-color-yellow-9',
-  '--sl-color-cyan-9',
+  '--sl-color-orange-6',
+  '--sl-color-pink-9',
 ]
 
 const fontFamily = '--sl-font-family-sans'

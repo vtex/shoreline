@@ -31,7 +31,41 @@ export interface BuildBarOptionArgs {
   categories: string[]
   direction: BarChartDirection
   grouping: BarChartGrouping
+  othersLabel: string
   tokens: ChartTokens
+}
+
+/**
+ * How many series keep their own name and color. The palette has one color
+ * past this point, reserved for the aggregate, so the chart stays readable
+ * instead of cycling colors across an unbounded series count.
+ */
+export const maxNamedSeries = 3
+
+/**
+ * Folds every series past `maxNamedSeries` into a single aggregate series.
+ * Values are summed per category; a null contributes nothing, and a category
+ * stays null when every folded series is null there, so the aggregate renders
+ * no bar rather than a spurious zero.
+ */
+export function collapseSeries(
+  series: BarChartSeries[],
+  othersLabel: string
+): BarChartSeries[] {
+  if (series.length <= maxNamedSeries) return series
+
+  const rest = series.slice(maxNamedSeries)
+  const length = Math.max(...rest.map((item) => item.data.length))
+
+  const data = Array.from({ length }, (_, index) =>
+    rest.reduce<number | null>((sum, item) => {
+      const value = item.data[index]
+
+      return value === null || value === undefined ? sum : (sum ?? 0) + value
+    }, null)
+  )
+
+  return [...series.slice(0, maxNamedSeries), { name: othersLabel, data }]
 }
 
 const radiusToken = '--sl-radius-1'
@@ -101,7 +135,11 @@ function isStackEnd(args: {
  * style values come from the resolved tokens.
  */
 export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
-  const { series, categories, direction, grouping, tokens } = args
+  const { categories, direction, grouping, othersLabel, tokens } = args
+
+  // Everything downstream — legend, palette order, stack-end resolution —
+  // reads the collapsed list, so the aggregate behaves like any other series.
+  const series = collapseSeries(args.series, othersLabel)
 
   const radius = tokens.px(radiusToken)
   const showLegend = series.length > 1

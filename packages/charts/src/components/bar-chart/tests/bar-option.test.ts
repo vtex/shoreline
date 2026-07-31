@@ -15,6 +15,7 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
     categories: ['Jan', 'Feb'],
     direction: 'vertical',
     grouping: 'grouped',
+    othersLabel: 'Others',
     tokens,
     ...overrides,
   }) as {
@@ -115,6 +116,91 @@ describe('buildBarOption', () => {
     // negative pile: A is the only negative segment and keeps its rounding
     expect(radiusAt(option, 0, 1)).toEqual([0, 0, 4, 4])
     expect(radiusAt(option, 1, 1)).toEqual([4, 4, 0, 0])
+  })
+
+  test('sums series past the third into a single aggregate series', () => {
+    const option = build({
+      categories: ['Jan', 'Feb'],
+      series: [
+        { name: 'A', data: [1, 2] },
+        { name: 'B', data: [3, 4] },
+        { name: 'C', data: [5, 6] },
+        { name: 'D', data: [10, 20] },
+        { name: 'E', data: [100, 200] },
+      ],
+    })
+
+    expect(option.series.map((s) => s.name)).toEqual(['A', 'B', 'C', 'Others'])
+    expect(option.series[3]?.data.map((d) => d.value)).toEqual([110, 220])
+  })
+
+  test('leaves three or fewer series untouched', () => {
+    const option = build({
+      series: [
+        { name: 'A', data: [1] },
+        { name: 'B', data: [2] },
+        { name: 'C', data: [3] },
+      ],
+    })
+
+    expect(option.series.map((s) => s.name)).toEqual(['A', 'B', 'C'])
+  })
+
+  test('names the aggregate series from othersLabel', () => {
+    const option = build({
+      othersLabel: 'Outros',
+      series: Array.from({ length: 4 }, (_, i) => ({
+        name: `S${i}`,
+        data: [1],
+      })),
+    })
+
+    expect(option.series[3]?.name).toBe('Outros')
+  })
+
+  test('keeps the aggregate null where every collapsed series is null', () => {
+    const option = build({
+      categories: ['Jan', 'Feb', 'Mar'],
+      series: [
+        { name: 'A', data: [1, 1, 1] },
+        { name: 'B', data: [1, 1, 1] },
+        { name: 'C', data: [1, 1, 1] },
+        { name: 'D', data: [null, 5, null] },
+        { name: 'E', data: [null, null, 7] },
+      ],
+    })
+
+    // Jan: both null -> no bar. Feb/Mar: null skipped, not coerced to zero.
+    expect(option.series[3]?.data.map((d) => d.value)).toEqual([null, 5, 7])
+  })
+
+  test('shows the legend for a single named series plus the aggregate', () => {
+    const option = build({
+      series: Array.from({ length: 5 }, (_, i) => ({
+        name: `S${i}`,
+        data: [1],
+      })),
+    })
+
+    expect(option.legend.show).toBe(true)
+    expect(option.series).toHaveLength(4)
+  })
+
+  test('rounds the aggregate as the outermost stack segment', () => {
+    const option = build({
+      grouping: 'stacked',
+      series: [
+        { name: 'A', data: [10] },
+        { name: 'B', data: [10] },
+        { name: 'C', data: [10] },
+        { name: 'D', data: [10] },
+        { name: 'E', data: [10] },
+      ],
+    })
+
+    // The aggregate is last in the collapsed list, so it owns the rounding.
+    expect(radiusAt(option, 2, 0)).toEqual([0, 0, 0, 0])
+    expect(radiusAt(option, 3, 0)).toEqual([4, 4, 0, 0])
   })
 
   test('skips rounding for null, zero, and unresolvable radius', () => {
