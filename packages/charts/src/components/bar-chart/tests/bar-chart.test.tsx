@@ -6,6 +6,7 @@ import {
   test,
   vi,
 } from '@vtex/shoreline-test-utils'
+import { LocaleProvider } from '@vtex/shoreline'
 
 import { BarChart } from '../index'
 
@@ -65,14 +66,22 @@ describe('bar-chart', () => {
   })
 
   test('renders the empty state when there is no data', () => {
+    const { container } = render(<BarChart {...data} series={[]} />)
+
+    expect(
+      container.querySelector('[data-sl-bar-chart-empty]')
+    ).toHaveTextContent('No data')
+    expect(container.querySelector('svg')).not.toBeInTheDocument()
+  })
+
+  test('overrides the empty message', () => {
     const { container } = render(
-      <BarChart {...data} series={[]} emptyLabel="Nothing to show" />
+      <BarChart {...data} series={[]} messages={{ empty: 'Nothing to show' }} />
     )
 
     expect(
       container.querySelector('[data-sl-bar-chart-empty]')
     ).toHaveTextContent('Nothing to show')
-    expect(container.querySelector('svg')).not.toBeInTheDocument()
   })
 
   const channels = [
@@ -115,5 +124,27 @@ describe('bar-chart', () => {
 
     expect(container.querySelector('svg')?.textContent).toContain('Jan')
     expect(container.querySelector('svg')?.textContent).toContain('Feb')
+  })
+
+  test('localizes the messages from the surrounding locale', () => {
+    const { container } = render(
+      <LocaleProvider locale="pt-BR">
+        <BarChart {...data} series={channels} />
+      </LocaleProvider>
+    )
+
+    expect(container.querySelector('svg')?.textContent).toContain('Outros')
+  })
+
+  test('localizes the empty message from the surrounding locale', () => {
+    const { container } = render(
+      <LocaleProvider locale="pt-BR">
+        <BarChart {...data} series={[]} />
+      </LocaleProvider>
+    )
+
+    expect(
+      container.querySelector('[data-sl-bar-chart-empty]')
+    ).toHaveTextContent('Sem dados')
   })
 })

@@ -6,6 +6,7 @@ export {
 export type {
   BarChartDirection,
   BarChartGrouping,
+  BarChartMessages,
   BarChartOptions,
   BarChartProps,
   BarChartSeries,

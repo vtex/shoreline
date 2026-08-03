@@ -1,4 +1,4 @@
-import { Skeleton, VisuallyHidden } from '@vtex/shoreline'
+import { Skeleton, VisuallyHidden, createMessageHook } from '@vtex/shoreline'
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef, useId, useMemo } from 'react'
 
@@ -10,7 +10,10 @@ import type {
   BarChartSeries,
 } from './bar-option'
 import { buildBarOption, defaultMaxSeries } from './bar-option'
+import { messages } from './messages'
 import './register'
+
+const useMessage = createMessageHook(messages)
 
 /**
  * Bar charts compare values across categories, in the Shoreline design
@@ -33,11 +36,14 @@ export const BarChart = forwardRef<HTMLDivElement, BarChartProps>(
       direction = 'vertical',
       grouping = 'grouped',
       loading = false,
-      emptyLabel = 'No data',
-      othersLabel = 'Others',
+      messages: messageOverrides,
       maxSeries = defaultMaxSeries,
       ...htmlProps
     } = props
+
+    const getMessage = useMessage(messageOverrides)
+    const emptyLabel = getMessage('empty')
+    const othersLabel = getMessage('others')
 
     const descriptionId = useId()
     const hasData = series.some((item) => item.data.length > 0)
@@ -87,7 +93,7 @@ export interface BarChartOptions {
   /**
    * Chart series. Multiple series render per the `grouping` prop. At most
    * `maxSeries` of them render: past that, the tail is summed per category
-   * into a single `othersLabel` series.
+   * into a single aggregate series named after the `others` message.
    */
   series: BarChartSeries[]
   /**
@@ -120,15 +126,11 @@ export interface BarChartOptions {
    */
   loading?: boolean
   /**
-   * Message rendered when there is no data to display.
-   * @default 'No data'
+   * Overrides the chart's internal messages, which are otherwise localized from
+   * the surrounding `LocaleProvider`.
+   * @default undefined
    */
-  emptyLabel?: string
-  /**
-   * Name of the series that aggregates the tail of `series`.
-   * @default 'Others'
-   */
-  othersLabel?: string
+  messages?: BarChartMessages
   /**
    * How many series render at most. Raise it to give more series their own
    * name and color instead of aggregating them; the default keeps the chart
@@ -142,3 +144,19 @@ export interface BarChartOptions {
 }
 
 export type BarChartProps = BarChartOptions & ComponentPropsWithoutRef<'div'>
+
+/**
+ * Bar chart internal messages
+ */
+export type BarChartMessages = Partial<{
+  [key in BarChartMessagesKeys]: string
+}>
+
+/**
+ * Bar chart internal messages intl keys
+ */
+type BarChartMessagesKeys =
+  /** Rendered in place of the chart when there is no data to display */
+  | 'empty'
+  /** Names the series that aggregates the tail of `series` */
+  | 'others'

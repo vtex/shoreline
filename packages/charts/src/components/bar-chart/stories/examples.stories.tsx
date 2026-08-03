@@ -1,3 +1,5 @@
+import { LocaleProvider } from '@vtex/shoreline'
+
 import { BarChart } from '../index'
 import '../../../styles.css'
 
@@ -165,7 +167,25 @@ export function Empty() {
       label="Revenue by month"
       categories={[]}
       series={[]}
-      emptyLabel="No data for the selected period"
+      messages={{ empty: 'No data for the selected period' }}
     />
+  )
+}
+
+/**
+ * Internal messages — the empty state and the "Others" aggregate — localize from
+ * the surrounding `LocaleProvider`. Data supplied through props is not
+ * translated: series names and categories are the consumer's to localize.
+ */
+export function Localized() {
+  return (
+    <LocaleProvider locale="pt-BR">
+      <BarChart
+        label="Vendas por canal"
+        grouping="stacked"
+        categories={['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun']}
+        series={channels}
+      />
+    </LocaleProvider>
   )
 }
