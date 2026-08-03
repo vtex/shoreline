@@ -1,0 +1,56 @@
+{
+  "name": "@vtex/shoreline-charts",
+  "description": "Shoreline data visualization components",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./css": "./dist/styles.css",
+    "./css/unlayered": "./dist/styles-unlayered.css"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "dev": "concurrently \"tsup --watch\" \"pnpm run build:css\"",
+    "build": "pnpm run prebuild && tsc --noEmit && concurrently \"tsup\" \"pnpm run build:css\"",
+    "build:css": "node -r sucrase/register src/scripts/build-css.ts"
+  },
+  "repository": {
+    "directory": "packages/charts",
+    "type": "git",
+    "url": "git+https://github.com/vtex/shoreline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtex/shoreline/issues"
+  },
+  "peerDependencies": {
+    "react": ">=18.3",
+    "react-dom": ">=18.3",
+    "typescript": ">=5"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.9",
+    "@vtex/shoreline-css": "workspace:*",
+    "concurrently": "8.2.2",
+    "sucrase": "3.35.0"
+  },
+  "dependencies": {
+    "@vtex/shoreline-utils": "workspace:*",
+    "echarts": "5.6.0"
+  }
+}
