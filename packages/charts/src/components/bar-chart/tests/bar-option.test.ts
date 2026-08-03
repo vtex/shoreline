@@ -24,6 +24,8 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
     tooltip: {
       trigger: string
       axisPointer: { type: string }
+      confine: boolean
+      appendTo: string
       backgroundColor: string
       formatter: (params: unknown) => string
       position: unknown
@@ -299,6 +301,13 @@ describe('buildBarOption', () => {
     expect(option.tooltip.backgroundColor).toBe('transparent')
     expect(typeof option.tooltip.formatter).toBe('function')
     expect(typeof option.tooltip.position).toBe('function')
+  })
+
+  test('lets the tooltip overflow the chart instead of being confined to it', () => {
+    const option = build()
+
+    expect(option.tooltip.confine).toBe(false)
+    expect(option.tooltip.appendTo).toBe('body')
   })
 
   test('lists tooltip rows top-down for a vertical stack', () => {

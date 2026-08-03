@@ -36,26 +36,47 @@ describe('getTooltipPosition', () => {
     expect(y).toBe(130)
   })
 
-  test('clamps to the chart bounds at the near edge', () => {
-    const [x, y] = getTooltipPosition({
-      point: [0, 0],
+  test('overflows the top of the chart rather than clamping to it', () => {
+    const [, y] = getTooltipPosition({
+      point: [100, 0],
       contentSize: [80, 40],
       viewSize: [400, 300],
       offset: 8,
     })
 
-    expect(x).toBe(8)
-    expect(y).toBe(0)
+    expect(y).toBe(-20)
   })
 
-  test('clamps to the chart bounds at the far edge', () => {
+  test('overflows the bottom of the chart rather than clamping to it', () => {
+    const [, y] = getTooltipPosition({
+      point: [100, 300],
+      contentSize: [80, 40],
+      viewSize: [400, 300],
+      offset: 8,
+    })
+
+    expect(y).toBe(280)
+  })
+
+  test('overflows the left of the chart rather than clamping to it', () => {
     const [x] = getTooltipPosition({
-      point: [400, 0],
+      point: [300, 50],
       contentSize: [500, 40],
       viewSize: [400, 300],
       offset: 8,
     })
 
-    expect(x).toBe(0)
+    expect(x).toBe(-208)
+  })
+
+  test('overflows the right of the chart rather than clamping to it', () => {
+    const [x] = getTooltipPosition({
+      point: [199, 50],
+      contentSize: [500, 40],
+      viewSize: [400, 300],
+      offset: 8,
+    })
+
+    expect(x).toBe(207)
   })
 })

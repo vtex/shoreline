@@ -192,6 +192,12 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
         type: 'shadow',
         shadowStyle: { color: tokens.get(hoverOverlayToken) },
       },
+      // The tooltip is allowed to overflow the chart. `confine` would push it
+      // back inside the chart bounds, and leaving the element inside the chart
+      // container lets any `overflow: hidden` ancestor clip it — so it renders
+      // on `body` instead, above whatever the chart sits in.
+      confine: false,
+      appendTo: 'body',
       // Visuals come entirely from the formatter's own markup + tooltip.css
       // (data-sl-chart-tooltip*), not from the engine's tooltip container.
       backgroundColor: 'transparent',
