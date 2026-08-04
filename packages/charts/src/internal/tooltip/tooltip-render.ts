@@ -1,12 +1,12 @@
 import type {
   ChartTooltipData,
+  ChartTooltipDelta,
   ChartTooltipRow,
-  ChartTooltipVariation,
 } from './tooltip-model'
 
-// The Figma "ChartTooltip" variation arrow — a filled triangle rotated by
+// The Figma "ChartTooltip" delta arrow — a filled triangle rotated by
 // CSS for the 'down' direction (tooltip.md row model).
-const variationIconPath =
+const deltaIconPath =
   'M3.34935 0.470001C3.74102 -0.156668 4.65368 -0.156667 5.04535 0.470002L8.2411 5.58321C8.65738 6.24925 8.17854 7.1132 7.3931 7.1132H1.0016C0.216164 7.1132 -0.262679 6.24925 0.153601 5.58321L3.34935 0.470001Z'
 
 function escapeHtml(value: string): string {
@@ -18,14 +18,14 @@ function escapeHtml(value: string): string {
     .replace(/'/g, '&#39;')
 }
 
-function renderVariation(variation: ChartTooltipVariation): string {
-  const tone = variation.tone ?? 'neutral'
+function renderDelta(delta: ChartTooltipDelta): string {
+  const tone = delta.tone ?? 'neutral'
   const icon =
-    variation.direction === 'flat'
+    delta.direction === 'flat'
       ? ''
-      : `<svg data-sl-chart-tooltip-row-variation-icon viewBox="0 0 8.3947 7.1132" aria-hidden="true"><path d="${variationIconPath}" fill="currentColor" /></svg>`
+      : `<svg data-sl-chart-tooltip-row-delta-icon viewBox="0 0 8.3947 7.1132" aria-hidden="true"><path d="${deltaIconPath}" fill="currentColor" /></svg>`
 
-  return `<span data-sl-chart-tooltip-row-variation data-direction="${variation.direction}" data-tone="${tone}"><span data-sl-chart-tooltip-row-variation-value>${escapeHtml(variation.value)}</span>${icon}</span>`
+  return `<span data-sl-chart-tooltip-row-delta data-direction="${delta.direction}" data-tone="${tone}"><span data-sl-chart-tooltip-row-delta-value>${escapeHtml(delta.value)}</span>${icon}</span>`
 }
 
 function renderRow(row: ChartTooltipRow): string {
@@ -33,7 +33,7 @@ function renderRow(row: ChartTooltipRow): string {
     ? `<span data-sl-chart-tooltip-row-line style="background-color:${escapeHtml(row.color)}"></span>`
     : ''
 
-  return `<div data-sl-chart-tooltip-row>${line}<div data-sl-chart-tooltip-row-content><span data-sl-chart-tooltip-row-label>${escapeHtml(row.label)}</span><span data-sl-chart-tooltip-row-value-group><span data-sl-chart-tooltip-row-value>${escapeHtml(row.value)}</span>${row.variation ? renderVariation(row.variation) : ''}</span></div></div>`
+  return `<div data-sl-chart-tooltip-row>${line}<div data-sl-chart-tooltip-row-content><span data-sl-chart-tooltip-row-label>${escapeHtml(row.label)}</span><span data-sl-chart-tooltip-row-value-group><span data-sl-chart-tooltip-row-value>${escapeHtml(row.value)}</span>${row.delta ? renderDelta(row.delta) : ''}</span></div></div>`
 }
 
 /**

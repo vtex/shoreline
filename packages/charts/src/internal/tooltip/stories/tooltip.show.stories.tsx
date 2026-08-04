@@ -80,7 +80,7 @@ export function Show() {
                 label: 'Label',
                 value: 'R$ 288.052.925,34',
                 color: seriesColor.blue,
-                variation: {
+                delta: {
                   value: '00,00%',
                   direction: 'up',
                   tone: 'success',
@@ -90,26 +90,26 @@ export function Show() {
                 label: 'Label',
                 value: '000',
                 color: seriesColor.purple,
-                variation: { value: '0,00%', direction: 'up' },
+                delta: { value: '0,00%', direction: 'up' },
               },
               {
                 label: 'Label',
                 value: '000',
                 color: seriesColor.orange,
-                variation: { value: '0,00%', direction: 'up' },
+                delta: { value: '0,00%', direction: 'up' },
               },
               {
                 label: 'Label',
                 value: '000',
                 color: seriesColor.gray,
-                variation: { value: '0,00%', direction: 'up' },
+                delta: { value: '0,00%', direction: 'up' },
               },
             ],
           }}
         />
       </Section>
 
-      <Section label="Variation directions and tones">
+      <Section label="Delta directions and tones">
         <TooltipPreview
           data={{
             rows: [
@@ -117,7 +117,7 @@ export function Show() {
                 label: 'Up / success',
                 value: '139',
                 color: seriesColor.blue,
-                variation: {
+                delta: {
                   value: '12.4%',
                   direction: 'up',
                   tone: 'success',
@@ -133,7 +133,7 @@ export function Show() {
                 label: 'Down / critical',
                 value: '139',
                 color: seriesColor.blue,
-                variation: {
+                delta: {
                   value: '8.1%',
                   direction: 'down',
                   tone: 'critical',
@@ -149,7 +149,7 @@ export function Show() {
                 label: 'Flat / neutral',
                 value: '139',
                 color: seriesColor.blue,
-                variation: { value: '0%', direction: 'flat' },
+                delta: { value: '0%', direction: 'flat' },
               },
             ],
           }}

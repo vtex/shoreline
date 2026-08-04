@@ -49,13 +49,13 @@ describe('renderChartTooltip', () => {
     expect(html).toContain('1 &amp; 2')
   })
 
-  test('renders a variation with its direction and tone', () => {
+  test('renders a delta with its direction and tone', () => {
     const html = renderChartTooltip({
       rows: [
         {
           label: 'Revenue',
           value: '139',
-          variation: { value: '12%', direction: 'up', tone: 'success' },
+          delta: { value: '12%', direction: 'up', tone: 'success' },
         },
       ],
     })
@@ -65,13 +65,13 @@ describe('renderChartTooltip', () => {
     expect(html).toContain('<svg')
   })
 
-  test('defaults variation tone to neutral', () => {
+  test('defaults delta tone to neutral', () => {
     const html = renderChartTooltip({
       rows: [
         {
           label: 'Revenue',
           value: '139',
-          variation: { value: '0%', direction: 'up' },
+          delta: { value: '0%', direction: 'up' },
         },
       ],
     })
@@ -79,13 +79,13 @@ describe('renderChartTooltip', () => {
     expect(html).toContain('data-tone="neutral"')
   })
 
-  test('omits the arrow icon for a flat variation', () => {
+  test('omits the arrow icon for a flat delta', () => {
     const html = renderChartTooltip({
       rows: [
         {
           label: 'Revenue',
           value: '139',
-          variation: { value: '0%', direction: 'flat' },
+          delta: { value: '0%', direction: 'flat' },
         },
       ],
     })

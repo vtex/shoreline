@@ -6,8 +6,8 @@ export type {
   AxisTooltipItem,
   AxisTooltipOptions,
   ChartTooltipData,
+  ChartTooltipDelta,
   ChartTooltipRow,
-  ChartTooltipVariation,
 } from './tooltip-model'
 export { buildAxisTooltipData } from './tooltip-model'
 export { getTooltipPosition } from './tooltip-position'

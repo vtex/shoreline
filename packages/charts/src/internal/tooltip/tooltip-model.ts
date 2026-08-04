@@ -1,21 +1,26 @@
 /**
- * A row's trend indicator. Bar charts never produce one today (their data
- * model carries no deltas); the type exists now because the tooltip row
- * model (title / value / variation) is shared design — a future chart with
- * period-over-period data (e.g. LineChart) renders it through the same
- * `renderChartTooltip`.
+ * A row's change over the compared period, shown beside its value. Not a
+ * tooltip variant: there is one tooltip, and a row renders a delta only when
+ * its data carries one, so charts whose data model has no deltas — every bar
+ * chart today — simply omit it.
  */
-export interface ChartTooltipVariation {
+export interface ChartTooltipDelta {
   /**
-   * Formatted variation value, e.g. `'12.4%'`.
+   * The change, already formatted by the caller, who therefore picks the unit:
+   * `'12.4%'` for a ratio, `'2.3 pp'` for a move in percentage points. Being a
+   * string is also why `direction` can't be inferred — the sign is gone.
    */
   value: string
   /**
-   * Arrow direction. `'flat'` renders no arrow.
+   * Which way the value moved. Factual, and independent of `tone`; `'flat'`
+   * renders no arrow.
    */
   direction: 'up' | 'down' | 'flat'
   /**
-   * Semantic color of the value and arrow.
+   * Whether that movement reads as good, bad, or neither — semantic, and
+   * independent of `direction`, because a decrease is not inherently bad:
+   * falling mortality is `direction: 'down'` with `tone: 'success'`. Left
+   * alone, a delta stays uncolored rather than guessing from the sign.
    * @default 'neutral'
    */
   tone?: 'success' | 'critical' | 'neutral'
@@ -28,7 +33,7 @@ export interface ChartTooltipRow {
    * Series color swatch rendered as the row's left line.
    */
   color?: string
-  variation?: ChartTooltipVariation
+  delta?: ChartTooltipDelta
 }
 
 export interface ChartTooltipData {
