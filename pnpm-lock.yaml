@@ -172,6 +172,9 @@ importers:
       '@types/node':
         specifier: 20.14.9
         version: 20.14.9
+      '@vtex/shoreline':
+        specifier: workspace:*
+        version: link:../shoreline
       '@vtex/shoreline-css':
         specifier: workspace:*
         version: link:../css

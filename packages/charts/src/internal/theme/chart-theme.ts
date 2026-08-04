@@ -17,29 +17,35 @@ export interface ChartTokens {
 }
 
 /**
- * Categorical series palette, assigned to series in this fixed order (never
- * cycled). The order interleaves warm and cool hues so adjacent series stay
- * distinguishable under color-vision deficiency (worst adjacent-pair CVD
- * ΔE 17.1 against the base surface). Provisional until designer sign-off on
- * the Data Visualization spec.
+ * Categorical series palette, assigned to series in this fixed order and
+ * never cycled — a repeated color would read as a repeated series. The first
+ * three are the designed primary, secondary and tertiary colors, which cover
+ * the default three-series chart; the rest extend the scale for charts that
+ * opt out of aggregation via `maxSeries`, ordered to keep adjacent pairs
+ * distinguishable under color-vision deficiency.
+ *
+ * The length of this list is the hard ceiling on how many series a chart can
+ * render (`seriesLimit` in the bar chart derives from it). Red is deliberately
+ * absent: it carries error semantics elsewhere in Shoreline.
  */
 export const chartSeriesTokens = [
-  '--sl-color-blue-9',
-  '--sl-color-orange-9',
-  '--sl-color-teal-9',
-  '--sl-color-pink-9',
-  '--sl-color-green-9',
+  '--sl-color-blue-8',
   '--sl-color-purple-9',
-  '--sl-color-yellow-9',
-  '--sl-color-cyan-9',
+  '--sl-color-orange-6',
+  '--sl-color-pink-9',
+  '--sl-color-teal-9',
+  '--sl-color-green-9',
 ]
 
 const fontFamily = '--sl-font-family-sans'
 const fontSizeCaption = '--sl-font-size-1'
 const fgBase = '--sl-fg-base'
 const fgMuted = '--sl-fg-muted'
+const bgBase = '--sl-bg-base'
 // color component of --sl-border-base, which is a full border shorthand
 const lineColor = '--sl-color-gray-3'
+// legend symbols are square, so one token drives both of their dimensions
+const legendSymbolSize = '--sl-space-3'
 
 /**
  * Compiles `--sl-*` design tokens into an engine theme object. This bridge is
@@ -77,6 +83,19 @@ export function createChartTheme(tokens: ChartTokens) {
     categoryAxis: axis,
     valueAxis: axis,
     legend: {
+      // The engine's default symbol is a wide rectangle (25×14). Driving both
+      // dimensions from one token squares it off.
+      itemWidth: px(legendSymbolSize),
+      itemHeight: px(legendSymbolSize),
+      textStyle: {
+        color: get(fgBase),
+        fontFamily: get(fontFamily),
+        fontSize: px(fontSizeCaption),
+      },
+    },
+    tooltip: {
+      backgroundColor: get(bgBase),
+      borderColor: get(lineColor),
       textStyle: {
         color: get(fgBase),
         fontFamily: get(fontFamily),

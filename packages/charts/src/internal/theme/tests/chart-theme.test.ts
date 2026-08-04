@@ -73,6 +73,20 @@ describe('createChartTheme', () => {
     })
   })
 
+  test('sizes the legend symbol as a square', () => {
+    const theme = createChartTheme(fakeTokens({ '--sl-space-3': 12 }))
+
+    expect(theme.legend.itemWidth).toBe(12)
+    expect(theme.legend.itemHeight).toBe(theme.legend.itemWidth)
+  })
+
+  test('leaves the legend symbol to the engine when the token is missing', () => {
+    const theme = createChartTheme(fakeTokens({}))
+
+    expect(theme.legend.itemWidth).toBeUndefined()
+    expect(theme.legend.itemHeight).toBeUndefined()
+  })
+
   test('maps axis line colors on both axis types', () => {
     const theme = createChartTheme(fakeTokens({ '--sl-color-gray-3': '#ddd' }))
 

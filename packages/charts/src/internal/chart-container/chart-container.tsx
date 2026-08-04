@@ -4,6 +4,7 @@ import { useMergeRef } from '@vtex/shoreline-utils'
 
 import type { EChartsCoreOption, EChartsType } from '../echarts'
 import { init } from '../echarts'
+import type { ChartTokens } from '../theme'
 import { createChartTheme, createElementTokens } from '../theme'
 
 /**
@@ -53,7 +54,17 @@ export const ChartContainer = forwardRef<HTMLDivElement, ChartContainerProps>(
     })
 
     useEffect(() => {
-      instanceRef.current?.setOption(option, { notMerge: true })
+      const element = containerRef.current
+      const chart = instanceRef.current
+
+      if (!element || !chart) return
+
+      const resolved =
+        typeof option === 'function'
+          ? option(createElementTokens(element))
+          : option
+
+      chart.setOption(resolved, { notMerge: true })
     }, [option])
 
     return (
@@ -68,11 +79,12 @@ export const ChartContainer = forwardRef<HTMLDivElement, ChartContainerProps>(
 
 export interface ChartContainerOptions {
   /**
-   * Engine option applied to the instance. Replaces the previous option
-   * entirely on every change, so charts derive it as a pure function of their
-   * props.
+   * Engine option applied to the instance, or a function of the resolved
+   * design tokens for options that need token values per data item (e.g.
+   * sign-aware corner radii). Replaces the previous option entirely on every
+   * change, so charts derive it as a pure function of their props.
    */
-  option: EChartsCoreOption
+  option: EChartsCoreOption | ((tokens: ChartTokens) => EChartsCoreOption)
   /**
    * Imperative access to the engine instance, for internal use in tests.
    */
