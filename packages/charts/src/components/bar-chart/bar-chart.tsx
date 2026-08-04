@@ -46,8 +46,9 @@ export const BarChart = forwardRef<HTMLDivElement, BarChartProps>(
     const othersLabel = getMessage('others')
 
     const descriptionId = useId()
-    const hasData = series.some((item) => item.data.length > 0)
-
+    const hasData = series.some((item) =>
+      item.data.some((value) => value !== null)
+    )
     const option = useMemo(
       () => (tokens: ChartTokens) =>
         buildBarOption({
