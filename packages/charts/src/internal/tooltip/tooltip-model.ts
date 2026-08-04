@@ -50,6 +50,11 @@ export interface AxisTooltipItem {
   seriesName?: string
   value: number | null | undefined
   color?: string
+  /**
+   * Position of the hovered category, which together with the series name
+   * identifies the one data point a delta belongs to.
+   */
+  dataIndex?: number
 }
 
 export interface AxisTooltipOptions {
@@ -60,6 +65,17 @@ export interface AxisTooltipOptions {
    * @default false
    */
   reverse?: boolean
+  /**
+   * Resolves a row's delta from the series it names and the category it sits
+   * at, returning `undefined` where there is nothing to compare against. Left
+   * unset, no row shows a delta — the case for every chart whose data carries
+   * no comparison period.
+   * @default undefined
+   */
+  getDelta?: (
+    seriesName: string,
+    dataIndex: number
+  ) => ChartTooltipDelta | undefined
 }
 
 /**
@@ -69,25 +85,38 @@ export interface AxisTooltipOptions {
  *
  * The engine always hands the items over in series order; only the caller
  * knows how its own geometry maps that order onto the screen, so row order is
- * its call to make via `reverse`.
+ * its call to make via `reverse`. Deltas come from `getDelta` for the same
+ * reason: the row model knows which point a row describes, not what it should
+ * be compared against.
  */
 export function buildAxisTooltipData(
   items: AxisTooltipItem[],
   options: AxisTooltipOptions = {}
 ): ChartTooltipData {
+  const { reverse, getDelta } = options
+
   const rows = items
     .filter(
       (item): item is AxisTooltipItem & { value: number } =>
         typeof item.value === 'number'
     )
-    .map((item) => ({
-      label: item.seriesName ?? '',
-      value: String(item.value),
-      color: item.color,
-    }))
+    .map((item) => {
+      const label = item.seriesName ?? ''
+      const delta =
+        getDelta && item.dataIndex !== undefined
+          ? getDelta(label, item.dataIndex)
+          : undefined
+
+      return {
+        label,
+        value: String(item.value),
+        color: item.color,
+        ...(delta && { delta }),
+      }
+    })
 
   // Safe to mutate: `map` above already returned a fresh array.
-  if (options.reverse) rows.reverse()
+  if (reverse) rows.reverse()
 
   // Every item in an axis trigger carries the same category name, so the
   // first one still titles the tooltip whichever way the rows run.

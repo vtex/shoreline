@@ -45,6 +45,33 @@ describe('createAxisTooltipFormatter', () => {
     expect(html.indexOf('Costs')).toBeLessThan(html.indexOf('Revenue'))
   })
 
+  test('passes the engine dataIndex through to the delta resolver', () => {
+    const html = createAxisTooltipFormatter({
+      getDelta: (seriesName, dataIndex) => ({
+        value: `${seriesName}@${dataIndex}`,
+        direction: 'up',
+      }),
+    })([
+      {
+        name: 'Feb',
+        seriesName: 'Revenue',
+        value: 10,
+        color: '#3993f4',
+        dataIndex: 1,
+      },
+    ])
+
+    expect(html).toContain('Revenue@1')
+  })
+
+  test('resolves no delta when the engine reports no dataIndex', () => {
+    const html = createAxisTooltipFormatter({
+      getDelta: () => ({ value: '12%', direction: 'up' as const }),
+    })([{ name: 'Jan', seriesName: 'Revenue', value: 10, color: '#3993f4' }])
+
+    expect(html).not.toContain('12%')
+  })
+
   test('ignores non-numeric values and non-string colors from the engine', () => {
     const html = createAxisTooltipFormatter()([
       { name: 'Jan', seriesName: 'Revenue', value: '-', color: {} },

@@ -1,6 +1,7 @@
 import type { EChartsCoreOption } from '../../internal/echarts'
 import type { ChartTokens } from '../../internal/theme'
 import { chartSeriesTokens } from '../../internal/theme'
+import type { ChartTooltipDelta } from '../../internal/tooltip'
 import {
   createAxisTooltipFormatter,
   createTooltipPositioner,
@@ -19,6 +20,17 @@ export interface BarChartSeries {
    * that category.
    */
   data: Array<number | null>
+  /**
+   * How each value changed against whatever period it is being compared to,
+   * in category order alongside `data`; `null` or a short array leaves that
+   * category's row without a delta.
+   *
+   * Supplied explicitly rather than derived, because only the consumer knows
+   * what the comparison is and whether a move reads as good or bad. The
+   * comparison series need not be on the chart at all.
+   * @default undefined
+   */
+  deltas?: Array<ChartTooltipDelta | null>
 }
 
 /**
@@ -66,6 +78,10 @@ export const defaultMaxSeries = 3
  * Values are summed per category. A null contributes nothing, and a category
  * where every folded series is null stays null, so the aggregate renders no
  * bar rather than a spurious zero.
+ *
+ * The aggregate carries no deltas: they arrive already formatted, so there is
+ * no sound way to combine those of the series it replaces. Series that keep
+ * their own slot keep their own deltas.
  */
 export function collapseSeries(
   series: BarChartSeries[],
@@ -181,6 +197,19 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
   // the first series where the reader starts.
   const reverseTooltipRows = direction === 'vertical' && grouping === 'stacked'
 
+  // Rows name their series, so that name is what a delta is looked up by —
+  // the same key the legend and tooltip already identify a series with. Left
+  // undefined when no series supplied deltas, so the tooltip skips the lookup
+  // entirely for the common case.
+  const deltasBySeries = new Map(
+    series.filter((item) => item.deltas).map((item) => [item.name, item.deltas])
+  )
+
+  const getDelta = deltasBySeries.size
+    ? (seriesName: string, categoryIndex: number) =>
+        deltasBySeries.get(seriesName)?.[categoryIndex] ?? undefined
+    : undefined
+
   const categoryAxis = { type: 'category', data: categories }
   const valueAxis = { type: 'value' }
 
@@ -204,7 +233,10 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
       borderWidth: 0,
       padding: 0,
       extraCssText: 'box-shadow: none;',
-      formatter: createAxisTooltipFormatter({ reverse: reverseTooltipRows }),
+      formatter: createAxisTooltipFormatter({
+        reverse: reverseTooltipRows,
+        getDelta,
+      }),
       position: createTooltipPositioner(
         tokens.px(tooltipOffsetToken) ?? tooltipOffsetFallback
       ),

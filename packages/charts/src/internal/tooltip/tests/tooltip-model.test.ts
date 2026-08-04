@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 
 import { buildAxisTooltipData } from '../tooltip-model'
 
@@ -68,5 +68,59 @@ describe('buildAxisTooltipData', () => {
     )
 
     expect(data.rows.map((row) => row.label)).toEqual(['Other', 'Revenue'])
+  })
+
+  test('attaches a delta resolved from the series name and category', () => {
+    const data = buildAxisTooltipData(
+      [{ name: 'Feb', seriesName: 'Revenue', value: 10, dataIndex: 1 }],
+      {
+        getDelta: (seriesName, dataIndex) =>
+          seriesName === 'Revenue' && dataIndex === 1
+            ? { value: '12%', direction: 'up' }
+            : undefined,
+      }
+    )
+
+    expect(data.rows[0]?.delta).toEqual({ value: '12%', direction: 'up' })
+  })
+
+  test('leaves rows without a delta when the resolver has none', () => {
+    const data = buildAxisTooltipData(
+      [{ name: 'Jan', seriesName: 'Revenue', value: 10, dataIndex: 0 }],
+      { getDelta: () => undefined }
+    )
+
+    expect(data.rows[0]).not.toHaveProperty('delta')
+  })
+
+  test('skips the lookup for items carrying no category index', () => {
+    const getDelta = vi.fn()
+
+    buildAxisTooltipData([{ name: 'Jan', seriesName: 'Revenue', value: 10 }], {
+      getDelta,
+    })
+
+    expect(getDelta).not.toHaveBeenCalled()
+  })
+
+  test('keeps each delta with its own row when reversing', () => {
+    const data = buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'Revenue', value: 10, dataIndex: 0 },
+        { name: 'Jan', seriesName: 'Costs', value: 4, dataIndex: 0 },
+      ],
+      {
+        reverse: true,
+        getDelta: (seriesName) => ({
+          value: seriesName === 'Revenue' ? '12%' : '3%',
+          direction: 'up',
+        }),
+      }
+    )
+
+    expect(data.rows.map((row) => [row.label, row.delta?.value])).toEqual([
+      ['Costs', '3%'],
+      ['Revenue', '12%'],
+    ])
   })
 })

@@ -1,5 +1,6 @@
 import { LocaleProvider } from '@vtex/shoreline'
 
+import type { ChartTooltipDelta } from '../../../index'
 import { BarChart } from '../index'
 import '../../../styles.css'
 
@@ -35,6 +36,108 @@ export function MultiSeries() {
         { name: 'Revenue', data: revenue },
         { name: 'Cost', data: cost },
         { name: 'Profit', data: profit },
+      ]}
+    />
+  )
+}
+
+const previousRevenue = [3900, 5300, 4800, 5500, 6100, 6400]
+const complaints = [180, 140, 155, 120, 95, 70]
+const previousComplaints = [160, 175, 130, 145, 130, 90]
+
+/**
+ * Formats one period-over-period change the way a consumer would: the value
+ * carries whatever unit they want, `direction` follows the actual movement,
+ * and `tone` says what that movement means — which is why the caller passes
+ * `goodWhen` instead of it being inferred from the sign.
+ */
+function percentChange(
+  current: number[],
+  previous: number[],
+  goodWhen: 'up' | 'down'
+): Array<ChartTooltipDelta | null> {
+  return current.map((value, index) => {
+    const before = previous[index]
+
+    // No comparable figure for this category, so its row shows no delta.
+    if (before === undefined || before === 0) return null
+
+    const change = ((value - before) / before) * 100
+
+    if (change === 0) return { value: '0.0%', direction: 'flat' }
+
+    const direction = change > 0 ? 'up' : 'down'
+
+    return {
+      value: `${Math.abs(change).toFixed(1)}%`,
+      direction,
+      tone: direction === goodWhen ? 'success' : 'critical',
+    }
+  })
+}
+
+/**
+ * Hover a bar: each tooltip row carries the change against the previous
+ * period. The comparison data need not be plotted — `previousRevenue` is
+ * nowhere on the chart, it only feeds `deltas`.
+ */
+export function WithDeltas() {
+  return (
+    <BarChart
+      label="Revenue by month, compared with the previous period"
+      categories={months}
+      series={[
+        {
+          name: 'Revenue',
+          data: revenue,
+          deltas: percentChange(revenue, previousRevenue, 'up'),
+        },
+      ]}
+    />
+  )
+}
+
+/**
+ * `direction` and `tone` are independent, so the same downward arrow can read
+ * either way: revenue falling is critical, complaints falling is a success.
+ * Only the consumer knows which, so neither is derived from the sign.
+ */
+export function DeltaToneIsTheConsumers() {
+  return (
+    <BarChart
+      label="Revenue and complaints by month, compared with the previous period"
+      categories={months}
+      series={[
+        {
+          name: 'Revenue',
+          data: revenue,
+          deltas: percentChange(revenue, previousRevenue, 'up'),
+        },
+        {
+          name: 'Complaints',
+          data: complaints,
+          deltas: percentChange(complaints, previousComplaints, 'down'),
+        },
+      ]}
+    />
+  )
+}
+
+/**
+ * Deltas are per category and optional: only the first three months have a
+ * comparable figure here, so the rest of the tooltips show plain values.
+ */
+export function PartialDeltas() {
+  return (
+    <BarChart
+      label="Revenue by month, compared where data exists"
+      categories={months}
+      series={[
+        {
+          name: 'Revenue',
+          data: revenue,
+          deltas: percentChange(revenue, previousRevenue.slice(0, 3), 'up'),
+        },
       ]}
     />
   )

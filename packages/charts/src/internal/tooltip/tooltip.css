@@ -4,7 +4,7 @@
   gap: var(--sl-space-2);
   /* Figma frames: small (128px, no deltas) / max (268px, with deltas) */
   min-width: 8rem;
-  max-width: 16.75rem;
+  max-width: 17.05rem;
   padding: var(--sl-space-3) var(--sl-space-4);
   background: var(--sl-bg-base);
   border: var(--sl-border-base);

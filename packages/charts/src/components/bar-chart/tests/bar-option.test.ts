@@ -345,6 +345,96 @@ describe('buildBarOption', () => {
     }
   })
 
+  test('shows a series delta at the hovered category', () => {
+    const option = build({
+      series: [
+        {
+          name: 'Website',
+          data: [10, 20],
+          deltas: [
+            { value: '12%', direction: 'up', tone: 'success' },
+            { value: '4%', direction: 'down', tone: 'critical' },
+          ],
+        },
+      ],
+    })
+
+    const first = option.tooltip.formatter([
+      { name: 'Jan', seriesName: 'Website', value: 10, dataIndex: 0 },
+    ])
+
+    const second = option.tooltip.formatter([
+      { name: 'Feb', seriesName: 'Website', value: 20, dataIndex: 1 },
+    ])
+
+    expect(first).toContain('12%')
+    expect(first).toContain('data-tone="success"')
+    expect(second).toContain('4%')
+    expect(second).toContain('data-tone="critical"')
+  })
+
+  test('leaves a category without a delta plain', () => {
+    const option = build({
+      series: [
+        {
+          name: 'Website',
+          data: [10, 20],
+          deltas: [null, { value: '4%', direction: 'up' }],
+        },
+      ],
+    })
+
+    const html = option.tooltip.formatter([
+      { name: 'Jan', seriesName: 'Website', value: 10, dataIndex: 0 },
+    ])
+
+    expect(html).not.toContain('data-sl-chart-tooltip-row-delta')
+  })
+
+  test('resolves each series delta independently of the others', () => {
+    const option = build({
+      series: [
+        {
+          name: 'Website',
+          data: [10],
+          deltas: [{ value: '12%', direction: 'up' }],
+        },
+        { name: 'Marketplace', data: [20] },
+      ],
+    })
+
+    const html = option.tooltip.formatter([
+      { name: 'Jan', seriesName: 'Website', value: 10, dataIndex: 0 },
+      { name: 'Jan', seriesName: 'Marketplace', value: 20, dataIndex: 0 },
+    ])
+
+    expect(html.match(/data-sl-chart-tooltip-row-delta[ >]/g)).toHaveLength(1)
+    expect(html).toContain('12%')
+  })
+
+  test('drops deltas for the series folded into the aggregate', () => {
+    const delta = { value: '12%', direction: 'up' as const }
+
+    const option = build({
+      series: [
+        { name: 'A', data: [10], deltas: [delta] },
+        { name: 'B', data: [20], deltas: [delta] },
+        { name: 'C', data: [30], deltas: [delta] },
+        { name: 'D', data: [40], deltas: [delta] },
+      ],
+    })
+
+    // A and B keep their slots; C and D fold into "Others", which cannot carry
+    // a delta because the ones it replaces are already formatted.
+    const html = option.tooltip.formatter([
+      { name: 'Jan', seriesName: 'A', value: 10, dataIndex: 0 },
+      { name: 'Jan', seriesName: 'Others', value: 70, dataIndex: 0 },
+    ])
+
+    expect(html).toContain('12%')
+    expect(html.match(/data-sl-chart-tooltip-row-delta[ >]/g)).toHaveLength(1)
+  })
+
   test('skips rounding for null, zero, and unresolvable radius', () => {
     const option = build({ series: [{ name: 'A', data: [null, 0] }] })
 
