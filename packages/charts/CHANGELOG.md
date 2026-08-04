@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-charts@0.1.0...@vtex/shoreline-charts@0.2.0) (2026-08-04)
+
+
+### Bug Fixes
+
+* **charts:** square the legend symbol ([af7f3ea](https://github.com/vtex/shoreline/commit/af7f3eadad6f1f8f82e05794916ae582f3a7c6f4))
+
+
+### Features
+
+* **charts:** add bar chart component ([511383c](https://github.com/vtex/shoreline/commit/511383c9dbab298bb40d7abf5b2fe93f539b8651)), closes [vtex/shoreline#2104](https://github.com/vtex/shoreline/issues/2104)
+* **charts:** cap rendered series at three by default, opt out via maxSeries ([6ccb087](https://github.com/vtex/shoreline/commit/6ccb0879b5cf9e3cf8259c8dec3c70ca15bcc64b))
+* **charts:** localize bar chart messages ([11db538](https://github.com/vtex/shoreline/commit/11db53852f12bae10b53d792aed60a65c9dc080c))
+* **charts:** use designed series palette with Others grouping ([96077c9](https://github.com/vtex/shoreline/commit/96077c9bc7ecb5dfb3486df8844c697ec1e8fe74))
+
+
+
+
+
 # 0.1.0 (2026-08-03)
 
 
