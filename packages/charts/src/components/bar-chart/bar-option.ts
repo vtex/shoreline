@@ -197,17 +197,17 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
   // the first series where the reader starts.
   const reverseTooltipRows = direction === 'vertical' && grouping === 'stacked'
 
-  // Rows name their series, so that name is what a delta is looked up by —
-  // the same key the legend and tooltip already identify a series with. Left
-  // undefined when no series supplied deltas, so the tooltip skips the lookup
-  // entirely for the common case.
-  const deltasBySeries = new Map(
-    series.filter((item) => item.deltas).map((item) => [item.name, item.deltas])
-  )
+  // Deltas are looked up by the series' position, not its name: names are not
+  // required to be unique, and two series sharing one would otherwise both
+  // resolve to whichever came last. The collapsed list is exactly the order
+  // the engine receives its series in, so the index it reports lines up here.
+  // Left undefined when no series supplied deltas, so the tooltip skips the
+  // lookup entirely for the common case.
+  const deltasBySeries = series.map((item) => item.deltas)
 
-  const getDelta = deltasBySeries.size
-    ? (seriesName: string, categoryIndex: number) =>
-        deltasBySeries.get(seriesName)?.[categoryIndex] ?? undefined
+  const getDelta = deltasBySeries.some(Boolean)
+    ? (seriesIndex: number, categoryIndex: number) =>
+        deltasBySeries[seriesIndex]?.[categoryIndex] ?? undefined
     : undefined
 
   const categoryAxis = { type: 'category', data: categories }

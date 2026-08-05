@@ -1,8 +1,8 @@
 /**
  * A row's change over the compared period, shown beside its value. Not a
  * tooltip variant: there is one tooltip, and a row renders a delta only when
- * its data carries one, so charts whose data model has no deltas — every bar
- * chart today — simply omit it.
+ * its data supplies one — a bar chart whose series carry no `deltas` simply
+ * omits it.
  */
 export interface ChartTooltipDelta {
   /**
@@ -51,7 +51,14 @@ export interface AxisTooltipItem {
   value: number | null | undefined
   color?: string
   /**
-   * Position of the hovered category, which together with the series name
+   * Position of the series the item belongs to. Identity for delta lookup is
+   * positional rather than by name, because names are not required to be
+   * unique and two series sharing one would otherwise resolve to the same
+   * delta.
+   */
+  seriesIndex?: number
+  /**
+   * Position of the hovered category, which together with `seriesIndex`
    * identifies the one data point a delta belongs to.
    */
   dataIndex?: number
@@ -66,14 +73,14 @@ export interface AxisTooltipOptions {
    */
   reverse?: boolean
   /**
-   * Resolves a row's delta from the series it names and the category it sits
-   * at, returning `undefined` where there is nothing to compare against. Left
-   * unset, no row shows a delta — the case for every chart whose data carries
-   * no comparison period.
+   * Resolves a row's delta from the position of its series and of the category
+   * it sits at, returning `undefined` where there is nothing to compare
+   * against. Left unset, no row shows a delta — the case for every chart whose
+   * data carries no comparison period.
    * @default undefined
    */
   getDelta?: (
-    seriesName: string,
+    seriesIndex: number,
     dataIndex: number
   ) => ChartTooltipDelta | undefined
 }
@@ -101,14 +108,15 @@ export function buildAxisTooltipData(
         typeof item.value === 'number'
     )
     .map((item) => {
-      const label = item.seriesName ?? ''
       const delta =
-        getDelta && item.dataIndex !== undefined
-          ? getDelta(label, item.dataIndex)
+        getDelta &&
+        item.seriesIndex !== undefined &&
+        item.dataIndex !== undefined
+          ? getDelta(item.seriesIndex, item.dataIndex)
           : undefined
 
       return {
-        label,
+        label: item.seriesName ?? '',
         value: String(item.value),
         color: item.color,
         ...(delta && { delta }),

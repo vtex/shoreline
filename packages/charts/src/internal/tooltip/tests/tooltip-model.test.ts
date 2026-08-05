@@ -70,12 +70,20 @@ describe('buildAxisTooltipData', () => {
     expect(data.rows.map((row) => row.label)).toEqual(['Other', 'Revenue'])
   })
 
-  test('attaches a delta resolved from the series name and category', () => {
+  test('attaches a delta resolved from the series and category positions', () => {
     const data = buildAxisTooltipData(
-      [{ name: 'Feb', seriesName: 'Revenue', value: 10, dataIndex: 1 }],
+      [
+        {
+          name: 'Feb',
+          seriesName: 'Revenue',
+          value: 10,
+          seriesIndex: 2,
+          dataIndex: 1,
+        },
+      ],
       {
-        getDelta: (seriesName, dataIndex) =>
-          seriesName === 'Revenue' && dataIndex === 1
+        getDelta: (seriesIndex, dataIndex) =>
+          seriesIndex === 2 && dataIndex === 1
             ? { value: '12%', direction: 'up' }
             : undefined,
       }
@@ -86,33 +94,87 @@ describe('buildAxisTooltipData', () => {
 
   test('leaves rows without a delta when the resolver has none', () => {
     const data = buildAxisTooltipData(
-      [{ name: 'Jan', seriesName: 'Revenue', value: 10, dataIndex: 0 }],
+      [
+        {
+          name: 'Jan',
+          seriesName: 'Revenue',
+          value: 10,
+          seriesIndex: 0,
+          dataIndex: 0,
+        },
+      ],
       { getDelta: () => undefined }
     )
 
     expect(data.rows[0]).not.toHaveProperty('delta')
   })
 
-  test('skips the lookup for items carrying no category index', () => {
+  test('skips the lookup for items missing either position', () => {
     const getDelta = vi.fn()
 
-    buildAxisTooltipData([{ name: 'Jan', seriesName: 'Revenue', value: 10 }], {
-      getDelta,
-    })
+    buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'A', value: 10 },
+        { name: 'Jan', seriesName: 'B', value: 10, seriesIndex: 1 },
+        { name: 'Jan', seriesName: 'C', value: 10, dataIndex: 0 },
+      ],
+      { getDelta }
+    )
 
     expect(getDelta).not.toHaveBeenCalled()
+  })
+
+  test('resolves same-named series to their own deltas', () => {
+    const data = buildAxisTooltipData(
+      [
+        {
+          name: 'Jan',
+          seriesName: 'Sales',
+          value: 10,
+          seriesIndex: 0,
+          dataIndex: 0,
+        },
+        {
+          name: 'Jan',
+          seriesName: 'Sales',
+          value: 20,
+          seriesIndex: 1,
+          dataIndex: 0,
+        },
+      ],
+      {
+        getDelta: (seriesIndex) => ({
+          value: `s${seriesIndex}`,
+          direction: 'up',
+        }),
+      }
+    )
+
+    expect(data.rows.map((row) => row.delta?.value)).toEqual(['s0', 's1'])
   })
 
   test('keeps each delta with its own row when reversing', () => {
     const data = buildAxisTooltipData(
       [
-        { name: 'Jan', seriesName: 'Revenue', value: 10, dataIndex: 0 },
-        { name: 'Jan', seriesName: 'Costs', value: 4, dataIndex: 0 },
+        {
+          name: 'Jan',
+          seriesName: 'Revenue',
+          value: 10,
+          seriesIndex: 0,
+          dataIndex: 0,
+        },
+        {
+          name: 'Jan',
+          seriesName: 'Costs',
+          value: 4,
+          seriesIndex: 1,
+          dataIndex: 0,
+        },
       ],
       {
         reverse: true,
-        getDelta: (seriesName) => ({
-          value: seriesName === 'Revenue' ? '12%' : '3%',
+        getDelta: (seriesIndex) => ({
+          value: seriesIndex === 0 ? '12%' : '3%',
           direction: 'up',
         }),
       }

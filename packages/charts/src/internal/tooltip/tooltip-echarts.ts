@@ -13,6 +13,7 @@ interface EChartsAxisTooltipParam {
   seriesName?: string
   value: unknown
   color: unknown
+  seriesIndex?: unknown
   dataIndex?: unknown
 }
 
@@ -40,6 +41,8 @@ export function createAxisTooltipFormatter(options: AxisTooltipOptions = {}) {
           seriesName: item.seriesName,
           value: typeof item.value === 'number' ? item.value : null,
           color: typeof item.color === 'string' ? item.color : undefined,
+          seriesIndex:
+            typeof item.seriesIndex === 'number' ? item.seriesIndex : undefined,
           dataIndex:
             typeof item.dataIndex === 'number' ? item.dataIndex : undefined,
         })),

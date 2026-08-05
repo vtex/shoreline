@@ -360,11 +360,23 @@ describe('buildBarOption', () => {
     })
 
     const first = option.tooltip.formatter([
-      { name: 'Jan', seriesName: 'Website', value: 10, dataIndex: 0 },
+      {
+        name: 'Jan',
+        seriesName: 'Website',
+        value: 10,
+        seriesIndex: 0,
+        dataIndex: 0,
+      },
     ])
 
     const second = option.tooltip.formatter([
-      { name: 'Feb', seriesName: 'Website', value: 20, dataIndex: 1 },
+      {
+        name: 'Feb',
+        seriesName: 'Website',
+        value: 20,
+        seriesIndex: 0,
+        dataIndex: 1,
+      },
     ])
 
     expect(first).toContain('12%')
@@ -385,7 +397,13 @@ describe('buildBarOption', () => {
     })
 
     const html = option.tooltip.formatter([
-      { name: 'Jan', seriesName: 'Website', value: 10, dataIndex: 0 },
+      {
+        name: 'Jan',
+        seriesName: 'Website',
+        value: 10,
+        seriesIndex: 0,
+        dataIndex: 0,
+      },
     ])
 
     expect(html).not.toContain('data-sl-chart-tooltip-row-delta')
@@ -404,8 +422,20 @@ describe('buildBarOption', () => {
     })
 
     const html = option.tooltip.formatter([
-      { name: 'Jan', seriesName: 'Website', value: 10, dataIndex: 0 },
-      { name: 'Jan', seriesName: 'Marketplace', value: 20, dataIndex: 0 },
+      {
+        name: 'Jan',
+        seriesName: 'Website',
+        value: 10,
+        seriesIndex: 0,
+        dataIndex: 0,
+      },
+      {
+        name: 'Jan',
+        seriesName: 'Marketplace',
+        value: 20,
+        seriesIndex: 1,
+        dataIndex: 0,
+      },
     ])
 
     expect(html.match(/data-sl-chart-tooltip-row-delta[ >]/g)).toHaveLength(1)
@@ -427,12 +457,57 @@ describe('buildBarOption', () => {
     // A and B keep their slots; C and D fold into "Others", which cannot carry
     // a delta because the ones it replaces are already formatted.
     const html = option.tooltip.formatter([
-      { name: 'Jan', seriesName: 'A', value: 10, dataIndex: 0 },
-      { name: 'Jan', seriesName: 'Others', value: 70, dataIndex: 0 },
+      { name: 'Jan', seriesName: 'A', value: 10, seriesIndex: 0, dataIndex: 0 },
+      {
+        name: 'Jan',
+        seriesName: 'Others',
+        value: 70,
+        seriesIndex: 2,
+        dataIndex: 0,
+      },
     ])
 
     expect(html).toContain('12%')
     expect(html.match(/data-sl-chart-tooltip-row-delta[ >]/g)).toHaveLength(1)
+  })
+
+  test('keeps deltas apart for two series sharing a name', () => {
+    const option = build({
+      series: [
+        {
+          name: 'Sales',
+          data: [10],
+          deltas: [{ value: 'first', direction: 'up' }],
+        },
+        {
+          name: 'Sales',
+          data: [20],
+          deltas: [{ value: 'second', direction: 'up' }],
+        },
+      ],
+    })
+
+    const html = option.tooltip.formatter([
+      {
+        name: 'Jan',
+        seriesName: 'Sales',
+        value: 10,
+        seriesIndex: 0,
+        dataIndex: 0,
+      },
+      {
+        name: 'Jan',
+        seriesName: 'Sales',
+        value: 20,
+        seriesIndex: 1,
+        dataIndex: 0,
+      },
+    ])
+
+    // Positional lookup, so the second row is not served the first's delta.
+    expect(html).toContain('first')
+    expect(html).toContain('second')
+    expect(html.indexOf('first')).toBeLessThan(html.indexOf('second'))
   })
 
   test('skips rounding for null, zero, and unresolvable radius', () => {
