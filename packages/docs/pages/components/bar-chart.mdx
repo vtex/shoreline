@@ -1,122 +1,87 @@
 # Bar Chart
 
-Bar Charts compare data across different categories, making it useful for visualizing survey results, sales data, or performance metrics.
+<ComponentDescription name="bar-chart" />
 
-## Anatomy
+<Preview name="bar-chart" />
 
-![BarChart anatomy](/assets/barchart-anatomy.png)
+`BarChart` lives in the separate `@vtex/shoreline-charts` package. Install it and import its stylesheet once in your app:
 
-| Component | Description |
-| --- | --- |
-| Axis Labels | Defines the reference lines and scale, helping interpret values and categories. |
-| Title | Provides context by summarizing the chart’s purpose or key insight. |
-| Legend | Identifies series through labels and colors, aiding interpretation. |
-| Category | A distinct group represented on the chart, with each bar linked to a specific category. |
-| Series | A set of related data points within each category, enabling comparisons. Multiple series add complexity but allow deeper insights. |
-| Gap | Controls the spacing between bars, balancing readability and visual separation. |
+```sh
+pnpm add @vtex/shoreline-charts
+```
 
-## Properties
+```tsx
+import { BarChart } from '@vtex/shoreline-charts'
+import '@vtex/shoreline-charts/css'
+```
 
-### Variant
+## Examples
 
-| Value | Usage |
-| --- | --- |
-| `vertical` | Best for comparing a small number of categories with short labels. It works well for tracking trends and displaying positive/negative values (e.g., profit/loss). Vertical bar charts are ideal when horizontal space is sufficient, but they become harder to read with many categories, as the x-axis gets crowded. |
-| `horizontal` | Best for comparing a large number of categories or when labels are long, since they are easier to read when aligned horizontally. Horizontal bar charts are ideal when vertical space is available and help maintain label clarity, even with many items. |
+### Variants
 
-### Gap
+`direction` sets the bar orientation: `vertical` (the default) or `horizontal`.
 
-![BarChart gap](/assets/barchart-gap.png)
+<Preview name="bar-chart" />
 
-The '’gap'’ property controls spacing between categories, ensuring clear differentiation. The gap should always be narrower than the width of the categories, but should not be so small that readability is compromised. It's important to evaluate the specific context and choose the gap value that best fits the chart’s layout and data presentation.
+<Preview name="bar-chart-horizontal" />
 
-### Bar Series
+### Grouping
 
-![BarChart series](/assets/barchart-series.png)
+`grouping` controls how multiple series combine: `grouped` (the default) places them side by side, `stacked` piles them into a single bar per category.
 
-| Value | Usage |
-| --- | --- |
-| Series 1 | Individual bars |
-| Series 2 | Dual bars comparison |
-| Series 3 | Triple bars comparison |
+<Preview name="bar-chart-multi-series" />
 
-### Bar Color
+<Preview name="bar-chart-stacked" />
 
-| Value | Usage |
-| --- | --- |
-| `blue-8` | Primary color |
-| `purple-9` | Secondary color |
-| `orange-6` | Tertiary color |
+### Series aggregation
 
-### Chart Title
+Only `maxSeries` series render (default `3`); the rest fold into a single `Others` aggregate that takes the last slot's color. Raise `maxSeries` to give more series their own name and color. It is capped at `6` — the palette length — and series past the cap still aggregate, so raising `maxSeries` never drops data.
 
-![BarChart title](/assets/barchart-title.png)
+<Preview name="bar-chart-max-series" />
 
-- The title should describe the content.
-- Don’t use punctuation.
-- Use sentence case, capitalizing only proper nouns.
-- Keep titles concise.
+### Tooltip with deltas
 
-### Axis Labels
+Each series can carry a `deltas` array — one entry per category — shown in the hover tooltip beside the value. `direction` (`up` / `down` / `flat`) and `tone` (`success` / `critical` / `neutral`) are independent, because a decrease is not inherently bad: falling complaints is `direction: 'down'` with `tone: 'success'`. The comparison data need not be plotted — it only feeds the tooltip.
 
-![BarChart axis labels](/assets/barchart-axislabels.png)
-
-- Axes represent numerical or categorical data, such as quantitative values or category names. All charts displaying quantitative data should have two clearly labeled axes for easy interpretation
-- Labels should be positioned outside the chart area without overlapping the data
-- Use clear and concise language: Ensure labels accurately and simply describe the data
-- Abbreviations can be used to save space, following the uppercase format for numerical values:
-    - 100.000 = 100K
-    - 1.000.000 = 1M
-    - 1.000.000.000 = 1B
-- Abbreviate only when the meaning is clear, such as for months ("Jan" for January), days of the week ("Mon" for Monday), or well-known units of measurement (kg, km, h).
-    - Use the first three letters for days of the week (Sun, Mon)
-    - Use the first three letters for months (May, Jun)
-    - Consulte Localization para outros idiomas
-- Avoid ambiguous abbreviations that could confuse users
-- Always use a zero baseline: Since data is represented by bar length, the full range must be visible to ensure accurate visual interpretation. If highlighting small variations is necessary, consider a more suitable chart type
-
-### Legends
-
-![BarChart legends](/assets/barchart-legend.png)
-
-- Abbreviations should only be used when there is not enough space to display full names
-- Abbreviate only when the meaning is clear (Ex: “Mon” for Monday)
-- Keep it concise. Use short and clear labels to avoid clutter. Aim for a few words that accurately describe the data.
-
-## Position
-
-- **Size and ratio:** Bar charts should have a 300px minimum width and 200px minimum height. It's recommended to follow a 3:2 width x height ratio.
-- **Position in a container:** Position the chart inside a Card component. When not inside a Card component, it should be left-aligned inside the container it's positioned into.
-
-## Behavior
-
-### Legend
-
-- Clicking a legend item isolates the corresponding data, hiding all other series from the chart. Clicking it again restores all data, returning to the default view.
-- This behavior should not be customized.
-
-### Hover
-
-- When hovering over a chart, an overlay with the color `bg-muted-plain-hover` appears over the bars, and a tooltip displaying the data for the selected bars should appear. See the tooltip documentation for more details.
-- This behavior comes by default in the chart and should not be customized.
+<Preview name="bar-chart-deltas" />
 
 ### Loading state
 
-- Use only for graphs that usually take more than 1s and less than 5s to process.
-- Don’t show loading or progress indicators for graphs that take less than 1s to process.
-- If the chart takes more than 5 seconds to load, display a general page loading indicator instead of one specific to the chart.
-- Label values start pre-loaded.
-- Loading starts with an empty grid and labels.
-- This behavior comes by default in the chart and should not be customized.
+Pass `loading` to show a skeleton placeholder instead of the chart while data is being fetched.
 
-![BarChart loading state](/assets/barchart-loading.gif)
+<Preview name="bar-chart-loading" />
 
-### Empty State
+### Empty state
 
-- Use the standard [Empty State](https://shoreline.vtex.com/components/empty-state) with the text "There is no data to display in this chart yet.”
-- This behavior comes by default in the chart and should not be customized.
+When no series has any non-null value, the chart renders its empty state. Override the message through the `messages` prop, or let it localize from the surrounding `LocaleProvider`.
 
-### Error State
+<Preview name="bar-chart-empty" />
 
-- Use the standard [Empty State](https://shoreline.vtex.com/components/empty-state) with the text “Something went wrong” and the button `Try again` .
-- Use the Collection [error state](https://www.figma.com/design/1V4B3fB6AEw1tHAyRqic2l/Bar-Chart?node-id=1940-56772&t=khGCTt2FA3rGLcb4-4) as a reference.
+### Negative values
+
+Negative values render below the zero line. Corner radius is resolved per bar from the value's sign, so bars below zero round at their far end rather than at the zero line — including the outermost segment of a stacked bar with mixed signs.
+
+<Preview name="bar-chart-negative" />
+
+### Localization
+
+Internal messages — the empty state and the `Others` aggregate — localize from the surrounding `LocaleProvider`. Data supplied through props is not translated: series names and categories are the consumer's to localize.
+
+<Preview name="bar-chart-localized" />
+
+## Required props
+
+<PropsDocs name="bar-chart" required />
+
+## Optional props
+
+<PropsDocs name="bar-chart" />
+
+## Related components
+
+<ComponentSummaryGrid>
+  <ComponentSummary name="table" />
+  <ComponentSummary name="collection" />
+  <ComponentSummary name="empty-state" />
+  <ComponentSummary name="skeleton" />
+</ComponentSummaryGrid>
