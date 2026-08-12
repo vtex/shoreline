@@ -57,7 +57,7 @@ describe('useNonModalDrawerUnlock', () => {
     fireEvent.click(getByRole('button', { name: 'Open drawer' }))
 
     await waitFor(() => {
-      expect(document.body.style.pointerEvents).not.toBe('none')
+      expect(document.body.style.pointerEvents).toBe('auto')
     })
   })
 
@@ -66,12 +66,12 @@ describe('useNonModalDrawerUnlock', () => {
 
     rerender(<DrawerShell open />)
     await waitFor(() => {
-      expect(document.body.style.pointerEvents).not.toBe('none')
+      expect(document.body.style.pointerEvents).toBe('auto')
     })
 
     rerender(<DrawerShell open={false} />)
     await waitFor(() => {
-      expect(document.body.style.pointerEvents).not.toBe('auto')
+      expect(document.body.style.pointerEvents).toBe('')
     })
   })
 })
