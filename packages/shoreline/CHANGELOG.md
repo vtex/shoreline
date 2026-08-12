@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.16](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.15...@vtex/shoreline@1.12.16) (2026-08-12)
+
+
+### Bug Fixes
+
+* document body not reachable when drawer is open ([e16b15b](https://github.com/vtex/shoreline/commit/e16b15b90c6824acb53ba6b754fc1b5abe1cd00e))
+* **drawer:** gate controlled open unlock with regression tests ([9ecf473](https://github.com/vtex/shoreline/commit/9ecf473035a0120a945a4005026a6904abd911ab))
+
+
+
+
+
 ## [1.12.15](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.14...@vtex/shoreline@1.12.15) (2026-08-04)
 
 **Note:** Version bump only for package @vtex/shoreline
