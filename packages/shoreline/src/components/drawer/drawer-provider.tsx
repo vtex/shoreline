@@ -1,11 +1,14 @@
 import type { ReactNode } from 'react'
 import { Drawer as Vaul } from 'vaul'
+import { useNonModalDrawerUnlock } from './use-non-modal-drawer-unlock'
 
 /**
  * Drawer's state provider
  */
 export function DrawerProvider(props: DrawerProviderProps) {
   const { children, open, onClose, onOpenChange, dismissible } = props
+
+  useNonModalDrawerUnlock(open)
 
   return (
     <Vaul.Root
