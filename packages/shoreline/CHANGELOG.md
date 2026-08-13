@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.17](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.16...@vtex/shoreline@1.12.17) (2026-08-13)
+
+
+### Bug Fixes
+
+* **popover:** update border-radius from radius-2 to radius-3 ([7150626](https://github.com/vtex/shoreline/commit/71506262b7374a212868f8fc2e45e0234e50f3ae)), closes [#2057](https://github.com/vtex/shoreline/issues/2057)
+* update border-radius tokens for tooltip, toast, alert, and docs ([358db69](https://github.com/vtex/shoreline/commit/358db69a10bdeaa48cdd828a451923142d2189cd)), closes [#2063](https://github.com/vtex/shoreline/issues/2063) [#2062](https://github.com/vtex/shoreline/issues/2062) [#2061](https://github.com/vtex/shoreline/issues/2061) [#2060](https://github.com/vtex/shoreline/issues/2060) [#2059](https://github.com/vtex/shoreline/issues/2059) [#2058](https://github.com/vtex/shoreline/issues/2058)
+
+
+
+
+
 ## [1.12.16](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.15...@vtex/shoreline@1.12.16) (2026-08-12)
 
 
