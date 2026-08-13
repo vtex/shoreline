@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline-charts@0.2.2...@vtex/shoreline-charts@0.3.0) (2026-08-13)
+
+
+### Bug Fixes
+
+* **charts:** key tooltip deltas by series position (PR review) ([1dce81c](https://github.com/vtex/shoreline/commit/1dce81c78197ebdc96b1b11245dbfc3900c0a52c))
+* **charts:** let the tooltip overflow the chart bounds ([59a26c0](https://github.com/vtex/shoreline/commit/59a26c05b5397fbccffbd89015743e4053091ca1))
+* **charts:** order stacked tooltip rows top-down ([0018379](https://github.com/vtex/shoreline/commit/0018379b3470fff0f548524c14ca21d57c489907))
+
+
+### Features
+
+* **charts:** add bar chart tooltip ([97b4b04](https://github.com/vtex/shoreline/commit/97b4b040bb097eafb2f0c557b667d7c1099f801a))
+* **charts:** let bar chart series carry tooltip deltas ([8173eb6](https://github.com/vtex/shoreline/commit/8173eb6d6cfeac903e042821325da0e806e71097))
+
+
+
+
+
 ## [0.2.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline-charts@0.2.1...@vtex/shoreline-charts@0.2.2) (2026-08-13)
 
 **Note:** Version bump only for package @vtex/shoreline-charts
