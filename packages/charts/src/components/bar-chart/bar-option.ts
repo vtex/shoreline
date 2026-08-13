@@ -1,6 +1,11 @@
 import type { EChartsCoreOption } from '../../internal/echarts'
 import type { ChartTokens } from '../../internal/theme'
 import { chartSeriesTokens } from '../../internal/theme'
+import type { ChartTooltipDelta } from '../../internal/tooltip'
+import {
+  createAxisTooltipFormatter,
+  createTooltipPositioner,
+} from '../../internal/tooltip'
 
 /**
  * A single bar series.
@@ -15,6 +20,17 @@ export interface BarChartSeries {
    * that category.
    */
   data: Array<number | null>
+  /**
+   * How each value changed against whatever period it is being compared to,
+   * in category order alongside `data`; `null` or a short array leaves that
+   * category's row without a delta.
+   *
+   * Supplied explicitly rather than derived, because only the consumer knows
+   * what the comparison is and whether a move reads as good or bad. The
+   * comparison series need not be on the chart at all.
+   * @default undefined
+   */
+  deltas?: Array<ChartTooltipDelta | null>
 }
 
 /**
@@ -62,6 +78,10 @@ export const defaultMaxSeries = 3
  * Values are summed per category. A null contributes nothing, and a category
  * where every folded series is null stays null, so the aggregate renders no
  * bar rather than a spurious zero.
+ *
+ * The aggregate carries no deltas: they arrive already formatted, so there is
+ * no sound way to combine those of the series it replaces. Series that keep
+ * their own slot keep their own deltas.
  */
 export function collapseSeries(
   series: BarChartSeries[],
@@ -91,6 +111,11 @@ export function collapseSeries(
 const radiusToken = '--sl-radius-1'
 const spaceSmall = '--sl-space-2'
 const spaceLegend = '--sl-space-10'
+// Design spec, positioning: 8px between the hovered bar and the tooltip
+const tooltipOffsetToken = '--sl-space-2'
+const tooltipOffsetFallback = 8
+// Design spec, behaviour: hover overlay over the selected category
+const hoverOverlayToken = '--sl-bg-muted-plain-hover'
 
 type BorderRadius = [number, number, number, number]
 
@@ -165,6 +190,26 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
   const radius = tokens.px(radiusToken)
   const showLegend = series.length > 1
 
+  // A vertical stack piles the first series at the bottom, so its segments run
+  // last-to-first down the bar and the tooltip has to list them in reverse to
+  // read in the same order. No other geometry needs it: a horizontal stack
+  // grows left to right, and grouped bars sit side by side — both already put
+  // the first series where the reader starts.
+  const reverseTooltipRows = direction === 'vertical' && grouping === 'stacked'
+
+  // Deltas are looked up by the series' position, not its name: names are not
+  // required to be unique, and two series sharing one would otherwise both
+  // resolve to whichever came last. The collapsed list is exactly the order
+  // the engine receives its series in, so the index it reports lines up here.
+  // Left undefined when no series supplied deltas, so the tooltip skips the
+  // lookup entirely for the common case.
+  const deltasBySeries = series.map((item) => item.deltas)
+
+  const getDelta = deltasBySeries.some(Boolean)
+    ? (seriesIndex: number, categoryIndex: number) =>
+        deltasBySeries[seriesIndex]?.[categoryIndex] ?? undefined
+    : undefined
+
   const categoryAxis = { type: 'category', data: categories }
   const valueAxis = { type: 'value' }
 
@@ -172,7 +217,29 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
     legend: { show: showLegend, left: 0, bottom: 0 },
     tooltip: {
       trigger: 'axis',
-      axisPointer: { type: 'shadow' },
+      axisPointer: {
+        type: 'shadow',
+        shadowStyle: { color: tokens.get(hoverOverlayToken) },
+      },
+      // The tooltip is allowed to overflow the chart. `confine` would push it
+      // back inside the chart bounds, and leaving the element inside the chart
+      // container lets any `overflow: hidden` ancestor clip it — so it renders
+      // on `body` instead, above whatever the chart sits in.
+      confine: false,
+      appendTo: 'body',
+      // Visuals come entirely from the formatter's own markup + tooltip.css
+      // (data-sl-chart-tooltip*), not from the engine's tooltip container.
+      backgroundColor: 'transparent',
+      borderWidth: 0,
+      padding: 0,
+      extraCssText: 'box-shadow: none;',
+      formatter: createAxisTooltipFormatter({
+        reverse: reverseTooltipRows,
+        getDelta,
+      }),
+      position: createTooltipPositioner(
+        tokens.px(tooltipOffsetToken) ?? tooltipOffsetFallback
+      ),
     },
     grid: {
       containLabel: true,

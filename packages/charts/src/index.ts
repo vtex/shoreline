@@ -11,3 +11,7 @@ export type {
   BarChartProps,
   BarChartSeries,
 } from './components/bar-chart'
+// Consumers construct these to fill `BarChartSeries.deltas`, so the shape has
+// to be nameable outside the package even though the tooltip itself is
+// internal.
+export type { ChartTooltipDelta } from './internal/tooltip'
