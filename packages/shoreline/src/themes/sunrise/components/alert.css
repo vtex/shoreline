@@ -4,7 +4,7 @@
   justify-content: flex-start;
   padding: var(--sl-space-4) var(--sl-space-3) var(--sl-space-4)
     var(--sl-space-5);
-  border-radius: var(--sl-radius-2);
+  border-radius: var(--sl-radius-3);
 
   & [data-sl-alert-icon-container] {
     flex-shrink: 0;
