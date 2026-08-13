@@ -137,6 +137,10 @@ const files = [
    */
   join(dirname(''), '../ts-table/src/ts-table.tsx'),
   /**
+   * charts
+   */
+  join(dirname(''), '../charts/src/components/bar-chart/bar-chart.tsx'),
+  /**
    * Date
    */
   getPath('components', 'calendar', 'calendar'),
