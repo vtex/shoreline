@@ -182,8 +182,8 @@ importers:
         specifier: 8.2.2
         version: 8.2.2
       sucrase:
-        specifier: 3.35.0
-        version: 3.35.0
+        specifier: 3.35.1
+        version: 3.35.1
 
   packages/css:
     dependencies:
@@ -365,8 +365,8 @@ importers:
         specifier: 1.8.10
         version: 1.8.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sucrase:
-        specifier: ' 3.35.0'
-        version: 3.35.0
+        specifier: 3.35.1
+        version: 3.35.1
 
   packages/test-utils:
     dependencies:
@@ -9076,8 +9076,8 @@ packages:
   stylis@4.3.2:
     resolution: {integrity: sha512-bhtUjWd/z6ltJiQwg0dUfxEJ+W+jdqQd8TbWLWyeIJHlnsqmGLRFFd8e5mA0AZi/zx90smXRlN66YMTcaSFifg==}
 
-  sucrase@3.35.0:
-    resolution: {integrity: sha512-8EbVDiu9iN/nESwxeSxDKe0dunta1GOlHufmSSXxMD2z2/tMZpDMpvXQGsc+ajGo8y2uYUmixaSRUc/QPoQ0GA==}
+  sucrase@3.35.1:
+    resolution: {integrity: sha512-DhuTmvZWux4H1UOnWMB3sk0sbaCVOoQZjv8u1rDoTV0HTdGem9hkAZtl4JZy8P2z4Bg0nT+YMeOFyVr4zcG5Tw==}
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
 
@@ -20657,14 +20657,14 @@ snapshots:
 
   stylis@4.3.2: {}
 
-  sucrase@3.35.0:
+  sucrase@3.35.1:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
       commander: 4.1.1
-      glob: 10.4.1
       lines-and-columns: 1.2.4
       mz: 2.7.0
       pirates: 4.0.6
+      tinyglobby: 0.2.16
       ts-interface-checker: 0.1.13
 
   supports-color@2.0.0: {}
@@ -20903,7 +20903,7 @@ snapshots:
       resolve-from: 5.0.0
       rollup: 4.18.0
       source-map: 0.8.0-beta.0
-      sucrase: 3.35.0
+      sucrase: 3.35.1
       tree-kill: 1.2.2
     optionalDependencies:
       '@swc/core': 1.5.24(@swc/helpers@0.5.13)
