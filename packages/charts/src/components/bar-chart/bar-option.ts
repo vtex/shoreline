@@ -1,11 +1,16 @@
 import type { EChartsCoreOption } from '../../internal/echarts'
 import type { ChartTokens } from '../../internal/theme'
-import { chartSeriesTokens } from '../../internal/theme'
 import type { ChartTooltipDelta } from '../../internal/tooltip'
+import type { ChartAxisPointer } from '../../internal/option'
 import {
-  createAxisTooltipFormatter,
-  createTooltipPositioner,
-} from '../../internal/tooltip'
+  buildAxisTooltip,
+  buildCategoryAxis,
+  buildGrid,
+  buildLegend,
+  buildValueAxis,
+} from '../../internal/option'
+import type { ChartSeries } from '../../internal/series'
+import { collapseSeries, createDeltaLookup } from '../../internal/series'
 
 /**
  * A single bar series.
@@ -53,67 +58,11 @@ export interface BuildBarOptionArgs {
   tokens: ChartTokens
 }
 
-/**
- * Hard ceiling on rendered series, set by the palette itself: there are only
- * this many designed colors and they are never cycled, so no chart can show
- * more distinct series than this regardless of what `maxSeries` asks for.
- */
-export const seriesLimit = chartSeriesTokens.length
-
-/**
- * Default number of rendered series: the primary and secondary series plus the
- * aggregate in the tertiary color.
- */
-export const defaultMaxSeries = 3
-
-/**
- * Folds the tail of `series` into a single aggregate so that no more than
- * `maxSeries` series render, keeping every value represented instead of
- * dropping data. Requests above `seriesLimit` clamp to it, because past that
- * point the palette has no color left to tell series apart.
- *
- * The aggregate takes the last rendered slot, so it wears that slot's color —
- * the tertiary color at the default `maxSeries`.
- *
- * Values are summed per category. A null contributes nothing, and a category
- * where every folded series is null stays null, so the aggregate renders no
- * bar rather than a spurious zero.
- *
- * The aggregate carries no deltas: they arrive already formatted, so there is
- * no sound way to combine those of the series it replaces. Series that keep
- * their own slot keep their own deltas.
- */
-export function collapseSeries(
-  series: BarChartSeries[],
-  othersLabel: string,
-  maxSeries: number
-): BarChartSeries[] {
-  // A fractional or non-finite request would otherwise slice unpredictably.
-  const limit = Math.min(Math.max(Math.floor(maxSeries) || 1, 1), seriesLimit)
-
-  if (series.length <= limit) return series
-
-  // The aggregate occupies the last slot, so one fewer series keeps its name.
-  const rest = series.slice(limit - 1)
-  const length = Math.max(...rest.map((item) => item.data.length))
-
-  const data = Array.from({ length }, (_, index) =>
-    rest.reduce<number | null>((sum, item) => {
-      const value = item.data[index]
-
-      return value === null || value === undefined ? sum : (sum ?? 0) + value
-    }, null)
-  )
-
-  return [...series.slice(0, limit - 1), { name: othersLabel, data }]
-}
+// Re-exported so the package's public `defaultMaxSeries` / `seriesLimit`
+// exports keep flowing from the same path they always have.
+export { defaultMaxSeries, seriesLimit } from '../../internal/series'
 
 const radiusToken = '--sl-radius-1'
-const spaceSmall = '--sl-space-2'
-const spaceLegend = '--sl-space-10'
-// Design spec, positioning: 8px between the hovered bar and the tooltip
-const tooltipOffsetToken = '--sl-space-2'
-const tooltipOffsetFallback = 8
 // Design spec, behaviour: hover overlay over the selected category
 const hoverOverlayToken = '--sl-bg-muted-plain-hover'
 
@@ -151,7 +100,7 @@ function barBorderRadius(args: {
  * their own end.
  */
 function isStackEnd(args: {
-  series: BarChartSeries[]
+  series: ChartSeries[]
   seriesIndex: number
   categoryIndex: number
   grouping: BarChartGrouping
@@ -197,59 +146,28 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
   // the first series where the reader starts.
   const reverseTooltipRows = direction === 'vertical' && grouping === 'stacked'
 
-  // Deltas are looked up by the series' position, not its name: names are not
-  // required to be unique, and two series sharing one would otherwise both
-  // resolve to whichever came last. The collapsed list is exactly the order
-  // the engine receives its series in, so the index it reports lines up here.
-  // Left undefined when no series supplied deltas, so the tooltip skips the
-  // lookup entirely for the common case.
-  const deltasBySeries = series.map((item) => item.deltas)
-
-  const getDelta = deltasBySeries.some(Boolean)
-    ? (seriesIndex: number, categoryIndex: number) =>
-        deltasBySeries[seriesIndex]?.[categoryIndex] ?? undefined
-    : undefined
-
-  const categoryAxis = { type: 'category', data: categories }
-  const valueAxis = { type: 'value' }
+  const axisPointer: ChartAxisPointer = {
+    type: 'shadow',
+    shadowStyle: { color: tokens.get(hoverOverlayToken) },
+  }
 
   return {
-    legend: { show: showLegend, left: 0, bottom: 0 },
-    tooltip: {
-      trigger: 'axis',
-      axisPointer: {
-        type: 'shadow',
-        shadowStyle: { color: tokens.get(hoverOverlayToken) },
-      },
-      // The tooltip is allowed to overflow the chart. `confine` would push it
-      // back inside the chart bounds, and leaving the element inside the chart
-      // container lets any `overflow: hidden` ancestor clip it — so it renders
-      // on `body` instead, above whatever the chart sits in.
-      confine: false,
-      appendTo: 'body',
-      // Visuals come entirely from the formatter's own markup + tooltip.css
-      // (data-sl-chart-tooltip*), not from the engine's tooltip container.
-      backgroundColor: 'transparent',
-      borderWidth: 0,
-      padding: 0,
-      extraCssText: 'box-shadow: none;',
-      formatter: createAxisTooltipFormatter({
-        reverse: reverseTooltipRows,
-        getDelta,
-      }),
-      position: createTooltipPositioner(
-        tokens.px(tooltipOffsetToken) ?? tooltipOffsetFallback
-      ),
-    },
-    grid: {
-      containLabel: true,
-      left: tokens.px(spaceSmall),
-      right: tokens.px(spaceSmall),
-      top: tokens.px(spaceSmall),
-      bottom: tokens.px(showLegend ? spaceLegend : spaceSmall),
-    },
-    xAxis: direction === 'vertical' ? categoryAxis : valueAxis,
-    yAxis: direction === 'vertical' ? valueAxis : categoryAxis,
+    legend: buildLegend(series.length),
+    tooltip: buildAxisTooltip({
+      tokens,
+      axisPointer,
+      reverse: reverseTooltipRows,
+      getDelta: createDeltaLookup(series),
+    }),
+    grid: buildGrid({ tokens, showLegend }),
+    xAxis:
+      direction === 'vertical'
+        ? buildCategoryAxis(categories)
+        : buildValueAxis(),
+    yAxis:
+      direction === 'vertical'
+        ? buildValueAxis()
+        : buildCategoryAxis(categories),
     series: series.map((item, seriesIndex) => ({
       name: item.name,
       type: 'bar',
