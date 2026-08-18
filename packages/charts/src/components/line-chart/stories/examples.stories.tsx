@@ -27,6 +27,21 @@ export function Default() {
   )
 }
 
+/**
+ * `smooth` swaps straight segments for curves — trend-forward narratives
+ * over precise value reading.
+ */
+export function Smooth() {
+  return (
+    <LineChart
+      label="Revenue by month"
+      categories={months}
+      smooth
+      series={[{ name: 'Revenue', data: revenue }]}
+    />
+  )
+}
+
 export function MultiSeries() {
   return (
     <LineChart
