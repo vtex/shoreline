@@ -34,6 +34,7 @@ function build(overrides: Partial<BuildLineOptionArgs> = {}) {
       type: string
       stack?: string
       connectNulls?: boolean
+      smooth?: boolean
       data: Array<number | null>
     }>
   }
@@ -87,6 +88,14 @@ describe('buildLineOption', () => {
     expect(option.series[0]?.data).toEqual([10, null, 30])
     // connectNulls is left unset so the engine default (false) applies.
     expect(option.series[0]?.connectNulls).toBeUndefined()
+  })
+
+  test('draws straight segments by default and smooth curves when smooth is set', () => {
+    expect(build().series[0]?.smooth).toBe(false)
+
+    const smooth = build({ smooth: true })
+
+    expect(smooth.series[0]?.smooth).toBe(true)
   })
 
   test('configures a line axis pointer for the hover guide', () => {

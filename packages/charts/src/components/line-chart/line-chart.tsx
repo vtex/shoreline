@@ -32,6 +32,7 @@ export const LineChart = forwardRef<HTMLDivElement, LineChartProps>(
       loading = false,
       messages: messageOverrides,
       maxSeries = defaultMaxSeries,
+      smooth = false,
       ...htmlProps
     } = props
 
@@ -50,9 +51,10 @@ export const LineChart = forwardRef<HTMLDivElement, LineChartProps>(
           categories,
           othersLabel,
           maxSeries,
+          smooth,
           tokens,
         }),
-      [series, categories, othersLabel, maxSeries]
+      [series, categories, othersLabel, maxSeries, smooth]
     )
 
     return (
@@ -124,6 +126,13 @@ export interface LineChartOptions {
    * @default 3
    */
   maxSeries?: number
+  /**
+   * Draw the lines as smooth curves instead of straight segments. Off by
+   * default: straight segments read exact values more precisely, smooth
+   * curves suit trend-forward narratives.
+   * @default false
+   */
+  smooth?: boolean
 }
 
 export type LineChartProps = LineChartOptions & ComponentPropsWithoutRef<'div'>
