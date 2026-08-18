@@ -48,6 +48,11 @@ export interface BuildLineOptionArgs {
   categories: string[]
   othersLabel: string
   maxSeries: number
+  /**
+   * Draw the lines as smooth curves instead of straight segments.
+   * @default false
+   */
+  smooth?: boolean
   tokens: ChartTokens
 }
 
@@ -60,7 +65,7 @@ const guideLine = '--sl-color-gray-3'
  * style values come from the resolved tokens.
  */
 export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
-  const { categories, othersLabel, maxSeries, tokens } = args
+  const { categories, othersLabel, maxSeries, smooth = false, tokens } = args
 
   // Everything downstream — legend, palette order — reads the collapsed list,
   // so the aggregate behaves like any other series.
@@ -89,6 +94,7 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
       name: item.name,
       type: 'line',
       data: item.data,
+      smooth,
     })),
   }
 }
