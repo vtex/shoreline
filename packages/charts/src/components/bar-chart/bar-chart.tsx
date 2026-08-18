@@ -3,6 +3,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef, useId, useMemo } from 'react'
 
 import { ChartContainer } from '../../internal/chart-container'
+import { chartMessages, type ChartMessages } from '../../internal/messages'
 import type { ChartTokens } from '../../internal/theme'
 import type {
   BarChartDirection,
@@ -10,10 +11,9 @@ import type {
   BarChartSeries,
 } from './bar-option'
 import { buildBarOption, defaultMaxSeries } from './bar-option'
-import { messages } from './messages'
 import './register'
 
-const useMessage = createMessageHook(messages)
+const useMessage = createMessageHook(chartMessages)
 
 /**
  * Bar charts compare values across categories, in the Shoreline design
@@ -149,15 +149,4 @@ export type BarChartProps = BarChartOptions & ComponentPropsWithoutRef<'div'>
 /**
  * Bar chart internal messages
  */
-export type BarChartMessages = Partial<{
-  [key in BarChartMessagesKeys]: string
-}>
-
-/**
- * Bar chart internal messages intl keys
- */
-type BarChartMessagesKeys =
-  /** Rendered in place of the chart when there is no data to display */
-  | 'empty'
-  /** Names the series that aggregates the tail of `series` */
-  | 'others'
+export type BarChartMessages = ChartMessages

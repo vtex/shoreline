@@ -8,7 +8,7 @@ import { renderChartTooltip } from './tooltip-render'
  * locally because the engine doesn't re-export that type from `echarts/core`
  * or `echarts/components`.
  */
-interface EChartsAxisTooltipParam {
+export interface EChartsAxisTooltipParam {
   name?: string
   seriesName?: string
   value: unknown
@@ -17,7 +17,7 @@ interface EChartsAxisTooltipParam {
   dataIndex?: unknown
 }
 
-interface EChartsTooltipPositionSize {
+export interface EChartsTooltipPositionSize {
   contentSize: [number, number]
   viewSize: [number, number]
 }
