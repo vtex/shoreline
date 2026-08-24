@@ -242,7 +242,8 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
       ),
     },
     grid: {
-      containLabel: true,
+      outerBoundsMode: 'same',
+      outerBoundsContain: 'axisLabel',
       left: tokens.px(spaceSmall),
       right: tokens.px(spaceSmall),
       top: tokens.px(spaceSmall),

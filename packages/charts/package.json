@@ -53,6 +53,6 @@
   },
   "dependencies": {
     "@vtex/shoreline-utils": "workspace:*",
-    "echarts": "5.6.0"
+    "echarts": "6.1.0"
   }
 }
