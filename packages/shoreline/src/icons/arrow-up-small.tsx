@@ -19,12 +19,6 @@ export const IconArrowUpSmall = forwardRef<
       {...props}
     >
       <path
-        d="M0.0625 0.0625H15.9375V15.9375H0.0625V0.0625Z"
-        vectorEffect="non-scaling-stroke"
-        stroke="currentColor"
-        strokeWidth="0.125"
-      />
-      <path
         d="M8 13.5V2.5"
         vectorEffect="non-scaling-stroke"
         stroke="currentColor"
