@@ -18,3 +18,8 @@
   align-items: center;
   justify-content: flex-start;
 }
+
+.variants--overflow {
+  width: 7.5rem;
+  padding: var(--sl-space-gap);
+}

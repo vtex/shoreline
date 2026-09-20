@@ -10,7 +10,10 @@
   cursor: pointer;
   appearance: button;
   text-decoration: none;
-  min-width: 6.25rem;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: min(6.25rem, 100%);
+  overflow: hidden;
 
   &:focus {
     outline: none;
@@ -21,6 +24,8 @@
     letter-spacing: inherit;
     gap: var(--sl-space-1);
     width: 100%;
+    min-width: 0;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -28,6 +33,12 @@
     opacity: 1;
     transition: opacity 300ms;
     white-space: nowrap;
+
+    & > span {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     & [data-sl-icon] {
       flex-shrink: 0;
