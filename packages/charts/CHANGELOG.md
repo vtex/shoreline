@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.3](https://github.com/vtex/shoreline/compare/@vtex/shoreline-charts@0.3.2...@vtex/shoreline-charts@0.3.3) (2026-09-28)
+
+**Note:** Version bump only for package @vtex/shoreline-charts
+
+
+
+
+
 ## [0.3.2](https://github.com/vtex/shoreline/compare/@vtex/shoreline-charts@0.3.1...@vtex/shoreline-charts@0.3.2) (2026-08-14)
 
 **Note:** Version bump only for package @vtex/shoreline-charts

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.21](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.20...@vtex/shoreline@1.12.21) (2026-09-28)
+
+
+### Bug Fixes
+
+* **icons:** remove border box from IconArrowUpSmall ([302b26f](https://github.com/vtex/shoreline/commit/302b26f9a03e7b84782d4bcd1fa7a998531b13a8))
+
+
+
+
+
 ## [1.12.20](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.19...@vtex/shoreline@1.12.20) (2026-08-14)
 
 **Note:** Version bump only for package @vtex/shoreline
