@@ -73,7 +73,7 @@
     "match-sorter": "6.3.4",
     "react-hook-form": "7.48.2",
     "react-window": "1.8.10",
-    "sucrase": " 3.35.0"
+    "sucrase": "3.35.1"
   },
   "dependencies": {
     "@ariakit/react": "0.4.23",
