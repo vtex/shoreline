@@ -1,76 +1,44 @@
 import { bundle } from '@vtex/shoreline-css'
+import { resolve } from 'node:path'
+import {
+  discoverThemes,
+  entries,
+} from '../../../../tools/design-system/theme-registry.cjs'
 
 export function build() {
-  const outdir = 'dist/themes/sunrise'
-  const themeDir = 'src/themes/sunrise'
+  // Each theme exposes the same entrypoints. Invalid themes fail when bundled.
+  const themes = discoverThemes(resolve(process.cwd(), '../..'))
 
-  // Bundle tokens (layered and unlayered)
-  bundle({
-    inputFile: `${themeDir}/tokens.css`,
-    outdir,
-    outputFile: 'tokens',
-    layer: 'sl-tokens',
-  })
+  for (const theme of themes) {
+    const outdir = `dist/themes/${theme}`
+    const themeDir = `src/themes/${theme}`
 
-  bundle({
-    inputFile: `${themeDir}/tokens.css`,
-    outdir,
-    outputFile: 'tokens',
-  })
+    for (const { input, output, layer } of entries) {
+      bundle({
+        inputFile: `${themeDir}/${input}`,
+        outdir,
+        outputFile: output,
+        layer,
+      })
 
-  // Bundle reset (layered and unlayered)
-  bundle({
-    inputFile: `${themeDir}/reset.css`,
-    outdir,
-    outputFile: 'reset',
-    layer: 'sl-reset',
-  })
+      bundle({
+        inputFile: `${themeDir}/${input}`,
+        outdir,
+        outputFile: output,
+      })
+    }
 
-  bundle({
-    inputFile: `${themeDir}/reset.css`,
-    outdir,
-    outputFile: 'reset',
-  })
+    bundle({
+      inputFile: `${themeDir}/styles.css`,
+      outdir,
+      includeLayersStatement: true,
+    })
 
-  // Bundle base (layered and unlayered)
-  bundle({
-    inputFile: `${themeDir}/base.css`,
-    outdir,
-    outputFile: 'base',
-    layer: 'sl-base',
-  })
-
-  bundle({
-    inputFile: `${themeDir}/base.css`,
-    outdir,
-    outputFile: 'base',
-  })
-
-  // Bundle components (layered and unlayered)
-  bundle({
-    inputFile: `${themeDir}/components/index.css`,
-    outdir,
-    outputFile: 'components',
-    layer: 'sl-components',
-  })
-
-  bundle({
-    inputFile: `${themeDir}/components/index.css`,
-    outdir,
-    outputFile: 'components',
-  })
-
-  // Bundle styles.css for backward compatibility (layered and unlayered)
-  bundle({
-    inputFile: `${themeDir}/styles.css`,
-    outdir,
-    includeLayersStatement: true,
-  })
-
-  bundle({
-    inputFile: `${themeDir}/styles-unlayered.css`,
-    outdir,
-  })
+    bundle({
+      inputFile: `${themeDir}/styles-unlayered.css`,
+      outdir,
+    })
+  }
 }
 
 build()

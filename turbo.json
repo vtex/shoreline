@@ -1,5 +1,6 @@
 {
   "$schema": "https://turborepo.org/schema.json",
+  "globalDependencies": ["tools/design-system/theme-registry.cjs"],
   "tasks": {
     "build": {
       "outputs": ["dist/**"],

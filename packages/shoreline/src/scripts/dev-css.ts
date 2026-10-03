@@ -9,18 +9,22 @@ console.log('👀 Watching CSS files')
  */
 build()
 
-const themesPath = path.join(__dirname, '../themes/')
+// Both theme entrypoints and their shared inputs can change the emitted CSS.
+for (const source of ['themes', 'foundations']) {
+  subscribe(path.join(__dirname, '..', source), (err, events) => {
+    if (err) {
+      console.error(err)
+      return
+    }
 
-subscribe(themesPath, (err, events) => {
-  if (err) {
-    console.error(err)
-  }
+    const shouldTriggerBuild = events.some(
+      ({ type, path: file }) =>
+        file.endsWith('.css') &&
+        (type === 'update' || type === 'create' || type === 'delete')
+    )
 
-  const shouldTriggerBuild = events.some(
-    ({ type }) => type === 'update' || type === 'create' || type === 'delete'
-  )
-
-  if (shouldTriggerBuild) {
-    build()
-  }
-})
+    if (shouldTriggerBuild) {
+      build()
+    }
+  })
+}

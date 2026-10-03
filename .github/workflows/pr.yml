@@ -49,8 +49,8 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: build:storybook:ci
           onlyChanged: true
-          exitOnceUploaded: true
-          exitZeroOnChanges: true
+          exitOnceUploaded: false
+          exitZeroOnChanges: false
 
   semantic-pr:
     name: Validate PR title for semantic versioning

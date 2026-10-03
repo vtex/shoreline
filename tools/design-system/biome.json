@@ -1,0 +1,21 @@
+{
+  "$schema": "../../node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["../../biome.json"],
+  "linter": {
+    "rules": {
+      "correctness": {
+        "useExhaustiveDependencies": "error",
+        "useHookAtTopLevel": "error"
+      },
+      "suspicious": {
+        "noExplicitAny": "error",
+        "noArrayIndexKey": "error"
+      },
+      "a11y": {
+        "useButtonType": "error",
+        "useKeyWithClickEvents": "error",
+        "noLabelWithoutControl": "error"
+      }
+    }
+  }
+}

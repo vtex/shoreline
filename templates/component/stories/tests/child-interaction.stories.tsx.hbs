@@ -1,0 +1,39 @@
+import { useState } from 'react'
+import type { Meta, StoryObj } from '@storybook/react'
+import { expect, userEvent, within } from '@storybook/test'
+import { {{pascalCase name}} } from '../../index'
+
+const meta = {
+  title: 'components/{{kebabCase name}}/tests',
+  component: {{pascalCase name}},
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+} satisfies Meta<typeof {{pascalCase name}}>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+function InteractiveContent() {
+  const [reviewed, setReviewed] = useState(false)
+
+  return (
+    <{{pascalCase name}}>
+      <button type="button" onClick={() => setReviewed(true)}>
+        {reviewed ? 'Reviewed' : 'Mark as reviewed'}
+      </button>
+    </{{pascalCase name}}>
+  )
+}
+
+export const ChildrenRemainInteractive: Story = {
+  render: () => <InteractiveContent />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const action = canvas.getByRole('button', { name: 'Mark as reviewed' })
+
+    await userEvent.click(action)
+    await expect(action).toHaveTextContent('Reviewed')
+    await expect(action).toHaveFocus()
+  },
+}

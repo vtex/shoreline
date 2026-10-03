@@ -1,0 +1,72 @@
+/* Source: aiw-styleguide/app/theme.css at baceafacc9e32a863987dad06da5a6654b387d6b.
+ * Foundational tokens only. See README.md for scope and design review status.
+ */
+:root {
+  /* Radius */
+  --sl-radius-0: 0;
+  --sl-radius-1: 0.5rem;
+  --sl-radius-2: 0.75rem;
+  --sl-radius-3: 1rem;
+  --sl-radius-4: 1.5rem;
+  --sl-radius-full: 9999rem;
+
+  /* Gray color scale */
+  --sl-color-gray-0: #ffffff;
+  --sl-color-gray-1: #f5f8fc;
+  --sl-color-gray-2: #ecf0f7;
+  --sl-color-gray-3: #e0e5ef;
+  --sl-color-gray-4: #ced7e4;
+  --sl-color-gray-5: #b7c3d2;
+  --sl-color-gray-6: #7f8c9e;
+  --sl-color-gray-7: #5f6d82;
+  --sl-color-gray-8: #506077;
+  --sl-color-gray-9: #425269;
+  --sl-color-gray-10: #212d3f;
+  --sl-color-gray-11: #0a1524;
+  --sl-color-gray-12: #040e1b;
+  --sl-color-gray-13: #000000;
+
+  /* Blue color scale */
+  --sl-color-blue-1: #f1f8fd;
+  --sl-color-blue-2: #e1f3ff;
+  --sl-color-blue-3: #cbe9ff;
+  --sl-color-blue-4: #b6dfff;
+  --sl-color-blue-5: #97cffe;
+  --sl-color-blue-6: #79bcfb;
+  --sl-color-blue-7: #5aa8f7;
+  --sl-color-blue-8: #3993f4;
+  --sl-color-blue-9: #0a72ee;
+  --sl-color-blue-10: #1e4ee5;
+  --sl-color-blue-11: #0131c5;
+  --sl-color-blue-12: #042db4;
+  --sl-color-blue-13: #002499;
+
+  /* Muted backgrounds */
+  --sl-bg-muted: rgba(10, 21, 36, 0.05);
+  --sl-bg-muted-hover: rgba(10, 21, 36, 0.1);
+  --sl-bg-muted-pressed: rgba(10, 21, 36, 0.15);
+  --sl-bg-muted-plain: transparent;
+  --sl-bg-muted-plain-hover: rgba(10, 21, 36, 0.05);
+  --sl-bg-muted-plain-pressed: rgba(10, 21, 36, 0.1);
+
+  /* Foregrounds */
+  --sl-fg-muted: var(--sl-color-gray-10);
+  --sl-fg-muted-hover: var(--sl-color-gray-11);
+  --sl-fg-muted-pressed: var(--sl-color-gray-12);
+  --sl-fg-base-soft: var(--sl-color-gray-8);
+  --sl-fg-base-disabled: var(--sl-color-gray-5);
+
+  /* Font weight */
+  --sl-font-weight-bold: 700;
+
+  /* Shadow scale */
+  --sl-shadow-1: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --sl-shadow-2: 0 1px 3px 0 rgb(0 0 0 / 0.08);
+  --sl-shadow-3: 0 2px 6px 0 rgb(0 0 0 / 0.08);
+  --sl-shadow-4: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px
+    rgb(0 0 0 / 0.1);
+  --sl-shadow-5: 0 2px 8px 0 rgb(0 0 0 / 0.15);
+
+  /* Overlay */
+  --sl-overlay-bg: rgba(0, 0, 0, 0.6);
+}

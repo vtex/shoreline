@@ -15,6 +15,7 @@ export default defineConfig({
       '**/node_modules/**',
       '**/dist/**',
       '**/cypress/**',
+      'tools/design-system/tests/**', // Run with pnpm ds:test (Node test runner).
       '**/.{idea,git,cache,output,temp}/**',
       '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*',
     ],

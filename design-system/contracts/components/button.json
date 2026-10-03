@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 3,
+  "kind": "component",
+  "id": "button",
+  "status": "draft",
+  "intent": "Define the Button appearance and behavior for Horizon, including keyboard use, disabled/loading states and composition. This is a work contract for component design and validation.",
+  "target": {
+    "package": "@vtex/shoreline",
+    "themes": ["horizon"],
+    "files": [
+      "packages/shoreline/src/components/button/button.tsx",
+      "packages/shoreline/src/components/button/index.ts",
+      "packages/shoreline/src/themes/horizon/tokens.css",
+      "packages/shoreline/src/themes/horizon/tokens-foundations.css",
+      "packages/shoreline/src/themes/horizon/components/index.css"
+    ]
+  },
+  "states": [
+    {
+      "id": "default",
+      "trigger": "Render an enabled button",
+      "expected": "Approved dimensions, typography, shape and semantic tone."
+    },
+    {
+      "id": "keyboard",
+      "trigger": "Tab, then Enter or Space",
+      "expected": "Visible token-based focus and one activation, with an accessible name."
+    },
+    {
+      "id": "disabled",
+      "trigger": "Render disabled",
+      "expected": "Disabled semantics and no activation."
+    },
+    {
+      "id": "loading",
+      "trigger": "Render loading",
+      "expected": "Busy state is exposed and repeated actions are prevented."
+    },
+    {
+      "id": "composition",
+      "trigger": "Render asChild with an anchor",
+      "expected": "Anchor semantics and forwarded props and ref."
+    }
+  ],
+  "tokens": [
+    {
+      "name": "--sl-radius-4",
+      "reason": "Available large-radius option; its use in Button must be decided with design."
+    }
+  ],
+  "impact": {
+    "summary": "The work may change Button visuals and its shared component API. Record the final changes and affected consumers before review.",
+    "consumerAction": "Select the Horizon stylesheet when adopting this appearance. Follow the final usage examples and any API adjustments recorded by the component work."
+  },
+  "openQuestions": [
+    "Which shape, tone and size combinations belong in the reusable Button API?",
+    "Which dimensions and interactive states are the approved design reference?"
+  ],
+  "evidence": [
+    {
+      "kind": "unit",
+      "result": "pending",
+      "description": "Record ref, props and behavioral unit checks for the final implementation."
+    },
+    {
+      "kind": "interaction",
+      "result": "pending",
+      "description": "Record keyboard, disabled, loading and composition Storybook interaction results."
+    },
+    {
+      "kind": "visual",
+      "result": "pending",
+      "description": "Review the agreed Show matrix in the target theme."
+    },
+    {
+      "kind": "accessibility",
+      "result": "pending",
+      "description": "Record axe results and manual focus, keyboard, zoom and screen-reader review."
+    },
+    {
+      "kind": "types",
+      "result": "pending",
+      "description": "Build and type-check consumer usage, refs and asChild."
+    },
+    {
+      "kind": "coverage",
+      "result": "pending",
+      "description": "Record measured package line coverage against the repository requirement."
+    },
+    {
+      "kind": "theme-regression",
+      "result": "pending",
+      "description": "Exercise the shared Button and its states in every theme declared in target.themes."
+    }
+  ]
+}

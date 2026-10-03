@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import '@vtex/shoreline/css'
 import {
   Button,
   Stack,
@@ -587,9 +586,7 @@ const COMPONENT_EXAMPLES: Record<
     { label: 'As Child', Component: ComposeAsChild },
     { label: 'Show', Component: ComposeShow },
   ],
-  ConfirmationModal: [
-    { label: 'Show', Component: ConfirmationModalShow as any },
-  ],
+  ConfirmationModal: [{ label: 'Show', Component: ConfirmationModalShow }],
   Content: [{ label: 'Show', Component: ContentShow }],
   ContextualHelp: [{ label: 'Show', Component: ContextualHelpShow }],
   DateField: [
@@ -1188,6 +1185,7 @@ export function ThemeBuilder() {
               return (
                 <div key={group.label} style={{ width: '100%' }}>
                   <button
+                    type="button"
                     onClick={() => toggleCategory(group.label)}
                     style={{
                       width: '100%',

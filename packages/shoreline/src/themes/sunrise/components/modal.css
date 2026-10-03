@@ -1,11 +1,7 @@
 [data-sl-modal] {
-  --sl-modal-small-width: 23rem;
-  --sl-modal-medium-width: 38.75rem;
-  --sl-modal-large-width: 50rem;
   --sl-modal-width: var(--sl-modal-medium-width);
-  --sl-modal-footer-button-min-width: 6.25rem;
   --sl-modal-footer-button-width: auto;
-  --sl-modal-content-space-top: 1.5rem;
+  --sl-modal-content-space-top: var(--sl-space-6);
 
   position: fixed;
   margin: auto;
@@ -23,7 +19,7 @@
   [data-sl-modal-container] {
     height: fit-content;
     overflow: hidden auto;
-    background-color: var(--sl-base);
+    background-color: var(--sl-bg-base);
     box-shadow: var(--sl-shadow-2);
     border-radius: var(--sl-radius-3);
   }
@@ -32,18 +28,15 @@
     --sl-modal-width: var(--sl-modal-small-width);
     --sl-footer-button-min-width: auto;
     --sl-modal-footer-button-width: 100%;
-    --sl-modal-header-padding: var(--sl-modal-header-padding-small);
-    --sl-modal-content-space-top: 1rem;
+    --sl-modal-content-space-top: var(--sl-space-4);
   }
   &[data-size="medium"] {
     --sl-modal-width: var(--sl-modal-medium-width);
-    --sl-modal-header-padding: var(--sl-modal-header-padding-medium);
-    --sl-modal-content-space-top: 1.5rem;
+    --sl-modal-content-space-top: var(--sl-space-6);
   }
   &[data-size="large"] {
     --sl-modal-width: var(--sl-modal-large-width);
-    --sl-modal-header-padding: var(--sl-modal-header-padding-large);
-    --sl-modal-content-space-top: 1.75rem;
+    --sl-modal-content-space-top: var(--sl-space-7);
   }
 }
 

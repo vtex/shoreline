@@ -17,7 +17,7 @@
 - **Lint / format**: Biome `1.9.4` (single tool — no ESLint, no Prettier)
 - **Bundler**: tsup → ESM + CJS + `.d.ts` per package
 - **Component primitives**: `@ariakit/react`, `@react-aria/*`, `@react-stately/*`, `vaul`
-- **Styling**: CSS Cascade Layers (`sl-reset`, `sl-base`, `sl-tokens`, `sl-components`); `data-sl-*` attribute architecture; design tokens as `--sl-*` CSS custom properties from `@vtex/shoreline-css`
+- **Styling**: CSS Cascade Layers (`sl-reset`, `sl-base`, `sl-tokens`, `sl-components`); `data-sl-*` attribute architecture; `--sl-*` design tokens in `packages/shoreline/src/themes/*`, built with `@vtex/shoreline-css`
 - **Testing**: Vitest `1.6.0`, `@storybook/test-runner` + Playwright, Chromatic, Storybook `8.6.15`
 - **Release**: `lerna publish --conventional-commits --create-release github` on push to `main`
 
@@ -27,7 +27,7 @@
 shoreline/
 ├── packages/
 │   ├── shoreline/        # @vtex/shoreline — React components
-│   ├── css/              # @vtex/shoreline-css — tokens + global styles
+│   ├── css/              # @vtex/shoreline-css — CSS build engine
 │   ├── utils/            # @vtex/shoreline-utils — TS helpers (no React)
 │   ├── ts-table/         # @vtex/shoreline-ts-table — table primitives
 │   ├── test-utils/       # @vtex/shoreline-test-utils — testing helpers
@@ -84,7 +84,8 @@ The full set of rules and patterns lives in the spec repo (constitution + `docs/
 | Task | Path |
 |---|---|
 | Add or edit a React component | `packages/shoreline/src/components/<name>/` |
-| Add a design token | `packages/css/src/` |
+| Add a design token or theme | `packages/shoreline/src/themes/<theme>/` |
+| Edit the CSS build engine | `packages/css/src/` |
 | Add a TS helper (no React) | `packages/utils/src/` |
 | Add a table primitive | `packages/ts-table/src/` |
 | Add a test helper | `packages/test-utils/src/` |
@@ -106,6 +107,20 @@ The full set of rules and patterns lives in the spec repo (constitution + `docs/
 - **Chromatic baseline drift**: visual changes that affect more than one component require explicit reviewer approval. Don't accept a baseline without scanning every diff.
 - **Husky `HUSKY=0` is reserved** for the release workflow only. Do not set it locally to skip hooks.
 - **Figma Code Connect** requires `FIGMA_ACCESS_TOKEN` env var; dry-run first to avoid publishing partial mappings.
+
+## Design-system tooling
+
+Use the native toolkit to create and validate Shoreline components, tokens and themes. Horizon is an additional theme; Sunrise remains the existing default. Both themes may evolve deliberately under the contribution rules. Token definitions and theme styles live under `packages/shoreline/src/themes/<name>`; `packages/css` supplies the CSS build engine. Shared React components and stories must not inject a particular theme. Select the intended theme explicitly when scaffolding a component (`pnpm gen:component <Name> <theme>`) and verify affected themes in isolated Storybook builds/documents.
+
+Reuse neutral reset/base from `packages/shoreline/src/foundations` through theme imports. `tools/design-system/theme-registry.cjs` discovers themes for build, scaffolding, checks and visual coverage. Run `pnpm ds themes` and `pnpm ds tokens --components`; cross-component/runtime CSS variables require verified producer/consumer contracts in `design-system/component-variables.json`. Validate every Show story in all available themes and desktop/mobile with `pnpm ds:visual:build` and `pnpm ds:visual:check`. Missing baselines and axe violations fail; capture/update modes only produce diagnostic images or candidates requiring human review. See the runbook for the pinned environment and initial baseline procedure.
+
+Read [the design-system runbook](tools/design-system/README.md) and select the relevant repository skill:
+
+- [Discovery and scoping](tools/design-system/skills/shoreline-discovery/SKILL.md)
+- [Create components, tokens and themes](tools/design-system/skills/shoreline-create/SKILL.md)
+- [Independent review](tools/design-system/skills/shoreline-review/SKILL.md)
+
+Use `pnpm ds` and `pnpm ds:test`. Contracts under `design-system/contracts` describe the kind of work, target files/themes, semantic token decisions and consumer impact, with evidence appropriate to components, tokens or themes. An external design reference is optional; native work does not require an AI Workspace checkout. These skills complement the constitution and the existing [code styleguide](packages/docs/pages/guides/code/code-styleguide.mdx), [Storybook guideline](packages/docs/pages/guides/code/storybook-guideline.mdx), and [design handoff requirements](packages/docs/pages/guides/design/handoff-requirements.mdx). `Play` is a props playground; interaction cases also live under `stories/tests/`. Drafts and inventory findings do not approve implementation or release. See [the engineering and design proposal](docs/design-system/proposta.md) for architecture, audit, research and validation status.
 
 ## Resources
 

@@ -1,0 +1,37 @@
+import type { Meta, StoryObj } from '@storybook/react'
+import { {{pascalCase name}} } from '../index'
+
+const meta = {
+  title: 'components/{{kebabCase name}}',
+  component: {{pascalCase name}},
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
+} satisfies Meta<typeof {{pascalCase name}}>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+// Seed matrix for the container's current content API. Add every approved
+// variant, size, interaction state and relevant combination before publishing.
+export const Show: Story = {
+  render: () => (
+    <div>
+      <section aria-label="Plain content">
+        <h3>Plain content</h3>
+        <{{pascalCase name}}>Ready for review</{{pascalCase name}}>
+      </section>
+      <section aria-label="Composed content">
+        <h3>Composed content</h3>
+        <{{pascalCase name}}>
+          <strong>Selected items</strong>
+          <p>Review all the details before continuing.</p>
+        </{{pascalCase name}}>
+      </section>
+      <section aria-label="Empty content">
+        <h3>Empty content</h3>
+        <{{pascalCase name}} />
+      </section>
+    </div>
+  ),
+}

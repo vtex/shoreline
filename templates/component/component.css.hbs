@@ -1,5 +1,2 @@
-@layer sl-components {
-  [data-sl-{{kebabCase name}}] {
-    color: var(--sl-color-fg-base);
-  }
-}
+/* Optional single-component preview. Applications select a theme entrypoint. */
+@import "../../themes/{{theme}}/components/{{kebabCase name}}.css" layer(sl-components);

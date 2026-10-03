@@ -1,0 +1,34 @@
+import type { Meta, StoryObj } from '@storybook/react'
+import { expect, within } from '@storybook/test'
+import { {{pascalCase name}} } from '../index'
+
+const meta = {
+  title: 'components/{{kebabCase name}}',
+  component: {{pascalCase name}},
+  argTypes: {
+    children: { control: 'text', description: 'Container content.' },
+    'aria-label': { control: 'text', description: 'Accessible alert name.' },
+    role: { table: { disable: true } },
+  },
+  args: {
+    role: 'alert',
+    'aria-label': 'Review summary',
+    children: 'Ready for review',
+  },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+} satisfies Meta<typeof {{pascalCase name}}>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+// One playground with controls. Interaction cases live in stories/tests/.
+export const Play: Story = {
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement)
+    const container = canvas.getByRole('alert', { name: args['aria-label'] })
+
+    await expect(container).toHaveAttribute('data-sl-{{kebabCase name}}')
+  },
+}

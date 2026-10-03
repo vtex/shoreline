@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 3,
+  "kind": "tokens",
+  "id": "horizon-foundations",
+  "status": "draft",
+  "intent": "Document and validate the six additional Horizon foundation tokens, their source values, semantics and CSS distribution.",
+  "source": {
+    "repository": "aiw-styleguide",
+    "revision": "baceafacc9e32a863987dad06da5a6654b387d6b",
+    "files": ["app/theme.css"]
+  },
+  "target": {
+    "package": "@vtex/shoreline",
+    "themes": ["horizon"],
+    "files": [
+      "packages/shoreline/src/themes/horizon/tokens.css",
+      "packages/shoreline/src/themes/horizon/tokens-foundations.css",
+      "packages/shoreline/package.json"
+    ]
+  },
+  "tokens": [
+    {
+      "name": "--sl-radius-4",
+      "reason": "Large rounded surfaces requiring the 1.5rem radius from the design reference.",
+      "source": "app/theme.css: --sl-radius-4"
+    },
+    {
+      "name": "--sl-font-weight-bold",
+      "reason": "A 700 weight for emphasis stronger than semibold.",
+      "source": "app/theme.css: --sl-font-weight-bold"
+    },
+    {
+      "name": "--sl-shadow-3",
+      "reason": "An intermediate elevation shadow for raised surfaces.",
+      "source": "app/theme.css: --sl-shadow-3"
+    },
+    {
+      "name": "--sl-shadow-4",
+      "reason": "A composed elevation shadow with separate near and far layers.",
+      "source": "app/theme.css: --sl-shadow-4"
+    },
+    {
+      "name": "--sl-shadow-5",
+      "reason": "An additional surface shadow with stronger opacity.",
+      "source": "app/theme.css: --sl-shadow-5"
+    },
+    {
+      "name": "--sl-overlay-bg",
+      "reason": "A reusable overlay background distinct from product layout or stacking rules.",
+      "source": "app/theme.css: --sl-overlay-bg"
+    }
+  ],
+  "impact": {
+    "summary": "Horizon exposes six additional token names and selects foundation values for radii, palettes, muted colors, weights and shadows. A token declaration does not by itself change a component to consume that token.",
+    "consumerAction": "Import Horizon tokens or the complete Horizon stylesheet before using these names. Choose tokens by the semantic purpose approved with design."
+  },
+  "openQuestions": [
+    "Which reusable component surfaces should consume the added elevation and overlay tokens?"
+  ],
+  "evidence": [
+    {
+      "kind": "tokens",
+      "result": "pending",
+      "description": "Verify declarations, aliases, referenced values and the six names against the pinned source."
+    },
+    {
+      "kind": "build",
+      "result": "pending",
+      "description": "Build CSS and verify complete and token-only layered/unlayered exports."
+    },
+    {
+      "kind": "visual",
+      "result": "pending",
+      "description": "Review token swatches and representative surfaces using the proposed values."
+    },
+    {
+      "kind": "accessibility",
+      "result": "pending",
+      "description": "Measure contrast and focus visibility in the intended foreground/background combinations."
+    }
+  ]
+}

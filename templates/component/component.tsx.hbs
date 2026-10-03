@@ -1,19 +1,30 @@
-import React, { forwardRef } from 'react'
-import './{{kebabCase name}}.css'
+import { type ComponentPropsWithoutRef, type ReactNode, forwardRef } from 'react'
 
-export const {{pascalCase name}} = forwardRef<HTMLDivElement, {{pascalCase name}}Props>(function {{pascalCase name}}(
-  props, 
-  ref
-) {
-  const { ...otherProps } = props
+/**
+ * A composable content container. Replace this description with its intended use.
+ * @status experimental
+ * @example
+ * <{{pascalCase name}}>Content</{{pascalCase name}}>
+ */
+export const {{pascalCase name}} = forwardRef<HTMLDivElement, {{pascalCase name}}Props>(
+  function {{pascalCase name}}(props, ref) {
+    const { children, ...otherProps } = props
 
-  return (
-    <div data-sl-{{kebabCase name}} ref={ref} {...otherProps}>
-      {{pascalCase name}}
-    </div>
-  )
-})
+    return (
+      <div data-sl-{{kebabCase name}} ref={ref} {...otherProps}>
+        {children}
+      </div>
+    )
+  }
+)
 
-export interface {{pascalCase name}}Props {
-  className?: string
+export interface {{pascalCase name}}Options {
+  /**
+   * Content rendered inside the container.
+   * @default undefined
+   */
+  children?: ReactNode
 }
+
+export type {{pascalCase name}}Props = {{pascalCase name}}Options &
+  ComponentPropsWithoutRef<'div'>

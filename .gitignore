@@ -9,6 +9,7 @@ packages/icons/native
 **/.cache
 **/coverage
 storybook-static
+storybook-static-horizon
 
 
 # No npm allowed
@@ -81,3 +82,4 @@ out
 
 # File system stuff
 **/.DS_Store
+artifacts/

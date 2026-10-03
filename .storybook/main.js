@@ -1,4 +1,5 @@
 import { dirname, join } from 'node:path'
+const { getThemeStylesheet } = require('./theme-selection.cjs')
 
 module.exports = {
   stories: ['../packages/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -26,6 +27,14 @@ module.exports = {
   },
   docs: {
     autodocs: false,
+  },
+  async viteFinal(config) {
+    const { mergeConfig } = await import('vite')
+    return mergeConfig(config, {
+      resolve: {
+        alias: { '@shoreline-selected-theme': getThemeStylesheet() },
+      },
+    })
   },
 }
 

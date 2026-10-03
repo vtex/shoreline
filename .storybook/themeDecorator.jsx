@@ -1,4 +1,4 @@
-import '../packages/shoreline/dist/themes/sunrise/styles.css'
+import '@shoreline-selected-theme'
 
 export function themeDecorator(storyFn) {
   return (

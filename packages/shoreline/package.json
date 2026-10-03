@@ -36,7 +36,17 @@
     "./themes/sunrise/base": "./dist/themes/sunrise/base.css",
     "./themes/sunrise/base/unlayered": "./dist/themes/sunrise/base-unlayered.css",
     "./themes/sunrise/components": "./dist/themes/sunrise/components.css",
-    "./themes/sunrise/components/unlayered": "./dist/themes/sunrise/components-unlayered.css"
+    "./themes/sunrise/components/unlayered": "./dist/themes/sunrise/components-unlayered.css",
+    "./themes/horizon": "./dist/themes/horizon/styles.css",
+    "./themes/horizon/unlayered": "./dist/themes/horizon/styles-unlayered.css",
+    "./themes/horizon/tokens": "./dist/themes/horizon/tokens.css",
+    "./themes/horizon/tokens/unlayered": "./dist/themes/horizon/tokens-unlayered.css",
+    "./themes/horizon/reset": "./dist/themes/horizon/reset.css",
+    "./themes/horizon/reset/unlayered": "./dist/themes/horizon/reset-unlayered.css",
+    "./themes/horizon/base": "./dist/themes/horizon/base.css",
+    "./themes/horizon/base/unlayered": "./dist/themes/horizon/base-unlayered.css",
+    "./themes/horizon/components": "./dist/themes/horizon/components.css",
+    "./themes/horizon/components/unlayered": "./dist/themes/horizon/components-unlayered.css"
   },
   "engines": {
     "node": ">=20"
@@ -44,8 +54,9 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "dev": "concurrently \"tsup --watch\" \"pnpm run dev:css\"",
-    "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\"",
+    "build": "pnpm run prebuild && concurrently \"tsup\" \"pnpm run build:css\" && pnpm run check:css",
     "build:css": "node -r sucrase/register src/scripts/build-css.ts",
+    "check:css": "node src/scripts/check-css.mjs",
     "dev:css": "node -r sucrase/register src/scripts/dev-css.ts"
   },
   "repository": {

@@ -6,7 +6,8 @@ export default defineConfig({
   external: ['react'],
   splitting: false,
   sourcemap: true,
-  clean: true,
+  // prebuild owns cleanup; tsup must preserve the concurrent CSS build outputs.
+  clean: false,
   dts: true,
   banner: {
     js: "'use client'",

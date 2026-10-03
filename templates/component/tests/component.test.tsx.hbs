@@ -1,13 +1,31 @@
-import React from 'react'
+import { createRef } from 'react'
 import { describe, expect, test, render } from '@vtex/shoreline-test-utils'
 
 import { {{pascalCase name}} } from '../{{kebabCase name}}'
 
 describe('{{kebabCase name}}', () => {
-  test('renders', () => {
-    const { container } = render(<{{pascalCase name}} />)
+  test('forwards its ref, accessible name and content to the same element', () => {
+    const ref = createRef<HTMLDivElement>()
+    const { getByRole, rerender, unmount } = render(
+      <{{pascalCase name}} ref={ref} role="alert" aria-label="Review summary">
+        Ready for review
+      </{{pascalCase name}}>
+    )
+    const element = getByRole('alert', { name: 'Review summary' })
 
-    expect(container.querySelector('[data-sl-{{kebabCase name}}]')).toBeInTheDocument()
+    expect(ref.current).toBe(element)
+    expect(element).toHaveAttribute('data-sl-{{kebabCase name}}')
+    expect(element).toHaveTextContent('Ready for review')
+
+    rerender(
+      <{{pascalCase name}} ref={ref} role="alert" aria-label="Review summary">
+        Review complete
+      </{{pascalCase name}}>
+    )
+    expect(ref.current).toBe(element)
+    expect(element).toHaveTextContent('Review complete')
+
+    unmount()
+    expect(ref.current).toBeNull()
   })
 })
-

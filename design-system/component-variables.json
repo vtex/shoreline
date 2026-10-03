@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "variables": [
+    {
+      "name": "--sl-toast-index",
+      "reason": "ToastStack writes each toast's stack index to ToastAppear; this runtime value determines stacking and is not a design token.",
+      "providers": [
+        {
+          "kind": "jsx-style",
+          "file": "packages/shoreline/src/components/toast/toast-stack.tsx",
+          "element": "ToastAppear"
+        }
+      ],
+      "consumers": [
+        "packages/shoreline/src/themes/sunrise/components/toast.css"
+      ]
+    },
+    {
+      "name": "--sl-table-grid-template-columns",
+      "reason": "Table converts the optional columnWidths prop to a grid template on its root. When absent, CSS uses the property's initial behavior; browser coverage must verify both states.",
+      "providers": [
+        {
+          "kind": "jsx-style",
+          "file": "packages/shoreline/src/components/table/table.tsx",
+          "element": "Comp"
+        }
+      ],
+      "consumers": [
+        "packages/shoreline/src/themes/sunrise/components/table.css"
+      ]
+    },
+    {
+      "name": "--sl-element-height",
+      "reason": "IconButton composes Button and consumes Button's size-dependent element height. The provider stylesheet must be present in every consuming theme.",
+      "providers": [
+        {
+          "kind": "css-declaration",
+          "file": "packages/shoreline/src/themes/sunrise/components/button.css"
+        }
+      ],
+      "consumers": [
+        "packages/shoreline/src/themes/sunrise/components/icon-button.css"
+      ]
+    },
+    {
+      "name": "--sl-element-space-top",
+      "reason": "Drawer and Modal headers align nested buttons using the padding properties supplied by Button and IconButton. DOM composition and size coverage remain browser-test obligations.",
+      "providers": [
+        {
+          "kind": "css-declaration",
+          "file": "packages/shoreline/src/themes/sunrise/components/button.css"
+        },
+        {
+          "kind": "css-declaration",
+          "file": "packages/shoreline/src/themes/sunrise/components/icon-button.css"
+        }
+      ],
+      "consumers": [
+        "packages/shoreline/src/themes/sunrise/components/drawer.css",
+        "packages/shoreline/src/themes/sunrise/components/modal.css"
+      ]
+    },
+    {
+      "name": "--sl-element-space-bottom",
+      "reason": "Drawer and Modal headers align nested buttons using the padding properties supplied by Button and IconButton. DOM composition and size coverage remain browser-test obligations.",
+      "providers": [
+        {
+          "kind": "css-declaration",
+          "file": "packages/shoreline/src/themes/sunrise/components/button.css"
+        },
+        {
+          "kind": "css-declaration",
+          "file": "packages/shoreline/src/themes/sunrise/components/icon-button.css"
+        }
+      ],
+      "consumers": [
+        "packages/shoreline/src/themes/sunrise/components/drawer.css",
+        "packages/shoreline/src/themes/sunrise/components/modal.css"
+      ]
+    },
+    {
+      "name": "--sl-element-space-right",
+      "reason": "ModalDismiss aligns the dismiss button using Button and IconButton right padding; this is an explicit component-composition dependency, not a global theme token.",
+      "providers": [
+        {
+          "kind": "css-declaration",
+          "file": "packages/shoreline/src/themes/sunrise/components/button.css"
+        },
+        {
+          "kind": "css-declaration",
+          "file": "packages/shoreline/src/themes/sunrise/components/icon-button.css"
+        }
+      ],
+      "consumers": [
+        "packages/shoreline/src/themes/sunrise/components/modal.css"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+/* Component-specific dimensions retain the existing Sunrise values. Horizon
+   inherits these defaults and can override them in its own token inputs. */
+:root {
+  --sl-modal-small-width: 23rem;
+  --sl-modal-medium-width: 38.75rem;
+  --sl-modal-large-width: 50rem;
+  --sl-modal-footer-button-min-width: 6.25rem;
+  --sl-empty-state-small-max-width: 240px;
+  --sl-empty-state-medium-max-width: 360px;
+  --sl-empty-state-large-max-width: var(--sl-empty-state-medium-max-width);
+  --sl-empty-state-large-illustration-size: 3.25rem;
+}

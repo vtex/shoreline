@@ -1,6 +1,6 @@
 [data-sl-radio-group] {
   font: var(--sl-text-body-font);
-  letter-spacing: var(--sl-text-body-spacing);
+  letter-spacing: var(--sl-text-body-letter-spacing);
 }
 
 [data-sl-radio] {
@@ -19,8 +19,8 @@
     appearance: none;
     border-radius: var(--sl-radius-full);
     cursor: pointer;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: var(--sl-space-5);
+    height: var(--sl-space-5);
     background-color: var(--sl-element-bg-base);
     border: var(--sl-element-border-base);
     display: flex;
@@ -59,8 +59,8 @@
 
     &:after {
       content: "";
-      width: 0.5rem;
-      height: 0.5rem;
+      width: var(--sl-space-2);
+      height: var(--sl-space-2);
       display: block;
       border-radius: var(--sl-radius-full);
       background-color: transparent;

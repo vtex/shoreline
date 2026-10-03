@@ -1,0 +1,23 @@
+import type { Meta, StoryObj } from '@storybook/react'
+import { {{pascalCase name}} } from '../index'
+
+const meta = {
+  title: 'components/{{kebabCase name}}',
+  component: {{pascalCase name}},
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+} satisfies Meta<typeof {{pascalCase name}}>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+// Replace this seed with a real consumer composition before publishing.
+export const ContentComposition: Story = {
+  render: () => (
+    <{{pascalCase name}}>
+      <p>Review the selected items before continuing.</p>
+      <a href="#review-details">Read the review details</a>
+    </{{pascalCase name}}>
+  ),
+}

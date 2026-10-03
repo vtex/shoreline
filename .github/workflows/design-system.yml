@@ -1,0 +1,84 @@
+name: Design system
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      visual-mode:
+        description: Compare approved baselines or capture diagnostics for review
+        type: choice
+        options: [check, capture]
+        default: check
+
+permissions:
+  contents: read
+
+jobs:
+  design-system:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.4.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm ds:test
+      - name: Check design-system tool code and contracts
+        run: pnpm exec biome check tools/design-system design-system plopfile.js vite.config.ts
+      - name: Validate every theme and all token consumers
+        run: |
+          pnpm ds themes --out artifacts/design-system/themes.json
+          pnpm ds tokens --components --out artifacts/design-system/tokens.json
+      - name: Check changed files and registered contracts
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.sha }}
+        run: pnpm ds check --base "$BASE_SHA" --lint --out artifacts/design-system/check.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: design-system-check
+          path: artifacts/design-system/*.json
+          if-no-files-found: ignore
+
+  visual-themes:
+    name: ${{ github.event_name == 'workflow_dispatch' && inputs.visual-mode == 'capture' && 'Diagnostic theme captures (no baseline approval)' || 'Visual and accessibility checks for every theme' }}
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/playwright:v1.44.1-jammy
+    timeout-minutes: 45
+    env:
+      SHORELINE_VISUAL_ENVIRONMENT: mcr.microsoft.com/playwright:v1.44.1-jammy
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.4.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - name: Build isolated Storybooks for all themes
+        run: pnpm ds:visual:build
+      - name: Compare reviewed baselines and check accessibility
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.visual-mode != 'capture' }}
+        run: pnpm ds:visual:check
+      - name: Capture diagnostics for initial review
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.visual-mode == 'capture' }}
+        run: pnpm ds:visual:capture
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: design-system-visual
+          path: |
+            artifacts/design-system/visual/
+            artifacts/design-system/storybooks/manifest.json
+          if-no-files-found: warn
+          retention-days: 14

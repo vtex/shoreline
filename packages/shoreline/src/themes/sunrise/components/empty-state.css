@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--sl-color-fg-base);
+  color: var(--sl-fg-base);
   width: 100%;
   height: 100%;
 
   &[data-sl-size="small"] {
-    --sl-empty-state-max-width: 240px;
-    --sl-empty-state-illustration-size: 2rem;
+    --sl-empty-state-max-width: var(--sl-empty-state-small-max-width);
+    --sl-empty-state-illustration-size: var(--sl-space-8);
     --sl-empty-state-title-font: var(--sl-text-emphasis-font);
     --sl-empty-state-title-letter-spacing: var(
       --sl-text-emphasis-letter-spacing
@@ -22,8 +22,8 @@
     --sl-empty-state-actions-gap: var(--sl-space-2);
   }
   &[data-sl-size="medium"] {
-    --sl-empty-state-max-width: 360px;
-    --sl-empty-state-illustration-size: 2.5rem;
+    --sl-empty-state-max-width: var(--sl-empty-state-medium-max-width);
+    --sl-empty-state-illustration-size: var(--sl-space-10);
     --sl-empty-state-title-font: var(--sl-text-display-3-font);
     --sl-empty-state-title-letter-spacing: var(
       --sl-text-display-3-letter-spacing
@@ -37,8 +37,10 @@
     --sl-empty-state-actions-gap: var(--sl-space-3);
   }
   &[data-sl-size="large"] {
-    --sl-empty-state-max-width: 360px;
-    --sl-empty-state-illustration-size: 3.25rem;
+    --sl-empty-state-max-width: var(--sl-empty-state-large-max-width);
+    --sl-empty-state-illustration-size: var(
+      --sl-empty-state-large-illustration-size
+    );
     --sl-empty-state-title-font: var(--sl-text-display-2-font);
     --sl-empty-state-title-letter-spacing: var(
       --sl-text-display-2-letter-spacing

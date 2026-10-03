@@ -1,5 +1,5 @@
 [data-sl-table-body] {
-  color: var(--sl-color-fg-base);
+  color: var(--sl-fg-base);
   display: contents;
 }
 
@@ -28,8 +28,8 @@
 
   [data-sl-table-sort-indicator] {
     display: none;
-    height: 1.25rem;
-    width: 1.25rem;
+    height: var(--sl-space-5);
+    width: var(--sl-space-5);
   }
 
   &[data-sl-align="start"] {
