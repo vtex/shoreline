@@ -20,6 +20,6 @@
 }
 
 .variants--overflow {
-  width: 7.5rem;
+  width: calc(var(--sl-space-28) + var(--sl-space-2));
   padding: var(--sl-space-gap);
 }
