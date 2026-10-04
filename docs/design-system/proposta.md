@@ -18,16 +18,16 @@ Design explora interfaces no [ai-workspace-shell-template](https://github.com/vt
 
 A [RFC 22](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.z8qccnajlshl) já apontava a evolução do Shoreline como base comum para Design, Engenharia e agentes de IA. A [RFC 34](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.w0e99t24yluz) discute a separação da interface conversacional das integrações do Agentic UI. Ambas são referências para esta proposta.
 
-### Papel do Styleguide
+### Styleguide como apoio à transição
 
-A expectativa é que o [AIW Styleguide](https://github.com/vtex/aiw-styleguide) se consolide como **fonte da verdade visual** de componentes, estados, composições e orientações de uso. Como referência para Design e Engenharia, seus exemplos precisam refletir a implementação distribuída pelo design system e acompanhar sua evolução.
+O [AIW Styleguide](https://github.com/vtex/aiw-styleguide) é uma **referência transitória** para inventariar componentes e apoiar a discussão visual. Conforme as capacidades forem incorporadas, a documentação e os exemplos do **Shoreline assumirão a referência visual e de implementação**. A transição deverá preservar os exemplos úteis e encerrar a manutenção paralela dos conteúdos absorvidos.
 
 ## Objetivos
 
 - Unificar a linguagem visual das novas interfaces administrativas da VTEX, começando pelos componentes gerais e conversacionais de AI Workspace e Studio.
 - Permitir que interfaces exploradas por Design reutilizem a implementação disponível nos produtos.
 - Aplicar as boas práticas do Shoreline — tokens, composição, documentação, testes e revisão — para garantir acessibilidade, escalabilidade e manutenção da base compartilhada.
-- Facilitar contribuições de pessoas e agentes de IA, reduzindo sobrescritas locais.
+- Facilitar contribuições de pessoas e agentes de IA, com uma experiência de desenvolvimento (DX) que acompanhe a evolução dos componentes e reduza sobrescritas locais.
 
 ## Não objetivos
 
@@ -44,19 +44,19 @@ As questões de arquitetura conversacional são discutidas na [RFC 34](https://d
 
 Propomos construir **Horizon como um novo tema do [Shoreline](https://github.com/vtex/shoreline)** para as novas interfaces administrativas da VTEX, começando por AI Workspace, Studio e templates e protótipos de Design. Horizon significa horizonte e mantém a referência de paisagem de Shoreline e Sunrise.
 
-O tema reunirá decisões de cor, tipografia, espaçamento, formas, superfícies e estados. **Shoreline será a fonte da verdade da implementação**, distribuindo componentes e tema com versão, documentação e critérios de qualidade compartilhados.
+O tema reunirá decisões de cor, tipografia, espaçamento, formas, superfícies e estados. **Shoreline será a fonte da verdade visual e de implementação**, reunindo componentes, tokens, exemplos e orientações de uso, com versão e critérios de qualidade compartilhados.
 
 A evolução inclui incorporar ao design system as capacidades visuais reutilizáveis hoje mantidas no Agentic UI. Sua organização será definida com os mantenedores, **sem pressupor a criação de um novo pacote**.
 
 ### Do protótipo ao projeto oficial
 
-Necessidades identificadas no template ou nos produtos serão revisadas por Design e Engenharia. As mudanças visuais reutilizáveis entrarão na biblioteca e no Styleguide; após a publicação, os consumidores atualizarão suas versões e removerão as adaptações substituídas. Levar uma interface do protótipo ao produto passa a se concentrar nas integrações e regras de negócio, preservando a apresentação compartilhada.
+Necessidades identificadas no template, no Styleguide transitório ou nos produtos serão revisadas por Design e Engenharia. As mudanças reutilizáveis entrarão na implementação e na documentação do Shoreline. Após a publicação, os consumidores atualizarão suas versões e removerão as adaptações substituídas. Levar uma interface do protótipo ao produto passa a se concentrar nas integrações e regras de negócio, preservando a apresentação compartilhada.
 
 ### Ferramental para construir e evoluir Horizon
 
 A [branch de referência](https://github.com/vtex/shoreline/tree/feat/horizon-theme-rfc) inclui o [ferramental](../../tools/design-system/README.md) para criar e evoluir componentes, tokens e temas pelos padrões do Shoreline, **com apoio de agentes de IA**. Já reúne instruções de descoberta, criação e revisão; contratos de intenção e impacto; e verificações de tokens, arquitetura, comportamento, aparência e acessibilidade.
 
-Os agentes poderão apoiar a implementação e executar as verificações. Design e Engenharia definirão os critérios e aprovarão os resultados. Uma fila compartilhada organizará prioridades e responsáveis pela revisão e publicação.
+Pessoas e agentes seguirão o mesmo fluxo de contribuição: buscar capacidades existentes, propor a mudança, apresentar exemplos e executar as verificações. Design e Engenharia revisarão os resultados; cada contribuição terá um responsável por acompanhá-la até a publicação. A evolução mais rápida das interfaces com IA exige retorno rápido das ferramentas e capacidade de revisão compatível com esse volume.
 
 ### Exemplos visuais
 
@@ -90,21 +90,22 @@ Esse ponto de entrada está disponível na [branch de referência](https://githu
 ## Adoção e critérios de aceite
 
 - **Design:** definir a linguagem visual e os critérios de uso.
-- **Mantenedores do Shoreline:** implementar, revisar e distribuir a base compartilhada, em colaboração com os mantenedores do Agentic UI nas capacidades conversacionais.
-- **Times consumidores:** adotar essa base no template e nos produtos, mantendo suas integrações e jornadas específicas.
+- **Mantenedores do Shoreline:** orientar e revisar contribuições dos times, manter a distribuição e coordenar com os mantenedores do Agentic UI as capacidades conversacionais.
+- **Times consumidores:** contribuir com necessidades e melhorias e conduzir a migração de seus produtos e templates, mantendo integrações e jornadas específicas.
 
 | Etapa | Resultado esperado |
 | --- | --- |
-| Alinhar a linguagem | Definir decisões visuais, critérios de uso e interfaces prioritárias de AI Workspace, Studio e Design. |
+| Alinhar a linguagem | Inventariar componentes e adaptações e definir critérios visuais e interfaces prioritárias de AI Workspace, Studio e Design. |
 | Consolidar a base e o ferramental | Evoluir tema e componentes, incorporando instruções para agentes, contratos e verificações ao fluxo de contribuição. |
 | Alinhar componentes conversacionais | Aplicar os padrões de Horizon às capacidades visuais do Agentic UI, em conjunto com seus mantenedores. |
-| Conectar Styleguide e template | Usar a implementação compartilhada no catálogo e nas explorações de Design. |
-| Validar nos produtos | Levar uma interface do template ao AI Workspace e exercitar a mesma base em Studio, combinando controles gerais e conversacionais. |
+| Migrar consumidores | Adotar Horizon gradualmente em AI Workspace, Studio e templates existentes, validando controles gerais e conversacionais e removendo adaptações substituídas. |
+| Consolidar a referência | Incorporar exemplos e orientações aprovados à documentação do Shoreline e retirar as referências duplicadas do Styleguide. |
 | Distribuir e ampliar | Publicar versões e ampliar a adoção e a cobertura conforme as prioridades dos consumidores. |
 
 O aceite exige:
 
-- Consistência entre Styleguide, template e produtos, com estados e interações reproduzíveis no catálogo, incluindo processamento, resposta parcial e erro nas experiências conversacionais.
+- Implementação e exemplos versionados no Shoreline, com estados e interações reproduzíveis, incluindo processamento, resposta parcial e erro nas experiências conversacionais.
+- Validação nos produtos e templates migrados, usando a documentação do Shoreline como referência; conteúdos absorvidos do Styleguide devem apontar para essa fonte oficial.
 - Testes e revisão visual, incluindo responsividade, contraste, foco, teclado e tecnologias assistivas, pelos critérios do Shoreline.
 - Remoção das cópias e sobrescritas substituídas, com possibilidade de retorno à versão anterior em caso de regressão.
 - Aprovação de Design e Engenharia, inclusive para contribuições feitas por agentes.
@@ -115,19 +116,21 @@ A branch permite explorar o tema e o ferramental. A adoção depende das revisõ
 
 Manter adaptações locais reduz o investimento inicial, mas perpetua a duplicação. Forks ou uma biblioteca independente ampliam a manutenção. Evoluir o Shoreline permite reutilizar componentes e distribuir mudanças aos consumidores.
 
-Os principais riscos são divergências entre produtos e defasagem do catálogo. Tokens compartilhados, atualização conjunta da implementação e dos exemplos e validação em interfaces reais devem orientar a adoção gradual.
+Os principais riscos são migrações sem conclusão, manutenção de referências concorrentes e acúmulo de contribuições sem revisão. A mitigação exige adoção por etapas, documentação junto à implementação e capacidade de revisão e publicação compatível com a demanda dos times e agentes.
 
-## Questões para revisão
+## Pontos a endereçar
 
-1. Concordamos com Horizon como tema e linguagem visual compartilhada para essas interfaces?
-2. Quais componentes, estados e composições devem orientar o primeiro ciclo de adoção?
-3. Como dividir prioridades, revisão e publicação entre Design, mantenedores e times consumidores, mantendo o Styleguide alinhado?
+1. **Migração por consumidor.** Mapear versões, componentes, wrappers, sobrescritas e lacunas de AI Workspace, Studio e templates existentes. Definir pilotos, sequência e responsáveis; distinguir adoção em novas interfaces da migração das existentes e decidir quais templates serão atualizados ou descontinuados.
+2. **Compatibilidade e distribuição.** Definir a unidade de adoção e verificar o isolamento de estilos antes de permitir a coexistência de temas. Acordar versões de prévia para validação nos consumidores, política de mudanças incompatíveis, depreciações, guias de atualização e retorno à versão anterior.
+3. **Contribuição e revisão.** Definir a entrada de demandas, os critérios para reutilizar, estender ou criar componentes e a divisão de revisão entre Design e Engenharia. Acordar prioridades, responsáveis e cadência de publicação para contribuições de diferentes times, inclusive as feitas por agentes.
+4. **DX para pessoas e agentes.** Consolidar descoberta de APIs e tokens, exemplos e instruções versionados, geradores, previews e verificações locais e na CI com diagnósticos claros. Facilitar a validação no produto antes da publicação e acompanhar tempo de revisão, retrabalho e regressões para ajustar o processo ao ritmo de evolução com IA.
+5. **Conclusão da transição do Styleguide.** Mapear os conteúdos úteis e seus responsáveis, incorporá-los à documentação e aos exemplos do Shoreline e substituir referências locais. Considerar a transição concluída quando as capacidades compartilhadas puderem ser consultadas e adotadas a partir do Shoreline sem depender do catálogo paralelo.
 
 ## Referências
 
 - [Shoreline](https://github.com/vtex/shoreline) e [documentação](https://shoreline.vtex.com).
 - [AI Workspace no Admin Platform](https://github.com/vtex/admin-platform/tree/7bb6cb122dd5ee45cc1bc0031a84fb8b9a130508/ai-workspace/shell).
-- [Template de Design](https://github.com/vtex/ai-workspace-shell-template/tree/a287ee816d06b0b4325da3ea64b22675ff820ce4) e [AIW Styleguide](https://github.com/vtex/aiw-styleguide/tree/baceafacc9e32a863987dad06da5a6654b387d6b).
+- [Template de Design](https://github.com/vtex/ai-workspace-shell-template/tree/a287ee816d06b0b4325da3ea64b22675ff820ce4) e [AIW Styleguide](https://github.com/vtex/aiw-styleguide/tree/baceafacc9e32a863987dad06da5a6654b387d6b), catálogo transitório das interfaces atuais.
 - [Agentic UI](https://github.com/vtex/ai-agents/tree/a01d78536e33bedb619abb0743718701f1b865df/building-blocks/agentic-ui).
 - [RFC 22 — Shoreline AI](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.z8qccnajlshl): proposta inicial de evolução do design system.
 - [RFC 34 — Shoreline AI on Assistant-UI primitives](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.w0e99t24yluz): discussão sobre a base conversacional, ainda em revisão.

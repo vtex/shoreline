@@ -15,6 +15,8 @@ O checkout analisado foi [`baceafacc9e32a863987dad06da5a6654b387d6b`](https://gi
 
 A referência normativa é a [Development guideline](https://shoreline.vtex.com/guides/code/development-guideline), complementada pelo [Code styleguide](https://shoreline.vtex.com/guides/code/code-styleguide) e pela [Storybook guideline](https://shoreline.vtex.com/guides/code/storybook-guideline). Essas regras orientam contribuições ao Shoreline. A análise não exige que toda aplicação ou catálogo replique a infraestrutura da biblioteca; identifica o trabalho necessário para promover suas adaptações a componentes compartilhados.
 
+Na proposta Horizon, o AIW Styleguide tem papel transitório de inventário e apoio à discussão visual. Os componentes, exemplos e orientações aprovados deverão ser incorporados ao Shoreline, que assumirá a fonte de verdade visual e de implementação. A transição deve encerrar a manutenção paralela dos conteúdos absorvidos, preservando seu histórico como evidência.
+
 Esta rodada foi uma inspeção de código e documentação, sem nova execução dos testes do Styleguide.
 
 ## Base atual do Agentic UI
@@ -36,7 +38,7 @@ Esse inventário descreve o checkout atual, anterior à organização explorada 
 
 A [RFC 22 — Shoreline AI](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.z8qccnajlshl), na versão 0.1 e com status **Proposal in progress**, já registrava a intenção de evoluir o Shoreline para atender às novas interfaces do AI Workspace. Propunha uma base comum para Design, Engenharia e agentes de IA, com padrões de componentes e composição, documentação estruturada, instruções e skills. O texto previa aproveitar e evoluir a base existente.
 
-Essa versão inicial não teve continuidade, conforme informado pelo proponente de Horizon. Ela documenta o antecedente da necessidade; suas alternativas de arquitetura e compatibilidade não são decisões aprovadas nem premissas desta RFC. Horizon delimita a construção do tema, a linguagem visual compartilhada, o Styleguide e o ferramental de contribuição.
+Essa versão inicial não teve continuidade, conforme informado pelo proponente de Horizon. Ela documenta o antecedente da necessidade; suas alternativas de arquitetura e compatibilidade não são decisões aprovadas nem premissas desta RFC. Horizon delimita a construção do tema, a linguagem visual compartilhada e o ferramental de contribuição, com o Styleguide como apoio transitório.
 
 ## Relação com a RFC 34
 
@@ -53,7 +55,7 @@ Foram consultadas via GitHub as branches `feat/poc-shoreline-ai` de Shoreline, n
 
 ### Escopo complementar
 
-Horizon propõe um tema, uma linguagem visual compartilhada entre interfaces administrativas gerais e conversacionais, o Styleguide como referência visual e ferramental para evoluir essa base pelos padrões do Shoreline. As RFCs 22 e 34 são antecedentes e discussões relacionadas. A organização das capacidades visuais será avaliada com os mantenedores; criar um novo pacote não é requisito para evoluir o design system.
+Horizon propõe um tema e uma linguagem visual compartilhada entre interfaces administrativas gerais e conversacionais, com implementação, documentação e exemplos consolidados no Shoreline. O Styleguide apoia a transição; o ferramental orienta contribuições pelos padrões do design system. As RFCs 22 e 34 são antecedentes e discussões relacionadas. A organização das capacidades visuais será avaliada com os mantenedores; criar um novo pacote não é requisito para evoluir o design system.
 
 Assistant-UI, AG-UI, A2A, A2UI, AI SDK e OpenCode aparecem na discussão arquitetural da RFC 34. Esta revisão não verifica a compatibilidade de cada integração nem a transforma em requisito de Horizon. O recorte de streaming em Horizon é a experiência percebida: apresentação progressiva, processamento, ações disponíveis, interrupção e erro. Contratos de eventos, transporte, persistência e execução permanecem na evolução da base conversacional.
 
