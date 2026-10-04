@@ -82,7 +82,7 @@ def convert(part):
             if metadata:
                 result.append('<p style="border-bottom:1px solid #cccccc;margin:10pt 0"></p>')
             else:
-                result.append('<p style="' + body_style + ';margin:0"><br></p>')
+                result.append('<p style="' + body_style + ';margin:0">&nbsp;</p>')
             continue
         if line.startswith('- ') or re.match(r'^\d+\. ', line):
             ordered = bool(re.match(r'^\d+\. ', line))
