@@ -16,7 +16,11 @@ Design explora interfaces no [ai-workspace-shell-template](https://github.com/vt
 
 **Manter essas adaptações em cada projeto não escala:** duplica implementação, dificulta correções e exige reconstruir no produto decisões já exploradas por Design. Precisamos de uma base visual reutilizável entre AI Workspace, Studio e os templates, com implementação e referência visual alinhadas.
 
-A [RFC 22](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.z8qccnajlshl), proposta inicial sem continuidade, já apontava a evolução do Shoreline como base comum para Design, Engenharia e agentes de IA. A [RFC 34](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.w0e99t24yluz) discute a separação da interface conversacional das integrações do Agentic UI. Ambas são referências para esta proposta.
+A [RFC 22](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.z8qccnajlshl) já apontava a evolução do Shoreline como base comum para Design, Engenharia e agentes de IA. A [RFC 34](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.w0e99t24yluz) discute a separação da interface conversacional das integrações do Agentic UI. Ambas são referências para esta proposta.
+
+### Papel do Styleguide
+
+A expectativa é que o [AIW Styleguide](https://github.com/vtex/aiw-styleguide) se consolide como **fonte da verdade visual** de componentes, estados, composições e orientações de uso. Como referência para Design e Engenharia, seus exemplos precisam refletir a implementação distribuída pelo design system e acompanhar sua evolução.
 
 ## Objetivos
 
@@ -27,7 +31,12 @@ A [RFC 22](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1
 
 ## Não objetivos
 
-Construir um design system do zero, criar forks por produto ou migrar todas as interfaces de uma vez. Motor de conversa, runtime, protocolos e regras de negócio estão fora do escopo.
+- Construir um design system do zero, criar forks por produto ou migrar todas as interfaces de uma vez.
+- Escolher o motor de conversa, como Assistant-UI, ou redesenhar runtime, estado das mensagens e mecanismos de edição e regeneração.
+- Definir protocolos, transporte e execução de streaming, autenticação, histórico ou uploads.
+- Centralizar regras de negócio e integrações específicas dos produtos.
+
+As questões de arquitetura conversacional são discutidas na [RFC 34](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.w0e99t24yluz), ainda em revisão. Nas experiências conversacionais, Horizon trata da apresentação dos estados e ações, dos padrões de interação e da acessibilidade.
 
 ## Proposta
 
@@ -38,16 +47,6 @@ Propomos construir **Horizon como um novo tema do [Shoreline](https://github.com
 O tema reunirá decisões de cor, tipografia, espaçamento, formas, superfícies e estados. **Shoreline será a fonte da verdade da implementação**, distribuindo componentes e tema com versão, documentação e critérios de qualidade compartilhados.
 
 A evolução inclui incorporar ao design system as capacidades visuais reutilizáveis hoje mantidas no Agentic UI. Sua organização será definida com os mantenedores, **sem pressupor a criação de um novo pacote**.
-
-### Styleguide como fonte da verdade visual
-
-O [AIW Styleguide](https://github.com/vtex/aiw-styleguide) será a **fonte da verdade visual**: componentes disponíveis, estados, composições e orientações de uso. Seus exemplos consumirão a implementação compartilhada com Horizon, usando dados de exemplo para reproduzir os estados. Mudanças aprovadas deverão atualizar a biblioteca e o catálogo em conjunto.
-
-Nas experiências conversacionais, o catálogo incluirá composição, processamento, resposta parcial, conclusão e erro, além dos estados vazios e das ações disponíveis.
-
-- **Design:** definir a linguagem visual e os critérios de uso.
-- **Mantenedores do Shoreline:** implementar, revisar e distribuir a base compartilhada, em colaboração com os mantenedores do Agentic UI nas capacidades conversacionais.
-- **Times consumidores:** adotar essa base no template e nos produtos, mantendo suas integrações e jornadas específicas.
 
 ### Do protótipo ao projeto oficial
 
@@ -90,6 +89,10 @@ Esse ponto de entrada está disponível na [branch de referência](https://githu
 
 ## Adoção e critérios de aceite
 
+- **Design:** definir a linguagem visual e os critérios de uso.
+- **Mantenedores do Shoreline:** implementar, revisar e distribuir a base compartilhada, em colaboração com os mantenedores do Agentic UI nas capacidades conversacionais.
+- **Times consumidores:** adotar essa base no template e nos produtos, mantendo suas integrações e jornadas específicas.
+
 | Etapa | Resultado esperado |
 | --- | --- |
 | Alinhar a linguagem | Definir decisões visuais, critérios de uso e interfaces prioritárias de AI Workspace, Studio e Design. |
@@ -101,7 +104,7 @@ Esse ponto de entrada está disponível na [branch de referência](https://githu
 
 O aceite exige:
 
-- Consistência entre Styleguide, template e produtos, com estados e interações reproduzíveis no catálogo.
+- Consistência entre Styleguide, template e produtos, com estados e interações reproduzíveis no catálogo, incluindo processamento, resposta parcial e erro nas experiências conversacionais.
 - Testes e revisão visual, incluindo responsividade, contraste, foco, teclado e tecnologias assistivas, pelos critérios do Shoreline.
 - Remoção das cópias e sobrescritas substituídas, com possibilidade de retorno à versão anterior em caso de regressão.
 - Aprovação de Design e Engenharia, inclusive para contribuições feitas por agentes.
