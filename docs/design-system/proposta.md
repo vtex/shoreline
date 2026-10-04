@@ -10,7 +10,9 @@
 
 ## Contexto e problema
 
-O AI Workspace vem desenvolvendo uma linguagem visual para novas experiências da VTEX. Hoje, parte dessa aparência depende de **sobrescritas de estilos e tokens do Shoreline mantidas dentro da aplicação**. O Studio precisará de uma interface similar, ampliando a necessidade de consistência entre os produtos.
+O **Shoreline** é o design system da VTEX e oferece componentes e tokens reutilizáveis para construir interfaces. No AI Workspace, ele é usado junto ao **Agentic UI**, que fornece componentes e recursos para experiências de conversa com agentes, como mensagens, composição de prompts e interação com ferramentas.
+
+Sobre essa base, o AI Workspace vem desenvolvendo uma linguagem visual para novas experiências da VTEX. Hoje, parte dessa aparência depende de **sobrescritas de estilos e tokens do Shoreline e de adaptações visuais do Agentic UI dentro da aplicação**. O Studio precisará de uma interface similar, ampliando a necessidade de consistência entre os produtos.
 
 Ao mesmo tempo, Design explora interfaces no **ai-workspace-shell-template**, enquanto a aplicação oficial evolui no Admin Platform. O template e o produto mantêm adaptações próprias: uma decisão tomada durante a exploração precisa ser reconciliada e implementada novamente para chegar ao produto. O AIW Styleguide reúne exemplos dessa linguagem, mas ainda precisa se consolidar como referência visual compartilhada.
 
@@ -21,12 +23,13 @@ Precisamos conectar a referência visual usada pelo time à implementação cons
 ## Objetivos
 
 - Unificar a linguagem visual das novas interfaces da VTEX, começando por AI Workspace e Studio.
+- Reutilizar os componentes e tokens do Shoreline e os recursos conversacionais do Agentic UI, mantendo coerência visual nas interfaces que combinam essas bibliotecas.
 - Aproximar exploração e entrega, permitindo que interfaces construídas por Design reutilizem a base disponível no projeto oficial.
 - Estabelecer referências compartilhadas e um processo de evolução que reduza sobrescritas locais e permita contribuições de pessoas e agentes de IA.
 
 ## Não objetivos
 
-Não faz parte desta proposta construir um design system do zero, criar um fork por produto ou reescrever todas as interfaces em uma única migração. Também não se pretende padronizar todas as jornadas ou centralizar regras de negócio: cada produto continua responsável por suas integrações e experiências específicas.
+Não faz parte desta proposta construir um design system do zero, criar forks de Shoreline ou Agentic UI por produto, reimplementar suas capacidades ou reescrever todas as interfaces em uma única migração. Também não se pretende padronizar todas as jornadas ou centralizar regras de negócio: cada produto continua responsável por suas integrações e experiências específicas.
 
 ## Proposta
 
@@ -36,25 +39,28 @@ Propomos construir **Horizon como um tema do Shoreline e a fonte da verdade da i
 
 Horizon reunirá as decisões compartilhadas de cor, tipografia, espaçamento, formas, superfícies e estados. A proposta aproveita os componentes, comportamentos e recursos de acessibilidade do Shoreline, evoluindo suas capacidades conforme as necessidades dos consumidores. As decisões aprovadas serão distribuídas pelo pacote, com versão e documentação, para que possam ser reutilizadas nos produtos.
 
+O Agentic UI continuará fornecendo os componentes e recursos das experiências conversacionais. Sua integração visual com Horizon será evoluída em conjunto com os mantenedores da biblioteca, para que as interfaces que combinam as duas bases expressem a mesma linguagem. As mudanças necessárias nos componentes conversacionais serão tratadas no Agentic UI.
+
 ### Styleguide como fonte da verdade visual
 
 A expectativa é que o **AIW Styleguide evolua para a fonte da verdade visual** dessa linguagem: o lugar onde Design e Engenharia consultam a aparência esperada, os estados, as composições e as orientações de uso para construir interfaces coerentes.
 
-Os exemplos do Styleguide deverão consumir Shoreline com Horizon, refletindo a mesma implementação disponível para os produtos. Assim, o Styleguide apresenta e explica a linguagem visual, enquanto Shoreline com Horizon a materializa em componentes e tokens reutilizáveis. Uma decisão aprovada deve atualizar a implementação e sua referência visual de forma coordenada.
+Os exemplos do Styleguide deverão usar Shoreline com Horizon e, nas experiências conversacionais, composições com Agentic UI, refletindo a implementação disponível para os produtos. Assim, o Styleguide apresenta e explica a linguagem visual, e as bibliotecas fornecem sua implementação reutilizável. Uma decisão aprovada deve atualizar a implementação e sua referência visual de forma coordenada.
 
 As responsabilidades propostas são:
 
 - **Design:** definir a linguagem visual, os critérios de uso e o resultado esperado nas interfaces.
 - **Mantenedores do Shoreline:** consolidar essas decisões em Horizon, revisar as capacidades compartilhadas e manter sua distribuição.
+- **Mantenedores do Agentic UI:** evoluir os componentes conversacionais e sua integração com a linguagem visual compartilhada.
 - **Styleguide:** tornar as decisões visíveis e consultáveis por meio de exemplos e orientações alinhados ao pacote.
 - **Template de Design:** consumir essa base, explorar composições e encaminhar novas necessidades para revisão.
 - **AI Workspace e Studio:** adotar a base compartilhada e manter suas integrações e jornadas de produto.
 
 ### Do protótipo ao projeto oficial
 
-Uma necessidade identificada no template ou em um produto será discutida com Design e Engenharia. Quando for reutilizável, deverá evoluir Horizon ou os componentes do Shoreline e aparecer no Styleguide. As composições específicas permanecem com os produtos.
+Uma necessidade identificada no template ou em um produto será discutida com Design e Engenharia. Quando for reutilizável, deverá evoluir Horizon, os componentes do Shoreline ou os recursos do Agentic UI, conforme a responsabilidade afetada, e aparecer no Styleguide. As composições específicas permanecem com os produtos.
 
-Depois de publicada, a mesma versão poderá ser adotada pelo template e pelas aplicações. O trabalho de levar uma interface explorada por Design ao projeto oficial passa a se concentrar nas integrações e nas regras do produto, preservando a apresentação compartilhada. As sobrescritas substituídas pelo pacote serão removidas durante a adoção.
+Depois da publicação, o template e as aplicações poderão adotar as versões acordadas das bibliotecas. O trabalho de levar uma interface explorada por Design ao projeto oficial passa a se concentrar nas integrações e nas regras do produto, preservando a apresentação compartilhada. As sobrescritas substituídas pelas bibliotecas serão removidas durante a adoção.
 
 ### Ferramental para construir e evoluir Horizon
 
@@ -62,7 +68,7 @@ O trabalho que originou a branch de referência inclui **construir o ferramental
 
 Essa estrutura já reúne instruções de descoberta, criação e revisão para agentes; contratos que registram a intenção de cada mudança e seus impactos; e verificações automatizadas de tokens, arquitetura, comportamento, aparência e acessibilidade. O objetivo é tornar as práticas do projeto aplicáveis durante a implementação e produzir resultados que o time consiga revisar.
 
-Com esse contexto, agentes poderão encontrar capacidades existentes, implementar alterações e executar as verificações correspondentes. Design e Engenharia definem os critérios e aprovam o resultado. A consolidação do ferramental acompanhará a construção de Horizon, incluindo a avaliação de contribuições feitas por agentes e a integração das verificações ao fluxo de revisão.
+Com esse contexto, agentes poderão encontrar capacidades existentes, implementar alterações e executar as verificações correspondentes no Shoreline. Design e Engenharia definem os critérios e aprovam o resultado. A consolidação do ferramental acompanhará a construção de Horizon, incluindo a avaliação de contribuições feitas por agentes e a integração das verificações ao fluxo de revisão. Esse fluxo também deverá identificar demandas para o Agentic UI e validar as composições que combinam as duas bibliotecas.
 
 ### Exemplos visuais
 
@@ -102,12 +108,12 @@ Propomos as seguintes etapas, com responsáveis e prioridades acordados entre os
 | Alinhar a linguagem | Definir as decisões visuais compartilhadas, os critérios de uso e as interfaces prioritárias de AI Workspace, Studio e Design. |
 | Consolidar a base e o ferramental | Evoluir Horizon e os componentes necessários, com instruções para agentes, contratos e verificações incorporados ao fluxo de contribuição. |
 | Conectar Styleguide e template | Apresentar a linguagem no Styleguide e usá-la no template, ambos consumindo a base compartilhada. |
-| Validar nos produtos | Levar uma interface representativa do template ao AI Workspace e exercitar a mesma base em Studio, removendo as sobrescritas substituídas. |
+| Validar nos produtos | Levar uma interface representativa do template ao AI Workspace e exercitar a mesma base em Studio, incluindo uma experiência conversacional com Agentic UI e removendo as sobrescritas substituídas. |
 | Distribuir e ampliar | Publicar versões, migrar gradualmente e ampliar a cobertura conforme as necessidades dos consumidores. |
 
-O aceite deve demonstrar que uma decisão visual aprovada aparece de forma consistente no Styleguide, no template e nos produtos. O time deve conseguir rastrear essa decisão até os componentes e tokens compartilhados e compreender as diferenças específicas de cada produto.
+O aceite deve demonstrar que uma decisão visual aprovada aparece de forma consistente no Styleguide, no template e nos produtos, incluindo as composições que combinam Shoreline e Agentic UI. O time deve conseguir rastrear essa decisão até os componentes e tokens compartilhados e compreender as diferenças específicas de cada produto.
 
-As contribuições, inclusive as realizadas por agentes, devem apresentar implementação, verificações e exemplos revisáveis. A publicação exige atender aos critérios de qualidade do Shoreline, incluindo testes, revisão visual, acessibilidade e aprovação de Design e Engenharia. A adoção deve permitir retorno à versão anterior caso sejam encontradas regressões.
+As contribuições, inclusive as realizadas por agentes, devem apresentar implementação, verificações e exemplos revisáveis. A publicação de Horizon exige atender aos critérios de qualidade do Shoreline, incluindo testes, revisão visual, acessibilidade e aprovação de Design e Engenharia. A adoção deve permitir retorno à versão anterior caso sejam encontradas regressões.
 
 O trabalho disponível na branch já permite explorar o tema e seu ferramental. Para avançar na adoção, ainda será necessário consolidar a revisão visual, resolver as pendências técnicas registradas e validar a integração com os consumidores. O [registro de validação](validacao-rfc.md) reúne as verificações executadas e as pendências.
 
@@ -115,14 +121,14 @@ O trabalho disponível na branch já permite explorar o tema e seu ferramental. 
 
 Manter adaptações locais exige menos investimento imediato, mas aumenta o custo de sincronizar cada evolução. Criar forks ou uma biblioteca independente amplia a manutenção de componentes e comportamentos. Evoluir a base compartilhada no Shoreline permite aproveitar o que já existe e distribuir as mudanças entre os consumidores.
 
-Os principais riscos são o Styleguide se afastar da implementação, necessidades específicas de produto entrarem na base comum e sobrescritas antigas continuarem competindo com Horizon. A proposta reduz esses riscos com responsabilidades claras, exemplos que consomem o pacote e validação de interfaces reais nos produtos. O apoio de agentes depende de critérios explícitos e revisão do resultado visual e funcional pelo time.
+Os principais riscos são o Styleguide se afastar da implementação, as bibliotecas evoluírem com diferenças visuais nas interfaces que as combinam e sobrescritas antigas continuarem competindo com Horizon. A proposta reduz esses riscos com responsabilidades claras, exemplos compartilhados e validação de interfaces reais nos produtos. Necessidades específicas de produto devem ser separadas das capacidades reutilizáveis. O apoio de agentes depende de critérios explícitos e revisão do resultado visual e funcional pelo time.
 
 ## Questões para revisão
 
 1. Concordamos com Horizon como base de implementação para novas interfaces da VTEX e com o Styleguide como sua referência visual compartilhada?
 2. Quais decisões visuais e interfaces de AI Workspace, Studio e do template devem orientar o primeiro ciclo de adoção?
 3. Como organizar a contribuição de Design e Engenharia e o uso de agentes para evoluir essa base?
-4. Quem mantém o Styleguide, o tema, o ferramental e as integrações, e como coordenar sua evolução?
+4. Quem mantém o Styleguide, Horizon e o ferramental, e como coordenar sua evolução com os mantenedores do Agentic UI e os times consumidores?
 
 ## Referências
 
