@@ -1,0 +1,27 @@
+.button-local-overrides {
+  --sl-bg-accent-strong: var(--sl-bg-critical-strong);
+  --sl-bg-muted: var(--sl-bg-warning);
+  --sl-text-action-font: var(--sl-text-emphasis-font);
+  --sl-text-action-letter-spacing: var(--sl-letter-spacing-2);
+  --sl-space-2: var(--sl-space-1);
+  --sl-focus-ring-accent: var(--sl-focus-ring-critical);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sl-space-4);
+}
+
+.button-local-token-reference {
+  background: var(--sl-bg-accent-strong);
+  color: var(--sl-fg-inverted);
+  font: var(--sl-text-action-font);
+  letter-spacing: var(--sl-text-action-letter-spacing);
+  padding: var(--sl-space-2);
+  box-shadow: var(--sl-focus-ring-accent);
+}
+
+.button-local-muted-reference {
+  background: var(--sl-bg-muted);
+  color: var(--sl-fg-base);
+}

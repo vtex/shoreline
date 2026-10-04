@@ -7,6 +7,13 @@
     margin: var(--sl-space-0);
   }
 
+  &[data-size="small"] {
+    --sl-element-space-top: var(--sl-space-1);
+    --sl-element-space-bottom: var(--sl-space-1);
+    --sl-element-space-right: var(--sl-space-1);
+    --sl-element-space-left: var(--sl-space-1);
+  }
+
   &[data-size="normal"] {
     --sl-element-space-top: var(--sl-space-2);
     --sl-element-space-bottom: var(--sl-space-2);

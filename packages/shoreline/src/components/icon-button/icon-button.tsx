@@ -14,9 +14,7 @@ import { Button } from '../button'
  * </IconButton>
  */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  function IconButton(props, ref) {
-    const { label, children, asChild, ...buttonProps } = props
-
+  function IconButton({ label, children, asChild, ...buttonProps }, ref) {
     return (
       <Button ref={ref} data-sl-icon-button asChild={asChild} {...buttonProps}>
         {asChild ? (
@@ -32,6 +30,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
 export interface IconButtonOptions extends ButtonOptions {
   /**
    * Icon button label. Needed for accessibility.
+   * @default undefined
    */
   label: ReactNode
 }

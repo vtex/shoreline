@@ -1,6 +1,14 @@
 /* Component-specific dimensions retain the existing Sunrise values. Horizon
    inherits these defaults and can override them in its own token inputs. */
 :root {
+  --sl-button-min-width: 6.25rem;
+  --sl-button-small-height: 2rem;
+  --sl-button-normal-height: 2.25rem;
+  --sl-button-large-height: 2.75rem;
+  --sl-button-content-transition-duration: 300ms;
+  --sl-button-outline-font: var(--sl-font-weight-medium) var(--sl-font-size-2) /
+    var(--sl-line-height-2) var(--sl-font-family-sans);
+  --sl-button-outline-letter-spacing: -0.0175rem;
   --sl-modal-small-width: 23rem;
   --sl-modal-medium-width: 38.75rem;
   --sl-modal-large-width: 50rem;

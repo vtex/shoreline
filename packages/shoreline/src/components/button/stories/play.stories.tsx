@@ -6,7 +6,7 @@ export default {
   title: 'components/button',
   argTypes: {
     size: {
-      options: ['normal', 'large'],
+      options: ['small', 'normal', 'large'],
       control: { type: 'radio' },
       description: 'Increase or decrease padding.',
       defaultValue: 'normal',
@@ -18,6 +18,8 @@ export default {
         'tertiary',
         'critical',
         'criticalTertiary',
+        'success',
+        'outline',
       ],
       control: { type: 'radio' },
       description: 'Change between color combinations.',
@@ -27,6 +29,11 @@ export default {
       control: { type: 'boolean' },
       description: 'Disable the button and show a spinner.',
     },
+    shape: {
+      options: ['default', 'rounded'],
+      control: { type: 'radio' },
+      description: 'Use the theme radius or an explicitly rounded silhouette.',
+    },
     children: {
       control: { type: 'text' },
       description: 'Content of the contextual help',
@@ -35,6 +42,7 @@ export default {
   args: {
     size: 'normal',
     variant: 'secondary',
+    shape: 'default',
     loading: false,
     children: 'Shoreline',
   },

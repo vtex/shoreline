@@ -1,0 +1,24 @@
+.icon-button-show-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--sl-space-4);
+}
+
+.icon-button-show-card {
+  border: var(--sl-border-base);
+  padding: var(--sl-space-3);
+  border-radius: var(--sl-radius-2);
+}
+
+.icon-button-show-card h3 {
+  font: var(--sl-text-body-font);
+  margin-bottom: var(--sl-space-3);
+}
+
+.icon-button-show-states {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sl-space-3);
+  margin-bottom: var(--sl-space-3);
+}

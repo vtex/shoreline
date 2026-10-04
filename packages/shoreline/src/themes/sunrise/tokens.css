@@ -177,6 +177,9 @@
   --sl-bg-base-soft: var(--sl-color-gray-1);
   --sl-bg-warning: var(--sl-color-yellow-1);
   --sl-bg-success: var(--sl-color-green-1);
+  --sl-bg-success-strong: var(--sl-color-green-10);
+  --sl-bg-success-strong-hover: var(--sl-color-green-11);
+  --sl-bg-success-strong-pressed: var(--sl-color-green-12);
   --sl-bg-informational: var(--sl-color-blue-1);
   --sl-bg-inverted: var(--sl-color-gray-12);
   --sl-bg-inverted-strong: color-mix(
@@ -274,6 +277,8 @@
     0rem 0rem 0rem 0.1875rem var(--sl-color-red-6);
   --sl-focus-ring-accent: 0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0), 0rem
     0rem 0rem 0.1875rem var(--sl-color-blue-6);
+  --sl-focus-ring-success: 0rem 0rem 0rem 0.0625rem var(--sl-color-gray-0), 0rem
+    0rem 0rem 0.1875rem var(--sl-color-green-9);
   --sl-shadow-1: 0rem 0.25rem 1rem 0rem rgba(0, 0, 0, 0.16);
   --sl-shadow-2: 0rem 1.5rem 3rem 0rem rgba(0, 0, 0, 0.16);
   --sl-z-1: 0;

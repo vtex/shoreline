@@ -32,14 +32,28 @@ function tokens(css) {
   return values
 }
 
-test('Horizon inherits all Sunrise tokens and only the selected source foundations', () => {
+test('Horizon inherits Sunrise and isolates its selected foundations and Button tokens', () => {
   const sunrise = tokens(bundled('sunrise', 'tokens.css'))
   const workspace = tokens(bundled('horizon', 'tokens.css'))
   const foundations = tokens(bundled('horizon', 'tokens-foundations.css'))
+  const buttons = tokens(bundled('horizon', 'tokens-buttons.css'))
   const newTokens = [...workspace.keys()]
     .filter((name) => !sunrise.has(name))
     .sort()
   assert.deepEqual(newTokens, [
+    '--sl-button-focus-ring-accent',
+    '--sl-button-focus-ring-base',
+    '--sl-button-focus-ring-critical',
+    '--sl-button-focus-ring-success',
+    '--sl-button-font',
+    '--sl-button-font-weight',
+    '--sl-button-large-padding-block',
+    '--sl-button-letter-spacing',
+    '--sl-button-normal-padding-block',
+    '--sl-button-primary-bg',
+    '--sl-button-primary-bg-hover',
+    '--sl-button-primary-bg-pressed',
+    '--sl-button-secondary-bg',
     '--sl-font-weight-bold',
     '--sl-overlay-bg',
     '--sl-radius-4',
@@ -49,7 +63,21 @@ test('Horizon inherits all Sunrise tokens and only the selected source foundatio
   ])
 
   for (const [name, value] of sunrise) {
-    assert.equal(workspace.get(name), foundations.get(name) ?? value, name)
+    assert.equal(
+      workspace.get(name),
+      buttons.get(name) ?? foundations.get(name) ?? value,
+      name
+    )
+  }
+  for (const [name, value] of buttons) {
+    assert.match(name, /^--sl-button-/)
+    assert.equal(workspace.get(name), value, name)
+  }
+  // Optional Button overrides exist only in Horizon. Sunrise must resolve
+  // existing semantic tokens at the consumer so local overrides still work.
+  for (const name of buttons.keys()) {
+    if (name !== '--sl-button-min-width')
+      assert.equal(sunrise.has(name), false, name)
   }
   for (const [name, value] of foundations) {
     assert.match(

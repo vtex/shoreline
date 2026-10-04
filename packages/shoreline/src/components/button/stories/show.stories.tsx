@@ -1,66 +1,71 @@
-import { Fragment } from 'react'
-import { IconTrash, IconArrowUpRightSmall } from '../../../icons'
-
-import { Button } from '../index'
-import './style.css'
+import { userEvent, within } from '@storybook/test'
+import type { StoryContext } from '@storybook/react'
+import { IconPlus } from '../../../icons'
+import { Button, type ButtonProps } from '../index'
+import './show.css'
 
 export default {
   title: 'components/button',
-  parameters: {
-    chromatic: { disableSnapshot: false },
-  },
+  parameters: { chromatic: { disableSnapshot: false } },
 }
 
+const sizes = ['small', 'normal', 'large'] as const
+const shapes = ['default', 'rounded'] as const
+const variants: Array<NonNullable<ButtonProps['variant']>> = [
+  'primary',
+  'secondary',
+  'tertiary',
+  'critical',
+  'criticalTertiary',
+  'success',
+  'outline',
+]
+
 export function Show() {
-  const variants: any[] = [
-    'primary',
-    'secondary',
-    'tertiary',
-    'critical',
-    'criticalTertiary',
-  ]
-
-  const getGrid = (size: 'normal' | 'large') => (
-    <div className="variants--grid">
-      {variants.map((variant) => (
-        <Fragment key={variant}>
-          <div className="variants--grid-leading">{variant}</div>
-          <div>
-            <Button size={size} variant={variant}>
-              Default
-            </Button>
-          </div>
-          <div>
-            <Button size={size} variant={variant} loading>
-              Loading
-            </Button>
-          </div>
-          <div>
-            <Button size={size} variant={variant} disabled>
-              Disabled
-            </Button>
-          </div>
-          <div>
-            <Button size={size} variant={variant}>
-              <IconTrash />
-              Icon
-            </Button>
-          </div>
-          <div>
-            <Button size={size} variant={variant}>
-              Icon
-              <IconArrowUpRightSmall />
-            </Button>
-          </div>
-        </Fragment>
-      ))}
-    </div>
-  )
-
   return (
     <div>
-      {getGrid('normal')}
-      {getGrid('large')}
+      <h2>Keyboard focus and hover</h2>
+      <div className="button-show-states">
+        <Button variant="primary">Keyboard focus</Button>
+        <Button variant="success">Hover</Button>
+      </div>
+      <h2>Variants, shapes and sizes</h2>
+      <div className="button-show-grid">
+        {sizes.flatMap((size) =>
+          shapes.flatMap((shape) =>
+            variants.map((variant) => (
+              <section
+                className="button-show-card"
+                key={`${size}-${shape}-${variant}`}
+              >
+                <h3>
+                  {variant} · {shape} · {size}
+                </h3>
+                <div className="button-show-states">
+                  <Button size={size} shape={shape} variant={variant}>
+                    Continue
+                  </Button>
+                  <Button size={size} shape={shape} variant={variant}>
+                    <IconPlus /> Add item
+                  </Button>
+                  <Button size={size} shape={shape} variant={variant} loading>
+                    Continue
+                  </Button>
+                  <Button size={size} shape={shape} variant={variant} disabled>
+                    Continue
+                  </Button>
+                </div>
+              </section>
+            ))
+          )
+        )}
+      </div>
     </div>
   )
+}
+
+Show.play = async ({ canvasElement }: StoryContext) => {
+  const canvas = within(canvasElement)
+  await userEvent.tab()
+  await userEvent.hover(canvas.getByRole('button', { name: 'Hover' }))
 }

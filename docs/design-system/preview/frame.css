@@ -1,0 +1,49 @@
+@font-face {
+  font-family: Inter;
+  src: url("./fonts/inter-latin-variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
+}
+/* Pause the existing spinner midway through its animation for repeatable figures. */
+.specimens [data-sl-spinner] > svg,
+.specimens [data-sl-spinner] > svg > circle {
+  animation-play-state: paused;
+  animation-delay: -0.5s;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+body {
+  font-family: Inter, Arial, sans-serif;
+}
+.specimens {
+  zoom: 1.5;
+}
+.specimen-row {
+  height: 56px;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 8px;
+  align-items: center;
+  border-top: 1px solid #eee;
+}
+.row-label {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.3;
+  font-weight: 500;
+}
+.example {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.missing {
+  font-size: 10px;
+  line-height: 1.5;
+  color: #777;
+}

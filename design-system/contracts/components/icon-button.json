@@ -1,15 +1,15 @@
 {
   "schemaVersion": 3,
   "kind": "component",
-  "id": "button",
+  "id": "icon-button",
   "status": "draft",
-  "intent": "Provide a source-grounded experimental Button comparison for the Horizon RFC, preserving Sunrise defaults. Studio Figma supplies verified default shapes/colors/typography; AI Workspace/styleguide wrappers supply optional rounded shape, success tone and toolbar outline intent. This demonstration does not approve the design or release.",
+  "intent": "Provide a source-grounded experimental IconButton comparison for the Horizon RFC, preserving Sunrise defaults. Studio Figma supplies verified default shapes/colors/typography; AI Workspace/styleguide wrappers supply optional rounded shape, success tone and toolbar outline intent. This demonstration does not approve the design or release.",
   "source": {
     "repository": "aiw-styleguide",
     "revision": "baceafacc9e32a863987dad06da5a6654b387d6b",
     "files": [
-      "components/shoreline/button/button.tsx",
-      "components/shoreline/button/button.css",
+      "components/shoreline/icon-button/icon-button.tsx",
+      "components/shoreline/icon-button/icon-button.css",
       "components/shoreline/button/button.css",
       "app/theme.css"
     ]
@@ -18,25 +18,22 @@
     "package": "@vtex/shoreline",
     "themes": ["sunrise", "horizon"],
     "files": [
+      "packages/shoreline/src/components/icon-button/icon-button.tsx",
+      "packages/shoreline/src/components/icon-button/index.ts",
+      "packages/shoreline/src/components/icon-button/stories/examples.stories.tsx",
+      "packages/shoreline/src/components/icon-button/stories/play.stories.tsx",
+      "packages/shoreline/src/components/icon-button/stories/show.css",
+      "packages/shoreline/src/components/icon-button/stories/show.stories.tsx",
+      "packages/shoreline/src/components/icon-button/stories/tests/horizon-api.stories.tsx",
+      "packages/shoreline/src/components/icon-button/tests/icon-button.test.tsx",
       "packages/shoreline/src/components/button/button.tsx",
-      "packages/shoreline/src/components/button/index.ts",
-      "packages/shoreline/src/components/button/stories/examples.stories.tsx",
-      "packages/shoreline/src/components/button/stories/play.stories.tsx",
-      "packages/shoreline/src/components/button/stories/show.css",
-      "packages/shoreline/src/components/button/stories/show.stories.tsx",
-      "packages/shoreline/src/components/button/stories/style.css",
-      "packages/shoreline/src/components/button/stories/tests/click.stories.tsx",
-      "packages/shoreline/src/components/button/stories/tests/horizon-api.stories.tsx",
-      "packages/shoreline/src/components/button/tests/button.test.tsx",
       "packages/shoreline/src/themes/sunrise/components/button.css",
+      "packages/shoreline/src/themes/sunrise/components/icon-button.css",
       "packages/shoreline/src/themes/sunrise/tokens.css",
       "packages/shoreline/src/themes/sunrise/tokens-components.css",
       "packages/shoreline/src/themes/horizon/tokens.css",
       "packages/shoreline/src/themes/horizon/tokens-foundations.css",
-      "packages/shoreline/src/themes/horizon/tokens-buttons.css",
-      "packages/shoreline/src/components/button/stories/tests/local-overrides.stories.tsx",
-      "packages/shoreline/src/components/button/stories/tests/local-overrides.css",
-      "tools/design-system/tests/themes.test.mjs"
+      "packages/shoreline/src/themes/horizon/tokens-buttons.css"
     ]
   },
   "states": [
@@ -45,7 +42,7 @@
       "trigger": "Render without new props",
       "expected": "Sunrise keeps existing secondary/normal appearance; Horizon scopes Figma-derived primary blue, neutral secondary and typography to the Button family.",
       "story": {
-        "file": "packages/shoreline/src/components/button/stories/show.stories.tsx",
+        "file": "packages/shoreline/src/components/icon-button/stories/show.stories.tsx",
         "export": "Show"
       }
     },
@@ -54,7 +51,7 @@
       "trigger": "Render default and rounded at each size",
       "expected": "Default retains the theme radius (Sunrise 8px, Horizon 12px); rounded is explicit pill/circle, never a theme-wide default.",
       "story": {
-        "file": "packages/shoreline/src/components/button/stories/show.stories.tsx",
+        "file": "packages/shoreline/src/components/icon-button/stories/show.stories.tsx",
         "export": "Show"
       }
     },
@@ -63,7 +60,7 @@
       "trigger": "Render small, normal and large",
       "expected": "Typed heights 32/36/44px. Compact 32 is a styleguide-derived proposal, not the distinct Figma 28px canvas control.",
       "story": {
-        "file": "packages/shoreline/src/components/button/stories/show.stories.tsx",
+        "file": "packages/shoreline/src/components/icon-button/stories/show.stories.tsx",
         "export": "Show"
       }
     },
@@ -72,7 +69,7 @@
       "trigger": "Render all seven variant values",
       "expected": "Existing variants remain available; success and outline translate application tones into the shared discriminated enum.",
       "story": {
-        "file": "packages/shoreline/src/components/button/stories/show.stories.tsx",
+        "file": "packages/shoreline/src/components/icon-button/stories/show.stories.tsx",
         "export": "Show"
       }
     },
@@ -81,7 +78,7 @@
       "trigger": "Tab, Enter and Space",
       "expected": "Visible token-driven focus and exactly one activation per key press with an accessible name.",
       "story": {
-        "file": "packages/shoreline/src/components/button/stories/tests/horizon-api.stories.tsx",
+        "file": "packages/shoreline/src/components/icon-button/stories/tests/horizon-api.stories.tsx",
         "export": "HorizonApi"
       }
     },
@@ -90,7 +87,7 @@
       "trigger": "Render disabled then attempt activation",
       "expected": "Disabled semantics block focus and actions.",
       "story": {
-        "file": "packages/shoreline/src/components/button/stories/tests/horizon-api.stories.tsx",
+        "file": "packages/shoreline/src/components/icon-button/stories/tests/horizon-api.stories.tsx",
         "export": "HorizonApi"
       }
     },
@@ -99,26 +96,8 @@
       "trigger": "Activate Send message, which enters loading",
       "expected": "Busy state retains the action name and blocks repeated activation.",
       "story": {
-        "file": "packages/shoreline/src/components/button/stories/tests/horizon-api.stories.tsx",
+        "file": "packages/shoreline/src/components/icon-button/stories/tests/horizon-api.stories.tsx",
         "export": "HorizonApi"
-      }
-    },
-    {
-      "id": "composition",
-      "trigger": "Render asChild with an anchor",
-      "expected": "Existing anchor composition forwards ref, href, ARIA and shape. Loading/disabled anchor navigation remains outside this proposal.",
-      "story": {
-        "file": "packages/shoreline/src/components/button/stories/examples.stories.tsx",
-        "export": "AsLink"
-      }
-    },
-    {
-      "id": "local-overrides",
-      "trigger": "Render inside a container overriding semantic colors, action typography, spacing and focus tokens",
-      "expected": "Sunrise resolves overridden values on the component; Horizon retains explicit Button-specific choices.",
-      "story": {
-        "file": "packages/shoreline/src/components/button/stories/tests/local-overrides.stories.tsx",
-        "export": "LocalOverrides"
       }
     }
   ],

@@ -18,12 +18,13 @@
       "packages/shoreline/src/scripts/build-css.ts",
       "packages/shoreline/src/scripts/check-css.mjs",
       "packages/shoreline/tsup.config.ts",
-      "packages/shoreline/package.json"
+      "packages/shoreline/package.json",
+      "packages/shoreline/src/themes/horizon/tokens-buttons.css"
     ]
   },
   "tokens": [],
   "impact": {
-    "summary": "Horizon provides an alternative global theme, sharing existing reset, base and component styles through CSS imports and extending the available token values. Theme composition and imports are explicit inputs to review.",
+    "summary": "Horizon provides an alternative global theme, sharing existing reset, base and component styles through CSS imports and extending the available token values. Theme composition and imports are explicit inputs to review. Experimental Button/IconButton-specific tokens now reflect verified Studio Figma defaults, while shared API extensions are recorded in the component contracts for both themes.",
     "consumerAction": "Select @vtex/shoreline/themes/horizon as the complete stylesheet for the document, or use its split exports with the declared layer order. Use one complete global theme per document."
   },
   "openQuestions": [

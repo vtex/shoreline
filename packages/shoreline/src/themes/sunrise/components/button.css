@@ -3,14 +3,21 @@
     var(--sl-element-space-bottom) var(--sl-element-space-left);
   height: var(--sl-element-height);
   border-radius: var(--sl-radius-2);
-  font: var(--sl-text-action-font);
-  letter-spacing: var(--sl-text-action-letter-spacing);
+  font: var(--sl-button-font, var(--sl-text-action-font));
+  letter-spacing: var(
+    --sl-button-letter-spacing,
+    var(--sl-text-action-letter-spacing)
+  );
   border: none;
   position: relative;
   cursor: pointer;
   appearance: button;
   text-decoration: none;
-  min-width: 6.25rem;
+  min-width: var(--sl-button-min-width);
+
+  &[data-shape="rounded"] {
+    border-radius: var(--sl-radius-full);
+  }
 
   &:focus {
     outline: none;
@@ -26,7 +33,7 @@
     align-items: center;
     justify-content: center;
     opacity: 1;
-    transition: opacity 300ms;
+    transition: opacity var(--sl-button-content-transition-duration);
     white-space: nowrap;
 
     & [data-sl-icon] {
@@ -69,24 +76,44 @@
     }
   }
 
-  &[data-size="normal"] {
-    --sl-element-space-top: var(--sl-space-2);
-    --sl-element-space-bottom: var(--sl-space-2);
+  &[data-size="small"] {
+    --sl-element-space-top: var(--sl-space-1);
+    --sl-element-space-bottom: var(--sl-space-1);
     --sl-element-space-right: var(--sl-space-3);
     --sl-element-space-left: var(--sl-space-3);
-    --sl-element-height: 2.25rem;
+    --sl-element-height: var(--sl-button-small-height);
+  }
+
+  &[data-size="normal"] {
+    --sl-element-space-top: var(
+      --sl-button-normal-padding-block,
+      var(--sl-space-2)
+    );
+    --sl-element-space-bottom: var(
+      --sl-button-normal-padding-block,
+      var(--sl-space-2)
+    );
+    --sl-element-space-right: var(--sl-space-3);
+    --sl-element-space-left: var(--sl-space-3);
+    --sl-element-height: var(--sl-button-normal-height);
   }
 
   &[data-size="large"] {
-    --sl-element-space-top: var(--sl-space-3);
-    --sl-element-space-bottom: var(--sl-space-3);
+    --sl-element-space-top: var(
+      --sl-button-large-padding-block,
+      var(--sl-space-3)
+    );
+    --sl-element-space-bottom: var(
+      --sl-button-large-padding-block,
+      var(--sl-space-3)
+    );
     --sl-element-space-right: var(--sl-space-4);
     --sl-element-space-left: var(--sl-space-4);
-    --sl-element-height: 2.75rem;
+    --sl-element-height: var(--sl-button-large-height);
   }
 
   &[data-variant="secondary"] {
-    background: var(--sl-bg-muted);
+    background: var(--sl-button-secondary-bg, var(--sl-bg-muted));
     color: var(--sl-fg-muted);
     &:hover {
       background: var(--sl-bg-muted-hover);
@@ -97,7 +124,7 @@
       color: var(--sl-fg-muted-pressed);
     }
     &:focus-visible {
-      box-shadow: var(--sl-focus-ring-base);
+      box-shadow: var(--sl-button-focus-ring-base, var(--sl-focus-ring-base));
       background: var(--sl-bg-muted-hover);
       color: var(--sl-fg-muted-hover);
     }
@@ -122,7 +149,7 @@
       color: var(--sl-fg-muted-pressed);
     }
     &:focus-visible {
-      box-shadow: var(--sl-focus-ring-base);
+      box-shadow: var(--sl-button-focus-ring-base, var(--sl-focus-ring-base));
       background: var(--sl-bg-muted-plain-hover);
       color: var(--sl-fg-muted-hover);
     }
@@ -136,19 +163,79 @@
   }
 
   &[data-variant="primary"] {
-    background: var(--sl-bg-accent-strong);
+    background: var(--sl-button-primary-bg, var(--sl-bg-accent-strong));
     color: var(--sl-fg-inverted);
     &:hover {
-      background: var(--sl-bg-accent-strong-hover);
+      background: var(
+        --sl-button-primary-bg-hover,
+        var(--sl-bg-accent-strong-hover)
+      );
     }
     &:active {
-      background: var(--sl-bg-accent-strong-pressed);
+      background: var(
+        --sl-button-primary-bg-pressed,
+        var(--sl-bg-accent-strong-pressed)
+      );
     }
     &:focus-visible {
-      box-shadow: var(--sl-focus-ring-accent);
+      box-shadow: var(
+        --sl-button-focus-ring-accent,
+        var(--sl-focus-ring-accent)
+      );
     }
     &:disabled {
       background: var(--sl-bg-base-strong-disabled);
+    }
+  }
+  &[data-variant="success"] {
+    background: var(--sl-bg-success-strong);
+    color: var(--sl-fg-inverted);
+    &:hover {
+      background: var(--sl-bg-success-strong-hover);
+    }
+    &:active {
+      background: var(--sl-bg-success-strong-pressed);
+    }
+    &:focus-visible {
+      box-shadow: var(
+        --sl-button-focus-ring-success,
+        var(--sl-focus-ring-success)
+      );
+    }
+    &:disabled {
+      background: var(--sl-bg-base-strong-disabled);
+    }
+  }
+  &[data-variant="outline"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: auto;
+    min-height: var(--sl-button-small-height);
+    background: var(--sl-bg-base);
+    border: var(--sl-border-base);
+    color: var(--sl-fg-base);
+    font: var(--sl-button-outline-font);
+    letter-spacing: var(--sl-button-outline-letter-spacing);
+    &:hover {
+      background: var(--sl-bg-muted-plain-hover);
+      border: var(--sl-border-base-strong);
+    }
+    &:active {
+      background: var(--sl-bg-muted-plain-pressed);
+      border: var(--sl-border-base-strong);
+    }
+    &:focus-visible {
+      box-shadow: var(--sl-button-focus-ring-base, var(--sl-focus-ring-base));
+    }
+    &:disabled {
+      background: var(--sl-bg-base-disabled);
+      border: var(--sl-border-base-disabled);
+      color: var(--sl-fg-base-disabled);
+      & > [data-sl-button-overlay] {
+        color: var(--sl-fg-base-soft);
+      }
     }
   }
   &[data-variant="critical"] {
@@ -161,7 +248,10 @@
       background: var(--sl-bg-critical-strong-pressed);
     }
     &:focus-visible {
-      box-shadow: var(--sl-focus-ring-critical);
+      box-shadow: var(
+        --sl-button-focus-ring-critical,
+        var(--sl-focus-ring-critical)
+      );
       background: var(--sl-bg-critical-strong-hover);
     }
     &:disabled {
@@ -180,7 +270,10 @@
       color: var(--sl-fg-critical-pressed);
     }
     &:focus-visible {
-      box-shadow: var(--sl-focus-ring-critical);
+      box-shadow: var(
+        --sl-button-focus-ring-critical,
+        var(--sl-focus-ring-critical)
+      );
       background: var(--sl-bg-critical-plain-hover);
       color: var(--sl-fg-critical-hover);
     }

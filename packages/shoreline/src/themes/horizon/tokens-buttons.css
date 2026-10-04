@@ -1,0 +1,25 @@
+/* Experimental Button/IconButton proposal. Studio Figma nodes 4702:3895,
+   4705:8286 and 4705:8027 supply the default color, typography and geometry.
+   The 37px Figma text-button frame is normalized to Shoreline's 36px size.
+   Hover/pressed, compact32 and success states are proposals for review. */
+:root {
+  --sl-button-min-width: auto;
+  --sl-button-font-weight: 550;
+  --sl-button-font: var(--sl-button-font-weight) var(--sl-font-size-2) /
+    var(--sl-line-height-3) var(--sl-font-family-sans);
+  --sl-button-letter-spacing: -0.010625rem;
+  --sl-button-normal-padding-block: 0.375rem;
+  --sl-button-large-padding-block: 0.625rem;
+  --sl-button-primary-bg: #0366dd;
+  --sl-button-primary-bg-hover: var(--sl-bg-accent-strong-hover);
+  --sl-button-primary-bg-pressed: var(--sl-bg-accent-strong-pressed);
+  --sl-button-secondary-bg: #f5f5f5;
+  --sl-button-focus-ring-base: 0 0 0 0.0625rem var(--sl-bg-base), 0 0 0
+    0.1875rem var(--sl-color-gray-8);
+  --sl-button-focus-ring-accent: 0 0 0 0.0625rem var(--sl-bg-base), 0 0 0
+    0.1875rem var(--sl-button-primary-bg);
+  --sl-button-focus-ring-critical: 0 0 0 0.0625rem var(--sl-bg-base), 0 0 0
+    0.1875rem var(--sl-bg-critical-strong);
+  --sl-button-focus-ring-success: 0 0 0 0.0625rem var(--sl-bg-base), 0 0 0
+    0.1875rem var(--sl-bg-success-strong);
+}

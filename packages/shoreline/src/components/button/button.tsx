@@ -13,18 +13,20 @@ import { Center } from '../center'
  * <Button>Action label</Button>
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  function Button(props, ref) {
-    const {
+  function Button(
+    {
       type = 'button',
       size = 'normal',
       variant = 'secondary',
+      shape = 'default',
       loading = false,
       asChild = false,
       disabled = false,
       children,
       ...buttonProps
-    } = props
-
+    },
+    ref
+  ) {
     const Comp = asChild ? Compose : BaseButton
 
     return (
@@ -34,6 +36,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         data-sl-button
         data-variant={variant}
         data-size={size}
+        data-shape={shape}
         data-loading={loading}
         type={type}
         disabled={disabled || loading}
@@ -69,13 +72,19 @@ function spanizeString(children: ReactNode) {
 export interface ButtonOptions {
   /**
    * Button contents
+   * @default undefined
    */
   children: ReactNode
   /**
    * Increase or decrease padding.
    * @default 'normal'
    */
-  size?: 'normal' | 'large'
+  size?: 'small' | 'normal' | 'large'
+  /**
+   * Use the theme radius or an explicitly rounded silhouette.
+   * @default 'default'
+   */
+  shape?: 'default' | 'rounded'
   /**
    * Change between color combinations.
    * @default 'secondary'
@@ -86,6 +95,8 @@ export interface ButtonOptions {
     | 'tertiary'
     | 'critical'
     | 'criticalTertiary'
+    | 'success'
+    | 'outline'
   /**
    * Disable the button and show a spinner.
    * @default false
