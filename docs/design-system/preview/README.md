@@ -1,6 +1,6 @@
 # Comparação executável — RFC Horizon
 
-As figuras da RFC são capturas de componentes **React reais**, importados de `packages/shoreline/src`, com o CSS compilado do tema correspondente. Cada tema roda em um iframe independente. Nenhuma forma de botão foi redesenhada em SVG ou simulada por CSS do preview.
+As figuras da RFC são capturas de componentes React importados de `packages/shoreline/src`, com o CSS compilado do tema correspondente. Cada tema roda em um iframe independente.
 
 ```sh
 pnpm build
@@ -11,15 +11,11 @@ Abra `http://127.0.0.1:8765/docs/design-system/preview/index.html?component=butt
 
 Capture o elemento `#comparison` (1200 px de largura). Os componentes são ampliados 1,5× por `zoom` do contêiner para leitura na RFC. O preview não muda cores, tipografia, bordas, dimensões ou estados dos componentes. A fonte Inter variável local tem licença SIL OFL em `fonts/OFL.txt`.
 
-A coluna Sunrise usa a implementação compartilhada atual, limitada às opções disponíveis antes da demonstração. Seus defaults são preservados; rótulos de capacidades ausentes se referem à API anterior. As novas opções também são suportadas por Sunrise, embora só apareçam na coluna Horizon nesta comparação.
+A coluna Sunrise usa a implementação compartilhada atual, limitada às opções disponíveis antes desta proposta. Seus defaults são preservados; rótulos de capacidades ausentes se referem à API anterior. As novas opções também são suportadas por Sunrise, embora só apareçam na coluna Horizon nesta comparação.
 
-## Papel na proposta inicial
+## Referências de implementação
 
-O preview ilustra capacidades da proposta Horizon v1.0: seleção isolada de tema, tokens semânticos, APIs compartilhadas e preservação dos defaults Sunrise. Button e IconButton são exemplos; a RFC trata da construção de um tema reutilizável para AI Workspace, Studio e templates ou protótipos dos times de Design.
-
-As cores, formas, tipografia e estados apresentados são propostas experimentais registradas nos tokens locais. Rounded e success também aparecem nos wrappers de AI Workspace; outline e small são informados pelo `toolbarOutline` do aiw-styleguide no commit `baceafacc9e32a863987dad06da5a6654b387d6b`. Essa referência não aprova as decisões visuais nem estabelece uma especificação completa do tema.
-
-A comparação demonstra variações com largura conforme conteúdo, formas padrão e arredondada, tamanhos de 32/36/44 px e estados de interação. Os detalhes estão nos contratos dos componentes. A revisão deve avaliar como essas possibilidades se integram ao vocabulário do tema e aos seus diferentes consumidores.
+Rounded e success também aparecem nos wrappers de AI Workspace; outline e small são informados pelo `toolbarOutline` do aiw-styleguide no commit `baceafacc9e32a863987dad06da5a6654b387d6b`. Os tokens locais e os contratos dos componentes registram as cores, formas, tipografia, tamanhos e estados utilizados.
 
 ## Documento
 

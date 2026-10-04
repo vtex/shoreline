@@ -62,7 +62,7 @@ def convert(part):
             while i < len(lines) and lines[i].startswith('|'):
                 rows.append(lines[i])
                 i += 1
-            metadata = rows[0].startswith('| Criada em')
+            metadata = rows[0].startswith(('| Created', '| Criada em'))
             result.append('<table style="border-collapse:collapse;width:624px;font-family:Arial;font-size:' + ('9' if metadata else '10') + 'pt;line-height:115%;color:#666666">')
             for n, row in enumerate(rows):
                 if re.match(r'^\|[ :|\-]+$', row):

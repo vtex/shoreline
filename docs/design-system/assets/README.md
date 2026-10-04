@@ -3,8 +3,6 @@
 - `button-comparison.png`: Sunrise existente × Horizon proposto, incluindo rounded, outline e success.
 - `icon-button-comparison.png`: formas padrão/circular, tamanho compacto, disabled e loading.
 
-São capturas dos componentes React reais, em documentos isolados com CSS compilado. A renderização foi ampliada 1,5×; o spinner real foi pausado no meio da animação. As imagens não representam aprovação de Design nem baselines visuais.
+São capturas dos componentes React, em documentos isolados com CSS compilado. A renderização foi ampliada 1,5×; o spinner foi pausado no meio da animação.
 
-Fontes, execução e captura: [preview reproduzível](../preview/README.md). Decisões e limites: [RFC](../proposta.md). Checks e pendências: [validação](../validacao-rfc.md).
-
-As figuras ilustram possibilidades da proposta inicial v1.0. Elas apoiam a revisão do tema; não definem seu catálogo completo de componentes.
+Fontes, execução e captura: [preview reproduzível](../preview/README.md). Proposta: [RFC](../proposta.md). Checks e pendências: [validação](../validacao-rfc.md).

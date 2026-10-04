@@ -9,20 +9,17 @@
   <body>
     <main id="comparison">
       <header>
-        <p class="eyebrow">SHORELINE · PROVA DE CONCEITO</p>
         <h1 id="title">Button</h1>
-        <p id="subtitle">Comparação de componentes React renderizados, com CSS isolado por tema.</p>
       </header>
       <div class="comparison-columns">
-        <section><h2>Sunrise · existente</h2><p class="column-note">API e aparência anteriores preservadas</p><iframe id="sunrise" title="Componentes Sunrise"></iframe></section>
-        <section><h2>Horizon · proposta</h2><p class="column-note">Referências de Design + extensões explícitas</p><iframe id="horizon" title="Componentes Horizon"></iframe></section>
+        <section><h2>Sunrise</h2><iframe id="sunrise" title="Componentes Sunrise"></iframe></section>
+        <section><h2>Horizon</h2><iframe id="horizon" title="Componentes Horizon"></iframe></section>
       </div>
-      <footer id="footer">Renderização ampliada 1,5×. Imagens da implementação experimental; revisão de Design pendente.</footer>
     </main>
     <nav aria-label="Comparações"><a href="?component=button">Button</a><a href="?component=icon-button">IconButton</a></nav>
     <script type="module">
       const component = new URLSearchParams(location.search).get('component') === 'icon-button' ? 'icon-button' : 'button'
-      document.querySelector('#title').textContent = component === 'button' ? 'Button: o que muda' : 'IconButton: forma, intenção e estados'
+      document.querySelector('#title').textContent = component === 'button' ? 'Button' : 'IconButton'
       for (const theme of ['sunrise', 'horizon']) document.querySelector(`#${theme}`).src = `./frame.html?theme=${theme}&component=${component}`
     </script>
   </body>
