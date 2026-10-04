@@ -1,7 +1,6 @@
-/* Experimental Button/IconButton proposal. Studio Figma nodes 4702:3895,
-   4705:8286 and 4705:8027 supply the default color, typography and geometry.
-   The 37px Figma text-button frame is normalized to Shoreline's 36px size.
-   Hover/pressed, compact32 and success states are proposals for review. */
+/* Experimental Horizon component tokens for the initial RFC v1.0 proposal.
+   Colors, typography, geometry and interaction states demonstrate theme
+   capabilities and remain subject to design and engineering review. */
 :root {
   --sl-button-min-width: auto;
   --sl-button-font-weight: 550;

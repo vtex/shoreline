@@ -73,7 +73,7 @@ O inventário de referência contou 1.391 arquivos textuais pertinentes; os 1.71
 | OverviewCard, TasksTable, Conversation e Composer | Quais partes são produto e quais capacidades genéricas merecem um contrato próprio? |
 | Gráficos de OverviewCard | O pacote `packages/charts` já resolve a necessidade? |
 
-Esse mapa é insumo de descoberta. O fluxo nativo continua válido quando o design nasce diretamente no Figma, numa discussão do time ou em outro produto.
+Esse mapa é insumo de descoberta. O fluxo nativo continua válido quando a necessidade nasce numa exploração de Design, numa discussão do time ou em outro produto.
 
 ## Regras existentes e divergências visíveis
 
@@ -160,7 +160,7 @@ Axe cobre regras automatizáveis dos estados renderizados. Não substitui navega
 
 As skills de [descoberta](../../tools/design-system/skills/shoreline-discovery/SKILL.md), [criação](../../tools/design-system/skills/shoreline-create/SKILL.md) e [revisão](../../tools/design-system/skills/shoreline-review/SKILL.md) ficam versionadas no repositório. Nenhuma skill global ou serviço de orquestração é necessário. A primeira encontra capacidades existentes e delimita a mudança; a segunda orienta a criação nativa de componentes, tokens e temas; a terceira procura diferenças entre contrato, resultado e evidências.
 
-Design decide semântica, intenção visual, estados e composições. Engenharia responde por API, distribuição, dependências, ref/props e testes. Os agentes ajudam a organizar essas decisões e executar verificações, sem inventar aceite de design, cobertura, execução de CI ou referências Figma.
+Design decide semântica, intenção visual, estados e composições. Engenharia responde por API, distribuição, dependências, ref/props e testes. Os agentes ajudam a organizar essas decisões e executar verificações, sem inventar aceite de design, cobertura, execução de CI ou referências externas.
 
 As [regras oficiais do React](https://react.dev/reference/rules) apoiam a revisão de pureza, hooks e imutabilidade dentro das decisões locais de React 18. Acessibilidade combina automação com teclado, foco, zoom, movimento e tecnologia assistiva; o [ARIA APG](https://www.w3.org/WAI/ARIA/apg/) orienta comportamento esperado.
 
@@ -174,7 +174,6 @@ As [regras oficiais do React](https://react.dev/reference/rules) apoiam a revis�
 | Playwright, Storybook, axe e Chromatic | Matriz Show por tema/viewport, screenshots e axe; serviço de revisão já existente | Revisar a baseline inicial e habilitar os checks obrigatórios na CI; ampliar casos comportamentais. |
 | Vitest e TypeScript | Infraestrutura existente reaproveitada | Completar cobertura constitucional por pacote e verificar tipos/APIs. |
 | Stylelint | Alternativa pesquisada para regras amplas de linguagem CSS; não instalado | Considerar apenas diante de lacunas demonstradas, com plano de convivência com Biome. |
-| Figma Code Connect | Manifesto e gerador existentes | Associar componentes/tokens aprovados e executar dry-run. |
 | DTCG e Style Dictionary | Referências pesquisadas; conversor não instalado | Adotar quando houver fonte canônica de tokens acordada com design. |
 | API Extractor, tsd, dependency-cruiser e codemods | Opções avaliadas; não instaladas | Introduzir conforme um problema concreto exigir. |
 

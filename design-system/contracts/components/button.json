@@ -3,13 +3,12 @@
   "kind": "component",
   "id": "button",
   "status": "draft",
-  "intent": "Provide a source-grounded experimental Button comparison for the Horizon RFC, preserving Sunrise defaults. Studio Figma supplies verified default shapes/colors/typography; AI Workspace/styleguide wrappers supply optional rounded shape, success tone and toolbar outline intent. This demonstration does not approve the design or release.",
+  "intent": "Demonstrate shared component APIs and theme-specific tokens through an experimental Button example in the initial Horizon RFC v1.0, preserving Sunrise defaults. AI Workspace/styleguide wrappers inform optional shapes and variants; the local theme tokens record proposed visual choices. This draft supports discussion of the broader theme and does not approve the design or release.",
   "source": {
     "repository": "aiw-styleguide",
     "revision": "baceafacc9e32a863987dad06da5a6654b387d6b",
     "files": [
       "components/shoreline/button/button.tsx",
-      "components/shoreline/button/button.css",
       "components/shoreline/button/button.css",
       "app/theme.css"
     ]
@@ -43,7 +42,7 @@
     {
       "id": "default",
       "trigger": "Render without new props",
-      "expected": "Sunrise keeps existing secondary/normal appearance; Horizon scopes Figma-derived primary blue, neutral secondary and typography to the Button family.",
+      "expected": "Sunrise keeps its existing secondary/normal appearance; Horizon demonstrates scoped proposals for primary blue, neutral secondary and typography.",
       "story": {
         "file": "packages/shoreline/src/components/button/stories/show.stories.tsx",
         "export": "Show"
@@ -61,7 +60,7 @@
     {
       "id": "sizes",
       "trigger": "Render small, normal and large",
-      "expected": "Typed heights 32/36/44px. Compact 32 is a styleguide-derived proposal, not the distinct Figma 28px canvas control.",
+      "expected": "Typed heights 32/36/44px. Compact 32 is a styleguide-informed proposal; normal and large retain the existing component scale.",
       "story": {
         "file": "packages/shoreline/src/components/button/stories/show.stories.tsx",
         "export": "Show"
@@ -125,33 +124,33 @@
   "tokens": [
     {
       "name": "--sl-radius-2",
-      "reason": "Default8px Sunrise and12px Horizon.",
-      "source": "https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/Studio?node-id=4705-8286"
+      "reason": "Default 8px in Sunrise and proposed 12px in Horizon.",
+      "source": "packages/shoreline/src/themes/horizon/tokens-foundations.css"
     },
     {
       "name": "--sl-radius-full",
       "reason": "Explicit rounded shape; circular IconButton and pill Button.",
-      "source": "components/shoreline/icon-button/icon-button.css; https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/Studio?node-id=4705-8027"
+      "source": "components/shoreline/icon-button/icon-button.css: optional rounded shape"
     },
     {
       "name": "--sl-button-primary-bg",
-      "reason": "Scope verified Studio primary #0366DD to the Button family, without changing every component accent.",
-      "source": "https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/Studio?node-id=4702-3895"
+      "reason": "Demonstrate the proposed primary #0366DD within the Button family without changing every component accent.",
+      "source": "packages/shoreline/src/themes/horizon/tokens-buttons.css: experimental proposal"
     },
     {
       "name": "--sl-button-secondary-bg",
-      "reason": "Scope verified Studio neutral #F5F5F5 to Button/IconButton; other theme muted surfaces retain foundation behavior.",
-      "source": "https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/Studio?node-id=4705-8286"
+      "reason": "Demonstrate proposed neutral #F5F5F5 within this component family; other theme muted surfaces retain foundation behavior.",
+      "source": "packages/shoreline/src/themes/horizon/tokens-buttons.css: experimental proposal"
     },
     {
       "name": "--sl-button-font",
       "reason": "Horizon 14px/24px at weight 550; preserve existing Sunrise action font.",
-      "source": "https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/Studio?node-id=4702-3895"
+      "source": "packages/shoreline/src/themes/horizon/tokens-buttons.css: experimental proposal"
     },
     {
       "name": "--sl-button-letter-spacing",
       "reason": "Horizon tracking -0.17px at the default 16px root.",
-      "source": "https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/Studio?node-id=4702-3895"
+      "source": "packages/shoreline/src/themes/horizon/tokens-buttons.css: experimental proposal"
     },
     {
       "name": "--sl-button-small-height",
@@ -160,8 +159,8 @@
     },
     {
       "name": "--sl-button-normal-height",
-      "reason": "Retain 36px normal height. Explicitly normalize the Figma text-button 37px frame (including 0.5px border) to the 36px IconButton and Shoreline scale.",
-      "source": "https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/Studio?node-id=4702-3895"
+      "reason": "Retain the existing 36px normal height in both themes, keeping text and icon controls on the same component scale.",
+      "source": "packages/shoreline/src/themes/sunrise/tokens-components.css"
     },
     {
       "name": "--sl-button-large-height",
@@ -186,7 +185,7 @@
     },
     {
       "name": "--sl-button-outline-font",
-      "reason": "Medium 500 14px/20px translates styleguide toolbarOutline typography, distinct from the Studio primary label 550.",
+      "reason": "Medium 500 14px/20px translates the styleguide toolbarOutline typography into an experimental shared variant.",
       "source": "components/shoreline/button/button.css: toolbarOutline"
     },
     {
@@ -204,7 +203,7 @@
     },
     {
       "name": "--sl-button-focus-ring-accent",
-      "reason": "Preserve Sunrise focus; Horizon uses verified primary #0366DD against the white gap (5.32:1)."
+      "reason": "Preserve Sunrise focus; Horizon proposes primary #0366DD against the white gap (5.32:1)."
     },
     {
       "name": "--sl-button-focus-ring-critical",
@@ -216,16 +215,16 @@
     },
     {
       "name": "--sl-button-min-width",
-      "reason": "Horizon uses auto so text buttons hug their label and padding, matching Studio content-sized geometry. Sunrise retains its existing 100px minimum; IconButton remains square via its explicit size.",
-      "source": "https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/Studio?node-id=4702-3895"
+      "reason": "Propose content-sized text buttons in Horizon using auto minimum width. Sunrise retains its existing 100px minimum; IconButton remains square via its explicit size.",
+      "source": "packages/shoreline/src/themes/horizon/tokens-buttons.css: experimental proposal"
     }
   ],
   "impact": {
-    "summary": "Add shape=default|rounded, size=small (32px), variant=success|outline to the shared Button API inherited by IconButton. Existing Sunrise default styles remain unchanged. Horizon default Button styles gain source-verified blue/neutral/typography; no universal rounded default and no icon-size change. Shared tests exercise both API consumers. Horizon button focus rings use stronger semantic colors for visibility; other components and Sunrise keep their existing focus tokens. Horizon text buttons hug content via auto minimum width; Sunrise retains its existing 100px minimum. Optional Button tokens fall back at each CSS consumer to the existing semantic tokens in Sunrise; no root aliases capture and break local overrides.",
+    "summary": "Add shape=default|rounded, size=small (32px), variant=success|outline to the shared Button API inherited by IconButton. Existing Sunrise default styles remain unchanged. Horizon default Button styles gain proposed blue, neutral and typography tokens; no universal rounded default and no icon-size change. Shared tests exercise both API consumers. Horizon button focus rings use stronger semantic colors for visibility; other components and Sunrise keep their existing focus tokens. Horizon text buttons hug content via auto minimum width; Sunrise retains its existing 100px minimum. Optional Button tokens fall back at each CSS consumer to the existing semantic tokens in Sunrise; no root aliases capture and break local overrides.",
     "consumerAction": "Existing consumers require no change. Horizon consumers select its complete stylesheet in an isolated document. Replace wrapper data-sl-shape/tone usage with shape and variant; tone=success maps variant=success and tone=toolbarOutline maps variant=outline with size=small. This remains branch-only RFC code pending acceptance."
   },
   "openQuestions": [
-    "Approve 37px-to36px normalization and the source hover/pressed states not yet specified in Figma.",
+    "Review the proposed geometry, colors, typography and interaction states as part of the initial theme vocabulary.",
     "Approve accessibility-adjusted success colors, compact 32px and outline as reusable shared variants.",
     "Review canonical visual baselines, screen reader behavior and full package coverage before release."
   ],
@@ -248,7 +247,7 @@
     {
       "kind": "accessibility",
       "result": "pending",
-      "description": "Computed success contrast 5.33:1 and verified primary 5.32:1; browser axe, focus contrast and manual assistive-technology review still required."
+      "description": "Computed success contrast 5.33:1 and proposed primary contrast 5.32:1; browser axe, focus contrast and manual assistive-technology review still required."
     },
     {
       "kind": "types",

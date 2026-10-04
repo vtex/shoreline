@@ -3,7 +3,7 @@
   "kind": "theme",
   "id": "horizon",
   "status": "draft",
-  "intent": "Build Horizon as a reusable Shoreline theme for AI Workspace, Studio and other products, with explicit global CSS entrypoints and foundation tokens.",
+  "intent": "Propose Horizon as a reusable Shoreline theme for AI Workspace, Studio and design-team templates or prototypes, with explicit global CSS entrypoints and foundation tokens. This is the initial RFC v1.0 proposal; the branch demonstrates capabilities pending review.",
   "target": {
     "package": "@vtex/shoreline",
     "themes": ["horizon"],
@@ -24,7 +24,7 @@
   },
   "tokens": [],
   "impact": {
-    "summary": "Horizon provides an alternative global theme, sharing existing reset, base and component styles through CSS imports and extending the available token values. Theme composition and imports are explicit inputs to review. Experimental Button/IconButton-specific tokens now reflect verified Studio Figma defaults, while shared API extensions are recorded in the component contracts for both themes.",
+    "summary": "Horizon proposes an alternative global theme sharing reset, base and component styles through CSS imports and extending token values. Theme composition, semantic vocabulary and consumer adoption are explicit inputs to review. Experimental component-specific tokens demonstrate scoped decisions; shared API examples and their limits are recorded in component contracts for both themes.",
     "consumerAction": "Select @vtex/shoreline/themes/horizon as the complete stylesheet for the document, or use its split exports with the declared layer order. Use one complete global theme per document."
   },
   "openQuestions": [

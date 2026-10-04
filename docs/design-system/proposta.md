@@ -1,130 +1,136 @@
-# RFC: Horizon — um tema do Shoreline
+# RFC: Shoreline Horizon
 
 | Criada em | 03/10/2026 | Status | Em revisão |
 | --- | --- | --- | --- |
-| Versão atual | 0.2 | Proponente | William Cunha |
+| Versão atual | 1.0 | Proponente | William Cunha |
 
 Revisores propostos: Design System, AI Workspace, Studio e Design. Responsáveis a confirmar.
 
 ## Changelog
 
-03/10/2026 · **0.2** — comparação com Sunrise usando Button e IconButton reais; referências de Studio verificadas no Figma; separação entre evidência de Design, adaptações e hipóteses.
-
-03/10/2026 · **0.1** — proposta inicial e inventário da demonstração existente.
+03/10/2026 · **1.0** — Proposta inicial.
 
 ## Resumo
 
-Propomos construir **Horizon como um tema adicional do Shoreline**, para o **AI Workspace, o Studio e os templates e protótipos dos times de Design**. A apresentação será definida por tokens e CSS do tema. A API React, o comportamento e os recursos de acessibilidade continuarão compartilhados no Shoreline.
+Propomos construir **Horizon como um tema do Shoreline e uma base visual compartilhada pelo AI Workspace, pelo Studio e pelos templates e protótipos de Design**.
 
-A decisão solicitada é aprovar essa direção e um piloto com Button e IconButton. Sunrise continuará como padrão; a adoção de Horizon será explícita por consumidor. A [branch de referência](https://github.com/vtex/shoreline/tree/feat/horizon-theme-rfc) contém uma **prova de conceito para revisão**, incluindo o trabalho antes não commitado. Aprovar esta RFC não significa aprovar todo o diff, publicar o pacote ou migrar os produtos.
+Hoje, o AI Workspace obtém parte de sua aparência **sobrescrevendo estilos e tokens de Shoreline dentro da aplicação**. O template usado por Design também mantém suas próprias adaptações e já diverge da implementação oficial. Como Studio precisará de uma interface similar, reproduzir esse modelo em mais um produto ampliará a duplicação de estilos, o retrabalho e a dificuldade de manter consistência. Essa forma de evolução não escala para os três contextos.
+
+A proposta é tornar **Shoreline com Horizon a fonte da verdade das decisões visuais reutilizáveis**. Design poderá construir e validar interfaces com os mesmos componentes e tokens disponíveis no projeto oficial. O resultado esperado é reaproveitar a implementação aprovada, em vez de reconstruir a aparência de um protótipo em cada produto.
+
+Esta RFC solicita acordo sobre a arquitetura, o escopo inicial e o processo de adoção. Todo o trabalho existente é uma demonstração inicial de possibilidades. Sunrise permanece como tema padrão; Horizon será adotado explicitamente pelos consumidores.
 
 ## Não objetivos
 
-Este ciclo não pretende substituir Sunrise, criar outra biblioteca React, migrar todas as telas, homologar dark mode ou incorporar automaticamente todos os wrappers e tokens das aplicações. Composer, Conversation, navegação e regras de negócio permanecem responsabilidades dos produtos. O ferramental experimental apoia a proposta, mas não constitui o objetivo da RFC.
+Não propomos substituir Sunrise, criar outra biblioteca React, migrar todas as telas de uma vez ou transformar o template em uma cópia da aplicação oficial. Autenticação, permissões, dados, navegação e regras de negócio continuam sob responsabilidade dos produtos. A aparência compartilhada não exige que AI Workspace e Studio tenham os mesmos fluxos.
 
-## Motivação
+## Contexto e problema
 
-AI Workspace e os templates já adaptam Shoreline por meio de tokens, overrides e wrappers. Design precisa demonstrar a experiência desejada, enquanto os produtos precisam reproduzi-la com comportamento consistente. Manter essas decisões em cada aplicação aumenta a possibilidade de divergência.
+### O que está distribuído hoje
 
-Horizon propõe uma fonte versionada para a apresentação reutilizável. O piloto deverá demonstrar redução de overrides e aproximação entre Design e implementação; esses benefícios ainda não foram medidos.
-
-### Evidências e limites das fontes
-
-| Fonte | O que já existe | Consequência para a proposta |
+| Projeto | Situação atual | Problema a resolver |
 | --- | --- | --- |
-| AI Workspace | Wrappers de Button/IconButton, shape rounded e tom success; tema com cinzas azulados e azul #1E4EE5. | Há necessidades compartilháveis, mas não uma especificação final de Horizon. |
-| AIW Styleguide | Catálogo do shell template, com toolbarOutline e intenção de tamanho 32 px; versões diferentes de Shoreline e Agentic UI. | Usar como evidência complementar. O arquivo sl-theme.css legado está inativo. |
-| Studio no Figma | Botão primário azul #0366DD, raio 12 px, Inter 14/24, peso 550; ações de adicionar e enviar de 36 px, a segunda circular. | Referência visual verificada para os exemplos desta RFC, restrita aos frames consultados. |
-| Shoreline | Componentes compartilhados; experimento de Horizon e infraestrutura de temas. | Evoluir a demonstração por contratos e testes, preservando o comportamento padrão de Sunrise. |
+| AI Workspace no Admin Platform | Usa Shoreline e aplica tema local, CSS global e wrappers que alteram sua apresentação e acrescentam capacidades. | A linguagem visual depende de sobrescritas mantidas dentro do produto. |
+| ai-workspace-shell-template | É o projeto utilizado por Design para explorar interfaces. Mantém tokens, tipografia, estilos e composições próprios. | Uma interface construída no template não chega automaticamente ao projeto oficial com a mesma aparência e API. |
+| AIW Styleguide | Apresenta exemplos e documenta decisões do template. | O catálogo ajuda na discussão, mas não deve se tornar outra implementação independente dos componentes. |
+| Studio | Precisará consumir uma linguagem visual similar à do AI Workspace. | Copiar as adaptações atuais criaria mais uma base para sincronizar. |
 
-As fontes **não são equivalentes nem totalmente convergentes**. O Figma de Studio preserva o azul #0366DD; o tema atual do AI Workspace usa outro azul. A PoC aplica a referência Studio aos controles demonstrados, sem declarar aprovada uma paleta única para todo Horizon. Os snapshots e nós específicos estão nas referências.
+O ciclo atual é: uma decisão visual entra no template ou na aplicação, é adaptada localmente e precisa ser reconciliada nas demais bases. Correções de foco, densidade ou estados podem seguir caminhos diferentes. O problema não é a existência de protótipos, mas a ausência de uma base reutilizável que conecte a exploração de Design à implementação oficial.
+
+### O que a comparação dos repositórios mostrou
+
+O template e a shell oficial já compartilham cores, raios e sombras centrais. Ainda assim, há diferenças concretas: itens da sidebar têm 36 px no template e 40 px no oficial; o template possui uma camada própria de papéis tipográficos; variantes e composições evoluíram de forma distinta. Também usam versões resolvidas diferentes: Shoreline 1.12.3 e Agentic UI 0.4.4 no template, contra Shoreline 1.12.19 e Agentic UI 0.7.0-beta.16 no oficial. **Adotar uma paleta comum, isoladamente, não elimina essas diferenças.**
+
+A comparação considera `ai-workspace-shell-template` e o código versionado em `admin-platform/ai-workspace/shell`. Neste checkout, `admin-platform/apps/ai-workspace-shell` contém apenas artefatos locais, sem o código-fonte do workspace atual. O README do template registra sua descontinuação após a migração para Admin Platform; seu uso como referência de exploração por Design não o torna a fonte oficial do produto.
 
 ## Proposta
 
-### Tema explícito, implementação compartilhada
+### Uma fonte da verdade para apresentação reutilizável
 
-Horizon pertencerá a `@vtex/shoreline`, em `src/themes/horizon`, usando o motor de CSS existente. Reset e base serão compartilhados. A herança de regras e tokens Sunrise deverá ser revisada por componente: uma mudança compartilhada exige verificar os dois temas.
+Horizon reunirá tokens semânticos de cor, tipografia, espaçamento, raios, superfícies e estados. Os componentes React continuarão pertencendo ao Shoreline, com comportamento, acessibilidade, composição e APIs compartilhados. O tema será distribuído pelo mesmo pacote, com versão e documentação.
+
+As responsabilidades propostas são:
+
+- **Shoreline e Horizon:** manter as decisões visuais e capacidades aprovadas que fazem sentido para mais de um consumidor.
+- **Template de Design:** consumir o pacote e o tema, explorar composições e demonstrar necessidades ainda não cobertas. Experimentos locais deverão ser identificados para revisão, sem se tornarem silenciosamente um segundo design system.
+- **AI Workspace e Studio:** consumir a mesma base visual e manter suas integrações, jornadas e regras de produto.
+- **Styleguide:** apresentar exemplos executáveis dessa base, evitando definições próprias que contradigam o pacote.
+
+A adoção do tema será feita na entrada da aplicação. Exemplo de consumo proposto:
 
 ```tsx
 import '@vtex/shoreline/themes/horizon'
-import { Button, IconButton, IconArrowUp } from '@vtex/shoreline'
+import { Button } from '@vtex/shoreline'
 
-<Button variant="primary" shape="rounded">Criar tarefa</Button>
-<IconButton label="Enviar mensagem" variant="primary" shape="rounded">
-  <IconArrowUp />
-</IconButton>
+export function Example() {
+  return <Button variant="primary">Continuar</Button>
+}
 ```
 
-O export de tema existe na branch experimental; não se afirma disponibilidade na versão publicada. `@vtex/shoreline/css` continua selecionando Sunrise. Os estilos usam `:root` e seletores globais: deve haver **um tema completo por documento**. A comparação abaixo usa iframes isolados. Convivência na mesma árvore, incluindo portais, precisa de uma solução própria antes de ser prometida.
+Esse ponto de entrada existe na branch de demonstração, ainda sujeito ao processo de publicação. O import atual `@vtex/shoreline/css` continua selecionando Sunrise. Como os estilos são globais, cada documento deve carregar um tema completo; a demonstração isola os temas para compará-los.
 
-### Button: comparação com o que existe
+### Do protótipo ao projeto oficial
 
-![Button: comparação de Sunrise existente com Horizon proposto.](assets/button-comparison.png)
+Uma necessidade identificada por Design será classificada como decisão de tema, capacidade de componente ou composição de produto. As duas primeiras serão propostas e revisadas no Shoreline. Depois de aprovadas, o template e os produtos consumirão a mesma versão, reduzindo a necessidade de sobrescritas.
 
-*Figura 1. Componentes React reais, com o CSS compilado de cada tema. As primeiras linhas comparam os mesmos controles; as seguintes mostram extensões ausentes na API anterior. Ampliação de 1,5× para leitura. A imagem é evidência da implementação experimental, não aceite de Design.*
+As composições poderão ser reaproveitadas no projeto oficial quando suas dependências e contratos permitirem. Mocks e dados de demonstração serão substituídos pelas integrações reais, preservando os componentes e estilos compartilhados. Layouts específicos de página não serão promovidos automaticamente ao design system.
 
-| Decisão | Sunrise existente | Horizon demonstrado |
-| --- | --- | --- |
-| Primário | Azul #0366DD; raio 8 px. | Mesmo azul; raio 12 px. A mudança não é uma troca arbitrária de cor. |
-| Tipografia padrão | Inter 14/20; peso 600. | Inter 14/24; peso 550; tracking −0,17 px, conforme Studio. |
-| Dimensões | Normal 36 px, large 44 px; largura mínima 100 px. | Mantém 36/44 px; largura ajustada ao conteúdo. Acrescenta small de 32 px. |
-| Forma | Forma padrão. | Padrão e rounded explícito; rounded não se torna o default. |
-| Extensões | Cinco variantes existentes. | Preserva as cinco; propõe success e outline com API tipada. |
+Esse fluxo permite que Design valide interfaces próximas do que pode ser entregue. Também evita exigir que a Engenharia copie todo o template ou refaça sua apresentação a cada evolução.
 
-A API proposta acrescenta `shape="rounded"`, `size="small"`, `variant="success"` e `variant="outline"` aos componentes compartilhados. As opções funcionam nos dois temas; os defaults existentes continuam `secondary`, `normal` e `default`. O exemplo à esquerda limita-se à API anterior para tornar a evolução visível.
+### Demonstração das capacidades
 
-### IconButton: forma e área de interação
+Button e IconButton servem como **exemplos concretos do mecanismo de temas**, não como o escopo completo de Horizon. As imagens comparam componentes React reais de Sunrise com a apresentação experimental de Horizon.
 
-![IconButton: comparação de Sunrise existente com Horizon proposto.](assets/icon-button-comparison.png)
+![Comparação de Button nos temas Sunrise e Horizon.](assets/button-comparison.png)
 
-*Figura 2. Adicionar compara a forma padrão; Enviar compara a ação existente com a composição circular proposta; Compacto demonstra a extensão de 32 px. Desabilitado e carregando são estados reais, com a animação pausada para captura. Todos os controles têm nome acessível.*
+*Figura 1. Comparação de aparência e capacidades propostas: raios, tipografia, largura conforme conteúdo, forma arredondada, contorno e sucesso. O lado Sunrise representa as opções anteriores; as extensões da API são compartilhadas pelos dois temas.*
 
-IconButton compartilha variantes, tamanhos, forma e estados de Button. O padrão Horizon é 36 × 36 px com raio 12 px; `shape="rounded"` produz o círculo visto na ação de enviar do Studio. Os ícones continuam com 20 px. O estado loading mantém a área e impede nova ativação. A matriz no Storybook também cobre os tamanhos 32 e 44 px e as variantes críticas.
+![Comparação de IconButton nos temas Sunrise e Horizon.](assets/icon-button-comparison.png)
 
-### O que foi adaptado — e precisa de revisão
+*Figura 2. O mesmo mecanismo aplicado a ações com ícones: forma padrão ou circular, opção compacta e estados desabilitado e carregando. A animação foi pausada somente para a captura.*
 
-O [botão primário de Studio](https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/FastStore-AI-Native-Vision?node-id=4702-3895) mede 37 px, incluindo a borda. A PoC normaliza a altura para 36 px e mantém a implementação sem essa borda, para compatibilidade com o contrato atual. Portanto, não se declara equivalência pixel a pixel.
-
-O contorno compacto vem do **toolbarOutline do styleguide**: 32 px, peso 500 e tracking −0,28 px. Ele não representa o botão de sugestão de Studio, que tem 37 px, peso 450 e sombra. Os controles de canvas de 28 px também não entram no piloto como um tamanho universal.
-
-O sucesso usa verde mais escuro que o wrapper de origem: branco sobre green-9 resulta em aproximadamente 4,10:1; a proposta usa green-10, aproximadamente 5,33:1. O CSS de contorno também corrige usos inválidos de tokens de borda e foco encontrados na referência. O foco de Horizon recebe anéis de maior contraste, preservando o foco existente de Sunrise.
-
-Os frames consultados não especificam a matriz completa de hover, pressionado, foco, disabled e loading. Esses estados são **comportamentos herdados ou propostas de Engenharia**, sujeitos à revisão de Design e acessibilidade. Não constituem uma especificação aprovada pelo Figma.
+As medidas e variantes demonstradas são hipóteses iniciais para revisão conjunta de Design e Engenharia. A proposta preserva os defaults existentes de Sunrise e exercita novos tokens, estados e opções de API. O aceite do tema deverá cobrir também formulários, navegação, conteúdo e dados, feedback e sobreposições, conforme o inventário de necessidades dos consumidores.
 
 ## Adoção e critérios de aceite
 
-| Etapa | Entrega esperada | Responsabilidade proposta |
-| --- | --- | --- |
-| Alinhar fundações | Resolver divergência de paleta, validar tokens semânticos e fechar estados do piloto. | Design + Design System. |
-| Validar controles | Aprovar Button/IconButton, API e diferenças intencionais; revisar Sunrise e Horizon isoladamente. | Design System + Engenharia. |
-| Exercitar consumidores | Um fluxo de AI Workspace com Agentic UI, um fluxo de Studio e um template de Design usando o mesmo pacote. | Cada time confirma fluxo e responsável. |
-| Ampliar e distribuir | Incluir um campo e um overlay para testar erro, foco e portais; definir versão, migração gradual e rollback. | Mantenedores e times consumidores. |
+Propomos evoluir por etapas, com responsáveis confirmados pelos times antes de definir prazos:
 
-O aceite para publicação exige build, tipos, lint, testes de unidade e interação; cobertura mínima constitucional por pacote; todos os Show nos temas e viewports previstos; revisão de contraste, teclado, foco, zoom, nomes acessíveis e tecnologias assistivas; baselines visuais revisadas e aprovação de Design e Engenharia. Capturas locais não substituem esses critérios.
+| Etapa | Resultado esperado |
+| --- | --- |
+| Consolidar a base | Inventariar sobrescritas e divergências; definir tokens, papéis tipográficos e capacidades reutilizáveis com Design e Design System. |
+| Alinhar o template | Fazer o ambiente de Design consumir Horizon e as versões acordadas dos componentes; identificar os experimentos que ainda dependem de decisão. |
+| Validar no produto | Reproduzir uma interface representativa do template na shell oficial, usando a mesma base visual; validar também o consumo em um fluxo de Studio. |
+| Distribuir e ampliar | Publicar pelo processo do Shoreline, migrar gradualmente e ampliar a cobertura por famílias de componentes, com documentação e regressões. |
 
-No piloto, registrar versões realmente consumidas, overrides removidos ou mantidos, divergências encontradas e esforço para criar o template. Não definir datas antes da estimativa e da confirmação de responsáveis.
+O aceite deve demonstrar que uma decisão visual aprovada chega ao template e ao produto pelo pacote compartilhado, que os overrides substituídos foram removidos e que as diferenças remanescentes têm justificativa. Devem ser registrados as versões testadas, o esforço de integração e os ajustes necessários para reaproveitar a interface.
+
+Para publicar, exigir build, tipos, lint, testes de unidade e interação, cobertura mínima de 80% de linhas por pacote público, revisão visual dos temas em desktop e mobile e validação de contraste, teclado, foco, zoom e tecnologias assistivas. Design e Engenharia aprovam o resultado. A migração deve permitir retorno à versão e à configuração anteriores do consumidor.
+
+## Estado da demonstração
+
+A branch `feat/horizon-theme-rfc` contém o experimento de tema, componentes, imagens e ferramentas de apoio. Na execução registrada, o build, 189 testes unitários, 100 testes do ferramental e seis cenários de interação passaram. As comparações de Button e IconButton passaram nos oito combinações de componente, tema e viewport, sem violações detectadas pelo axe.
+
+A demonstração ainda não está homologada: a checagem global de tipos apresenta oito diagnósticos fora desses componentes; o diagnóstico geral registrado apresentou 36 falhas de acessibilidade em outros componentes; baselines visuais no ambiente canônico, cobertura por pacote e integração dos três consumidores permanecem pendentes. Esses limites não invalidam a discussão da arquitetura, mas precisam ser resolvidos no escopo correspondente antes da publicação. A aprovação desta RFC não aprova automaticamente todo o código experimental.
 
 ## Alternativas e riscos
 
-Manter wrappers por produto reduz o investimento inicial, mas conserva decisões duplicadas. Criar outra biblioteca duplica API, comportamento e manutenção. Substituir Sunrise amplia o impacto antes de validar os consumidores. Recomendamos o tema adicional por permitir adoção explícita e aproveitar a infraestrutura existente.
+Manter as sobrescritas por projeto exige menos investimento imediato, mas amplia a duplicação conforme novos consumidores surgem. Criar outra biblioteca repete APIs, comportamento e manutenção. Substituir Sunrise impõe uma migração mais ampla do que o problema exige. Recomendamos Horizon como tema adicional para permitir adoção gradual da base existente.
 
-Os principais riscos são a cascata de CSS dos produtos, a herança entre temas e as versões distintas de Shoreline/Agentic UI. O piloto precisa verificar imports, overrides, portais e estilos computados em cada integração. Tokens de layout específico de produto não serão promovidos apenas porque aparecem no inventário.
-
-A branch ainda é uma demonstração ampla. Tema, infraestrutura e correções compartilhadas deverão ser separados em mudanças revisáveis após a decisão. O [registro de validação desta revisão](validacao-rfc-v2.md) distingue checks executados de pendências. Acessibilidade completa, regressão visual canônica e integração dos três consumidores permanecem critérios de aceite, não resultados presumidos.
+Os principais riscos são mover estilos específicos de produto para o tema, preservar overrides que passam a competir com Horizon e validar o template sem validar o runtime oficial. A mitigação é classificar cada necessidade, alinhar versões, revisar a cascata de CSS e testar interfaces reais nos consumidores. Um tema resolve a apresentação compartilhada; a convergência das composições exige trabalho conjunto entre Design e os times de produto.
 
 ## Questões para revisão
 
-1. Concordamos com Horizon como tema adicional para os três contextos, mantendo Sunrise como padrão?
-2. Qual direção resolve a divergência entre a paleta de AI Workspace e os controles de Studio?
-3. Aprovamos a geometria, a tipografia e as adaptações de altura, sucesso e foco demonstradas?
-4. Rounded, small, success e outline devem integrar a API compartilhada ou alguma necessidade permanece contextual?
-5. Quem responde pelos tokens, pelos três pilotos e pelo aceite? Há necessidade real de dois temas no mesmo documento?
+1. Concordamos que Shoreline com Horizon deve ser a fonte da verdade visual para os três contextos?
+2. Quais famílias de componentes e interfaces representativas compõem o primeiro ciclo de adoção?
+3. Como organizar a contribuição de Design e Engenharia para que experimentos do template se tornem capacidades reutilizáveis?
+4. Quem mantém os tokens, o template consumidor, as integrações e o aceite de cada etapa?
 
 ## Referências
 
-- [RFC de referência — LLM Assistant: state of the art](https://docs.google.com/document/d/1ORu3Kz_cwYL_yrtI7wx_YAbU-zzjAausQ2Hzcp8FAiY/edit?tab=t.6u2kbvehd5o9): estrutura, metadados, títulos rosa e corpo cinza em formato sem páginas.
-- [Studio — botão primário](https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/FastStore-AI-Native-Vision?node-id=4702-3895), [adicionar](https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/FastStore-AI-Native-Vision?node-id=4705-8286) e [enviar](https://www.figma.com/design/9H5oTQK9dmft7JCoOkSLgx/FastStore-AI-Native-Vision?node-id=4705-8027): frames verificados, sem matriz completa de estados.
-- [AI Workspace — snapshot 7bb6cb1](https://github.com/vtex/admin-platform/tree/7bb6cb122dd5ee45cc1bc0031a84fb8b9a130508/ai-workspace/shell): tema ativo e wrappers de Button/IconButton.
-- [AIW Styleguide — snapshot baceafa](https://github.com/vtex/aiw-styleguide/tree/baceafacc9e32a863987dad06da5a6654b387d6b): catálogo do template, tema ativo e toolbarOutline.
-- [Branch experimental](https://github.com/vtex/shoreline/tree/feat/horizon-theme-rfc), [preview reproduzível](preview/README.md) e [fundações Horizon](../../packages/shoreline/src/themes/horizon/README.md).
-- [Constituição](https://github.com/vtex/shoreline-specs/blob/main/.specify/memory/constitution.md), [padrões de engenharia](https://github.com/vtex/shoreline-specs/blob/main/docs/patterns.md) e [runbook](../../tools/design-system/README.md).
+As referências sustentam a análise; o problema, a proposta, o processo de adoção e as pendências estão descritos nesta RFC.
+
+- [AI Workspace no Admin Platform](https://github.com/vtex/admin-platform/tree/7bb6cb122dd5ee45cc1bc0031a84fb8b9a130508/ai-workspace/shell): estilos locais, wrappers, integrações e dependências oficiais.
+- [Template utilizado por Design](https://github.com/vtex/ai-workspace-shell-template/tree/a287ee816d06b0b4325da3ea64b22675ff820ce4): tema, tokens, tipografia e composições comparados.
+- [AIW Styleguide](https://github.com/vtex/aiw-styleguide/tree/baceafacc9e32a863987dad06da5a6654b387d6b): catálogo complementar do template.
+- [Branch de demonstração](https://github.com/vtex/shoreline/tree/feat/horizon-theme-rfc) e [preview executável](preview/README.md).
+- [Constituição do Shoreline](https://github.com/vtex/shoreline-specs/blob/main/.specify/memory/constitution.md): critérios de contribuição e qualidade.

@@ -1,4 +1,5 @@
-"""Build native HTML paste segments; images are inserted separately in Google Docs."""
+"""Build HTML segments plus placeholders for native Google Docs code blocks."""
+import argparse
 import html
 import json
 import posixpath
@@ -8,6 +9,12 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[3]
 md = (root / 'docs/design-system/proposta.md').read_text()
 base = 'https://github.com/vtex/shoreline/blob/feat/horizon-theme-rfc/'
+parser = argparse.ArgumentParser()
+parser.add_argument('--body-only', action='store_true', help='Preserve existing native title and metadata in Google Docs')
+args = parser.parse_args()
+if args.body_only:
+    md = '## Changelog' + md.split('## Changelog', 1)[1]
+native_code_blocks = []
 body_style = 'font-family:Arial;font-size:11pt;color:#666666;line-height:115%'
 
 def inline(value):
@@ -37,7 +44,9 @@ def convert(part):
                 code.append(lines[i])
                 i += 1
             i += 1
-            result.append('<pre style="font-family:Courier New;font-size:9pt;line-height:115%;color:#434343;background:#f3f3f3;padding:8px">' + html.escape('\n'.join(code)) + '</pre>')
+            placeholder = f'HORIZON_NATIVE_CODE_EXAMPLE_{len(native_code_blocks) + 1}'
+            native_code_blocks.append({'placeholder': placeholder, 'language': 'TypeScript', 'text': '\n'.join(code)})
+            result.append('<p style="' + body_style + ';margin:10pt 0">' + placeholder + '</p>')
             continue
         heading = re.match(r'^(#{1,3}) (.*)', line)
         if heading:
@@ -90,8 +99,9 @@ def convert(part):
 
 parts = re.split(r'^!\[[^\]]*\]\([^\n]+\)\s*$', md, flags=re.M)
 assert len(parts) == 3
-output = root / 'artifacts/horizon-rfc-v2'
+output = root / 'artifacts/horizon-rfc-v1'
 output.mkdir(parents=True, exist_ok=True)
 segments = [{'html': convert(part), 'text': part.strip()} for part in parts]
 (output / 'google-doc-segments.json').write_text(json.dumps(segments, ensure_ascii=False))
-print(f'{len(md.split())} words; {len(segments)} segments; 2 native images')
+(output / 'native-code-blocks.json').write_text(json.dumps(native_code_blocks, ensure_ascii=False))
+print(f'{len(md.split())} words; {len(segments)} segments; 2 native images; {len(native_code_blocks)} native code blocks')
