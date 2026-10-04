@@ -1,35 +1,6 @@
 # Evidências para a RFC Horizon
 
-Consulta ao GitHub em 04/10/2026, às 03:47 UTC. A RFC permanece na versão inicial 1.0. Este registro sustenta as afirmações sobre contribuição, origem do Styleguide e separação da camada visual de Agentic UI.
-
-## Atividade do Shoreline
-
-A análise considera três meses completos, de 01/07 a 30/09/2026. A fonte principal são os PRs efetivamente integrados, contados pela data de merge, e as publicações do pacote `@vtex/shoreline`.
-
-| Indicador | Resultado observado |
-| --- | --- |
-| PRs integrados no trimestre | 9: julho 0, agosto 8, setembro 1. |
-| Autoria dos PRs integrados | 3 contas classificadas como User pela API, distribuídas em 6, 2 e 1 PRs. Nenhuma conta Bot nessa amostra. |
-| Concentração das contribuições | 6 dos 9 PRs, aproximadamente 67%, vieram de uma conta. |
-| Contas que efetuaram os merges | 3, também distribuídas em 6, 2 e 1 merges. |
-| Publicações do pacote principal | 8, de 1.12.14 a 1.12.21. |
-| Última publicação | 1.12.21 em 28/09/2026. |
-| Intervalo entre as duas últimas publicações | 44,97 dias: 1.12.20 em 14/08 e 1.12.21 em 28/09. |
-| Fila aberta no momento da consulta | 14 PRs: 10 de Renovate (Bot) e 4 de contas User; destes últimos, 2 drafts e 2 não drafts. |
-
-Fontes: [PRs integrados no trimestre](https://github.com/vtex/shoreline/pulls?q=is%3Apr+is%3Amerged+merged%3A2026-07-01..2026-09-30), [releases](https://github.com/vtex/shoreline/releases), [1.12.21](https://github.com/vtex/shoreline/releases/tag/%40vtex/shoreline%401.12.21), [1.12.20](https://github.com/vtex/shoreline/releases/tag/%40vtex/shoreline%401.12.20) e [PRs abertos](https://github.com/vtex/shoreline/pulls?q=is%3Apr+is%3Aopen).
-
-A `main` remota estava em [`d4aa0778ca9e20fe96a5eb41818594cb6ce09bc3`](https://github.com/vtex/shoreline/commit/d4aa0778ca9e20fe96a5eb41818594cb6ce09bc3), de 28/09/2026. O campo `pushed_at` do repositório também inclui outras branches, como Horizon; não foi usado para medir a evolução entregue na `main`.
-
-### Método e interpretação
-
-A consulta GraphQL usou `repo:vtex/shoreline is:pr is:merged merged:2026-07-01..2026-09-30`. Foram retornados os nove nós, com `issueCount=9`. A classificação User/Bot vem de `author.__typename`; ela identifica o tipo de conta, não o uso de assistência de IA. As releases foram filtradas por tags `@vtex/shoreline@...`, evitando contar a mesma rodada uma vez por pacote do monorepo.
-
-Os dados mostram contribuições concentradas em poucas contas e períodos. A incompatibilidade com o ritmo necessário aos produtos é a necessidade relatada por Engenharia na elaboração desta RFC, considerada junto às adaptações locais identificadas nos consumidores. Quantidade de PRs e intervalo entre versões, isoladamente, não medem produtividade, demanda ou tempo de espera por revisão.
-
-Não há evidência de desaceleração progressiva: os trimestres de 2026 tiveram 7, 4 e 9 PRs integrados, respectivamente. Também não há base para descrever a fila como um grande conjunto de contribuições humanas abandonadas: os drafts [#2160](https://github.com/vtex/shoreline/pull/2160) e [#2161](https://github.com/vtex/shoreline/pull/2161) receberam commits em 28/09, e o PR [#2165](https://github.com/vtex/shoreline/pull/2165), aberto em 20/09, recebeu commit em 03/10. O PR [#2163](https://github.com/vtex/shoreline/pull/2163) foi aberto e teve seu último commit em 24/08.
-
-Como exemplo, a correção de ícone [#2164](https://github.com/vtex/shoreline/pull/2164) levou 32,81 dias entre abertura e merge. Esse é o intervalo total entre abertura e integração; não mede exclusivamente espera por revisão. A proposta prioriza ampliar a capacidade de contribuição, definir responsáveis e acompanhar o tempo entre necessidade, revisão e publicação.
+Análise de código e documentação realizada em 04/10/2026. Este registro sustenta as afirmações sobre a origem do Styleguide e a separação da camada visual de Agentic UI.
 
 ## Origem e práticas do AIW Styleguide
 
