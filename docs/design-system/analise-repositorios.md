@@ -1,6 +1,6 @@
 # Evidências para a RFC Horizon
 
-Análise de código e documentação realizada em 04/10/2026. Este registro sustenta as afirmações sobre a origem do Styleguide, a base atual de Agentic UI e a relação de Horizon com a RFC 34.
+Análise de código e documentação realizada em 04/10/2026. Este registro sustenta as afirmações sobre a origem do Styleguide, a base atual de Agentic UI e as propostas anteriores de evolução do design system.
 
 ## Origem e práticas do AIW Styleguide
 
@@ -26,29 +26,35 @@ Todos os caminhos a seguir são relativos a `building-blocks/agentic-ui/src`:
 | Grupo | Evidência | Implicação para a revisão |
 | --- | --- | --- |
 | Apresentação com poucas dependências de execução | `components/markdown/markdown.tsx`, `components/loader/loader.tsx`, `components/artifact/artifact.tsx` e `components/agent-home.tsx`. Artifact recebe arquivo ou metadados, estado e callback de remoção; não executa upload. | Inventariar apresentação, composição e estados a alinhar à linguagem de Horizon. |
-| Apresentação acoplada ao estado da conversa | `components/messages/message.tsx`, `components/reasoning/reasoning.tsx` e `components/canvas/canvas-trigger.tsx` consultam hooks de mensagens, raciocínio ou canvas. | O alinhamento visual precisa acompanhar a separação arquitetural já proposta na RFC 34. |
+| Apresentação acoplada ao estado da conversa | `components/messages/message.tsx`, `components/reasoning/reasoning.tsx` e `components/canvas/canvas-trigger.tsx` consultam hooks de mensagens, raciocínio ou canvas. | O alinhamento visual precisa considerar as dependências atuais de estado e integração. |
 | Composição com dependência indireta | `components/message-composer/index.tsx` monta `MessageComposerQueue`; `message-composer-queue.tsx` consulta fila e envio imediato. | Documentar a experiência esperada da fila e das ações; coordenar sua disponibilidade com a base conversacional. |
-| Estado e comunicação | `components/chat/chat-provider.tsx`, `components/chat/use-chat/`, `ui-protocol/`, `sse/open-sse.ts` e `agent-integration/`. | A redistribuição dessas responsabilidades pertence à RFC 34; Horizon não redefine runtime ou transporte. |
+| Estado e comunicação | `components/chat/chat-provider.tsx`, `components/chat/use-chat/`, `ui-protocol/`, `sse/open-sse.ts` e `agent-integration/`. | Horizon não redefine runtime ou transporte. As necessidades de interface devem ser coordenadas com os mantenedores da base conversacional. |
 
-Esse inventário descreve o checkout atual, anterior à organização explorada nas branches abaixo. A separação da camada visual é trabalho relacionado da RFC 34. Horizon contribui com a linguagem visual e os critérios de UI/UX a aplicar aos componentes resultantes.
+Esse inventário descreve o checkout atual, anterior à organização explorada nas branches abaixo. Horizon contribui com a linguagem visual e os critérios de UI/UX a aplicar às capacidades reutilizáveis, considerando as propostas relacionadas sem fixar uma organização de pacotes.
+
+## Intenção anterior de evolução do design system
+
+A [RFC 22 — Shoreline AI](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.z8qccnajlshl), na versão 0.1 e com status **Proposal in progress**, já registrava a intenção de evoluir o Shoreline para atender às novas interfaces do AI Workspace. Propunha uma base comum para Design, Engenharia e agentes de IA, com padrões de componentes e composição, documentação estruturada, instruções e skills. O texto previa aproveitar e evoluir a base existente.
+
+Essa versão inicial não teve continuidade, conforme informado pelo proponente de Horizon. Ela documenta o antecedente da necessidade; suas alternativas de arquitetura e compatibilidade não são decisões aprovadas nem premissas desta RFC. Horizon delimita a construção do tema, a linguagem visual compartilhada, o Styleguide e o ferramental de contribuição.
 
 ## Relação com a RFC 34
 
-A [RFC 34 — Shoreline AI on Assistant-UI primitives](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.w0e99t24yluz), consultada com status **In review**, propõe separar apresentação, renderização, estado e protocolo. Seu desenho inclui `@vtex/shoreline-ai` como superfície pública de componentes e APIs conversacionais, Assistant-UI como motor de estado e mecânicas de conversa, e Agentic UI como integração com os serviços VTEX. A RFC 34 deixa a migração dos consumidores existentes fora de seu escopo e prevê seu acompanhamento separado.
+A [RFC 34 — Shoreline AI on Assistant-UI primitives](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.w0e99t24yluz), consultada com status **In review**, propõe separar apresentação, renderização, estado e protocolo. Seu desenho inclui `@vtex/shoreline-ai` como superfície pública de componentes e APIs conversacionais, Assistant-UI como motor de estado e mecânicas de conversa, e Agentic UI como integração com os serviços VTEX. Trata-se de uma possibilidade em discussão; a necessidade de criar um novo pacote permanece em aberto para a evolução do Shoreline. A RFC 34 deixa a migração dos consumidores existentes fora de seu escopo e prevê seu acompanhamento separado.
 
 Foram consultadas via GitHub as branches `feat/poc-shoreline-ai` de Shoreline, no commit [`7f3e12fc451d0eb3b8970ef371e8f40ef90537df`](https://github.com/vtex/shoreline/tree/7f3e12fc451d0eb3b8970ef371e8f40ef90537df), e `feat/shoreline-ai-poc` de ai-agents, no commit [`6a483fdfd25efb1030829a015db6de415c9fc0ec`](https://github.com/vtex/ai-agents/tree/6a483fdfd25efb1030829a015db6de415c9fc0ec).
 
 | Evidência | Consequência para Horizon |
 | --- | --- |
-| O [ponto de entrada de Shoreline AI](https://github.com/vtex/shoreline/blob/7f3e12fc451d0eb3b8970ef371e8f40ef90537df/packages/shoreline-ai/src/index.ts) exporta componentes de conversa, hooks, provider e runtime builder. | Reconhecer o pacote conversacional proposto, preservando uma linguagem visual comum com os componentes gerais de Shoreline. |
-| [useRuntime](https://github.com/vtex/shoreline/blob/7f3e12fc451d0eb3b8970ef371e8f40ef90537df/packages/shoreline-ai/src/runtime/use-runtime.ts) usa `useLocalRuntime` de Assistant-UI. O [adaptador VTEX](https://github.com/vtex/ai-agents/blob/6a483fdfd25efb1030829a015db6de415c9fc0ec/building-blocks/agentic-ui/src/ui-protocol/runtime/provider.tsx) conecta transporte e serviços específicos. | Evitar atribuir todo o estado ou runtime a Agentic UI. Essa organização pertence à RFC 34 e não é uma entrega de Horizon. |
+| O [ponto de entrada de Shoreline AI](https://github.com/vtex/shoreline/blob/7f3e12fc451d0eb3b8970ef371e8f40ef90537df/packages/shoreline-ai/src/index.ts) exporta componentes de conversa, hooks, provider e runtime builder. | O experimento oferece referências de capacidades reutilizáveis. Sua organização em pacote não é uma exigência de Horizon. |
+| [useRuntime](https://github.com/vtex/shoreline/blob/7f3e12fc451d0eb3b8970ef371e8f40ef90537df/packages/shoreline-ai/src/runtime/use-runtime.ts) usa `useLocalRuntime` de Assistant-UI. O [adaptador VTEX](https://github.com/vtex/ai-agents/blob/6a483fdfd25efb1030829a015db6de415c9fc0ec/building-blocks/agentic-ui/src/ui-protocol/runtime/provider.tsx) conecta transporte e serviços específicos. | O experimento explora uma divisão de responsabilidades. Horizon mantém essa escolha fora do escopo e trata apenas de seus efeitos na experiência da interface. |
 | [AIComposerSend](https://github.com/vtex/shoreline/blob/7f3e12fc451d0eb3b8970ef371e8f40ef90537df/packages/shoreline-ai/src/components/composer/ai-composer-send.tsx) combina primitivas de Assistant-UI com IconButton do Shoreline. | Aproveitar a composição existente e revisar sua aparência, os estados e a acessibilidade junto aos demais controles. |
 | O [CSS do composer](https://github.com/vtex/shoreline/blob/7f3e12fc451d0eb3b8970ef371e8f40ef90537df/packages/shoreline-ai/src/styles/components/ai-composer.css) já usa camadas, atributos e tokens de Shoreline, mas também contém dimensões fixas, escolhas diretas de escala de cor e pendências de tokenização. | Alinhar tokens semânticos, dimensões e estados ao Horizon e validar as composições. A presença dos tokens não comprova compatibilidade completa com o tema. |
 
 ### Escopo complementar
 
-Horizon propõe um tema, uma linguagem visual compartilhada entre interfaces administrativas gerais e conversacionais, o Styleguide como referência visual e ferramental para evoluir essa base pelos padrões do Shoreline. A extração do Agentic UI e a criação de Shoreline AI são reconhecidas como trabalho já proposto na RFC 34.
+Horizon propõe um tema, uma linguagem visual compartilhada entre interfaces administrativas gerais e conversacionais, o Styleguide como referência visual e ferramental para evoluir essa base pelos padrões do Shoreline. As RFCs 22 e 34 são antecedentes e discussões relacionadas. A organização das capacidades visuais será avaliada com os mantenedores; criar um novo pacote não é requisito para evoluir o design system.
 
 Assistant-UI, AG-UI, A2A, A2UI, AI SDK e OpenCode aparecem na discussão arquitetural da RFC 34. Esta revisão não verifica a compatibilidade de cada integração nem a transforma em requisito de Horizon. O recorte de streaming em Horizon é a experiência percebida: apresentação progressiva, processamento, ações disponíveis, interrupção e erro. Contratos de eventos, transporte, persistência e execução permanecem na evolução da base conversacional.
 
-A consulta foi documental e de código. As branches indicam o desenho em exploração; não comprovam publicação, aprovação da RFC ou aplicação automática de Horizon a Shoreline AI. A validação visual conjunta permanece uma entrega a realizar.
+A consulta foi documental e de código. As branches indicam o desenho em exploração; não comprovam publicação, aprovação da RFC ou aplicação automática de Horizon aos componentes. A validação visual das capacidades incorporadas permanece uma entrega a realizar.
