@@ -8,53 +8,79 @@
 
 03/10/2026 · **1.0** — Proposta inicial.
 
-## Resumo
+## Contexto e problema
 
-Propomos construir **Horizon como um tema do Shoreline e uma base visual compartilhada pelo AI Workspace, pelo Studio e pelos templates e protótipos de Design**.
+O AI Workspace vem desenvolvendo uma linguagem visual para novas experiências da VTEX. Hoje, parte dessa aparência depende de **sobrescritas de estilos e tokens do Shoreline mantidas dentro da aplicação**. O Studio precisará de uma interface similar, ampliando a necessidade de consistência entre os produtos.
 
-Hoje, o AI Workspace obtém parte de sua aparência **sobrescrevendo estilos e tokens de Shoreline dentro da aplicação**. O template usado por Design também mantém suas próprias adaptações e já diverge da implementação oficial. Como Studio precisará de uma interface similar, reproduzir esse modelo em mais um produto ampliará a duplicação de estilos, o retrabalho e a dificuldade de manter consistência. Essa forma de evolução não escala para os três contextos.
+Ao mesmo tempo, Design explora interfaces no **ai-workspace-shell-template**, enquanto a aplicação oficial evolui no Admin Platform. O template e o produto mantêm adaptações próprias: uma decisão tomada durante a exploração precisa ser reconciliada e implementada novamente para chegar ao produto. O AIW Styleguide reúne exemplos dessa linguagem, mas ainda precisa se consolidar como referência visual compartilhada.
 
-A proposta é tornar **Shoreline com Horizon a fonte da verdade das decisões visuais reutilizáveis**. Design poderá construir e validar interfaces com os mesmos componentes e tokens disponíveis no projeto oficial. O resultado esperado é reaproveitar a implementação aprovada, em vez de reconstruir a aparência de um protótipo em cada produto.
+Reproduzir essas adaptações em cada projeto aumenta a duplicação, o retrabalho e o esforço para manter as interfaces consistentes. A mesma decisão pode ter resultados diferentes no protótipo e no produto, e uma correção precisa ser propagada entre bases independentes. **Esse modelo não escala para a evolução conjunta de AI Workspace, Studio e das interfaces exploradas por Design.**
 
-Sunrise permanece como tema padrão; Horizon será adotado explicitamente pelos consumidores.
+Precisamos conectar a referência visual usada pelo time à implementação consumida pelos produtos, com um processo comum para propor, revisar e distribuir mudanças.
+
+## Objetivos
+
+- Unificar a linguagem visual das novas interfaces da VTEX, começando por AI Workspace e Studio.
+- Aproximar exploração e entrega, permitindo que interfaces construídas por Design reutilizem a base disponível no projeto oficial.
+- Estabelecer referências compartilhadas e um processo de evolução que reduza sobrescritas locais e permita contribuições de pessoas e agentes de IA.
 
 ## Não objetivos
 
-Não propomos substituir Sunrise, criar outra biblioteca React, migrar todas as telas de uma vez ou transformar o template em uma cópia da aplicação oficial. Autenticação, permissões, dados, navegação e regras de negócio continuam sob responsabilidade dos produtos. A aparência compartilhada não exige que AI Workspace e Studio tenham os mesmos fluxos.
-
-## Contexto e problema
-
-### O que está distribuído hoje
-
-| Projeto | Situação atual | Problema a resolver |
-| --- | --- | --- |
-| AI Workspace no Admin Platform | Usa Shoreline e aplica tema local, CSS global e wrappers que alteram sua apresentação e acrescentam capacidades. | A linguagem visual depende de sobrescritas mantidas dentro do produto. |
-| ai-workspace-shell-template | É o projeto utilizado por Design para explorar interfaces. Mantém tokens, tipografia, estilos e composições próprios. | Uma interface construída no template não chega automaticamente ao projeto oficial com a mesma aparência e API. |
-| AIW Styleguide | Apresenta exemplos e documenta decisões do template. | O catálogo ajuda na discussão, mas não deve se tornar outra implementação independente dos componentes. |
-| Studio | Precisará consumir uma linguagem visual similar à do AI Workspace. | Copiar as adaptações atuais criaria mais uma base para sincronizar. |
-
-O ciclo atual é: uma decisão visual entra no template ou na aplicação, é adaptada localmente e precisa ser reconciliada nas demais bases. Correções de foco, densidade ou estados podem seguir caminhos diferentes. Falta uma base reutilizável que conecte a exploração de Design à implementação oficial.
-
-### O que a comparação dos repositórios mostrou
-
-O template e a shell oficial já compartilham cores, raios e sombras centrais. Ainda assim, há diferenças concretas: itens da sidebar têm 36 px no template e 40 px no oficial; o template possui uma camada própria de papéis tipográficos; variantes e composições evoluíram de forma distinta. Também usam versões resolvidas diferentes: Shoreline 1.12.3 e Agentic UI 0.4.4 no template, contra Shoreline 1.12.19 e Agentic UI 0.7.0-beta.16 no oficial. **Adotar uma paleta comum, isoladamente, não elimina essas diferenças.**
-
-A comparação considera `ai-workspace-shell-template` e o código versionado em `admin-platform/ai-workspace/shell`. O README do template registra sua descontinuação após a migração para Admin Platform. Ele permanece como referência de exploração por Design; o código oficial do produto está no Admin Platform.
+Não faz parte desta proposta construir um design system do zero, criar um fork por produto ou reescrever todas as interfaces em uma única migração. Também não se pretende padronizar todas as jornadas ou centralizar regras de negócio: cada produto continua responsável por suas integrações e experiências específicas.
 
 ## Proposta
 
-### Uma fonte da verdade para apresentação reutilizável
+### Horizon como base para novas interfaces da VTEX
 
-Horizon reunirá tokens semânticos de cor, tipografia, espaçamento, raios, superfícies e estados. Os componentes React continuarão pertencendo ao Shoreline, com comportamento, acessibilidade, composição e APIs compartilhados. O tema será distribuído pelo mesmo pacote, com versão e documentação.
+Propomos construir **Horizon como um tema do Shoreline e a fonte da verdade da implementação visual para novas interfaces da VTEX**, começando pela unificação da linguagem de AI Workspace e Studio e pelo uso nos templates e protótipos de Design.
+
+Horizon reunirá as decisões compartilhadas de cor, tipografia, espaçamento, formas, superfícies e estados. A proposta aproveita os componentes, comportamentos e recursos de acessibilidade do Shoreline, evoluindo suas capacidades conforme as necessidades dos consumidores. As decisões aprovadas serão distribuídas pelo pacote, com versão e documentação, para que possam ser reutilizadas nos produtos.
+
+### Styleguide como fonte da verdade visual
+
+A expectativa é que o **AIW Styleguide evolua para a fonte da verdade visual** dessa linguagem: o lugar onde Design e Engenharia consultam a aparência esperada, os estados, as composições e as orientações de uso para construir interfaces coerentes.
+
+Os exemplos do Styleguide deverão consumir Shoreline com Horizon, refletindo a mesma implementação disponível para os produtos. Assim, o Styleguide apresenta e explica a linguagem visual, enquanto Shoreline com Horizon a materializa em componentes e tokens reutilizáveis. Uma decisão aprovada deve atualizar a implementação e sua referência visual de forma coordenada.
 
 As responsabilidades propostas são:
 
-- **Shoreline e Horizon:** manter as decisões visuais e capacidades aprovadas que fazem sentido para mais de um consumidor.
-- **Template de Design:** consumir o pacote e o tema, explorar composições e encaminhar necessidades e experimentos locais para revisão.
-- **AI Workspace e Studio:** consumir a mesma base visual e manter suas integrações, jornadas e regras de produto.
-- **Styleguide:** apresentar exemplos executáveis dessa base, evitando definições próprias que contradigam o pacote.
+- **Design:** definir a linguagem visual, os critérios de uso e o resultado esperado nas interfaces.
+- **Mantenedores do Shoreline:** consolidar essas decisões em Horizon, revisar as capacidades compartilhadas e manter sua distribuição.
+- **Styleguide:** tornar as decisões visíveis e consultáveis por meio de exemplos e orientações alinhados ao pacote.
+- **Template de Design:** consumir essa base, explorar composições e encaminhar novas necessidades para revisão.
+- **AI Workspace e Studio:** adotar a base compartilhada e manter suas integrações e jornadas de produto.
 
-A adoção do tema será feita na entrada da aplicação. Exemplo de consumo proposto:
+### Do protótipo ao projeto oficial
+
+Uma necessidade identificada no template ou em um produto será discutida com Design e Engenharia. Quando for reutilizável, deverá evoluir Horizon ou os componentes do Shoreline e aparecer no Styleguide. As composições específicas permanecem com os produtos.
+
+Depois de publicada, a mesma versão poderá ser adotada pelo template e pelas aplicações. O trabalho de levar uma interface explorada por Design ao projeto oficial passa a se concentrar nas integrações e nas regras do produto, preservando a apresentação compartilhada. As sobrescritas substituídas pelo pacote serão removidas durante a adoção.
+
+### Ferramental para construir e evoluir Horizon
+
+O trabalho que originou a branch de referência inclui **construir o ferramental necessário para criar e evoluir componentes, tokens e temas seguindo as boas práticas do Shoreline, com apoio de agentes de IA (AI agents)**.
+
+Essa estrutura já reúne instruções de descoberta, criação e revisão para agentes; contratos que registram a intenção de cada mudança e seus impactos; e verificações automatizadas de tokens, arquitetura, comportamento, aparência e acessibilidade. O objetivo é tornar as práticas do projeto aplicáveis durante a implementação e produzir resultados que o time consiga revisar.
+
+Com esse contexto, agentes poderão encontrar capacidades existentes, implementar alterações e executar as verificações correspondentes. Design e Engenharia definem os critérios e aprovam o resultado. A consolidação do ferramental acompanhará a construção de Horizon, incluindo a avaliação de contribuições feitas por agentes e a integração das verificações ao fluxo de revisão.
+
+### Exemplos visuais
+
+As imagens comparam Button e IconButton em Sunrise e Horizon.
+
+![Comparação de Button nos temas Sunrise e Horizon.](assets/button-comparison.png)
+
+*Figura 1. Button: raios, tipografia, largura conforme conteúdo, forma arredondada, contorno e sucesso. As novas opções são compartilhadas pelos dois temas.*
+
+![Comparação de IconButton nos temas Sunrise e Horizon.](assets/icon-button-comparison.png)
+
+*Figura 2. IconButton: forma padrão ou circular, opção compacta e estados desabilitado e carregando.*
+
+A cobertura de Horizon avançará por formulários, navegação, conteúdo e dados, feedback e sobreposições, conforme as necessidades dos consumidores.
+
+### Consumo nos projetos
+
+O tema será selecionado na entrada da aplicação, mantendo o uso dos componentes do Shoreline:
 
 ```tsx
 import '@vtex/shoreline/themes/horizon'
@@ -65,68 +91,44 @@ export function Example() {
 }
 ```
 
-Esse ponto de entrada existe na branch `feat/horizon-theme-rfc`; sua publicação seguirá o processo do Shoreline. O import atual `@vtex/shoreline/css` continua selecionando Sunrise. Como os estilos são globais, cada documento deve carregar um tema completo.
-
-### Do protótipo ao projeto oficial
-
-Uma necessidade identificada por Design será classificada como decisão de tema, capacidade de componente ou composição de produto. As duas primeiras serão propostas e revisadas no Shoreline. Depois de aprovadas, o template e os produtos consumirão a mesma versão, reduzindo a necessidade de sobrescritas.
-
-As composições poderão ser reaproveitadas no projeto oficial quando suas dependências e contratos permitirem. Mocks serão substituídos pelas integrações reais, preservando os componentes e estilos compartilhados. Layouts específicos de página não serão promovidos automaticamente ao design system.
-
-Esse fluxo permite que Design valide interfaces próximas do que pode ser entregue. Também evita exigir que a Engenharia copie todo o template ou refaça sua apresentação a cada evolução.
-
-### Exemplos visuais
-
-As imagens comparam Button e IconButton em Sunrise e Horizon.
-
-![Comparação de Button nos temas Sunrise e Horizon.](assets/button-comparison.png)
-
-*Figura 1. Button: raios, tipografia, largura conforme conteúdo, forma arredondada, contorno e sucesso. As novas opções de API são compartilhadas pelos dois temas.*
-
-![Comparação de IconButton nos temas Sunrise e Horizon.](assets/icon-button-comparison.png)
-
-*Figura 2. IconButton: forma padrão ou circular, opção compacta e estados desabilitado e carregando.*
-
-A proposta preserva os defaults existentes de Sunrise. A cobertura de Horizon incluirá formulários, navegação, conteúdo e dados, feedback e sobreposições, conforme o inventário de necessidades dos consumidores.
+Esse ponto de entrada está disponível na branch de referência. A distribuição aos consumidores seguirá o processo de publicação do Shoreline, permitindo adoção gradual.
 
 ## Adoção e critérios de aceite
 
-Propomos evoluir por etapas, com responsáveis confirmados pelos times antes de definir prazos:
+Propomos as seguintes etapas, com responsáveis e prioridades acordados entre os times:
 
 | Etapa | Resultado esperado |
 | --- | --- |
-| Consolidar a base | Inventariar sobrescritas e divergências; definir tokens, papéis tipográficos e capacidades reutilizáveis com Design e Design System. |
-| Alinhar o template | Fazer o ambiente de Design consumir Horizon e as versões acordadas dos componentes; identificar os experimentos que ainda dependem de decisão. |
-| Validar no produto | Reproduzir uma interface representativa do template na shell oficial, usando a mesma base visual; validar também o consumo em um fluxo de Studio. |
-| Distribuir e ampliar | Publicar pelo processo do Shoreline, migrar gradualmente e ampliar a cobertura por famílias de componentes, com documentação e regressões. |
+| Alinhar a linguagem | Definir as decisões visuais compartilhadas, os critérios de uso e as interfaces prioritárias de AI Workspace, Studio e Design. |
+| Consolidar a base e o ferramental | Evoluir Horizon e os componentes necessários, com instruções para agentes, contratos e verificações incorporados ao fluxo de contribuição. |
+| Conectar Styleguide e template | Apresentar a linguagem no Styleguide e usá-la no template, ambos consumindo a base compartilhada. |
+| Validar nos produtos | Levar uma interface representativa do template ao AI Workspace e exercitar a mesma base em Studio, removendo as sobrescritas substituídas. |
+| Distribuir e ampliar | Publicar versões, migrar gradualmente e ampliar a cobertura conforme as necessidades dos consumidores. |
 
-O aceite deve demonstrar que uma decisão visual aprovada chega ao template e ao produto pelo pacote compartilhado, que os overrides substituídos foram removidos e que as diferenças remanescentes têm justificativa. Devem ser registrados as versões testadas, o esforço de integração e os ajustes necessários para reaproveitar a interface.
+O aceite deve demonstrar que uma decisão visual aprovada aparece de forma consistente no Styleguide, no template e nos produtos. O time deve conseguir rastrear essa decisão até os componentes e tokens compartilhados e compreender as diferenças específicas de cada produto.
 
-Para publicar, exigir build, tipos, lint, testes de unidade e interação, cobertura mínima de 80% de linhas por pacote público, revisão visual dos temas em desktop e mobile e validação de contraste, teclado, foco, zoom e tecnologias assistivas. Design e Engenharia aprovam o resultado. A migração deve permitir retorno à versão e à configuração anteriores do consumidor.
+As contribuições, inclusive as realizadas por agentes, devem apresentar implementação, verificações e exemplos revisáveis. A publicação exige atender aos critérios de qualidade do Shoreline, incluindo testes, revisão visual, acessibilidade e aprovação de Design e Engenharia. A adoção deve permitir retorno à versão anterior caso sejam encontradas regressões.
 
-## Validação
-
-Na execução registrada na branch `feat/horizon-theme-rfc`, o build, 189 testes unitários, 100 testes do ferramental e seis cenários de interação passaram. As comparações de Button e IconButton passaram nas oito combinações de componente, tema e viewport, sem violações detectadas pelo axe.
-
-A checagem global de tipos apresenta oito diagnósticos fora desses componentes; o diagnóstico geral anterior registrou 36 falhas de acessibilidade em outros componentes. Permanecem pendentes a correção desses problemas, as baselines visuais no ambiente canônico, a medição de cobertura por pacote e a integração dos três consumidores.
+O trabalho disponível na branch já permite explorar o tema e seu ferramental. Para avançar na adoção, ainda será necessário consolidar a revisão visual, resolver as pendências técnicas registradas e validar a integração com os consumidores. O [registro de validação](validacao-rfc.md) reúne as verificações executadas e as pendências.
 
 ## Alternativas e riscos
 
-Manter as sobrescritas por projeto exige menos investimento imediato, mas amplia a duplicação conforme novos consumidores surgem. Criar outra biblioteca repete APIs, comportamento e manutenção. Substituir Sunrise impõe uma migração mais ampla do que o problema exige. Recomendamos Horizon como tema adicional para permitir adoção gradual da base existente.
+Manter adaptações locais exige menos investimento imediato, mas aumenta o custo de sincronizar cada evolução. Criar forks ou uma biblioteca independente amplia a manutenção de componentes e comportamentos. Evoluir a base compartilhada no Shoreline permite aproveitar o que já existe e distribuir as mudanças entre os consumidores.
 
-Os principais riscos são mover estilos específicos de produto para o tema, preservar overrides que passam a competir com Horizon e validar o template sem validar o runtime oficial. A mitigação é classificar cada necessidade, alinhar versões, revisar a cascata de CSS e testar interfaces reais nos consumidores. Um tema resolve a apresentação compartilhada; a convergência das composições exige trabalho conjunto entre Design e os times de produto.
+Os principais riscos são o Styleguide se afastar da implementação, necessidades específicas de produto entrarem na base comum e sobrescritas antigas continuarem competindo com Horizon. A proposta reduz esses riscos com responsabilidades claras, exemplos que consomem o pacote e validação de interfaces reais nos produtos. O apoio de agentes depende de critérios explícitos e revisão do resultado visual e funcional pelo time.
 
 ## Questões para revisão
 
-1. Concordamos que Shoreline com Horizon deve ser a fonte da verdade visual para os três contextos?
-2. Quais famílias de componentes e interfaces representativas compõem o primeiro ciclo de adoção?
-3. Como organizar a contribuição de Design e Engenharia para que experimentos do template se tornem capacidades reutilizáveis?
-4. Quem mantém os tokens, o template consumidor, as integrações e o aceite de cada etapa?
+1. Concordamos com Horizon como base de implementação para novas interfaces da VTEX e com o Styleguide como sua referência visual compartilhada?
+2. Quais decisões visuais e interfaces de AI Workspace, Studio e do template devem orientar o primeiro ciclo de adoção?
+3. Como organizar a contribuição de Design e Engenharia e o uso de agentes para evoluir essa base?
+4. Quem mantém o Styleguide, o tema, o ferramental e as integrações, e como coordenar sua evolução?
 
 ## Referências
 
-- [AI Workspace no Admin Platform](https://github.com/vtex/admin-platform/tree/7bb6cb122dd5ee45cc1bc0031a84fb8b9a130508/ai-workspace/shell): estilos locais, wrappers, integrações e dependências oficiais.
-- [Template utilizado por Design](https://github.com/vtex/ai-workspace-shell-template/tree/a287ee816d06b0b4325da3ea64b22675ff820ce4): tema, tokens, tipografia e composições comparados.
-- [AIW Styleguide](https://github.com/vtex/aiw-styleguide/tree/baceafacc9e32a863987dad06da5a6654b387d6b): catálogo complementar do template.
+- [AI Workspace no Admin Platform](https://github.com/vtex/admin-platform/tree/7bb6cb122dd5ee45cc1bc0031a84fb8b9a130508/ai-workspace/shell): implementação oficial do produto.
+- [Template utilizado por Design](https://github.com/vtex/ai-workspace-shell-template/tree/a287ee816d06b0b4325da3ea64b22675ff820ce4): ambiente de exploração de interfaces.
+- [AIW Styleguide](https://github.com/vtex/aiw-styleguide/tree/baceafacc9e32a863987dad06da5a6654b387d6b): referência atual para a evolução do catálogo visual.
 - [Branch Horizon](https://github.com/vtex/shoreline/tree/feat/horizon-theme-rfc) e [preview executável](preview/README.md).
+- [Ferramental de design system](../../tools/design-system/README.md): fluxo de contribuição, instruções para agentes e verificações.
 - [Constituição do Shoreline](https://github.com/vtex/shoreline-specs/blob/main/.specify/memory/constitution.md): critérios de contribuição e qualidade.
