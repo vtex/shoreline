@@ -63,20 +63,28 @@ def convert(part):
                 rows.append(lines[i])
                 i += 1
             metadata = rows[0].startswith(('| Created', '| Criada em'))
-            result.append('<table style="border-collapse:collapse;width:624px;font-family:Arial;font-size:' + ('9' if metadata else '10') + 'pt;line-height:115%;color:#666666">')
+            alternatives = rows[0].strip() == '| Alternativa | Benefício | Limitação |'
+            widths = (28, 28, 44) if alternatives else None
+            result.append('<table style="border-collapse:collapse;width:624px;' + ('table-layout:fixed;' if widths else '') + 'font-family:Arial;font-size:' + ('9' if metadata else '10') + 'pt;line-height:115%;color:#666666">')
+            if widths:
+                result.append('<colgroup>' + ''.join(f'<col style="width:{width}%">' for width in widths) + '</colgroup>')
             for n, row in enumerate(rows):
                 if re.match(r'^\|[ :|\-]+$', row):
                     continue
                 result.append('<tr>')
                 for col, cell in enumerate(row.strip('|').split('|')):
-                    style = 'border:1px solid ' + ('#000000' if metadata else '#cccccc') + ';padding:5pt;vertical-align:top;'
+                    style = 'border:1px solid ' + ('#000000' if metadata else '#cccccc') + ';padding:5pt;vertical-align:top;text-align:left;'
+                    if widths:
+                        style += f'width:{widths[col]}%;'
                     if metadata:
                         style += 'font-weight:bold;' if col % 2 == 0 else 'color:#142032;'
                         if n == 0 and col == 3:
                             style += 'background-color:#f9cb9c;'
                     elif n == 0:
                         style += 'background-color:#f3f3f3;font-weight:bold;'
-                    result.append('<td style="' + style + '">' + inline(cell.strip()) + '</td>')
+                    # Explicit paragraphs prevent Google Docs from inheriting list indents and spacing.
+                    paragraph = 'margin:0;margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding:0;text-indent:0;text-align:left;line-height:115%;'
+                    result.append('<td style="' + style + '"><p style="' + paragraph + '">' + inline(cell.strip()) + '</p></td>')
                 result.append('</tr>')
             result.append('</table>')
             if metadata:
