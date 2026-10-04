@@ -18,7 +18,7 @@ Design explora interfaces no [ai-workspace-shell-template](https://github.com/vt
 
 A [RFC 22](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.z8qccnajlshl) já apontava a evolução do Shoreline como base comum para Design, Engenharia e agentes de IA. A [RFC 34](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.w0e99t24yluz) discute a separação da interface conversacional das integrações do Agentic UI. Ambas são referências para esta proposta.
 
-### Styleguide como apoio à transição
+### Styleguide
 
 O [AIW Styleguide](https://github.com/vtex/aiw-styleguide) é uma **referência transitória** para inventariar componentes e apoiar a discussão visual. Conforme as capacidades forem incorporadas, a documentação e os exemplos do **Shoreline assumirão a referência visual e de implementação**. A transição deverá preservar os exemplos úteis e encerrar a manutenção paralela dos conteúdos absorvidos.
 
@@ -36,23 +36,15 @@ O [AIW Styleguide](https://github.com/vtex/aiw-styleguide) é uma **referência 
 - Definir protocolos, transporte e execução de streaming, autenticação, histórico ou uploads.
 - Centralizar regras de negócio e integrações específicas dos produtos.
 
-As questões de arquitetura conversacional são discutidas na [RFC 34](https://docs.google.com/document/d/143oF_o2zd0ZshTpSHODT2nKLd0xrcN_a1CtBafF3wPg/edit?tab=t.w0e99t24yluz), ainda em revisão. Nas experiências conversacionais, Horizon trata da apresentação dos estados e ações, dos padrões de interação e da acessibilidade.
-
 ## Proposta
 
 ### Um novo tema: Horizon
 
-Propomos construir **Horizon como um novo tema do [Shoreline](https://github.com/vtex/shoreline)** para as novas interfaces administrativas da VTEX, começando por AI Workspace, Studio e templates e protótipos de Design. Horizon significa horizonte e mantém a referência de paisagem de Shoreline e Sunrise.
+Propomos construir **Horizon como um novo tema do [Shoreline](https://github.com/vtex/shoreline)** para as novas interfaces administrativas da VTEX, começando por AI Workspace, Studio e templates e protótipos de Design. Horizon significa horizonte e mantém a referência de paisagem que vem do Shoreline e Sunrise.
 
 O tema reunirá decisões de cor, tipografia, espaçamento, formas, superfícies e estados. **Shoreline será a fonte da verdade visual e de implementação**, reunindo componentes, tokens, exemplos e orientações de uso, com versão e critérios de qualidade compartilhados.
 
-A evolução inclui incorporar ao design system as capacidades visuais reutilizáveis hoje mantidas no Agentic UI. Sua organização será definida com os mantenedores, **sem pressupor a criação de um novo pacote**.
-
-### Do protótipo ao projeto oficial
-
-Necessidades identificadas no template, no Styleguide transitório ou nos produtos serão revisadas por Design e Engenharia. As mudanças reutilizáveis entrarão na implementação e na documentação do Shoreline. Após a publicação, os consumidores atualizarão suas versões e removerão as adaptações substituídas. Levar uma interface do protótipo ao produto passa a se concentrar nas integrações e regras de negócio, preservando a apresentação compartilhada.
-
-### Ferramental para construir e evoluir Horizon
+### Ferramental para construir e evoluir
 
 A [branch de referência](https://github.com/vtex/shoreline/tree/feat/horizon-theme-rfc) inclui o [ferramental](../../tools/design-system/README.md) para criar e evoluir componentes, tokens e temas pelos padrões do Shoreline, **com apoio de agentes de IA**. Já reúne instruções de descoberta, criação e revisão; contratos de intenção e impacto; e verificações de tokens, arquitetura, comportamento, aparência e acessibilidade.
 
@@ -114,9 +106,24 @@ A branch permite explorar o tema e o ferramental. A adoção depende das revisõ
 
 ## Alternativas e riscos
 
-Manter adaptações locais reduz o investimento inicial, mas perpetua a duplicação. Forks ou uma biblioteca independente ampliam a manutenção. Evoluir o Shoreline permite reutilizar componentes e distribuir mudanças aos consumidores.
+### Alternativas consideradas
 
-Os principais riscos são migrações sem conclusão, manutenção de referências concorrentes e acúmulo de contribuições sem revisão. A mitigação exige adoção por etapas, documentação junto à implementação e capacidade de revisão e publicação compatível com a demanda dos times e agentes.
+| Alternativa | Benefício | Limitação |
+| --- | --- | --- |
+| Manter adaptações nos produtos e templates | Atende necessidades locais com pouca coordenação inicial. | Correções e estados precisam ser replicados; interfaces e orientações tendem a divergir. |
+| Compartilhar somente tokens | Alinha parte da aparência com menor esforço inicial. | Não resolve diferenças de composição, comportamento e acessibilidade nem elimina cópias de componentes. |
+| Criar uma biblioteca independente do Shoreline ou forks | Dá autonomia para definir APIs e publicar mudanças. | Exige manter componentes, testes, documentação e correções em paralelo, aumentando o custo de convergência. |
+
+**Evoluir o Shoreline com Horizon** permite reutilizar a base existente e distribuir decisões visuais compartilhadas. A contrapartida é o investimento contínuo na manutenção do tema, na validação dos componentes, na documentação e na migração dos consumidores. O resultado depende de adoção e contribuição sustentadas, além da criação do tema.
+
+### Riscos e mitigação
+
+- **Regressões nos consumidores.** Alterações em tokens, estilos e componentes compartilhados podem afetar outras interfaces e temas. Validar os temas afetados em ambientes isolados, testar versões de prévia nos consumidores e manter um caminho de retorno.
+- **Consistência visual sem qualidade de uso.** Uma aparência alinhada pode esconder problemas de foco, teclado, responsividade ou estados conversacionais. Revisar interações reais com Design e Engenharia e combinar verificações automáticas com avaliação de acessibilidade.
+- **Transição sem conclusão.** Cópias, sobrescritas e referências concorrentes podem continuar sendo necessárias após a adoção inicial. Definir responsáveis e critérios de conclusão por etapa, remover adaptações substituídas e transferir os exemplos úteis do Styleguide para o Shoreline.
+- **Proliferação de componentes e variantes.** A produção acelerada por IA pode gerar soluções equivalentes e APIs difíceis de descobrir e manter. Buscar capacidades existentes antes de criar, justificar novas APIs e manter exemplos e instruções versionados junto aos componentes.
+- **Contribuições acima da capacidade de revisão.** O acúmulo de mudanças pode atrasar a publicação e incentivar novas soluções locais. Priorizar incrementos pequenos, distribuir a revisão entre os times e automatizar verificações, acompanhando o tempo até revisão e publicação.
+- **Acoplamento às integrações dos produtos.** Incorporar componentes com dependências de execução pode limitar seu reuso. Separar apresentação e contratos de interação das integrações e validar as capacidades em contextos representativos dos consumidores.
 
 ## Pontos a endereçar
 
