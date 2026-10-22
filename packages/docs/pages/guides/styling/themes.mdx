@@ -1,0 +1,58 @@
+# Themes
+
+Shoreline ships its design tokens as **themes**. A theme is a complete stylesheet: tokens, reset, base and component styles. Components are shared by every theme; a theme changes how they look by changing the token values they consume.
+
+| Theme | Status | Complete stylesheet |
+|-------|--------|---------------------|
+| `sunrise` | default | `@vtex/shoreline/css` (alias of `@vtex/shoreline/themes/sunrise`) |
+| `horizon` | experimental | `@vtex/shoreline/themes/horizon` |
+
+## Selecting a theme
+
+Import exactly one complete theme at the root of your application and keep using the components as usual.
+
+```jsx
+import '@vtex/shoreline/themes/horizon'
+import { Button } from '@vtex/shoreline'
+
+export function App() {
+  return <Button variant="primary">Continue</Button>
+}
+```
+
+Tokens are declared on `:root` and component selectors are global, so **load one theme per document**. Importing two complete themes makes the result depend on the CSS cascade (the later one wins); it does not scope a theme to part of the page.
+
+## Split stylesheets
+
+Every theme exposes the same split entries, layered and unlayered:
+
+| Export Path | Unlayered |
+|-------------|-----------|
+| `@vtex/shoreline/themes/<theme>` | `@vtex/shoreline/themes/<theme>/unlayered` |
+| `@vtex/shoreline/themes/<theme>/tokens` | `@vtex/shoreline/themes/<theme>/tokens/unlayered` |
+| `@vtex/shoreline/themes/<theme>/reset` | `@vtex/shoreline/themes/<theme>/reset/unlayered` |
+| `@vtex/shoreline/themes/<theme>/base` | `@vtex/shoreline/themes/<theme>/base/unlayered` |
+| `@vtex/shoreline/themes/<theme>/components` | `@vtex/shoreline/themes/<theme>/components/unlayered` |
+
+When you load split layered entries yourself, declare the [cascade layer](./cascade-layers) order first so the parts resolve in the intended order, or use the unlayered variants consistently:
+
+```css
+@layer sl-reset, sl-base, sl-tokens, sl-components;
+```
+
+## Horizon
+
+Horizon is the theme for the new VTEX admin interfaces (AI Workspace, Studio and Design templates). Compared to Sunrise it uses a cool-tinted gray scale, a deeper blue scale, larger radii, a subtler five-step shadow scale and lighter muted states. It adds six tokens to the vocabulary:
+
+| Token | Purpose |
+|-------|---------|
+| `--sl-radius-4` | large cards, panels and docks (`1.5rem`) |
+| `--sl-font-weight-bold` | emphasis stronger than semibold (`700`) |
+| `--sl-shadow-3`, `--sl-shadow-4`, `--sl-shadow-5` | raised, floating and strongest surface shadows |
+| `--sl-overlay-bg` | modal and drawer backdrops |
+
+Every other token keeps its Sunrise value. Horizon also adjusts a few existing components the way AI Workspace does: links inherit the surrounding color and underline only on hover, the selected tab is a soft pill without an accent underline, free-standing content is centered at a maximum width, pages fill their container, the search placeholder is lighter and tags are inline-flex pills. Everything else falls back to the Sunrise rules. Horizon is experimental: its component coverage is still being reviewed with Design, and its values may change in minor releases.
+
+## Comparing themes in Storybook
+
+The Shoreline Storybook has a **Theme** control in the toolbar. Selecting a theme swaps the theme stylesheet at runtime, so every story can be reviewed in each theme without rebuilding. Stories never import a theme themselves; the selection is centralized in the Storybook configuration.

@@ -4,5 +4,6 @@ export default {
   'design-tokens': 'Design Tokens',
   'cascade-layers': 'Cascade Layers',
   applying: 'Applying Styles',
+  themes: 'Themes',
   tooling: 'CSS Tooling',
 }

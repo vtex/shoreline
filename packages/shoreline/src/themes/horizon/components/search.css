@@ -1,0 +1,7 @@
+/*
+ * AI Workspace search placeholder color (admin-platform app/globals.css).
+ * The shared rule that hides the placeholder on focus still applies.
+ */
+[data-sl-search] > [data-sl-search-input]::placeholder {
+  color: var(--sl-color-gray-6);
+}
