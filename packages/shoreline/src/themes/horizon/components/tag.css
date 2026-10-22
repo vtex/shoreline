@@ -1,0 +1,11 @@
+/*
+ * AI Workspace tags (admin-platform components/shoreline/tag): inline-flex
+ * layout with a gap for leading icons, and a pill silhouette by default.
+ */
+[data-sl-tag] {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sl-space-1);
+  vertical-align: middle;
+  border-radius: var(--sl-radius-full);
+}
