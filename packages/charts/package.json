@@ -49,7 +49,7 @@
     "@vtex/shoreline": "workspace:*",
     "@vtex/shoreline-css": "workspace:*",
     "concurrently": "8.2.2",
-    "sucrase": "3.35.0"
+    "sucrase": "3.35.1"
   },
   "dependencies": {
     "@vtex/shoreline-utils": "workspace:*",
