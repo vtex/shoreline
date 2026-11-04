@@ -41,7 +41,8 @@
     "figma:connect:unpublish": "figma connect unpublish",
     "prepare": "husky install",
     "commitlint": "commitlint --edit",
-    "typecheck": "pnpm --filter @vtex/shoreline-ai typecheck"
+    "typecheck": "pnpm --filter @vtex/shoreline-ai typecheck",
+    "check:invariant": "node scripts/check-public-invariant.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
