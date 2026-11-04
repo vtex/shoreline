@@ -6,7 +6,26 @@ import { join, relative } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const PACKAGE_DIR = 'packages/shoreline-ai'
-const EXTENSIONS = ['.ts', '.tsx', '.md', '.css', '.json']
+// Scan every text file; only known binary formats are skipped, so a new file
+// type added to the package cannot slip past the check.
+const BINARY_EXTENSIONS = [
+  '.png',
+  '.jpg',
+  '.jpeg',
+  '.gif',
+  '.webp',
+  '.ico',
+  '.woff',
+  '.woff2',
+  '.ttf',
+  '.eot',
+  '.otf',
+  '.pdf',
+  '.zip',
+  '.gz',
+  '.mp4',
+  '.webm',
+]
 const SKIPPED_DIRS = new Set(['node_modules', 'dist', 'coverage'])
 
 // Edit this list to extend the invariant. `ignoreCase` applies to patterns only.
@@ -63,6 +82,13 @@ export function findViolations(files) {
   return violations
 }
 
+/** @param {string} name file name or path */
+export function isScannable(name) {
+  const lower = name.toLowerCase()
+
+  return !BINARY_EXTENSIONS.some((ext) => lower.endsWith(ext))
+}
+
 function collectFiles(root, dir = root) {
   const files = []
 
@@ -71,7 +97,7 @@ function collectFiles(root, dir = root) {
       if (!SKIPPED_DIRS.has(entry.name)) {
         files.push(...collectFiles(root, join(dir, entry.name)))
       }
-    } else if (EXTENSIONS.some((ext) => entry.name.endsWith(ext))) {
+    } else if (isScannable(entry.name)) {
       const full = join(dir, entry.name)
 
       files.push({

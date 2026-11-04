@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { findViolations } from '../check-public-invariant.mjs'
+import { findViolations, isScannable } from '../check-public-invariant.mjs'
 
 const SRC = 'packages/shoreline-ai/src/runtime/builder.ts'
 
@@ -84,4 +84,27 @@ describe('findViolations', () => {
       findViolations([{ path: SRC, content: 'export const ok = true\n' }])
     ).toEqual([])
   })
+})
+
+describe('isScannable', () => {
+  it.each(['a.ts', 'a.tsx', 'a.md', 'a.css', 'a.json'])(
+    'scans the original extension %s',
+    (name) => {
+      expect(isScannable(name)).toBe(true)
+    }
+  )
+
+  it.each(['a.mdx', 'a.js', 'a.mjs', 'a.cjs', 'a.yml', 'a.yaml', 'a.snap'])(
+    'scans text files that are not in the original list (%s)',
+    (name) => {
+      expect(isScannable(name)).toBe(true)
+    }
+  )
+
+  it.each(['a.png', 'a.jpg', 'a.woff2', 'a.ttf', 'a.pdf', 'a.zip'])(
+    'skips binary file %s',
+    (name) => {
+      expect(isScannable(name)).toBe(false)
+    }
+  )
 })
