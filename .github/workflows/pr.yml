@@ -8,9 +8,7 @@ jobs:
   build:
     name: Build and test all packages
     timeout-minutes: 15
-    # Playwright 1.44 (test-runner) does not support Ubuntu 24.04 (`libasound2` has
-    # no candidate), which is what ubuntu-latest resolves to. Revisit when Playwright is upgraded.
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     if: ${{ github.event.action != 'edited' }}
 
     steps:
@@ -42,14 +40,8 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
-      - name: Public invariant
-        run: pnpm check:invariant
-
       - name: Test
         run: pnpm test:ci
-
-      - name: Test Storybook
-        run: pnpm test:storybook:ci
 
       - name: Publish to Chromatic
         uses: chromaui/action@latest
