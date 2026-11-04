@@ -37,11 +37,17 @@ jobs:
       - name: Code lint
         run: pnpm lint
 
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Public invariant
+        run: pnpm check:invariant
+
       - name: Test
         run: pnpm test:ci
 
-      # - name: Test Storybook
-      #   run: pnpm test:storybook:ci
+      - name: Test Storybook
+        run: pnpm test:storybook:ci
 
       - name: Publish to Chromatic
         uses: chromaui/action@latest
