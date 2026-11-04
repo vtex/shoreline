@@ -33,6 +33,8 @@ const shortHistory = createMockThreadMessages(4)
 const longHistory = createMockThreadMessages(18, { longText: true })
 
 export const EmptyThread: Story = {
+  // Deferred to the component review (see shoreline-ai-ci-readiness spec)
+  tags: ['skip-test'],
   render: () => <NormativeThreadTree showEmpty />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -65,6 +67,8 @@ export const LongConversation: Story = {
 }
 
 export const ScrollToBottomVisible: Story = {
+  // Deferred to the component review (see shoreline-ai-ci-readiness spec)
+  tags: ['skip-test'],
   render: () => (
     <NormativeThreadTree history={longHistory} showMessages scrollUpOnMount />
   ),

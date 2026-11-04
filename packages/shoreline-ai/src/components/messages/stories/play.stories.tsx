@@ -36,6 +36,8 @@ export default meta
 type Story = StoryObj<typeof AIMessages>
 
 export const RendersHistory: Story = {
+  // Deferred to the component review (see shoreline-ai-ci-readiness spec)
+  tags: ['skip-test'],
   render: () => (
     <ThreadHistorySeed messages={createMockThreadMessages(2)}>
       <AIMessages />

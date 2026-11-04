@@ -33,7 +33,7 @@
     "build:storybook:ci": "storybook build",
     "build:ci": "pnpm turbo run build",
     "test:ci": "vitest run --coverage",
-    "test:storybook": "pnpm run build:storybook:ci && pnpm dlx playwright install chromium --with-deps && test-storybook --browsers chromium",
+    "test:storybook": "pnpm run build:storybook:ci && pnpm exec playwright install chromium --with-deps && test-storybook --browsers chromium",
     "test:storybook:ci": "concurrently -k -s first -n storybook@shoreline,test:storybook@shoreline -c magenta,blue \"http-server storybook-static --port 6006 --silent\" \"wait-on tcp:127.0.0.1:6006 && pnpm run test:storybook\"",
     "figma:connect:build": "node scripts/generate-code-connect.mjs",
     "figma:connect:dry-run": "pnpm figma:connect:build && figma connect publish --dry-run --skip-update-check --exit-on-unreadable-files",

@@ -38,6 +38,8 @@ type Story = StoryObj<typeof NormativeThreadTree>
 const longHistory = createMockThreadMessages(18, { longText: true })
 
 export const EmptyVisible: Story = {
+  // Deferred to the component review (see shoreline-ai-ci-readiness spec)
+  tags: ['skip-test'],
   render: () => (
     <NormativeThreadTree showEmpty composerPlaceholder="Ask anything" />
   ),

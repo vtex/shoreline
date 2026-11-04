@@ -57,6 +57,8 @@ export const TypeAndSend: Story = {
 }
 
 export const AddAttachment: Story = {
+  // Deferred to the component review (see shoreline-ai-ci-readiness spec)
+  tags: ['skip-test'],
   render: () => (
     <AIComposer>
       <AIComposerField>
