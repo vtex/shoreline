@@ -88,7 +88,7 @@
     "@react-stately/datepicker": "3.10.3",
     "@react-stately/toggle": "3.7.4",
     "@vtex/shoreline-utils": "^1.0.125",
-    "react-hot-toast": "2.6.0",
+    "react-hot-toast": "2.6.1",
     "vaul": "1.1.2"
   }
 }
