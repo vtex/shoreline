@@ -40,7 +40,8 @@
     "figma:connect:publish": "pnpm figma:connect:build && figma connect publish --skip-update-check --exit-on-unreadable-files",
     "figma:connect:unpublish": "figma connect unpublish",
     "prepare": "husky install",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "typecheck": "pnpm --filter @vtex/shoreline-ai typecheck"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
