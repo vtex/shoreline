@@ -53,7 +53,7 @@
     "@vtex/shoreline-test-utils": "workspace:*"
   },
   "dependencies": {
-    "@assistant-ui/react": "0.14.5",
+    "@assistant-ui/react": "0.15.32",
     "react-collapsed": "^4.2.0",
     "react-markdown": "^9.0.1",
     "remark-gfm": "^4.0.1",
