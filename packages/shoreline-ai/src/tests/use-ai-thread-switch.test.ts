@@ -7,14 +7,10 @@ const cancelRun = vi.fn()
 const reset = vi.fn()
 const setThreadId = vi.fn()
 
-vi.mock('@assistant-ui/react', () => {
-  const thread = Object.assign(() => ({ cancelRun }), { source: {} })
-
-  return {
-    useAui: () => ({ thread }),
-    useAuiState: () => [],
-  }
-})
+vi.mock('@assistant-ui/react', () => ({
+  useAui: () => ({ thread: { cancelRun, source: {} } }),
+  useAuiState: () => [],
+}))
 
 vi.mock('../components/provider/ai-context', () => ({
   useAIContextInternal: () => ({

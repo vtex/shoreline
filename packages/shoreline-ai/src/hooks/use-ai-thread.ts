@@ -46,7 +46,7 @@ export function useAIThread(): {
 
       const content = mapAIMessageInputToContent(input)
 
-      aui.thread().append({
+      aui.thread.append({
         role: 'user',
         content,
         startRun: true,
@@ -58,7 +58,7 @@ export function useAIThread(): {
   const stopGeneration = useCallback(() => {
     if (!aui.thread.source) return
 
-    aui.thread().cancelRun()
+    aui.thread.cancelRun()
   }, [aui])
 
   const loadMessages = useCallback(
@@ -71,7 +71,7 @@ export function useAIThread(): {
   const switchThread = useCallback(
     (newThreadId: string) => {
       if (aui.thread.source) {
-        aui.thread().cancelRun()
+        aui.thread.cancelRun()
       }
 
       if (newThreadId === threadId) return
@@ -86,7 +86,7 @@ export function useAIThread(): {
     const newId = generateThreadId()
 
     if (aui.thread.source) {
-      aui.thread().cancelRun()
+      aui.thread.cancelRun()
     }
 
     runtime.thread.reset([])

@@ -27,17 +27,17 @@ export function useAIComposer(): {
 
   const setText = useCallback(
     (value: string) => {
-      aui.composer().setText(value)
+      aui.composer.setText(value)
     },
     [aui]
   )
 
   const send = useCallback(() => {
-    aui.composer().send()
+    aui.composer.send()
   }, [aui])
 
   const reset = useCallback(() => {
-    void aui.composer().reset()
+    void aui.composer.reset()
   }, [aui])
 
   return {
