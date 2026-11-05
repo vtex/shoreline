@@ -11,11 +11,11 @@ let canSend = true
 
 vi.mock('@assistant-ui/react', () => ({
   useAui: () => ({
-    composer: () => ({
+    composer: {
       setText,
       send,
       reset,
-    }),
+    },
   }),
   useAuiState: (selector: (state: unknown) => unknown) =>
     selector({

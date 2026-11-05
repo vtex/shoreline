@@ -10,7 +10,7 @@ const setThreadId = vi.fn()
 
 vi.mock('@assistant-ui/react', () => ({
   useAui: () => ({
-    thread: Object.assign(() => ({ append, cancelRun }), { source: {} }),
+    thread: { append, cancelRun, source: {} },
   }),
   useAuiState: () => [],
 }))

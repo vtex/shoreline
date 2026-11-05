@@ -32,15 +32,16 @@
     "create:icon-variant": "plop icon-variant",
     "build:storybook:ci": "storybook build",
     "build:ci": "pnpm turbo run build",
-    "test:ci": "pnpm test",
-    "test:storybook": "pnpm run build:storybook:ci && pnpm dlx playwright install chromium --with-deps && test-storybook --browsers chromium",
+    "test:ci": "vitest run --coverage",
+    "test:storybook": "pnpm run build:storybook:ci && pnpm exec playwright install chromium --with-deps && test-storybook --browsers chromium",
     "test:storybook:ci": "concurrently -k -s first -n storybook@shoreline,test:storybook@shoreline -c magenta,blue \"http-server storybook-static --port 6006 --silent\" \"wait-on tcp:127.0.0.1:6006 && pnpm run test:storybook\"",
     "figma:connect:build": "node scripts/generate-code-connect.mjs",
     "figma:connect:dry-run": "pnpm figma:connect:build && figma connect publish --dry-run --skip-update-check --exit-on-unreadable-files",
     "figma:connect:publish": "pnpm figma:connect:build && figma connect publish --skip-update-check --exit-on-unreadable-files",
     "figma:connect:unpublish": "figma connect unpublish",
     "prepare": "husky install",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "typecheck": "pnpm --filter @vtex/shoreline-ai typecheck"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
@@ -65,6 +66,7 @@
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.1",
     "@vitejs/plugin-react": "4.1.0",
+    "@vitest/coverage-v8": "1.6.0",
     "@vtex/shoreline-test-utils": "workspace:*",
     "chromatic": "^9.1.0",
     "commitizen": "^4.2.0",
