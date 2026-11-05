@@ -10,7 +10,7 @@ import '../register'
 import '../../../styles.css'
 
 export default {
-  title: 'charts/line-chart/play',
+  title: 'charts/line-chart',
   parameters: {
     // Play stories exist for interaction + a11y assertions, not visuals — the
     // show matrix owns Chromatic.
