@@ -7,11 +7,16 @@ import type { LineChartSeries } from '../../../index'
 import '../../../styles.css'
 
 export default {
-  title: 'charts/line-chart/show',
+  title: 'charts/line-chart',
   parameters: {
     // The variant matrix IS the Chromatic baseline — snapshots stay on here,
     // unlike examples (dev sandbox) and play (interaction tests).
-    chromatic: { disableSnapshot: false },
+    //
+    // `delay` waits out the engine's entrance animation. Chromatic pauses CSS
+    // animations at their last frame by default, but the chart animates from
+    // JavaScript (a requestAnimationFrame loop), so without this every capture
+    // lands on a different frame and the story is reported as Unstable.
+    chromatic: { disableSnapshot: false, delay: 2000 },
   },
 }
 
