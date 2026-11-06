@@ -1,0 +1,95 @@
+# Line Chart
+
+<ComponentDescription name="line-chart" />
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning" emoji="🧪">
+  **Experimental.**  LineChart is not stable yet: it ships in `@vtex/shoreline-charts` at 0.x, so its API and visuals may change between minor versions.
+</Callout>
+
+<Preview name="line-chart" />
+
+`LineChart` lives in the separate `@vtex/shoreline-charts` package. Install it and import its stylesheet once in your app:
+
+```sh
+pnpm add @vtex/shoreline-charts
+```
+
+```tsx
+import { LineChart } from '@vtex/shoreline-charts'
+import '@vtex/shoreline-charts/css'
+```
+
+## Examples
+
+### Smooth curves
+
+`smooth` draws the lines as curves instead of straight segments. Straight segments are the default because they read exact values more precisely; smooth curves suit trend-forward narratives.
+
+<Preview name="line-chart-smooth" />
+
+### Multi-series
+
+Pass more than one series and the legend appears automatically, one entry per series.
+
+<Preview name="line-chart-multi-series" />
+
+### Series aggregation
+
+Only `maxSeries` series render (default `3`); the rest fold into a single `Others` aggregate that takes the last slot's color. Raise `maxSeries` to give more series their own name and color. It is capped at `6` — the palette length — and series past the cap still aggregate, so raising `maxSeries` never drops data.
+
+<Preview name="line-chart-max-series" />
+
+### Missing data
+
+A `null` value renders a gap at that category: the line is not interpolated across the missing point, so absent data never masquerades as a real value.
+
+<Preview name="line-chart-missing-data" />
+
+### Tooltip with deltas
+
+Each series can carry a `deltas` array — one entry per category — shown in the hover tooltip beside the value. `direction` (`up` / `down` / `flat`) and `tone` (`success` / `critical` / `neutral`) are independent, because a decrease is not inherently bad: falling complaints is `direction: 'down'` with `tone: 'success'`. The comparison data need not be plotted — it only feeds the tooltip.
+
+<Preview name="line-chart-deltas" />
+
+### Loading state
+
+Pass `loading` to show a skeleton placeholder instead of the chart while data is being fetched.
+
+<Preview name="line-chart-loading" />
+
+### Empty state
+
+When no series has any non-null value, the chart renders its empty state. Override the message through the `messages` prop, or let it localize from the surrounding `LocaleProvider`.
+
+<Preview name="line-chart-empty" />
+
+### Negative values
+
+Negative values render below the zero line.
+
+<Preview name="line-chart-negative" />
+
+### Localization
+
+Internal messages — the empty state and the `Others` aggregate — localize from the surrounding `LocaleProvider`. Data supplied through props is not translated: series names and categories are the consumer's to localize.
+
+<Preview name="line-chart-localized" />
+
+## Required props
+
+<PropsDocs name="line-chart" required />
+
+## Optional props
+
+<PropsDocs name="line-chart" />
+
+## Related components
+
+<ComponentSummaryGrid>
+  <ComponentSummary name="table" />
+  <ComponentSummary name="collection" />
+  <ComponentSummary name="empty-state" />
+  <ComponentSummary name="skeleton" />
+</ComponentSummaryGrid>
