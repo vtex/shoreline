@@ -22,7 +22,6 @@ export const DEFAULT_DEBUG_MAX_STEPS = 1000
 interface AIStreamDebugContextValue {
   runs: AIStreamDebugRun[]
   clear: () => void
-  observer: RunObserver
 }
 
 /**
@@ -32,6 +31,12 @@ interface AIStreamDebugContextValue {
 const AIStreamDebugContext = createContext<AIStreamDebugContextValue | null>(
   null
 )
+
+/**
+ * Observer of the recorder, or `null` when debug is off. Kept apart from the
+ * runs so the provider does not render again on every snapshot.
+ */
+const AIStreamDebugObserverContext = createContext<RunObserver | null>(null)
 
 const DISABLED: AIStreamDebugState = {
   enabled: false,
@@ -129,15 +134,14 @@ export function AIStreamDebugRecorder(props: {
     []
   )
 
-  const value = useMemo(
-    () => ({ runs, clear, observer }),
-    [runs, clear, observer]
-  )
+  const value = useMemo(() => ({ runs, clear }), [runs, clear])
 
   return (
-    <AIStreamDebugContext.Provider value={value}>
-      {children}
-    </AIStreamDebugContext.Provider>
+    <AIStreamDebugObserverContext.Provider value={observer}>
+      <AIStreamDebugContext.Provider value={value}>
+        {children}
+      </AIStreamDebugContext.Provider>
+    </AIStreamDebugObserverContext.Provider>
   )
 }
 
@@ -147,15 +151,17 @@ export function AIStreamDebugRecorder(props: {
  */
 export function AIStreamDebugOff(props: { children: ReactNode }) {
   return (
-    <AIStreamDebugContext.Provider value={null}>
-      {props.children}
-    </AIStreamDebugContext.Provider>
+    <AIStreamDebugObserverContext.Provider value={null}>
+      <AIStreamDebugContext.Provider value={null}>
+        {props.children}
+      </AIStreamDebugContext.Provider>
+    </AIStreamDebugObserverContext.Provider>
   )
 }
 
 /** Observer of the nearest recorder, or `null` when debug is off. */
 export function useStreamDebugObserver(): RunObserver | null {
-  return useContext(AIStreamDebugContext)?.observer ?? null
+  return useContext(AIStreamDebugObserverContext)
 }
 
 /**

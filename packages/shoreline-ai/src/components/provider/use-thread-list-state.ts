@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useReducer, useRef } from 'react'
+import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react'
 
 import type { AIThreadData, AIThreadError } from '../../types/public'
 import type { AIThreadAdapter } from '../../types/threads'
@@ -168,11 +168,14 @@ export function useThreadListState(
     void refresh()
   }, [refresh])
 
-  return {
-    threads: state.threads,
-    isLoading: state.isLoading,
-    error: state.error,
-    refresh,
-    archiveThread,
-  }
+  return useMemo(
+    () => ({
+      threads: state.threads,
+      isLoading: state.isLoading,
+      error: state.error,
+      refresh,
+      archiveThread,
+    }),
+    [state, refresh, archiveThread]
+  )
 }

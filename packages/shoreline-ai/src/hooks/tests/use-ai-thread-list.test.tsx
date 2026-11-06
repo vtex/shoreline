@@ -11,6 +11,7 @@ import type { ReactNode } from 'react'
 import { vi } from 'vitest'
 
 import { MockRuntimeProvider } from '../../test-utils'
+import type { StreamTransport } from '../../runtime/types'
 import type { AIThreadData } from '../../types/public'
 import type { AIThreadAdapter } from '../../types/threads'
 import { useAIStatus } from '../use-ai-status'
@@ -275,5 +276,64 @@ describe('useAIThreadList', () => {
     })
     expect(api.threads[0].archived).toBe(true)
     expect(renders).toEqual(before)
+  })
+  it('does not re-render list consumers on debug snapshots', async () => {
+    let listRenders = 0
+    let thread!: ReturnType<typeof useAIThread>
+    let status!: ReturnType<typeof useAIStatus>
+    const toFinish = deferred<void>()
+    const transport: StreamTransport = {
+      async *run() {
+        yield { parts: [{ type: 'text', text: 'a' }], status: 'streaming' }
+        yield { parts: [{ type: 'text', text: 'ab' }], status: 'streaming' }
+        yield { parts: [{ type: 'text', text: 'abc' }], status: 'streaming' }
+        await toFinish.promise
+
+        return { parts: [{ type: 'text', text: 'abc' }], status: 'ready' }
+      },
+    }
+
+    function ListProbe() {
+      useAIThreadList()
+      listRenders += 1
+
+      return null
+    }
+
+    function Sender() {
+      thread = useAIThread()
+
+      return null
+    }
+
+    function StatusReader() {
+      status = useAIStatus()
+
+      return null
+    }
+
+    render(
+      <MockRuntimeProvider
+        transport={transport}
+        threads={{ list: vi.fn().mockResolvedValue(THREADS) }}
+        debugStream
+      >
+        <ListProbe />
+        <Sender />
+        <StatusReader />
+      </MockRuntimeProvider>
+    )
+    await waitFor(() => expect(listRenders).toBeGreaterThan(1))
+    await act(async () => {})
+
+    const before = listRenders
+
+    act(() => thread.sendMessage({ text: 'hello' }))
+    await waitFor(() => expect(status.status).toBe('streaming'))
+    await act(async () => {
+      toFinish.resolve()
+    })
+    await waitFor(() => expect(status.status).toBe('ready'))
+    expect(listRenders).toBe(before)
   })
 })
