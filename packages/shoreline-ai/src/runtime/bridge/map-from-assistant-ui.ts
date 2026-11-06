@@ -6,8 +6,7 @@
 import type {
   CompleteAttachment,
   FileMessagePart,
-  ThreadAssistantMessagePart,
-  ToolCallMessagePart,
+  ImageMessagePart,
   ThreadMessageLike,
   ThreadUserMessage,
   ThreadUserMessagePart,
@@ -19,66 +18,19 @@ import type {
   AIResourcePart,
 } from '../../types/public'
 
-function mapResourceToFilePart(resource: AIResourcePart): FileMessagePart {
-  return {
-    type: 'file',
-    data: resource.uri,
-    mimeType: resource.mimeType ?? 'application/octet-stream',
-    filename: resource.name,
-  }
-}
+import { readExtras } from './part-extras'
+import {
+  mapAIMessagePartsToContentParts,
+  mapResourcePart,
+  mapTextPart,
+} from './map-to-assistant-ui'
 
 function mapAIMessagePartToUserContent(
   part: AIMessagePart
 ): ThreadUserMessagePart | null {
-  if (part.type === 'text') {
-    return { type: 'text', text: part.text }
-  }
+  if (part.type === 'text') return mapTextPart(part)
 
-  if (part.type === 'resource') {
-    return mapResourceToFilePart(part)
-  }
-
-  return null
-}
-
-function mapAIMessagePartToAssistantContent(
-  part: AIMessagePart
-): ThreadAssistantMessagePart | null {
-  if (part.type === 'text') {
-    return { type: 'text', text: part.text }
-  }
-
-  if (part.type === 'reasoning') {
-    return { type: 'reasoning', text: part.text }
-  }
-
-  if (part.type === 'tool') {
-    const toolCallId =
-      (part.metadata?.toolCallId as string | undefined) ?? `tool-${part.name}`
-
-    return {
-      type: 'tool-call',
-      toolCallId,
-      toolName: part.name,
-      args: part.args as ToolCallMessagePart['args'],
-      argsText: JSON.stringify(part.args),
-      result: part.error ?? part.output,
-      isError: part.status === 'error',
-    }
-  }
-
-  if (part.type === 'resource') {
-    if (part.mimeType?.startsWith('image/')) {
-      return {
-        type: 'image',
-        image: part.uri,
-        filename: part.name,
-      }
-    }
-
-    return mapResourceToFilePart(part)
-  }
+  if (part.type === 'resource') return mapResourcePart(part)
 
   return null
 }
@@ -115,9 +67,7 @@ export function mapAIMessagesToThreadMessages(
       }
     }
 
-    const content = message.parts
-      .map(mapAIMessagePartToAssistantContent)
-      .filter((part): part is ThreadAssistantMessagePart => part !== null)
+    const content = mapAIMessagePartsToContentParts(message.parts)
 
     const threadMessage: ThreadMessageLike = {
       id: message.id,
@@ -131,29 +81,41 @@ export function mapAIMessagesToThreadMessages(
   })
 }
 
+/** Turns an engine file or image part back into a resource part. */
+export function mapFileOrImageToResource(
+  part: FileMessagePart | ImageMessagePart
+): AIResourcePart {
+  const extras = readExtras(part)
+  const isImage = part.type === 'image'
+
+  return {
+    type: 'resource',
+    uri: isImage ? part.image : part.data,
+    name: part.filename ?? (isImage ? 'image' : 'file'),
+    mimeType:
+      (extras.mimeType as string | undefined) ??
+      (isImage ? 'image/*' : part.mimeType),
+    description: extras.description as string | undefined,
+    size: extras.size as number | undefined,
+    metadata: extras.metadata as Record<string, unknown> | undefined,
+  }
+}
+
 function mapUserContentPartToAIMessagePart(
   part: ThreadUserMessagePart
 ): AIMessagePart | null {
   if (part.type === 'text') {
-    return { type: 'text', text: part.text }
-  }
-
-  if (part.type === 'image') {
     return {
-      type: 'resource',
-      uri: part.image,
-      name: part.filename ?? 'image',
-      mimeType: 'image/*',
+      type: 'text',
+      text: part.text,
+      metadata: readExtras(part).metadata as
+        | Record<string, unknown>
+        | undefined,
     }
   }
 
-  if (part.type === 'file') {
-    return {
-      type: 'resource',
-      uri: part.data,
-      name: part.filename ?? 'file',
-      mimeType: part.mimeType,
-    }
+  if (part.type === 'image' || part.type === 'file') {
+    return mapFileOrImageToResource(part)
   }
 
   return null

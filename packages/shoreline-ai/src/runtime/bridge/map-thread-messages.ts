@@ -3,11 +3,20 @@
  * @internal
  */
 
-import type { ThreadMessage } from '@assistant-ui/react'
+import type {
+  FileMessagePart,
+  ImageMessagePart,
+  PartProviderMetadata,
+  ThreadMessage,
+} from '@assistant-ui/react'
 
-import type { AIMessage, AIMessagePart } from '../../types/public'
+import type { AIMessage, AIMessagePart, ToolStatus } from '../../types/public'
 
-import { mapThreadUserMessageToAIMessage } from './map-from-assistant-ui'
+import {
+  mapFileOrImageToResource,
+  mapThreadUserMessageToAIMessage,
+} from './map-from-assistant-ui'
+import { readExtras } from './part-extras'
 
 interface ContentPart {
   type: string
@@ -16,9 +25,7 @@ interface ContentPart {
   args?: Record<string, unknown>
   result?: unknown
   isError?: boolean
-  name?: string
-  data?: Record<string, unknown>
-  metadata?: Record<string, unknown>
+  providerMetadata?: PartProviderMetadata
 }
 
 export function mapContentPartsToAIMessageParts(
@@ -26,71 +33,48 @@ export function mapContentPartsToAIMessageParts(
 ): AIMessagePart[] {
   return content
     .map((part): AIMessagePart | null => {
+      const extras = readExtras(part)
+      const metadata = extras.metadata as Record<string, unknown> | undefined
+
       if (part.type === 'text') {
-        return {
-          type: 'text',
-          text: part.text ?? '',
-          metadata: part.metadata,
-        }
+        return { type: 'text', text: part.text ?? '', metadata }
       }
 
       if (part.type === 'reasoning') {
         return {
           type: 'reasoning',
           text: part.text ?? '',
-          status: 'complete',
-          metadata: part.metadata,
+          status: extras.status === 'streaming' ? 'streaming' : 'complete',
+          metadata,
         }
       }
 
       if (part.type === 'tool-call') {
+        const status: ToolStatus = part.isError
+          ? 'error'
+          : extras.status === 'running'
+            ? 'running'
+            : 'complete'
+
         return {
           type: 'tool',
           name: part.toolName ?? '',
           args: part.args ?? {},
-          output: part.result,
+          output: part.isError ? undefined : part.result,
           error: part.isError
             ? ((part.result as { message: string }) ?? {
                 message: 'Unknown error',
               })
             : undefined,
-          status: part.isError ? 'error' : 'complete',
-          metadata: part.metadata,
+          status,
+          metadata,
         }
       }
 
-      if (part.type === 'data' && part.name === 'resource') {
-        const data = part.data ?? {}
-
-        return {
-          type: 'resource',
-          uri: (data.uri as string) ?? '',
-          name: (data.name as string) ?? '',
-          description: data.description as string | undefined,
-          mimeType: data.mimeType as string | undefined,
-          size: data.size as number | undefined,
-          metadata: data.metadata as Record<string, unknown> | undefined,
-        }
-      }
-
-      if (part.type === 'file') {
-        return {
-          type: 'resource',
-          uri: (part as ContentPart & { data?: string }).data ?? '',
-          name:
-            (part as ContentPart & { filename?: string }).filename ?? 'file',
-          mimeType: (part as ContentPart & { mimeType?: string }).mimeType,
-        }
-      }
-
-      if (part.type === 'image') {
-        return {
-          type: 'resource',
-          uri: (part as ContentPart & { image?: string }).image ?? '',
-          name:
-            (part as ContentPart & { filename?: string }).filename ?? 'image',
-          mimeType: 'image/*',
-        }
+      if (part.type === 'file' || part.type === 'image') {
+        return mapFileOrImageToResource(
+          part as unknown as FileMessagePart | ImageMessagePart
+        )
       }
 
       return null

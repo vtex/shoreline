@@ -5,6 +5,9 @@
 
 import type {
   ChatModelRunResult,
+  FileMessagePart,
+  ImageMessagePart,
+  TextMessagePart,
   ThreadAssistantMessagePart,
   ToolCallMessagePart,
 } from '@assistant-ui/react'
@@ -18,14 +21,24 @@ import type {
   StreamStatus,
 } from '../../types/public'
 
+import { packExtras } from './part-extras'
+
 export type AssistantContentPart = ThreadAssistantMessagePart
 
-function mapTextPart(part: AITextPart): AssistantContentPart {
-  return { type: 'text', text: part.text }
+export function mapTextPart(part: AITextPart): TextMessagePart {
+  return {
+    type: 'text',
+    text: part.text,
+    ...packExtras({ metadata: part.metadata }),
+  }
 }
 
 function mapReasoningPart(part: AIReasoningPart): AssistantContentPart {
-  return { type: 'reasoning', text: part.text }
+  return {
+    type: 'reasoning',
+    text: part.text,
+    ...packExtras({ status: part.status, metadata: part.metadata }),
+  }
 }
 
 function mapToolPart(part: AIToolPart, index: number): AssistantContentPart {
@@ -37,21 +50,30 @@ function mapToolPart(part: AIToolPart, index: number): AssistantContentPart {
     type: 'tool-call',
     toolCallId,
     toolName: part.name,
-    args: (part.metadata
-      ? { ...part.args, metadata: part.metadata }
-      : part.args) as unknown as ToolCallMessagePart['args'],
+    args: part.args as unknown as ToolCallMessagePart['args'],
     result: part.error ?? part.output,
     isError: part.status === 'error',
     argsText: JSON.stringify(part.args),
+    ...packExtras({ status: part.status, metadata: part.metadata }),
   }
 }
 
-function mapResourcePart(part: AIResourcePart): AssistantContentPart {
+export function mapResourcePart(
+  part: AIResourcePart
+): ImageMessagePart | FileMessagePart {
+  const extras = packExtras({
+    mimeType: part.mimeType,
+    size: part.size,
+    description: part.description,
+    metadata: part.metadata,
+  })
+
   if (part.mimeType?.startsWith('image/')) {
     return {
       type: 'image',
       image: part.uri,
       filename: part.name,
+      ...extras,
     }
   }
 
@@ -60,6 +82,7 @@ function mapResourcePart(part: AIResourcePart): AssistantContentPart {
     data: part.uri,
     mimeType: part.mimeType ?? 'application/octet-stream',
     filename: part.name,
+    ...extras,
   }
 }
 

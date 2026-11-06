@@ -78,7 +78,7 @@ describe('mapAIMessagePartsToContentParts', () => {
       },
     ])
 
-    expect(mapped[0]).toEqual({ type: 'reasoning', text: 'thinking…' })
+    expect(mapped[0]).toMatchObject({ type: 'reasoning', text: 'thinking…' })
     expect(mapped[1]).toMatchObject({
       type: 'file',
       data: 'vtex-artifact://1',
