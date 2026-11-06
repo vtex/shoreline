@@ -11,9 +11,11 @@ import { LocaleProvider } from '@vtex/shoreline'
 import { afterEach, beforeEach, vi } from 'vitest'
 
 import { MockRuntimeProvider } from '../../../test-utils'
+import type { StreamTransport } from '../../../runtime/types'
 
 import {
   AIComposer,
+  AIComposerAction,
   AIComposerAddAttachment,
   AIComposerAttachments,
   AIComposerField,
@@ -42,6 +44,56 @@ describe('AIComposer runtime integration', () => {
     await user.type(input, 'Hello')
 
     expect(input).toHaveValue('Hello')
+  })
+})
+
+describe('AIComposerAction while a run is active', () => {
+  it('shows stop while the run has no content yet and send again when it ends', async () => {
+    const user = userEvent.setup()
+    let release!: () => void
+    const gate = new Promise<void>((resolve) => {
+      release = resolve
+    })
+    const transport: StreamTransport = {
+      // biome-ignore lint/correctness/useYield: the run holds, then ends without snapshots
+      async *run() {
+        await gate
+
+        return { parts: [{ type: 'text', text: 'Done' }], status: 'ready' }
+      },
+    }
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider transport={transport}>
+          <AIComposer>
+            <AIComposerField>
+              <AIComposerInput placeholder="Type here" />
+              <AIComposerFooter>
+                <AIComposerAction />
+              </AIComposerFooter>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    expect(screen.getByRole('button', { name: 'Send' })).toBeInTheDocument()
+
+    await user.type(screen.getByPlaceholderText('Type here'), 'Hello')
+    await user.click(screen.getByRole('button', { name: 'Send' }))
+
+    expect(
+      await screen.findByRole('button', { name: 'Stop' })
+    ).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Send' })).toBeNull()
+
+    release()
+
+    expect(
+      await screen.findByRole('button', { name: 'Send' })
+    ).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Stop' })).toBeNull()
   })
 })
 
