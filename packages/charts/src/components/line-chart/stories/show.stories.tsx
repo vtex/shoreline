@@ -33,6 +33,12 @@ const channels: LineChartSeries[] = [
   { name: 'Phone', data: [120, 140, 90, 200, 160, 180] },
 ]
 
+// The forecast needs its own categories: it covers the months the history
+// does not, and both series stay aligned to the same axis.
+const forecastMonths = [...months, 'Jul', 'Aug']
+const revenueHistory = [...revenue, null, null]
+const revenueForecast = [null, null, null, null, null, null, 8100, 7600]
+
 function Section(props: { label: string; children: ReactNode }) {
   return (
     <div style={{ padding: '1rem 0', borderTop: '1px solid #e0e0e0' }}>
@@ -88,6 +94,17 @@ export function Show() {
           categories={months}
           series={[
             { name: 'Revenue', data: [4200, null, 4800, null, 5900, 7200] },
+          ]}
+        />
+      </Section>
+
+      <Section label="Forecast (dashed continuation, no symbols)">
+        <LineChart
+          label="Revenue by month, with a two-month forecast"
+          categories={forecastMonths}
+          series={[
+            { name: 'Revenue', data: revenueHistory },
+            { name: 'Forecast', data: revenueForecast, variant: 'forecast' },
           ]}
         />
       </Section>

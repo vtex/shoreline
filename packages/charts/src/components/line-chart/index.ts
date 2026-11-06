@@ -4,4 +4,4 @@ export type {
   LineChartOptions,
   LineChartProps,
 } from './line-chart'
-export type { LineChartSeries } from './line-option'
+export type { LineChartSeries, LineChartSeriesVariant } from './line-option'

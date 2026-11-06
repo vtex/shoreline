@@ -17,6 +17,7 @@ import {
 import { createNumberFormatter } from '../../internal/format'
 import { legendIcon } from '../../internal/legend'
 import { lineSymbolSize } from '../../internal/symbols'
+import { chartSeriesTokens } from '../../internal/theme'
 import type { ChartTokens } from '../../internal/theme'
 import type { ChartTooltipDelta } from '../../internal/tooltip'
 
@@ -24,6 +25,13 @@ import type { ChartTooltipDelta } from '../../internal/tooltip'
 // constant without the package re-exporting it a second time (it already ships
 // via the bar chart).
 export { defaultMaxSeries } from '../../internal/series'
+
+/**
+ * How a line series renders. `'standard'` is a solid line with point symbols;
+ * `'forecast'` is a dashed line without symbols that continues the series
+ * immediately before it.
+ */
+export type LineChartSeriesVariant = 'standard' | 'forecast'
 
 /**
  * A single line series.
@@ -39,6 +47,19 @@ export interface LineChartSeries {
    * future opt-in says otherwise.
    */
   data: Array<number | null>
+  /**
+   * How the series renders. A forecast continues the series immediately before
+   * it in `series`: it is drawn dashed and without point symbols, in that
+   * series' color, and the chart duplicates the predecessor's last known value
+   * into the forecast so the dashed segment starts where the solid one ends.
+   *
+   * Supply a full-length, category-aligned array with `null` over the
+   * historical range, so the forecast does not draw on top of the history. A
+   * forecast with no predecessor (or whose predecessor has no value) renders
+   * dashed throughout.
+   * @default 'standard'
+   */
+  variant?: LineChartSeriesVariant
   /**
    * How each value changed against whatever period it is being compared to,
    * in category order alongside `data`; `null` or a short array leaves that
@@ -74,6 +95,47 @@ export interface BuildLineOptionArgs {
 // Design spec, tooltip: the guide line + marker that follow the hover across
 // the chart. Driven from the same token the axis lines use.
 const guideLine = '--sl-color-gray-3'
+
+/**
+ * The last value the series actually carries, position included: the seam has
+ * to join the line where the history really ends, so a null at the boundary
+ * category sends it back to the last non-null value before it.
+ */
+function lastKnownPoint(
+  data: Array<number | null>
+): { index: number; value: number } | undefined {
+  for (let index = data.length - 1; index >= 0; index--) {
+    const value = data[index]
+
+    // A slot missing from a short or sparse array reads as a gap, like null.
+    if (value !== null && value !== undefined) return { index, value }
+  }
+
+  return undefined
+}
+
+/**
+ * Duplicates the continued series' last known value into the forecast at that
+ * category, so the dashed segment starts exactly where the solid one ends.
+ * Writes to a copy: the consumer's data is never mutated. A value the consumer
+ * already gives the forecast at that category wins — the seam only fills gaps.
+ */
+function withSeam(
+  forecast: Array<number | null>,
+  continued: Array<number | null> | undefined
+): Array<number | null> {
+  if (!continued) return forecast
+
+  const point = lastKnownPoint(continued)
+
+  if (!point || forecast[point.index] !== null) return forecast
+
+  const seam = [...forecast]
+
+  seam[point.index] = point.value
+
+  return seam
+}
 
 /**
  * Compiles the designed LineChart props into an engine option. Pure: all
@@ -114,7 +176,7 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
       series.length,
       series.map((item) => ({
         name: item.name,
-        icon: legendIcon('standard'),
+        icon: legendIcon(item.variant === 'forecast' ? 'forecast' : 'standard'),
       }))
     ),
     tooltip: buildAxisTooltip({
@@ -128,18 +190,43 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
     yAxis: buildValueAxis({ formatter: formatNumber }),
     // `connectNulls` defaults to false, so null values render as gaps rather
     // than being silently interpolated — the design spec's missing-data rule.
-    series: series.map((item, seriesIndex) => ({
-      name: item.name,
-      type: 'line',
-      data: item.data,
-      smooth: isSmoothCurve(curve),
-      // The engine's `emptyCircle` draws a white center inside a ring of the
-      // series' color; the size decides both, so it is the marker the design
-      // draws rather than the engine's default 4.
-      symbolSize: lineSymbolSize,
-      ...(othersColor && seriesIndex === series.length - 1
-        ? { itemStyle: { color: othersColor } }
-        : {}),
-    })),
+    series: series.map((item, seriesIndex) => {
+      if (item.variant !== 'forecast') {
+        return {
+          name: item.name,
+          type: 'line',
+          data: item.data,
+          smooth: isSmoothCurve(curve),
+          // The engine's `emptyCircle` draws a white center inside a ring of
+          // the series' color; the size decides both, so it is the marker the
+          // design draws rather than the engine's default 4.
+          symbolSize: lineSymbolSize,
+          ...(othersColor && seriesIndex === series.length - 1
+            ? { itemStyle: { color: othersColor } }
+            : {}),
+        }
+      }
+
+      // The collapsed list is the rendered order, so its palette position is
+      // also the engine's: the forecast wears the color of the series it
+      // continues. Setting it explicitly keeps the engine from taking a
+      // palette slot for the forecast.
+      const continuedIndex = seriesIndex - 1
+      const continued = continuedIndex >= 0 ? series[continuedIndex] : undefined
+      const color =
+        continued === undefined
+          ? undefined
+          : tokens.get(chartSeriesTokens[continuedIndex])
+
+      return {
+        name: item.name,
+        type: 'line',
+        data: withSeam(item.data, continued?.data),
+        smooth: isSmoothCurve(curve),
+        lineStyle: { type: 'dashed' },
+        showSymbol: false,
+        ...(color === undefined ? {} : { itemStyle: { color } }),
+      }
+    }),
   }
 }
