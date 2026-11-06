@@ -13,7 +13,10 @@ function textParts(text: string): AIMessagePart[] {
   return [{ type: 'text', text }]
 }
 
-function createOptions(signal: AbortSignal): ChatModelRunOptions {
+function createOptions(
+  signal: AbortSignal,
+  assistantMessageId: string | null = 'asst-1'
+): ChatModelRunOptions {
   return {
     messages: [
       {
@@ -26,7 +29,7 @@ function createOptions(signal: AbortSignal): ChatModelRunOptions {
       },
     ],
     abortSignal: signal,
-    unstable_assistantMessageId: 'asst-1',
+    unstable_assistantMessageId: assistantMessageId ?? undefined,
     runConfig: {},
     context: {},
   } as unknown as ChatModelRunOptions
@@ -173,6 +176,60 @@ describe('createChatModelAdapterFromTransport', () => {
     expect(observer.onRunEnd).toHaveBeenCalledWith(
       'asst-1',
       expect.objectContaining({ cancelled: true })
+    )
+  })
+
+  it('ends right away as cancelled when a stuck transport ignores the abort', async () => {
+    const { observer, handle } = createObserver()
+    const controller = new AbortController()
+    const transport: StreamTransport = {
+      async *run() {
+        await new Promise(() => {})
+
+        return { parts: [], status: 'ready' }
+      },
+    }
+    const results: ChatModelRunResult[] = []
+    const done = (async () => {
+      for await (const item of run(transport, handle, controller.signal)) {
+        results.push(item)
+      }
+    })()
+
+    await Promise.resolve()
+    controller.abort()
+    await done
+
+    expect(results).toHaveLength(0)
+    expect(observer.onRunEnd).toHaveBeenCalledTimes(1)
+    expect(observer.onRunEnd).toHaveBeenCalledWith(
+      'asst-1',
+      expect.objectContaining({ cancelled: true, status: 'ready' })
+    )
+  })
+
+  it('reports cancelled, not error, when the transport throws after the abort', async () => {
+    const { observer, handle } = createObserver()
+    const controller = new AbortController()
+    const transport: StreamTransport = {
+      // biome-ignore lint/correctness/useYield: throws before yielding
+      async *run() {
+        controller.abort()
+        throw new Error('late failure')
+      },
+    }
+
+    const results = await collect(run(transport, handle, controller.signal))
+
+    expect(results).toHaveLength(0)
+    expect(observer.onRunEnd).toHaveBeenCalledTimes(1)
+    expect(observer.onRunEnd).toHaveBeenCalledWith(
+      'asst-1',
+      expect.objectContaining({ cancelled: true, status: 'ready' })
+    )
+    expect(observer.onRunEnd).not.toHaveBeenCalledWith(
+      'asst-1',
+      expect.objectContaining({ status: 'error' })
     )
   })
 
