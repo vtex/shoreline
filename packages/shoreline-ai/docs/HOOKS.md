@@ -89,7 +89,7 @@ const { text, disabled, attachments, setText, send, reset } = useAIComposer()
 | `disabled` | `true` when send is not allowed (`!canSend`) |
 | `attachments` | The files in the composer, as `readonly AIAttachment[]` |
 | `setText` | Updates draft text |
-| `send` | Same as `ComposerPrimitive.Send` |
+| `send` | Sends the draft, same as the send button |
 | `reset` | Clears draft text and attachments |
 
 Use inside `<AIProvider>` with a mounted `AIComposer` tree.
@@ -168,7 +168,9 @@ Reads the thread list of the nearest [`<AIProvider>`](./PROVIDER.md) from its `t
 
 - The list loads once when the provider mounts. Call `refresh` to load it again, for example after you create a thread.
 - `archiveThread(id)` is optimistic: the thread shows `archived: true` at once. If `archive` rejects, the thread goes back to its previous state, `error` is set and the promise rejects with the original error.
-- If the adapter has no `archive` method, `archiveThread` rejects with a clear message and the list does not change.
+- If the adapter has no `archive` method, `archiveThread` rejects with a clear message and the list does not change. It also rejects for an id that is not in the list.
+- Calling `archiveThread` again for the same id while it runs shares the same request.
+- `refresh` clears a previous archive error (and any list error) when it starts.
 - The list is not loaded again after an archive. Call `refresh` if you want the server state.
 - Archiving the active thread does not switch the thread. Call `switchThread` or `createThread` yourself if you want to.
 
@@ -224,9 +226,9 @@ Omit `messageId` inside an `AIMessage*` component tree; pass `messageId` to read
 | `useAIMessageParts` | `AIMessagePart[]` | All parts, normalized — **preferred** |
 | `useAIReasonings` | `AIReasoningPart[]` | Reasoning parts only |
 | `useAITools` | `AIToolPart[]` | Tool parts only |
-| `useAIResources` | `AIResourcePart[]` | Only resources that arrive as separate data entries of a message |
+| `useAIResources` | `AIResourcePart[]` | Currently always an empty list |
 
-**Caveat:** `useAIResources` does **not** return the resource parts of a message: not the files the user attached and not the resource parts your transport yields. Both are `resource` parts in `AIMessage.parts`. To read them, use `useAIMessageParts` and keep the parts with `part.type === 'resource'`, as in the example below.
+**Caveat:** `useAIResources` currently returns an empty list. It only keeps a kind of entry that the package no longer produces: the files the user attached and the resource parts your transport yields are `resource` parts in `AIMessage.parts`. To read them, use `useAIMessageParts` and keep the parts with `part.type === 'resource'`, as in the example below.
 
 ### Inside a custom part renderer
 

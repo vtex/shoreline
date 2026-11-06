@@ -148,7 +148,7 @@ If the transport throws, the run does not throw to your app. Instead:
 - `useAIStatus().error` is `{ type: 'run', message }`;
 - `onRunError` of [`<AIProvider>`](./PROVIDER.md) is called once.
 
-Returning a final snapshot with `status: 'error'` has the same result. The error is cleared when the next message is sent or the thread changes. The app decides how to show it: read `useAIStatus().error` or use `onRunError` for a toast or a log. To try again, call `sendMessage` again.
+Returning a final snapshot with `status: 'error'` has the same result, with one difference: if that snapshot has parts, the message keeps those parts. Without parts it shows `errorMessage`. When the transport gives no `errorMessage`, the message of the run error is `The run failed`. The error is cleared when the next message is sent or the thread changes. The app decides how to show it: read `useAIStatus().error` or use `onRunError` for a toast or a log. To try again, call `sendMessage` again.
 
 ### Cancel
 

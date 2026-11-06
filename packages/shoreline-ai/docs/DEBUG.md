@@ -79,6 +79,7 @@ const transport: StreamTransport = {
 
 - **Do not change a snapshot after you yield it.** The recorder keeps what you yielded, so changing it later changes what the panel shows.
 - **Do not turn `debugStream` on or off while the app runs.** Changing it remounts the provider: the thread id kept by the provider (when you do not pass `threadId`), the open canvas and the run error are reset and the thread list loads again. Decide it when the app starts, for example from an environment flag.
+- A cancelled run is recorded with status `ready`, not `error`, and no error message.
 - Records stay in memory and are lost on reload. An error in the recorder never breaks a run.
 - Each provider records its own runs. A nested provider does not show the runs of its parent, see [PROVIDER.md](./PROVIDER.md#nested-and-sibling-providers).
 

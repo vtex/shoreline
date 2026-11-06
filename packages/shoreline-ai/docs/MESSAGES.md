@@ -265,9 +265,9 @@ Use inside `<AIProvider>`. Omit `messageId` when called inside an `AIMessage*` t
 | `useAIMessageParts(messageId?)` | `AIMessagePart[]` | Full normalized model — **preferred** |
 | `useAIReasonings(messageId?)` | `AIReasoningPart[]` | Reasoning parts only |
 | `useAITools(messageId?)` | `AIToolPart[]` | Tool parts only |
-| `useAIResources(messageId?)` | `AIResourcePart[]` | Only resources that arrive as separate data entries of a message |
+| `useAIResources(messageId?)` | `AIResourcePart[]` | Currently always an empty list |
 
-**Important:** `useAIResources` does **not** return the resource parts of a message: not the files the user attached and not the resource parts your transport yields. For all of them, use `useAIMessageParts` and filter `part.type === 'resource'`.
+**Important:** `useAIResources` currently returns an empty list. For the files the user attached and the resource parts your transport yields, use `useAIMessageParts` and filter `part.type === 'resource'`.
 
 Details and examples: [HOOKS.md](./HOOKS.md#message-hooks).
 
@@ -406,7 +406,7 @@ User bubble styling is applied via CSS on `[data-sl-ai-message-role="user"] [dat
 ### Performance
 
 - In custom renderers, read `meta.isStreaming` and `meta.placement` instead of subscribing to the entire thread.
-- When building custom hooks, avoid selectors that return new object references on every render — subscribe to primitive values separately.
+- When building custom hooks, avoid selectors that return new object references on every render — subscribe to simple values (strings, numbers, booleans) separately.
 - Import from `@vtex/shoreline-ai` barrel exports; avoid deep package paths.
 - Return `null` early for parts you do not customize; call `renderDefaultParts` for the rest.
 

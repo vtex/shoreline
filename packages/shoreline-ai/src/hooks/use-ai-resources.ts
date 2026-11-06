@@ -27,10 +27,10 @@ function mapResourceParts(content: readonly ContentPart[]): AIResourcePart[] {
 }
 
 /**
- * Returns resource parts that arrive as data entries of a message. It does not
- * return the resource parts your transport yields or the files the user
- * attached: read those with `useAIMessageParts` and keep the parts whose `type`
- * is `resource`.
+ * Currently returns an empty list: it only keeps a kind of entry that the
+ * package no longer produces. To read the resources of a message (uploads and
+ * the ones your transport yields), use `useAIMessageParts` and keep the parts
+ * whose `type` is `resource`.
  *
  * @status experimental
  * @example

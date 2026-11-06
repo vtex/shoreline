@@ -75,7 +75,7 @@ Rules:
 
 ## Controlled and uncontrolled thread id
 
-- **Controlled:** pass `threadId`. You own the id. Update it in `onThreadChange`, which the provider calls when a hook asks for a change (`switchThread`, `createThread`). Changing the prop between two non-null ids clears the thread and calls `threads.load` for the new id. Going from `null` to a first id does **not** clear the thread, so a run that already started keeps its messages.
+- **Controlled:** pass `threadId`. You own the id. Update it in `onThreadChange`, which the provider calls when a hook asks for a change (`switchThread`, `createThread`). Changing the prop between two non-null ids clears the thread and calls `threads.load` for the new id. Changing the prop to `null` also clears the thread. Going from `null` to a first id does **not** clear the thread, so a run that already started keeps its messages.
 - **Uncontrolled:** omit `threadId`. The provider keeps the id. `threads.load` is not called: fetch the messages yourself and call `loadMessages`, see [HOOKS.md](./HOOKS.md#multi-thread-flow).
 
 ## `useAIContext()`
