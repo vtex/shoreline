@@ -13,11 +13,10 @@ import { describe, expect, it } from 'vitest'
 const srcDir = join(__dirname, '..')
 
 /**
- * Files that still use the engine `Attachment` type in public signatures.
- * This list must become empty: the public API cannot expose engine types.
- * It shrinks once Shoreline has its own attachment type.
+ * Files allowed to use engine types in public signatures. It stays empty:
+ * the public API cannot expose engine types.
  */
-const ALLOWLIST = ['components/composer/types.ts', 'hooks/use-ai-composer.ts']
+const ALLOWLIST: string[] = []
 
 const BANNED_TERMS = /AssistantRuntime|ThreadMessageLike|remoteId/
 
