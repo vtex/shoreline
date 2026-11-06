@@ -5,10 +5,9 @@ import { useComposerMessagesContext } from './composer-messages-context'
 import type { AIComposerInputProps } from './types'
 
 /**
- * Composer text input backed by `ComposerPrimitive.Input`.
- * Replicates Shoreline Textarea DOM (`data-sl-textarea` /
- * `data-sl-textarea-input`)
- * without the controlled `Textarea` component (incompatible with `asChild`).
+ * Text input of the composer. It uses the same markup as the Shoreline
+ * `Textarea` (`data-sl-textarea` and `data-sl-textarea-input`), so it gets the
+ * same styles.
  *
  * @status experimental
  * @example

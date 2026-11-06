@@ -20,6 +20,10 @@ const ALLOWLIST: string[] = []
 
 const BANNED_TERMS = /AssistantRuntime|ThreadMessageLike|remoteId/
 
+/** Engine names that comments in public files must not use. */
+const BANNED_COMMENT_TERMS =
+  /assistant-ui|Primitive\b|makeAssistantToolUI|AssistantRuntime/
+
 function read(path: string) {
   return readFileSync(path, 'utf8')
 }
@@ -142,6 +146,16 @@ function engineNames(source: string): string[] {
   return names
 }
 
+/** Comment lines of a file that use an engine name, as `line: text`. */
+function engineComments(source: string): string[] {
+  return source
+    .split('\n')
+    .map((line, index) => ({ text: line.trim(), number: index + 1 }))
+    .filter(({ text }) => /^(\/\*\*?|\*|\/\/)/.test(text))
+    .filter(({ text }) => BANNED_COMMENT_TERMS.test(text))
+    .map(({ text, number }) => `${number}: ${text}`)
+}
+
 function leaksEngine(file: string): boolean {
   const source = read(file)
 
@@ -178,5 +192,20 @@ describe('public api isolation', () => {
     expect(typeLeaks).toEqual([])
     expect(signatureLeaks).toEqual([])
     expect(bannedLeaks).toEqual([])
+  })
+
+  it('keeps engine names out of the comments of public files', () => {
+    const typeFiles = listFiles(join(srcDir, 'types')).filter((file) =>
+      /\.tsx?$/.test(file)
+    )
+    const files = [...new Set([...publicFiles(), ...typeFiles])]
+
+    const leaks = files.flatMap((file) =>
+      engineComments(read(file)).map(
+        (line) => `${relative(srcDir, file)}:${line}`
+      )
+    )
+
+    expect(leaks).toEqual([])
   })
 })

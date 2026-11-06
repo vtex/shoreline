@@ -1,11 +1,3 @@
-/**
- * makeAIToolUI — registers a custom React component for rendering tool calls.
- *
- * Supports two modes:
- * - 'widget': renders inline in the message (wraps makeAssistantToolUI)
- * - 'canvas': renders a trigger in the message, full component in <AICanvas>
- */
-
 import type { ComponentType } from 'react'
 import { createElement, useContext } from 'react'
 import { makeAssistantToolUI } from '@assistant-ui/react'
@@ -17,11 +9,27 @@ import type {
 } from '../../types/public'
 import { AIContext } from '../provider/ai-context'
 
+/** Options of `makeAIToolUI`. */
 interface AIToolUIOptions<TArgs = unknown, TResult = unknown> {
+  /** Name of the tool this component renders. */
   component: string
+  /**
+   * `widget` renders inside the message. `canvas` shows a trigger in the
+   * message and the component in `AICanvas`.
+   * @default 'widget'
+   */
   mode?: AIToolRenderMode
+  /** Component that renders the tool call. */
   render: ComponentType<AIToolUIRenderProps<TArgs, TResult>>
+  /**
+   * Component shown in the message in `canvas` mode.
+   * @default undefined
+   */
   trigger?: ComponentType<AIToolUITriggerProps<TArgs, TResult>>
+  /**
+   * Opens the canvas when the tool call appears.
+   * @default false
+   */
   defaultOpen?: boolean
 }
 
