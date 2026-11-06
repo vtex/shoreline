@@ -9,6 +9,7 @@ import type {
 } from '@assistant-ui/react'
 
 import type { AIMessagePart } from '../types/public'
+import { generateId } from '../utils/generate-id'
 import type { BuiltRuntime, RuntimeRunInput, RuntimeSnapshot } from './types'
 import type { RunEnd, RunObserverHandle } from './run-observer'
 import {
@@ -36,7 +37,7 @@ function optionsToRunInput(
       message: mapThreadUserMessageToAIMessage(lastUser),
     },
     abortSignal: options.abortSignal,
-    runResponseId: options.unstable_assistantMessageId ?? `asst-${Date.now()}`,
+    runResponseId: options.unstable_assistantMessageId ?? generateId('asst'),
     threadId: getThreadId?.() ?? null,
   }
 }

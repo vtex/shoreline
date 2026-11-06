@@ -233,6 +233,45 @@ describe('createChatModelAdapterFromTransport', () => {
     )
   })
 
+  it('uses a different run id for each run without an assistant message id', async () => {
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date('2026-01-01T00:00:00Z'))
+
+    try {
+      const { observer, handle } = createObserver()
+      const transport: StreamTransport = {
+        // biome-ignore lint/correctness/useYield: returns right away
+        async *run() {
+          return { parts: textParts('ok'), status: 'ready' }
+        },
+      }
+      const adapter = createChatModelAdapterFromTransport({ transport }, handle)
+      const signal = new AbortController().signal
+
+      await collect(
+        adapter.run(createOptions(signal, null)) as AsyncGenerator<
+          ChatModelRunResult,
+          void
+        >
+      )
+      await collect(
+        adapter.run(createOptions(signal, null)) as AsyncGenerator<
+          ChatModelRunResult,
+          void
+        >
+      )
+
+      const runIds = vi
+        .mocked(observer.onRunStart)
+        .mock.calls.map(([start]) => start.runId)
+
+      expect(runIds).toHaveLength(2)
+      expect(runIds[0]).not.toBe(runIds[1])
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
   it('reports every transport snapshot to the observer but yields no duplicate to the UI', async () => {
     const { observer, handle } = createObserver()
     const transport: StreamTransport = {
