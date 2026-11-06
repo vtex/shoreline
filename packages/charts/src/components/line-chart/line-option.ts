@@ -123,6 +123,61 @@ function withSeam(
 }
 
 /**
+ * Compiles shared-series line props into engine line series. Extracted so the
+ * composed chart can paint lines with exactly this chart's forecast treatment
+ * (dashed, symbol-free, color inherited from the predecessor); internal-only,
+ * so no public API moves.
+ */
+export function buildLineSeries(args: {
+  series: LineChartSeries[]
+  /**
+   * Draw the lines as smooth curves instead of straight segments.
+   * @default false
+   */
+  smooth?: boolean
+  /**
+   * Position of the first series in the chart's overall rendered series list.
+   * The engine assigns palette colors by overall position, so a chart that
+   * paints other series before these lines (a composed chart's bars) passes how
+   * many precede them — that way a forecast still inherits the actual color of
+   * the line it continues.
+   * @default 0
+   */
+  paletteOffset?: number
+  tokens: ChartTokens
+}) {
+  const { series, smooth = false, paletteOffset = 0, tokens } = args
+
+  return series.map((item, seriesIndex) => {
+    if (item.variant !== 'forecast') {
+      return { name: item.name, type: 'line', data: item.data, smooth }
+    }
+
+    // The list order is the rendered order, so its palette position is also
+    // the engine's: the forecast wears the color of the series it continues.
+    // Setting it explicitly keeps the engine from taking a palette slot for
+    // the forecast. `paletteOffset` accounts for series another chart type
+    // paints ahead of these in the same chart.
+    const continuedIndex = seriesIndex - 1
+    const continued = continuedIndex >= 0 ? series[continuedIndex] : undefined
+    const color =
+      continued === undefined
+        ? undefined
+        : tokens.get(chartSeriesTokens[paletteOffset + continuedIndex])
+
+    return {
+      name: item.name,
+      type: 'line',
+      data: withSeam(item.data, continued?.data),
+      smooth,
+      lineStyle: { type: 'dashed' },
+      showSymbol: false,
+      ...(color === undefined ? {} : { itemStyle: { color } }),
+    }
+  })
+}
+
+/**
  * Compiles the designed LineChart props into an engine option. Pure: all
  * style values come from the resolved tokens.
  */
@@ -152,31 +207,6 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
     yAxis: buildValueAxis(),
     // `connectNulls` defaults to false, so null values render as gaps rather
     // than being silently interpolated — the design spec's missing-data rule.
-    series: series.map((item, seriesIndex) => {
-      if (item.variant !== 'forecast') {
-        return { name: item.name, type: 'line', data: item.data, smooth }
-      }
-
-      // The collapsed list is the rendered order, so its palette position is
-      // also the engine's: the forecast wears the color of the series it
-      // continues. Setting it explicitly keeps the engine from taking a
-      // palette slot for the forecast.
-      const continuedIndex = seriesIndex - 1
-      const continued = continuedIndex >= 0 ? series[continuedIndex] : undefined
-      const color =
-        continued === undefined
-          ? undefined
-          : tokens.get(chartSeriesTokens[continuedIndex])
-
-      return {
-        name: item.name,
-        type: 'line',
-        data: withSeam(item.data, continued?.data),
-        smooth,
-        lineStyle: { type: 'dashed' },
-        showSymbol: false,
-        ...(color === undefined ? {} : { itemStyle: { color } }),
-      }
-    }),
+    series: buildLineSeries({ series, smooth, tokens }),
   }
 }
