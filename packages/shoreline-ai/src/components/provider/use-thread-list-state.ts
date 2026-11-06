@@ -4,7 +4,12 @@ import type { AIThreadData, AIThreadError } from '../../types/public'
 import type { AIThreadAdapter } from '../../types/threads'
 import { toAIThreadError } from '../../utils/to-ai-thread-error'
 
-/** @internal Thread list state shared through its own context. */
+/**
+ * Value returned by `useAIThreadList`: the saved threads and the actions
+ * to refresh or archive them.
+ *
+ * @status experimental
+ */
 export interface ThreadListState {
   threads: AIThreadData[]
   isLoading: boolean
