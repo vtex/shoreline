@@ -1,11 +1,23 @@
 import { describe, expect, test } from 'vitest'
 
+import { chartSeriesTokens } from '../../../internal/theme'
 import type { ChartTokens } from '../../../internal/theme'
 import type { BuildLineOptionArgs } from '../line-option'
 import { buildLineOption, defaultMaxSeries } from '../line-option'
 
 const tokens: ChartTokens = {
   get: () => undefined,
+  px: () => 8,
+}
+
+// Palette slots resolve to known values so the forecast color can be asserted
+// against the token it is supposed to inherit.
+const paletteTokens: ChartTokens = {
+  get: (token) => {
+    const index = chartSeriesTokens.indexOf(token)
+
+    return index === -1 ? undefined : `#00000${index}`
+  },
   px: () => 8,
 }
 
@@ -35,6 +47,9 @@ function build(overrides: Partial<BuildLineOptionArgs> = {}) {
       stack?: string
       connectNulls?: boolean
       smooth?: boolean
+      lineStyle?: { type: string }
+      showSymbol?: boolean
+      itemStyle?: { color?: string }
       data: Array<number | null>
     }>
   }
@@ -163,5 +178,137 @@ describe('buildLineOption', () => {
 
     expect(first).toContain('12%')
     expect(first).toContain('data-tone="success"')
+  })
+
+  describe('forecast variant', () => {
+    test('renders dashed and without point symbols', () => {
+      const option = build({
+        series: [
+          { name: 'Revenue', data: [10, 20] },
+          { name: 'Forecast', data: [null, 30], variant: 'forecast' },
+        ],
+      })
+
+      expect(option.series[1]?.lineStyle).toEqual({ type: 'dashed' })
+      expect(option.series[1]?.showSymbol).toBe(false)
+    })
+
+    test('inherits the resolved color of the series it continues', () => {
+      const option = build({
+        tokens: paletteTokens,
+        series: [
+          { name: 'Revenue', data: [10, 20] },
+          { name: 'Forecast', data: [null, 30], variant: 'forecast' },
+        ],
+      })
+
+      expect(option.series[1]?.itemStyle?.color).toBe('#000000')
+    })
+
+    test('inherits the color of the collapsed slot it continues', () => {
+      const option = build({
+        tokens: paletteTokens,
+        series: [
+          { name: 'Revenue', data: [10, 20] },
+          { name: 'Cost', data: [5, 6] },
+          { name: 'Forecast', data: [null, 7], variant: 'forecast' },
+        ],
+      })
+
+      expect(option.series[2]?.itemStyle?.color).toBe('#000001')
+    })
+
+    test('duplicates the last known historical value into the seam', () => {
+      const history = [10, 20, 30, 40, 50, null]
+      const forecast = [null, null, null, null, null, 60]
+
+      const option = build({
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        series: [
+          { name: 'Revenue', data: history },
+          { name: 'Forecast', data: forecast, variant: 'forecast' },
+        ],
+      })
+
+      // The dashed segment begins at May, where the solid one ends.
+      expect(option.series[1]?.data).toEqual([null, null, null, null, 50, 60])
+    })
+
+    test('seams to the last non-null value when the boundary point is null', () => {
+      const option = build({
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+        series: [
+          { name: 'Revenue', data: [10, 20, 30, null, null] },
+          {
+            name: 'Forecast',
+            data: [null, null, null, null, 40],
+            variant: 'forecast',
+          },
+        ],
+      })
+
+      // Not the boundary category (Apr): the last value the line actually
+      // reaches is March.
+      expect(option.series[1]?.data).toEqual([null, null, 30, null, 40])
+    })
+
+    test('renders dashed throughout with no seam when nothing precedes it', () => {
+      const forecast = [null, null, 10, 20]
+
+      const option = build({
+        series: [{ name: 'Forecast', data: forecast, variant: 'forecast' }],
+      })
+
+      expect(option.series[0]?.data).toEqual(forecast)
+      expect(option.series[0]?.lineStyle).toEqual({ type: 'dashed' })
+      expect(option.series[0]?.showSymbol).toBe(false)
+      // Nothing to inherit a color from, so the engine's palette applies.
+      expect(option.series[0]?.itemStyle).toBeUndefined()
+    })
+
+    test('renders dashed throughout with no seam when the predecessor has no values', () => {
+      const forecast = [null, null, 10, 20]
+
+      const option = build({
+        series: [
+          { name: 'Revenue', data: [null, null, null, null] },
+          { name: 'Forecast', data: forecast, variant: 'forecast' },
+        ],
+      })
+
+      expect(option.series[1]?.data).toEqual(forecast)
+    })
+
+    test('leaves standard series untouched by default', () => {
+      const option = build()
+
+      expect(option.series[0]).toEqual({
+        name: 'Revenue',
+        type: 'line',
+        data: [10, 20],
+        smooth: false,
+      })
+      expect(option.series[0]?.lineStyle).toBeUndefined()
+      expect(option.series[0]?.showSymbol).toBeUndefined()
+      expect(option.series[0]?.itemStyle).toBeUndefined()
+    })
+
+    test('never mutates the consumer data', () => {
+      const history = [10, 20, null]
+      const forecast = [null, null, 30]
+
+      const option = build({
+        series: [
+          { name: 'Revenue', data: history },
+          { name: 'Forecast', data: forecast, variant: 'forecast' },
+        ],
+      })
+
+      expect(history).toEqual([10, 20, null])
+      expect(forecast).toEqual([null, null, 30])
+      // The seam is written to a copy, not to the consumer's array.
+      expect(option.series[1]?.data).toEqual([null, 20, 30])
+      expect(option.series[1]?.data).not.toBe(forecast)
+    })
   })
 })

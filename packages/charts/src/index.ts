@@ -17,6 +17,7 @@ export type {
   LineChartOptions,
   LineChartProps,
   LineChartSeries,
+  LineChartSeriesVariant,
 } from './components/line-chart'
 // Consumers construct these to fill `BarChartSeries.deltas`, so the shape has
 // to be nameable outside the package even though the tooltip itself is
