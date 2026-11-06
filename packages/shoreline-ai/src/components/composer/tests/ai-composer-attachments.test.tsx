@@ -194,6 +194,35 @@ describe('AIComposer attachments', () => {
     ).toBeInTheDocument()
   })
 
+  it('renders a custom chip from a render function child', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <MockRuntimeProvider attachments={createHandler()}>
+        <AIComposer>
+          <AIComposerField>
+            <AIComposerAttachments>
+              {({ attachment }) => (
+                <p role="note">{`custom chip: ${attachment.name} (${attachment.status})`}</p>
+              )}
+            </AIComposerAttachments>
+            <AIComposerFooter>
+              <AIComposerAddAttachment />
+            </AIComposerFooter>
+          </AIComposerField>
+        </AIComposer>
+      </MockRuntimeProvider>
+    )
+
+    await pickFile(user, notes())
+
+    await waitFor(() => {
+      expect(screen.getByRole('note')).toHaveTextContent(
+        'custom chip: notes.txt (ready)'
+      )
+    })
+  })
+
   it('rejects a file over maxSize or beyond maxCount', async () => {
     const user = userEvent.setup()
     const add = vi.fn(async function* () {
