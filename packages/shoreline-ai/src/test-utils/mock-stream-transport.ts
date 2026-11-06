@@ -5,6 +5,10 @@ const DEFAULT_ASSISTANT_REPLY =
   'This is a default VTEX-style assistant reply from the Storybook mock transport.'
 
 function delay(ms: number): Promise<void> {
+  if (ms <= 0) {
+    return Promise.resolve()
+  }
+
   return new Promise((resolve) => {
     setTimeout(resolve, ms)
   })
@@ -60,11 +64,30 @@ function buildReplyText(input: RuntimeRunInput): string {
   return `You said: "${userText}". ${DEFAULT_ASSISTANT_REPLY}`
 }
 
+export interface MockStreamTransportOptions {
+  /**
+   * Wait in milliseconds before the text and between tokens. Use 0 to skip
+   * waiting, for example in tests.
+   * @default undefined (120 ms before the text, 35 ms between tokens)
+   */
+  delayMs?: number
+}
+
 /**
  * Simulates {@link createStreamTransport} without SSE: streams text chunks
  * then a final snapshot, yielding {@link RuntimeSnapshot} like the VTEX adapter.
+ *
+ * @status experimental
+ * @example
+ * const transport = createMockStreamTransport({ delayMs: 0 })
  */
-export function createMockStreamTransport(): StreamTransport {
+export function createMockStreamTransport(
+  options: MockStreamTransportOptions = {}
+): StreamTransport {
+  const { delayMs } = options
+  const beforeTextMs = delayMs ?? 120
+  const perTokenMs = delayMs ?? 35
+
   return {
     async *run(input: RuntimeRunInput) {
       const reply = buildReplyText(input)
@@ -76,14 +99,14 @@ export function createMockStreamTransport(): StreamTransport {
         status: 'streaming' satisfies StreamStatus,
       }
 
-      await delay(120)
+      await delay(beforeTextMs)
       accumulator.setReasoning('Reviewing your message (mock)…', 'complete')
 
       const tokens = reply.split(/(\s+)/).filter(Boolean)
 
       for (const token of tokens) {
         accumulator.appendTextDelta(token)
-        await delay(35)
+        await delay(perTokenMs)
         yield { parts: accumulator.snapshot(), status: 'streaming' }
       }
 
