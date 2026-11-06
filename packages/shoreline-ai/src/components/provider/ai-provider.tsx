@@ -171,11 +171,10 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       if (prev === threadIdProp) return
 
       prevControlledThreadId.current = threadIdProp
-      setRunError(null)
 
-      if (prev != null && threadIdProp != null) {
-        unwrapRuntime(runtime).thread.reset([])
-      } else if (threadIdProp === null) {
+      // Going from null to a first id keeps the thread and its run error.
+      if (threadIdProp === null || (prev != null && threadIdProp != null)) {
+        setRunError(null)
         unwrapRuntime(runtime).thread.reset([])
       }
 
