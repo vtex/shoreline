@@ -45,6 +45,7 @@ export default {
 
   DataVisualization: { type: 'separator', title: 'Data Visualization' },
   'bar-chart': 'BarChart',
+  'line-chart': 'LineChart',
 
   Primitives: { type: 'separator', title: 'Primitives' },
   'accessible-icon': 'AccessibleIcon',
