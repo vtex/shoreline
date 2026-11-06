@@ -1,36 +1,20 @@
-import { useAui, useAuiState } from '@assistant-ui/react'
+import { type ThreadMessage, useAui, useAuiState } from '@assistant-ui/react'
 import { useMemo } from 'react'
+
+import { mapThreadMessageToAIMessage } from '../runtime/bridge/map-thread-messages'
 import type { AIResourcePart } from '../types/public'
 
-interface ContentPart {
-  type: string
-  name?: string
-  data?: Record<string, unknown>
-}
-
-function mapResourceParts(content: readonly ContentPart[]): AIResourcePart[] {
-  return content
-    .filter((part) => part.type === 'data' && part.name === 'resource')
-    .map((part) => {
-      const data = part.data ?? {}
-
-      return {
-        type: 'resource' as const,
-        uri: (data.uri as string) ?? '',
-        name: (data.name as string) ?? '',
-        description: data.description as string | undefined,
-        mimeType: data.mimeType as string | undefined,
-        size: data.size as number | undefined,
-        metadata: data.metadata as Record<string, unknown> | undefined,
-      }
-    })
+function resourceParts(message: ThreadMessage): AIResourcePart[] {
+  return mapThreadMessageToAIMessage(message).parts.filter(
+    (part): part is AIResourcePart => part.type === 'resource'
+  )
 }
 
 /**
- * Currently returns an empty list: it only keeps a kind of entry that the
- * package no longer produces. To read the resources of a message (uploads and
- * the ones your transport yields), use `useAIMessageParts` and keep the parts
- * whose `type` is `resource`.
+ * Returns the resource parts of a message: the files the user attached and the
+ * resources your transport yields. Inside a message component it reads the
+ * current message; pass `messageId` to read another one. Returns an empty list
+ * when the message is not found.
  *
  * @status experimental
  * @example
@@ -47,15 +31,13 @@ export function useAIResources(messageId?: string): AIResourcePart[] {
 
   return useMemo(() => {
     if (messageId) {
-      const msg = threadMessages.find((m) => m.id === messageId)
+      const message = threadMessages.find((item) => item.id === messageId)
 
-      if (!msg) return []
-
-      return mapResourceParts(msg.content as readonly ContentPart[])
+      return message ? resourceParts(message) : []
     }
 
     if (contextMessage) {
-      return mapResourceParts(contextMessage.content as readonly ContentPart[])
+      return resourceParts(contextMessage as ThreadMessage)
     }
 
     return []

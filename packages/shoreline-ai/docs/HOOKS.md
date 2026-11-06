@@ -226,9 +226,9 @@ Omit `messageId` inside an `AIMessage*` component tree; pass `messageId` to read
 | `useAIMessageParts` | `AIMessagePart[]` | All parts, normalized — **preferred** |
 | `useAIReasonings` | `AIReasoningPart[]` | Reasoning parts only |
 | `useAITools` | `AIToolPart[]` | Tool parts only |
-| `useAIResources` | `AIResourcePart[]` | Currently always an empty list |
+| `useAIResources` | `AIResourcePart[]` | Resource parts only: files the user attached and resources your transport yields |
 
-**Caveat:** `useAIResources` currently returns an empty list. It only keeps a kind of entry that the package no longer produces: the files the user attached and the resource parts your transport yields are `resource` parts in `AIMessage.parts`. To read them, use `useAIMessageParts` and keep the parts with `part.type === 'resource'`, as in the example below.
+`useAIResources` returns the parts of `AIMessage.parts` whose `type` is `'resource'`, in message order. It gives the same result as `useAIMessageParts(messageId).filter((part) => part.type === 'resource')`.
 
 ### Inside a custom part renderer
 
@@ -272,12 +272,11 @@ function ToolSummary({ messageId }: { messageId: string }) {
 }
 ```
 
-### Filter resources from the full model
+### List the resources of a message
 
 ```tsx
 function MessageAttachments({ messageId }: { messageId: string }) {
-  const parts = useAIMessageParts(messageId)
-  const resources = parts.filter((p) => p.type === 'resource')
+  const resources = useAIResources(messageId)
 
   return (
     <ul>

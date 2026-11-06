@@ -265,9 +265,7 @@ Use inside `<AIProvider>`. Omit `messageId` when called inside an `AIMessage*` t
 | `useAIMessageParts(messageId?)` | `AIMessagePart[]` | Full normalized model — **preferred** |
 | `useAIReasonings(messageId?)` | `AIReasoningPart[]` | Reasoning parts only |
 | `useAITools(messageId?)` | `AIToolPart[]` | Tool parts only |
-| `useAIResources(messageId?)` | `AIResourcePart[]` | Currently always an empty list |
-
-**Important:** `useAIResources` currently returns an empty list. For the files the user attached and the resource parts your transport yields, use `useAIMessageParts` and filter `part.type === 'resource'`.
+| `useAIResources(messageId?)` | `AIResourcePart[]` | Resource parts only: files the user attached and resources your transport yields |
 
 Details and examples: [HOOKS.md](./HOOKS.md#message-hooks).
 
@@ -420,7 +418,6 @@ User bubble styling is applied via CSS on `[data-sl-ai-message-role="user"] [dat
 
 | Avoid | Prefer |
 |-------|--------|
-| Using `useAIResources` for image/file attachments | `useAIMessageParts` + filter `type === 'resource'` |
 | Duplicating CoT grouping logic | Default grouping via `AIMessageParts` (no public `groupBy` in v0) |
 | Replacing `AIMessageText` with a controlled local textarea for streaming | `AIMessageParts` override that reads `meta.isStreaming` |
 | Styling user bubbles with ad hoc classes | `[data-sl-ai-message-role="user"]` + tokens |
