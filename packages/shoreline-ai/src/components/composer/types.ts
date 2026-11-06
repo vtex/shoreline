@@ -205,7 +205,7 @@ export interface AIComposerAttachmentsOptions {
  * <AIComposerAttachments className="chips" />
  */
 export type AIComposerAttachmentsProps = AIComposerAttachmentsOptions &
-  ComponentPropsWithoutRef<'div'>
+  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
 
 /**
  * Own props of `AIComposerAttachment`.
