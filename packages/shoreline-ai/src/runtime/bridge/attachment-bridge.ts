@@ -9,7 +9,7 @@ import type {
 
 import { generateId } from '../../utils/generate-id'
 import type { AttachmentHandler, PendingAttachment } from '../types'
-import { formatFileSize } from '../../utils/attachment-utils'
+import { packErrorReason, type AttachmentErrorReason } from './attachment-error'
 import { packExtras } from './part-extras'
 
 function getAttachmentType(file: File): 'image' | 'document' | 'file' {
@@ -42,13 +42,13 @@ export function createAssistantAttachmentAdapter(
     pendingMap.delete(attachmentId)
   }
 
-  function rejectionFor(file: File): string | null {
+  function rejectionFor(file: File): AttachmentErrorReason | null {
     if (handler.maxSize !== undefined && file.size > handler.maxSize) {
-      return `File is too large (max ${formatFileSize(handler.maxSize)})`
+      return { code: 'too-large', max: handler.maxSize }
     }
 
     if (handler.maxCount !== undefined && pendingMap.size >= handler.maxCount) {
-      return `Too many files (max ${handler.maxCount})`
+      return { code: 'too-many', max: handler.maxCount }
     }
 
     return null
@@ -66,9 +66,15 @@ export function createAssistantAttachmentAdapter(
         file,
         contentType: file.type,
       }
-      const failed = (message: string): EnginePendingAttachment => ({
+      // A message from the handler is shown as is; otherwise the chip builds
+      // a localized one from the reason.
+      const failed = (
+        reason: AttachmentErrorReason,
+        message?: string
+      ): EnginePendingAttachment => ({
         ...base,
         status: { type: 'incomplete', reason: 'error', message },
+        content: packErrorReason(reason),
       })
       const rejection = rejectionFor(file)
 
@@ -93,7 +99,7 @@ export function createAssistantAttachmentAdapter(
         for await (const state of handler.add(file)) {
           if (state.status === 'error') {
             release(id)
-            yield failed(state.error ?? 'Upload failed')
+            yield failed({ code: 'upload-failed' }, state.error)
 
             return
           }
@@ -111,7 +117,10 @@ export function createAssistantAttachmentAdapter(
         }
       } catch (error) {
         release(id)
-        yield failed(error instanceof Error ? error.message : 'Upload failed')
+        yield failed(
+          { code: 'upload-failed' },
+          error instanceof Error ? error.message : undefined
+        )
 
         return
       }
@@ -128,7 +137,8 @@ export function createAssistantAttachmentAdapter(
         attachment.status.type === 'incomplete' &&
         attachment.status.reason === 'error'
       ) {
-        throw new Error(attachment.status.message ?? 'Upload failed')
+        // An empty message lets the chip keep its localized text.
+        throw new Error(attachment.status.message ?? '')
       }
 
       const pending = pendingMap.get(attachment.id)

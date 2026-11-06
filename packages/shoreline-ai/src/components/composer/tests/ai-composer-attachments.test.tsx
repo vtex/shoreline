@@ -51,10 +51,11 @@ function createHandler(
 
 function renderComposer(
   attachments: AttachmentHandler,
-  transport?: StreamTransport
+  transport?: StreamTransport,
+  locale: 'en-US' | 'pt-BR' = 'en-US'
 ) {
   return render(
-    <LocaleProvider locale="en-US">
+    <LocaleProvider locale={locale}>
       <MockRuntimeProvider attachments={attachments} transport={transport}>
         <AIComposer>
           <AIComposerField>
@@ -73,9 +74,12 @@ function renderComposer(
 
 async function pickFile(
   user: ReturnType<typeof userEvent.setup>,
-  file: File
+  file: File,
+  ignoreAccept = false
 ): Promise<HTMLInputElement> {
-  await user.click(screen.getByRole('button', { name: /add attachment/i }))
+  await user.click(
+    screen.getByRole('button', { name: /add attachment|adicionar anexo/i })
+  )
 
   const inputs = document.body.querySelectorAll('input[type="file"]')
   const input = inputs.item(inputs.length - 1)
@@ -83,6 +87,8 @@ async function pickFile(
   if (!(input instanceof HTMLInputElement)) {
     throw new Error('File input not found after clicking add attachment')
   }
+
+  if (ignoreAccept) input.removeAttribute('accept')
 
   await user.upload(input, file)
 
@@ -338,4 +344,120 @@ describe('AIComposer attachments', () => {
     expect(await screen.findByText('second.txt')).toBeInTheDocument()
     expect(screen.queryByText('First failed')).toBeNull()
   })
+
+  it('shows an image whose upload failed as an error chip without a preview', async () => {
+    const user = userEvent.setup()
+
+    renderComposer(
+      createHandler({
+        async *add() {
+          yield { progress: 0.3, status: 'error', error: 'Image rejected' }
+        },
+      })
+    )
+
+    await pickFile(user, new File(['png'], 'photo.png', { type: 'image/png' }))
+
+    const alert = await screen.findByRole('alert')
+
+    expect(alert).toHaveTextContent('Image rejected')
+    expect(screen.queryByRole('img')).toBeNull()
+    expect(screen.getByText('photo.png')).toBeInTheDocument()
+
+    await user.click(screen.getByRole('button', { name: /remove attachment/i }))
+
+    await waitFor(() => {
+      expect(screen.queryByText('photo.png')).toBeNull()
+    })
+    expect(screen.queryByRole('alert')).toBeNull()
+  })
+
+  describe.each([
+    {
+      locale: 'en-US' as const,
+      tooLarge: 'File is too large (max 10 B)',
+      tooMany: 'Too many files (max 1)',
+      failed: 'Upload failed',
+      notAllowed: 'File type not allowed',
+    },
+    {
+      locale: 'pt-BR' as const,
+      tooLarge: 'Arquivo muito grande (máx. 10 B)',
+      tooMany: 'Muitos arquivos (máx. 1)',
+      failed: 'Falha no envio',
+      notAllowed: 'Tipo de arquivo não permitido',
+    },
+  ])(
+    'messages in $locale',
+    ({ locale, tooLarge, tooMany, failed, notAllowed }) => {
+      it('localizes the size and count limit messages', async () => {
+        const user = userEvent.setup()
+
+        renderComposer(
+          createHandler({ maxSize: 10, maxCount: 1 }),
+          undefined,
+          locale
+        )
+
+        await pickFile(
+          user,
+          new File(['x'.repeat(50)], 'big.txt', { type: 'text/plain' })
+        )
+        expect(await screen.findByText(tooLarge)).toBeInTheDocument()
+
+        await pickFile(user, new File(['a'], 'a.txt', { type: 'text/plain' }))
+        await screen.findByText('a.txt')
+        await pickFile(user, new File(['b'], 'b.txt', { type: 'text/plain' }))
+
+        expect(await screen.findByText(tooMany)).toBeInTheDocument()
+      })
+
+      it('localizes the message of an upload that fails without a reason', async () => {
+        const user = userEvent.setup()
+
+        renderComposer(
+          createHandler({
+            async *add() {
+              yield { progress: 0, status: 'error' }
+            },
+          }),
+          undefined,
+          locale
+        )
+
+        await pickFile(user, notes())
+
+        expect(await screen.findByText(failed)).toBeInTheDocument()
+      })
+
+      it('tells the user when the file type is not accepted and keeps no entry', async () => {
+        const user = userEvent.setup()
+        const unhandled: unknown[] = []
+        const onUnhandled = (reason: unknown) => unhandled.push(reason)
+        const add = vi.fn(async function* () {
+          yield { progress: 1, status: 'ready' } as AttachmentUploadState
+        })
+
+        process.on('unhandledRejection', onUnhandled)
+
+        renderComposer(
+          createHandler({ add, accept: 'image/*' }),
+          undefined,
+          locale
+        )
+
+        await pickFile(user, notes(), true)
+
+        expect(await screen.findByRole('alert')).toHaveTextContent(notAllowed)
+        expect(screen.queryByText('notes.txt')).toBeNull()
+        expect(add).not.toHaveBeenCalled()
+        expect(createObjectURL).not.toHaveBeenCalled()
+
+        await new Promise((resolve) => setTimeout(resolve, 20))
+        process.off('unhandledRejection', onUnhandled)
+
+        expect(unhandled).toEqual([])
+      })
+    }
+  )
 })

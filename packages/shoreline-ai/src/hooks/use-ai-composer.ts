@@ -9,6 +9,7 @@ import { useCallback, useMemo } from 'react'
 
 import { useAIContextInternal } from '../components/provider/ai-context'
 import type { AIAttachment } from '../types/public'
+import { useComposerMessage } from '../components/composer/composer-messages-context'
 import { toAIAttachment } from '../utils/to-ai-attachment'
 
 export function useAIComposer(): {
@@ -25,9 +26,10 @@ export function useAIComposer(): {
   const text = useAuiState((s) => s.composer.text)
   const canSend = useAuiState((s) => s.composer.canSend)
   const engineAttachments = useAuiState((s) => s.composer.attachments)
+  const getMessage = useComposerMessage()
   const attachments = useMemo(
-    () => engineAttachments.map(toAIAttachment),
-    [engineAttachments]
+    () => engineAttachments.map((item) => toAIAttachment(item, getMessage)),
+    [engineAttachments, getMessage]
   )
 
   const setText = useCallback(

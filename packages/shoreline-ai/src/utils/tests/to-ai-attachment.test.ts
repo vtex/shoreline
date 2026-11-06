@@ -1,7 +1,12 @@
 import { describe, expect, it } from 'vitest'
 import type { Attachment } from '@assistant-ui/react'
 
-import { toAIAttachment } from '../to-ai-attachment'
+import { toAIAttachment as map } from '../to-ai-attachment'
+
+const getMessage = (id: string, variables?: Record<string, string | number>) =>
+  `${id}:${JSON.stringify(variables ?? {})}`
+
+const toAIAttachment = (attachment: Attachment) => map(attachment, getMessage)
 
 const file = new File(['x'], 'a.png', { type: 'image/png' })
 const base = { id: 'a1', name: 'a.png', contentType: 'image/png', file }
@@ -57,5 +62,54 @@ describe('toAIAttachment', () => {
       status: 'ready',
       type: 'file',
     })
+  })
+
+  it('builds the error text from the reason when the handler gave none', () => {
+    const failed = (reason: object) =>
+      ({
+        ...base,
+        type: 'image',
+        status: { type: 'incomplete', reason: 'error' },
+        content: [
+          {
+            type: 'text',
+            text: '',
+            providerMetadata: { shoreline: { errorReason: reason } },
+          },
+        ],
+      }) as Attachment
+
+    expect(toAIAttachment(failed({ code: 'too-large', max: 2048 })).error).toBe(
+      'attachmentTooLarge:{"max":"2.0 KB"}'
+    )
+    expect(toAIAttachment(failed({ code: 'too-many', max: 3 })).error).toBe(
+      'attachmentTooMany:{"max":3}'
+    )
+    expect(toAIAttachment(failed({ code: 'upload-failed' })).error).toBe(
+      'attachmentUploadFailed:{}'
+    )
+  })
+
+  it('keeps the handler message as is even when a reason exists', () => {
+    const attachment = {
+      ...base,
+      type: 'image',
+      status: {
+        type: 'incomplete',
+        reason: 'error',
+        message: 'Server said no',
+      },
+      content: [
+        {
+          type: 'text',
+          text: '',
+          providerMetadata: {
+            shoreline: { errorReason: { code: 'upload-failed' } },
+          },
+        },
+      ],
+    } as Attachment
+
+    expect(toAIAttachment(attachment).error).toBe('Server said no')
   })
 })

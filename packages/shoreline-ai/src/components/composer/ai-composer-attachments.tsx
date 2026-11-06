@@ -1,9 +1,10 @@
-import { ComposerPrimitive } from '@assistant-ui/react'
-import { memo } from 'react'
-import { forwardRef } from '@vtex/shoreline'
+import { ComposerPrimitive, useAuiEvent } from '@assistant-ui/react'
+import { Text, forwardRef } from '@vtex/shoreline'
+import { memo, useState } from 'react'
 
 import type { AIAttachment } from '../../types/public'
 import { AIComposerAttachment } from './ai-composer-attachment'
+import { useComposerMessagesContext } from './composer-messages-context'
 import { toAIAttachment } from '../../utils/to-ai-attachment'
 import type { AIComposerAttachmentsProps } from './types'
 
@@ -25,12 +26,21 @@ export const AIComposerAttachments = forwardRef<
   AIComposerAttachmentsProps
 >(function AIComposerAttachments(props, ref) {
   const { children, ...divProps } = props
+  const getMessage = useComposerMessagesContext()
+  const [typeRejected, setTypeRejected] = useState(false)
+
+  // The engine refuses a file type the handler does not accept before any
+  // chip exists, so the notice is the only feedback the user gets.
+  useAuiEvent('composer.attachmentAddError', (event) => {
+    if (event.reason === 'not-accepted') setTypeRejected(true)
+  })
+  useAuiEvent('composer.attachmentAdd', () => setTypeRejected(false))
 
   return (
     <div ref={ref} data-sl-ai-composer-attachments {...divProps}>
       <ComposerPrimitive.Attachments>
         {({ attachment }) => {
-          const mapped = toAIAttachment(attachment)
+          const mapped = toAIAttachment(attachment, getMessage)
 
           return children ? (
             children({ attachment: mapped })
@@ -39,6 +49,13 @@ export const AIComposerAttachments = forwardRef<
           )
         }}
       </ComposerPrimitive.Attachments>
+      {typeRejected && (
+        <div role="alert" data-sl-ai-composer-attachments-notice>
+          <Text variant="caption2" color="var(--sl-fg-critical)">
+            {getMessage('attachmentTypeNotAllowed')}
+          </Text>
+        </div>
+      )}
     </div>
   )
 })

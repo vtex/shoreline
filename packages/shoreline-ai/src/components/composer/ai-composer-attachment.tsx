@@ -69,8 +69,11 @@ export const AIComposerAttachment = forwardRef<
   const hasError = isAttachmentError(attachment.status)
   const file = attachment.file
   const percent = Math.round((attachment.progress ?? 0) * 100)
+  // A failed image uses the file row, so the message has room and no preview
+  // suggests the upload worked.
+  const showPreview = isImage && !hasError
   const attachmentType =
-    attachment.type === 'document' ? 'document' : isImage ? 'image' : 'file'
+    attachment.type === 'document' ? 'document' : showPreview ? 'image' : 'file'
   const attachmentStatus = hasError
     ? 'error'
     : isLoading
@@ -81,7 +84,7 @@ export const AIComposerAttachment = forwardRef<
   const [imageError, setImageError] = useState(false)
 
   useEffect(() => {
-    if (!isImage || !file || previewUrl || imageError) return
+    if (!showPreview || !file || previewUrl || imageError) return
 
     const reader = new FileReader()
     reader.onload = (event) => {
@@ -91,9 +94,9 @@ export const AIComposerAttachment = forwardRef<
       setImageError(true)
     }
     reader.readAsDataURL(file)
-  }, [isImage, file, previewUrl, imageError])
+  }, [showPreview, file, previewUrl, imageError])
 
-  if (isImage) {
+  if (showPreview) {
     return (
       <AttachmentPrimitive.Root asChild>
         <div
@@ -103,10 +106,7 @@ export const AIComposerAttachment = forwardRef<
           data-status={attachmentStatus}
           {...divProps}
         >
-          <div
-            data-sl-ai-composer-attachment-image
-            title={hasError ? attachment.error : undefined}
-          >
+          <div data-sl-ai-composer-attachment-image>
             {isLoading && (
               <AIComposerAttachmentProgress
                 name={attachment.name}
@@ -154,9 +154,11 @@ export const AIComposerAttachment = forwardRef<
             </Text>
           )}
           {hasError && (
-            <Text variant="caption2" color="var(--sl-fg-critical)">
-              {attachment.error}
-            </Text>
+            <div role="alert">
+              <Text variant="caption2" color="var(--sl-fg-critical)">
+                {attachment.error}
+              </Text>
+            </div>
           )}
           {!isLoading && !hasError && file && (
             <Text variant="caption2" color="base-soft">
