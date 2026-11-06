@@ -20,7 +20,13 @@ import type { AIRuntime } from '../../types/runtime'
 import type { AIThreadAdapter } from '../../types/threads'
 import { toAIThreadError } from '../../utils/to-ai-thread-error'
 import { AIStreamDebugProvider } from '../debug/stream-debug-context'
-import { AIContext, DEFAULT_CANVAS, type CanvasState } from './ai-context'
+import {
+  AIContext,
+  AIThreadListContext,
+  DEFAULT_CANVAS,
+  type CanvasState,
+} from './ai-context'
+import { useThreadListState } from './use-thread-list-state'
 
 /**
  * @status experimental
@@ -67,6 +73,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       threads,
     } = props
 
+    const threadList = useThreadListState(threads)
     const threadsRef = useRef(threads)
     threadsRef.current = threads
 
@@ -176,11 +183,13 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
 
     return (
       <AIContext.Provider value={contextValue}>
-        <AssistantRuntimeProvider runtime={runtime}>
-          <div ref={ref} data-sl-ai-provider="">
-            {children}
-          </div>
-        </AssistantRuntimeProvider>
+        <AIThreadListContext.Provider value={threadList}>
+          <AssistantRuntimeProvider runtime={runtime}>
+            <div ref={ref} data-sl-ai-provider="">
+              {children}
+            </div>
+          </AssistantRuntimeProvider>
+        </AIThreadListContext.Provider>
       </AIContext.Provider>
     )
   }

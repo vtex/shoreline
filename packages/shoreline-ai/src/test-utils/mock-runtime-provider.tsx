@@ -1,6 +1,7 @@
 import { useMemo, useRef, type ReactNode } from 'react'
 
 import { AIProvider } from '../components/provider'
+import type { AIThreadAdapter } from '../types/threads'
 import { createRuntimeBuilder } from '../runtime/builder'
 import { useRuntime } from '../runtime/use-runtime'
 
@@ -13,6 +14,8 @@ export type MockRuntimeProviderProps = {
   children: ReactNode
   /** Fixed id, ref-backed id (default), or resolver for tests. */
   threadId?: string | null | (() => string | null)
+  /** Thread adapter passed to the provider. */
+  threads?: AIThreadAdapter
 }
 
 /**
@@ -20,7 +23,7 @@ export type MockRuntimeProviderProps = {
  * Use in Storybook decorators, Vitest, and component tests — not part of the public package API.
  */
 export function MockRuntimeProvider(props: MockRuntimeProviderProps) {
-  const { children, threadId: threadIdProp } = props
+  const { children, threadId: threadIdProp, threads } = props
   const threadIdRef = useRef<string | null>(
     typeof threadIdProp === 'string' || threadIdProp === null
       ? threadIdProp
@@ -44,5 +47,9 @@ export function MockRuntimeProvider(props: MockRuntimeProviderProps) {
   )
   const runtime = useRuntime(built)
 
-  return <AIProvider runtime={runtime}>{children}</AIProvider>
+  return (
+    <AIProvider runtime={runtime} threads={threads}>
+      {children}
+    </AIProvider>
+  )
 }

@@ -66,6 +66,7 @@ export { useAITools } from './hooks/use-ai-tools'
 export { useAIResources } from './hooks/use-ai-resources'
 export { useAIStatus } from './hooks/use-ai-status'
 export { useAIThread } from './hooks/use-ai-thread'
+export { useAIThreadList } from './hooks/use-ai-thread-list'
 export { useAIComposer } from './hooks/use-ai-composer'
 export { useAIMessageParts } from './hooks/use-ai-message-parts'
 

@@ -3,6 +3,7 @@ import invariant from 'tiny-invariant'
 
 import type { AIThreadError } from '../../types/public'
 import type { AIRuntime } from '../../types/runtime'
+import type { ThreadListState } from './use-thread-list-state'
 
 interface CanvasState {
   toolCallId: string | null
@@ -44,6 +45,16 @@ export function useAIContextInternal(): AIContextValueInternal {
   const context = useContext(AIContext)
 
   invariant(context, 'useAIContext must be used within an <AIProvider>')
+
+  return context
+}
+
+export const AIThreadListContext = createContext<ThreadListState | null>(null)
+
+export function useAIThreadListContext(): ThreadListState {
+  const context = useContext(AIThreadListContext)
+
+  invariant(context, 'useAIThreadList must be used within an <AIProvider>')
 
   return context
 }
