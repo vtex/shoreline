@@ -14,6 +14,7 @@ import { useAIThread } from '../hooks/use-ai-thread'
 import type { AIMessage, AIThreadData } from '../types/public'
 import type { AIThreadAdapter } from '../types/threads'
 import type { AIRuntime } from '../types/runtime'
+import { unwrapRuntime } from '../runtime/unwrap-runtime'
 
 vi.mock('@assistant-ui/react', async (importOriginal) => {
   const mod = await importOriginal<typeof import('@assistant-ui/react')>()
@@ -98,7 +99,7 @@ describe('AIProvider controlled thread', () => {
 
     await waitFor(() => expect(load).toHaveBeenCalledWith('conv-a'))
 
-    vi.mocked(runtime.thread.reset).mockClear()
+    vi.mocked(unwrapRuntime(runtime).thread.reset).mockClear()
     load.mockClear()
 
     rerender(
@@ -108,7 +109,7 @@ describe('AIProvider controlled thread', () => {
     )
 
     await waitFor(() => {
-      expect(runtime.thread.reset).toHaveBeenCalledWith([])
+      expect(unwrapRuntime(runtime).thread.reset).toHaveBeenCalledWith([])
     })
 
     await waitFor(() => {
@@ -265,8 +266,8 @@ describe('AIProvider controlled thread', () => {
     await Promise.resolve()
 
     expect(latest?.isOpeningThread).toBe(true)
-    expect(runtime.thread.reset).toHaveBeenCalledTimes(1)
-    expect(runtime.thread.reset).toHaveBeenCalledWith([])
+    expect(unwrapRuntime(runtime).thread.reset).toHaveBeenCalledTimes(1)
+    expect(unwrapRuntime(runtime).thread.reset).toHaveBeenCalledWith([])
 
     resolvers['conv-b']([])
 

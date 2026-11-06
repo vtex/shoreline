@@ -21,6 +21,7 @@ import {
 import { loadThreadMessages } from '../../runtime/load-thread-messages'
 import type { AIThreadError } from '../../types/public'
 import type { AIRuntime } from '../../types/runtime'
+import { unwrapRuntime } from '../../runtime/unwrap-runtime'
 import type { AIThreadAdapter } from '../../types/threads'
 import { toAIThreadError } from '../../utils/to-ai-thread-error'
 import { AIStreamDebugProvider } from '../debug/stream-debug-context'
@@ -39,7 +40,7 @@ import { useThreadListState } from './use-thread-list-state'
  * const built = useMemo(() => createRuntimeBuilder().transport(transport).build(), [transport])
  * const runtime = useRuntime(built)
  *
- * <AIProvider runtime={runtime}>
+ * <AIProvider runtime={unwrapRuntime(runtime)}>
  *   <Thread />
  * </AIProvider>
  * ```
@@ -128,9 +129,9 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       setRunError(null)
 
       if (prev != null && threadIdProp != null) {
-        runtime.thread.reset([])
+        unwrapRuntime(runtime).thread.reset([])
       } else if (threadIdProp === null) {
-        runtime.thread.reset([])
+        unwrapRuntime(runtime).thread.reset([])
       }
 
       const load = threadsRef.current?.load
@@ -236,7 +237,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
     return (
       <AIContext.Provider value={contextValue}>
         <AIThreadListContext.Provider value={threadList}>
-          <AssistantRuntimeProvider runtime={runtime}>
+          <AssistantRuntimeProvider runtime={unwrapRuntime(runtime)}>
             <div ref={ref} data-sl-ai-provider="">
               {children}
             </div>
