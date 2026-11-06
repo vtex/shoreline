@@ -3,6 +3,7 @@ import {
   describe,
   expect,
   it,
+  render,
   renderHook,
   waitFor,
 } from '@vtex/shoreline-test-utils'
@@ -12,6 +13,7 @@ import { vi } from 'vitest'
 import { MockRuntimeProvider } from '../../test-utils'
 import type { AIThreadData } from '../../types/public'
 import type { AIThreadAdapter } from '../../types/threads'
+import { useAIStatus } from '../use-ai-status'
 import { useAIThread } from '../use-ai-thread'
 import { useAIThreadList } from '../use-ai-thread-list'
 
@@ -202,19 +204,76 @@ describe('useAIThreadList', () => {
   })
 
   it('does not archive the active thread automatically switching away', async () => {
+    const ACTIVE = 'storybook-conversation'
+    const threads: AIThreadData[] = [
+      { id: ACTIVE, title: 'Active', createdAt: '2026-01-03' },
+      ...THREADS,
+    ]
     const archive = vi.fn().mockResolvedValue(undefined)
     const { result } = setup({
-      list: vi.fn().mockResolvedValue(THREADS),
+      list: vi.fn().mockResolvedValue(threads),
       archive,
     })
 
-    await waitFor(() => expect(result.current.list.threads).toHaveLength(2))
-
-    const active = result.current.thread.threadId
+    await waitFor(() => expect(result.current.list.threads).toHaveLength(3))
+    act(() => result.current.thread.switchThread(ACTIVE))
+    expect(result.current.thread.threadId).toBe(ACTIVE)
 
     await act(async () => {
-      await result.current.list.archiveThread('a')
+      await result.current.list.archiveThread(ACTIVE)
     })
-    expect(result.current.thread.threadId).toBe(active)
+    expect(archive).toHaveBeenCalledWith(ACTIVE)
+    expect(result.current.list.threads[0].archived).toBe(true)
+    expect(result.current.thread.threadId).toBe(ACTIVE)
+  })
+
+  it('does not re-render thread and status consumers when the list changes', async () => {
+    const renders = { thread: 0, status: 0 }
+    let api!: ReturnType<typeof useAIThreadList>
+
+    function ThreadProbe() {
+      useAIThread()
+      renders.thread += 1
+
+      return null
+    }
+
+    function StatusProbe() {
+      useAIStatus()
+      renders.status += 1
+
+      return null
+    }
+
+    function ListConsumer() {
+      api = useAIThreadList()
+
+      return null
+    }
+
+    const adapter: AIThreadAdapter = {
+      list: vi.fn().mockResolvedValue(THREADS),
+      archive: vi.fn().mockResolvedValue(undefined),
+    }
+
+    render(
+      <MockRuntimeProvider threads={adapter}>
+        <ThreadProbe />
+        <StatusProbe />
+        <ListConsumer />
+      </MockRuntimeProvider>
+    )
+    await waitFor(() => expect(api.threads).toHaveLength(2))
+
+    const before = { ...renders }
+
+    await act(async () => {
+      await api.refresh()
+    })
+    await act(async () => {
+      await api.archiveThread('a')
+    })
+    expect(api.threads[0].archived).toBe(true)
+    expect(renders).toEqual(before)
   })
 })
