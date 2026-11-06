@@ -25,8 +25,7 @@ import { unwrapRuntime } from '../../runtime/unwrap-runtime'
 import type { AIThreadAdapter } from '../../types/threads'
 import { toAIThreadError } from '../../utils/to-ai-thread-error'
 import {
-  AIStreamDebugOff,
-  AIStreamDebugRecorder,
+  AIStreamDebugScope,
   DEFAULT_DEBUG_MAX_RUNS,
   DEFAULT_DEBUG_MAX_STEPS,
   useStreamDebugObserver,
@@ -81,12 +80,9 @@ export interface AIProviderOptions {
   /**
    * Records every run so `useAIStreamDebug` and `AIStreamDebugPanel` can show
    * it. Turn it on only while debugging: when it is off nothing is recorded.
-   *
-   * Do not change it while the app runs. Changing it remounts the provider,
-   * which resets the thread id kept by the provider (when you do not pass
-   * `threadId`), the open canvas and the run error, and loads the thread list
-   * again. The recorded snapshots are stored as they arrive, so the
-   * transport must not change a snapshot after it yields it.
+   * You can turn it on or off at any time: the thread is kept, and turning it
+   * off drops the recorded runs. The recorded snapshots are stored as they
+   * arrive, so the transport must not change a snapshot after it yields it.
    * @default false
    */
   debugStream?: boolean
@@ -320,18 +316,16 @@ export const AIProvider = forwardRef<HTMLDivElement, AIProviderProps>(
       ...rest
     } = props
 
-    const inner = (
-      <AIProviderInner ref={ref} {...rest}>
-        {children}
-      </AIProviderInner>
-    )
-
-    if (!debugStream) return <AIStreamDebugOff>{inner}</AIStreamDebugOff>
-
     return (
-      <AIStreamDebugRecorder maxRuns={debugMaxRuns} maxSteps={debugMaxSteps}>
-        {inner}
-      </AIStreamDebugRecorder>
+      <AIStreamDebugScope
+        enabled={debugStream}
+        maxRuns={debugMaxRuns}
+        maxSteps={debugMaxSteps}
+      >
+        <AIProviderInner ref={ref} {...rest}>
+          {children}
+        </AIProviderInner>
+      </AIStreamDebugScope>
     )
   }
 )

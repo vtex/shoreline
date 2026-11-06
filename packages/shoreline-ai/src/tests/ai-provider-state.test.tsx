@@ -138,3 +138,29 @@ describe('AIProvider run error', () => {
     await waitFor(() => expect(getApi(api).status.error).toBeNull())
   })
 })
+
+describe('AIProvider debugStream toggle', () => {
+  it('keeps the uncontrolled thread id and the messages when debugStream changes', async () => {
+    const api: { current: Api | null } = { current: null }
+    const { rerender } = render(
+      <Harness transport={REPLY_TRANSPORT} api={api} debugStream={false} />
+    )
+
+    act(() => getApi(api).thread.switchThread('conv-a'))
+    act(() => getApi(api).thread.sendMessage({ text: 'hello' }))
+    await waitFor(() => expect(getApi(api).status.status).toBe('ready'))
+    expect(getApi(api).thread.messages).toHaveLength(2)
+
+    rerender(<Harness transport={REPLY_TRANSPORT} api={api} debugStream />)
+
+    expect(getApi(api).thread.threadId).toBe('conv-a')
+    expect(getApi(api).thread.messages).toHaveLength(2)
+
+    rerender(
+      <Harness transport={REPLY_TRANSPORT} api={api} debugStream={false} />
+    )
+
+    expect(getApi(api).thread.threadId).toBe('conv-a')
+    expect(getApi(api).thread.messages.map(textOf)).toEqual(['hello', 'reply'])
+  })
+})

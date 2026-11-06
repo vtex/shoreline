@@ -2,6 +2,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -50,15 +51,18 @@ interface OpenRun {
 }
 
 /**
- * Records the runs of the provider it wraps. Rendered by `AIProvider` only
- * when `debugStream` is on.
+ * Records the runs of the provider it wraps while `enabled` is true. When it
+ * is false, nothing is recorded and the runs of an outer provider stay
+ * hidden. Turning it off drops the recorded runs.
  */
-export function AIStreamDebugRecorder(props: {
+export function AIStreamDebugScope(props: {
+  enabled: boolean
   maxRuns?: number
   maxSteps?: number
   children: ReactNode
 }) {
   const {
+    enabled,
     maxRuns = DEFAULT_DEBUG_MAX_RUNS,
     maxSteps = DEFAULT_DEBUG_MAX_STEPS,
     children,
@@ -134,26 +138,19 @@ export function AIStreamDebugRecorder(props: {
     []
   )
 
+  useEffect(() => {
+    if (enabled) return
+
+    openRuns.current.clear()
+    setRuns((prev) => (prev.length > 0 ? [] : prev))
+  }, [enabled])
+
   const value = useMemo(() => ({ runs, clear }), [runs, clear])
 
   return (
-    <AIStreamDebugObserverContext.Provider value={observer}>
-      <AIStreamDebugContext.Provider value={value}>
+    <AIStreamDebugObserverContext.Provider value={enabled ? observer : null}>
+      <AIStreamDebugContext.Provider value={enabled ? value : null}>
         {children}
-      </AIStreamDebugContext.Provider>
-    </AIStreamDebugObserverContext.Provider>
-  )
-}
-
-/**
- * Hides the runs of an outer provider. Rendered by `AIProvider` when
- * `debugStream` is off.
- */
-export function AIStreamDebugOff(props: { children: ReactNode }) {
-  return (
-    <AIStreamDebugObserverContext.Provider value={null}>
-      <AIStreamDebugContext.Provider value={null}>
-        {props.children}
       </AIStreamDebugContext.Provider>
     </AIStreamDebugObserverContext.Provider>
   )
