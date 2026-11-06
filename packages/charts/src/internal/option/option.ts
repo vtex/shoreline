@@ -2,6 +2,7 @@ import type { NumberFormatter } from '../format'
 import type { ChartTokens } from '../theme'
 import type { ChartTooltipDelta } from '../tooltip'
 import { createAxisTooltipFormatter, createTooltipPositioner } from '../tooltip'
+import type { ChartUnit } from '../unit'
 
 // Shared design-token constants used by every chart's option.
 const spaceSmall = '--sl-space-2'
@@ -9,6 +10,9 @@ const spaceLegend = '--sl-space-10'
 // Design spec, positioning: 8px between the hovered point and the tooltip
 const tooltipOffsetToken = '--sl-space-2'
 const tooltipOffsetFallback = 8
+// Design spec, axis labels: percentages read with a trailing sign, not as raw
+// ratios.
+const percentageSuffix = '%'
 
 /**
  * The axis pointer shape our charts use: a shadow band (bar) or a guide line
@@ -65,15 +69,25 @@ export function buildCategoryAxis(categories: string[]) {
 
 /**
  * Value axis for the numeric dimension. `formatter` writes its labels, so they
- * follow the reader's locale; the default leaves the engine's own numeric
- * labels untouched.
+ * follow the reader's locale; a percentage axis appends the `%` sign after
+ * them. The default leaves the engine's own numeric labels untouched.
  */
-export function buildValueAxis(options: { formatter?: NumberFormatter } = {}) {
-  const { formatter } = options
+export function buildValueAxis(
+  options: { unit?: ChartUnit; formatter?: NumberFormatter } = {}
+) {
+  const { unit, formatter } = options
+  if (unit !== 'percentage') {
+    return formatter
+      ? { type: 'value', axisLabel: { formatter } }
+      : { type: 'value' }
+  }
 
   return {
     type: 'value',
-    ...(formatter ? { axisLabel: { formatter } } : {}),
+    axisLabel: {
+      formatter: (value: number) =>
+        `${formatter ? formatter(value) : String(value)}${percentageSuffix}`,
+    },
   }
 }
 
@@ -127,6 +141,13 @@ export function buildAxisTooltip(args: {
    * @default undefined
    */
   getDashed?: (seriesIndex: number) => boolean | undefined
+  /**
+   * Resolves a row's unit from the position of its series, so percentage rows
+   * can format their value with a `%` suffix. Left unset, every row renders
+   * its plain numeric value.
+   * @default undefined
+   */
+  getUnit?: (seriesIndex: number) => ChartUnit | undefined
 }) {
   const {
     tokens,
@@ -138,6 +159,7 @@ export function buildAxisTooltip(args: {
     getDelta,
     skipRow,
     getDashed,
+    getUnit,
   } = args
 
   return {
@@ -161,6 +183,7 @@ export function buildAxisTooltip(args: {
       getDelta,
       skipRow,
       getDashed,
+      getUnit,
     }),
     position: createTooltipPositioner(
       tokens.px(tooltipOffsetToken) ?? tooltipOffsetFallback

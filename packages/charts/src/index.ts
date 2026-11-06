@@ -19,6 +19,17 @@ export type {
   LineChartSeries,
   LineChartSeriesVariant,
 } from './components/line-chart'
+export { ComposedChart } from './components/composed-chart'
+export type {
+  ComposedChartBarSeries,
+  ComposedChartGrouping,
+  ComposedChartLineSeries,
+  ComposedChartMessages,
+  ComposedChartOptions,
+  ComposedChartProps,
+  ComposedChartSeries,
+  ComposedChartUnit,
+} from './components/composed-chart'
 // Shared by LineChart and ComposedChart, so consumers can name the same
 // `curve` type on either.
 export type { ChartCurve } from './internal/curve'

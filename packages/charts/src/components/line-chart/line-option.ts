@@ -156,6 +156,88 @@ function withSeam(
 }
 
 /**
+ * Compiles shared-series line props into engine line series. Extracted so the
+ * composed chart can paint lines with exactly this chart's forecast treatment
+ * (dashed, symbol-free, color inherited from the predecessor); internal-only,
+ * so no public API moves.
+ */
+export function buildLineSeries(args: {
+  series: LineChartSeries[]
+  /**
+   * How the lines connect their points.
+   * @default 'linear'
+   */
+  curve?: ChartCurve
+  /**
+   * Position of the first series in the chart's overall rendered series list.
+   * The engine assigns palette colors by overall position, so a chart that
+   * paints other series before these lines (a composed chart's bars) passes how
+   * many precede them — that way a forecast still inherits the actual color of
+   * the line it continues.
+   * @default 0
+   */
+  paletteOffset?: number
+  /**
+   * Whether `series` ends with the aggregate `collapseSeries` synthesized, so
+   * the last line wears the neutral color instead of a palette slot.
+   * @default false
+   */
+  aggregated?: boolean
+  tokens: ChartTokens
+}) {
+  const {
+    series,
+    curve = 'linear',
+    paletteOffset = 0,
+    aggregated = false,
+    tokens,
+  } = args
+  const seams = forecastSeams(series)
+  const othersColor = aggregated ? tokens.get(othersColorToken) : undefined
+
+  return series.map((item, seriesIndex) => {
+    if (item.variant !== 'forecast') {
+      return {
+        name: item.name,
+        type: 'line',
+        data: item.data,
+        smooth: isSmoothCurve(curve),
+        // The engine's `emptyCircle` draws a white center inside a ring of the
+        // series' color; the size decides both, so it is the marker the design
+        // draws rather than the engine's default 4.
+        symbolSize: lineSymbolSize,
+        ...(othersColor && seriesIndex === series.length - 1
+          ? { itemStyle: { color: othersColor } }
+          : {}),
+      }
+    }
+
+    // The list order is the rendered order, so its palette position is also
+    // the engine's: the forecast wears the color of the series it continues.
+    // Setting it explicitly keeps the engine from taking a palette slot for
+    // the forecast. `paletteOffset` accounts for series another chart type
+    // paints ahead of these in the same chart.
+    const continuedIndex = seriesIndex - 1
+    const continued = continuedIndex >= 0 ? series[continuedIndex] : undefined
+    const color =
+      continued === undefined
+        ? undefined
+        : tokens.get(chartSeriesTokens[paletteOffset + continuedIndex])
+    const seam = seams.get(seriesIndex)
+
+    return {
+      name: item.name,
+      type: 'line',
+      data: seam === undefined ? item.data : withSeam(item.data, seam),
+      smooth: isSmoothCurve(curve),
+      lineStyle: { type: 'dashed' },
+      showSymbol: false,
+      ...(color === undefined ? {} : { itemStyle: { color } }),
+    }
+  })
+}
+
+/**
  * Compiles the designed LineChart props into an engine option. Pure: all
  * style values come from the resolved tokens.
  */
@@ -175,12 +257,6 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
   // so the aggregate behaves like any other series, except that it leaves the
   // palette for the neutral color.
   const series = collapseSeries(args.series, othersLabel, maxSeries)
-  // The synthesized aggregate sits last and wears the neutral color, so the
-  // named lines keep their palette slots.
-  const othersColor =
-    series.length < args.series.length
-      ? tokens.get(othersColorToken)
-      : undefined
 
   const showLegend = series.length > 1
 
@@ -215,44 +291,11 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
     yAxis: buildValueAxis({ formatter: formatNumber }),
     // `connectNulls` defaults to false, so null values render as gaps rather
     // than being silently interpolated — the design spec's missing-data rule.
-    series: series.map((item, seriesIndex) => {
-      if (item.variant !== 'forecast') {
-        return {
-          name: item.name,
-          type: 'line',
-          data: item.data,
-          smooth: isSmoothCurve(curve),
-          // The engine's `emptyCircle` draws a white center inside a ring of
-          // the series' color; the size decides both, so it is the marker the
-          // design draws rather than the engine's default 4.
-          symbolSize: lineSymbolSize,
-          ...(othersColor && seriesIndex === series.length - 1
-            ? { itemStyle: { color: othersColor } }
-            : {}),
-        }
-      }
-
-      // The collapsed list is the rendered order, so its palette position is
-      // also the engine's: the forecast wears the color of the series it
-      // continues. Setting it explicitly keeps the engine from taking a
-      // palette slot for the forecast.
-      const continuedIndex = seriesIndex - 1
-      const continued = continuedIndex >= 0 ? series[continuedIndex] : undefined
-      const color =
-        continued === undefined
-          ? undefined
-          : tokens.get(chartSeriesTokens[continuedIndex])
-      const seam = seams.get(seriesIndex)
-
-      return {
-        name: item.name,
-        type: 'line',
-        data: seam === undefined ? item.data : withSeam(item.data, seam),
-        smooth: isSmoothCurve(curve),
-        lineStyle: { type: 'dashed' },
-        showSymbol: false,
-        ...(color === undefined ? {} : { itemStyle: { color } }),
-      }
+    series: buildLineSeries({
+      series,
+      curve,
+      aggregated: series.length < args.series.length,
+      tokens,
     }),
   }
 }
