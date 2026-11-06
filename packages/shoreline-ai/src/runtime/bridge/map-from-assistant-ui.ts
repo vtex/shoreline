@@ -131,6 +131,7 @@ function mapAttachmentContentToResource(
         uri: content.data,
         name: attachment.name,
         mimeType: content.mimeType ?? 'application/octet-stream',
+        size: readExtras(content).size as number | undefined,
       }
     }
 

@@ -64,14 +64,69 @@ export interface PendingAttachment {
   contentType: string
 }
 
+/**
+ * One step of an upload, yielded by {@link AttachmentHandler.add}.
+ *
+ * @status experimental
+ */
 export interface AttachmentUploadState {
+  /** Upload progress from 0 to 1. */
   progress: number
+  /** `uploading` while sending, `ready` when done, `error` when it failed. */
   status: 'uploading' | 'ready' | 'error'
+  /** Message shown on the chip when `status` is `error`. */
   error?: string
 }
 
-/** Plugin for file uploads — bridged to Assistant-UI internally. */
+/**
+ * Plugin for file uploads. Pass it to `createRuntimeBuilder().attachments()`.
+ *
+ * `add` yields upload states: the composer shows the progress and, on an
+ * `error` state, a chip the user can remove. `send` runs when the message is
+ * sent and returns the resource the transport receives. `remove` runs when
+ * the user removes a file that was added.
+ *
+ * @status experimental
+ * @example
+ * const handler: AttachmentHandler = {
+ *   accept: 'image/*,.pdf',
+ *   maxSize: 5 * 1024 * 1024,
+ *   maxCount: 3,
+ *   async *add(file) {
+ *     yield { progress: 0.5, status: 'uploading' }
+ *     yield { progress: 1, status: 'ready' }
+ *   },
+ *   async send(pending) {
+ *     return {
+ *       type: 'resource',
+ *       uri: await upload(pending.file),
+ *       name: pending.name,
+ *       mimeType: pending.contentType,
+ *       size: pending.file.size,
+ *     }
+ *   },
+ *   async remove() {},
+ * }
+ */
 export interface AttachmentHandler {
+  /**
+   * File types the picker offers and the composer accepts, as in the HTML
+   * `accept` attribute (for example `image/*,.pdf`).
+   * @default '*'
+   */
+  accept?: string
+  /**
+   * Largest file size in bytes. A larger file shows an error chip and is
+   * not uploaded.
+   * @default undefined
+   */
+  maxSize?: number
+  /**
+   * Most files the composer holds at once. Files beyond it show an error
+   * chip and are not uploaded.
+   * @default undefined
+   */
+  maxCount?: number
   add(file: File): AsyncIterable<AttachmentUploadState>
   send(pending: PendingAttachment): Promise<AIResourcePart>
   remove(pending: PendingAttachment): Promise<void>
