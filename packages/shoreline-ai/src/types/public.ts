@@ -136,3 +136,30 @@ export interface AIToolUITriggerProps<TArgs = unknown, TResult = unknown> {
   isLoading: boolean
   openCanvas: () => void
 }
+
+/**
+ * A file in the composer, from the moment it is picked until it is sent.
+ *
+ * @status experimental
+ * @example
+ * const { attachments } = useAIComposer()
+ * attachments.filter((item) => item.status === 'error')
+ */
+export interface AIAttachment {
+  /** Unique id of the attachment in the composer. */
+  id: string
+  /** File name. */
+  name: string
+  /** Kind of file, used to pick the chip layout. */
+  type: 'image' | 'document' | 'file'
+  /** MIME type of the file, when known. */
+  contentType?: string
+  /** `uploading` while the handler uploads, `error` when it failed. */
+  status: 'uploading' | 'ready' | 'error'
+  /** Upload progress from 0 to 1. Set while `status` is `uploading`. */
+  progress?: number
+  /** Why the upload failed. Set when `status` is `error`. */
+  error?: string
+  /** The picked file. Used for the image preview and the size. */
+  file?: File
+}

@@ -2,15 +2,15 @@ import { ComposerPrimitive } from '@assistant-ui/react'
 import { memo } from 'react'
 import { forwardRef } from '@vtex/shoreline'
 
+import type { AIAttachment } from '../../types/public'
 import { AIComposerAttachment } from './ai-composer-attachment'
+import { toAIAttachment } from '../../utils/to-ai-attachment'
 import type { AIComposerAttachmentsProps } from './types'
 
 const DefaultAttachment = memo(function DefaultAttachment({
   attachment,
 }: {
-  attachment: Parameters<
-    NonNullable<AIComposerAttachmentsProps['children']>
-  >[0]['attachment']
+  attachment: AIAttachment
 }) {
   return <AIComposerAttachment attachment={attachment} />
 })
@@ -29,8 +29,15 @@ export const AIComposerAttachments = forwardRef<
   return (
     <div ref={ref} data-sl-ai-composer-attachments {...divProps}>
       <ComposerPrimitive.Attachments>
-        {children ??
-          (({ attachment }) => <DefaultAttachment attachment={attachment} />)}
+        {({ attachment }) => {
+          const mapped = toAIAttachment(attachment)
+
+          return children ? (
+            children({ attachment: mapped })
+          ) : (
+            <DefaultAttachment attachment={mapped} />
+          )
+        }}
       </ComposerPrimitive.Attachments>
     </div>
   )

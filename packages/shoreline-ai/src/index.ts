@@ -10,6 +10,7 @@ export type {
   AIReasoningPart,
   AIToolPart,
   AIResourcePart,
+  AIAttachment,
   AIMessagePart,
   AIMessage,
   AIThreadData,

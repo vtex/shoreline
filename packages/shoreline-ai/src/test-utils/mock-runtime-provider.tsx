@@ -1,7 +1,7 @@
 import { useMemo, useRef, type ReactNode } from 'react'
 
 import { AIProvider } from '../components/provider'
-import type { StreamTransport } from '../runtime/types'
+import type { AttachmentHandler, StreamTransport } from '../runtime/types'
 import type { AIThreadError } from '../types/public'
 import type { AIThreadAdapter } from '../types/threads'
 import { createRuntimeBuilder } from '../runtime/builder'
@@ -20,6 +20,8 @@ export type MockRuntimeProviderProps = {
   threads?: AIThreadAdapter
   /** Transport used instead of the default mock one. Keep it stable. */
   transport?: StreamTransport
+  /** Attachment handler used instead of the default mock one. Keep it stable. */
+  attachments?: AttachmentHandler
   /** Called when a run fails. */
   onRunError?: (error: AIThreadError) => void
   /** Passed to the provider. */
@@ -40,6 +42,7 @@ export function MockRuntimeProvider(props: MockRuntimeProviderProps) {
     threadId: threadIdProp,
     threads,
     transport,
+    attachments,
     onRunError,
     debugStream,
     debugMaxRuns,
@@ -62,9 +65,9 @@ export function MockRuntimeProvider(props: MockRuntimeProviderProps) {
           return threadIdRef.current
         })
         .transport(transport ?? createMockStreamTransport())
-        .attachments(createMockAttachmentHandler())
+        .attachments(attachments ?? createMockAttachmentHandler())
         .build(),
-    [threadIdProp, transport]
+    [threadIdProp, transport, attachments]
   )
   const runtime = useRuntime(built)
 

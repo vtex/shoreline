@@ -22,7 +22,14 @@ vi.mock('@assistant-ui/react', () => ({
       composer: {
         text: 'Hello',
         canSend,
-        attachments: [{ id: 'a1', type: 'file', name: 'doc.pdf' }],
+        attachments: [
+          {
+            id: 'a1',
+            type: 'file',
+            name: 'doc.pdf',
+            status: { type: 'running', reason: 'uploading', progress: 0.5 },
+          },
+        ],
       },
     }),
 }))
@@ -48,7 +55,15 @@ describe('useAIComposer', () => {
 
     expect(result.current.text).toBe('Hello')
     expect(result.current.disabled).toBe(false)
-    expect(result.current.attachments).toHaveLength(1)
+    expect(result.current.attachments).toEqual([
+      {
+        id: 'a1',
+        type: 'file',
+        name: 'doc.pdf',
+        status: 'uploading',
+        progress: 0.5,
+      },
+    ])
   })
 
   it('maps canSend false to disabled true', () => {

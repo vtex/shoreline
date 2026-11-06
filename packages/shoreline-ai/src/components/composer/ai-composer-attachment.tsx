@@ -18,6 +18,25 @@ import {
   isImageAttachmentType,
 } from './utils'
 
+function AIComposerAttachmentProgress(props: {
+  name: string
+  percent: number
+}) {
+  return (
+    // biome-ignore lint/a11y/useFocusableInteractive: a progress bar is read-only and is not focusable
+    <div
+      role="progressbar"
+      aria-label={props.name}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={props.percent}
+      data-sl-ai-composer-attachment-progress
+    >
+      <Spinner size={20} />
+    </div>
+  )
+}
+
 function AIComposerAttachmentRemove() {
   const getMessage = useComposerMessagesContext()
 
@@ -48,7 +67,8 @@ export const AIComposerAttachment = forwardRef<
   const isImage = isImageAttachmentType(attachment.type, attachment.contentType)
   const isLoading = isAttachmentLoading(attachment.status)
   const hasError = isAttachmentError(attachment.status)
-  const file = 'file' in attachment ? attachment.file : undefined
+  const file = attachment.file
+  const percent = Math.round((attachment.progress ?? 0) * 100)
   const attachmentType =
     attachment.type === 'document' ? 'document' : isImage ? 'image' : 'file'
   const attachmentStatus = hasError
@@ -83,15 +103,20 @@ export const AIComposerAttachment = forwardRef<
           data-status={attachmentStatus}
           {...divProps}
         >
-          <div data-sl-ai-composer-attachment-image>
+          <div
+            data-sl-ai-composer-attachment-image
+            title={hasError ? attachment.error : undefined}
+          >
             {isLoading && (
-              <div data-sl-ai-composer-attachment-spinner>
-                <Spinner size={20} description={attachment.name} />
-              </div>
+              <AIComposerAttachmentProgress
+                name={attachment.name}
+                percent={percent}
+              />
             )}
             {!isLoading && previewUrl && (
               <img src={previewUrl} alt={attachment.name} />
             )}
+
             <AIComposerAttachmentRemove />
           </div>
         </div>
@@ -109,9 +134,10 @@ export const AIComposerAttachment = forwardRef<
         {...divProps}
       >
         {isLoading && (
-          <div data-sl-ai-composer-attachment-spinner>
-            <Spinner size={20} description={attachment.name} />
-          </div>
+          <AIComposerAttachmentProgress
+            name={attachment.name}
+            percent={percent}
+          />
         )}
         {!isLoading && (
           <div data-sl-ai-composer-attachment-icon>
@@ -122,7 +148,17 @@ export const AIComposerAttachment = forwardRef<
           <Text variant="caption1" color="muted">
             {attachment.name}
           </Text>
-          {file && (
+          {isLoading && (
+            <Text variant="caption2" color="base-soft">
+              {`${percent}%`}
+            </Text>
+          )}
+          {hasError && (
+            <Text variant="caption2" color="var(--sl-fg-critical)">
+              {attachment.error}
+            </Text>
+          )}
+          {!isLoading && !hasError && file && (
             <Text variant="caption2" color="base-soft">
               {formatFileSize(file.size)}
             </Text>
