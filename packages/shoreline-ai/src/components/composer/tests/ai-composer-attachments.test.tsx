@@ -174,6 +174,33 @@ describe('AIComposer attachments', () => {
     expect(screen.queryByText('Server said no')).toBeNull()
   })
 
+  it('disables Send while an error chip is in the composer', async () => {
+    const user = userEvent.setup()
+
+    renderComposer(
+      createHandler({
+        async *add() {
+          yield { progress: 0, status: 'error', error: 'Server said no' }
+        },
+      })
+    )
+
+    await user.type(screen.getByPlaceholderText('Type here'), 'Hello')
+    expect(screen.getByRole('button', { name: 'Send' })).toBeEnabled()
+
+    await pickFile(user, notes())
+    await screen.findByText('Server said no')
+
+    expect(screen.getByRole('button', { name: 'Send' })).toBeDisabled()
+
+    await user.click(screen.getByRole('button', { name: /remove attachment/i }))
+
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: 'Send' })).toBeEnabled()
+    })
+    expect(screen.getByPlaceholderText('Type here')).toHaveValue('Hello')
+  })
+
   it('shows an error chip when the handler throws', async () => {
     const user = userEvent.setup()
 

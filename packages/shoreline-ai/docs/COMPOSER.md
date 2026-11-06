@@ -75,7 +75,7 @@ Normative tree (matches AI Workspace layout: attachments and textarea inside the
 
 ### Default — `AIComposerAction`
 
-One control that sends when idle and stops while streaming. Send is disabled when the draft is empty (`useAIComposer().disabled`).
+One control that sends when idle and stops while streaming. Send is disabled when the draft is empty (`useAIComposer().disabled`) or an attachment failed to upload.
 
 ```tsx
 <AIComposerActions>
@@ -250,7 +250,7 @@ No `onRemove` prop — removal is handled by the chip’s control and the runtim
 
 | State | Component | Visual |
 |-------|-----------|--------|
-| Draft empty / cannot send | `AIComposerSend` | Disabled, muted circle (`useAIComposer().disabled`) |
+| Draft empty / cannot send / an attachment failed | `AIComposerSend` | Disabled, muted circle |
 | Can send | `AIComposerSend` | Blue 40×40 circle |
 | Streaming | `AIComposerCancel` or `AIComposerAction` | Stop control (`useAIStatus().isStreaming`) |
 
@@ -292,7 +292,7 @@ An error chip appears when:
 
 The built-in messages are localized (`en-US`, `pt-BR`) and can be overridden on `AIComposer` with `messages`. A file whose type is not accepted by the handler never becomes a chip: `AIComposerAttachments` shows a notice with `attachmentTypeNotAllowed` until the next file is added.
 
-A chip in the error state blocks sending: while it is there, sending the message does nothing and the draft stays. The send button is not disabled and `useAIComposer().disabled` does not change, so show your own hint if you need to. The user has to remove the chip (the remove button) and can then send. A file that fails can be added again after the chip is removed.
+A chip in the error state blocks sending: while it is there, `AIComposerSend` is disabled and the draft stays. `useAIComposer().disabled` does not change, so a custom send button should check `attachments` for `status: 'error'` too. The user has to remove the chip (the remove button) and can then send. A file that fails can be added again after the chip is removed.
 
 ## Hooks
 
