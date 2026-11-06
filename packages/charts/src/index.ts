@@ -17,6 +17,7 @@ export type {
   LineChartOptions,
   LineChartProps,
   LineChartSeries,
+  LineChartSeriesVariant,
 } from './components/line-chart'
 // Shared by LineChart and ComposedChart, so consumers can name the same
 // `curve` type on either.

@@ -235,6 +235,29 @@ export function MissingData() {
   )
 }
 
+const forecastMonths = [...months, 'Jul', 'Aug']
+const revenueHistory = [...revenue, null, null]
+const revenueForecast = [null, null, null, null, null, null, 8100, 7600]
+
+/**
+ * A `forecast` series continues the one immediately before it: dashed, with no
+ * point symbols, in that series' color, and joined at its last known value.
+ * Its data is category-aligned and `null` over the historical range, so the
+ * forecast never draws on top of the history.
+ */
+export function Forecast() {
+  return (
+    <LineChart
+      label="Revenue by month, with a two-month forecast"
+      categories={forecastMonths}
+      series={[
+        { name: 'Revenue', data: revenueHistory },
+        { name: 'Forecast', data: revenueForecast, variant: 'forecast' },
+      ]}
+    />
+  )
+}
+
 export function Loading() {
   return (
     <LineChart
