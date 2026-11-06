@@ -26,12 +26,12 @@ const {
 | `messages` | Current thread as `AIMessage[]` |
 | `threadId` | Active persistence id |
 | `isEmpty` | `true` when the active thread has no messages |
-| `isOpeningThread` | `true` while initial thread open is pending |
-| `error` | `AIThreadError \| null` (e.g. `thread_open`) |
+| `isOpeningThread` | `true` while `threads.load` of [`<AIProvider>`](./PROVIDER.md#threads-adapter) is loading the thread |
+| `error` | `AIThreadError \| null`. `{ type: 'thread_open', message }` when `threads.load` rejects. It does not report run errors: use [`useAIStatus`](#useaistatus) |
 | `sendMessage` | Append user message and start a run |
 | `stopGeneration` | Cancel active run (`abortSignal`) |
-| `switchThread` | Cancel, clear UI, update thread id |
-| `createThread` | New id, clear UI, set active |
+| `switchThread` | Cancels the active run, clears the thread, updates the thread id |
+| `createThread` | Cancels the active run, clears the thread, sets a new id and returns it |
 | `loadMessages` | Replace thread content from `AIMessage[]` |
 
 Thread layout (`AIThread*`, empty slot, footer): [THREAD.md](./THREAD.md).
@@ -58,13 +58,24 @@ sendMessage({
 
 ### Multi-thread flow
 
+With a controlled provider and a `threads.load` method, switching is one call. The provider loads the history when the `threadId` prop changes:
+
+```tsx
+// <AIProvider threadId={id} onThreadChange={setId} threads={threads}>
+const { switchThread, isOpeningThread, error } = useAIThread()
+
+switchThread(newId)
+```
+
+Without them, load the history yourself:
+
 ```ts
 switchThread(newId)
 // fetch AIMessage[] for newId from your API
 loadMessages(history)
 ```
 
-`switchThread` clears the in-memory thread and updates `threadId`. Fetch and hydrate in your app layer.
+`switchThread` cancels the active run (runs do not continue in the background), clears the thread and updates `threadId`. When the provider is controlled and has a `threads.load`, the provider fetches and hydrates the thread for you, so you do not call `loadMessages`. Otherwise fetch the history yourself and call `loadMessages`.
 
 ## `useAIComposer()`
 
@@ -76,12 +87,34 @@ const { text, disabled, attachments, setText, send, reset } = useAIComposer()
 |--------|-------------|
 | `text` | Current draft in the composer |
 | `disabled` | `true` when send is not allowed (`!canSend`) |
-| `attachments` | Pending attachments before send |
+| `attachments` | The files in the composer, as `readonly AIAttachment[]` |
 | `setText` | Updates draft text |
 | `send` | Same as `ComposerPrimitive.Send` |
 | `reset` | Clears draft text and attachments |
 
 Use inside `<AIProvider>` with a mounted `AIComposer` tree.
+
+Each attachment is an `AIAttachment`:
+
+```ts
+interface AIAttachment {
+  id: string
+  name: string
+  type: 'image' | 'document' | 'file'
+  contentType?: string
+  status: 'uploading' | 'ready' | 'error'
+  progress?: number // 0 to 1, set while uploading
+  error?: string // set when status is 'error'
+  file?: File // can be missing, check it before you use it
+}
+```
+
+```tsx
+const { attachments } = useAIComposer()
+const hasError = attachments.some((item) => item.status === 'error')
+```
+
+A file in the `error` state blocks sending until the user removes it, see [COMPOSER.md](./COMPOSER.md#attachments).
 
 ## `useAIStatus()`
 
@@ -99,7 +132,79 @@ const { status, isLoading, isStreaming, error } = useAIStatus()
 | `error` | The last run failed and nothing is running |
 | `ready` | Otherwise |
 
-`isLoading` is true for `submitted` and `streaming`. `error` is `{ type: 'run', message }` after a failed run and `null` otherwise. It is cleared when the next message is sent or the thread changes. A run that the user cancels is not an error.
+| Field | Value |
+|---|---|
+| `isLoading` | `true` for `submitted` and `streaming` |
+| `isStreaming` | `true` for `streaming` |
+| `error` | `{ type: 'run', message }` after a failed run, `null` otherwise |
+
+`error` is cleared when the next message is sent (a new run starts) or the thread changes. A run that the user cancels is not an error. `status` becomes `'error'` only from a run that failed in this session: messages loaded from history are treated as complete. A run fails when the transport throws or returns a final snapshot with `status: 'error'`, see [RUNTIME.md](./RUNTIME.md#failure).
+
+```tsx
+function RunStatus() {
+  const { status, isLoading, error } = useAIStatus()
+
+  if (error) return <p role="alert">{error.message}</p>
+
+  return <span>{isLoading ? 'Working...' : status}</span>
+}
+```
+
+## `useAIThreadList()`
+
+```ts
+const { threads, isLoading, error, refresh, archiveThread } = useAIThreadList()
+```
+
+Reads the thread list of the nearest [`<AIProvider>`](./PROVIDER.md) from its `threads` adapter. Without an adapter or without `threads.list`, `threads` is `[]`, `isLoading` is `false`, `error` is `null` and `refresh` does nothing.
+
+| Member | Description |
+|--------|-------------|
+| `threads` | `AIThreadData[]`. Archived threads stay in the list with `archived: true`: filter them if you want to hide them |
+| `isLoading` | `true` while the list loads |
+| `error` | `AIThreadError \| null`. `{ type: 'thread_list', message }` when `list` rejects. `{ type: 'thread_archive', message }` when an archive fails |
+| `refresh` | Loads the list again. Calls made while a load is running share the same request |
+| `archiveThread` | Archives a thread by id |
+
+- The list loads once when the provider mounts. Call `refresh` to load it again, for example after you create a thread.
+- `archiveThread(id)` is optimistic: the thread shows `archived: true` at once. If `archive` rejects, the thread goes back to its previous state, `error` is set and the promise rejects with the original error.
+- If the adapter has no `archive` method, `archiveThread` rejects with a clear message and the list does not change.
+- The list is not loaded again after an archive. Call `refresh` if you want the server state.
+- Archiving the active thread does not switch the thread. Call `switchThread` or `createThread` yourself if you want to.
+
+```tsx
+function History() {
+  const { threads, isLoading, error, archiveThread } = useAIThreadList()
+  const { switchThread } = useAIThread()
+
+  if (isLoading) return <p>Loading...</p>
+
+  return (
+    <>
+      {error ? <p role="alert">{error.message}</p> : null}
+      <ul>
+        {threads
+          .filter((thread) => !thread.archived)
+          .map((thread) => (
+            <li key={thread.id}>
+              <button type="button" onClick={() => switchThread(thread.id)}>
+                {thread.title ?? thread.id}
+              </button>
+              <button
+                type="button"
+                onClick={() => archiveThread(thread.id).catch(() => {})}
+              >
+                Archive
+              </button>
+            </li>
+          ))}
+      </ul>
+    </>
+  )
+}
+```
+
+The type of the returned value is exported as `AIThreadListState`.
 
 ## Message hooks
 
@@ -119,9 +224,9 @@ Omit `messageId` inside an `AIMessage*` component tree; pass `messageId` to read
 | `useAIMessageParts` | `AIMessagePart[]` | All parts, normalized — **preferred** |
 | `useAIReasonings` | `AIReasoningPart[]` | Reasoning parts only |
 | `useAITools` | `AIToolPart[]` | Tool parts only |
-| `useAIResources` | `AIResourcePart[]` | Resource parts from `data` payloads only |
+| `useAIResources` | `AIResourcePart[]` | Only resources that arrive as separate data entries of a message |
 
-**Caveat:** `useAIResources` does **not** include image or file upload parts. For every attachment type, use `useAIMessageParts` and filter `part.type === 'resource'`.
+**Caveat:** `useAIResources` does **not** return the resource parts of a message: not the files the user attached and not the resource parts your transport yields. Both are `resource` parts in `AIMessage.parts`. To read them, use `useAIMessageParts` and keep the parts with `part.type === 'resource'`, as in the example below.
 
 ### Inside a custom part renderer
 

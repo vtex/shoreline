@@ -265,9 +265,9 @@ Use inside `<AIProvider>`. Omit `messageId` when called inside an `AIMessage*` t
 | `useAIMessageParts(messageId?)` | `AIMessagePart[]` | Full normalized model — **preferred** |
 | `useAIReasonings(messageId?)` | `AIReasoningPart[]` | Reasoning parts only |
 | `useAITools(messageId?)` | `AIToolPart[]` | Tool parts only |
-| `useAIResources(messageId?)` | `AIResourcePart[]` | Resource parts from `data` payloads only |
+| `useAIResources(messageId?)` | `AIResourcePart[]` | Only resources that arrive as separate data entries of a message |
 
-**Important:** `useAIResources` does **not** include image or file upload parts. For all attachments, use `useAIMessageParts` and filter `part.type === 'resource'`.
+**Important:** `useAIResources` does **not** return the resource parts of a message: not the files the user attached and not the resource parts your transport yields. For all of them, use `useAIMessageParts` and filter `part.type === 'resource'`.
 
 Details and examples: [HOOKS.md](./HOOKS.md#message-hooks).
 

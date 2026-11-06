@@ -124,7 +124,7 @@ Any child of `AIComposerFooter` that is **not** `AIComposerActions` is placed in
 
 ```tsx
 <AIComposerFooter>
-  <AIComposerAddAttachment accept="image/*,application/pdf" />
+  <AIComposerAddAttachment />
   <AgentPill />
   <AIComposerActions>
     <AIComposerAction />
@@ -134,16 +134,16 @@ Any child of `AIComposerFooter` that is **not** `AIComposerActions` is placed in
 
 ### Attachments with upload
 
-1. Register `AttachmentHandler` on the runtime builder ([RUNTIME.md](./RUNTIME.md)).
+1. Register `AttachmentHandler` on the runtime builder ([RUNTIME.md](./RUNTIME.md#attachmenthandler)). The handler sets the accepted file types and the limits.
 2. Render `<AIComposerAttachments />` as the first child of `AIComposerField`.
-3. User picks files via `<AIComposerAddAttachment />` → chips appear → send includes uploaded resources.
+3. The user picks files with `<AIComposerAddAttachment />`. A chip appears for each file and shows the upload. When the user sends, the uploaded files reach your transport as resource parts.
 
 ```tsx
 <AIComposerField>
   <AIComposerAttachments />
   <AIComposerInput />
   <AIComposerFooter>
-    <AIComposerAddAttachment multiple accept="*/*" />
+    <AIComposerAddAttachment multiple />
     <AIComposerActions>
       <AIComposerAction />
     </AIComposerActions>
@@ -196,7 +196,9 @@ function PromptToolbar() {
 | `messages` | — | Partial override of the internal i18n catalog |
 | `children` | — | Composer subtree (`AIComposerField`, etc.) |
 
-Message ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `placeholder`.
+Message ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed`, `attachmentTypeNotAllowed`.
+
+`attachmentTooLarge` and `attachmentTooMany` have a `{max}` placeholder: the largest size (for example `5.0 MB`) and the largest number of files.
 
 ```tsx
 <AIComposer messages={{ send: 'Enviar', placeholder: 'Pergunte algo…' }} />
@@ -218,8 +220,9 @@ Only `AIComposer` accepts `messages`; child components read from context.
 
 | Prop | Default | Purpose |
 |------|---------|---------|
-| `accept` | — | File types (e.g. `image/*`) |
 | `multiple` | `true` | Allow multi-select |
+
+The file types the picker offers come from `accept` of the `AttachmentHandler`. There is no `accept` prop on this component.
 
 ### `AIComposerAttachments`
 
@@ -267,6 +270,29 @@ flowchart LR
 - Always list chips with `<AIComposerAttachments />` inside `AIComposerField`.
 - Do not mount `<AIComposerAttachment />` alone — it must be inside the attachments list.
 - Removing a file updates composer state via the registered handler; apps do not pass `onRemove`.
+
+### Chip states
+
+| State | What the chip shows |
+|-------|---------------------|
+| Uploading | A spinner with the progress in percent (from the `progress` the handler yields, 0 to 1) |
+| Ready | The image preview, or the file name and size |
+| Error | The file name and the error message in red. The chip has a remove button |
+
+An image whose upload failed shows as a file row, without a preview.
+
+### Errors
+
+An error chip appears when:
+
+- the file is larger than `maxSize`: the message is `attachmentTooLarge`;
+- the composer already holds `maxCount` files: the message is `attachmentTooMany`;
+- the handler yields `{ status: 'error', error }`: the chip shows your `error` text;
+- the handler yields an error without `error` text, or throws: the message is `attachmentUploadFailed`.
+
+The built-in messages are localized (`en-US`, `pt-BR`) and can be overridden on `AIComposer` with `messages`. A file whose type is not accepted by the handler never becomes a chip: `AIComposerAttachments` shows a notice with `attachmentTypeNotAllowed` until the next file is added.
+
+A chip in the error state blocks sending: while it is there, sending the message does nothing and the draft stays. The send button is not disabled and `useAIComposer().disabled` does not change, so show your own hint if you need to. The user has to remove the chip (the remove button) and can then send. A file that fails can be added again after the chip is removed.
 
 ## Hooks
 
