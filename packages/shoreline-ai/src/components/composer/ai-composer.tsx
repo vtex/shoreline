@@ -6,9 +6,15 @@ import { AIComposerSkeleton } from './ai-composer-skeleton'
 import type { AIComposerProps } from './types'
 
 /**
- * Root composer form wired to Assistant-UI `ComposerRuntime`.
+ * Root composer form. It sends the draft and the attachments of the provider.
  *
  * @status experimental
+ * @example
+ * <AIComposer>
+ *   <AIComposerField>
+ *     <AIComposerInput />
+ *   </AIComposerField>
+ * </AIComposer>
  */
 export const AIComposer = forwardRef<HTMLFormElement, AIComposerProps>(
   function AIComposer(props, ref) {

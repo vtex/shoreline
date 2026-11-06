@@ -1,9 +1,5 @@
-/**
- * Thread list for history UIs.
- */
-
 import { useAIThreadListContext } from '../components/provider/ai-context'
-import type { ThreadListState } from '../components/provider/use-thread-list-state'
+import type { AIThreadListState } from '../components/provider/use-thread-list-state'
 
 /**
  * Returns the saved threads and actions to refresh or archive them. The list
@@ -22,6 +18,6 @@ import type { ThreadListState } from '../components/provider/use-thread-list-sta
  * ))
  * ```
  */
-export function useAIThreadList(): ThreadListState {
+export function useAIThreadList(): AIThreadListState {
   return useAIThreadListContext()
 }

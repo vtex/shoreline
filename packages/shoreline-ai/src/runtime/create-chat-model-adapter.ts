@@ -1,5 +1,5 @@
 /**
- * Wraps a StreamTransport as Assistant-UI ChatModelAdapter.
+ * Runs the transport for each run and passes its snapshots to the chat.
  */
 
 import type {

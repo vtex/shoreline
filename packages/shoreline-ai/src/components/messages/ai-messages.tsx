@@ -52,6 +52,8 @@ function findChildByComponent(
  * Renders the full message list with default user and assistant layouts.
  *
  * @status experimental
+ * @example
+ * <AIMessages showReasoningTools={false} />
  */
 export const AIMessages = forwardRef<HTMLDivElement, AIMessagesProps>(
   function AIMessages(props, ref) {

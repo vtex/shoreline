@@ -1,8 +1,3 @@
-/**
- * useAIResources — returns typed AIResourcePart[] from the current message context
- * or from a specific messageId. Extracts data-resource parts.
- */
-
 import { useAui, useAuiState } from '@assistant-ui/react'
 import { useMemo } from 'react'
 import type { AIResourcePart } from '../types/public'
@@ -31,6 +26,16 @@ function mapResourceParts(content: readonly ContentPart[]): AIResourcePart[] {
     })
 }
 
+/**
+ * Returns resource parts that arrive as data entries of a message. It does not
+ * return the resource parts your transport yields or the files the user
+ * attached: read those with `useAIMessageParts` and keep the parts whose `type`
+ * is `resource`.
+ *
+ * @status experimental
+ * @example
+ * const resources = useAIResources(messageId)
+ */
 export function useAIResources(messageId?: string): AIResourcePart[] {
   const aui = useAui()
   const contextMessage = useAuiState((s) =>

@@ -8,6 +8,8 @@ import type { AIThreadEmptyProps } from './types'
  * Renders children only when the thread has no messages and is not opening.
  *
  * @status experimental
+ * @example
+ * <AIThreadEmpty>Ask me anything</AIThreadEmpty>
  */
 export const AIThreadEmpty = forwardRef<HTMLDivElement, AIThreadEmptyProps>(
   function AIThreadEmpty(props, ref) {

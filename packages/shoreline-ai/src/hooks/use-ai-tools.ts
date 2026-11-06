@@ -1,8 +1,3 @@
-/**
- * useAITools — returns typed AIToolPart[] from the current message context
- * or from a specific messageId.
- */
-
 import { useAui, useAuiState } from '@assistant-ui/react'
 import { useMemo } from 'react'
 import type { AIToolPart, ToolStatus } from '../types/public'
@@ -39,6 +34,14 @@ function mapToolParts(content: readonly ContentPart[]): AIToolPart[] {
     }))
 }
 
+/**
+ * Returns the tool parts of a message. Inside a message component it reads the
+ * current message; pass `messageId` to read another one.
+ *
+ * @status experimental
+ * @example
+ * const tools = useAITools(messageId)
+ */
 export function useAITools(messageId?: string): AIToolPart[] {
   const aui = useAui()
   const contextMessage = useAuiState((s) =>

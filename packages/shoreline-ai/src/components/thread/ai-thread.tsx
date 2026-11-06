@@ -8,6 +8,12 @@ import type { AIThreadProps } from './types'
  * Root container for the chat thread layout.
  *
  * @status experimental
+ * @example
+ * <AIThread>
+ *   <AIThreadViewport>
+ *     <AIMessages />
+ *   </AIThreadViewport>
+ * </AIThread>
  */
 export const AIThread = forwardRef<HTMLDivElement, AIThreadProps>(
   function AIThread(props, ref) {

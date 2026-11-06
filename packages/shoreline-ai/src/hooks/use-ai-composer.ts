@@ -12,6 +12,14 @@ import type { AIAttachment } from '../types/public'
 import { useComposerMessage } from '../components/composer/composer-messages-context'
 import { toAIAttachment } from '../utils/to-ai-attachment'
 
+/**
+ * Returns the draft text, the attachments and the actions of the composer. Use
+ * it inside `AIProvider`.
+ *
+ * @status experimental
+ * @example
+ * const { text, attachments, disabled, send } = useAIComposer()
+ */
 export function useAIComposer(): {
   text: string
   disabled: boolean

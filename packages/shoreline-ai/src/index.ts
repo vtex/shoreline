@@ -1,5 +1,6 @@
 /**
- * @vtex/shoreline-ai — AI runtime for VTEX Admin built on Assistant-UI.
+ * @vtex/shoreline-ai: React components and hooks for AI chat in VTEX Admin.
+ * You bring a backend as a stream transport; the package renders the chat.
  *
  * @status experimental
  */
@@ -28,7 +29,7 @@ export type {
 
 export type { AIRuntime } from './types/runtime'
 
-// Runtime builder (agnostic to Assistant-UI for consumers wiring transport)
+// Runtime builder
 export { createRuntimeBuilder } from './runtime/builder'
 export { useRuntime } from './runtime/use-runtime'
 export { loadThreadMessages } from './runtime/load-thread-messages'
@@ -73,7 +74,7 @@ export { useAIResources } from './hooks/use-ai-resources'
 export { useAIStatus } from './hooks/use-ai-status'
 export { useAIThread } from './hooks/use-ai-thread'
 export { useAIThreadList } from './hooks/use-ai-thread-list'
-export type { ThreadListState as AIThreadListState } from './components/provider/use-thread-list-state'
+export type { AIThreadListState } from './components/provider/use-thread-list-state'
 export { useAIComposer } from './hooks/use-ai-composer'
 export { useAIMessageParts } from './hooks/use-ai-message-parts'
 

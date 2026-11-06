@@ -10,6 +10,10 @@ const AI_COMPOSER_ACTIONS_SYMBOL = Symbol.for('shoreline-ai.composer-actions')
  * children that are not `AIComposerActions` render in the start slot (left).
  *
  * @status experimental
+ * @example
+ * <AIComposerActions>
+ *   <AIComposerAction />
+ * </AIComposerActions>
  */
 export const AIComposerActions = forwardRef<
   HTMLDivElement,

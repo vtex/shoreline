@@ -7,6 +7,10 @@ import type { AIMessageReasoningContentProps } from './types'
  * Collapsible body of the reasoning panel.
  *
  * @status experimental
+ * @example
+ * <AIMessageReasoningContent>
+ *   <AIMessageReasoningText />
+ * </AIMessageReasoningContent>
  */
 export const AIMessageReasoningContent = forwardRef<
   HTMLDivElement,

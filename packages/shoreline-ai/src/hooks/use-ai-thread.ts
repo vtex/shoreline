@@ -15,6 +15,17 @@ import { mapAIMessageInputToContent } from '../runtime/map-message-input'
 import type { AIMessage, AIMessageInput, AIThreadError } from '../types/public'
 import { generateThreadId } from '../utils/generate-id'
 
+/**
+ * Returns the messages of the active thread and the actions to send, stop,
+ * switch, create and load threads. `isOpeningThread` and `error` come from
+ * `threads.load` of `AIProvider`.
+ *
+ * @status experimental
+ * @example
+ * const { messages, sendMessage, switchThread } = useAIThread()
+ *
+ * sendMessage({ text: 'Hello' })
+ */
 export function useAIThread(): {
   messages: AIMessage[]
   threadId: string | null

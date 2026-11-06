@@ -8,6 +8,8 @@ import type { AIMessageReasoningTriggerProps } from './types'
  * Toggles the reasoning panel open and closed.
  *
  * @status experimental
+ * @example
+ * <AIMessageReasoningTrigger streaming />
  */
 export const AIMessageReasoningTrigger = forwardRef<
   HTMLButtonElement,

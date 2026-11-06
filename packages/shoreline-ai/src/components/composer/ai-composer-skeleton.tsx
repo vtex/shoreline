@@ -7,6 +7,8 @@ import type { AIComposerSkeletonProps } from './types'
  * Loading placeholder matching composer pill dimensions.
  *
  * @status experimental
+ * @example
+ * <AIComposerSkeleton compact />
  */
 export const AIComposerSkeleton = forwardRef<
   HTMLDivElement,

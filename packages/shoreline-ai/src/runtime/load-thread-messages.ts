@@ -6,8 +6,11 @@ import { mapAIMessagesToThreadMessages } from './bridge/map-from-assistant-ui'
 /**
  * Replaces the current thread messages with the given history.
  *
+ * @status experimental
  * @param runtime - Runtime from `useRuntime` / `useAIContext`
  * @param messages - Messages in Shoreline `AIMessage` shape
+ * @example
+ * loadThreadMessages(runtime, historyMessages)
  */
 export function loadThreadMessages(
   runtime: AIRuntime,

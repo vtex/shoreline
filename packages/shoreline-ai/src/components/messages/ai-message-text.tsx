@@ -15,6 +15,8 @@ function MarkdownTextComponent(
  * Renders a text message part as markdown.
  *
  * @status experimental
+ * @example
+ * <AIMessageText />
  */
 export const AIMessageText = forwardRef<HTMLDivElement, AIMessageTextProps>(
   function AIMessageText(props, ref) {

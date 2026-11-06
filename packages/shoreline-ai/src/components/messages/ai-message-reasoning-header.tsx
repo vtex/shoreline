@@ -16,6 +16,8 @@ export type AIMessageReasoningHeaderProps = AIMessageReasoningHeaderOptions &
  * Collapsible reasoning panel header with trigger label and streaming dots.
  *
  * @status experimental
+ * @example
+ * <AIMessageReasoningHeader streaming />
  */
 export const AIMessageReasoningHeader = forwardRef<
   HTMLDivElement,

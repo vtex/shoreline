@@ -1,7 +1,3 @@
-/**
- * useAIMessageParts — returns all parts of a message as typed AIMessagePart[].
- */
-
 import { useAui, useAuiState } from '@assistant-ui/react'
 import type { PartState } from '@assistant-ui/react'
 import { useMemo } from 'react'
@@ -9,6 +5,15 @@ import { useMemo } from 'react'
 import { parseMessagePart } from '../components/messages/parser'
 import type { AIMessagePart } from '../types/public'
 
+/**
+ * Returns all parts of a message. Inside a message component it reads the
+ * current message; pass `messageId` to read another one.
+ *
+ * @status experimental
+ * @example
+ * const parts = useAIMessageParts(messageId)
+ * const resources = parts.filter((part) => part.type === 'resource')
+ */
 export function useAIMessageParts(messageId?: string): AIMessagePart[] {
   const aui = useAui()
   const contextMessage = useAuiState((s) =>

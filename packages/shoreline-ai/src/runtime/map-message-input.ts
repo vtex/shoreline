@@ -1,5 +1,5 @@
 /**
- * Maps AIMessageInput parts to Assistant-UI user message content.
+ * Turns the parts of an `AIMessageInput` into the content of a user message.
  * @internal
  */
 

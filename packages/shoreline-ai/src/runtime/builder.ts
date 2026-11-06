@@ -53,6 +53,18 @@ class RuntimeBuilderImpl<HasTransport extends boolean = false>
   }
 }
 
+/**
+ * Starts a builder that joins your transport, an optional attachment handler
+ * and an optional thread id getter. Call `build()` to get the result and pass
+ * it to `useRuntime`.
+ *
+ * @status experimental
+ * @example
+ * const built = createRuntimeBuilder()
+ *   .threadId(() => activeThreadId)
+ *   .transport(myTransport)
+ *   .build()
+ */
 export function createRuntimeBuilder(): RuntimeBuilder {
   return new RuntimeBuilderImpl()
 }

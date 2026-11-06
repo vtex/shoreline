@@ -8,7 +8,7 @@ import type { AIRuntime } from '../types/runtime'
 import type { RuntimeSnapshot } from './types'
 
 /**
- * Data sent when a run starts.
+ * Data sent when a run starts. Used inside the package only.
  *
  * @status experimental
  */
@@ -21,7 +21,7 @@ export interface RunStart {
 }
 
 /**
- * Data sent when a run ends.
+ * Data sent when a run ends. Used inside the package only.
  *
  * @status experimental
  */
@@ -36,8 +36,8 @@ export interface RunEnd {
 }
 
 /**
- * Receives run events. Every snapshot from the transport is reported,
- * including the ones that repeat the previous parts.
+ * Receives run events. Used inside the package only. Every snapshot from the
+ * transport is reported, including the ones that repeat the previous parts.
  *
  * @status experimental
  * @example
@@ -54,8 +54,8 @@ export interface RunObserver {
 }
 
 /**
- * Holds the observer that is attached at the moment. `current` is `null`
- * when nobody is listening.
+ * Holds the observer that is attached at the moment. Used inside the package
+ * only. `current` is `null` when nobody is listening.
  *
  * @status experimental
  */

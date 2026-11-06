@@ -8,6 +8,10 @@ import type { AIComposerFooterProps } from './types'
  * Footer row with start slot (left) and actions slot (right).
  *
  * @status experimental
+ * @example
+ * <AIComposerFooter>
+ *   <AIComposerAddAttachment />
+ * </AIComposerFooter>
  */
 export const AIComposerFooter = forwardRef<
   HTMLDivElement,

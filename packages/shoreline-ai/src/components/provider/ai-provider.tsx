@@ -55,15 +55,20 @@ export interface AIProviderOptions {
   /** Runtime from `useRuntime(built)`. */
   runtime: AIRuntime
   /**
-   * Active conversation id. Pass for controlled mode (you own state).
-   * Omit for uncontrolled mode (provider keeps the id internally).
+   * Active thread id. Pass it to control the thread yourself and update it in
+   * `onThreadChange`. Omit it and the provider keeps the id.
+   * @default undefined
    */
   threadId?: string | null
-  /** Called when the active thread id changes. */
+  /**
+   * Called when the active thread id changes.
+   * @default undefined
+   */
   onThreadChange?: (id: string | null) => void
   /**
-   * Thread operations backed by your server. Its `load` method returns the
-   * saved messages when a thread opens. Keep the object stable between renders.
+   * Thread operations backed by your server: `list`, `load` and `archive`.
+   * `load` returns the saved messages when a thread opens. Keep the object
+   * stable between renders (for example with `useMemo`).
    * @default undefined
    */
   threads?: AIThreadAdapter
@@ -76,6 +81,12 @@ export interface AIProviderOptions {
   /**
    * Records every run so `useAIStreamDebug` and `AIStreamDebugPanel` can show
    * it. Turn it on only while debugging: when it is off nothing is recorded.
+   *
+   * Do not change it while the app runs. Changing it remounts the provider,
+   * which resets the thread id kept by the provider (when you do not pass
+   * `threadId`), the open canvas and the run error, and loads the thread list
+   * again. The recorded snapshots are stored as they arrive, so the
+   * transport must not change a snapshot after it yields it.
    * @default false
    */
   debugStream?: boolean
@@ -91,9 +102,20 @@ export interface AIProviderOptions {
    * @default 1000
    */
   debugMaxSteps?: number
+  /**
+   * Your chat UI.
+   * @default undefined
+   */
   children?: ReactNode
 }
 
+/**
+ * Props of `AIProvider`: `AIProviderOptions` plus the ref.
+ *
+ * @status experimental
+ * @example
+ * const props: AIProviderProps = { runtime, children: null }
+ */
 export type AIProviderProps = AIProviderOptions
 
 const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
@@ -278,6 +300,17 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
   }
 )
 
+/**
+ * Wraps your chat UI. It connects the runtime to the hooks and the components,
+ * and keeps the thread id, the canvas and the run error. Providers do not share
+ * state, and a hook reads the nearest provider above it.
+ *
+ * @status experimental
+ * @example
+ * <AIProvider runtime={runtime} threads={threads}>
+ *   <AIThread />
+ * </AIProvider>
+ */
 export const AIProvider = forwardRef<HTMLDivElement, AIProviderProps>(
   function AIProvider(props, ref) {
     const {

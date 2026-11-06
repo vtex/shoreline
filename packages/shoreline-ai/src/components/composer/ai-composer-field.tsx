@@ -6,6 +6,10 @@ import type { AIComposerFieldProps } from './types'
  * Pill container for the composer input and footer.
  *
  * @status experimental
+ * @example
+ * <AIComposerField>
+ *   <AIComposerInput />
+ * </AIComposerField>
  */
 export const AIComposerField = forwardRef<HTMLDivElement, AIComposerFieldProps>(
   function AIComposerField(props, ref) {

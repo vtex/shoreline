@@ -9,6 +9,8 @@ import type { AIComposerSendProps } from './types'
  * Circular send button for the composer.
  *
  * @status experimental
+ * @example
+ * <AIComposerSend />
  */
 export const AIComposerSend = forwardRef<
   HTMLButtonElement,

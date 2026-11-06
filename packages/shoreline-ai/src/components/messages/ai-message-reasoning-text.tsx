@@ -15,6 +15,8 @@ function ReasoningMarkdownComponent(
  * Renders a reasoning step through markdown.
  *
  * @status experimental
+ * @example
+ * <AIMessageReasoningText />
  */
 export const AIMessageReasoningText = forwardRef<
   HTMLDivElement,

@@ -313,6 +313,8 @@ export const AIStreamDebugRunView = forwardRef<
 })
 
 /**
+ * Own props of `AIStreamDebugRunView`.
+ *
  * @status experimental
  * @example
  * <AIStreamDebugRunView run={run} />
@@ -322,6 +324,14 @@ export interface AIStreamDebugRunViewOptions {
   run: AIStreamDebugRun
 }
 
+/**
+ * Props of `AIStreamDebugRunView`: `AIStreamDebugRunViewOptions` plus `div`
+ * attributes.
+ *
+ * @status experimental
+ * @example
+ * <AIStreamDebugRunView run={run} />
+ */
 export type AIStreamDebugRunViewProps = AIStreamDebugRunViewOptions &
   ComponentPropsWithoutRef<'div'>
 
@@ -407,6 +417,8 @@ export const AIStreamDebugPanel = forwardRef<
 })
 
 /**
+ * Own props of `AIStreamDebugPanel`.
+ *
  * @status experimental
  * @example
  * <AIStreamDebugPanel title="Transport debug" />
@@ -419,5 +431,13 @@ export interface AIStreamDebugPanelOptions {
   title?: ReactNode
 }
 
+/**
+ * Props of `AIStreamDebugPanel`: `AIStreamDebugPanelOptions` plus `section`
+ * attributes.
+ *
+ * @status experimental
+ * @example
+ * <AIStreamDebugPanel title="Transport debug" />
+ */
 export type AIStreamDebugPanelProps = AIStreamDebugPanelOptions &
   Omit<ComponentPropsWithoutRef<'section'>, 'title'>

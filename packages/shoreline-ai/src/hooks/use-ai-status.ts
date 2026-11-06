@@ -1,7 +1,3 @@
-/**
- * useAIStatus — returns the current run status with derived booleans.
- */
-
 import { useAui, useAuiState } from '@assistant-ui/react'
 import { useMemo } from 'react'
 

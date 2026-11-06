@@ -6,10 +6,13 @@ import type { AIComposerInputProps } from './types'
 
 /**
  * Composer text input backed by `ComposerPrimitive.Input`.
- * Replicates Shoreline Textarea DOM (`data-sl-textarea` / `data-sl-textarea-input`)
+ * Replicates Shoreline Textarea DOM (`data-sl-textarea` /
+ * `data-sl-textarea-input`)
  * without the controlled `Textarea` component (incompatible with `asChild`).
  *
  * @status experimental
+ * @example
+ * <AIComposerInput placeholder="Ask anything" />
  */
 export const AIComposerInput = forwardRef<
   HTMLTextAreaElement,

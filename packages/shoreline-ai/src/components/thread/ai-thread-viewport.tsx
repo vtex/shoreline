@@ -4,11 +4,17 @@ import { forwardRef } from '@vtex/shoreline'
 import type { AIThreadViewportProps } from './types'
 
 /**
- * Scrollable message viewport with auto-scroll on new messages and thread switches.
+ * Scrollable message viewport with auto-scroll on new messages and thread
+ * switches.
  *
- * Mount `AIThreadScrollToBottom` as the first child of `AIThreadViewportFooter`.
+ * Mount `AIThreadScrollToBottom` as the first child of
+ * `AIThreadViewportFooter`.
  *
  * @status experimental
+ * @example
+ * <AIThreadViewport autoScroll>
+ *   <AIMessages />
+ * </AIThreadViewport>
  */
 export const AIThreadViewport = forwardRef<
   HTMLDivElement,

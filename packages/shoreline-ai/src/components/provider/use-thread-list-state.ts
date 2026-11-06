@@ -9,8 +9,10 @@ import { toAIThreadError } from '../../utils/to-ai-thread-error'
  * to refresh or archive them.
  *
  * @status experimental
+ * @example
+ * const list: AIThreadListState = useAIThreadList()
  */
-export interface ThreadListState {
+export interface AIThreadListState {
   threads: AIThreadData[]
   isLoading: boolean
   error: AIThreadError | null
@@ -74,7 +76,9 @@ const NO_ADAPTER_STATE: ListState = {
 /**
  * @internal Keeps the thread list, loads it on mount and handles archive.
  */
-export function useThreadListState(adapter?: AIThreadAdapter): ThreadListState {
+export function useThreadListState(
+  adapter?: AIThreadAdapter
+): AIThreadListState {
   const [state, dispatch] = useReducer(
     reducer,
     adapter?.list

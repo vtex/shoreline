@@ -10,12 +10,41 @@ import type { ToolStatus } from '../../types/public'
 import { useAIContext } from '../provider/ai-context'
 import { getToolRegistration } from './make-ai-tool-ui'
 
+/**
+ * Own props of `AICanvas`.
+ *
+ * @status experimental
+ * @example
+ * <AICanvas>Custom content</AICanvas>
+ */
 export interface AICanvasOptions {
+  /**
+   * Content shown instead of the registered tool UI.
+   * @default the registered tool UI
+   */
   children?: ReactNode
 }
 
+/**
+ * Props of `AICanvas`.
+ *
+ * @status experimental
+ * @example
+ * <AICanvas />
+ */
 export type AICanvasProps = AICanvasOptions
 
+/**
+ * Shows the component of the tool UI that is open in canvas mode. Place it
+ * where you want the canvas in your layout.
+ *
+ * @status experimental
+ * @example
+ * <AIProvider runtime={runtime}>
+ *   <AIThread />
+ *   <AICanvas />
+ * </AIProvider>
+ */
 export const AICanvas = forwardRef<HTMLDivElement, AICanvasProps>(
   function AICanvas(props, ref) {
     const { children } = props

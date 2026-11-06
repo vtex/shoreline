@@ -8,6 +8,10 @@ import type { AIMessageRootProps } from './types'
  * Root container for a single message.
  *
  * @status experimental
+ * @example
+ * <AIMessageRoot messageRole="assistant">
+ *   <AIMessageParts />
+ * </AIMessageRoot>
  */
 export const AIMessageRoot = forwardRef<HTMLDivElement, AIMessageRootProps>(
   function AIMessageRoot(props, ref) {

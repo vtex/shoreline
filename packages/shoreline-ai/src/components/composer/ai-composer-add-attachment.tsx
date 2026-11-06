@@ -10,6 +10,8 @@ import type { AIComposerAddAttachmentProps } from './types'
  * file types the attachment handler accepts.
  *
  * @status experimental
+ * @example
+ * <AIComposerAddAttachment multiple />
  */
 export const AIComposerAddAttachment = forwardRef<
   HTMLButtonElement,

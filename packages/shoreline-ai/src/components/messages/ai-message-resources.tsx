@@ -6,6 +6,10 @@ import type { AIMessageResourcesProps } from './types'
  * Container for resource message parts.
  *
  * @status experimental
+ * @example
+ * <AIMessageResources>
+ *   <AIMessageResource />
+ * </AIMessageResources>
  */
 export const AIMessageResources = forwardRef<
   HTMLDivElement,

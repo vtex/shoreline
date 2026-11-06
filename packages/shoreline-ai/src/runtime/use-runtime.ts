@@ -1,10 +1,5 @@
 /**
- * Mounts a {@link BuiltRuntime} on Assistant-UI `LocalRuntime`.
- *
- * Memoize the result of `createRuntimeBuilder()…build()` (e.g. with `useMemo`)
- * so adapters are not recreated every render.
- *
- * @status experimental
+ * Creates the runtime from a {@link BuiltRuntime}.
  */
 
 import { useMemo } from 'react'
@@ -17,6 +12,19 @@ import { createChatModelAdapterFromTransport } from './create-chat-model-adapter
 import { bindRunObserverHandle, createRunObserverHandle } from './run-observer'
 import { wrapRuntime } from './unwrap-runtime'
 
+/**
+ * Creates the runtime for a built transport. Pass the result to `AIProvider`.
+ * Memoize `built` (for example with `useMemo`) so the runtime is not rebuilt on
+ * every render.
+ *
+ * @status experimental
+ * @example
+ * const built = useMemo(
+ *   () => createRuntimeBuilder().transport(myTransport).build(),
+ *   []
+ * )
+ * const runtime = useRuntime(built)
+ */
 export function useRuntime(built: BuiltRuntime): AIRuntime {
   const observerHandle = useMemo(() => createRunObserverHandle(), [])
 
