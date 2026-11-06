@@ -22,6 +22,7 @@ export type {
   ToolStatus,
   AIThreadError,
   AIThreadErrorType,
+  AIThreadAdapter,
 } from './types'
 
 export type { AIRuntime } from './types/runtime'
