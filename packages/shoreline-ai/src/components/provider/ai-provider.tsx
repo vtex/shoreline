@@ -40,7 +40,7 @@ import { useThreadListState } from './use-thread-list-state'
  * const built = useMemo(() => createRuntimeBuilder().transport(transport).build(), [transport])
  * const runtime = useRuntime(built)
  *
- * <AIProvider runtime={unwrapRuntime(runtime)}>
+ * <AIProvider runtime={runtime}>
  *   <Thread />
  * </AIProvider>
  * ```
