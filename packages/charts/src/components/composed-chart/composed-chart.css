@@ -1,0 +1,15 @@
+[data-sl-composed-chart] {
+  position: relative;
+  inline-size: 100%;
+  block-size: var(--sl-composed-chart-block-size, 20rem);
+}
+
+[data-sl-composed-chart-empty] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  block-size: 100%;
+  color: var(--sl-fg-muted);
+  font: var(--sl-text-body-font);
+  letter-spacing: var(--sl-text-body-letter-spacing);
+}

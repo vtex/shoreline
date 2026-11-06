@@ -125,6 +125,43 @@ function isStackEnd(args: {
 }
 
 /**
+ * Compiles shared-series bar props into engine bar series. Extracted so the
+ * composed chart paints bars with exactly this chart's stack and border-radius
+ * treatment instead of duplicating it; internal-only, so no public API moves.
+ */
+export function buildBarSeries(args: {
+  series: ChartSeries[]
+  direction: BarChartDirection
+  grouping: BarChartGrouping
+  tokens: ChartTokens
+}) {
+  const { series, direction, grouping, tokens } = args
+  const radius = tokens.px(radiusToken)
+
+  return series.map((item, seriesIndex) => ({
+    name: item.name,
+    type: 'bar',
+    stack: grouping === 'stacked' ? 'total' : undefined,
+    data: item.data.map((value, categoryIndex) => ({
+      value,
+      itemStyle: {
+        borderRadius: barBorderRadius({
+          value,
+          direction,
+          radius,
+          isStackEnd: isStackEnd({
+            series,
+            seriesIndex,
+            categoryIndex,
+            grouping,
+          }),
+        }),
+      },
+    })),
+  }))
+}
+
+/**
  * Compiles the designed BarChart props into an engine option. Pure: all
  * style values come from the resolved tokens.
  */
@@ -136,7 +173,6 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
   // reads the collapsed list, so the aggregate behaves like any other series.
   const series = collapseSeries(args.series, othersLabel, maxSeries)
 
-  const radius = tokens.px(radiusToken)
   const showLegend = series.length > 1
 
   // A vertical stack piles the first series at the bottom, so its segments run
@@ -168,26 +204,6 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
       direction === 'vertical'
         ? buildValueAxis()
         : buildCategoryAxis(categories),
-    series: series.map((item, seriesIndex) => ({
-      name: item.name,
-      type: 'bar',
-      stack: grouping === 'stacked' ? 'total' : undefined,
-      data: item.data.map((value, categoryIndex) => ({
-        value,
-        itemStyle: {
-          borderRadius: barBorderRadius({
-            value,
-            direction,
-            radius,
-            isStackEnd: isStackEnd({
-              series,
-              seriesIndex,
-              categoryIndex,
-              grouping,
-            }),
-          }),
-        },
-      })),
-    })),
+    series: buildBarSeries({ series, direction, grouping, tokens }),
   }
 }
