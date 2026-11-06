@@ -13,11 +13,14 @@ import { useLocalRuntime, type AssistantRuntime } from '@assistant-ui/react'
 import type { BuiltRuntime } from './types'
 import { createAssistantAttachmentAdapter } from './bridge/attachment-bridge'
 import { createChatModelAdapterFromTransport } from './create-chat-model-adapter'
+import { bindRunObserverHandle, createRunObserverHandle } from './run-observer'
 
 export function useRuntime(built: BuiltRuntime): AssistantRuntime {
+  const observerHandle = useMemo(() => createRunObserverHandle(), [])
+
   const chatModelAdapter = useMemo(
-    () => createChatModelAdapterFromTransport(built),
-    [built]
+    () => createChatModelAdapterFromTransport(built, observerHandle),
+    [built, observerHandle]
   )
 
   const attachmentAdapter = useMemo(() => {
@@ -26,9 +29,13 @@ export function useRuntime(built: BuiltRuntime): AssistantRuntime {
     return createAssistantAttachmentAdapter(built.attachmentHandler)
   }, [built.attachmentHandler])
 
-  return useLocalRuntime(chatModelAdapter, {
+  const runtime = useLocalRuntime(chatModelAdapter, {
     adapters: attachmentAdapter
       ? { attachments: attachmentAdapter }
       : undefined,
   })
+
+  bindRunObserverHandle(runtime, observerHandle)
+
+  return runtime
 }

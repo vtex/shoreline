@@ -39,6 +39,8 @@ export interface RuntimeSnapshot {
   status?: StreamStatus
   /** Set when the SSE transport fails before emitting content. */
   errorMessage?: string
+  /** Free-form data the transport may attach for the debug inspector. */
+  debug?: unknown
 }
 
 /**

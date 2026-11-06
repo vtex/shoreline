@@ -9,7 +9,8 @@ import type {
 } from '@assistant-ui/react'
 
 import type { AIMessagePart } from '../types/public'
-import type { BuiltRuntime, RuntimeRunInput } from './types'
+import type { BuiltRuntime, RuntimeRunInput, RuntimeSnapshot } from './types'
+import type { RunEnd, RunObserverHandle } from './run-observer'
 import {
   getLastThreadUserMessage,
   mapThreadUserMessageToAIMessage,
@@ -44,8 +45,19 @@ function snapshotJson(parts: AIMessagePart[]): string {
   return JSON.stringify(parts)
 }
 
+const ABORTED = Symbol('aborted')
+
+function toErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error)
+}
+
+function textPart(text: string): AIMessagePart[] {
+  return [{ type: 'text', text }]
+}
+
 export function createChatModelAdapterFromTransport(
-  built: BuiltRuntime
+  built: BuiltRuntime,
+  observer?: RunObserverHandle
 ): ChatModelAdapter {
   return {
     async *run(
@@ -62,44 +74,120 @@ export function createChatModelAdapterFromTransport(
         return
       }
 
+      const { runResponseId: runId, abortSignal } = input
+
+      const endRun = (end: RunEnd) => observer?.current?.onRunEnd(runId, end)
+      const report = (snapshot: RuntimeSnapshot) =>
+        observer?.current?.onSnapshot(runId, snapshot)
+
+      observer?.current?.onRunStart({
+        runId,
+        threadId: input.threadId ?? null,
+        userMessageId: input.trigger.message.id,
+        startedAt: new Date().toISOString(),
+      })
+
+      const aborted = new Promise<typeof ABORTED>((resolve) => {
+        if (abortSignal.aborted) {
+          resolve(ABORTED)
+
+          return
+        }
+
+        abortSignal.addEventListener('abort', () => resolve(ABORTED), {
+          once: true,
+        })
+      })
+
       const generator = built.transport.run(input)
-      let result = await generator.next()
       let lastEmittedJson = ''
+      let lastParts: AIMessagePart[] = []
 
-      while (!result.done) {
-        const snapshot = result.value
-        const json = snapshotJson(snapshot.parts)
+      try {
+        while (true) {
+          if (abortSignal.aborted) {
+            await generator.return({ parts: lastParts })
+            endRun({ status: 'ready', cancelled: true, finalParts: lastParts })
 
-        if (json !== lastEmittedJson) {
-          yield {
-            content: mapAIMessagePartsToContentParts(snapshot.parts),
-            status: mapStreamStatus(snapshot.status),
+            return
           }
 
-          lastEmittedJson = json
+          const result = await Promise.race([generator.next(), aborted])
+
+          if (result === ABORTED || abortSignal.aborted) {
+            // The transport may be stuck in a pull: do not wait for it.
+            void generator.return({ parts: lastParts }).catch(() => {})
+            endRun({ status: 'ready', cancelled: true, finalParts: lastParts })
+
+            return
+          }
+
+          report(result.value)
+          lastParts = result.value.parts
+
+          if (result.done) {
+            const final = result.value
+            const parts =
+              final.parts.length > 0
+                ? final.parts
+                : final.status === 'error' && final.errorMessage
+                  ? textPart(final.errorMessage)
+                  : final.parts
+
+            if (snapshotJson(parts) !== lastEmittedJson) {
+              yield {
+                content: mapAIMessagePartsToContentParts(parts),
+                status: mapStreamStatus(final.status) ?? {
+                  type: 'complete' as const,
+                  reason: 'stop' as const,
+                },
+              }
+            }
+
+            endRun({
+              status: final.status ?? 'ready',
+              ...(final.status === 'error' && {
+                error: final.errorMessage ?? 'The run failed',
+              }),
+              cancelled: false,
+              finalParts: parts,
+            })
+
+            return
+          }
+
+          const json = snapshotJson(result.value.parts)
+
+          if (json !== lastEmittedJson) {
+            yield {
+              content: mapAIMessagePartsToContentParts(result.value.parts),
+              status: mapStreamStatus(result.value.status),
+            }
+
+            lastEmittedJson = json
+          }
+        }
+      } catch (error) {
+        if (abortSignal.aborted) {
+          endRun({ status: 'ready', cancelled: true, finalParts: lastParts })
+
+          return
         }
 
-        result = await generator.next()
-      }
+        const message = toErrorMessage(error)
+        const parts = textPart(message)
 
-      const final = result.value
-      const parts =
-        final.parts.length > 0
-          ? final.parts
-          : final.status === 'error' && final.errorMessage
-            ? [{ type: 'text' as const, text: final.errorMessage }]
-            : final.parts
-
-      const emittedJson = snapshotJson(parts)
-
-      if (emittedJson !== lastEmittedJson) {
         yield {
           content: mapAIMessagePartsToContentParts(parts),
-          status: mapStreamStatus(final.status) ?? {
-            type: 'complete' as const,
-            reason: 'stop' as const,
-          },
+          status: { type: 'incomplete' as const, reason: 'error' as const },
         }
+
+        endRun({
+          status: 'error',
+          error: message,
+          cancelled: false,
+          finalParts: parts,
+        })
       }
     },
   }
