@@ -7,6 +7,7 @@ import {
   waitFor,
 } from '@vtex/shoreline-test-utils'
 import { useMemo } from 'react'
+import { vi } from 'vitest'
 
 import { AIProvider } from '../components/provider/ai-provider'
 import { useAIStatus } from '../hooks/use-ai-status'
@@ -42,6 +43,10 @@ const REPLY_TRANSPORT: StreamTransport = {
   },
 }
 
+function withLoad(load: AIThreadAdapter['load']): AIThreadAdapter {
+  return { list: async () => [], load }
+}
+
 function history(id: string): AIMessage[] {
   return [
     {
@@ -70,10 +75,12 @@ interface HarnessProps {
   threadId?: string | null
   threads?: AIThreadAdapter
   debugStream?: boolean
+  onThreadChange?: (id: string | null) => void
 }
 
 function Harness(props: HarnessProps) {
-  const { transport, api, threadId, threads, debugStream } = props
+  const { transport, api, threadId, threads, debugStream, onThreadChange } =
+    props
   const built = useMemo(
     () => createRuntimeBuilder().transport(transport).build(),
     [transport]
@@ -86,6 +93,7 @@ function Harness(props: HarnessProps) {
       threadId={threadId}
       threads={threads}
       debugStream={debugStream}
+      onThreadChange={onThreadChange}
     >
       <Probe api={api} />
     </AIProvider>
@@ -162,5 +170,168 @@ describe('AIProvider debugStream toggle', () => {
 
     expect(getApi(api).thread.threadId).toBe('conv-a')
     expect(getApi(api).thread.messages.map(textOf)).toEqual(['hello', 'reply'])
+  })
+})
+
+describe('AIProvider uncontrolled switchThread', () => {
+  it('loads the thread with threads.load and shows its messages', async () => {
+    const api: { current: Api | null } = { current: null }
+    const pending = deferred<AIMessage[]>()
+    const load = vi.fn().mockReturnValue(pending.promise)
+
+    render(
+      <Harness transport={REPLY_TRANSPORT} api={api} threads={withLoad(load)} />
+    )
+
+    act(() => getApi(api).thread.switchThread('conv-a'))
+
+    expect(load).toHaveBeenCalledTimes(1)
+    expect(load).toHaveBeenCalledWith('conv-a')
+    expect(getApi(api).thread.threadId).toBe('conv-a')
+    expect(getApi(api).thread.isOpeningThread).toBe(true)
+
+    await act(async () => {
+      pending.resolve(history('conv-a'))
+    })
+
+    expect(getApi(api).thread.isOpeningThread).toBe(false)
+    expect(getApi(api).thread.messages.map(textOf)).toEqual([
+      'history of conv-a',
+    ])
+  })
+
+  it('ignores a late result after another switch', async () => {
+    const api: { current: Api | null } = { current: null }
+    const first = deferred<AIMessage[]>()
+    const load = vi.fn((id: string) =>
+      id === 'conv-a' ? first.promise : Promise.resolve(history(id))
+    )
+
+    render(
+      <Harness transport={REPLY_TRANSPORT} api={api} threads={withLoad(load)} />
+    )
+
+    act(() => getApi(api).thread.switchThread('conv-a'))
+    act(() => getApi(api).thread.switchThread('conv-b'))
+    await waitFor(() =>
+      expect(getApi(api).thread.messages.map(textOf)).toEqual([
+        'history of conv-b',
+      ])
+    )
+
+    await act(async () => {
+      first.resolve(history('conv-a'))
+    })
+
+    expect(getApi(api).thread.threadId).toBe('conv-b')
+    expect(getApi(api).thread.isOpeningThread).toBe(false)
+    expect(getApi(api).thread.messages.map(textOf)).toEqual([
+      'history of conv-b',
+    ])
+  })
+
+  it('does not call threads.load from createThread', async () => {
+    const api: { current: Api | null } = { current: null }
+    const load = vi.fn().mockResolvedValue(history('x'))
+
+    render(
+      <Harness transport={REPLY_TRANSPORT} api={api} threads={withLoad(load)} />
+    )
+
+    act(() => {
+      getApi(api).thread.createThread()
+    })
+
+    expect(load).not.toHaveBeenCalled()
+    expect(getApi(api).thread.isOpeningThread).toBe(false)
+  })
+
+  it('drops a pending load when a thread is created', async () => {
+    const api: { current: Api | null } = { current: null }
+    const pending = deferred<AIMessage[]>()
+    const load = vi.fn().mockReturnValue(pending.promise)
+
+    render(
+      <Harness transport={REPLY_TRANSPORT} api={api} threads={withLoad(load)} />
+    )
+
+    act(() => getApi(api).thread.switchThread('conv-a'))
+    act(() => {
+      getApi(api).thread.createThread()
+    })
+
+    expect(getApi(api).thread.isOpeningThread).toBe(false)
+
+    await act(async () => {
+      pending.resolve(history('conv-a'))
+    })
+
+    expect(getApi(api).thread.messages).toEqual([])
+  })
+
+  it('sets the thread_open error when threads.load rejects', async () => {
+    const api: { current: Api | null } = { current: null }
+    const load = vi.fn().mockRejectedValue(new Error('not found'))
+
+    render(
+      <Harness transport={REPLY_TRANSPORT} api={api} threads={withLoad(load)} />
+    )
+
+    act(() => getApi(api).thread.switchThread('conv-a'))
+
+    await waitFor(() =>
+      expect(getApi(api).thread.error).toEqual({
+        type: 'thread_open',
+        message: 'not found',
+      })
+    )
+    expect(getApi(api).thread.isOpeningThread).toBe(false)
+  })
+})
+
+describe('AIProvider controlled switchThread', () => {
+  it('asks the parent for the new id and loads it once when the prop changes', async () => {
+    const api: { current: Api | null } = { current: null }
+    const load = vi.fn((id: string) => Promise.resolve(history(id)))
+    const onThreadChange = vi.fn()
+    const threads = withLoad(load)
+    const { rerender } = render(
+      <Harness
+        transport={REPLY_TRANSPORT}
+        api={api}
+        threadId="conv-a"
+        threads={threads}
+        onThreadChange={onThreadChange}
+      />
+    )
+
+    await waitFor(() =>
+      expect(getApi(api).thread.messages.map(textOf)).toEqual([
+        'history of conv-a',
+      ])
+    )
+
+    act(() => getApi(api).thread.switchThread('conv-b'))
+
+    expect(onThreadChange).toHaveBeenCalledWith('conv-b')
+    expect(load).toHaveBeenCalledTimes(1)
+
+    rerender(
+      <Harness
+        transport={REPLY_TRANSPORT}
+        api={api}
+        threadId="conv-b"
+        threads={threads}
+        onThreadChange={onThreadChange}
+      />
+    )
+
+    await waitFor(() =>
+      expect(getApi(api).thread.messages.map(textOf)).toEqual([
+        'history of conv-b',
+      ])
+    )
+    expect(load).toHaveBeenCalledTimes(2)
+    expect(load).toHaveBeenLastCalledWith('conv-b')
   })
 })

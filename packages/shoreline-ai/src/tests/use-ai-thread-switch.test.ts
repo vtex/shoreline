@@ -5,7 +5,7 @@ import { useAIThread } from '../hooks/use-ai-thread'
 
 const cancelRun = vi.fn()
 const reset = vi.fn()
-const setThreadId = vi.fn()
+const openThread = vi.fn()
 
 vi.mock('@assistant-ui/react', () => ({
   useAui: () => ({ thread: { cancelRun, source: {} } }),
@@ -15,7 +15,7 @@ vi.mock('@assistant-ui/react', () => ({
 vi.mock('../components/provider/ai-context', () => ({
   useAIContextInternal: () => ({
     threadId: 'thread-a',
-    setThreadId,
+    openThread,
     runtime: { thread: { reset } },
   }),
 }))
@@ -25,23 +25,23 @@ describe('useAIThread switchThread', () => {
     const { result } = renderHook(() => useAIThread())
 
     reset.mockClear()
-    setThreadId.mockClear()
+    openThread.mockClear()
 
     result.current.switchThread('thread-a')
 
     expect(reset).not.toHaveBeenCalled()
-    expect(setThreadId).not.toHaveBeenCalled()
+    expect(openThread).not.toHaveBeenCalled()
   })
 
-  it('resets and updates thread id when switching to a different id', () => {
+  it('resets and opens the thread when switching to a different id', () => {
     const { result } = renderHook(() => useAIThread())
 
     reset.mockClear()
-    setThreadId.mockClear()
+    openThread.mockClear()
 
     result.current.switchThread('thread-b')
 
     expect(reset).toHaveBeenCalledWith([])
-    expect(setThreadId).toHaveBeenCalledWith('thread-b')
+    expect(openThread).toHaveBeenCalledWith('thread-b')
   })
 })

@@ -66,7 +66,7 @@ Rules:
 
 - **Keep the adapter stable between renders** (for example with `useMemo` or a module constant). Create it once per provider.
 - Provide only the methods your backend supports. When `archive` is missing, `archiveThread` rejects with a clear error. When `load` is missing, a thread opens empty.
-- `load` replaces the old open callback. It runs when the thread id given in the `threadId` prop changes (see [Controlled and uncontrolled](#controlled-and-uncontrolled-thread-id)). The messages it returns replace the thread. While it runs, `useAIThread().isOpeningThread` is `true`. If it rejects, `useAIThread().error` is `{ type: 'thread_open', message }`.
+- `load` replaces the old open callback. A controlled provider calls it when the `threadId` prop changes. An uncontrolled provider calls it when you call `switchThread` (see [Controlled and uncontrolled](#controlled-and-uncontrolled-thread-id)). The messages it returns replace the thread. While it runs, `useAIThread().isOpeningThread` is `true`. If it rejects, `useAIThread().error` is `{ type: 'thread_open', message }`. When you switch again before it resolves, the late result is ignored.
 - `list` loads once when the provider mounts, and again when you call `refresh` from `useAIThreadList`. An adapter that appears after the provider mounted is not loaded by itself: call `refresh`.
 
 ## `onRunError`
@@ -76,7 +76,7 @@ Rules:
 ## Controlled and uncontrolled thread id
 
 - **Controlled:** pass `threadId`. You own the id. Update it in `onThreadChange`, which the provider calls when a hook asks for a change (`switchThread`, `createThread`). Changing the prop between two non-null ids clears the thread and calls `threads.load` for the new id. Changing the prop to `null` also clears the thread. Going from `null` to a first id does **not** clear the thread, so a run that already started keeps its messages.
-- **Uncontrolled:** omit `threadId`. The provider keeps the id. `threads.load` is not called: fetch the messages yourself and call `loadMessages`, see [HOOKS.md](./HOOKS.md#multi-thread-flow).
+- **Uncontrolled:** omit `threadId`. The provider keeps the id. `switchThread(id)` calls `threads.load(id)` and puts the messages in the thread. `createThread` does not call it, and neither does the first conversation id that your transport gets from the server (keep that id in the `.threadId()` getter, see [RUNTIME.md](./RUNTIME.md#thread-id)): a run that already started keeps its messages. Without `threads.load`, fetch the messages yourself and call `loadMessages`, see [HOOKS.md](./HOOKS.md#multi-thread-flow).
 
 ## `useAIContext()`
 

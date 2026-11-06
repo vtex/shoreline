@@ -146,17 +146,70 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
     onRunErrorRef.current = onRunError
     const prevControlledThreadId = useRef<string | null | undefined>(undefined)
 
-    const setThreadId = useCallback(
+    // The open request that is still current. A result of an older one is
+    // ignored.
+    const openRequest = useRef<object | null>(null)
+
+    // Clears the open state and, when `id` is set and there is a
+    // `threads.load`, loads the messages of that thread.
+    const openThreadMessages = useCallback(
       (id: string | null) => {
+        const load = threadsRef.current?.load
+
+        setError(null)
+
+        if (!id || !load) {
+          openRequest.current = null
+          setIsOpeningThread(false)
+          return
+        }
+
+        const request = {}
+
+        openRequest.current = request
+        setIsOpeningThread(true)
+
+        load(id)
+          .then((messages) => {
+            if (openRequest.current !== request) return
+            if (messages.length > 0) loadThreadMessages(runtime, messages)
+          })
+          .catch((cause) => {
+            if (openRequest.current !== request) return
+            setError(toAIThreadError('thread_open', cause))
+          })
+          .finally(() => {
+            if (openRequest.current !== request) return
+            openRequest.current = null
+            setIsOpeningThread(false)
+          })
+      },
+      [runtime]
+    )
+
+    const changeThreadId = useCallback(
+      (id: string | null, loadMessages: boolean) => {
         setRunError(null)
 
+        // A controlled provider loads the thread when the prop changes.
         if (!isControlled) {
           setUncontrolledThreadId(id)
+          openThreadMessages(loadMessages ? id : null)
         }
 
         onThreadChange?.(id)
       },
-      [isControlled, onThreadChange]
+      [isControlled, onThreadChange, openThreadMessages]
+    )
+
+    const setThreadId = useCallback(
+      (id: string | null) => changeThreadId(id, false),
+      [changeThreadId]
+    )
+
+    const openThread = useCallback(
+      (id: string) => changeThreadId(id, true),
+      [changeThreadId]
     )
 
     useEffect(() => {
@@ -174,39 +227,8 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
         unwrapRuntime(runtime).thread.reset([])
       }
 
-      const load = threadsRef.current?.load
-
-      if (!threadIdProp || !load) {
-        setIsOpeningThread(false)
-        setError(null)
-        return
-      }
-
-      let cancelled = false
-      const id = threadIdProp
-
-      setIsOpeningThread(true)
-      setError(null)
-
-      load(id)
-        .then((messages) => {
-          if (cancelled || id !== threadIdProp) return
-          if (messages.length > 0) loadThreadMessages(runtime, messages)
-        })
-        .catch((cause) => {
-          if (cancelled || id !== threadIdProp) return
-          setError(toAIThreadError('thread_open', cause))
-        })
-        .finally(() => {
-          if (!cancelled && id === threadIdProp) {
-            setIsOpeningThread(false)
-          }
-        })
-
-      return () => {
-        cancelled = true
-      }
-    }, [isControlled, threadIdProp, runtime])
+      openThreadMessages(threadIdProp)
+    }, [isControlled, threadIdProp, runtime, openThreadMessages])
 
     useEffect(() => {
       const handle = getRunObserverHandle(runtime)
@@ -261,6 +283,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
         runtime,
         threadId,
         setThreadId,
+        openThread,
         isOpeningThread,
         error,
         runError,
@@ -272,6 +295,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
         runtime,
         threadId,
         setThreadId,
+        openThread,
         isOpeningThread,
         error,
         runError,

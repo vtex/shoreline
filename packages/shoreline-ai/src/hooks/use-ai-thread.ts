@@ -38,7 +38,7 @@ export function useAIThread(): {
   createThread: () => string
   loadMessages: (messages: AIMessage[]) => void
 } {
-  const { threadId, setThreadId, runtime, isOpeningThread, error } =
+  const { threadId, setThreadId, openThread, runtime, isOpeningThread, error } =
     useAIContextInternal()
   const aui = useAui()
   const threadMessages = useAuiState((s) =>
@@ -89,9 +89,9 @@ export function useAIThread(): {
       if (newThreadId === threadId) return
 
       unwrapRuntime(runtime).thread.reset([])
-      setThreadId(newThreadId)
+      openThread(newThreadId)
     },
-    [aui, runtime, setThreadId, threadId]
+    [aui, runtime, openThread, threadId]
   )
 
   const createThread = useCallback(() => {

@@ -23,9 +23,12 @@ export interface AIContextValue {
   closeCanvas: () => void
 }
 
-/** @internal Used by hooks to update persistence thread id. */
+/** @internal Used by the hooks to change the thread. */
 export interface AIContextValueInternal extends AIContextValue {
+  /** Sets the thread id without loading messages. */
   setThreadId: (id: string | null) => void
+  /** Sets the thread id and loads its messages with `threads.load`. */
+  openThread: (id: string) => void
   isOpeningThread: boolean
   error: AIThreadError | null
   /** Error of the last run, or `null` when it did not fail. */

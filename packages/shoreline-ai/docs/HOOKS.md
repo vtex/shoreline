@@ -30,7 +30,7 @@ const {
 | `error` | `AIThreadError \| null`. `{ type: 'thread_open', message }` when `threads.load` rejects. It does not report run errors: use [`useAIStatus`](#useaistatus) |
 | `sendMessage` | Append user message and start a run |
 | `stopGeneration` | Cancel active run (`abortSignal`) |
-| `switchThread` | Cancels the active run, clears the thread, updates the thread id |
+| `switchThread` | Cancels the active run, clears the thread, updates the thread id and loads it with `threads.load` |
 | `createThread` | Cancels the active run, clears the thread, sets a new id and returns it |
 | `loadMessages` | Replace thread content from `AIMessage[]` |
 
@@ -58,16 +58,16 @@ sendMessage({
 
 ### Multi-thread flow
 
-With a controlled provider and a `threads.load` method, switching is one call. The provider loads the history when the `threadId` prop changes:
+With a `threads.load` method, switching is one call. A controlled provider loads the history when the `threadId` prop changes. An uncontrolled provider loads it when you call `switchThread`:
 
 ```tsx
-// <AIProvider threadId={id} onThreadChange={setId} threads={threads}>
+// <AIProvider threads={threads}>, with or without threadId
 const { switchThread, isOpeningThread, error } = useAIThread()
 
 switchThread(newId)
 ```
 
-Without them, load the history yourself:
+Without `threads.load`, load the history yourself:
 
 ```ts
 switchThread(newId)
@@ -75,7 +75,7 @@ switchThread(newId)
 loadMessages(history)
 ```
 
-`switchThread` cancels the active run (runs do not continue in the background), clears the thread and updates `threadId`. When the provider is controlled and has a `threads.load`, the provider fetches and hydrates the thread for you, so you do not call `loadMessages`. Otherwise fetch the history yourself and call `loadMessages`.
+`switchThread` cancels the active run (runs do not continue in the background), clears the thread and updates `threadId`. When the provider has a `threads.load`, it fetches the thread and fills it for you, so you do not call `loadMessages`. If you switch again before the load ends, the late result is ignored. `createThread` never calls `threads.load`, and the first conversation id that your transport gets from the server does not either. Without `threads.load`, fetch the history yourself and call `loadMessages`.
 
 ## `useAIComposer()`
 
