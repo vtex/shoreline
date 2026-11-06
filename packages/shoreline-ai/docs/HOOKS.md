@@ -86,10 +86,20 @@ Use inside `<AIProvider>` with a mounted `AIComposer` tree.
 ## `useAIStatus()`
 
 ```ts
-const { status, isLoading, isStreaming } = useAIStatus()
+const { status, isLoading, isStreaming, error } = useAIStatus()
 ```
 
-Returns `'streaming'` while a run is active, otherwise `'ready'`.
+`status` is one of:
+
+| Status | When |
+|---|---|
+| `idle` | No messages and no run |
+| `submitted` | A run is active and the assistant has sent no content yet |
+| `streaming` | A run is active and the assistant has sent content |
+| `error` | The last run failed and nothing is running |
+| `ready` | Otherwise |
+
+`isLoading` is true for `submitted` and `streaming`. `error` is `{ type: 'run', message }` after a failed run and `null` otherwise. It is cleared when the next message is sent or the thread changes. A run that the user cancels is not an error.
 
 ## Message hooks
 

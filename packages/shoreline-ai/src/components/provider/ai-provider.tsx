@@ -14,6 +14,10 @@ import {
 
 import { AssistantRuntimeProvider } from '@assistant-ui/react'
 
+import {
+  type RunObserver,
+  getRunObserverHandle,
+} from '../../runtime/run-observer'
 import { loadThreadMessages } from '../../runtime/load-thread-messages'
 import type { AIThreadError } from '../../types/public'
 import type { AIRuntime } from '../../types/runtime'
@@ -56,6 +60,12 @@ export interface AIProviderOptions {
    * @default undefined
    */
   threads?: AIThreadAdapter
+  /**
+   * Called once when a run fails. Use it for side effects such as a toast or
+   * a log. Runs that the user cancels do not call it.
+   * @default undefined
+   */
+  onRunError?: (error: AIThreadError) => void
   /** Enable stream debug callbacks. */
   debugStream?: boolean
   children?: ReactNode
@@ -71,6 +81,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       threadId: threadIdProp,
       onThreadChange,
       threads,
+      onRunError,
     } = props
 
     const threadList = useThreadListState(threads)
@@ -88,10 +99,15 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
     const [canvas, setCanvas] = useState<CanvasState>(DEFAULT_CANVAS)
     const [isOpeningThread, setIsOpeningThread] = useState(false)
     const [error, setError] = useState<AIThreadError | null>(null)
+    const [runError, setRunError] = useState<AIThreadError | null>(null)
+    const onRunErrorRef = useRef(onRunError)
+    onRunErrorRef.current = onRunError
     const prevControlledThreadId = useRef<string | null | undefined>(undefined)
 
     const setThreadId = useCallback(
       (id: string | null) => {
+        setRunError(null)
+
         if (!isControlled) {
           setUncontrolledThreadId(id)
         }
@@ -109,6 +125,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       if (prev === threadIdProp) return
 
       prevControlledThreadId.current = threadIdProp
+      setRunError(null)
 
       if (prev != null && threadIdProp != null) {
         runtime.thread.reset([])
@@ -150,6 +167,39 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       }
     }, [isControlled, threadIdProp, runtime])
 
+    useEffect(() => {
+      const handle = getRunObserverHandle(runtime)
+
+      if (!handle) return
+
+      const observer: RunObserver = {
+        onRunStart: () => setRunError(null),
+        onSnapshot: () => {},
+        onRunEnd: (_runId, end) => {
+          if (end.status !== 'error' || end.cancelled) return
+
+          const failure: AIThreadError = {
+            type: 'run',
+            message: end.error ?? 'The run failed.',
+          }
+
+          setRunError(failure)
+
+          try {
+            onRunErrorRef.current?.(failure)
+          } catch {
+            // A failing user callback must not break the run.
+          }
+        },
+      }
+
+      handle.current = observer
+
+      return () => {
+        if (handle.current === observer) handle.current = null
+      }
+    }, [runtime])
+
     const handleOpenCanvas = useCallback((state: Omit<CanvasState, 'open'>) => {
       setCanvas({ ...state, open: true })
     }, [])
@@ -165,6 +215,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
         setThreadId,
         isOpeningThread,
         error,
+        runError,
         canvas,
         openCanvas: handleOpenCanvas,
         closeCanvas: handleCloseCanvas,
@@ -175,6 +226,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
         setThreadId,
         isOpeningThread,
         error,
+        runError,
         canvas,
         handleOpenCanvas,
         handleCloseCanvas,

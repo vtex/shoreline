@@ -28,6 +28,8 @@ export interface AIContextValueInternal extends AIContextValue {
   setThreadId: (id: string | null) => void
   isOpeningThread: boolean
   error: AIThreadError | null
+  /** Error of the last run, or `null` when it did not fail. */
+  runError: AIThreadError | null
 }
 
 const DEFAULT_CANVAS: CanvasState = {

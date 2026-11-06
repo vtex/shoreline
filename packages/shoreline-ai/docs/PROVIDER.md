@@ -22,6 +22,7 @@
 | `runtime` | From `useRuntime(built)` — required |
 | `threadId` | Controlled persistence id (e.g. conversation id) |
 | `onThreadChange` | Fired when active thread id changes |
+| `onRunError` | Called once when a run fails, for a toast or a log. Not called when the user cancels |
 | `debugStream` | Enables stream debug — see [RUNTIME.md](./RUNTIME.md) |
 
 When `threadId` is passed as a prop, the provider is **controlled**: switching between two non-null ids clears the thread UI via `runtime.thread.reset([])`. Promoting `null` → a new id (e.g. first conversation from the transport) does **not** reset, so in-flight stream messages are preserved.

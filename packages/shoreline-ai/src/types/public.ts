@@ -72,7 +72,11 @@ export interface AIThreadData {
 }
 
 /** Category of errors exposed on {@link useAIThread}. */
-export type AIThreadErrorType = 'thread_open' | 'thread_list' | 'thread_archive'
+export type AIThreadErrorType =
+  | 'thread_open'
+  | 'thread_list'
+  | 'thread_archive'
+  | 'run'
 
 /** Serializable thread error for UI, logging, and i18n. */
 export interface AIThreadError {
