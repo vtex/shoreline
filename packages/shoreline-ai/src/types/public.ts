@@ -1,7 +1,6 @@
 /**
  * Public types for @vtex/shoreline-ai.
- * These types are backend-agnostic — they never reference RawEnvelope,
- * UIEnvelopeType, EnvelopeKind, or any SSE protocol shape.
+ * These types do not depend on any backend or wire format.
  *
  * @status experimental
  */

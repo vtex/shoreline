@@ -3,105 +3,135 @@ import {
   useCallback,
   useContext,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from 'react'
 
-import type {
-  AIStreamDebugRunMeta,
-  AIStreamDebugRow,
-  AIStreamDebugSession,
-  StreamDebugCallbacks,
-} from './types'
+import type { RunObserver } from '../../runtime/run-observer'
+import type { AIMessagePart } from '../../types/public'
+import { addRun, addStep, diffSnapshot, endRun } from './record-run'
+import type { AIStreamDebugRun, AIStreamDebugState } from './types'
 
-export interface AIStreamDebugContextValue {
-  enabled: boolean
-  sessions: AIStreamDebugSession[]
-  clearSessions: () => void
-  callbacks: StreamDebugCallbacks
+/** Number of runs kept when `debugMaxRuns` is not set. */
+export const DEFAULT_DEBUG_MAX_RUNS = 20
+
+/** Number of steps kept per run when `debugMaxSteps` is not set. */
+export const DEFAULT_DEBUG_MAX_STEPS = 1000
+
+interface AIStreamDebugContextValue {
+  runs: AIStreamDebugRun[]
+  clear: () => void
+  observer: RunObserver
 }
 
+/**
+ * `null` when debug is off. Each `AIProvider` sets it, so a nested provider
+ * never sees the runs of an outer one.
+ */
 const AIStreamDebugContext = createContext<AIStreamDebugContextValue | null>(
   null
 )
 
-function appendRow(
-  sessions: AIStreamDebugSession[],
-  runId: string,
-  row: Omit<AIStreamDebugRow, 'index'>
-): AIStreamDebugSession[] {
-  return sessions.map((session) => {
-    if (session.runId !== runId) return session
-
-    return {
-      ...session,
-      rows: [
-        ...session.rows,
-        {
-          ...row,
-          index: session.rows.length + 1,
-        },
-      ],
-    }
-  })
+const DISABLED: AIStreamDebugState = {
+  enabled: false,
+  runs: [],
+  clear: () => {},
 }
 
-export function AIStreamDebugProvider(props: {
-  children: ReactNode
-  enabled?: boolean
-}) {
-  const { children, enabled = true } = props
-  const [sessions, setSessions] = useState<AIStreamDebugSession[]>([])
+interface OpenRun {
+  parts: AIMessagePart[]
+  count: number
+}
 
-  const clearSessions = useCallback(() => {
-    setSessions([])
+/**
+ * Records the runs of the provider it wraps. Rendered by `AIProvider` only
+ * when `debugStream` is on.
+ */
+export function AIStreamDebugRecorder(props: {
+  maxRuns?: number
+  maxSteps?: number
+  children: ReactNode
+}) {
+  const {
+    maxRuns = DEFAULT_DEBUG_MAX_RUNS,
+    maxSteps = DEFAULT_DEBUG_MAX_STEPS,
+    children,
+  } = props
+  const [runs, setRuns] = useState<AIStreamDebugRun[]>([])
+  const limits = useRef({ maxRuns, maxSteps })
+  limits.current = { maxRuns, maxSteps }
+
+  // Parts of the last snapshot and step count of each run still going.
+  const openRuns = useRef(new Map<string, OpenRun>())
+
+  const clear = useCallback(() => {
+    openRuns.current.clear()
+    setRuns([])
   }, [])
 
-  const callbacks = useMemo<StreamDebugCallbacks>(
+  const observer = useMemo<RunObserver>(
     () => ({
-      onRunStart: (meta: AIStreamDebugRunMeta) => {
-        setSessions((prev) => [
-          {
-            runId: meta.runId,
-            traceId: meta.traceId,
-            conversationId: meta.conversationId,
-            userMessageId: meta.userMessageId,
-            startedAt: meta.startedAt,
-            rows: [],
-            finalParts: [],
-          },
-          ...prev,
-        ])
-      },
-      onEnvelope: (runId, row) => {
-        setSessions((prev) => appendRow(prev, runId, row))
-      },
-      onRunEnd: (runId, finalParts, meta) => {
-        setSessions((prev) =>
-          prev.map((session) =>
-            session.runId === runId
-              ? {
-                  ...session,
-                  endedAt: new Date().toISOString(),
-                  finalParts,
-                  errorMessage: meta?.errorMessage,
-                }
-              : session
+      onRunStart: (run) => {
+        try {
+          openRuns.current.set(run.runId, { parts: [], count: 0 })
+          setRuns((prev) =>
+            addRun(
+              prev,
+              { ...run, status: 'submitted', steps: [], finalParts: [] },
+              limits.current.maxRuns
+            )
           )
-        )
+        } catch {
+          // Debug must never break a run.
+        }
+      },
+      onSnapshot: (runId, snapshot) => {
+        try {
+          const open = openRuns.current.get(runId)
+
+          if (!open) return
+
+          const changes = diffSnapshot(open.parts, snapshot.parts)
+
+          open.parts = snapshot.parts
+          open.count += 1
+
+          const step = {
+            index: open.count,
+            at: new Date().toISOString(),
+            status: snapshot.status,
+            changes,
+            ...(snapshot.debug !== undefined && { debug: snapshot.debug }),
+          }
+
+          setRuns((prev) => addStep(prev, runId, step, limits.current.maxSteps))
+        } catch {
+          // Debug must never break a run.
+        }
+      },
+      onRunEnd: (runId, end) => {
+        try {
+          openRuns.current.delete(runId)
+          setRuns((prev) =>
+            endRun(prev, runId, {
+              status: end.status,
+              error: end.error,
+              finalParts: end.finalParts,
+              endedAt: new Date().toISOString(),
+            })
+          )
+        } catch {
+          // Debug must never break a run.
+        }
       },
     }),
     []
   )
 
   const value = useMemo(
-    () => ({
-      enabled,
-      sessions,
-      clearSessions,
-      callbacks,
-    }),
-    [enabled, sessions, clearSessions, callbacks]
+    () => ({ runs, clear, observer }),
+    [runs, clear, observer]
   )
 
   return (
@@ -111,31 +141,46 @@ export function AIStreamDebugProvider(props: {
   )
 }
 
-export function useAIStreamDebug(): AIStreamDebugContextValue {
-  const context = useContext(AIStreamDebugContext)
-
-  if (!context) {
-    return {
-      enabled: false,
-      sessions: [],
-      clearSessions: () => {},
-      callbacks: {
-        onRunStart: () => {},
-        onEnvelope: () => {},
-        onRunEnd: () => {},
-      },
-    }
-  }
-
-  return context
+/**
+ * Hides the runs of an outer provider. Rendered by `AIProvider` when
+ * `debugStream` is off.
+ */
+export function AIStreamDebugOff(props: { children: ReactNode }) {
+  return (
+    <AIStreamDebugContext.Provider value={null}>
+      {props.children}
+    </AIStreamDebugContext.Provider>
+  )
 }
 
-export function useStreamDebugCallbacks(
-  enabled: boolean
-): StreamDebugCallbacks | undefined {
-  const { callbacks, enabled: contextEnabled } = useAIStreamDebug()
+/** Observer of the nearest recorder, or `null` when debug is off. */
+export function useStreamDebugObserver(): RunObserver | null {
+  return useContext(AIStreamDebugContext)?.observer ?? null
+}
 
-  if (!enabled || !contextEnabled) return undefined
+/**
+ * Returns the runs recorded by the nearest `AIProvider`. Recording happens
+ * only when that provider has `debugStream` on; otherwise `enabled` is
+ * false and `runs` is empty.
+ *
+ * @status experimental
+ * @example
+ * function RunCount() {
+ *   const { enabled, runs, clear } = useAIStreamDebug()
+ *
+ *   if (!enabled) return null
+ *
+ *   return <button onClick={clear}>{runs.length} runs</button>
+ * }
+ */
+export function useAIStreamDebug(): AIStreamDebugState {
+  const context = useContext(AIStreamDebugContext)
 
-  return callbacks
+  return useMemo(
+    () =>
+      context
+        ? { enabled: true, runs: context.runs, clear: context.clear }
+        : DISABLED,
+    [context]
+  )
 }

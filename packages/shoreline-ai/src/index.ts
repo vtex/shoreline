@@ -48,16 +48,21 @@ export type {
 export { AIProvider, useAIContext } from './components/provider'
 export type { AIProviderOptions, AIProviderProps } from './components/provider'
 
-// Stream debug (dev / sandbox)
+// Stream debug
 export {
-  AIStreamDebugProvider,
+  AIStreamDebugPanel,
+  AIStreamDebugRunView,
   useAIStreamDebug,
-  useStreamDebugCallbacks,
 } from './components/debug'
 export type {
-  AIStreamDebugRow,
-  AIStreamDebugSession,
-  SSEEventType,
+  AIStreamDebugChange,
+  AIStreamDebugPanelOptions,
+  AIStreamDebugPanelProps,
+  AIStreamDebugRunViewOptions,
+  AIStreamDebugRunViewProps,
+  AIStreamDebugRun,
+  AIStreamDebugState,
+  AIStreamDebugStep,
 } from './components/debug'
 
 // Public hooks

@@ -37,7 +37,7 @@ export interface RuntimeRunInput {
 export interface RuntimeSnapshot {
   parts: AIMessagePart[]
   status?: StreamStatus
-  /** Set when the SSE transport fails before emitting content. */
+  /** Set when the transport fails before emitting content. */
   errorMessage?: string
   /** Free-form data the transport may attach for the debug inspector. */
   debug?: unknown

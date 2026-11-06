@@ -74,8 +74,8 @@ export interface MockStreamTransportOptions {
 }
 
 /**
- * Simulates {@link createStreamTransport} without SSE: streams text chunks
- * then a final snapshot, yielding {@link RuntimeSnapshot} like the VTEX adapter.
+ * Fake transport for stories and tests: streams a reasoning part, then text
+ * chunks, then a final snapshot.
  *
  * @status experimental
  * @example

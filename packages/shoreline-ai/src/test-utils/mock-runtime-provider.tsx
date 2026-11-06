@@ -22,6 +22,12 @@ export type MockRuntimeProviderProps = {
   transport?: StreamTransport
   /** Called when a run fails. */
   onRunError?: (error: AIThreadError) => void
+  /** Passed to the provider. */
+  debugStream?: boolean
+  /** Passed to the provider. */
+  debugMaxRuns?: number
+  /** Passed to the provider. */
+  debugMaxSteps?: number
 }
 
 /**
@@ -35,6 +41,9 @@ export function MockRuntimeProvider(props: MockRuntimeProviderProps) {
     threads,
     transport,
     onRunError,
+    debugStream,
+    debugMaxRuns,
+    debugMaxSteps,
   } = props
   const threadIdRef = useRef<string | null>(
     typeof threadIdProp === 'string' || threadIdProp === null
@@ -60,7 +69,14 @@ export function MockRuntimeProvider(props: MockRuntimeProviderProps) {
   const runtime = useRuntime(built)
 
   return (
-    <AIProvider runtime={runtime} threads={threads} onRunError={onRunError}>
+    <AIProvider
+      runtime={runtime}
+      threads={threads}
+      onRunError={onRunError}
+      debugStream={debugStream}
+      debugMaxRuns={debugMaxRuns}
+      debugMaxSteps={debugMaxSteps}
+    >
       {children}
     </AIProvider>
   )

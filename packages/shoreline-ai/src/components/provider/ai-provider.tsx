@@ -24,7 +24,13 @@ import type { AIRuntime } from '../../types/runtime'
 import { unwrapRuntime } from '../../runtime/unwrap-runtime'
 import type { AIThreadAdapter } from '../../types/threads'
 import { toAIThreadError } from '../../utils/to-ai-thread-error'
-import { AIStreamDebugProvider } from '../debug/stream-debug-context'
+import {
+  AIStreamDebugOff,
+  AIStreamDebugRecorder,
+  DEFAULT_DEBUG_MAX_RUNS,
+  DEFAULT_DEBUG_MAX_STEPS,
+  useStreamDebugObserver,
+} from '../debug/stream-debug-context'
 import {
   AIContext,
   AIThreadListContext,
@@ -67,8 +73,24 @@ export interface AIProviderOptions {
    * @default undefined
    */
   onRunError?: (error: AIThreadError) => void
-  /** Enable stream debug callbacks. */
+  /**
+   * Records every run so `useAIStreamDebug` and `AIStreamDebugPanel` can show
+   * it. Turn it on only while debugging: when it is off nothing is recorded.
+   * @default false
+   */
   debugStream?: boolean
+  /**
+   * Number of runs kept when `debugStream` is on. The oldest runs are
+   * dropped first.
+   * @default 20
+   */
+  debugMaxRuns?: number
+  /**
+   * Number of steps kept per run when `debugStream` is on. The oldest steps
+   * are dropped first.
+   * @default 1000
+   */
+  debugMaxSteps?: number
   children?: ReactNode
 }
 
@@ -85,6 +107,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       onRunError,
     } = props
 
+    const debugObserver = useStreamDebugObserver()
     const threadList = useThreadListState(threads)
     const threadsRef = useRef(threads)
     threadsRef.current = threads
@@ -174,9 +197,16 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       if (!handle) return
 
       const observer: RunObserver = {
-        onRunStart: () => setRunError(null),
-        onSnapshot: () => {},
-        onRunEnd: (_runId, end) => {
+        onRunStart: (run) => {
+          setRunError(null)
+          debugObserver?.onRunStart(run)
+        },
+        onSnapshot: (runId, snapshot) => {
+          debugObserver?.onSnapshot(runId, snapshot)
+        },
+        onRunEnd: (runId, end) => {
+          debugObserver?.onRunEnd(runId, end)
+
           if (end.status !== 'error' || end.cancelled) return
 
           const failure: AIThreadError = {
@@ -199,7 +229,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       return () => {
         if (handle.current === observer) handle.current = null
       }
-    }, [runtime])
+    }, [runtime, debugObserver])
 
     const handleOpenCanvas = useCallback((state: Omit<CanvasState, 'open'>) => {
       setCanvas({ ...state, open: true })
@@ -250,22 +280,26 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
 
 export const AIProvider = forwardRef<HTMLDivElement, AIProviderProps>(
   function AIProvider(props, ref) {
-    const { debugStream, children, ...rest } = props
+    const {
+      debugStream = false,
+      debugMaxRuns = DEFAULT_DEBUG_MAX_RUNS,
+      debugMaxSteps = DEFAULT_DEBUG_MAX_STEPS,
+      children,
+      ...rest
+    } = props
 
-    if (debugStream) {
-      return (
-        <AIStreamDebugProvider>
-          <AIProviderInner ref={ref} {...rest}>
-            {children}
-          </AIProviderInner>
-        </AIStreamDebugProvider>
-      )
-    }
-
-    return (
+    const inner = (
       <AIProviderInner ref={ref} {...rest}>
         {children}
       </AIProviderInner>
+    )
+
+    if (!debugStream) return <AIStreamDebugOff>{inner}</AIStreamDebugOff>
+
+    return (
+      <AIStreamDebugRecorder maxRuns={debugMaxRuns} maxSteps={debugMaxSteps}>
+        {inner}
+      </AIStreamDebugRecorder>
     )
   }
 )
