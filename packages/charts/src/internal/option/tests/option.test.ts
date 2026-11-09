@@ -57,6 +57,20 @@ describe('buildCategoryAxis / buildValueAxis', () => {
       axisLabel: { formatter },
     })
   })
+
+  test('hides the gridlines of a secondary axis on request', () => {
+    expect(buildValueAxis({ showSplitLine: false })).toEqual({
+      type: 'value',
+      splitLine: { show: false },
+    })
+    expect(
+      buildValueAxis({ unit: 'percentage', showSplitLine: false })
+    ).toEqual({
+      type: 'value',
+      axisLabel: { formatter: expect.any(Function) },
+      splitLine: { show: false },
+    })
+  })
 })
 
 describe('buildAxisTooltip', () => {
