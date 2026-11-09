@@ -5,58 +5,16 @@
 
 import { type ReactNode, forwardRef, createElement } from 'react'
 
-/**
- * Own props of `AICanvasTrigger`.
- *
- * @status experimental
- * @example
- * <AICanvasTrigger label="Open chart" isLoading />
- */
 export interface AICanvasTriggerOptions {
-  /**
-   * Main text of the button.
-   * @default undefined
-   */
   label?: ReactNode
-  /**
-   * Secondary text under the label.
-   * @default undefined
-   */
   description?: ReactNode
-  /**
-   * Icon shown before the text.
-   * @default undefined
-   */
   icon?: ReactNode
-  /**
-   * Shows the loading state while the tool runs.
-   * @default false
-   */
   isLoading?: boolean
-  /**
-   * Called when the button is clicked.
-   * @default undefined
-   */
   onClick?: () => void
 }
 
-/**
- * Props of `AICanvasTrigger`.
- *
- * @status experimental
- * @example
- * <AICanvasTrigger label="Open chart" />
- */
 export type AICanvasTriggerProps = AICanvasTriggerOptions
 
-/**
- * Default button that opens a canvas tool UI. Use it as is or as a base for
- * your own trigger.
- *
- * @status experimental
- * @example
- * <AICanvasTrigger label="Open chart" onClick={openCanvas} />
- */
 export const AICanvasTrigger = forwardRef<
   HTMLButtonElement,
   AICanvasTriggerProps

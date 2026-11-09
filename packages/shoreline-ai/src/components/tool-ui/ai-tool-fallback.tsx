@@ -5,40 +5,15 @@
 import { forwardRef, createElement } from 'react'
 import type { ToolStatus } from '../../types/public'
 
-/**
- * Own props of `AIToolFallback`.
- *
- * @status experimental
- * @example
- * <AIToolFallback toolName="search" args={{}} status="complete" />
- */
 export interface AIToolFallbackOptions {
   toolName: string
   args: Record<string, unknown>
-  /**
-   * Result of the tool. Not set until the tool ends.
-   * @default undefined
-   */
   output?: unknown
   status: ToolStatus
 }
 
-/**
- * Props of `AIToolFallback`.
- *
- * @status experimental
- * @example
- * <AIToolFallback toolName="search" args={{}} status="complete" />
- */
 export type AIToolFallbackProps = AIToolFallbackOptions
 
-/**
- * Generic view for a tool call that has no registered UI.
- *
- * @status experimental
- * @example
- * <AIToolFallback toolName="search" args={{ query: 'late' }} status="running" />
- */
 export const AIToolFallback = forwardRef<HTMLDivElement, AIToolFallbackProps>(
   function AIToolFallback(props, ref) {
     const { toolName, args, output, status } = props

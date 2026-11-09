@@ -9,8 +9,6 @@ import type { AIThreadScrollToBottomProps } from './types'
  * Control to scroll the viewport to the latest messages when not at bottom.
  *
  * @status experimental
- * @example
- * <AIThreadScrollToBottom />
  */
 export const AIThreadScrollToBottom = forwardRef<
   HTMLButtonElement,

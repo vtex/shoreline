@@ -50,21 +50,6 @@ function mapToolCallStatus(status: string | undefined): ToolStatus {
   return 'running'
 }
 
-/**
- * Registers a React component that renders a tool call by name. In `widget`
- * mode it renders inside the message. In `canvas` mode the message shows a
- * trigger and `AICanvas` shows the component. Render the returned component
- * once inside `AIProvider`.
- *
- * @status experimental
- * @example
- * const ChartToolUI = makeAIToolUI<{ title: string }>({
- *   component: 'show_chart',
- *   render: ({ args }) => <h3>{args.title}</h3>,
- * })
- *
- * <ChartToolUI />
- */
 export function makeAIToolUI<TArgs = unknown, TResult = unknown>(
   options: AIToolUIOptions<TArgs, TResult>
 ): ComponentType {

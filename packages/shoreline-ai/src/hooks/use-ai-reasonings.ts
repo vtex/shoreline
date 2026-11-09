@@ -1,3 +1,8 @@
+/**
+ * useAIReasonings — returns typed AIReasoningPart[] from the current message context
+ * or from a specific messageId.
+ */
+
 import { useAui, useAuiState } from '@assistant-ui/react'
 import { useMemo } from 'react'
 import type { AIReasoningPart } from '../types/public'
@@ -19,14 +24,6 @@ function mapReasoningParts(content: readonly ContentPart[]): AIReasoningPart[] {
     }))
 }
 
-/**
- * Returns the reasoning parts of a message. Inside a message component it reads
- * the current message; pass `messageId` to read another one.
- *
- * @status experimental
- * @example
- * const reasonings = useAIReasonings(messageId)
- */
 export function useAIReasonings(messageId?: string): AIReasoningPart[] {
   const aui = useAui()
   const contextMessage = useAuiState((s) =>

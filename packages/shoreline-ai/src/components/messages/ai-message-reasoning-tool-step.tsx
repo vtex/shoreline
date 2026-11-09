@@ -6,8 +6,6 @@ import type { AIMessageReasoningToolStepProps } from './types'
  * Compact tool step shown inside the reasoning panel.
  *
  * @status experimental
- * @example
- * <AIMessageReasoningToolStep part={toolPart} />
  */
 export const AIMessageReasoningToolStep = forwardRef<
   HTMLDivElement,

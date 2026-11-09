@@ -20,8 +20,6 @@ const DefaultAttachment = memo(function DefaultAttachment({
  * Lists pending composer attachments with a default chip renderer.
  *
  * @status experimental
- * @example
- * <AIComposerAttachments />
  */
 export const AIComposerAttachments = forwardRef<
   HTMLDivElement,

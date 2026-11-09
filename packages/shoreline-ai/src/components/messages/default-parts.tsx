@@ -116,12 +116,6 @@ function WidgetToolRenderer(props: {
 
 /**
  * Built-in renderer for message parts, including tool registry lookup.
- *
- * @status experimental
- * @example
- * <AIMessageParts>
- *   {(part, meta) => renderDefaultParts(part, meta, { showReasoningTools: false })}
- * </AIMessageParts>
  */
 export function renderDefaultParts(
   part: AIMessagePart,

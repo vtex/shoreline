@@ -7,10 +7,6 @@ import type { AIThreadViewportFooterProps } from './types'
  * Sticky footer inside the viewport; height is measured for auto-scroll inset.
  *
  * @status experimental
- * @example
- * <AIThreadViewportFooter>
- *   <AIThreadScrollToBottom />
- * </AIThreadViewportFooter>
  */
 export const AIThreadViewportFooter = forwardRef<
   HTMLDivElement,

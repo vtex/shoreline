@@ -57,10 +57,6 @@ function AIComposerAttachmentRemove() {
  * Attachment chip for the composer (image preview or file row).
  *
  * @status experimental
- * @example
- * <AIComposerAttachments>
- *   {({ attachment }) => <AIComposerAttachment attachment={attachment} />}
- * </AIComposerAttachments>
  */
 export const AIComposerAttachment = forwardRef<
   HTMLDivElement,

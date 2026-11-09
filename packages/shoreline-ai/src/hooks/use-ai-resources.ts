@@ -10,16 +10,6 @@ function resourceParts(message: ThreadMessage): AIResourcePart[] {
   )
 }
 
-/**
- * Returns the resource parts of a message: the files the user attached and the
- * resources your transport yields. Inside a message component it reads the
- * current message; pass `messageId` to read another one. Returns an empty list
- * when the message is not found.
- *
- * @status experimental
- * @example
- * const resources = useAIResources(messageId)
- */
 export function useAIResources(messageId?: string): AIResourcePart[] {
   const aui = useAui()
   const contextMessage = useAuiState((s) =>

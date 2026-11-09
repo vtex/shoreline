@@ -10,8 +10,6 @@ import type { AIComposerCancelProps } from './types'
  * Stop button for an in-flight assistant run.
  *
  * @status experimental
- * @example
- * <AIComposerCancel />
  */
 export const AIComposerCancel = forwardRef<
   HTMLButtonElement,

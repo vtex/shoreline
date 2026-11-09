@@ -6,29 +6,13 @@ import {
 } from '@assistant-ui/react'
 import { IconFileText, Text, forwardRef } from '@vtex/shoreline'
 
-/**
- * Props of `AIMessageResourceImage`: `div` attributes.
- *
- * @status experimental
- * @example
- * <AIMessageResourceImage className="image" />
- */
 export type AIMessageResourceImageProps = ComponentPropsWithoutRef<'div'>
-/**
- * Props of `AIMessageResourceFile`: `div` attributes.
- *
- * @status experimental
- * @example
- * <AIMessageResourceFile className="file" />
- */
 export type AIMessageResourceFileProps = ComponentPropsWithoutRef<'div'>
 
 /**
  * Image resource preview inside a message part scope.
  *
  * @status experimental
- * @example
- * <AIMessageResourceImage />
  */
 export const AIMessageResourceImage = forwardRef<
   HTMLDivElement,
@@ -49,8 +33,6 @@ export const AIMessageResourceImage = forwardRef<
  * File resource row inside a message part scope.
  *
  * @status experimental
- * @example
- * <AIMessageResourceFile />
  */
 export const AIMessageResourceFile = forwardRef<
   HTMLDivElement,
@@ -86,8 +68,6 @@ export const AIMessageResourceFile = forwardRef<
  * Read-only resource chip — image preview or file row.
  *
  * @status experimental
- * @example
- * <AIMessageResource />
  */
 export const AIMessageResource = forwardRef<
   HTMLDivElement,

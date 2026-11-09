@@ -12,8 +12,6 @@ import type { AIComposerSendProps } from './types'
  * goes out without that attachment.
  *
  * @status experimental
- * @example
- * <AIComposerSend />
  */
 export const AIComposerSend = forwardRef<
   HTMLButtonElement,

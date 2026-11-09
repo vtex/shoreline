@@ -16,10 +16,6 @@ import type { AIMessagePartsProps } from './types'
  * Iterates message parts with grouping and optional per-part overrides.
  *
  * @status experimental
- * @example
- * <AIMessageParts>
- *   {(part) => (part.type === 'text' ? <p>{part.text}</p> : null)}
- * </AIMessageParts>
  */
 export const AIMessageParts = forwardRef<HTMLDivElement, AIMessagePartsProps>(
   function AIMessageParts(props, ref) {

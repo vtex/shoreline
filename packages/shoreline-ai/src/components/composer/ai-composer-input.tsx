@@ -10,8 +10,6 @@ import type { AIComposerInputProps } from './types'
  * same styles.
  *
  * @status experimental
- * @example
- * <AIComposerInput placeholder="Ask anything" />
  */
 export const AIComposerInput = forwardRef<
   HTMLTextAreaElement,

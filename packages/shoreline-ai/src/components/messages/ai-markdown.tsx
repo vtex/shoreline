@@ -44,8 +44,6 @@ const markdownComponents: Components = {
  * Generic markdown renderer for Shoreline AI surfaces.
  *
  * @status experimental
- * @example
- * <AIMarkdown>{'**Hello**'}</AIMarkdown>
  */
 export const AIMarkdown = forwardRef<HTMLDivElement, AIMarkdownProps>(
   function AIMarkdown(props, ref) {

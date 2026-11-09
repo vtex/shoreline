@@ -9,8 +9,6 @@ import type { AIComposerActionProps } from './types'
  * Toggles between send and cancel based on whether a run is active.
  *
  * @status experimental
- * @example
- * <AIComposerAction />
  */
 export const AIComposerAction = forwardRef<
   HTMLButtonElement,

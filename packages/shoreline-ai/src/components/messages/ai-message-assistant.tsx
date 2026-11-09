@@ -8,10 +8,6 @@ import type { AIMessageAssistantProps } from './types'
  * Assistant message shell with default part rendering.
  *
  * @status experimental
- * @example
- * <AIMessages>
- *   <AIMessageAssistant showReasoningTools={false} />
- * </AIMessages>
  */
 export const AIMessageAssistant = forwardRef<
   HTMLDivElement,

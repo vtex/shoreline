@@ -8,10 +8,6 @@ import type { AIMessageUserProps } from './types'
  * User message shell with default part rendering and bubble styling.
  *
  * @status experimental
- * @example
- * <AIMessages>
- *   <AIMessageUser />
- * </AIMessages>
  */
 export const AIMessageUser = forwardRef<HTMLDivElement, AIMessageUserProps>(
   function AIMessageUser(props, ref) {
