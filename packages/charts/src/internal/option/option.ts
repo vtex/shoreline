@@ -63,15 +63,23 @@ export function buildCategoryAxis(categories: string[]) {
  * Value axis for the numeric dimension. A percentage axis formats its labels
  * with a `%` suffix; the default leaves the engine's plain numeric labels
  * untouched, so single-unit charts keep their existing output.
+ *
+ * A secondary axis of a dual-axis chart sets `showSplitLine: false`: the
+ * primary axis owns the horizontal grid, and two independently scaled sets of
+ * gridlines would sit at different heights and read as noise.
  */
-export function buildValueAxis(options: { unit?: ChartUnit } = {}) {
-  const { unit } = options
+export function buildValueAxis(
+  options: { unit?: ChartUnit; showSplitLine?: boolean } = {}
+) {
+  const { unit, showSplitLine = true } = options
 
-  if (unit === 'percentage') {
-    return { type: 'value', axisLabel: { formatter: percentageAxisLabel } }
+  return {
+    type: 'value',
+    ...(unit === 'percentage'
+      ? { axisLabel: { formatter: percentageAxisLabel } }
+      : {}),
+    ...(showSplitLine ? {} : { splitLine: { show: false } }),
   }
-
-  return { type: 'value' }
 }
 
 /**
