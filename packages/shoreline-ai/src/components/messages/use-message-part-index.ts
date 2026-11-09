@@ -1,4 +1,4 @@
-import { useAuiState } from '@assistant-ui/react'
+import { useAui, useAuiState } from '@assistant-ui/react'
 import type { PartState } from '@assistant-ui/react'
 
 /**
@@ -30,12 +30,16 @@ export function findMessagePartIndex(
 
 /**
  * Returns the 0-based index of the current message part within its message.
- * Falls back to `0` when the part cannot be located in the parts list.
+ * Falls back to `0` when the part cannot be located in the parts list, and
+ * when there is no part yet: a run that has not sent any content renders one
+ * placeholder part that is not in the message.
  */
 export function useMessagePartIndex(): number {
-  const part = useAuiState((state) => state.part)
-  const parts = useAuiState((state) => state.message.parts)
-  const index = findMessagePartIndex(part, parts)
+  const aui = useAui()
+  const hasPart = aui.part.source !== null
+  const index = useAuiState((state) =>
+    hasPart ? findMessagePartIndex(state.part, state.message.parts) : -1
+  )
 
   return index === -1 ? 0 : index
 }
