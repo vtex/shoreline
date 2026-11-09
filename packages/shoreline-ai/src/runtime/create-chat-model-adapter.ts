@@ -108,7 +108,7 @@ export function createChatModelAdapterFromTransport(
         while (true) {
           if (abortSignal.aborted) {
             await generator.return({ parts: lastParts })
-            endRun({ status: 'ready', cancelled: true, finalParts: lastParts })
+            endRun({ status: 'ready', cancelled: true })
 
             return
           }
@@ -118,7 +118,7 @@ export function createChatModelAdapterFromTransport(
           if (result === ABORTED || abortSignal.aborted) {
             // The transport may be stuck in a pull: do not wait for it.
             void generator.return({ parts: lastParts }).catch(() => {})
-            endRun({ status: 'ready', cancelled: true, finalParts: lastParts })
+            endRun({ status: 'ready', cancelled: true })
 
             return
           }
@@ -151,7 +151,6 @@ export function createChatModelAdapterFromTransport(
                 error: final.errorMessage ?? 'The run failed',
               }),
               cancelled: false,
-              finalParts: parts,
             })
 
             return
@@ -170,7 +169,7 @@ export function createChatModelAdapterFromTransport(
         }
       } catch (error) {
         if (abortSignal.aborted) {
-          endRun({ status: 'ready', cancelled: true, finalParts: lastParts })
+          endRun({ status: 'ready', cancelled: true })
 
           return
         }
@@ -187,7 +186,6 @@ export function createChatModelAdapterFromTransport(
           status: 'error',
           error: message,
           cancelled: false,
-          finalParts: parts,
         })
       }
     },

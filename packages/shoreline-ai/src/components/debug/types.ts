@@ -1,35 +1,10 @@
-import type { AIMessagePart, StreamStatus } from '../../types/public'
+import type { StreamStatus } from '../../types/public'
 
 /**
- * One part that changed between two snapshots of a run.
- *
- * @status experimental
- * @example
- * const change: AIStreamDebugChange = {
- *   partIndex: 1,
- *   type: 'text',
- *   kind: 'updated',
- *   delta: ' world',
- * }
- */
-export interface AIStreamDebugChange {
-  /** Position of the part in the snapshot. */
-  partIndex: number
-  /** Type of the part. */
-  type: AIMessagePart['type']
-  /** `added` for a new part, `updated` for a part that changed. */
-  kind: 'added' | 'updated'
-  /**
-   * Text added to a text or reasoning part. Not set when the text did not
-   * grow at the end.
-   * @default undefined
-   */
-  delta?: string
-}
-
-/**
- * One snapshot received from the transport during a run. It stores what
- * changed since the previous snapshot, not the whole snapshot.
+ * One snapshot received from the transport during a run. `snapshot` is a
+ * copy of the snapshot as the transport yielded it, with its parts, status
+ * and `debug` data. Its shape is not interpreted, so the panel keeps working
+ * when the parts change.
  *
  * @status experimental
  * @example
@@ -37,7 +12,7 @@ export interface AIStreamDebugChange {
  *   index: 1,
  *   at: '2026-01-01T00:00:00.000Z',
  *   status: 'streaming',
- *   changes: [{ partIndex: 0, type: 'text', kind: 'added', delta: 'Hi' }],
+ *   snapshot: { parts: [{ type: 'text', text: 'Hi' }], status: 'streaming' },
  * }
  */
 export interface AIStreamDebugStep {
@@ -47,13 +22,8 @@ export interface AIStreamDebugStep {
   at: string
   /** Status sent with the snapshot. */
   status: StreamStatus | undefined
-  /** Parts that changed. Empty when the snapshot repeats the previous one. */
-  changes: AIStreamDebugChange[]
-  /**
-   * Data the transport attached to the snapshot in `debug`.
-   * @default undefined
-   */
-  debug?: unknown
+  /** Copy of the snapshot exactly as the transport yielded it. */
+  snapshot: unknown
 }
 
 /**
@@ -87,8 +57,6 @@ export interface AIStreamDebugRun {
   error?: string
   /** Snapshots received, oldest first. The oldest are dropped past the limit. */
   steps: AIStreamDebugStep[]
-  /** Parts at the end of the run, in stream order. Empty while it runs. */
-  finalParts: AIMessagePart[]
 }
 
 /**

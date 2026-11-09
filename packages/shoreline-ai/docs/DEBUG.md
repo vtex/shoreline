@@ -2,7 +2,7 @@
 
 > **Status:** experimental
 
-The stream debug panel shows what your transport sent during each run: one row per snapshot, what changed in it, and the final message. Use it while you build or fix a transport. Do not ship it to users.
+The stream debug panel shows what your transport sent during each run: one row per snapshot, with the raw snapshot as formatted JSON. Use it while you build or fix a transport. Do not ship it to users.
 
 It works with any transport. Your transport does not have to do anything for the panel to work.
 
@@ -42,23 +42,22 @@ function Chat({ runtime }: { runtime: AIRuntime }) {
 
 When `debugStream` is off, nothing is recorded and the cost is zero. The panel then says that debug is off.
 
-## What is a run, a step and a change
+## What is a run and a step
 
 - A **run** starts when the user sends a message and ends when the transport returns, fails or is cancelled. A run has an id (the id of the assistant message), the thread id, the id of the user message, the start and end times, its status and, if it failed, an error message.
 - A **step** is one snapshot the transport yielded, or its final snapshot. Every snapshot is a step, even one that repeats the previous parts, so you see everything the transport sent.
-- A **change** is a part that is new or different from the previous step. For a text or reasoning part that grew, the change holds the text that was added (`delta`). A step stores its changes, not the whole snapshot.
+- A step stores a copy of the snapshot exactly as the transport yielded it: its parts, its status and its `debug` data. The panel does not interpret it, so it keeps working if the parts change.
 
 ## Read the panel
 
 1. Pick a run in the **Run** list. The newest run is first.
 2. The details show the status, the ids, the times and the error message.
-3. **Steps** lists the snapshots in the order they arrived. Each row shows its number, time, status and a summary such as `text updated` or `no changes`. Open a row to see the changes of that step and the `debug` data your transport attached.
-4. **Final parts** lists the parts of the final message in the order of the stream. If the transport sent reasoning first and then text, the reasoning comes first here.
-5. **Clear** removes every recorded run.
+3. **Steps** lists the snapshots in the order they arrived. Each row shows its number, time and status. Open a row to see the raw snapshot as formatted JSON. **Copy JSON** copies the same text. If the transport sent reasoning first and then text, `parts` lists the reasoning first.
+4. **Clear** removes every recorded run.
 
 ## Attach your own data
 
-Add `debug` to a snapshot to see your raw payload next to its step. The package never reads it: the panel only prints it as JSON.
+Add `debug` to a snapshot to see your raw payload inside the JSON of its step. The package never reads it.
 
 ```ts
 const transport: StreamTransport = {
@@ -77,7 +76,7 @@ const transport: StreamTransport = {
 
 ## Good to know
 
-- **Do not change a snapshot after you yield it.** The recorder keeps what you yielded, so changing it later changes what the panel shows.
+- The recorder copies each snapshot with `structuredClone`. Values it cannot copy (functions, for example) are copied through JSON, and when that fails the value is kept as it is. The recorder never throws.
 - You can turn `debugStream` on or off while the app runs. The thread, the thread id and the thread list are kept. Turning it off drops the recorded runs.
 - A cancelled run is recorded with status `ready`, not `error`, and no error message.
 - Records stay in memory and are lost on reload. An error in the recorder never breaks a run.
@@ -107,26 +106,17 @@ interface AIStreamDebugRun {
   status: StreamStatus
   error?: string
   steps: AIStreamDebugStep[]
-  finalParts: AIMessagePart[] // empty while the run goes on
 }
 
 interface AIStreamDebugStep {
   index: number // starts at 1
   at: string // ISO date
   status: StreamStatus | undefined
-  changes: AIStreamDebugChange[]
-  debug?: unknown
-}
-
-interface AIStreamDebugChange {
-  partIndex: number
-  type: AIMessagePart['type']
-  kind: 'added' | 'updated'
-  delta?: string
+  snapshot: unknown // copy of the snapshot as the transport yielded it
 }
 ```
 
-`AIStreamDebugRunView` shows a single run: its details, the steps and the final parts. `AIStreamDebugPanel` uses it for the selected run. Use it alone when you want your own run picker:
+`AIStreamDebugRunView` shows a single run: its details and its steps. `AIStreamDebugPanel` uses it for the selected run. Use it alone when you want your own run picker:
 
 ```tsx
 import { AIStreamDebugRunView, useAIStreamDebug } from '@vtex/shoreline-ai'

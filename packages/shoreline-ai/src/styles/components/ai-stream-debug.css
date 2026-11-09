@@ -31,9 +31,7 @@
     color: var(--sl-fg-critical);
   }
 
-  [data-sl-ai-stream-debug-steps],
-  [data-sl-ai-stream-debug-parts],
-  [data-sl-ai-stream-debug-changes] {
+  [data-sl-ai-stream-debug-steps] {
     display: flex;
     flex-direction: column;
     gap: var(--sl-space-1);
@@ -78,34 +76,22 @@
     padding: var(--sl-space-2) var(--sl-space-3);
   }
 
-  [data-sl-ai-stream-debug-part] {
+  [data-sl-ai-stream-debug-step-actions] {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--sl-space-2);
-    padding: var(--sl-space-2);
-    border: var(--sl-border-base);
-    border-radius: var(--sl-radius-2);
-  }
-
-  [data-sl-ai-stream-debug-part-text] {
-    flex-basis: 100%;
-    margin: 0;
-    white-space: pre-wrap;
-    overflow-wrap: anywhere;
+    justify-content: flex-end;
   }
 
   [data-sl-ai-stream-debug-json] {
-    flex-basis: 100%;
     max-height: calc(var(--sl-space-20) * 4);
     margin: 0;
     padding: var(--sl-space-2);
     overflow: auto;
     border-radius: var(--sl-radius-1);
     background: var(--sl-bg-base-soft);
-    font-family: monospace;
+    font-family: var(--sl-font-family-mono, monospace);
     font-size: var(--sl-font-size-1);
     white-space: pre-wrap;
     overflow-wrap: anywhere;
+    word-break: break-all;
   }
 }

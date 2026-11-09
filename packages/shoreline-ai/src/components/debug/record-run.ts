@@ -1,70 +1,25 @@
-import type { AIMessagePart } from '../../types/public'
-import type {
-  AIStreamDebugChange,
-  AIStreamDebugRun,
-  AIStreamDebugStep,
-} from './types'
-
-function textOf(part: AIMessagePart): string | undefined {
-  return part.type === 'text' || part.type === 'reasoning'
-    ? part.text
-    : undefined
-}
-
-function textDelta(
-  prev: AIMessagePart | undefined,
-  next: AIMessagePart
-): string | undefined {
-  const nextText = textOf(next)
-
-  if (!nextText) return undefined
-
-  const prevText = prev ? (textOf(prev) ?? '') : ''
-
-  if (!nextText.startsWith(prevText)) return undefined
-
-  return nextText.slice(prevText.length) || undefined
-}
+import type { AIStreamDebugRun, AIStreamDebugStep } from './types'
 
 /**
- * Lists the parts of `next` that are new or different from `prev`, in the
- * order they appear in `next`. For text and reasoning parts that grew, the
- * added text is in `delta`.
+ * Copies a snapshot so later changes to the original do not change the
+ * record. A value that `structuredClone` cannot copy (a function, for
+ * example) is copied through JSON. When that fails too, the value itself is
+ * kept. It never throws.
  *
  * @status experimental
  * @example
- * diffSnapshot(
- *   [{ type: 'text', text: 'Hel' }],
- *   [{ type: 'text', text: 'Hello' }]
- * )
- * // [{ partIndex: 0, type: 'text', kind: 'updated', delta: 'lo' }]
+ * const copy = copySnapshot({ parts: [{ type: 'text', text: 'Hi' }] })
  */
-export function diffSnapshot(
-  prev: AIMessagePart[],
-  next: AIMessagePart[]
-): AIStreamDebugChange[] {
-  const changes: AIStreamDebugChange[] = []
-
-  next.forEach((part, partIndex) => {
-    const before = prev[partIndex]
-
-    if (before === part) return
-
-    const isNew = !before || before.type !== part.type
-
-    if (!isNew && JSON.stringify(before) === JSON.stringify(part)) return
-
-    const delta = textDelta(isNew ? undefined : before, part)
-
-    changes.push({
-      partIndex,
-      type: part.type,
-      kind: isNew ? 'added' : 'updated',
-      ...(delta !== undefined && { delta }),
-    })
-  })
-
-  return changes
+export function copySnapshot(value: unknown): unknown {
+  try {
+    return structuredClone(value)
+  } catch {
+    try {
+      return JSON.parse(JSON.stringify(value))
+    } catch {
+      return value
+    }
+  }
 }
 
 /** Adds a run at the top of the list and drops the oldest past `maxRuns`. */
@@ -98,7 +53,7 @@ export function addStep(
 export function endRun(
   runs: AIStreamDebugRun[],
   runId: string,
-  end: Pick<AIStreamDebugRun, 'status' | 'error' | 'finalParts' | 'endedAt'>
+  end: Pick<AIStreamDebugRun, 'status' | 'error' | 'endedAt'>
 ): AIStreamDebugRun[] {
   return runs.map((run) => (run.runId === runId ? { ...run, ...end } : run))
 }

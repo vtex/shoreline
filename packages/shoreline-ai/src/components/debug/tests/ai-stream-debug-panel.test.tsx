@@ -2,6 +2,7 @@ import {
   describe,
   expect,
   it,
+  vi,
   render,
   screen,
   userEvent,
@@ -41,7 +42,10 @@ function RunsProbe() {
   const { enabled, runs } = useAIStreamDebug()
   const summary = runs
     .map((run) => {
-      const first = run.finalParts[0]
+      const last = run.steps[run.steps.length - 1]?.snapshot as
+        | RuntimeSnapshot
+        | undefined
+      const first = last?.parts[0]
       const label = first && 'text' in first ? first.text : ''
 
       return `${label}:${run.status}:${run.steps.map((s) => s.index).join(',')}`
@@ -83,6 +87,10 @@ function userText(parts: AIMessagePart[]): string {
   return first?.type === 'text' ? first.text : ''
 }
 
+function stepJson(): HTMLElement | null {
+  return document.querySelector('[data-sl-ai-stream-debug-json]')
+}
+
 async function waitForRunEnd() {
   await waitFor(() =>
     expect(screen.getByText(/^Status:/)).toHaveTextContent(/ready|error/)
@@ -90,46 +98,26 @@ async function waitForRunEnd() {
 }
 
 describe('AIStreamDebugPanel', () => {
-  it('lists the reasoning part before the text part', async () => {
+  it('shows the parts of a step in stream order inside the raw JSON', async () => {
     const user = userEvent.setup()
 
     render(<Setup debugStream />)
     await user.click(screen.getByRole('button', { name: 'Send hi' }))
     await waitForRunEnd()
 
-    const finalParts = screen.getByRole('list', { name: 'Final parts' })
-
-    expect(finalParts.children).toHaveLength(2)
-    expect(finalParts).toHaveTextContent(/^reasoning.*text/)
-    expect(
-      screen.getByRole('button', { name: /^Step 1\b/ })
-    ).toHaveAccessibleName(/reasoning added/)
-  })
-
-  it('shows one step per transport yield, including a duplicate snapshot', async () => {
-    const user = userEvent.setup()
-    const transport: StreamTransport = {
-      async *run() {
-        yield textOf('Hello')
-        yield textOf('Hello')
-
-        return { ...textOf('Hello'), status: 'ready' }
-      },
-    }
-
-    render(<Setup debugStream transport={transport} />)
-    await user.click(screen.getByRole('button', { name: 'Send hi' }))
-    await waitForRunEnd()
-
     const rows = screen.getAllByRole('button', { name: /^Step \d+/ })
 
-    expect(rows).toHaveLength(3)
-    expect(rows[0]).toHaveAccessibleName(/text added/)
-    expect(rows[1]).toHaveAccessibleName(/no changes/)
-    expect(rows[2]).toHaveAccessibleName(/no changes/)
+    await user.click(rows[rows.length - 1])
+
+    const json = stepJson()?.textContent ?? ''
+
+    expect(json.indexOf('"type": "reasoning"')).toBeGreaterThan(-1)
+    expect(json.indexOf('"type": "reasoning"')).toBeLessThan(
+      json.indexOf('"type": "text"')
+    )
   })
 
-  it('shows the opaque debug payload as JSON when a row is expanded', async () => {
+  it('shows the raw snapshot as indented JSON when a row is expanded', async () => {
     const user = userEvent.setup()
     const transport: StreamTransport = {
       async *run() {
@@ -146,18 +134,91 @@ describe('AIStreamDebugPanel', () => {
     const row = screen.getByRole('button', { name: /^Step 1\b/ })
 
     expect(row).toHaveAttribute('aria-expanded', 'false')
-    expect(screen.queryByText(/"event": "chunk"/)).not.toBeInTheDocument()
+    expect(stepJson()).toBeNull()
 
     await user.click(row)
 
     expect(row).toHaveAttribute('aria-expanded', 'true')
 
-    const details = document.getElementById(
-      row.getAttribute('aria-controls') ?? ''
+    const expected = JSON.stringify(
+      { ...textOf('Hi'), debug: { event: 'chunk', seq: 1 } },
+      null,
+      2
     )
 
-    expect(details).toHaveTextContent('"event": "chunk"')
-    expect(details).toHaveTextContent('"seq": 1')
+    expect(stepJson()?.textContent).toBe(expected)
+    expect(expected).toContain('\n  "parts": [')
+  })
+
+  it('copies the same formatted JSON to the clipboard', async () => {
+    const user = userEvent.setup()
+    const writeText = vi.fn().mockResolvedValue(undefined)
+
+    vi.stubGlobal('navigator', { ...navigator, clipboard: { writeText } })
+
+    const transport: StreamTransport = {
+      async *run() {
+        yield textOf('Hi')
+
+        return { ...textOf('Hi'), status: 'ready' }
+      },
+    }
+
+    render(<Setup debugStream transport={transport} />)
+    await user.click(screen.getByRole('button', { name: 'Send hi' }))
+    await waitForRunEnd()
+    await user.click(screen.getByRole('button', { name: /^Step 1\b/ }))
+    await user.click(screen.getByRole('button', { name: 'Copy JSON' }))
+
+    expect(writeText).toHaveBeenCalledWith(stepJson()?.textContent)
+
+    vi.unstubAllGlobals()
+  })
+
+  it('does not break when the clipboard is unavailable', async () => {
+    const user = userEvent.setup()
+
+    vi.stubGlobal('navigator', { ...navigator, clipboard: undefined })
+
+    const transport: StreamTransport = {
+      async *run() {
+        yield textOf('Hi')
+
+        return { ...textOf('Hi'), status: 'ready' }
+      },
+    }
+
+    render(<Setup debugStream transport={transport} />)
+    await user.click(screen.getByRole('button', { name: 'Send hi' }))
+    await waitForRunEnd()
+    await user.click(screen.getByRole('button', { name: /^Step 1\b/ }))
+    await user.click(screen.getByRole('button', { name: 'Copy JSON' }))
+
+    expect(stepJson()).not.toBeNull()
+
+    vi.unstubAllGlobals()
+  })
+
+  it('shows a step whose snapshot cannot be serialized without breaking the panel', async () => {
+    const user = userEvent.setup()
+    const circular: Record<string, unknown> = { name: 'loop' }
+
+    circular.self = circular
+
+    const transport: StreamTransport = {
+      async *run() {
+        yield { ...textOf('Hi'), debug: circular }
+
+        return { ...textOf('Hi'), status: 'ready' }
+      },
+    }
+
+    render(<Setup debugStream transport={transport} />)
+    await user.click(screen.getByRole('button', { name: 'Send hi' }))
+    await waitForRunEnd()
+    await user.click(screen.getByRole('button', { name: /^Step 1\b/ }))
+
+    expect(stepJson()).not.toBeNull()
   })
 
   it('shows the error of a failed run', async () => {

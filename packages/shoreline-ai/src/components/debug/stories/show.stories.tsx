@@ -36,36 +36,42 @@ const COMPLETED: AIStreamDebugRun = {
       index: 1,
       at: '2026-01-01T10:00:00.120Z',
       status: 'streaming',
-      changes: [
-        { partIndex: 0, type: 'reasoning', kind: 'added', delta: 'Reading' },
-      ],
-      debug: { event: 'reasoning', seq: 1 },
+      snapshot: {
+        parts: [{ type: 'reasoning', text: 'Reading', status: 'streaming' }],
+        status: 'streaming',
+        debug: { event: 'reasoning', seq: 1 },
+      },
     },
     {
       index: 2,
       at: '2026-01-01T10:00:01.000Z',
       status: 'streaming',
-      changes: [
-        { partIndex: 0, type: 'reasoning', kind: 'updated' },
-        { partIndex: 1, type: 'text', kind: 'added', delta: 'Hello' },
-      ],
+      snapshot: {
+        parts: [
+          { type: 'reasoning', text: 'Reading the order', status: 'complete' },
+          { type: 'text', text: 'Hello' },
+        ],
+        status: 'streaming',
+      },
     },
     {
       index: 3,
       at: '2026-01-01T10:00:02.400Z',
       status: 'ready',
-      changes: [],
+      snapshot: {
+        parts: [
+          { type: 'reasoning', text: 'Reading the order', status: 'complete' },
+          { type: 'text', text: 'Hello there' },
+        ],
+        status: 'ready',
+      },
     },
-  ],
-  finalParts: [
-    { type: 'reasoning', text: 'Reading', status: 'complete' },
-    { type: 'text', text: 'Hello' },
   ],
 }
 
-const WITH_TOOL_AND_RESOURCE: AIStreamDebugRun = {
+const WITH_UNKNOWN_SHAPE: AIStreamDebugRun = {
   ...BASE,
-  runId: 'run-tool',
+  runId: 'run-unknown',
   endedAt: '2026-01-01T10:00:03.000Z',
   status: 'ready',
   steps: [
@@ -73,25 +79,19 @@ const WITH_TOOL_AND_RESOURCE: AIStreamDebugRun = {
       index: 1,
       at: '2026-01-01T10:00:01.000Z',
       status: 'streaming',
-      changes: [
-        { partIndex: 0, type: 'tool', kind: 'added' },
-        { partIndex: 1, type: 'resource', kind: 'added' },
-      ],
-    },
-  ],
-  finalParts: [
-    {
-      type: 'tool',
-      name: 'search_orders',
-      args: { status: 'invoiced' },
-      output: { total: 3 },
-      status: 'complete',
-    },
-    {
-      type: 'resource',
-      uri: 'https://example.com/report.pdf',
-      name: 'report.pdf',
-      mimeType: 'application/pdf',
+      snapshot: {
+        parts: [
+          {
+            type: 'tool',
+            name: 'search_orders',
+            args: { status: 'invoiced' },
+            output: { total: 3 },
+            status: 'complete',
+          },
+          { type: 'a-future-part', payload: { anything: true } },
+        ],
+        status: 'streaming',
+      },
     },
   ],
 }
@@ -103,7 +103,6 @@ const FAILED: AIStreamDebugRun = {
   status: 'error',
   error: 'The server closed the connection.',
   steps: [],
-  finalParts: [{ type: 'text', text: 'The server closed the connection.' }],
 }
 
 const RUNNING: AIStreamDebugRun = {
@@ -115,10 +114,9 @@ const RUNNING: AIStreamDebugRun = {
       index: 1,
       at: '2026-01-01T10:00:00.200Z',
       status: 'streaming',
-      changes: [{ partIndex: 0, type: 'text', kind: 'added', delta: 'Hel' }],
+      snapshot: { parts: [{ type: 'text', text: 'Hel' }], status: 'streaming' },
     },
   ],
-  finalParts: [],
 }
 
 function Variant(props: { label: string; run: AIStreamDebugRun }) {
@@ -134,7 +132,7 @@ export const RunStates: Story = {
   render: () => (
     <Flex direction="column" gap="$space-6" style={{ maxWidth: 640 }}>
       <Variant label="Completed" run={COMPLETED} />
-      <Variant label="Tool and resource parts" run={WITH_TOOL_AND_RESOURCE} />
+      <Variant label="Any part shape" run={WITH_UNKNOWN_SHAPE} />
       <Variant label="Failed" run={FAILED} />
       <Variant label="Running" run={RUNNING} />
     </Flex>

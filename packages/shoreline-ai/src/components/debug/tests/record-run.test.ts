@@ -1,32 +1,35 @@
 import { describe, expect, it } from '@vtex/shoreline-test-utils'
 
-import type { AIMessagePart } from '../../../types/public'
-import { diffSnapshot } from '../record-run'
+import { copySnapshot } from '../record-run'
 
-describe('diffSnapshot', () => {
-  it('marks a new part as added and a grown text part as updated with its delta', () => {
-    const prev: AIMessagePart[] = [{ type: 'text', text: 'Hel' }]
-    const next: AIMessagePart[] = [
-      { type: 'text', text: 'Hello' },
-      { type: 'tool', name: 'search', args: {}, status: 'running' },
-    ]
+describe('copySnapshot', () => {
+  it('returns a deep copy that does not change when the original changes', () => {
+    const original = {
+      parts: [{ type: 'text', text: 'Hi' }],
+      status: 'streaming',
+    }
+    const copy = copySnapshot(original) as typeof original
 
-    expect(diffSnapshot(prev, next)).toEqual([
-      { partIndex: 0, type: 'text', kind: 'updated', delta: 'lo' },
-      { partIndex: 1, type: 'tool', kind: 'added' },
-    ])
+    original.parts[0].text = 'Changed'
+
+    expect(copy).toEqual({
+      parts: [{ type: 'text', text: 'Hi' }],
+      status: 'streaming',
+    })
   })
 
-  it('keeps stream order of parts', () => {
-    const next: AIMessagePart[] = [
-      { type: 'reasoning', text: 'Thinking', status: 'complete' },
-      { type: 'text', text: 'Answer' },
-    ]
+  it('does not throw on a value that structuredClone cannot copy', () => {
+    const original = { parts: [], debug: { fn: () => 1, size: 2 } }
 
-    expect(diffSnapshot([], next)).toEqual([
-      { partIndex: 0, type: 'reasoning', kind: 'added', delta: 'Thinking' },
-      { partIndex: 1, type: 'text', kind: 'added', delta: 'Answer' },
-    ])
-    expect(diffSnapshot(next, next)).toEqual([])
+    expect(() => copySnapshot(original)).not.toThrow()
+    expect(copySnapshot(original)).toMatchObject({ debug: { size: 2 } })
+  })
+
+  it('does not throw on a circular value that cannot be cloned or serialized', () => {
+    const original: Record<string, unknown> = { fn: () => 1 }
+
+    original.self = original
+
+    expect(() => copySnapshot(original)).not.toThrow()
   })
 })

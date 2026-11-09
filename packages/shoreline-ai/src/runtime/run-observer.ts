@@ -3,7 +3,7 @@
  * snapshot the transport yields, and how it ends.
  */
 
-import type { AIMessagePart, StreamStatus } from '../types/public'
+import type { StreamStatus } from '../types/public'
 import type { AIRuntime } from '../types/runtime'
 import type { RuntimeSnapshot } from './types'
 
@@ -31,8 +31,6 @@ export interface RunEnd {
   error?: string
   /** True when the run was stopped by the user or by a thread switch. */
   cancelled: boolean
-  /** Parts of the last snapshot, or the error text when the run failed. */
-  finalParts: AIMessagePart[]
 }
 
 /**

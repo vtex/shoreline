@@ -10,8 +10,7 @@ import {
 } from 'react'
 
 import type { RunObserver } from '../../runtime/run-observer'
-import type { AIMessagePart } from '../../types/public'
-import { addRun, addStep, diffSnapshot, endRun } from './record-run'
+import { addRun, addStep, copySnapshot, endRun } from './record-run'
 import type { AIStreamDebugRun, AIStreamDebugState } from './types'
 
 /** Number of runs kept when `debugMaxRuns` is not set. */
@@ -45,11 +44,6 @@ const DISABLED: AIStreamDebugState = {
   clear: () => {},
 }
 
-interface OpenRun {
-  parts: AIMessagePart[]
-  count: number
-}
-
 /**
  * Records the runs of the provider it wraps while `enabled` is true. When it
  * is false, nothing is recorded and the runs of an outer provider stay
@@ -71,8 +65,8 @@ export function AIStreamDebugScope(props: {
   const limits = useRef({ maxRuns, maxSteps })
   limits.current = { maxRuns, maxSteps }
 
-  // Parts of the last snapshot and step count of each run still going.
-  const openRuns = useRef(new Map<string, OpenRun>())
+  // Step count of each run still going.
+  const openRuns = useRef(new Map<string, number>())
 
   const clear = useCallback(() => {
     openRuns.current.clear()
@@ -83,11 +77,11 @@ export function AIStreamDebugScope(props: {
     () => ({
       onRunStart: (run) => {
         try {
-          openRuns.current.set(run.runId, { parts: [], count: 0 })
+          openRuns.current.set(run.runId, 0)
           setRuns((prev) =>
             addRun(
               prev,
-              { ...run, status: 'submitted', steps: [], finalParts: [] },
+              { ...run, status: 'submitted', steps: [] },
               limits.current.maxRuns
             )
           )
@@ -97,21 +91,17 @@ export function AIStreamDebugScope(props: {
       },
       onSnapshot: (runId, snapshot) => {
         try {
-          const open = openRuns.current.get(runId)
+          const count = openRuns.current.get(runId)
 
-          if (!open) return
+          if (count === undefined) return
 
-          const changes = diffSnapshot(open.parts, snapshot.parts)
-
-          open.parts = snapshot.parts
-          open.count += 1
+          openRuns.current.set(runId, count + 1)
 
           const step = {
-            index: open.count,
+            index: count + 1,
             at: new Date().toISOString(),
             status: snapshot.status,
-            changes,
-            ...(snapshot.debug !== undefined && { debug: snapshot.debug }),
+            snapshot: copySnapshot(snapshot),
           }
 
           setRuns((prev) => addStep(prev, runId, step, limits.current.maxSteps))
@@ -126,7 +116,6 @@ export function AIStreamDebugScope(props: {
             endRun(prev, runId, {
               status: end.status,
               error: end.error,
-              finalParts: end.finalParts,
               endedAt: new Date().toISOString(),
             })
           )

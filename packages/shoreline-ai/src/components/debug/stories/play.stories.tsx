@@ -66,6 +66,12 @@ export const OpenExpandAndSwitchRuns: Story = {
 
     await userEvent.click(row)
     await expect(row).toHaveAttribute('aria-expanded', 'true')
+    await expect(
+      inPanel.getByRole('button', { name: 'Copy JSON' })
+    ).toBeVisible()
+    await expect(
+      panel.querySelector('[data-sl-ai-stream-debug-json]')?.textContent
+    ).toContain('\n  "parts": [')
 
     const newestRunId = inPanel.getByText(/^Run id:/).textContent
 

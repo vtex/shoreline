@@ -57,7 +57,6 @@ export {
   useAIStreamDebug,
 } from './components/debug'
 export type {
-  AIStreamDebugChange,
   AIStreamDebugPanelOptions,
   AIStreamDebugPanelProps,
   AIStreamDebugRunViewOptions,
