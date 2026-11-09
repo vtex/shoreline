@@ -35,4 +35,9 @@ export default {
   'how-to-contribute': 'How to Contribute',
   design: 'Design',
   code: 'Code',
+  '-- Shoreline AI': {
+    type: 'separator',
+    title: 'Shoreline AI',
+  },
+  'shoreline-ai': 'Shoreline AI',
 }
