@@ -238,7 +238,7 @@ Guide in the package: `DEBUG.md`
 | Run errors | none | `onRunError` on `<AIProvider>` and a clean stop on failure or cancel |
 | `errorMessage` on a snapshot | set when the transport failed before content | text of a failed run, used when the final snapshot has `status: 'error'` and no parts |
 | Thread id for the transport | getter on the builder | same getter, now documented and passed as `input.threadId` |
-| Attachments | basic | progress, errors, `AIAttachment` type, `useAIAttachment`, and a failed upload does not block sending |
+| Attachments | handler with `add`, `send` and `remove` | adds `accept`, `maxSize` and `maxCount` limits, localized error chips, the `AIAttachment` type, `useAIAttachment`, and a failed upload does not block sending |
 | Resources | did not return the resource parts of the message | `useAIResources` returns the `resource` parts of any message |
 | Debug | protocol-specific provider and rows | `debugStream` with `AIStreamDebugPanel`, raw JSON per step and the `debug` field |
 | `AIRuntime` | internals visible | opaque: you only pass it to `<AIProvider>` |
