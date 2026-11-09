@@ -76,6 +76,7 @@ export { useAIThread } from './hooks/use-ai-thread'
 export { useAIThreadList } from './hooks/use-ai-thread-list'
 export type { AIThreadListState } from './components/provider/use-thread-list-state'
 export { useAIComposer } from './hooks/use-ai-composer'
+export { useAIAttachment } from './hooks/use-ai-attachment'
 export { useAIMessageParts } from './hooks/use-ai-message-parts'
 
 // Thread
