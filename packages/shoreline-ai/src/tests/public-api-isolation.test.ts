@@ -22,7 +22,7 @@ const BANNED_TERMS = /AssistantRuntime|ThreadMessageLike|remoteId/
 
 /** Engine names that comments in public files must not use. */
 const BANNED_COMMENT_TERMS =
-  /assistant-ui|Primitive\b|makeAssistantToolUI|AssistantRuntime/
+  /assistant-ui|Primitive\b|makeAssistantToolUI|AssistantRuntime/i
 
 function read(path: string) {
   return readFileSync(path, 'utf8')
@@ -207,5 +207,18 @@ describe('public api isolation', () => {
     )
 
     expect(leaks).toEqual([])
+  })
+
+  it('catches engine names in comments whatever their case', () => {
+    const source = [
+      '/** Built on Assistant-UI */',
+      '// ASSISTANT-UI runtime',
+      ' * uses assistant-ui',
+      '/** Wraps AssistantRuntime */',
+      '// ComposerPRIMITIVE helper',
+      'const clean = 1 // nothing here',
+    ].join('\n')
+
+    expect(engineComments(source)).toHaveLength(5)
   })
 })
