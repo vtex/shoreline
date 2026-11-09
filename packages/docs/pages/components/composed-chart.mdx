@@ -1,0 +1,85 @@
+# Composed Chart
+
+<ComponentDescription name="composed-chart" />
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning" emoji="🧪">
+  **Experimental.**  ComposedChart is not stable yet: it ships in `@vtex/shoreline-charts` at 0.x, so its API and visuals may change between minor versions.
+</Callout>
+
+<Preview name="composed-chart" />
+
+Each entry in `series` carries a `type` of `bar` or `line`: use bars to show magnitude and a line to show a rate over the same categories. Bars always paint below lines, regardless of the order of the series.
+
+`ComposedChart` lives in the separate `@vtex/shoreline-charts` package. Install it and import its stylesheet once in your app:
+
+```sh
+pnpm add @vtex/shoreline-charts
+```
+
+```tsx
+import { ComposedChart } from '@vtex/shoreline-charts'
+import '@vtex/shoreline-charts/css'
+```
+
+## Examples
+
+### Units and axes
+
+Every series accepts a `unit`: `number` (the default) or `percentage`. Bars anchor the left value axis. A line whose unit differs from the bars moves to a right value axis, which the chart infers — there is no prop for it. Percentage axis labels and tooltip rows are formatted with a `%` suffix. When no unit differs, or when there are no bars, the chart uses a single axis. Only the left axis draws horizontal gridlines: the two axes scale independently, so the right axis keeps its labels without a second, overlapping set of lines.
+
+<Preview name="composed-chart-units" />
+
+### Grouping
+
+`grouping` controls how multiple bar series combine: `grouped` (the default) places them side by side, `stacked` piles them into a single bar per category. Only bars are affected; lines are never grouped or stacked.
+
+<Preview name="composed-chart-stacked" />
+
+### Forecast lines
+
+A line can set `variant: 'forecast'`. It renders dashed and without symbols, and it continues the series immediately before it: the chart fills the seam from that series' last non-null value. Forecast data is full-length, with `null` wherever the line has not started yet.
+
+<Preview name="composed-chart-forecast" />
+
+### Series aggregation
+
+Only bar series aggregate past `maxSeries` (default `3`): the remainder folds into a single `Others` series. `maxSeries` is capped at `6`, the palette length. Lines never count toward `maxSeries` and are never aggregated; they keep their own names and colors.
+
+<Preview name="composed-chart-max-series" />
+
+### Loading state
+
+Pass `loading` to show a skeleton placeholder instead of the chart while data is being fetched.
+
+<Preview name="composed-chart-loading" />
+
+### Empty state
+
+When no series has any non-null value, the chart renders its empty state. Override the message through the `messages` prop, or let it localize from the surrounding `LocaleProvider`.
+
+<Preview name="composed-chart-empty" />
+
+### Localization
+
+Internal messages — the empty state and the `Others` aggregate — localize from the surrounding `LocaleProvider`. Data supplied through props is not translated: series names and categories are the consumer's to localize.
+
+<Preview name="composed-chart-localized" />
+
+## Required props
+
+<PropsDocs name="composed-chart" required />
+
+## Optional props
+
+<PropsDocs name="composed-chart" />
+
+## Related components
+
+<ComponentSummaryGrid>
+  <ComponentSummary name="bar-chart" />
+  <ComponentSummary name="table" />
+  <ComponentSummary name="collection" />
+  <ComponentSummary name="skeleton" />
+</ComponentSummaryGrid>
