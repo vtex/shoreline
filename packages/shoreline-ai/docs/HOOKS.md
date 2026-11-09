@@ -228,7 +228,7 @@ Omit `messageId` inside an `AIMessage*` component tree; pass `messageId` to read
 | `useAITools` | `AIToolPart[]` | Tool parts only |
 | `useAIResources` | `AIResourcePart[]` | Resource parts only: files the user attached and resources your transport yields |
 
-`useAIResources` returns the parts of `AIMessage.parts` whose `type` is `'resource'`, in message order. It gives the same result as `useAIMessageParts(messageId).filter((part) => part.type === 'resource')`.
+`useAIResources` returns the `resource` parts of the message, in message order. This includes the files the user attached to a user message (images too, with an `image/*` MIME type), which `useAIMessageParts` does not return, so filtering that hook is not the same thing.
 
 ### Inside a custom part renderer
 
