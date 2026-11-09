@@ -41,6 +41,127 @@ const transport: StreamTransport = {
 }
 ```
 
+## A realistic transport
+
+A real backend streams its answer in small events. This transport calls an endpoint, reads server-sent events and turns them into snapshots. The event names (`reasoning-delta`, `text-delta`, `error`, `done`) belong to this example: use the ones your backend sends.
+
+What to notice:
+
+- `abortSignal` goes to `fetch`, so a cancel stops the request.
+- Every snapshot holds **all** parts so far, rebuilt from the text received until now, with the reasoning first.
+- A failed request throws. An error event ends the run with `status: 'error'` and an `errorMessage`. Both reach `useAIStatus().error` and `onRunError`.
+- `debug: event` puts the raw event in the [debug panel](/guides/shoreline-ai-debug).
+- `threadId` tells the backend which conversation the run belongs to.
+
+```ts
+import type { AIMessagePart, StreamTransport } from '@vtex/shoreline-ai'
+
+type ServerEvent =
+  | { type: 'reasoning-delta'; text: string }
+  | { type: 'text-delta'; text: string }
+  | { type: 'error'; message: string }
+  | { type: 'done' }
+
+/** Reads `data: {json}` events from a server-sent events body. */
+async function* readEvents(
+  body: ReadableStream<Uint8Array>
+): AsyncGenerator<ServerEvent> {
+  const reader = body.getReader()
+  const decoder = new TextDecoder()
+  let buffer = ''
+
+  while (true) {
+    const { done, value } = await reader.read()
+
+    if (done) break
+
+    buffer += decoder.decode(value, { stream: true })
+
+    const chunks = buffer.split('\n\n')
+
+    buffer = chunks.pop() ?? ''
+
+    for (const chunk of chunks) {
+      const line = chunk.split('\n').find((l) => l.startsWith('data: '))
+
+      if (line) yield JSON.parse(line.slice('data: '.length)) as ServerEvent
+    }
+  }
+}
+
+export function createSseTransport(url: string): StreamTransport {
+  return {
+    async *run({ trigger, threadId, abortSignal }) {
+      const first = trigger.message.parts.find((p) => p.type === 'text')
+      const question = first?.type === 'text' ? first.text : ''
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ threadId, question }),
+        signal: abortSignal,
+      })
+
+      if (!response.ok || !response.body) {
+        throw new Error(`The request failed with status ${response.status}`)
+      }
+
+      let reasoning = ''
+      let text = ''
+
+      // Every snapshot holds all the parts so far, in the order they started.
+      const toParts = (ended: boolean): AIMessagePart[] => {
+        const parts: AIMessagePart[] = []
+
+        if (reasoning) {
+          // Reasoning is done as soon as the answer starts.
+          const done = ended || text !== ''
+
+          parts.push({
+            type: 'reasoning',
+            text: reasoning,
+            status: done ? 'complete' : 'streaming',
+          })
+        }
+
+        if (text) parts.push({ type: 'text', text })
+
+        return parts
+      }
+
+      for await (const event of readEvents(response.body)) {
+        if (event.type === 'error') {
+          return {
+            parts: toParts(true),
+            status: 'error',
+            errorMessage: event.message,
+          }
+        }
+
+        if (event.type === 'done') break
+
+        if (event.type === 'reasoning-delta') reasoning += event.text
+        else text += event.text
+
+        // `debug` is the raw event: it shows up in the debug panel.
+        yield { parts: toParts(false), status: 'streaming', debug: event }
+      }
+
+      return { parts: toParts(true), status: 'ready' }
+    },
+  }
+}
+```
+
+Use it like any other transport:
+
+```tsx
+const built = useMemo(
+  () => createRuntimeBuilder().transport(createSseTransport('/api/chat')).build(),
+  []
+)
+```
+
 ## The provider
 
 `<AIProvider>` wraps the chat. The `threads` adapter connects it to your server (`list`, `load`, `archive`). `onRunError` is called once when a run fails. You can control the thread id with `threadId` and `onThreadChange`, or leave it to the provider.
