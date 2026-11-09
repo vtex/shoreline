@@ -174,10 +174,14 @@ export function buildComposedOption(
     }),
     grid: buildGrid({ tokens, showLegend }),
     xAxis: buildCategoryAxis(categories),
+    // The left axis owns the horizontal grid. Both axes derive their own tick
+    // intervals from their own scales, so drawing the secondary axis' ticks
+    // too would place a second, overlapping set of gridlines at different
+    // heights — the right axis keeps its labels, without gridlines.
     yAxis: hasSecondaryAxis
       ? [
           buildValueAxis({ unit: leftUnit }),
-          buildValueAxis({ unit: secondaryLine?.unit }),
+          buildValueAxis({ unit: secondaryLine?.unit, showSplitLine: false }),
         ]
       : buildValueAxis({ unit: leftUnit }),
     series: [

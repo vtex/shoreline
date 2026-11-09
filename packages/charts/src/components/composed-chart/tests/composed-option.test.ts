@@ -25,6 +25,7 @@ interface BuiltAxis {
   type: string
   data?: string[]
   axisLabel?: { formatter: (value: number) => string }
+  splitLine?: { show: boolean }
 }
 
 interface BuiltSeries {
@@ -98,6 +99,10 @@ describe('buildComposedOption', () => {
     // The percentage line reads against the right axis.
     expect(axes[1]?.axisLabel?.formatter(25)).toBe('25%')
     expect(mixed.series[1]?.yAxisIndex).toBe(1)
+    // Only the left axis draws the grid: the right axis' ticks follow its own
+    // scale, so drawing them would overlap the left gridlines at other heights.
+    expect(axes[0]?.splitLine).toBeUndefined()
+    expect(axes[1]?.splitLine).toEqual({ show: false })
   })
 
   test('formats the left axis when the bars themselves are percentages', () => {
@@ -113,6 +118,8 @@ describe('buildComposedOption', () => {
     expect(axes[0]?.axisLabel?.formatter(25)).toBe('25%')
     expect(axes[1]?.axisLabel).toBeUndefined()
     expect(option.series[1]?.yAxisIndex).toBe(1)
+    expect(axes[0]?.splitLine).toBeUndefined()
+    expect(axes[1]?.splitLine).toEqual({ show: false })
   })
 
   test('renders a single axis when the units agree', () => {
