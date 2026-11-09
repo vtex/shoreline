@@ -32,6 +32,27 @@ function toJson(value: unknown): string {
   }
 }
 
+/**
+ * Types of the parts of a snapshot, in order, for the step header. It only
+ * reads the `type` of each part, so a new part type shows up as it is and a
+ * snapshot of another shape shows nothing.
+ */
+function partTypes(snapshot: unknown): string {
+  const parts = (snapshot as { parts?: unknown } | null | undefined)?.parts
+
+  if (!Array.isArray(parts)) return ''
+
+  const types: string[] = []
+
+  for (const part of parts) {
+    const type = (part as { type?: unknown } | null)?.type
+
+    if (typeof type === 'string') types.push(type)
+  }
+
+  return types.join(', ')
+}
+
 function runLabel(run: AIStreamDebugRun): string {
   return `${formatTime(run.startedAt)} · ${run.status} · ${run.steps.length} steps`
 }
@@ -73,6 +94,7 @@ function StepRow(props: {
 }) {
   const { step, expanded, onToggle } = props
   const contentId = useId()
+  const types = partTypes(step.snapshot)
 
   return (
     <li data-sl-ai-stream-debug-step>
@@ -89,6 +111,12 @@ function StepRow(props: {
         <span>{formatTime(step.at)}</span>
         {' · '}
         <span>{step.status ?? 'no status'}</span>
+        {types ? (
+          <>
+            {' · '}
+            <span>{types}</span>
+          </>
+        ) : null}
       </button>
       <div
         id={contentId}

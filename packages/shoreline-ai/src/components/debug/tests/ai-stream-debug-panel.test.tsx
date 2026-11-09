@@ -18,7 +18,12 @@ import {
   createMockStreamTransport,
 } from '../../../test-utils'
 import type { AIMessagePart } from '../../../types/public'
-import { AIStreamDebugPanel, useAIStreamDebug } from '../index'
+import {
+  AIStreamDebugPanel,
+  AIStreamDebugRunView,
+  useAIStreamDebug,
+  type AIStreamDebugRun,
+} from '../index'
 
 const MOCK_TRANSPORT = createMockStreamTransport({ delayMs: 0 })
 
@@ -344,5 +349,79 @@ describe('AIStreamDebugPanel', () => {
     }
 
     expect(probe).toHaveTextContent('on [c6:ready:4,5,6 | b6:ready:4,5,6]')
+  })
+
+  describe('step header part types', () => {
+    function runWith(snapshots: unknown[]): AIStreamDebugRun {
+      return {
+        runId: 'run-1',
+        threadId: null,
+        userMessageId: 'user-1',
+        startedAt: '2026-01-01T00:00:00.000Z',
+        status: 'streaming',
+        steps: snapshots.map((snapshot, i) => ({
+          index: i + 1,
+          at: '2026-01-01T00:00:00.000Z',
+          status: 'streaming' as const,
+          snapshot,
+        })),
+      }
+    }
+
+    it('lists the types of the parts of each snapshot in order', () => {
+      render(
+        <AIStreamDebugRunView
+          run={runWith([
+            { parts: [{ type: 'reasoning', text: 'a', status: 'running' }] },
+            {
+              parts: [
+                { type: 'reasoning', text: 'a', status: 'complete' },
+                { type: 'text', text: 'b' },
+              ],
+            },
+          ])}
+        />
+      )
+
+      expect(
+        screen.getByRole('button', { name: /^Step 1\b.*· reasoning$/ })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByRole('button', { name: /^Step 2\b.*· reasoning, text$/ })
+      ).toBeInTheDocument()
+    })
+
+    it('shows an unknown part type as it is', () => {
+      render(
+        <AIStreamDebugRunView
+          run={runWith([{ parts: [{ type: 'canvas' }] }])}
+        />
+      )
+
+      expect(
+        screen.getByRole('button', { name: /^Step 1\b.*· canvas$/ })
+      ).toBeInTheDocument()
+    })
+
+    it('shows no type when the snapshot has no parts list', () => {
+      render(
+        <AIStreamDebugRunView
+          run={runWith([
+            undefined,
+            'raw',
+            { parts: 'x' },
+            { parts: [null, 3] },
+          ])}
+        />
+      )
+
+      for (const index of [1, 2, 3, 4]) {
+        expect(
+          screen.getByRole('button', {
+            name: new RegExp(`^Step ${index}\\b.*· streaming$`),
+          })
+        ).toBeInTheDocument()
+      }
+    })
   })
 })

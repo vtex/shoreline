@@ -46,13 +46,13 @@ When `debugStream` is off, nothing is recorded and the cost is zero. The panel t
 
 - A **run** starts when the user sends a message and ends when the transport returns, fails or is cancelled. A run has an id (the id of the assistant message), the thread id, the id of the user message, the start and end times, its status and, if it failed, an error message.
 - A **step** is one snapshot the transport yielded, or its final snapshot. Every snapshot is a step, even one that repeats the previous parts, so you see everything the transport sent.
-- A step stores a copy of the snapshot exactly as the transport yielded it: its parts, its status and its `debug` data. The panel does not interpret it, so it keeps working if the parts change.
+- A step stores a copy of the snapshot exactly as the transport yielded it: its parts, its status and its `debug` data. The panel does not interpret it beyond listing the part types in the row title, so it keeps working if the parts change.
 
 ## Read the panel
 
 1. Pick a run in the **Run** list. The newest run is first.
 2. The details show the status, the ids, the times and the error message.
-3. **Steps** lists the snapshots in the order they arrived. Each row shows its number, time and status. Open a row to see the raw snapshot as formatted JSON. **Copy JSON** copies the same text. If the transport sent reasoning first and then text, `parts` lists the reasoning first.
+3. **Steps** lists the snapshots in the order they arrived. Each row shows its number, time, status and the types of the parts in the snapshot, in order (for example `reasoning, text`). The types are only read from `parts`, so a new part type is shown as it is. Open a row to see the raw snapshot as formatted JSON. **Copy JSON** copies the same text. If the transport sent reasoning first and then text, `parts` lists the reasoning first.
 4. **Clear** removes every recorded run.
 
 ## Attach your own data
