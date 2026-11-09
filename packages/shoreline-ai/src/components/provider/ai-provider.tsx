@@ -150,6 +150,20 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
     // ignored.
     const openRequest = useRef<object | null>(null)
 
+    // False after unmount, so a late `threads.load` result cannot write into
+    // a runtime that outlives the provider. It is a flag and not a reset of
+    // `openRequest`: under StrictMode the effects run twice and the controlled
+    // effect below does not request the thread again.
+    const isMounted = useRef(false)
+
+    useEffect(() => {
+      isMounted.current = true
+
+      return () => {
+        isMounted.current = false
+      }
+    }, [])
+
     // Clears the open state and, when `id` is set and there is a
     // `threads.load`, loads the messages of that thread.
     const openThreadMessages = useCallback(
@@ -171,15 +185,15 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
 
         load(id)
           .then((messages) => {
-            if (openRequest.current !== request) return
+            if (openRequest.current !== request || !isMounted.current) return
             if (messages.length > 0) loadThreadMessages(runtime, messages)
           })
           .catch((cause) => {
-            if (openRequest.current !== request) return
+            if (openRequest.current !== request || !isMounted.current) return
             setError(toAIThreadError('thread_open', cause))
           })
           .finally(() => {
-            if (openRequest.current !== request) return
+            if (openRequest.current !== request || !isMounted.current) return
             openRequest.current = null
             setIsOpeningThread(false)
           })

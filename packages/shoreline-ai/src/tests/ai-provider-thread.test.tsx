@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { StrictMode, useEffect } from 'react'
 import type { ReactNode } from 'react'
 import {
   describe,
@@ -272,6 +272,69 @@ describe('AIProvider controlled thread', () => {
     resolvers['conv-b']([])
 
     await waitFor(() => expect(latest?.isOpeningThread).toBe(false))
+  })
+
+  it('ignores a load result that arrives after the provider unmounted', async () => {
+    const runtime = createRuntime()
+    let resolve: (messages: AIMessage[]) => void = () => {}
+    const load = vi.fn(
+      () =>
+        new Promise<AIMessage[]>((res) => {
+          resolve = res
+        })
+    )
+
+    const { unmount } = render(
+      <AIProvider runtime={runtime} threadId="conv-a" threads={adapterOf(load)}>
+        {null}
+      </AIProvider>
+    )
+
+    await waitFor(() => expect(load).toHaveBeenCalledWith('conv-a'))
+    unmount()
+
+    resolve([
+      {
+        id: 'late',
+        role: 'user',
+        createdAt: '2026-01-01T00:00:00Z',
+        parts: [{ type: 'text', text: 'late' }],
+      },
+    ])
+
+    await new Promise((done) => setTimeout(done, 0))
+
+    expect(unwrapRuntime(runtime).thread.reset).not.toHaveBeenCalled()
+  })
+
+  it('still applies the load result under StrictMode double effects', async () => {
+    const runtime = createRuntime()
+    const load = vi.fn(
+      async (): Promise<AIMessage[]> => [
+        {
+          id: 'm1',
+          role: 'user',
+          createdAt: '2026-01-01T00:00:00Z',
+          parts: [{ type: 'text', text: 'hi' }],
+        },
+      ]
+    )
+
+    render(
+      <StrictMode>
+        <AIProvider
+          runtime={runtime}
+          threadId="conv-a"
+          threads={adapterOf(load)}
+        >
+          {null}
+        </AIProvider>
+      </StrictMode>
+    )
+
+    await waitFor(() =>
+      expect(unwrapRuntime(runtime).thread.reset).toHaveBeenCalledTimes(1)
+    )
   })
 
   it('does not reopen the thread when the adapter object changes between renders', async () => {
