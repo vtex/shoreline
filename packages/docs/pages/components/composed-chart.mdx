@@ -27,7 +27,7 @@ import '@vtex/shoreline-charts/css'
 
 ### Units and axes
 
-Every series accepts a `unit`: `number` (the default) or `percentage`. Bars anchor the left value axis. A line whose unit differs from the bars moves to a right value axis, which the chart infers — there is no prop for it. Percentage axis labels and tooltip rows are formatted with a `%` suffix. When no unit differs, or when there are no bars, the chart uses a single axis.
+Every series accepts a `unit`: `number` (the default) or `percentage`. Bars anchor the left value axis. A line whose unit differs from the bars moves to a right value axis, which the chart infers — there is no prop for it. Percentage axis labels and tooltip rows are formatted with a `%` suffix. When no unit differs, or when there are no bars, the chart uses a single axis. Only the left axis draws horizontal gridlines: the two axes scale independently, so the right axis keeps its labels without a second, overlapping set of lines.
 
 <Preview name="composed-chart-units" />
 
