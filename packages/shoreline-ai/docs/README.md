@@ -4,6 +4,8 @@
 
 React components and hooks for AI chat. You bring a backend as a stream transport; the package renders the thread, the messages and the composer.
 
+New here? Start with the [**overview**](./OVERVIEW.md).
+
 | Guide | Description |
 |-------|-------------|
 | [**USAGE.md**](./USAGE.md) | Quick start: a working chat in a few steps |
