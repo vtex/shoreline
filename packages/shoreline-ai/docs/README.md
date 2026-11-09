@@ -9,7 +9,7 @@ React components and hooks for AI chat. You bring a backend as a stream transpor
 | [**USAGE.md**](./USAGE.md) | Quick start: a working chat in a few steps |
 | [**RUNTIME.md**](./RUNTIME.md) | `StreamTransport`, builder, `useRuntime`, failure and cancel, attachments, hydrate |
 | [**PROVIDER.md**](./PROVIDER.md) | `<AIProvider>`, `threads` adapter, `onRunError`, thread id, nested providers, canvas |
-| [**HOOKS.md**](./HOOKS.md) | `useAIThread`, `useAIThreadList`, `useAIStatus`, `useAIComposer`, message part hooks |
+| [**HOOKS.md**](./HOOKS.md) | `useAIThread`, `useAIThreadList`, `useAIStatus`, `useAIComposer`, `useAIAttachment`, message part hooks |
 | [**COMPOSER.md**](./COMPOSER.md) | `AIComposer*`, layout, attachment chips and errors, i18n |
 | [**THREAD.md**](./THREAD.md) | `AIThread*`, viewport, empty slot, footer, scroll-to-bottom |
 | [**MESSAGES.md**](./MESSAGES.md) | `AIMessages*`, reasoning groups, part overrides, resources |

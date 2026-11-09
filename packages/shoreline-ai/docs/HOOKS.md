@@ -116,6 +116,22 @@ const hasError = attachments.some((item) => item.status === 'error')
 
 A file in the `error` state does not block sending: the message goes out without it, see [COMPOSER.md](./COMPOSER.md#attachments).
 
+## `useAIAttachment()`
+
+```ts
+const { attachment, remove, retry } = useAIAttachment()
+```
+
+| Member | Description |
+|--------|-------------|
+| `attachment` | The attachment of the chip, as an `AIAttachment` |
+| `remove` | Takes the attachment out of the composer, same as the remove button of the default chip |
+| `retry` | Adds the same file again. It is `undefined` unless the upload failed (`status: 'error'` and the file is still available) |
+
+Use it inside the `children` render prop of `AIComposerAttachments`, in any component that the render prop renders. Outside an attachment it throws `useAIAttachment must be used inside AIComposerAttachments`.
+
+`retry` removes the failed attachment and adds the same `File` again, so the limit set by `maxCount` is not exceeded. The new attachment has a new `id`. A file rejected for its size or because the composer is full has no `retry`: it would fail again. See [COMPOSER.md](./COMPOSER.md#errors) for a full example.
+
 ## `useAIStatus()`
 
 ```ts

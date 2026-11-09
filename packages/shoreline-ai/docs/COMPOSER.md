@@ -294,11 +294,37 @@ The built-in messages are localized (`en-US`, `pt-BR`) and can be overridden on 
 
 A failed upload does not block sending. The component only signals the error: the attachment stays in `useAIComposer().attachments` with `status: 'error'` (and an `error` message), and it is passed to the `children` render prop of `AIComposerAttachments`, so the app decides what to show (a toast, a chip with retry, a remove button). `AIComposerSend` and the Enter key stay enabled, and the message is sent without the failed attachment: it has no `resource` part. Sending clears the failed attachment from the composer along with the rest of the draft. The user can also remove the chip before sending, and a file that fails can be added again after that.
 
+To handle the failure, render your own chip and use `useAIAttachment()` inside it. The example shows a toast once when the attachment fails, and offers retry and remove:
+
+```tsx
+function UploadChip() {
+  const { attachment, remove, retry } = useAIAttachment()
+  const failed = attachment.status === 'error'
+
+  useEffect(() => {
+    if (failed) toast.error(attachment.error)
+  }, [failed, attachment.error])
+
+  return (
+    <div>
+      <span>{attachment.name}</span>
+      {failed && retry && <button onClick={retry}>Try again</button>}
+      <button onClick={remove}>Remove</button>
+    </div>
+  )
+}
+
+<AIComposerAttachments>{() => <UploadChip />}</AIComposerAttachments>
+```
+
+`retry` is `undefined` when a retry would fail again (a file over `maxSize`, or a full composer). It removes the failed attachment and adds the same file as a new one, with a new `id`. Send is never blocked by a failed attachment. To block it anyway, pass `disabled` to `AIComposerSend` based on `useAIComposer().attachments`.
+
 ## Hooks
 
 | Hook | Use for |
 |------|---------|
 | `useAIComposer()` | Draft `text`, `attachments`, `disabled`, `setText`, `send`, `reset` |
+| `useAIAttachment()` | `attachment`, `remove` and `retry` of one chip, inside `AIComposerAttachments` |
 | `useAIStatus()` | `isStreaming` for cancel / `AIComposerAction` |
 | `useAIThread()` | `sendMessage` bypasses draft; `stopGeneration` cancels run |
 
