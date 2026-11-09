@@ -15,10 +15,22 @@ This page gives the big picture. [Runtime](/guides/shoreline-ai-runtime) explain
 
 <ShorelineAIArchitectureDiagram />
 
-1. Your **transport** talks to your backend and sends back snapshots of the assistant message.
+1. Your **transport** talks to your backend and sends back snapshots of the assistant message. It is the only part you write.
 2. `createRuntimeBuilder` and `useRuntime` turn the transport into a **runtime**.
 3. `<AIProvider>` shares the runtime with the **hooks** (`useAIThread`, `useAIStatus`, ...) and the **components** (`AIThread`, `AIMessages`, `AIComposer`).
 4. The debug panel and the run error callback watch that same flow, so you do not wire them to the transport.
+
+## Who does what
+
+| Piece | What it is | Who writes it |
+|-------|-----------|---------------|
+| **Transport** | Talks to your backend and turns its events into snapshots of the assistant message. Your UI protocol is implemented here. It is the most complex piece, and you write it **once** | You |
+| **Runtime** | Joins the transport with the chat engine and controls a run: send, stream, fail and cancel | The package |
+| **Provider** | Shares the runtime with the hooks and the components, and keeps the thread id, the open canvas and the run error | The package |
+| **Components and hooks** | The thread, the messages, the composer and the hooks that read them | The package |
+| **Bridge** | Internal layer that translates messages between the format of this package and the one of the chat engine. You never use it | The package |
+
+If you only read one thing, read [Runtime](/guides/shoreline-ai-runtime#a-realistic-transport): a real transport in about 90 lines.
 
 ## A minimal chat
 

@@ -2,7 +2,7 @@
 
 > **Status:** experimental
 
-Write a **`StreamTransport`** for your backend, join it with **`createRuntimeBuilder`**, create the runtime with **`useRuntime`**, then wrap your app in [**`<AIProvider>`**](./PROVIDER.md).
+Write a **`StreamTransport`** for your backend. It is where your UI protocol is implemented: the most complex piece, written once. Then join it with **`createRuntimeBuilder`**, create the runtime with **`useRuntime`** and wrap your app in [**`<AIProvider>`**](./PROVIDER.md).
 
 ## How the pieces connect
 

@@ -3,9 +3,9 @@ import { FlowDiagram } from './flow-diagram'
 export function ShorelineAIArchitectureDiagram() {
   return (
     <FlowDiagram
-      title="Your backend feeds your stream transport. The runtime passes it to AIProvider, which serves the hooks, the components, the debug panel and onRunError."
+      title="Your backend feeds your stream transport. The runtime passes it to AIProvider, which serves the hooks, the components, the debug panel and onRunError. An internal bridge translates messages for the chat engine."
       width={800}
-      height={320}
+      height={330}
       nodes={[
         {
           id: 'backend',
@@ -22,7 +22,7 @@ export function ShorelineAIArchitectureDiagram() {
           width: 150,
           height: 56,
           title: 'StreamTransport',
-          sub: 'you write this',
+          sub: 'you write this, once',
           tone: 'yours',
         },
         {
@@ -54,28 +54,45 @@ export function ShorelineAIArchitectureDiagram() {
           sub: 'and onRunError',
         },
         {
+          id: 'bridge',
+          x: 390,
+          y: 250,
+          width: 150,
+          height: 56,
+          title: 'Bridge',
+          sub: 'internal',
+        },
+        {
           id: 'components',
-          x: 480,
-          y: 240,
-          width: 140,
+          x: 570,
+          y: 250,
+          width: 120,
           height: 56,
           title: 'Components',
-          sub: 'AIThread, AIComposer',
+          sub: 'AIThread, ...',
         },
         {
           id: 'hooks',
-          x: 660,
-          y: 240,
-          width: 130,
+          x: 710,
+          y: 250,
+          width: 80,
           height: 56,
           title: 'Hooks',
-          sub: 'useAIThread, ...',
+          sub: 'useAI*',
         },
       ]}
       edges={[
         { from: 'backend', to: 'transport' },
         { from: 'transport', to: 'runtime', label: 'snapshots' },
         { from: 'runtime', to: 'provider' },
+        {
+          from: 'runtime',
+          to: 'bridge',
+          dashed: true,
+          fromSide: 'bottom',
+          toSide: 'top',
+          label: 'translates',
+        },
         { from: 'provider', to: 'watchers', dashed: true, label: 'watch' },
         {
           from: 'provider',
@@ -85,7 +102,7 @@ export function ShorelineAIArchitectureDiagram() {
         },
         { from: 'provider', to: 'hooks', fromSide: 'bottom', toSide: 'top' },
       ]}
-      caption="You write the transport. The package does the rest."
+      caption="Orange is yours. The transport is the only part you write."
     />
   )
 }

@@ -10,7 +10,7 @@ import {
   **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
 </Callout>
 
-The runtime runs your backend and keeps the thread. The provider shares it with your hooks and components. This page shows how to set both up and what happens during a run. For every prop and edge case, read `RUNTIME.md` and `PROVIDER.md` in the package.
+The **transport** is where your UI protocol lives: it turns what your backend sends into snapshots the chat can show. It is the most complex piece, but you write it once. The runtime runs it and keeps the thread. The provider shares it with your hooks and components. This page shows how to set both up and what happens during a run. For every prop and edge case, read `RUNTIME.md` and `PROVIDER.md` in the package.
 
 ## Wire it up
 
