@@ -137,8 +137,16 @@ export function createAssistantAttachmentAdapter(
         attachment.status.type === 'incomplete' &&
         attachment.status.reason === 'error'
       ) {
-        // An empty message lets the chip keep its localized text.
-        throw new Error(attachment.status.message ?? '')
+        // A failed upload never blocks the message: it goes out as a
+        // complete attachment with no content, which maps to no part.
+        return {
+          id: attachment.id,
+          type: attachment.type,
+          name: attachment.name,
+          contentType: attachment.contentType,
+          status: { type: 'complete' as const },
+          content: [],
+        }
       }
 
       const pending = pendingMap.get(attachment.id)

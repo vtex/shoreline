@@ -174,31 +174,97 @@ describe('AIComposer attachments', () => {
     expect(screen.queryByText('Server said no')).toBeNull()
   })
 
-  it('disables Send while an error chip is in the composer', async () => {
+  it('keeps Send enabled and sends the message without the failed attachment', async () => {
     const user = userEvent.setup()
+    const runs: RuntimeRunInput[] = []
+    const transport: StreamTransport = {
+      async *run(input) {
+        runs.push(input)
+        yield { parts: [{ type: 'text', text: 'ok' }], status: 'streaming' }
+
+        return { parts: [{ type: 'text', text: 'ok' }], status: 'ready' }
+      },
+    }
+    const seen: string[] = []
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider
+          attachments={createHandler({
+            async *add() {
+              yield { progress: 0, status: 'error', error: 'Server said no' }
+            },
+          })}
+          transport={transport}
+        >
+          <AIComposer>
+            <AIComposerField>
+              <AIComposerAttachments>
+                {({ attachment }) => {
+                  seen.push(attachment.status)
+
+                  return (
+                    <span>{`${attachment.name}:${attachment.status}`}</span>
+                  )
+                }}
+              </AIComposerAttachments>
+              <AIComposerInput placeholder="Type here" />
+              <AIComposerFooter>
+                <AIComposerAddAttachment />
+                <AIComposerAction />
+              </AIComposerFooter>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    await user.type(screen.getByPlaceholderText('Type here'), 'Hello')
+    await pickFile(user, notes())
+
+    expect(await screen.findByText('notes.txt:error')).toBeInTheDocument()
+    expect(seen).toContain('error')
+    expect(screen.getByRole('button', { name: 'Send' })).toBeEnabled()
+
+    await user.click(screen.getByRole('button', { name: 'Send' }))
+
+    await waitFor(() => expect(runs).toHaveLength(1))
+
+    const { parts } = runs[0].trigger.message
+
+    expect(parts).toEqual([{ type: 'text', text: 'Hello' }])
+  })
+
+  it('sends with Enter while an attachment failed to upload', async () => {
+    const user = userEvent.setup()
+    const runs: RuntimeRunInput[] = []
+    const transport: StreamTransport = {
+      async *run(input) {
+        runs.push(input)
+        yield { parts: [{ type: 'text', text: 'ok' }], status: 'streaming' }
+
+        return { parts: [{ type: 'text', text: 'ok' }], status: 'ready' }
+      },
+    }
 
     renderComposer(
       createHandler({
         async *add() {
           yield { progress: 0, status: 'error', error: 'Server said no' }
         },
-      })
+      }),
+      transport
     )
 
     await user.type(screen.getByPlaceholderText('Type here'), 'Hello')
-    expect(screen.getByRole('button', { name: 'Send' })).toBeEnabled()
-
     await pickFile(user, notes())
     await screen.findByText('Server said no')
+    await user.type(screen.getByPlaceholderText('Type here'), '{Enter}')
 
-    expect(screen.getByRole('button', { name: 'Send' })).toBeDisabled()
-
-    await user.click(screen.getByRole('button', { name: /remove attachment/i }))
-
-    await waitFor(() => {
-      expect(screen.getByRole('button', { name: 'Send' })).toBeEnabled()
-    })
-    expect(screen.getByPlaceholderText('Type here')).toHaveValue('Hello')
+    await waitFor(() => expect(runs).toHaveLength(1))
+    expect(
+      runs[0].trigger.message.parts.filter((part) => part.type === 'resource')
+    ).toEqual([])
   })
 
   it('shows an error chip when the handler throws', async () => {

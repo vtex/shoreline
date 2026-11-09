@@ -114,7 +114,7 @@ const { attachments } = useAIComposer()
 const hasError = attachments.some((item) => item.status === 'error')
 ```
 
-A file in the `error` state blocks sending until the user removes it, see [COMPOSER.md](./COMPOSER.md#attachments).
+A file in the `error` state does not block sending: the message goes out without it, see [COMPOSER.md](./COMPOSER.md#attachments).
 
 ## `useAIStatus()`
 

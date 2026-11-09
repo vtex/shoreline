@@ -8,8 +8,8 @@ import type { AIComposerSendProps } from './types'
 
 /**
  * Circular send button for the composer. It is disabled while the draft is
- * empty and while an attachment failed to upload: remove the failed
- * attachment to send.
+ * empty. An attachment that failed to upload does not block it: the message
+ * goes out without that attachment.
  *
  * @status experimental
  * @example
@@ -21,11 +21,8 @@ export const AIComposerSend = forwardRef<
 >(function AIComposerSend(props, ref) {
   const { disabled: disabledProp, ...buttonProps } = props
   const getMessage = useComposerMessagesContext()
-  const { disabled, attachments } = useAIComposer()
-  const hasFailedAttachment = attachments.some(
-    (attachment) => attachment.status === 'error'
-  )
-  const isDisabled = disabledProp ?? (disabled || hasFailedAttachment)
+  const { disabled } = useAIComposer()
+  const isDisabled = disabledProp ?? disabled
 
   return (
     <ComposerPrimitive.Send asChild disabled={isDisabled} {...buttonProps}>

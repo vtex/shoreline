@@ -163,19 +163,19 @@ describe('createAssistantAttachmentAdapter', () => {
     await expect(adapter.send(ready)).resolves.toBeDefined()
   })
 
-  it('refuses to send an attachment whose upload failed', async () => {
-    const adapter = createAssistantAttachmentAdapter(
-      createHandler({
-        async *add() {
-          yield { progress: 0, status: 'error', error: 'bad' }
-        },
-      })
-    )
+  it('sends a failed attachment as a complete one with no content', async () => {
+    const handler = createHandler({
+      async *add() {
+        yield { progress: 0, status: 'error', error: 'bad' }
+      },
+    })
+    const adapter = createAssistantAttachmentAdapter(handler)
     const states = await collect(adapter.add({ file: file() }))
+    const sent = await adapter.send(states.at(-1) as PendingAttachment)
 
-    expect(
-      await rejection(adapter.send(states.at(-1) as PendingAttachment))
-    ).toBe('bad')
+    expect(sent.status).toEqual({ type: 'complete' })
+    expect(sent.content).toEqual([])
+    expect(handler.send).not.toHaveBeenCalled()
   })
 
   it('releases the pending entry and url on remove', async () => {
