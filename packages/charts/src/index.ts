@@ -19,6 +19,17 @@ export type {
   LineChartSeries,
   LineChartSeriesVariant,
 } from './components/line-chart'
+export { ComposedChart } from './components/composed-chart'
+export type {
+  ComposedChartBarSeries,
+  ComposedChartGrouping,
+  ComposedChartLineSeries,
+  ComposedChartMessages,
+  ComposedChartOptions,
+  ComposedChartProps,
+  ComposedChartSeries,
+  ComposedChartUnit,
+} from './components/composed-chart'
 // Consumers construct these to fill `BarChartSeries.deltas`, so the shape has
 // to be nameable outside the package even though the tooltip itself is
 // internal.
