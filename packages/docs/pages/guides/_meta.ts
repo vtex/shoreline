@@ -39,5 +39,7 @@ export default {
     type: 'separator',
     title: 'Shoreline AI',
   },
-  'shoreline-ai': 'Shoreline AI',
+  'shoreline-ai': 'Overview',
+  'shoreline-ai-runtime': 'Runtime',
+  'shoreline-ai-debug': 'Debug',
 }

@@ -4,6 +4,18 @@
 
 Write a **`StreamTransport`** for your backend, join it with **`createRuntimeBuilder`**, create the runtime with **`useRuntime`**, then wrap your app in [**`<AIProvider>`**](./PROVIDER.md).
 
+## How the pieces connect
+
+```mermaid
+flowchart LR
+  transport["StreamTransport (required)"] --> builder["createRuntimeBuilder()"]
+  handler["AttachmentHandler (optional)"] --> builder
+  builder --> useRuntime["useRuntime(built)"]
+  useRuntime --> provider["AIProvider runtime={runtime}"]
+  threads["threads adapter (optional)"] --> provider
+  provider --> ui["Hooks and components"]
+```
+
 ## Concepts
 
 | Concept | Role |
@@ -137,6 +149,20 @@ const built = createRuntimeBuilder()
   })
   .build()
 ```
+
+### Run status
+
+```mermaid
+stateDiagram-v2
+  [*] --> idle
+  idle --> submitted: send
+  submitted --> streaming: first parts
+  streaming --> ready: final snapshot
+  streaming --> error: throw or status error
+  submitted --> error: fails before any content
+```
+
+A cancelled run is not an error. `useAIStatus` reports these states, see [HOOKS.md](./HOOKS.md#useaistatus).
 
 ### Failure
 

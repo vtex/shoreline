@@ -6,11 +6,14 @@
 
 ## How the pieces fit
 
-```
-your transport --> runtime --> <AIProvider> --> hooks and components
-                                   |
-                       debug panel and run errors
-                       (they watch the same flow)
+```mermaid
+flowchart LR
+  backend[Your backend] --> transport["StreamTransport (you write this)"]
+  transport -- snapshots --> runtime["Runtime: createRuntimeBuilder + useRuntime"]
+  runtime --> provider["AIProvider"]
+  provider --> components["Components: AIThread, AIMessages, AIComposer"]
+  provider --> hooks["Hooks: useAIThread, useAIStatus, ..."]
+  provider -.-> watchers["Debug panel and onRunError"]
 ```
 
 Your transport talks to your backend and sends back snapshots of the assistant message. `createRuntimeBuilder` and `useRuntime` turn the transport into a runtime. `<AIProvider>` shares the runtime with the hooks (`useAIThread`, `useAIStatus`, ...) and the components (`AIThread`, `AIMessages`, `AIComposer`). The debug panel and the run error callback watch that same flow, so you do not wire them to the transport.
@@ -74,7 +77,7 @@ export function MinimalChat() {
 }
 ```
 
-## What this PR stabilized
+## What the package covers
 
 Each item has a short snippet and a link to its guide.
 
@@ -223,21 +226,6 @@ yield { parts, status: 'streaming', debug: event.raw }
 ```
 
 Guide: [DEBUG.md](./DEBUG.md)
-
-## What changed from the proof of concept
-
-| Area | Proof of concept | Now |
-|------|------------------|-----|
-| Open a saved thread | `onThreadOpen` prop on `<AIProvider>` | `threads` adapter with `list`, `load` and `archive` |
-| Thread list | none | `useAIThreadList` with `archiveThread` and `refresh` |
-| Run status | only `ready` and `streaming` | adds `submitted` and `error`, and `useAIStatus().error` |
-| Run errors | none | `onRunError` on `<AIProvider>` and a clean stop on failure or cancel |
-| `errorMessage` on a snapshot | set when the transport failed before content | text of a failed run, used when the final snapshot has `status: 'error'` and no parts |
-| Thread id for the transport | getter on the builder | same getter, now documented and passed as `input.threadId` |
-| Attachments | handler with `add`, `send` and `remove` | adds `accept`, `maxSize` and `maxCount` limits, localized error chips, the `AIAttachment` type, `useAIAttachment`, and a failed upload does not block sending |
-| Resources | did not return the resource parts of the message | `useAIResources` returns the `resource` parts of any message |
-| Debug | protocol-specific provider and rows | `debugStream` with `AIStreamDebugPanel`, raw JSON per step and the `debug` field |
-| `AIRuntime` | internals visible | opaque: you only pass it to `<AIProvider>` |
 
 ## Known limits
 

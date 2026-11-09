@@ -1,0 +1,88 @@
+.figure {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.svg {
+  display: block;
+  min-width: 560px;
+  width: 100%;
+  height: auto;
+  color: inherit;
+  font-family: inherit;
+}
+
+.node {
+  fill: currentColor;
+  fill-opacity: 0.05;
+  stroke: currentColor;
+  stroke-opacity: 0.35;
+}
+
+.node[data-tone="accent"] {
+  fill: #4f7cff;
+  fill-opacity: 0.14;
+  stroke: #4f7cff;
+  stroke-opacity: 0.8;
+}
+
+.node[data-tone="yours"] {
+  fill: #f0a020;
+  fill-opacity: 0.14;
+  stroke: #f0a020;
+  stroke-opacity: 0.8;
+}
+
+.node[data-tone="ok"] {
+  fill: #2fa36b;
+  fill-opacity: 0.14;
+  stroke: #2fa36b;
+  stroke-opacity: 0.8;
+}
+
+.node[data-tone="error"] {
+  fill: #d94c4c;
+  fill-opacity: 0.14;
+  stroke: #d94c4c;
+  stroke-opacity: 0.8;
+}
+
+.title {
+  fill: currentColor;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sub {
+  fill: currentColor;
+  fill-opacity: 0.7;
+  font-size: 12px;
+}
+
+.edge {
+  fill: none;
+  stroke: currentColor;
+  stroke-opacity: 0.6;
+  stroke-width: 1.5;
+}
+
+.edge[data-dashed="true"] {
+  stroke-dasharray: 5 4;
+}
+
+.arrow {
+  fill: currentColor;
+  fill-opacity: 0.6;
+}
+
+.edgeLabel {
+  fill: currentColor;
+  fill-opacity: 0.8;
+  font-size: 12px;
+}
+
+.caption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  opacity: 0.75;
+}

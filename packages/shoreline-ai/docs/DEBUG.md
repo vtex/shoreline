@@ -6,6 +6,15 @@ The stream debug panel shows what your transport sent during each run: one row p
 
 It works with any transport. Your transport does not have to do anything for the panel to work.
 
+```mermaid
+flowchart LR
+  transport["StreamTransport"] -- snapshots --> runtime["Runtime"]
+  runtime --> chat["Messages and status"]
+  runtime -. "debugStream on" .-> recorder["Recorder: copies each snapshot"]
+  recorder --> panel["AIStreamDebugPanel: one row per snapshot"]
+```
+
+
 ## Turn it on
 
 Pass `debugStream` to [`<AIProvider>`](./PROVIDER.md) and place `AIStreamDebugPanel` anywhere inside it:
