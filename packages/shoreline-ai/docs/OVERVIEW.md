@@ -112,7 +112,7 @@ Guide: [RUNTIME.md](./RUNTIME.md)
 
 ### AIProvider
 
-`<AIProvider>` wraps the chat. The `threads` adapter connects it to your server (`list`, `load`, `archive`). `onRunError` is called once when a run fails. You can control the thread id with `threadId` and `onThreadChange`, or leave it to the provider.
+`<AIProvider>` wraps the chat. The `threads` adapter connects it to your server (`list`, `load`, `archive`). `onRunError` is called once when a run fails. You can control the thread id with `threadId` and `onThreadChange`, or leave it to the provider. Either way, the provider creates the id of a new thread and the transport receives it as `threadId`.
 
 ```tsx
 const threads = useMemo<AIThreadAdapter>(

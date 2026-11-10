@@ -9,8 +9,7 @@ import { mapThreadMessagesToAIMessages } from '../runtime/bridge/map-thread-mess
 import type { RuntimeRunInput } from '../runtime/types'
 
 function buildRunInput(
-  messages: Parameters<typeof mapThreadMessagesToAIMessages>[0],
-  getThreadId?: () => string | null
+  messages: Parameters<typeof mapThreadMessagesToAIMessages>[0]
 ): RuntimeRunInput | null {
   const lastUser = getLastThreadUserMessage(messages)
 
@@ -24,7 +23,7 @@ function buildRunInput(
     },
     abortSignal: new AbortController().signal,
     runResponseId: 'asst-1',
-    threadId: getThreadId?.() ?? null,
+    threadId: 'conv-1',
   }
 }
 
@@ -65,23 +64,5 @@ describe('RuntimeRunInput', () => {
       text: 'Again',
     })
     expect(input?.runResponseId).toBe('asst-1')
-  })
-
-  it('includes threadId from getThreadId when provided', () => {
-    const input = buildRunInput(
-      [
-        {
-          id: 'u1',
-          role: 'user',
-          createdAt: new Date('2026-01-01'),
-          content: [{ type: 'text', text: 'Hi' }],
-          attachments: [],
-          metadata: { custom: {} },
-        },
-      ] as ThreadMessage[],
-      () => 'conv-99'
-    )
-
-    expect(input?.threadId).toBe('conv-99')
   })
 })

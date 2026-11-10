@@ -36,13 +36,22 @@ function createOptions(
   } as unknown as ChatModelRunOptions
 }
 
+/** A channel whose provider puts every run in the thread `conv-1`. */
+function createChannel(): RuntimeChannel {
+  const channel = createRuntimeChannel()
+
+  channel.threadIdResolver.current = () => 'conv-1'
+
+  return channel
+}
+
 function createObserver() {
   const observer: RunObserver = {
     onRunStart: vi.fn(),
     onSnapshot: vi.fn(),
     onRunEnd: vi.fn(),
   }
-  const channel = createRuntimeChannel()
+  const channel = createChannel()
 
   channel.observers.add(observer)
 
@@ -61,7 +70,7 @@ async function collect(
 
 function run(
   transport: StreamTransport,
-  channel: RuntimeChannel = createRuntimeChannel(),
+  channel: RuntimeChannel = createChannel(),
   signal: AbortSignal = new AbortController().signal
 ) {
   const adapter = createChatModelAdapterFromTransport({ transport }, channel)
@@ -314,7 +323,7 @@ describe('createChatModelAdapterFromTransport', () => {
   })
 
   it('skips observer calls when no observer is attached', async () => {
-    const channel = createRuntimeChannel()
+    const channel = createChannel()
     const transport: StreamTransport = {
       async *run() {
         yield { parts: textParts('o'), status: 'streaming' }
@@ -326,5 +335,46 @@ describe('createChatModelAdapterFromTransport', () => {
     const results = await collect(run(transport, channel))
 
     expect(results).toHaveLength(2)
+  })
+
+  it('sends the thread id of the provider to the transport', async () => {
+    const { observer, channel } = createObserver()
+    const threadIds: string[] = []
+    const transport: StreamTransport = {
+      // biome-ignore lint/correctness/useYield: returns right away
+      async *run(input) {
+        threadIds.push(input.threadId)
+
+        return { parts: textParts('ok'), status: 'ready' }
+      },
+    }
+
+    await collect(run(transport, channel))
+
+    expect(threadIds).toEqual(['conv-1'])
+    expect(observer.onRunStart).toHaveBeenCalledWith(
+      expect.objectContaining({ threadId: 'conv-1' })
+    )
+  })
+
+  it('fails the run when no provider uses the runtime', async () => {
+    const run = vi.fn()
+    const adapter = createChatModelAdapterFromTransport(
+      { transport: { run } },
+      createRuntimeChannel()
+    )
+    const results = adapter.run(
+      createOptions(new AbortController().signal)
+    ) as AsyncGenerator<ChatModelRunResult, void>
+    let message = ''
+
+    try {
+      await collect(results)
+    } catch (error) {
+      message = (error as Error).message
+    }
+
+    expect(message).toMatch(/inside an AIProvider/)
+    expect(run).not.toHaveBeenCalled()
   })
 })

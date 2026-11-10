@@ -1,6 +1,7 @@
-import { StrictMode, useEffect } from 'react'
+import { StrictMode, useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 import {
+  act,
   describe,
   expect,
   it,
@@ -405,5 +406,135 @@ describe('AIProvider controlled thread', () => {
     )
 
     await waitFor(() => expect(latest?.error?.type).toBe('thread_open'))
+  })
+})
+
+describe('AIProvider controlled thread changes from the hooks', () => {
+  function ControlledParent(props: {
+    runtime: AIRuntime
+    initialThreadId: string | null
+    threads: AIThreadAdapter
+    onThreadChange: (id: string | null) => void
+    onUpdate: (value: ReturnType<typeof useAIThread>) => void
+  }) {
+    const [threadId, setThreadId] = useState(props.initialThreadId)
+
+    return (
+      <AIProvider
+        runtime={props.runtime}
+        threadId={threadId}
+        threads={props.threads}
+        onThreadChange={(id) => {
+          props.onThreadChange(id)
+          setThreadId(id)
+        }}
+      >
+        <ThreadProbe onUpdate={props.onUpdate} />
+      </AIProvider>
+    )
+  }
+
+  function setup(initialThreadId: string | null) {
+    const runtime = createRuntime()
+    const load = vi.fn(async (): Promise<AIMessage[]> => [])
+    const onThreadChange = vi.fn()
+    const api: { current: ReturnType<typeof useAIThread> | null } = {
+      current: null,
+    }
+
+    render(
+      <ControlledParent
+        runtime={runtime}
+        initialThreadId={initialThreadId}
+        threads={adapterOf(load)}
+        onThreadChange={onThreadChange}
+        onUpdate={(value) => {
+          api.current = value
+        }}
+      />
+    )
+
+    const thread = () => {
+      if (!api.current) throw new Error('probe did not render')
+
+      return api.current
+    }
+
+    return { runtime, load, onThreadChange, thread }
+  }
+
+  it('does not call threads.load from createThread', async () => {
+    const { runtime, load, onThreadChange, thread } = setup('conv-a')
+
+    await waitFor(() => expect(load).toHaveBeenCalledWith('conv-a'))
+    load.mockClear()
+
+    let created = ''
+
+    act(() => {
+      created = thread().createThread()
+    })
+
+    await waitFor(() => expect(thread().threadId).toBe(created))
+    expect(onThreadChange).toHaveBeenCalledWith(created)
+    expect(load).not.toHaveBeenCalled()
+    expect(resetOf(runtime)).toHaveBeenCalledTimes(1)
+    expect(resetOf(runtime)).toHaveBeenCalledWith([])
+    expect(thread().isOpeningThread).toBe(false)
+  })
+
+  it('resets once and loads once on switchThread', async () => {
+    const { runtime, load, onThreadChange, thread } = setup('conv-a')
+
+    await waitFor(() => expect(load).toHaveBeenCalledWith('conv-a'))
+    load.mockClear()
+
+    act(() => thread().switchThread('conv-b'))
+
+    await waitFor(() => expect(thread().threadId).toBe('conv-b'))
+    await waitFor(() => expect(thread().isOpeningThread).toBe(false))
+    expect(onThreadChange).toHaveBeenCalledWith('conv-b')
+    expect(load).toHaveBeenCalledTimes(1)
+    expect(load).toHaveBeenCalledWith('conv-b')
+    expect(resetOf(runtime)).toHaveBeenCalledTimes(1)
+  })
+
+  it('does nothing but stop the run when switching to the active thread', async () => {
+    const { runtime, load, onThreadChange, thread } = setup('conv-a')
+
+    await waitFor(() => expect(load).toHaveBeenCalledWith('conv-a'))
+    load.mockClear()
+
+    act(() => thread().switchThread('conv-a'))
+
+    expect(getRuntimeCore(runtime).engine.thread.cancelRun).toHaveBeenCalled()
+    expect(onThreadChange).not.toHaveBeenCalled()
+    expect(load).not.toHaveBeenCalled()
+    expect(resetOf(runtime)).not.toHaveBeenCalled()
+  })
+})
+
+describe('AIProvider controlled thread changes from the parent', () => {
+  it('resets and loads when the parent opens a thread from no thread', async () => {
+    const runtime = createRuntime()
+    const load = vi.fn(async (): Promise<AIMessage[]> => [])
+
+    const { rerender } = render(
+      <AIProvider runtime={runtime} threadId={null} threads={adapterOf(load)}>
+        <div />
+      </AIProvider>
+    )
+
+    expect(load).not.toHaveBeenCalled()
+
+    rerender(
+      <AIProvider runtime={runtime} threadId="conv-x" threads={adapterOf(load)}>
+        <div />
+      </AIProvider>
+    )
+
+    await waitFor(() => expect(load).toHaveBeenCalledWith('conv-x'))
+    expect(resetOf(runtime)).toHaveBeenCalledTimes(1)
+    expect(resetOf(runtime)).toHaveBeenCalledWith([])
   })
 })

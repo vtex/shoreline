@@ -38,7 +38,7 @@ export interface AIStreamDebugRun {
   /** Id of the assistant message created by the run. */
   runId: string
   /** Thread id when the run started. */
-  threadId: string | null
+  threadId: string
   /** Id of the user message that started the run. */
   userMessageId: string
   /** ISO date of the moment the run started. */

@@ -10,7 +10,7 @@ A chat with a thread list, built from the parts in the other guides. Read [RUNTI
 import '@vtex/shoreline/css'
 import '@vtex/shoreline-ai/css'
 
-import { useMemo, useRef, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { LocaleProvider } from '@vtex/shoreline'
 import {
   AIComposer,
@@ -45,15 +45,9 @@ const transport: StreamTransport = {
 
 export function ChatApp() {
   const [threadId, setThreadId] = useState<string | null>(null)
-  const threadIdRef = useRef(threadId)
-  threadIdRef.current = threadId
 
   const built = useMemo(
-    () =>
-      createRuntimeBuilder()
-        .threadId(() => threadIdRef.current)
-        .transport(transport)
-        .build(),
+    () => createRuntimeBuilder().transport(transport).build(),
     []
   )
   const runtime = useRuntime(built)
@@ -136,9 +130,9 @@ function Composer() {
 
 What happens:
 
-- `createThread` and `switchThread` cancel the active run, clear the thread and call `onThreadChange`. Because `threadId` is controlled and the adapter has `load`, the provider loads the saved messages of the new id.
-- `createThread` makes a new id that your server may not know yet, so `load` should return `[]` for an id it does not find.
-- The transport receives `threadId` from the getter in `.threadId()`.
+- `createThread` and `switchThread` cancel the active run, clear the thread and call `onThreadChange`. `setThreadId` passes the id back, and the provider knows the change is already done.
+- `switchThread` loads the saved messages of the thread with `load`. `createThread` makes a new id in the browser and does not call `load`: your server does not know that id yet.
+- The first message, sent with no thread open, gets a new id from the provider: `onThreadChange` receives it before the run starts, and the transport receives it as `threadId`. The provider does not call `load` for it.
 - If a run fails, `useAIStatus().error` has the message and `onRunError` is called once.
 
 ## Next steps

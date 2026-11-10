@@ -43,11 +43,11 @@ export interface RuntimeRunInput {
   /** Id of the assistant message this run creates. */
   runResponseId: string
   /**
-   * Thread id returned by the `threadId` getter of the builder, or `null`
-   * when the builder has no getter.
-   * @default null
+   * Id of the thread the run belongs to. It comes from `AIProvider`: when no
+   * thread is open, the provider creates the id before the run starts and
+   * reports it with `onThreadChange`.
    */
-  threadId?: string | null
+  threadId: string
 }
 
 /**
@@ -227,12 +227,6 @@ export interface BuiltRuntime {
    * @default undefined
    */
   attachmentHandler?: AttachmentHandler
-  /**
-   * Getter set with `threadId()`. It is called at the start of each run and
-   * its result is sent as {@link RuntimeRunInput.threadId}.
-   * @default undefined
-   */
-  getThreadId?: () => string | null
 }
 
 /**
@@ -245,11 +239,6 @@ export interface BuiltRuntime {
 export interface RuntimeBuilder<HasTransport extends boolean = false> {
   /** Sets the backend. Required before `build()`. */
   transport(transport: StreamTransport): RuntimeBuilder<true>
-  /**
-   * Sets a getter for the active thread id. The transport receives its result
-   * as `threadId` in each run.
-   */
-  threadId(getThreadId: () => string | null): RuntimeBuilder<HasTransport>
   /** Turns on file uploads in the composer. */
   attachments(handler: AttachmentHandler): RuntimeBuilder<HasTransport>
   /** Returns the result to pass to `useRuntime`. */

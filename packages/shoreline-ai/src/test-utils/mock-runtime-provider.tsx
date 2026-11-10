@@ -1,4 +1,4 @@
-import { useMemo, useRef, type ReactNode } from 'react'
+import { useMemo, type ReactNode } from 'react'
 
 import { AIProvider } from '../components/provider'
 import type { AttachmentHandler, StreamTransport } from '../runtime/types'
@@ -10,12 +10,8 @@ import { useRuntime } from '../runtime/use-runtime'
 import { createMockAttachmentHandler } from './mock-attachments'
 import { createMockStreamTransport } from './mock-stream-transport'
 
-const DEFAULT_THREAD_ID = 'storybook-conversation'
-
 export type MockRuntimeProviderProps = {
   children: ReactNode
-  /** Fixed id, ref-backed id (default), or resolver for tests. */
-  threadId?: string | null | (() => string | null)
   /** Thread adapter passed to the provider. */
   threads?: AIThreadAdapter
   /** Transport used instead of the default mock one. Keep it stable. */
@@ -39,7 +35,6 @@ export type MockRuntimeProviderProps = {
 export function MockRuntimeProvider(props: MockRuntimeProviderProps) {
   const {
     children,
-    threadId: threadIdProp,
     threads,
     transport,
     attachments,
@@ -48,26 +43,13 @@ export function MockRuntimeProvider(props: MockRuntimeProviderProps) {
     debugMaxRuns,
     debugMaxSteps,
   } = props
-  const threadIdRef = useRef<string | null>(
-    typeof threadIdProp === 'string' || threadIdProp === null
-      ? threadIdProp
-      : DEFAULT_THREAD_ID
-  )
-
   const built = useMemo(
     () =>
       createRuntimeBuilder()
-        .threadId(() => {
-          if (typeof threadIdProp === 'function') {
-            return threadIdProp()
-          }
-
-          return threadIdRef.current
-        })
         .transport(transport ?? createMockStreamTransport())
         .attachments(attachments ?? createMockAttachmentHandler())
         .build(),
-    [threadIdProp, transport, attachments]
+    [transport, attachments]
   )
   const runtime = useRuntime(built)
 

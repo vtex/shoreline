@@ -72,7 +72,6 @@ vi.mock('../../provider/ai-context', () => ({
   useAIContextInternal: () => ({
     runtime: {},
     threadId: null,
-    setThreadId: vi.fn(),
     isOpeningThread,
     error: null,
   }),

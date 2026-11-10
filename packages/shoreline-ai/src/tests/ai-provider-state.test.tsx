@@ -6,10 +6,11 @@ import {
   render,
   waitFor,
 } from '@vtex/shoreline-test-utils'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { vi } from 'vitest'
 
 import { AIProvider } from '../components/provider/ai-provider'
+import { useAIComposer } from '../hooks/use-ai-composer'
 import { useAIStatus } from '../hooks/use-ai-status'
 import { useAIThread } from '../hooks/use-ai-thread'
 import { createRuntimeBuilder } from '../runtime/builder'
@@ -58,13 +59,35 @@ function history(id: string): AIMessage[] {
   ]
 }
 
+/** A transport that replies and records the thread id of each run. */
+function recordingTransport(fail = false) {
+  const threadIds: string[] = []
+  const transport: StreamTransport = {
+    // biome-ignore lint/correctness/useYield: returns the reply right away
+    async *run(input) {
+      threadIds.push(input.threadId)
+
+      if (fail) throw new Error('boom')
+
+      return { parts: [{ type: 'text', text: 'reply' }], status: 'ready' }
+    },
+  }
+
+  return { transport, threadIds }
+}
+
 type Api = {
   thread: ReturnType<typeof useAIThread>
   status: ReturnType<typeof useAIStatus>
+  composer: ReturnType<typeof useAIComposer>
 }
 
 function Probe(props: { api: { current: Api | null } }) {
-  props.api.current = { thread: useAIThread(), status: useAIStatus() }
+  props.api.current = {
+    thread: useAIThread(),
+    status: useAIStatus(),
+    composer: useAIComposer(),
+  }
 
   return null
 }
@@ -100,6 +123,25 @@ function Harness(props: HarnessProps) {
   )
 }
 
+/** A parent that controls the thread id and keeps what the provider sends. */
+function ControlledHarness(
+  props: Omit<HarnessProps, 'threadId'> & { initialThreadId: string | null }
+) {
+  const { initialThreadId, onThreadChange, ...rest } = props
+  const [threadId, setThreadId] = useState(initialThreadId)
+
+  return (
+    <Harness
+      {...rest}
+      threadId={threadId}
+      onThreadChange={(id) => {
+        onThreadChange?.(id)
+        setThreadId(id)
+      }}
+    />
+  )
+}
+
 function getApi(api: { current: Api | null }): Api {
   if (!api.current) throw new Error('Probe did not render')
 
@@ -113,21 +155,24 @@ function textOf(message: AIMessage): string {
 }
 
 describe('AIProvider run error', () => {
-  it('keeps the run error when a controlled thread id goes from null to a first id', async () => {
+  it('keeps the run error when the provider names the first thread', async () => {
     const api: { current: Api | null } = { current: null }
-    const { rerender } = render(
-      <Harness transport={FAILING_TRANSPORT} api={api} threadId={null} />
+    const { transport } = recordingTransport(true)
+
+    render(
+      <ControlledHarness
+        transport={transport}
+        api={api}
+        initialThreadId={null}
+      />
     )
 
     act(() => getApi(api).thread.sendMessage({ text: 'hello' }))
     await waitFor(() => expect(getApi(api).status.status).toBe('error'))
+    await waitFor(() => expect(getApi(api).thread.threadId).not.toBeNull())
 
-    rerender(
-      <Harness transport={FAILING_TRANSPORT} api={api} threadId="conv-a" />
-    )
-
-    expect(getApi(api).status.status).toBe('error')
     expect(getApi(api).status.error).toEqual({ type: 'run', message: 'boom' })
+    expect(getApi(api).thread.messages).toHaveLength(2)
   })
 
   it('clears the run error when a controlled thread id changes to another id', async () => {
@@ -290,7 +335,7 @@ describe('AIProvider uncontrolled switchThread', () => {
 })
 
 describe('AIProvider controlled switchThread', () => {
-  it('asks the parent for the new id and loads it once when the prop changes', async () => {
+  it('loads the new thread once and keeps it when the parent passes the id back', async () => {
     const api: { current: Api | null } = { current: null }
     const load = vi.fn((id: string) => Promise.resolve(history(id)))
     const onThreadChange = vi.fn()
@@ -314,7 +359,8 @@ describe('AIProvider controlled switchThread', () => {
     act(() => getApi(api).thread.switchThread('conv-b'))
 
     expect(onThreadChange).toHaveBeenCalledWith('conv-b')
-    expect(load).toHaveBeenCalledTimes(1)
+    expect(load).toHaveBeenCalledTimes(2)
+    expect(load).toHaveBeenLastCalledWith('conv-b')
 
     rerender(
       <Harness
@@ -333,5 +379,92 @@ describe('AIProvider controlled switchThread', () => {
     )
     expect(load).toHaveBeenCalledTimes(2)
     expect(load).toHaveBeenLastCalledWith('conv-b')
+  })
+})
+
+describe('AIProvider first message without a thread id', () => {
+  it.each([
+    ['uncontrolled', false],
+    ['controlled', true],
+  ])(
+    'creates the id, tells the parent and sends it to the transport (%s)',
+    async (_mode, controlled) => {
+      const api: { current: Api | null } = { current: null }
+      const { transport, threadIds } = recordingTransport()
+      const load = vi.fn().mockResolvedValue([])
+      const onThreadChange = vi.fn()
+      const props = {
+        transport,
+        api,
+        threads: withLoad(load),
+        onThreadChange,
+      }
+
+      render(
+        controlled ? (
+          <ControlledHarness {...props} initialThreadId={null} />
+        ) : (
+          <Harness {...props} />
+        )
+      )
+
+      expect(getApi(api).thread.threadId).toBeNull()
+
+      act(() => getApi(api).thread.sendMessage({ text: 'hello' }))
+      await waitFor(() => expect(getApi(api).status.status).toBe('ready'))
+
+      const [created] = threadIds
+
+      expect(threadIds).toHaveLength(1)
+      expect(created).toEqual(expect.any(String))
+      expect(onThreadChange).toHaveBeenCalledTimes(1)
+      expect(onThreadChange).toHaveBeenCalledWith(created)
+      await waitFor(() => expect(getApi(api).thread.threadId).toBe(created))
+      expect(load).not.toHaveBeenCalled()
+      expect(getApi(api).thread.messages.map(textOf)).toEqual([
+        'hello',
+        'reply',
+      ])
+
+      act(() => getApi(api).thread.sendMessage({ text: 'again' }))
+      await waitFor(() => expect(getApi(api).thread.messages).toHaveLength(4))
+
+      expect(threadIds).toEqual([created, created])
+      expect(onThreadChange).toHaveBeenCalledTimes(1)
+    }
+  )
+
+  it('also creates the id for a message sent from the composer', async () => {
+    const api: { current: Api | null } = { current: null }
+    const { transport, threadIds } = recordingTransport()
+    const onThreadChange = vi.fn()
+
+    render(
+      <Harness
+        transport={transport}
+        api={api}
+        onThreadChange={onThreadChange}
+      />
+    )
+
+    act(() => getApi(api).composer.setText('hello'))
+    act(() => getApi(api).composer.send())
+    await waitFor(() => expect(getApi(api).status.status).toBe('ready'))
+
+    expect(threadIds).toHaveLength(1)
+    expect(onThreadChange).toHaveBeenCalledWith(threadIds[0])
+    expect(getApi(api).thread.threadId).toBe(threadIds[0])
+  })
+
+  it('sends the active thread id to the transport', async () => {
+    const api: { current: Api | null } = { current: null }
+    const { transport, threadIds } = recordingTransport()
+
+    render(<Harness transport={transport} api={api} threadId="conv-a" />)
+
+    act(() => getApi(api).thread.sendMessage({ text: 'hello' }))
+    await waitFor(() => expect(getApi(api).status.status).toBe('ready'))
+
+    expect(threadIds).toEqual(['conv-a'])
   })
 })

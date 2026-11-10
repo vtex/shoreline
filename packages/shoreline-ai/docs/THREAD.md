@@ -214,7 +214,7 @@ Use `useAIThread()` inside `<AIProvider>` for thread layout and operations.
 | `sendMessage` | Append user message and start a run |
 | `stopGeneration` | Cancel the active run |
 | `switchThread` | Cancel run, clear the thread, set active thread id |
-| `createThread` | Cancel run, clear the thread, set a new id and return it |
+| `createThread` | Cancel run, clear the thread, create a new id and return it. Does not call `threads.load` |
 | `loadMessages` | Replace thread content from `AIMessage[]` |
 
 ```tsx

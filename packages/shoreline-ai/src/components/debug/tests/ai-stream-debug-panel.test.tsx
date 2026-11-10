@@ -355,7 +355,7 @@ describe('AIStreamDebugPanel', () => {
     function runWith(snapshots: unknown[]): AIStreamDebugRun {
       return {
         runId: 'run-1',
-        threadId: null,
+        threadId: 'thread-1',
         userMessageId: 'user-1',
         startedAt: '2026-01-01T00:00:00.000Z',
         status: 'streaming',

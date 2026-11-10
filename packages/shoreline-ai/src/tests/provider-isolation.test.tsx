@@ -28,10 +28,9 @@ function Provider(props: {
   const built = useMemo(
     () =>
       createRuntimeBuilder()
-        .threadId(() => threadId)
         .transport(createMockStreamTransport({ delayMs: 0 }))
         .build(),
-    [threadId]
+    []
   )
   const runtime = useRuntime(built)
 

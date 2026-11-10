@@ -25,10 +25,13 @@ export interface AIContextValue {
 
 /** @internal Used by the hooks to change the thread. */
 export interface AIContextValueInternal extends AIContextValue {
-  /** Sets the thread id without loading messages. */
-  setThreadId: (id: string | null) => void
-  /** Sets the thread id and loads its messages with `threads.load`. */
+  /**
+   * Stops the run and opens the thread `id`: clears the messages and loads
+   * them with `threads.load`. Does nothing more when `id` is already open.
+   */
   openThread: (id: string) => void
+  /** Stops the run and opens a new, empty thread. Returns its id. */
+  startThread: () => string
   isOpeningThread: boolean
   error: AIThreadError | null
   /** Error of the last run, or `null` when it did not fail. */

@@ -17,12 +17,8 @@ import { useRuntime } from '../runtime/use-runtime'
 import type { AIThreadError } from '../types/public'
 import type { AIRuntime } from '../types/runtime'
 
-// The engine is mounted once, around both providers: it supports a single
-// mount. The providers only follow the runs.
-const { AssistantRuntimeProvider: EngineProvider } = await vi.importActual<
-  typeof import('@assistant-ui/react')
->('@assistant-ui/react')
-
+// The engine supports a single mount, so the providers do not mount it: the
+// test mounts the real engine provider once, around both of them.
 vi.mock('@assistant-ui/react', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@assistant-ui/react')>()),
   AssistantRuntimeProvider: (props: { children: ReactNode }) => props.children,
@@ -35,7 +31,12 @@ const FAILING_TRANSPORT: StreamTransport = {
   },
 }
 
+type EngineProvider = typeof import(
+  '@assistant-ui/react'
+).AssistantRuntimeProvider
+
 function SharedRuntime(props: {
+  EngineProvider: EngineProvider
   runtimeRef: { current: AIRuntime | null }
   onFirstError: (error: AIThreadError) => void
   onSecondError: (error: AIThreadError) => void
@@ -45,6 +46,8 @@ function SharedRuntime(props: {
     []
   )
   const runtime = useRuntime(built)
+
+  const { EngineProvider } = props
 
   props.runtimeRef.current = runtime
 
@@ -58,12 +61,16 @@ function SharedRuntime(props: {
 
 describe('shared runtime', () => {
   it('reports a run to every provider that uses the runtime', async () => {
+    const { AssistantRuntimeProvider } = await vi.importActual<
+      typeof import('@assistant-ui/react')
+    >('@assistant-ui/react')
     const runtimeRef: { current: AIRuntime | null } = { current: null }
     const onFirstError = vi.fn()
     const onSecondError = vi.fn()
 
     render(
       <SharedRuntime
+        EngineProvider={AssistantRuntimeProvider}
         runtimeRef={runtimeRef}
         onFirstError={onFirstError}
         onSecondError={onSecondError}

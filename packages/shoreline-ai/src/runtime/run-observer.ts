@@ -13,7 +13,7 @@ import type { RuntimeSnapshot } from './types'
  */
 export interface RunStart {
   runId: string
-  threadId: string | null
+  threadId: string
   userMessageId: string
   /** ISO date of the moment the run started. */
   startedAt: string

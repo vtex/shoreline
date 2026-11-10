@@ -23,7 +23,7 @@ flowchart LR
 | `AIMessage` / `AIMessagePart` | The message model: text, reasoning, tool and resource parts |
 | `StreamTransport` | Your backend. It yields snapshots of the assistant message |
 | `AttachmentHandler` | Optional. Uploads the files the user adds in the composer |
-| `createRuntimeBuilder` | Joins the transport, the handler and the thread id getter |
+| `createRuntimeBuilder` | Joins the transport and the optional attachment handler |
 | `useRuntime` | Creates the runtime to pass to `<AIProvider>` |
 | `AIRuntime` | What `useRuntime` returns. Opaque: you only pass it to `<AIProvider>` |
 
@@ -191,7 +191,6 @@ const built = useMemo(
 
 ```ts
 const built = createRuntimeBuilder()
-  .threadId(() => activeThreadId) // optional
   .transport(myStreamTransport)
   .attachments(myAttachmentHandler) // optional
   .build()
@@ -200,7 +199,6 @@ const built = createRuntimeBuilder()
 | Method | Purpose |
 |--------|---------|
 | `.transport(transport)` | Sets your backend. Required: `.build()` throws without it |
-| `.threadId(getThreadId)` | Sets a getter for the active thread id. See [Thread id](#thread-id) |
 | `.attachments(handler)` | Turns on file uploads in the composer. See [`AttachmentHandler`](#attachmenthandler) |
 | `.build()` | Returns the value to pass to `useRuntime` |
 
@@ -223,7 +221,7 @@ interface RuntimeRunInput {
   trigger: RuntimeRunTrigger
   abortSignal: AbortSignal
   runResponseId: string // id of the assistant message this run creates
-  threadId?: string | null // from the builder getter, see "Thread id"
+  threadId: string // id of the thread, from AIProvider
 }
 
 interface RuntimeSnapshot {
@@ -240,7 +238,7 @@ interface RuntimeSnapshot {
 | `trigger.message` | The user turn that started the run. Backends that only need the latest message read this |
 | `abortSignal` | Aborts when the user cancels or switches thread. Stop your request on it |
 | `runResponseId` | Id of the assistant message, useful to match logs with the UI |
-| `threadId` | The thread id, see below |
+| `threadId` | Id of the thread the run belongs to. It comes from `AIProvider`: when no thread is open, the provider creates the id before the run starts and reports it with `onThreadChange`, see [PROVIDER.md](./PROVIDER.md#controlled-and-uncontrolled-thread-id). Send it to your backend so it knows the conversation |
 | `yield` | A partial snapshot while the answer grows |
 | `return` | The final snapshot when the answer ends |
 
@@ -254,22 +252,6 @@ Every snapshot holds **all** parts of the assistant message so far, not only the
 | `status` | `'streaming'` while the answer grows, `'ready'` when it ends. Return `'error'` in the final snapshot to fail the run |
 | `errorMessage` | Text for a failed run. When the final snapshot has `status: 'error'` and no parts, the message shows this text. It is also the `message` of the run error |
 | `debug` | Anything you want to see in the [stream debug panel](./DEBUG.md). The package stores it and never reads it |
-
-### Thread id
-
-The transport receives the thread id as `input.threadId`. Its value is what the getter of `.threadId()` returns at the start of the run. Without `.threadId()`, `input.threadId` is `null`. Use the id to tell your backend which conversation the run belongs to.
-
-```ts
-const built = createRuntimeBuilder()
-  .threadId(() => threadIdRef.current)
-  .transport({
-    async *run({ threadId, trigger }) {
-      // call your backend with threadId and trigger.message
-      return { parts: [], status: 'ready' }
-    },
-  })
-  .build()
-```
 
 ### Run status
 

@@ -9,11 +9,9 @@ import { useCallback, useMemo } from 'react'
 
 import { useAIContextInternal } from '../components/provider/ai-context'
 import { loadThreadMessages } from '../runtime/load-thread-messages'
-import { getRuntimeCore } from '../runtime/runtime-core'
 import { mapThreadMessageToAIMessage } from '../runtime/bridge/map-thread-messages'
 import { mapAIMessageInputToContent } from '../runtime/map-message-input'
 import type { AIMessage, AIMessageInput, AIThreadError } from '../types/public'
-import { generateThreadId } from '../utils/generate-id'
 
 /**
  * Returns the messages of the active thread and the actions to send, stop,
@@ -38,8 +36,14 @@ export function useAIThread(): {
   createThread: () => string
   loadMessages: (messages: AIMessage[]) => void
 } {
-  const { threadId, setThreadId, openThread, runtime, isOpeningThread, error } =
-    useAIContextInternal()
+  const {
+    threadId,
+    openThread: switchThread,
+    startThread: createThread,
+    runtime,
+    isOpeningThread,
+    error,
+  } = useAIContextInternal()
   const aui = useAui()
   const threadMessages = useAuiState((s) =>
     aui.thread.source ? s.thread.messages : []
@@ -79,33 +83,6 @@ export function useAIThread(): {
     },
     [runtime]
   )
-
-  const switchThread = useCallback(
-    (newThreadId: string) => {
-      if (aui.thread.source) {
-        aui.thread.cancelRun()
-      }
-
-      if (newThreadId === threadId) return
-
-      getRuntimeCore(runtime).engine.thread.reset([])
-      openThread(newThreadId)
-    },
-    [aui, runtime, openThread, threadId]
-  )
-
-  const createThread = useCallback(() => {
-    const newId = generateThreadId()
-
-    if (aui.thread.source) {
-      aui.thread.cancelRun()
-    }
-
-    getRuntimeCore(runtime).engine.thread.reset([])
-    setThreadId(newId)
-
-    return newId
-  }, [aui, runtime, setThreadId])
 
   return {
     messages,

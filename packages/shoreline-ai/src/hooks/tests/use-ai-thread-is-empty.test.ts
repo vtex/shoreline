@@ -13,8 +13,6 @@ vi.mock('@assistant-ui/react', () => ({
 vi.mock('../../components/provider/ai-context', () => ({
   useAIContextInternal: () => ({
     threadId: 'thread-a',
-    setThreadId: vi.fn(),
-    runtime: { thread: { reset: vi.fn() } },
     isOpeningThread: false,
     error: null,
   }),

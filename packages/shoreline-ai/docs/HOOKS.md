@@ -58,7 +58,7 @@ sendMessage({
 
 ### Multi-thread flow
 
-With a `threads.load` method, switching is one call. A controlled provider loads the history when the `threadId` prop changes. An uncontrolled provider loads it when you call `switchThread`:
+With a `threads.load` method, switching is one call: the provider loads the history when you call `switchThread`, controlled or not:
 
 ```tsx
 // <AIProvider threads={threads}>, with or without threadId
@@ -75,7 +75,7 @@ switchThread(newId)
 loadMessages(history)
 ```
 
-`switchThread` cancels the active run (runs do not continue in the background), clears the thread and updates `threadId`. When the provider has a `threads.load`, it fetches the thread and fills it for you, so you do not call `loadMessages`. If you switch again before the load ends, the late result is ignored. `createThread` never calls `threads.load`, and the first conversation id that your transport gets from the server does not either. Without `threads.load`, fetch the history yourself and call `loadMessages`.
+`switchThread` cancels the active run (runs do not continue in the background), clears the thread and updates `threadId`. When the provider has a `threads.load`, it fetches the thread and fills it for you, so you do not call `loadMessages`. If you switch again before the load ends, the late result is ignored. `createThread` never calls `threads.load`, and neither does the id the provider creates when the first message is sent with no thread open. Without `threads.load`, fetch the history yourself and call `loadMessages`.
 
 ## `useAIComposer()`
 

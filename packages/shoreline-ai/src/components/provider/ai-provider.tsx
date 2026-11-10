@@ -20,6 +20,7 @@ import { loadThreadMessages } from '../../runtime/load-thread-messages'
 import type { AIThreadError } from '../../types/public'
 import type { AIRuntime } from '../../types/runtime'
 import type { AIThreadAdapter } from '../../types/threads'
+import { generateThreadId } from '../../utils/generate-id'
 import { toAIThreadError } from '../../utils/to-ai-thread-error'
 import {
   AIStreamDebugScope,
@@ -130,7 +131,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
     const isControlled = threadIdProp !== undefined
     const [uncontrolledThreadId, setUncontrolledThreadId] = useState<
       string | null
-    >(threadIdProp ?? null)
+    >(null)
     const threadId = isControlled
       ? (threadIdProp ?? null)
       : uncontrolledThreadId
@@ -141,7 +142,19 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
     const [runError, setRunError] = useState<AIThreadError | null>(null)
     const onRunErrorRef = useRef(onRunError)
     onRunErrorRef.current = onRunError
-    const prevControlledThreadId = useRef<string | null | undefined>(undefined)
+    const onThreadChangeRef = useRef(onThreadChange)
+    onThreadChangeRef.current = onThreadChange
+
+    // The id of the active thread, also when the parent has not passed back
+    // an id the provider sent it yet. A run reads it before the next render.
+    const activeThreadId = useRef<string | null>(threadIdProp ?? null)
+
+    // Ids sent with `onThreadChange` that the parent has not passed back as
+    // `threadId` yet, oldest first. Used only when the id is controlled.
+    const sentThreadIds = useRef<string[]>([])
+
+    // The last `threadId` prop the controlled effect handled.
+    const handledThreadIdProp = useRef<string | null | undefined>(undefined)
 
     // The open request that is still current. A result of an older one is
     // ignored.
@@ -198,48 +211,108 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       [runtime]
     )
 
-    const changeThreadId = useCallback(
-      (id: string | null, loadMessages: boolean) => {
+    // The one way the thread changes: it clears the run error and the
+    // messages, then loads the new thread when `load` is set.
+    const transition = useCallback(
+      (next: string | null, options: { load: boolean }) => {
+        activeThreadId.current = next
         setRunError(null)
-
-        // A controlled provider loads the thread when the prop changes.
-        if (!isControlled) {
-          setUncontrolledThreadId(id)
-          openThreadMessages(loadMessages ? id : null)
-        }
-
-        onThreadChange?.(id)
+        getRuntimeCore(runtime).engine.thread.reset([])
+        openThreadMessages(options.load ? next : null)
       },
-      [isControlled, onThreadChange, openThreadMessages]
+      [runtime, openThreadMessages]
     )
 
-    const setThreadId = useCallback(
-      (id: string | null) => changeThreadId(id, false),
-      [changeThreadId]
+    // Makes `id` the thread id of the provider and tells the parent. A
+    // controlled parent passes it back as `threadId`, and the controlled
+    // effect then knows the change is already done.
+    const sendThreadId = useCallback(
+      (id: string) => {
+        activeThreadId.current = id
+
+        if (isControlled) {
+          sentThreadIds.current.push(id)
+        } else {
+          setUncontrolledThreadId(id)
+        }
+
+        onThreadChangeRef.current?.(id)
+      },
+      [isControlled]
     )
 
     const openThread = useCallback(
-      (id: string) => changeThreadId(id, true),
-      [changeThreadId]
+      (id: string) => {
+        getRuntimeCore(runtime).engine.thread.cancelRun()
+
+        if (id === activeThreadId.current) return
+
+        transition(id, { load: true })
+        sendThreadId(id)
+      },
+      [runtime, transition, sendThreadId]
     )
+
+    const startThread = useCallback(() => {
+      const id = generateThreadId()
+
+      getRuntimeCore(runtime).engine.thread.cancelRun()
+      transition(id, { load: false })
+      sendThreadId(id)
+
+      return id
+    }, [runtime, transition, sendThreadId])
+
+    // A run that starts with no thread open names the current thread: the
+    // messages, the run and its error stay.
+    useEffect(() => {
+      const { threadIdResolver } = getRuntimeCore(runtime)
+      const resolve = () => {
+        if (activeThreadId.current) return activeThreadId.current
+
+        const id = generateThreadId()
+
+        sendThreadId(id)
+
+        return id
+      }
+
+      threadIdResolver.current = resolve
+
+      return () => {
+        if (threadIdResolver.current === resolve) {
+          threadIdResolver.current = null
+        }
+      }
+    }, [runtime, sendThreadId])
 
     useEffect(() => {
       if (!isControlled) return
 
-      const prev = prevControlledThreadId.current
+      const next = threadIdProp ?? null
+      const previous = handledThreadIdProp.current
 
-      if (prev === threadIdProp) return
+      if (previous === next) return
 
-      prevControlledThreadId.current = threadIdProp
+      handledThreadIdProp.current = next
 
-      // Going from null to a first id keeps the thread and its run error.
-      if (threadIdProp === null || (prev != null && threadIdProp != null)) {
-        setRunError(null)
-        getRuntimeCore(runtime).engine.thread.reset([])
+      const sent = next === null ? -1 : sentThreadIds.current.indexOf(next)
+
+      if (sent !== -1) {
+        sentThreadIds.current.splice(0, sent + 1)
+        return
       }
 
-      openThreadMessages(threadIdProp)
-    }, [isControlled, threadIdProp, runtime, openThreadMessages])
+      // The first id opens the thread of a fresh provider: there is nothing
+      // to clear yet.
+      if (previous === undefined) {
+        activeThreadId.current = next
+        openThreadMessages(next)
+        return
+      }
+
+      transition(next, { load: true })
+    }, [isControlled, threadIdProp, openThreadMessages, transition])
 
     useEffect(() => {
       const { observers } = getRuntimeCore(runtime)
@@ -290,8 +363,8 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       () => ({
         runtime,
         threadId,
-        setThreadId,
         openThread,
+        startThread,
         isOpeningThread,
         error,
         runError,
@@ -302,8 +375,8 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       [
         runtime,
         threadId,
-        setThreadId,
         openThread,
+        startThread,
         isOpeningThread,
         error,
         runError,

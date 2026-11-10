@@ -23,9 +23,19 @@ import {
   mapStreamStatus,
 } from './bridge/map-to-assistant-ui'
 
+function resolveThreadId(channel: RuntimeChannel): string {
+  const resolve = channel.threadIdResolver.current
+
+  if (!resolve) {
+    throw new Error('useRuntime: a run needs the runtime inside an AIProvider')
+  }
+
+  return resolve()
+}
+
 function optionsToRunInput(
   options: ChatModelRunOptions,
-  getThreadId?: () => string | null
+  channel: RuntimeChannel
 ): RuntimeRunInput | null {
   const lastUser = getLastThreadUserMessage(options.messages)
 
@@ -39,7 +49,7 @@ function optionsToRunInput(
     },
     abortSignal: options.abortSignal,
     runResponseId: options.unstable_assistantMessageId ?? generateId('asst'),
-    threadId: getThreadId?.() ?? null,
+    threadId: resolveThreadId(channel),
   }
 }
 
@@ -65,7 +75,7 @@ export function createChatModelAdapterFromTransport(
     async *run(
       options: ChatModelRunOptions
     ): AsyncGenerator<ChatModelRunResult, void> {
-      const input = optionsToRunInput(options, built.getThreadId)
+      const input = optionsToRunInput(options, channel)
 
       if (!input) {
         yield {
@@ -89,7 +99,7 @@ export function createChatModelAdapterFromTransport(
 
       const start: RunStart = {
         runId,
-        threadId: input.threadId ?? null,
+        threadId: input.threadId,
         userMessageId: input.trigger.message.id,
         startedAt: new Date().toISOString(),
       }

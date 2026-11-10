@@ -15,6 +15,11 @@ import type { RunObserver } from './run-observer'
 export interface RuntimeChannel {
   /** Every provider that follows the runs of this runtime. */
   readonly observers: Set<RunObserver>
+  /**
+   * Gives the id of the thread a run belongs to, creating one when no thread
+   * is open. Set by the provider that shows the thread; `null` without one.
+   */
+  readonly threadIdResolver: { current: (() => string) | null }
 }
 
 /** The runtime returned by `useRuntime`. */
@@ -23,7 +28,7 @@ export interface RuntimeCore extends AIRuntime, RuntimeChannel {
 }
 
 export function createRuntimeChannel(): RuntimeChannel {
-  return { observers: new Set() }
+  return { observers: new Set(), threadIdResolver: { current: null } }
 }
 
 export function createRuntimeCore(

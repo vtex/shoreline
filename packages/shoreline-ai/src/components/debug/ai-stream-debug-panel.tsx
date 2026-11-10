@@ -69,7 +69,7 @@ function RunDetails(props: { run: AIStreamDebugRun }) {
         Run id: {run.runId}
       </Text>
       <Text as="p" variant="caption1">
-        Thread id: {run.threadId ?? 'none'}
+        Thread id: {run.threadId}
       </Text>
       <Text as="p" variant="caption1">
         User message id: {run.userMessageId}

@@ -108,7 +108,7 @@ const { enabled, runs, clear } = useAIStreamDebug()
 ```ts
 interface AIStreamDebugRun {
   runId: string
-  threadId: string | null
+  threadId: string
   userMessageId: string
   startedAt: string // ISO date
   endedAt?: string // not set while the run goes on
