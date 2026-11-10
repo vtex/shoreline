@@ -209,7 +209,7 @@ if (error) return <p role="alert">{error.message}</p>
 
 ### Failure
 
-If the transport throws, or returns `status: 'error'`, the run fails cleanly: the user message stays, the assistant message ends as incomplete, `useAIStatus().error` is `{ type: 'run', message }` and `onRunError` is called once. To try again, call `sendMessage` again.
+If the transport throws, or returns `status: 'error'`, the run fails cleanly: the user message stays, the assistant message ends as incomplete, `useAIStatus().error` is `{ type: 'run', message }` and `onRunError` is called once. The failed assistant message stays in the thread but is left out of `messages` in the next runs, so your backend never receives its error text as an answer. To try again, call `sendMessage` again.
 
 ```ts
 const failing: StreamTransport = {

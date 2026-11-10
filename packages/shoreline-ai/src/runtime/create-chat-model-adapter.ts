@@ -6,6 +6,7 @@ import type {
   ChatModelAdapter,
   ChatModelRunOptions,
   ChatModelRunResult,
+  ThreadMessage,
 } from '@assistant-ui/react'
 
 import type { AIMessagePart } from '../types/public'
@@ -33,6 +34,18 @@ function resolveThreadId(channel: RuntimeChannel): string {
   return resolve()
 }
 
+/**
+ * True for an assistant message whose run failed. It keeps the error text for
+ * the user, so it is not sent back to the transport as if the model said it.
+ */
+function isFailedAssistantMessage(message: ThreadMessage): boolean {
+  return (
+    message.role === 'assistant' &&
+    message.status.type === 'incomplete' &&
+    message.status.reason === 'error'
+  )
+}
+
 function optionsToRunInput(
   options: ChatModelRunOptions,
   channel: RuntimeChannel
@@ -42,7 +55,9 @@ function optionsToRunInput(
   if (!lastUser) return null
 
   return {
-    messages: mapThreadMessagesToAIMessages(options.messages),
+    messages: mapThreadMessagesToAIMessages(
+      options.messages.filter((message) => !isFailedAssistantMessage(message))
+    ),
     trigger: {
       type: 'message',
       message: mapThreadUserMessageToAIMessage(lastUser),
