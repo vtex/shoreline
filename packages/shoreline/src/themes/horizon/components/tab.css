@@ -1,0 +1,27 @@
+/*
+ * AI Workspace tabs (admin-platform app/globals.css): the list has no bottom
+ * border and the selected tab is a soft pill instead of an accent underline.
+ * Hover and focus keep the pill; the focus ring from the shared rules stays.
+ */
+[data-sl-tab-list] {
+  border-bottom: none;
+}
+
+[data-sl-tab][aria-selected="true"] {
+  border-color: transparent;
+
+  & > [data-sl-tab-content] {
+    background: var(--sl-bg-base-soft);
+    color: var(--sl-fg-base-soft);
+  }
+
+  &:hover > [data-sl-tab-content] {
+    background: var(--sl-bg-base-soft);
+    color: var(--sl-fg-base-soft);
+  }
+
+  &:focus-visible [data-sl-tab-content] {
+    background: var(--sl-bg-base-soft);
+    color: var(--sl-fg-base-soft);
+  }
+}

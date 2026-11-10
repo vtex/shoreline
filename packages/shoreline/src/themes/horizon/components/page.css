@@ -1,0 +1,8 @@
+/*
+ * Page's grid root has no explicit width, so inside a flex shell such as the
+ * AI Workspace sidebar layout it would size to its content
+ * (admin-platform app/globals.css).
+ */
+[data-sl-page] {
+  width: 100%;
+}

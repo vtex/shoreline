@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import '@vtex/shoreline/css'
 import {
   Button,
   Stack,
