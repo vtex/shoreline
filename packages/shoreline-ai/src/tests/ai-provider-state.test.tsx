@@ -201,8 +201,10 @@ describe('AIProvider debugStream toggle', () => {
 
     act(() => getApi(api).thread.switchThread('conv-a'))
     act(() => getApi(api).thread.sendMessage({ text: 'hello' }))
-    await waitFor(() => expect(getApi(api).status.status).toBe('ready'))
-    expect(getApi(api).thread.messages).toHaveLength(2)
+    await waitFor(() => {
+      expect(getApi(api).status.status).toBe('ready')
+      expect(getApi(api).thread.messages).toHaveLength(2)
+    })
 
     rerender(<Harness transport={REPLY_TRANSPORT} api={api} debugStream />)
 
@@ -411,7 +413,10 @@ describe('AIProvider first message without a thread id', () => {
       expect(getApi(api).thread.threadId).toBeNull()
 
       act(() => getApi(api).thread.sendMessage({ text: 'hello' }))
-      await waitFor(() => expect(getApi(api).status.status).toBe('ready'))
+      await waitFor(() => {
+        expect(getApi(api).status.status).toBe('ready')
+        expect(threadIds).toHaveLength(1)
+      })
 
       const [created] = threadIds
 
@@ -449,11 +454,15 @@ describe('AIProvider first message without a thread id', () => {
 
     act(() => getApi(api).composer.setText('hello'))
     act(() => getApi(api).composer.send())
-    await waitFor(() => expect(getApi(api).status.status).toBe('ready'))
+    // The thread id is state of the provider and the status comes from the
+    // store of the engine: they can commit in different renders.
+    await waitFor(() => {
+      expect(getApi(api).status.status).toBe('ready')
+      expect(threadIds).toHaveLength(1)
+      expect(getApi(api).thread.threadId).toBe(threadIds[0])
+    })
 
-    expect(threadIds).toHaveLength(1)
     expect(onThreadChange).toHaveBeenCalledWith(threadIds[0])
-    expect(getApi(api).thread.threadId).toBe(threadIds[0])
   })
 
   it('sends the active thread id to the transport', async () => {
@@ -463,8 +472,9 @@ describe('AIProvider first message without a thread id', () => {
     render(<Harness transport={transport} api={api} threadId="conv-a" />)
 
     act(() => getApi(api).thread.sendMessage({ text: 'hello' }))
-    await waitFor(() => expect(getApi(api).status.status).toBe('ready'))
-
-    expect(threadIds).toEqual(['conv-a'])
+    await waitFor(() => {
+      expect(getApi(api).status.status).toBe('ready')
+      expect(threadIds).toEqual(['conv-a'])
+    })
   })
 })
