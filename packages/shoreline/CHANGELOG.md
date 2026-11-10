@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.21...@vtex/shoreline@1.13.0) (2026-11-10)
+
+
+### Features
+
+* **theme:** add horizon theme ([60670a6](https://github.com/vtex/shoreline/commit/60670a6126da6a81601f77b93bc6326da8fc4867))
+
+
+
+
+
 ## [1.12.21](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.20...@vtex/shoreline@1.12.21) (2026-09-28)
 
 
