@@ -285,8 +285,25 @@ describe('createChatModelAdapterFromTransport', () => {
     }
   })
 
-  it('reports every transport snapshot to the observer but yields no duplicate to the UI', async () => {
+  it('reports every transport snapshot to the observer but yields the same parts once', async () => {
     const { observer, channel } = createObserver()
+    const parts = textParts('same')
+    const transport: StreamTransport = {
+      async *run() {
+        yield { parts, status: 'streaming' }
+        yield { parts, status: 'streaming' }
+
+        return { parts, status: 'ready' }
+      },
+    }
+
+    const results = await collect(run(transport, channel))
+
+    expect(results).toHaveLength(1)
+    expect(observer.onSnapshot).toHaveBeenCalledTimes(3)
+  })
+
+  it('compares parts by reference, so an equal new array is yielded again', async () => {
     const transport: StreamTransport = {
       async *run() {
         yield { parts: textParts('same'), status: 'streaming' }
@@ -295,11 +312,39 @@ describe('createChatModelAdapterFromTransport', () => {
         return { parts: textParts('same'), status: 'ready' }
       },
     }
+    const stringify = vi.spyOn(JSON, 'stringify')
+
+    try {
+      const results = await collect(run(transport))
+
+      expect(results).toHaveLength(3)
+      expect(stringify).not.toHaveBeenCalled()
+    } finally {
+      stringify.mockRestore()
+    }
+  })
+
+  it('keeps the parts and fails the message when the final snapshot repeats them with status error', async () => {
+    const { observer, channel } = createObserver()
+    const parts = textParts('partial')
+    const transport: StreamTransport = {
+      async *run() {
+        yield { parts, status: 'streaming' }
+
+        return { parts, status: 'error', errorMessage: 'cut off' }
+      },
+    }
 
     const results = await collect(run(transport, channel))
+    const last = results[results.length - 1]
 
-    expect(results).toHaveLength(1)
-    expect(observer.onSnapshot).toHaveBeenCalledTimes(3)
+    expect(results).toHaveLength(2)
+    expect(last.status).toEqual({ type: 'incomplete', reason: 'error' })
+    expect(last.content).toEqual([{ type: 'text', text: 'partial' }])
+    expect(observer.onRunEnd).toHaveBeenCalledWith(
+      'asst-1',
+      expect.objectContaining({ status: 'error', error: 'cut off' })
+    )
   })
 
   it('passes the debug payload through to the observer', async () => {

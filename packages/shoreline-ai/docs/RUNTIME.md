@@ -242,7 +242,7 @@ interface RuntimeSnapshot {
 | `yield` | A partial snapshot while the answer grows |
 | `return` | The final snapshot when the answer ends |
 
-Every snapshot holds **all** parts of the assistant message so far, not only the new ones. Do not change a snapshot after you yield it.
+Every snapshot holds **all** parts of the assistant message so far, not only the new ones. Do not change a snapshot after you yield it. The chat updates only when `parts` is a new array: a snapshot with the same `parts` array as the one before is reported to the [stream debug panel](./DEBUG.md) but does not change the message.
 
 ### Snapshot fields
 
