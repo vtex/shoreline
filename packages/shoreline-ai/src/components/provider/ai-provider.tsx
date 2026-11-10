@@ -14,14 +14,11 @@ import {
 
 import { AssistantRuntimeProvider } from '@assistant-ui/react'
 
-import {
-  type RunObserver,
-  getRunObserverHandle,
-} from '../../runtime/run-observer'
+import type { RunObserver } from '../../runtime/run-observer'
+import { getRuntimeCore } from '../../runtime/runtime-core'
 import { loadThreadMessages } from '../../runtime/load-thread-messages'
 import type { AIThreadError } from '../../types/public'
 import type { AIRuntime } from '../../types/runtime'
-import { unwrapRuntime } from '../../runtime/unwrap-runtime'
 import type { AIThreadAdapter } from '../../types/threads'
 import { toAIThreadError } from '../../utils/to-ai-thread-error'
 import {
@@ -238,17 +235,14 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
       // Going from null to a first id keeps the thread and its run error.
       if (threadIdProp === null || (prev != null && threadIdProp != null)) {
         setRunError(null)
-        unwrapRuntime(runtime).thread.reset([])
+        getRuntimeCore(runtime).engine.thread.reset([])
       }
 
       openThreadMessages(threadIdProp)
     }, [isControlled, threadIdProp, runtime, openThreadMessages])
 
     useEffect(() => {
-      const handle = getRunObserverHandle(runtime)
-
-      if (!handle) return
-
+      const { observers } = getRuntimeCore(runtime)
       const observer: RunObserver = {
         onRunStart: (run) => {
           setRunError(null)
@@ -277,10 +271,10 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
         },
       }
 
-      handle.current = observer
+      observers.add(observer)
 
       return () => {
-        if (handle.current === observer) handle.current = null
+        observers.delete(observer)
       }
     }, [runtime, debugObserver])
 
@@ -322,7 +316,7 @@ const AIProviderInner = forwardRef<HTMLDivElement, AIProviderProps>(
     return (
       <AIContext.Provider value={contextValue}>
         <AIThreadListContext.Provider value={threadList}>
-          <AssistantRuntimeProvider runtime={unwrapRuntime(runtime)}>
+          <AssistantRuntimeProvider runtime={getRuntimeCore(runtime).engine}>
             <div ref={ref} data-sl-ai-provider="">
               {children}
             </div>

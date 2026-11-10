@@ -2,6 +2,10 @@ import { describe, expect, it, renderHook } from '@vtex/shoreline-test-utils'
 import { vi } from 'vitest'
 
 import { useAIThread } from '../hooks/use-ai-thread'
+import {
+  createRuntimeChannel,
+  createRuntimeCore,
+} from '../runtime/runtime-core'
 
 const cancelRun = vi.fn()
 const reset = vi.fn()
@@ -16,7 +20,10 @@ vi.mock('../components/provider/ai-context', () => ({
   useAIContextInternal: () => ({
     threadId: 'thread-a',
     openThread,
-    runtime: { thread: { reset } },
+    runtime: createRuntimeCore(
+      { thread: { reset } } as never,
+      createRuntimeChannel()
+    ),
   }),
 }))
 

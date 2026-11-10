@@ -14,7 +14,11 @@ import { useAIThread } from '../hooks/use-ai-thread'
 import type { AIMessage, AIThreadData } from '../types/public'
 import type { AIThreadAdapter } from '../types/threads'
 import type { AIRuntime } from '../types/runtime'
-import { unwrapRuntime } from '../runtime/unwrap-runtime'
+import {
+  createRuntimeChannel,
+  createRuntimeCore,
+  getRuntimeCore,
+} from '../runtime/runtime-core'
 
 vi.mock('@assistant-ui/react', async (importOriginal) => {
   const mod = await importOriginal<typeof import('@assistant-ui/react')>()
@@ -31,12 +35,14 @@ vi.mock('@assistant-ui/react', async (importOriginal) => {
   }
 })
 
-function createRuntime() {
-  return {
-    thread: {
-      reset: vi.fn(),
-    },
-  } as unknown as AIRuntime
+function createRuntime(): AIRuntime {
+  const engine = { thread: { reset: vi.fn(), cancelRun: vi.fn() } }
+
+  return createRuntimeCore(engine as never, createRuntimeChannel())
+}
+
+function resetOf(runtime: AIRuntime) {
+  return vi.mocked(getRuntimeCore(runtime).engine.thread.reset)
 }
 
 function adapterOf(load: AIThreadAdapter['load']): AIThreadAdapter {
@@ -99,7 +105,7 @@ describe('AIProvider controlled thread', () => {
 
     await waitFor(() => expect(load).toHaveBeenCalledWith('conv-a'))
 
-    vi.mocked(unwrapRuntime(runtime).thread.reset).mockClear()
+    resetOf(runtime).mockClear()
     load.mockClear()
 
     rerender(
@@ -109,7 +115,7 @@ describe('AIProvider controlled thread', () => {
     )
 
     await waitFor(() => {
-      expect(unwrapRuntime(runtime).thread.reset).toHaveBeenCalledWith([])
+      expect(resetOf(runtime)).toHaveBeenCalledWith([])
     })
 
     await waitFor(() => {
@@ -266,8 +272,8 @@ describe('AIProvider controlled thread', () => {
     await Promise.resolve()
 
     expect(latest?.isOpeningThread).toBe(true)
-    expect(unwrapRuntime(runtime).thread.reset).toHaveBeenCalledTimes(1)
-    expect(unwrapRuntime(runtime).thread.reset).toHaveBeenCalledWith([])
+    expect(resetOf(runtime)).toHaveBeenCalledTimes(1)
+    expect(resetOf(runtime)).toHaveBeenCalledWith([])
 
     resolvers['conv-b']([])
 
@@ -304,7 +310,7 @@ describe('AIProvider controlled thread', () => {
 
     await new Promise((done) => setTimeout(done, 0))
 
-    expect(unwrapRuntime(runtime).thread.reset).not.toHaveBeenCalled()
+    expect(resetOf(runtime)).not.toHaveBeenCalled()
   })
 
   it('still applies the load result under StrictMode double effects', async () => {
@@ -332,9 +338,7 @@ describe('AIProvider controlled thread', () => {
       </StrictMode>
     )
 
-    await waitFor(() =>
-      expect(unwrapRuntime(runtime).thread.reset).toHaveBeenCalledTimes(1)
-    )
+    await waitFor(() => expect(resetOf(runtime)).toHaveBeenCalledTimes(1))
   })
 
   it('does not reopen the thread when the adapter object changes between renders', async () => {

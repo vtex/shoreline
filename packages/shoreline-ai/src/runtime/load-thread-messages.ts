@@ -1,6 +1,6 @@
 import type { AIMessage } from '../types/public'
 import type { AIRuntime } from '../types/runtime'
-import { unwrapRuntime } from './unwrap-runtime'
+import { getRuntimeCore } from './runtime-core'
 import { mapAIMessagesToThreadMessages } from './bridge/map-from-assistant-ui'
 
 /**
@@ -16,5 +16,7 @@ export function loadThreadMessages(
   runtime: AIRuntime,
   messages: AIMessage[]
 ): void {
-  unwrapRuntime(runtime).thread.reset(mapAIMessagesToThreadMessages(messages))
+  getRuntimeCore(runtime).engine.thread.reset(
+    mapAIMessagesToThreadMessages(messages)
+  )
 }

@@ -11,7 +11,8 @@ import type {
 import type { AIMessagePart } from '../types/public'
 import { generateId } from '../utils/generate-id'
 import type { BuiltRuntime, RuntimeRunInput, RuntimeSnapshot } from './types'
-import type { RunEnd, RunObserverHandle } from './run-observer'
+import type { RunEnd, RunStart } from './run-observer'
+import type { RuntimeChannel } from './runtime-core'
 import {
   getLastThreadUserMessage,
   mapThreadUserMessageToAIMessage,
@@ -58,7 +59,7 @@ function textPart(text: string): AIMessagePart[] {
 
 export function createChatModelAdapterFromTransport(
   built: BuiltRuntime,
-  observer?: RunObserverHandle
+  channel: RuntimeChannel
 ): ChatModelAdapter {
   return {
     async *run(
@@ -77,16 +78,23 @@ export function createChatModelAdapterFromTransport(
 
       const { runResponseId: runId, abortSignal } = input
 
-      const endRun = (end: RunEnd) => observer?.current?.onRunEnd(runId, end)
-      const report = (snapshot: RuntimeSnapshot) =>
-        observer?.current?.onSnapshot(runId, snapshot)
+      const endRun = (end: RunEnd) => {
+        for (const observer of channel.observers) observer.onRunEnd(runId, end)
+      }
+      const report = (snapshot: RuntimeSnapshot) => {
+        for (const observer of channel.observers) {
+          observer.onSnapshot(runId, snapshot)
+        }
+      }
 
-      observer?.current?.onRunStart({
+      const start: RunStart = {
         runId,
         threadId: input.threadId ?? null,
         userMessageId: input.trigger.message.id,
         startedAt: new Date().toISOString(),
-      })
+      }
+
+      for (const observer of channel.observers) observer.onRunStart(start)
 
       const aborted = new Promise<typeof ABORTED>((resolve) => {
         if (abortSignal.aborted) {

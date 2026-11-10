@@ -4,7 +4,6 @@
  */
 
 import type { StreamStatus } from '../types/public'
-import type { AIRuntime } from '../types/runtime'
 import type { RuntimeSnapshot } from './types'
 
 /**
@@ -49,55 +48,4 @@ export interface RunObserver {
   onRunStart(run: RunStart): void
   onSnapshot(runId: string, snapshot: RuntimeSnapshot): void
   onRunEnd(runId: string, end: RunEnd): void
-}
-
-/**
- * Holds the observer that is attached at the moment. Used inside the package
- * only. `current` is `null` when nobody is listening.
- *
- * @status experimental
- */
-export interface RunObserverHandle {
-  current: RunObserver | null
-}
-
-const handles = new WeakMap<object, RunObserverHandle>()
-
-/**
- * Creates an empty handle.
- *
- * @status experimental
- * @example
- * const handle = createRunObserverHandle()
- */
-export function createRunObserverHandle(): RunObserverHandle {
-  return { current: null }
-}
-
-/**
- * Links a handle to a runtime so it can be found again with
- * {@link getRunObserverHandle}.
- *
- * @status experimental
- * @example
- * bindRunObserverHandle(runtime, handle)
- */
-export function bindRunObserverHandle(
-  runtime: AIRuntime,
-  handle: RunObserverHandle
-): void {
-  handles.set(runtime, handle)
-}
-
-/**
- * Returns the handle linked to this runtime, if any.
- *
- * @status experimental
- * @example
- * const handle = getRunObserverHandle(runtime)
- */
-export function getRunObserverHandle(
-  runtime: AIRuntime
-): RunObserverHandle | undefined {
-  return handles.get(runtime)
 }

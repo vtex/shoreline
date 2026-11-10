@@ -6,7 +6,8 @@ import { describe, expect, it, vi } from 'vitest'
 
 import type { AIMessagePart } from '../../types/public'
 import { createChatModelAdapterFromTransport } from '../create-chat-model-adapter'
-import { createRunObserverHandle, type RunObserver } from '../run-observer'
+import type { RunObserver } from '../run-observer'
+import { createRuntimeChannel, type RuntimeChannel } from '../runtime-core'
 import type { RuntimeSnapshot, StreamTransport } from '../types'
 
 function textParts(text: string): AIMessagePart[] {
@@ -41,11 +42,11 @@ function createObserver() {
     onSnapshot: vi.fn(),
     onRunEnd: vi.fn(),
   }
-  const handle = createRunObserverHandle()
+  const channel = createRuntimeChannel()
 
-  handle.current = observer
+  channel.observers.add(observer)
 
-  return { observer, handle }
+  return { observer, channel }
 }
 
 async function collect(
@@ -60,10 +61,10 @@ async function collect(
 
 function run(
   transport: StreamTransport,
-  handle?: ReturnType<typeof createRunObserverHandle>,
+  channel: RuntimeChannel = createRuntimeChannel(),
   signal: AbortSignal = new AbortController().signal
 ) {
-  const adapter = createChatModelAdapterFromTransport({ transport }, handle)
+  const adapter = createChatModelAdapterFromTransport({ transport }, channel)
 
   return adapter.run(createOptions(signal)) as AsyncGenerator<
     ChatModelRunResult,
@@ -73,7 +74,7 @@ function run(
 
 describe('createChatModelAdapterFromTransport', () => {
   it('ends in error and keeps the error text when the transport throws', async () => {
-    const { observer, handle } = createObserver()
+    const { observer, channel } = createObserver()
     const transport: StreamTransport = {
       // biome-ignore lint/correctness/useYield: throws before yielding
       async *run() {
@@ -81,7 +82,7 @@ describe('createChatModelAdapterFromTransport', () => {
       },
     }
 
-    const results = await collect(run(transport, handle))
+    const results = await collect(run(transport, channel))
     const last = results[results.length - 1]
 
     expect(last.status).toEqual({ type: 'incomplete', reason: 'error' })
@@ -100,7 +101,7 @@ describe('createChatModelAdapterFromTransport', () => {
   })
 
   it('ends in error when the transport returns status error with errorMessage and no parts', async () => {
-    const { observer, handle } = createObserver()
+    const { observer, channel } = createObserver()
     const transport: StreamTransport = {
       // biome-ignore lint/correctness/useYield: returns right away
       async *run() {
@@ -108,7 +109,7 @@ describe('createChatModelAdapterFromTransport', () => {
       },
     }
 
-    const results = await collect(run(transport, handle))
+    const results = await collect(run(transport, channel))
     const last = results[results.length - 1]
 
     expect(last.status).toEqual({ type: 'incomplete', reason: 'error' })
@@ -120,7 +121,7 @@ describe('createChatModelAdapterFromTransport', () => {
   })
 
   it('stops pulling from the transport after abort and calls return on the generator', async () => {
-    const { observer, handle } = createObserver()
+    const { observer, channel } = createObserver()
     const controller = new AbortController()
     let finished = false
     const transport: StreamTransport = {
@@ -136,7 +137,7 @@ describe('createChatModelAdapterFromTransport', () => {
         }
       },
     }
-    const gen = run(transport, handle, controller.signal)
+    const gen = run(transport, channel, controller.signal)
     const results: ChatModelRunResult[] = []
 
     for await (const item of gen) {
@@ -153,7 +154,7 @@ describe('createChatModelAdapterFromTransport', () => {
   })
 
   it('stops even when the transport ignores the abort signal', async () => {
-    const { observer, handle } = createObserver()
+    const { observer, channel } = createObserver()
     const controller = new AbortController()
     let pulled = 0
     const transport: StreamTransport = {
@@ -166,7 +167,7 @@ describe('createChatModelAdapterFromTransport', () => {
     }
     const results: ChatModelRunResult[] = []
 
-    for await (const item of run(transport, handle, controller.signal)) {
+    for await (const item of run(transport, channel, controller.signal)) {
       results.push(item)
       if (results.length === 2) controller.abort()
     }
@@ -180,7 +181,7 @@ describe('createChatModelAdapterFromTransport', () => {
   })
 
   it('ends right away as cancelled when a stuck transport ignores the abort', async () => {
-    const { observer, handle } = createObserver()
+    const { observer, channel } = createObserver()
     const controller = new AbortController()
     const transport: StreamTransport = {
       async *run() {
@@ -191,7 +192,7 @@ describe('createChatModelAdapterFromTransport', () => {
     }
     const results: ChatModelRunResult[] = []
     const done = (async () => {
-      for await (const item of run(transport, handle, controller.signal)) {
+      for await (const item of run(transport, channel, controller.signal)) {
         results.push(item)
       }
     })()
@@ -209,7 +210,7 @@ describe('createChatModelAdapterFromTransport', () => {
   })
 
   it('reports cancelled, not error, when the transport throws after the abort', async () => {
-    const { observer, handle } = createObserver()
+    const { observer, channel } = createObserver()
     const controller = new AbortController()
     const transport: StreamTransport = {
       // biome-ignore lint/correctness/useYield: throws before yielding
@@ -219,7 +220,7 @@ describe('createChatModelAdapterFromTransport', () => {
       },
     }
 
-    const results = await collect(run(transport, handle, controller.signal))
+    const results = await collect(run(transport, channel, controller.signal))
 
     expect(results).toHaveLength(0)
     expect(observer.onRunEnd).toHaveBeenCalledTimes(1)
@@ -238,14 +239,17 @@ describe('createChatModelAdapterFromTransport', () => {
     vi.setSystemTime(new Date('2026-01-01T00:00:00Z'))
 
     try {
-      const { observer, handle } = createObserver()
+      const { observer, channel } = createObserver()
       const transport: StreamTransport = {
         // biome-ignore lint/correctness/useYield: returns right away
         async *run() {
           return { parts: textParts('ok'), status: 'ready' }
         },
       }
-      const adapter = createChatModelAdapterFromTransport({ transport }, handle)
+      const adapter = createChatModelAdapterFromTransport(
+        { transport },
+        channel
+      )
       const signal = new AbortController().signal
 
       await collect(
@@ -273,7 +277,7 @@ describe('createChatModelAdapterFromTransport', () => {
   })
 
   it('reports every transport snapshot to the observer but yields no duplicate to the UI', async () => {
-    const { observer, handle } = createObserver()
+    const { observer, channel } = createObserver()
     const transport: StreamTransport = {
       async *run() {
         yield { parts: textParts('same'), status: 'streaming' }
@@ -283,14 +287,14 @@ describe('createChatModelAdapterFromTransport', () => {
       },
     }
 
-    const results = await collect(run(transport, handle))
+    const results = await collect(run(transport, channel))
 
     expect(results).toHaveLength(1)
     expect(observer.onSnapshot).toHaveBeenCalledTimes(3)
   })
 
   it('passes the debug payload through to the observer', async () => {
-    const { observer, handle } = createObserver()
+    const { observer, channel } = createObserver()
     const snapshot: RuntimeSnapshot = {
       parts: textParts('hi'),
       status: 'streaming',
@@ -304,13 +308,13 @@ describe('createChatModelAdapterFromTransport', () => {
       },
     }
 
-    await collect(run(transport, handle))
+    await collect(run(transport, channel))
 
     expect(observer.onSnapshot).toHaveBeenCalledWith('asst-1', snapshot)
   })
 
   it('skips observer calls when no observer is attached', async () => {
-    const handle = createRunObserverHandle()
+    const channel = createRuntimeChannel()
     const transport: StreamTransport = {
       async *run() {
         yield { parts: textParts('o'), status: 'streaming' }
@@ -319,7 +323,7 @@ describe('createChatModelAdapterFromTransport', () => {
       },
     }
 
-    const results = await collect(run(transport, handle))
+    const results = await collect(run(transport, channel))
 
     expect(results).toHaveLength(2)
   })

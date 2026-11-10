@@ -9,7 +9,7 @@ import { useCallback, useMemo } from 'react'
 
 import { useAIContextInternal } from '../components/provider/ai-context'
 import { loadThreadMessages } from '../runtime/load-thread-messages'
-import { unwrapRuntime } from '../runtime/unwrap-runtime'
+import { getRuntimeCore } from '../runtime/runtime-core'
 import { mapThreadMessageToAIMessage } from '../runtime/bridge/map-thread-messages'
 import { mapAIMessageInputToContent } from '../runtime/map-message-input'
 import type { AIMessage, AIMessageInput, AIThreadError } from '../types/public'
@@ -88,7 +88,7 @@ export function useAIThread(): {
 
       if (newThreadId === threadId) return
 
-      unwrapRuntime(runtime).thread.reset([])
+      getRuntimeCore(runtime).engine.thread.reset([])
       openThread(newThreadId)
     },
     [aui, runtime, openThread, threadId]
@@ -101,7 +101,7 @@ export function useAIThread(): {
       aui.thread.cancelRun()
     }
 
-    unwrapRuntime(runtime).thread.reset([])
+    getRuntimeCore(runtime).engine.thread.reset([])
     setThreadId(newId)
 
     return newId

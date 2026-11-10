@@ -2,15 +2,14 @@
  * Creates the runtime from a {@link BuiltRuntime}.
  */
 
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useLocalRuntime } from '@assistant-ui/react'
 
 import type { AIRuntime } from '../types/runtime'
 import type { BuiltRuntime } from './types'
 import { createAssistantAttachmentAdapter } from './bridge/attachment-bridge'
 import { createChatModelAdapterFromTransport } from './create-chat-model-adapter'
-import { bindRunObserverHandle, createRunObserverHandle } from './run-observer'
-import { wrapRuntime } from './unwrap-runtime'
+import { createRuntimeChannel, createRuntimeCore } from './runtime-core'
 
 /**
  * Creates the runtime for a built transport. Pass the result to `AIProvider`.
@@ -26,11 +25,11 @@ import { wrapRuntime } from './unwrap-runtime'
  * const runtime = useRuntime(built)
  */
 export function useRuntime(built: BuiltRuntime): AIRuntime {
-  const observerHandle = useMemo(() => createRunObserverHandle(), [])
+  const [channel] = useState(createRuntimeChannel)
 
   const chatModelAdapter = useMemo(
-    () => createChatModelAdapterFromTransport(built, observerHandle),
-    [built, observerHandle]
+    () => createChatModelAdapterFromTransport(built, channel),
+    [built, channel]
   )
 
   const attachmentAdapter = useMemo(() => {
@@ -45,9 +44,5 @@ export function useRuntime(built: BuiltRuntime): AIRuntime {
       : undefined,
   })
 
-  const runtime = wrapRuntime(engine)
-
-  bindRunObserverHandle(runtime, observerHandle)
-
-  return runtime
+  return useMemo(() => createRuntimeCore(engine, channel), [engine, channel])
 }
