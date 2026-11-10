@@ -1,5 +1,6 @@
 /**
- * @vtex/shoreline-ai — AI runtime for VTEX Admin built on Assistant-UI.
+ * @vtex/shoreline-ai: React components and hooks for AI chat in VTEX Admin.
+ * You bring a backend as a stream transport; the package renders the chat.
  *
  * @status experimental
  */
@@ -10,6 +11,7 @@ export type {
   AIReasoningPart,
   AIToolPart,
   AIResourcePart,
+  AIAttachment,
   AIMessagePart,
   AIMessage,
   AIThreadData,
@@ -22,11 +24,13 @@ export type {
   ToolStatus,
   AIThreadError,
   AIThreadErrorType,
+  AIThreadAdapter,
+  AIThreadListState,
 } from './types'
 
 export type { AIRuntime } from './types/runtime'
 
-// Runtime builder (agnostic to Assistant-UI for consumers wiring transport)
+// Runtime builder
 export { createRuntimeBuilder } from './runtime/builder'
 export { useRuntime } from './runtime/use-runtime'
 export { loadThreadMessages } from './runtime/load-thread-messages'
@@ -47,16 +51,20 @@ export type {
 export { AIProvider, useAIContext } from './components/provider'
 export type { AIProviderOptions, AIProviderProps } from './components/provider'
 
-// Stream debug (dev / sandbox)
+// Stream debug
 export {
-  AIStreamDebugProvider,
+  AIStreamDebugPanel,
+  AIStreamDebugRunView,
   useAIStreamDebug,
-  useStreamDebugCallbacks,
 } from './components/debug'
 export type {
-  AIStreamDebugRow,
-  AIStreamDebugSession,
-  SSEEventType,
+  AIStreamDebugPanelOptions,
+  AIStreamDebugPanelProps,
+  AIStreamDebugRunViewOptions,
+  AIStreamDebugRunViewProps,
+  AIStreamDebugRun,
+  AIStreamDebugState,
+  AIStreamDebugStep,
 } from './components/debug'
 
 // Public hooks
@@ -65,7 +73,9 @@ export { useAITools } from './hooks/use-ai-tools'
 export { useAIResources } from './hooks/use-ai-resources'
 export { useAIStatus } from './hooks/use-ai-status'
 export { useAIThread } from './hooks/use-ai-thread'
+export { useAIThreadList } from './hooks/use-ai-thread-list'
 export { useAIComposer } from './hooks/use-ai-composer'
+export { useAIAttachment } from './hooks/use-ai-attachment'
 export { useAIMessageParts } from './hooks/use-ai-message-parts'
 
 // Thread

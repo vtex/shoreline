@@ -11,17 +11,37 @@ function delay(ms: number): Promise<void> {
   })
 }
 
+export type MockAttachmentOptions = Pick<
+  AttachmentHandler,
+  'accept' | 'maxSize' | 'maxCount'
+> & {
+  /** Makes every upload fail with this message. */
+  failWith?: string
+}
+
 /**
  * Local attachment handler — no upload API; simulates progress and returns blob URIs.
  */
-export function createMockAttachmentHandler(): AttachmentHandler {
+export function createMockAttachmentHandler(
+  options: MockAttachmentOptions = {}
+): AttachmentHandler {
+  const { failWith, ...limits } = options
   const blobUriById = new Map<string, string>()
 
   return {
+    ...limits,
+
     async *add(_file: File): AsyncIterable<AttachmentUploadState> {
       yield { progress: 0, status: 'uploading' }
       await delay(120)
-      yield { progress: 100, status: 'ready' }
+
+      if (failWith) {
+        yield { progress: 0, status: 'error', error: failWith }
+
+        return
+      }
+
+      yield { progress: 1, status: 'ready' }
     },
 
     async send(pending: PendingAttachment): Promise<AIResourcePart> {

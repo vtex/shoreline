@@ -1,6 +1,10 @@
 import { describe, expect, it, renderHook } from '@vtex/shoreline-test-utils'
 import { afterEach, vi } from 'vitest'
 
+import {
+  createRuntimeChannel,
+  createRuntimeCore,
+} from '../../runtime/runtime-core'
 import { useAIComposer } from '../use-ai-composer'
 
 const setText = vi.fn()
@@ -22,16 +26,22 @@ vi.mock('@assistant-ui/react', () => ({
       composer: {
         text: 'Hello',
         canSend,
-        attachments: [{ id: 'a1', type: 'file', name: 'doc.pdf' }],
+        attachments: [
+          {
+            id: 'a1',
+            type: 'file',
+            name: 'doc.pdf',
+            status: { type: 'running', reason: 'uploading', progress: 0.5 },
+          },
+        ],
       },
     }),
 }))
 
 vi.mock('../../components/provider/ai-context', () => ({
   useAIContextInternal: () => ({
-    runtime: {},
+    runtime: createRuntimeCore({} as never, createRuntimeChannel()),
     threadId: null,
-    setThreadId: vi.fn(),
     isOpeningThread: false,
     error: null,
   }),
@@ -48,7 +58,15 @@ describe('useAIComposer', () => {
 
     expect(result.current.text).toBe('Hello')
     expect(result.current.disabled).toBe(false)
-    expect(result.current.attachments).toHaveLength(1)
+    expect(result.current.attachments).toEqual([
+      {
+        id: 'a1',
+        type: 'file',
+        name: 'doc.pdf',
+        status: 'uploading',
+        progress: 0.5,
+      },
+    ])
   })
 
   it('maps canSend false to disabled true', () => {

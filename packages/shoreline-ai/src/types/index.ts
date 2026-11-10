@@ -3,6 +3,7 @@ export type {
   AIReasoningPart,
   AIToolPart,
   AIResourcePart,
+  AIAttachment,
   AIMessagePart,
   AIMessage,
   AIThreadData,
@@ -16,3 +17,4 @@ export type {
   AIThreadError,
   AIThreadErrorType,
 } from './public'
+export type { AIThreadAdapter, AIThreadListState } from './threads'

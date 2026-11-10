@@ -1,0 +1,292 @@
+# Runtime and provider
+
+import { Callout } from 'nextra/components'
+import {
+  ShorelineAIWiringDiagram,
+  ShorelineAIRunStatesDiagram,
+} from '../../components/flow-diagram'
+
+<Callout type="warning" emoji="⚠️">
+  **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
+</Callout>
+
+The **transport** is where your UI protocol lives: it turns what your backend sends into snapshots the chat can show. It is the most complex piece, but you write it once. The runtime runs it and keeps the thread. The provider shares it with your hooks and components. This page shows how to set both up and what happens during a run. For every prop and edge case, read `RUNTIME.md` and `PROVIDER.md` in the package.
+
+## Wire it up
+
+<ShorelineAIWiringDiagram />
+
+You write the transport, and optionally an attachment handler and a `threads` adapter. The builder joins the first two, `useRuntime` creates the runtime, and `<AIProvider>` shares it.
+
+## The transport
+
+A `StreamTransport` is an async generator. `yield` a snapshot while the answer grows and `return` the final one. Each snapshot holds **all** parts of the assistant message so far, plus a `status`.
+
+```ts
+const transport: StreamTransport = {
+  async *run({ trigger, abortSignal, threadId }) {
+    yield {
+      parts: [{ type: 'reasoning', text: 'Looking it up', status: 'streaming' }],
+      status: 'streaming',
+    }
+
+    return {
+      parts: [
+        { type: 'reasoning', text: 'Looking it up', status: 'complete' },
+        { type: 'text', text: 'Here is the answer.' },
+      ],
+      status: 'ready',
+    }
+  },
+}
+```
+
+## A realistic transport
+
+A real backend streams its answer in small events. This transport calls an endpoint, reads server-sent events and turns them into snapshots. The event names (`reasoning-delta`, `text-delta`, `error`, `done`) belong to this example: use the ones your backend sends.
+
+What to notice:
+
+- `abortSignal` goes to `fetch`, so a cancel stops the request.
+- Every snapshot holds **all** parts so far, rebuilt from the text received until now, with the reasoning first.
+- A failed request throws. An error event ends the run with `status: 'error'` and an `errorMessage`. Both reach `useAIStatus().error` and `onRunError`.
+- `debug: event` puts the raw event in the [debug panel](/guides/shoreline-ai-debug).
+- `threadId` tells the backend which conversation the run belongs to.
+
+```ts
+import type { AIMessagePart, StreamTransport } from '@vtex/shoreline-ai'
+
+type ServerEvent =
+  | { type: 'reasoning-delta'; text: string }
+  | { type: 'text-delta'; text: string }
+  | { type: 'error'; message: string }
+  | { type: 'done' }
+
+/** Reads `data: {json}` events from a server-sent events body. */
+async function* readEvents(
+  body: ReadableStream<Uint8Array>
+): AsyncGenerator<ServerEvent> {
+  const reader = body.getReader()
+  const decoder = new TextDecoder()
+  let buffer = ''
+
+  while (true) {
+    const { done, value } = await reader.read()
+
+    if (done) break
+
+    buffer += decoder.decode(value, { stream: true })
+
+    const chunks = buffer.split('\n\n')
+
+    buffer = chunks.pop() ?? ''
+
+    for (const chunk of chunks) {
+      const line = chunk.split('\n').find((l) => l.startsWith('data: '))
+
+      if (line) yield JSON.parse(line.slice('data: '.length)) as ServerEvent
+    }
+  }
+}
+
+export function createSseTransport(url: string): StreamTransport {
+  return {
+    async *run({ trigger, threadId, abortSignal }) {
+      const first = trigger.message.parts.find((p) => p.type === 'text')
+      const question = first?.type === 'text' ? first.text : ''
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ threadId, question }),
+        signal: abortSignal,
+      })
+
+      if (!response.ok || !response.body) {
+        throw new Error(`The request failed with status ${response.status}`)
+      }
+
+      let reasoning = ''
+      let text = ''
+
+      // Every snapshot holds all the parts so far, in the order they started.
+      const toParts = (ended: boolean): AIMessagePart[] => {
+        const parts: AIMessagePart[] = []
+
+        if (reasoning) {
+          // Reasoning is done as soon as the answer starts.
+          const done = ended || text !== ''
+
+          parts.push({
+            type: 'reasoning',
+            text: reasoning,
+            status: done ? 'complete' : 'streaming',
+          })
+        }
+
+        if (text) parts.push({ type: 'text', text })
+
+        return parts
+      }
+
+      for await (const event of readEvents(response.body)) {
+        if (event.type === 'error') {
+          return {
+            parts: toParts(true),
+            status: 'error',
+            errorMessage: event.message,
+          }
+        }
+
+        if (event.type === 'done') break
+
+        if (event.type === 'reasoning-delta') reasoning += event.text
+        else text += event.text
+
+        // `debug` is the raw event: it shows up in the debug panel.
+        yield { parts: toParts(false), status: 'streaming', debug: event }
+      }
+
+      return { parts: toParts(true), status: 'ready' }
+    },
+  }
+}
+```
+
+Use it like any other transport:
+
+```tsx
+const built = useMemo(
+  () => createRuntimeBuilder().transport(createSseTransport('/api/chat')).build(),
+  []
+)
+```
+
+## The provider
+
+`<AIProvider>` wraps the chat. The `threads` adapter connects it to your server (`list`, `load`, `archive`). `onRunError` is called once when a run fails. You can control the thread id with `threadId` and `onThreadChange`, or leave it to the provider. Either way, the provider creates the id of a new thread and the transport receives it as `threadId`.
+
+```tsx
+const threads = useMemo<AIThreadAdapter>(
+  () => ({
+    list: () => api.listThreads(),
+    load: (id) => api.getMessages(id),
+    archive: (id) => api.archiveThread(id),
+  }),
+  []
+)
+
+<AIProvider
+  runtime={runtime}
+  threadId={threadId}
+  onThreadChange={setThreadId}
+  threads={threads}
+  onRunError={(error) => toast.error(error.message)}
+>
+  {children}
+</AIProvider>
+```
+
+## What happens during a run
+
+<ShorelineAIRunStatesDiagram />
+
+`useAIStatus` tells you where the run is:
+
+| Status | When |
+|--------|------|
+| `idle` | No messages and no run |
+| `submitted` | A run started and the assistant has sent no content yet |
+| `streaming` | The assistant has sent content |
+| `ready` | The run ended |
+| `error` | The last run failed |
+
+```tsx
+const { status, error } = useAIStatus()
+
+if (error) return <p role="alert">{error.message}</p>
+```
+
+### Failure
+
+If the transport throws, or returns `status: 'error'`, the run fails cleanly: the user message stays, the assistant message ends as incomplete, `useAIStatus().error` is `{ type: 'run', message }` and `onRunError` is called once. The failed assistant message stays in the thread but is left out of `messages` in the next runs, so your backend never receives its error text as an answer. To try again, call `sendMessage` again.
+
+```ts
+const failing: StreamTransport = {
+  async *run() {
+    yield { parts: [], status: 'streaming' }
+
+    return { parts: [], status: 'error', errorMessage: 'The backend is down' }
+  },
+}
+```
+
+### Cancel
+
+When the user stops a run or switches thread, `abortSignal` aborts and the package stops reading from the generator. That is not an error: `onRunError` is not called.
+
+## Threads
+
+`useAIThreadList` reads the thread list from the `threads` adapter. `archiveThread` hides a thread at once and puts it back if the server fails. `refresh` loads the list again. To open a thread, call `useAIThread().switchThread(id)`: the provider calls `threads.load` and replaces the messages.
+
+```tsx
+const { threads, archiveThread, refresh } = useAIThreadList()
+const { switchThread, isOpeningThread } = useAIThread()
+```
+
+## Attachments
+
+Register an `AttachmentHandler` on the builder to let users add files. The composer shows progress and errors on each chip. When the message is sent, the handler turns each file into a `resource` part that reaches your transport.
+
+```ts
+const handler: AttachmentHandler = {
+  accept: 'image/*,.pdf',
+  maxSize: 5 * 1024 * 1024,
+  maxCount: 3,
+  async *add() {
+    yield { progress: 0.5, status: 'uploading' }
+    yield { progress: 1, status: 'ready' }
+  },
+  async send(pending) {
+    return {
+      type: 'resource',
+      uri: await uploadFile(pending.file),
+      name: pending.name,
+      mimeType: pending.contentType,
+      size: pending.file.size,
+    }
+  },
+  async remove() {},
+}
+
+const built = createRuntimeBuilder().transport(transport).attachments(handler).build()
+```
+
+A failed upload does not block sending: the message goes out without that file. To react to the failure, render your own chip and call `useAIAttachment()` inside it. It gives you the attachment, `remove`, and `retry` (only when a retry can work). Show a toast inside an effect, so it runs once:
+
+```tsx
+function UploadChip() {
+  const { attachment, remove, retry } = useAIAttachment()
+  const failed = attachment.status === 'error'
+
+  useEffect(() => {
+    if (failed) toast.error(attachment.error)
+  }, [failed, attachment.error])
+
+  return (
+    <div>
+      <span>{attachment.name}</span>
+      {failed && retry && <button type="button" onClick={retry}>Try again</button>}
+      <button type="button" onClick={remove}>Remove</button>
+    </div>
+  )
+}
+
+<AIComposerAttachments>{() => <UploadChip />}</AIComposerAttachments>
+```
+
+`useAIResources(messageId)` lists the `resource` parts of a message in order, including the files the user attached.
+
+## Next
+
+See what your transport sends in [Debug](/guides/shoreline-ai-debug).

@@ -353,7 +353,7 @@
     height: 1rem;
   }
 
-  [data-sl-ai-composer-attachment-spinner] {
+  [data-sl-ai-composer-attachment-progress] {
     display: flex;
     align-items: center;
     justify-content: center;

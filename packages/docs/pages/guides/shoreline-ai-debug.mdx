@@ -1,0 +1,92 @@
+# Debug
+
+import { Callout } from 'nextra/components'
+import { ShorelineAIDebugFlowDiagram } from '../../components/flow-diagram'
+
+<Callout type="warning" emoji="⚠️">
+  **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
+</Callout>
+
+While you build a transport, you want to see what it sends. The stream debug panel lists every snapshot of each run as raw JSON. Use it while you build or fix a transport, and do not ship it to users.
+
+It works with any transport: your transport does not have to do anything for the panel to work.
+
+## How it works
+
+<ShorelineAIDebugFlowDiagram />
+
+When `debugStream` is on, the provider records a copy of every snapshot your transport sends. The panel reads those copies. When it is off, nothing is recorded.
+
+## Turn it on
+
+Pass `debugStream` to `<AIProvider>` and place `AIStreamDebugPanel` anywhere inside it.
+
+```tsx
+<AIProvider runtime={runtime} debugStream>
+  <AIThread>
+    <AIThreadViewport>
+      <AIMessages />
+    </AIThreadViewport>
+  </AIThread>
+  <AIStreamDebugPanel />
+</AIProvider>
+```
+
+| Prop of `<AIProvider>` | Default | Purpose |
+|------------------------|---------|---------|
+| `debugStream` | `false` | Records every run |
+| `debugMaxRuns` | `20` | Runs kept. The oldest are dropped first |
+| `debugMaxSteps` | `1000` | Steps kept per run. The oldest are dropped first |
+
+## Read the panel
+
+- A **run** starts when the user sends a message and ends when the transport returns, fails or is cancelled.
+- A **step** is one snapshot the transport yielded, or its final snapshot.
+
+Pick a run in the **Run** list (the newest is first). **Steps** lists the snapshots in the order they arrived. Each row shows the step number, the time, the status and the types of the parts in the snapshot:
+
+```
+Step 1 · 12:00:01.120 · streaming · reasoning
+Step 2 · 12:00:01.480 · streaming · reasoning, text
+Step 3 · 12:00:01.900 · ready · reasoning, text
+```
+
+Open a row to see the raw snapshot as formatted JSON. **Copy JSON** copies the same text.
+
+```json
+{
+  "parts": [
+    { "type": "reasoning", "text": "Looking it up", "status": "complete" },
+    { "type": "text", "text": "Here is the answer." }
+  ],
+  "status": "streaming"
+}
+```
+
+The panel does not interpret the snapshot beyond listing the part types in the row title, so it keeps working if the parts change.
+
+## Attach your own data
+
+Add `debug` to a snapshot to see your raw payload inside the JSON of its step. The package never reads it.
+
+```ts
+const transport: StreamTransport = {
+  async *run({ trigger }) {
+    let parts: AIMessagePart[] = []
+
+    for await (const event of callBackend(trigger.message)) {
+      parts = event.parts
+      yield { parts, status: 'streaming', debug: event.raw }
+    }
+
+    return { parts, status: 'ready' }
+  },
+}
+```
+
+## Good to know
+
+- Records stay in memory and are lost on reload.
+- A cancelled run is recorded with status `ready`, not `error`.
+- Each provider records its own runs. A nested provider does not show the runs of its parent.
+- To build your own view, use `useAIStreamDebug()` and `AIStreamDebugRunView`. See `DEBUG.md` in the package.

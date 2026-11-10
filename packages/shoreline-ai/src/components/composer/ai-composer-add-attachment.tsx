@@ -6,7 +6,8 @@ import { useComposerMessagesContext } from './composer-messages-context'
 import type { AIComposerAddAttachmentProps } from './types'
 
 /**
- * Opens the file picker and adds attachments via the runtime adapter.
+ * Opens the file picker and adds the chosen files. The picker offers the
+ * file types the attachment handler accepts.
  *
  * @status experimental
  */
@@ -14,7 +15,7 @@ export const AIComposerAddAttachment = forwardRef<
   HTMLButtonElement,
   AIComposerAddAttachmentProps
 >(function AIComposerAddAttachment(props, ref) {
-  const { accept: _accept = '*/*', multiple = true, ...buttonProps } = props
+  const { multiple = true, ...buttonProps } = props
 
   const getMessage = useComposerMessagesContext()
 

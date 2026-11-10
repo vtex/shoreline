@@ -18,6 +18,25 @@ import {
   isImageAttachmentType,
 } from './utils'
 
+function AIComposerAttachmentProgress(props: {
+  name: string
+  percent: number
+}) {
+  return (
+    // biome-ignore lint/a11y/useFocusableInteractive: a progress bar is read-only and is not focusable
+    <div
+      role="progressbar"
+      aria-label={props.name}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={props.percent}
+      data-sl-ai-composer-attachment-progress
+    >
+      <Spinner size={20} />
+    </div>
+  )
+}
+
 function AIComposerAttachmentRemove() {
   const getMessage = useComposerMessagesContext()
 
@@ -48,9 +67,13 @@ export const AIComposerAttachment = forwardRef<
   const isImage = isImageAttachmentType(attachment.type, attachment.contentType)
   const isLoading = isAttachmentLoading(attachment.status)
   const hasError = isAttachmentError(attachment.status)
-  const file = 'file' in attachment ? attachment.file : undefined
+  const file = attachment.file
+  const percent = Math.round((attachment.progress ?? 0) * 100)
+  // A failed image uses the file row, so the message has room and no preview
+  // suggests the upload worked.
+  const showPreview = isImage && !hasError
   const attachmentType =
-    attachment.type === 'document' ? 'document' : isImage ? 'image' : 'file'
+    attachment.type === 'document' ? 'document' : showPreview ? 'image' : 'file'
   const attachmentStatus = hasError
     ? 'error'
     : isLoading
@@ -61,7 +84,7 @@ export const AIComposerAttachment = forwardRef<
   const [imageError, setImageError] = useState(false)
 
   useEffect(() => {
-    if (!isImage || !file || previewUrl || imageError) return
+    if (!showPreview || !file || previewUrl || imageError) return
 
     const reader = new FileReader()
     reader.onload = (event) => {
@@ -71,9 +94,9 @@ export const AIComposerAttachment = forwardRef<
       setImageError(true)
     }
     reader.readAsDataURL(file)
-  }, [isImage, file, previewUrl, imageError])
+  }, [showPreview, file, previewUrl, imageError])
 
-  if (isImage) {
+  if (showPreview) {
     return (
       <AttachmentPrimitive.Root asChild>
         <div
@@ -85,13 +108,15 @@ export const AIComposerAttachment = forwardRef<
         >
           <div data-sl-ai-composer-attachment-image>
             {isLoading && (
-              <div data-sl-ai-composer-attachment-spinner>
-                <Spinner size={20} description={attachment.name} />
-              </div>
+              <AIComposerAttachmentProgress
+                name={attachment.name}
+                percent={percent}
+              />
             )}
             {!isLoading && previewUrl && (
               <img src={previewUrl} alt={attachment.name} />
             )}
+
             <AIComposerAttachmentRemove />
           </div>
         </div>
@@ -109,9 +134,10 @@ export const AIComposerAttachment = forwardRef<
         {...divProps}
       >
         {isLoading && (
-          <div data-sl-ai-composer-attachment-spinner>
-            <Spinner size={20} description={attachment.name} />
-          </div>
+          <AIComposerAttachmentProgress
+            name={attachment.name}
+            percent={percent}
+          />
         )}
         {!isLoading && (
           <div data-sl-ai-composer-attachment-icon>
@@ -122,7 +148,19 @@ export const AIComposerAttachment = forwardRef<
           <Text variant="caption1" color="muted">
             {attachment.name}
           </Text>
-          {file && (
+          {isLoading && (
+            <Text variant="caption2" color="base-soft">
+              {`${percent}%`}
+            </Text>
+          )}
+          {hasError && (
+            <div role="alert">
+              <Text variant="caption2" color="var(--sl-fg-critical)">
+                {attachment.error}
+              </Text>
+            </div>
+          )}
+          {!isLoading && !hasError && file && (
             <Text variant="caption2" color="base-soft">
               {formatFileSize(file.size)}
             </Text>

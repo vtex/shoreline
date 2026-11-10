@@ -265,9 +265,7 @@ Use inside `<AIProvider>`. Omit `messageId` when called inside an `AIMessage*` t
 | `useAIMessageParts(messageId?)` | `AIMessagePart[]` | Full normalized model — **preferred** |
 | `useAIReasonings(messageId?)` | `AIReasoningPart[]` | Reasoning parts only |
 | `useAITools(messageId?)` | `AIToolPart[]` | Tool parts only |
-| `useAIResources(messageId?)` | `AIResourcePart[]` | Resource parts from `data` payloads only |
-
-**Important:** `useAIResources` does **not** include image or file upload parts. For all attachments, use `useAIMessageParts` and filter `part.type === 'resource'`.
+| `useAIResources(messageId?)` | `AIResourcePart[]` | Resource parts only: files the user attached and resources your transport yields |
 
 Details and examples: [HOOKS.md](./HOOKS.md#message-hooks).
 
@@ -406,7 +404,7 @@ User bubble styling is applied via CSS on `[data-sl-ai-message-role="user"] [dat
 ### Performance
 
 - In custom renderers, read `meta.isStreaming` and `meta.placement` instead of subscribing to the entire thread.
-- When building custom hooks, avoid selectors that return new object references on every render — subscribe to primitive values separately.
+- When building custom hooks, avoid selectors that return new object references on every render — subscribe to simple values (strings, numbers, booleans) separately.
 - Import from `@vtex/shoreline-ai` barrel exports; avoid deep package paths.
 - Return `null` early for parts you do not customize; call `renderDefaultParts` for the rest.
 
@@ -420,7 +418,6 @@ User bubble styling is applied via CSS on `[data-sl-ai-message-role="user"] [dat
 
 | Avoid | Prefer |
 |-------|--------|
-| Using `useAIResources` for image/file attachments | `useAIMessageParts` + filter `type === 'resource'` |
 | Duplicating CoT grouping logic | Default grouping via `AIMessageParts` (no public `groupBy` in v0) |
 | Replacing `AIMessageText` with a controlled local textarea for streaming | `AIMessageParts` override that reads `meta.isStreaming` |
 | Styling user bubbles with ad hoc classes | `[data-sl-ai-message-role="user"]` + tokens |

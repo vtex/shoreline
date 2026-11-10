@@ -6,7 +6,7 @@ import { AIComposerSend } from './ai-composer-send'
 import type { AIComposerActionProps } from './types'
 
 /**
- * Toggles between send and cancel based on streaming status.
+ * Toggles between send and cancel based on whether a run is active.
  *
  * @status experimental
  */
@@ -14,9 +14,9 @@ export const AIComposerAction = forwardRef<
   HTMLButtonElement,
   AIComposerActionProps
 >(function AIComposerAction(props, ref) {
-  const { isStreaming } = useAIStatus()
+  const { isLoading } = useAIStatus()
 
-  if (isStreaming) {
+  if (isLoading) {
     return <AIComposerCancel ref={ref} {...props} />
   }
 

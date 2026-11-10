@@ -75,7 +75,7 @@ Normative tree (matches AI Workspace layout: attachments and textarea inside the
 
 ### Default — `AIComposerAction`
 
-One control that sends when idle and stops while streaming. Send is disabled when the draft is empty (`useAIComposer().disabled`).
+One control that sends when idle and stops while streaming. Send is disabled when the draft is empty (`useAIComposer().disabled`). An attachment that failed to upload does not block it.
 
 ```tsx
 <AIComposerActions>
@@ -124,7 +124,7 @@ Any child of `AIComposerFooter` that is **not** `AIComposerActions` is placed in
 
 ```tsx
 <AIComposerFooter>
-  <AIComposerAddAttachment accept="image/*,application/pdf" />
+  <AIComposerAddAttachment />
   <AgentPill />
   <AIComposerActions>
     <AIComposerAction />
@@ -134,16 +134,16 @@ Any child of `AIComposerFooter` that is **not** `AIComposerActions` is placed in
 
 ### Attachments with upload
 
-1. Register `AttachmentHandler` on the runtime builder ([RUNTIME.md](./RUNTIME.md)).
+1. Register `AttachmentHandler` on the runtime builder ([RUNTIME.md](./RUNTIME.md#attachmenthandler)). The handler sets the accepted file types and the limits.
 2. Render `<AIComposerAttachments />` as the first child of `AIComposerField`.
-3. User picks files via `<AIComposerAddAttachment />` → chips appear → send includes uploaded resources.
+3. The user picks files with `<AIComposerAddAttachment />`. A chip appears for each file and shows the upload. When the user sends, the uploaded files reach your transport as resource parts.
 
 ```tsx
 <AIComposerField>
   <AIComposerAttachments />
   <AIComposerInput />
   <AIComposerFooter>
-    <AIComposerAddAttachment multiple accept="*/*" />
+    <AIComposerAddAttachment multiple />
     <AIComposerActions>
       <AIComposerAction />
     </AIComposerActions>
@@ -196,7 +196,9 @@ function PromptToolbar() {
 | `messages` | — | Partial override of the internal i18n catalog |
 | `children` | — | Composer subtree (`AIComposerField`, etc.) |
 
-Message ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `placeholder`.
+Message ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed`, `attachmentTypeNotAllowed`.
+
+`attachmentTooLarge` and `attachmentTooMany` have a `{max}` placeholder: the largest size (for example `5.0 MB`) and the largest number of files.
 
 ```tsx
 <AIComposer messages={{ send: 'Enviar', placeholder: 'Pergunte algo…' }} />
@@ -218,8 +220,9 @@ Only `AIComposer` accepts `messages`; child components read from context.
 
 | Prop | Default | Purpose |
 |------|---------|---------|
-| `accept` | — | File types (e.g. `image/*`) |
 | `multiple` | `true` | Allow multi-select |
+
+The file types the picker offers come from `accept` of the `AttachmentHandler`. There is no `accept` prop on this component.
 
 ### `AIComposerAttachments`
 
@@ -247,7 +250,7 @@ No `onRemove` prop — removal is handled by the chip’s control and the runtim
 
 | State | Component | Visual |
 |-------|-----------|--------|
-| Draft empty / cannot send | `AIComposerSend` | Disabled, muted circle (`useAIComposer().disabled`) |
+| Draft empty / cannot send | `AIComposerSend` | Disabled, muted circle |
 | Can send | `AIComposerSend` | Blue 40×40 circle |
 | Streaming | `AIComposerCancel` or `AIComposerAction` | Stop control (`useAIStatus().isStreaming`) |
 
@@ -268,11 +271,60 @@ flowchart LR
 - Do not mount `<AIComposerAttachment />` alone — it must be inside the attachments list.
 - Removing a file updates composer state via the registered handler; apps do not pass `onRemove`.
 
+### Chip states
+
+| State | What the chip shows |
+|-------|---------------------|
+| Uploading | A spinner with the progress in percent (from the `progress` the handler yields, 0 to 1) |
+| Ready | The image preview, or the file name and size |
+| Error | The file name and the error message in red. The chip has a remove button |
+
+An image whose upload failed shows as a file row, without a preview.
+
+### Errors
+
+An error chip appears when:
+
+- the file is larger than `maxSize`: the message is `attachmentTooLarge`;
+- the composer already holds `maxCount` files: the message is `attachmentTooMany`;
+- the handler yields `{ status: 'error', error }`: the chip shows your `error` text;
+- the handler yields an error without `error` text, or throws: the message is `attachmentUploadFailed`.
+
+The built-in messages are localized (`en-US`, `pt-BR`) and can be overridden on `AIComposer` with `messages`. A file whose type is not accepted by the handler never becomes a chip: `AIComposerAttachments` shows a notice with `attachmentTypeNotAllowed` until the next file is added.
+
+A failed upload does not block sending. The component only signals the error: the attachment stays in `useAIComposer().attachments` with `status: 'error'` (and an `error` message), and it is passed to the `children` render prop of `AIComposerAttachments`, so the app decides what to show (a toast, a chip with retry, a remove button). `AIComposerSend` and the Enter key stay enabled, and the message is sent without the failed attachment: it has no `resource` part. Sending clears the failed attachment from the composer along with the rest of the draft. The user can also remove the chip before sending, and a file that fails can be added again after that.
+
+To handle the failure, render your own chip and use `useAIAttachment()` inside it. The example shows a toast once when the attachment fails, and offers retry and remove:
+
+```tsx
+function UploadChip() {
+  const { attachment, remove, retry } = useAIAttachment()
+  const failed = attachment.status === 'error'
+
+  useEffect(() => {
+    if (failed) toast.error(attachment.error)
+  }, [failed, attachment.error])
+
+  return (
+    <div>
+      <span>{attachment.name}</span>
+      {failed && retry && <button onClick={retry}>Try again</button>}
+      <button onClick={remove}>Remove</button>
+    </div>
+  )
+}
+
+<AIComposerAttachments>{() => <UploadChip />}</AIComposerAttachments>
+```
+
+`retry` is `undefined` when a retry would fail again (a file over `maxSize`, or a full composer). It removes the failed attachment and adds the same file as a new one, with a new `id`. Send is never blocked by a failed attachment. To block it anyway, pass `disabled` to `AIComposerSend` based on `useAIComposer().attachments`.
+
 ## Hooks
 
 | Hook | Use for |
 |------|---------|
 | `useAIComposer()` | Draft `text`, `attachments`, `disabled`, `setText`, `send`, `reset` |
+| `useAIAttachment()` | `attachment`, `remove` and `retry` of one chip, inside `AIComposerAttachments` |
 | `useAIStatus()` | `isStreaming` for cancel / `AIComposerAction` |
 | `useAIThread()` | `sendMessage` bypasses draft; `stopGeneration` cancels run |
 

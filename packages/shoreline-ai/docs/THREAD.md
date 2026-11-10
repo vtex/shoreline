@@ -4,7 +4,7 @@
 
 Shoreline-styled chat **layout** for AI apps: the **`AIThread*`** family from `@vtex/shoreline-ai` (scrollable viewport, empty slot, sticky viewport footer, scroll-to-bottom). Mount inside `<AIProvider>`.
 
-Related guides: [PROVIDER.md](./PROVIDER.md), [HOOKS.md](./HOOKS.md) (`useAIThread`, `sendMessage`, multi-thread), [RUNTIME.md](./RUNTIME.md) (`loadMessages`), [MESSAGES.md](./MESSAGES.md) (`AIMessages`).
+Related guides: [PROVIDER.md](./PROVIDER.md) (`threads` adapter), [HOOKS.md](./HOOKS.md) (`useAIThread`, `sendMessage`, multi-thread), [RUNTIME.md](./RUNTIME.md) (`loadThreadMessages`), [MESSAGES.md](./MESSAGES.md) (`AIMessages`).
 
 **Prerequisites:** `<AIProvider runtime={runtime}>` wrapping your chat UI. Import `@vtex/shoreline/css` and `@vtex/shoreline-ai/css`. Wrap with `LocaleProvider` so built-in labels use the `en-US` / `pt-BR` catalogs.
 
@@ -80,7 +80,7 @@ Omit `AIThreadScrollToBottom` and keep only app content in the footer:
 
 ### Error banner in the footer
 
-Read `useAIThread().error` and render an alert with `data-sl-ai-thread-error`:
+Read `useAIThread().error` and render an alert with `data-sl-ai-thread-error`. This error only reports a failed `threads.load`. To show run errors, read `useAIStatus().error` ([HOOKS.md](./HOOKS.md#useaistatus)).
 
 ```tsx
 const { error } = useAIThread()
@@ -98,6 +98,8 @@ const openError = error?.type === 'thread_open' ? error.message : null
 ```
 
 ### Opening a thread
+
+`isOpeningThread` and `error` come from the `threads.load` method of the [`threads` adapter](./PROVIDER.md#threads-adapter) of `<AIProvider>`. `isOpeningThread` is `true` while `load` runs. If `load` rejects, `error` is `{ type: 'thread_open', message }`. Without `threads.load`, `isOpeningThread` is always `false` and `error` stays `null`.
 
 While `useAIThread().isOpeningThread` is `true`:
 
@@ -195,7 +197,7 @@ Thread errors surfaced on `useAIThread().error`:
 
 | Type | Description |
 |------|-------------|
-| `AIThreadErrorType` | `'thread_open'` |
+| `AIThreadErrorType` | `'thread_open'`, `'thread_list'`, `'thread_archive'` or `'run'`. `useAIThread().error` only has `'thread_open'` |
 | `AIThreadError` | `{ type: AIThreadErrorType; message: string }` |
 
 ## Hooks
@@ -205,14 +207,14 @@ Use `useAIThread()` inside `<AIProvider>` for thread layout and operations.
 | Member | Use with `AIThread*` |
 |--------|----------------------|
 | `isEmpty` | `true` when the active thread has zero messages; mirrors when `AIThreadEmpty` would show |
-| `isOpeningThread` | `true` while initial thread open is pending; suppresses `AIThreadEmpty` |
-| `error` | `AIThreadError \| null` — e.g. `thread_open` for a footer alert |
+| `isOpeningThread` | `true` while `threads.load` runs; suppresses `AIThreadEmpty` |
+| `error` | `AIThreadError \| null`: `thread_open` when `threads.load` fails, for a footer alert |
 | `messages` | Current thread as `AIMessage[]` |
 | `threadId` | Active persistence id |
 | `sendMessage` | Append user message and start a run |
 | `stopGeneration` | Cancel the active run |
-| `switchThread` | Cancel run, clear UI, set active thread id |
-| `createThread` | New id, clear UI, return id |
+| `switchThread` | Cancel run, clear the thread, set active thread id |
+| `createThread` | Cancel run, clear the thread, create a new id and return it. Does not call `threads.load` |
 | `loadMessages` | Replace thread content from `AIMessage[]` |
 
 ```tsx

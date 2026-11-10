@@ -1,34 +1,51 @@
 /**
- * Mounts a {@link BuiltRuntime} on Assistant-UI `LocalRuntime`.
- *
- * Memoize the result of `createRuntimeBuilder()…build()` (e.g. with `useMemo`)
- * so adapters are not recreated every render.
- *
- * @status experimental
+ * Creates the runtime from a {@link BuiltRuntime}.
  */
 
-import { useMemo } from 'react'
-import { useLocalRuntime, type AssistantRuntime } from '@assistant-ui/react'
+import { useMemo, useState } from 'react'
+import { useLocalRuntime } from '@assistant-ui/react'
 
+import type { AIRuntime } from '../types/runtime'
 import type { BuiltRuntime } from './types'
 import { createAssistantAttachmentAdapter } from './bridge/attachment-bridge'
 import { createChatModelAdapterFromTransport } from './create-chat-model-adapter'
+import { createRuntimeChannel, createRuntimeCore } from './runtime-core'
 
-export function useRuntime(built: BuiltRuntime): AssistantRuntime {
+/**
+ * Creates the runtime for a built transport. Pass the result to `AIProvider`.
+ * Memoize `built` (for example with `useMemo`) so the runtime is not rebuilt on
+ * every render.
+ *
+ * @status experimental
+ * @example
+ * const built = useMemo(
+ *   () => createRuntimeBuilder().transport(myTransport).build(),
+ *   []
+ * )
+ * const runtime = useRuntime(built)
+ */
+export function useRuntime(built: BuiltRuntime): AIRuntime {
+  const [channel] = useState(createRuntimeChannel)
+
   const chatModelAdapter = useMemo(
-    () => createChatModelAdapterFromTransport(built),
-    [built]
+    () => createChatModelAdapterFromTransport(built, channel),
+    [built, channel]
   )
 
   const attachmentAdapter = useMemo(() => {
     if (!built.attachmentHandler) return undefined
 
-    return createAssistantAttachmentAdapter(built.attachmentHandler)
-  }, [built.attachmentHandler])
+    return createAssistantAttachmentAdapter(
+      built.attachmentHandler,
+      channel.attachmentErrors
+    )
+  }, [built.attachmentHandler, channel])
 
-  return useLocalRuntime(chatModelAdapter, {
+  const engine = useLocalRuntime(chatModelAdapter, {
     adapters: attachmentAdapter
       ? { attachments: attachmentAdapter }
       : undefined,
   })
+
+  return useMemo(() => createRuntimeCore(engine, channel), [engine, channel])
 }

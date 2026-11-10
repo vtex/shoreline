@@ -1,0 +1,97 @@
+@layer sl-components {
+  [data-sl-ai-stream-debug] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-3);
+    min-width: 0;
+    padding: var(--sl-space-4);
+    box-sizing: border-box;
+    color: var(--sl-fg-base);
+    background: var(--sl-bg-base);
+  }
+
+  [data-sl-ai-stream-debug-header] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sl-space-2);
+  }
+
+  [data-sl-ai-stream-debug-details] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-1);
+    padding: var(--sl-space-3);
+    border: var(--sl-border-base);
+    border-radius: var(--sl-radius-2);
+    overflow-wrap: anywhere;
+  }
+
+  [data-sl-ai-stream-debug-error] {
+    color: var(--sl-fg-critical);
+  }
+
+  [data-sl-ai-stream-debug-steps] {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  [data-sl-ai-stream-debug-step-trigger] {
+    display: flex;
+    align-items: center;
+    gap: var(--sl-space-1);
+    width: 100%;
+    padding: var(--sl-space-2);
+    border: none;
+    border-radius: var(--sl-radius-1);
+    background: var(--sl-bg-muted-plain);
+    color: var(--sl-fg-base);
+    font: var(--sl-text-caption-1-font);
+    letter-spacing: var(--sl-text-caption-1-letter-spacing);
+    text-align: left;
+    cursor: pointer;
+  }
+
+  [data-sl-ai-stream-debug-step-trigger]:hover {
+    background: var(--sl-bg-muted-plain-hover);
+  }
+
+  [data-sl-ai-stream-debug-step-trigger]:focus-visible {
+    outline: none;
+    box-shadow: var(--sl-focus-ring-base);
+  }
+
+  [data-sl-ai-stream-debug-step-trigger][aria-expanded="true"] {
+    background: var(--sl-bg-muted-plain-pressed);
+  }
+
+  [data-sl-ai-stream-debug-step-content]:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-2);
+    padding: var(--sl-space-2) var(--sl-space-3);
+  }
+
+  [data-sl-ai-stream-debug-step-actions] {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  [data-sl-ai-stream-debug-json] {
+    max-height: calc(var(--sl-space-20) * 4);
+    margin: 0;
+    padding: var(--sl-space-2);
+    overflow: auto;
+    border-radius: var(--sl-radius-1);
+    background: var(--sl-bg-base-soft);
+    font-family: var(--sl-font-family-mono, monospace);
+    font-size: var(--sl-font-size-1);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-all;
+  }
+}

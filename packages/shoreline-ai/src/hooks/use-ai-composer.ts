@@ -5,25 +5,36 @@
  */
 
 import { useAui, useAuiState } from '@assistant-ui/react'
-import type { Attachment } from '@assistant-ui/react'
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 
 import { useAIContextInternal } from '../components/provider/ai-context'
+import { getRuntimeCore } from '../runtime/runtime-core'
+import type { AIAttachment } from '../types/public'
+import { useComposerMessage } from '../components/composer/composer-messages-context'
+import { toAIAttachment } from '../utils/to-ai-attachment'
 
 export function useAIComposer(): {
   text: string
   disabled: boolean
-  attachments: readonly Attachment[]
+  attachments: readonly AIAttachment[]
   setText: (text: string) => void
   send: () => void
   reset: () => void
 } {
-  useAIContextInternal()
+  const { attachmentErrors } = getRuntimeCore(useAIContextInternal().runtime)
   const aui = useAui()
 
   const text = useAuiState((s) => s.composer.text)
   const canSend = useAuiState((s) => s.composer.canSend)
-  const attachments = useAuiState((s) => s.composer.attachments)
+  const engineAttachments = useAuiState((s) => s.composer.attachments)
+  const getMessage = useComposerMessage()
+  const attachments = useMemo(
+    () =>
+      engineAttachments.map((item) =>
+        toAIAttachment(item, getMessage, attachmentErrors.get(item.id))
+      ),
+    [engineAttachments, getMessage, attachmentErrors]
+  )
 
   const setText = useCallback(
     (value: string) => {

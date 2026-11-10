@@ -1,0 +1,127 @@
+# Shoreline AI
+
+import { Callout } from 'nextra/components'
+import { ShorelineAIArchitectureDiagram } from '../../components/flow-diagram'
+
+<Callout type="warning" emoji="⚠️">
+  **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
+</Callout>
+
+`@vtex/shoreline-ai` gives you React components and hooks for an AI chat: the thread, the messages and the composer. You bring the backend as a small object called a stream transport. The package does the rest.
+
+This page gives the big picture. [Runtime](/guides/shoreline-ai-runtime) explains how a run works and [Debug](/guides/shoreline-ai-debug) shows how to inspect it.
+
+## How the pieces fit
+
+<ShorelineAIArchitectureDiagram />
+
+1. Your **transport** talks to your backend and sends back snapshots of the assistant message. It is the only part you write.
+2. `createRuntimeBuilder` and `useRuntime` turn the transport into a **runtime**.
+3. `<AIProvider>` shares the runtime with the **hooks** (`useAIThread`, `useAIStatus`, ...) and the **components** (`AIThread`, `AIMessages`, `AIComposer`).
+4. The debug panel and the run error callback watch that same flow, so you do not wire them to the transport.
+
+## Who does what
+
+| Piece | What it is | Who writes it |
+|-------|-----------|---------------|
+| **Transport** | Talks to your backend and turns its events into snapshots of the assistant message. Your UI protocol is implemented here. It is the most complex piece, and you write it **once** | You |
+| **Runtime** | Joins the transport with the chat engine and controls a run: send, stream, fail and cancel | The package |
+| **Provider** | Shares the runtime with the hooks and the components, and keeps the thread id, the open canvas and the run error | The package |
+| **Components and hooks** | The thread, the messages, the composer and the hooks that read them | The package |
+| **Bridge** | Internal layer that translates messages between the format of this package and the one of the chat engine. You never use it | The package |
+
+If you only read one thing, read [Runtime](/guides/shoreline-ai-runtime#a-realistic-transport): a real transport in about 90 lines.
+
+## A minimal chat
+
+```tsx
+import '@vtex/shoreline-ai/css'
+
+import { useMemo } from 'react'
+import {
+  AIComposer,
+  AIComposerAction,
+  AIComposerActions,
+  AIComposerField,
+  AIComposerFooter,
+  AIComposerInput,
+  AIMessages,
+  AIProvider,
+  AIThread,
+  AIThreadViewport,
+  createRuntimeBuilder,
+  useRuntime,
+  type StreamTransport,
+} from '@vtex/shoreline-ai'
+
+const transport: StreamTransport = {
+  async *run({ trigger }) {
+    const first = trigger.message.parts[0]
+    const question = first?.type === 'text' ? first.text : ''
+
+    yield { parts: [{ type: 'text', text: 'Thinking...' }], status: 'streaming' }
+
+    return { parts: [{ type: 'text', text: `You asked: ${question}` }], status: 'ready' }
+  },
+}
+
+export function MinimalChat() {
+  const built = useMemo(() => createRuntimeBuilder().transport(transport).build(), [])
+  const runtime = useRuntime(built)
+
+  return (
+    <AIProvider runtime={runtime}>
+      <AIThread>
+        <AIThreadViewport>
+          <AIMessages />
+        </AIThreadViewport>
+        <AIComposer>
+          <AIComposerField>
+            <AIComposerInput />
+            <AIComposerFooter>
+              <AIComposerActions>
+                <AIComposerAction />
+              </AIComposerActions>
+            </AIComposerFooter>
+          </AIComposerField>
+        </AIComposer>
+      </AIThread>
+    </AIProvider>
+  )
+}
+```
+
+## What the package gives you
+
+| You want to | Use | Read |
+|-------------|-----|------|
+| Connect your backend | `StreamTransport`, `createRuntimeBuilder`, `useRuntime` | [Runtime](/guides/shoreline-ai-runtime) |
+| Share the chat with your app | `<AIProvider>`, `threads` adapter, `onRunError` | [Runtime](/guides/shoreline-ai-runtime) |
+| Show what the chat is doing | `useAIStatus`, `useAIThread` | [Runtime](/guides/shoreline-ai-runtime) |
+| List and archive threads | `useAIThreadList` | [Runtime](/guides/shoreline-ai-runtime) |
+| Let users attach files | `AttachmentHandler`, `useAIAttachment`, `useAIResources` | [Runtime](/guides/shoreline-ai-runtime) |
+| See what your transport sends | `debugStream`, `AIStreamDebugPanel` | [Debug](/guides/shoreline-ai-debug) |
+
+## Known limits
+
+- Sending clears the whole draft. A failed attachment leaves `useAIComposer().attachments` when you send.
+- A provider has one active thread. Switching thread cancels the active run. Use two providers to show two threads.
+- The debug panel is for development only. Records stay in memory and are lost on reload.
+- The package is experimental. Names and props can change before the first release.
+
+## Package guides
+
+The package has one guide per area, with every prop and edge case. They live in `packages/shoreline-ai/docs`.
+
+| Guide | What it covers |
+|-------|----------------|
+| `OVERVIEW.md` | This page, with the same diagrams |
+| `USAGE.md` | A full chat with a thread list |
+| `RUNTIME.md` | Transport, builder, failure, cancel, attachments |
+| `PROVIDER.md` | `AIProvider`, `threads`, `onRunError`, thread id |
+| `HOOKS.md` | All the hooks |
+| `COMPOSER.md` | Composer parts, attachments, i18n |
+| `THREAD.md` | Thread layout and scrolling |
+| `MESSAGES.md` | Message rendering and overrides |
+| `TOOL-UI.md` | Tool calls and the canvas |
+| `DEBUG.md` | The stream debug panel |

@@ -3,6 +3,7 @@ import invariant from 'tiny-invariant'
 
 import type { AIThreadError } from '../../types/public'
 import type { AIRuntime } from '../../types/runtime'
+import type { AIThreadListState } from '../../types/threads'
 
 interface CanvasState {
   toolCallId: string | null
@@ -22,11 +23,19 @@ export interface AIContextValue {
   closeCanvas: () => void
 }
 
-/** @internal Used by hooks to update persistence thread id. */
+/** @internal Used by the hooks to change the thread. */
 export interface AIContextValueInternal extends AIContextValue {
-  setThreadId: (id: string | null) => void
+  /**
+   * Stops the run and opens the thread `id`: clears the messages and loads
+   * them with `threads.load`. Does nothing more when `id` is already open.
+   */
+  openThread: (id: string) => void
+  /** Stops the run and opens a new, empty thread. Returns its id. */
+  startThread: () => string
   isOpeningThread: boolean
   error: AIThreadError | null
+  /** Error of the last run, or `null` when it did not fail. */
+  runError: AIThreadError | null
 }
 
 const DEFAULT_CANVAS: CanvasState = {
@@ -48,10 +57,22 @@ export function useAIContextInternal(): AIContextValueInternal {
   return context
 }
 
+export const AIThreadListContext = createContext<AIThreadListState | null>(null)
+
+export function useAIThreadListContext(): AIThreadListState {
+  const context = useContext(AIThreadListContext)
+
+  invariant(context, 'useAIThreadList must be used within an <AIProvider>')
+
+  return context
+}
+
 /**
  * Access AI provider state (runtime, thread id, canvas).
  *
  * @status experimental
+ * @example
+ * const { threadId, canvas, closeCanvas } = useAIContext()
  */
 export function useAIContext(): AIContextValue {
   const { runtime, threadId, canvas, openCanvas, closeCanvas } =

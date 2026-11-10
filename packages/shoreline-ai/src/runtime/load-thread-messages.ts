@@ -1,16 +1,22 @@
 import type { AIMessage } from '../types/public'
 import type { AIRuntime } from '../types/runtime'
-import { mapAIMessagesToThreadMessages } from './bridge/map-from-assistant-ui'
+import { getRuntimeCore } from './runtime-core'
+import { mapAIMessagesToThreadMessages } from './bridge/map-to-assistant-ui'
 
 /**
  * Replaces the current thread messages with the given history.
  *
- * @param runtime - Assistant runtime from `useRuntime` / `useAIContext`
+ * @status experimental
+ * @param runtime - Runtime from `useRuntime` / `useAIContext`
  * @param messages - Messages in Shoreline `AIMessage` shape
+ * @example
+ * loadThreadMessages(runtime, historyMessages)
  */
 export function loadThreadMessages(
   runtime: AIRuntime,
   messages: AIMessage[]
 ): void {
-  runtime.thread.reset(mapAIMessagesToThreadMessages(messages))
+  getRuntimeCore(runtime).engine.thread.reset(
+    mapAIMessagesToThreadMessages(messages)
+  )
 }

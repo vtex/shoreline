@@ -1,6 +1,6 @@
-import type { Attachment } from '@assistant-ui/react'
 import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 
+import type { AIAttachment } from '../../types/public'
 import type enUS from './messages/en-US'
 
 /** @status experimental */
@@ -72,10 +72,6 @@ export type AIComposerActionProps = Omit<
 /** @status experimental */
 export interface AIComposerAddAttachmentOptions {
   /**
-   * Accepted file types for the picker (e.g. `image/*`).
-   */
-  accept?: string
-  /**
    * Allows multiple file selection.
    * @default true
    */
@@ -90,16 +86,16 @@ export interface AIComposerAttachmentsOptions {
   /**
    * Renders each attachment. Uses default chip when omitted.
    */
-  children?: (props: { attachment: Attachment }) => ReactNode
+  children?: (props: { attachment: AIAttachment }) => ReactNode
 }
 
 export type AIComposerAttachmentsProps = AIComposerAttachmentsOptions &
-  ComponentPropsWithoutRef<'div'>
+  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
 
 /** @status experimental */
 export interface AIComposerAttachmentOptions {
   /** Attachment data. */
-  attachment: Attachment
+  attachment: AIAttachment
 }
 
 export type AIComposerAttachmentProps = AIComposerAttachmentOptions &

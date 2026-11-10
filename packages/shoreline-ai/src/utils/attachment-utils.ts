@@ -1,3 +1,5 @@
+import type { AIAttachment } from '../types/public'
+
 export function formatFileSize(size: number | string | undefined): string {
   if (size === undefined) return ''
 
@@ -29,14 +31,10 @@ export function isImageAttachmentType(
   return isImageMimeType(contentType)
 }
 
-export function isAttachmentLoading(
-  status: { type: string; reason?: string } | undefined
-): boolean {
-  return status?.type === 'running' && status.reason === 'uploading'
+export function isAttachmentLoading(status: AIAttachment['status']): boolean {
+  return status === 'uploading'
 }
 
-export function isAttachmentError(
-  status: { type: string; reason?: string } | undefined
-): boolean {
-  return status?.type === 'incomplete' && status.reason === 'error'
+export function isAttachmentError(status: AIAttachment['status']): boolean {
+  return status === 'error'
 }

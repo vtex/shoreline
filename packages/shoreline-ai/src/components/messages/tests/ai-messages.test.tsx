@@ -1,10 +1,19 @@
 import type { ReactNode } from 'react'
 import { useEffect } from 'react'
-import { describe, expect, it, render } from '@vtex/shoreline-test-utils'
+import {
+  describe,
+  expect,
+  it,
+  render,
+  screen,
+  userEvent,
+  waitFor,
+} from '@vtex/shoreline-test-utils'
 import { LocaleProvider } from '@vtex/shoreline'
 
 import { useAIThread } from '../../../hooks/use-ai-thread'
 import { MockRuntimeProvider } from '../../../test-utils'
+import type { StreamTransport } from '../../../runtime/types'
 import type { AIMessage } from '../../../types/public'
 import {
   AIMessageAssistant,
@@ -82,6 +91,53 @@ describe('AIMessages', () => {
     expect(
       document.querySelector('[data-sl-ai-message-reasoning]')
     ).toBeTruthy()
+  })
+})
+
+describe('AIMessages while a run has no parts yet', () => {
+  function SendButton() {
+    const { sendMessage } = useAIThread()
+
+    return (
+      <button type="button" onClick={() => sendMessage({ text: 'Hello' })}>
+        Send Hello
+      </button>
+    )
+  }
+
+  it('renders the assistant message before the first snapshot arrives', async () => {
+    const user = userEvent.setup()
+    let release: () => void = () => {}
+    const gate = new Promise<void>((resolve) => {
+      release = resolve
+    })
+    const transport: StreamTransport = {
+      async *run() {
+        await gate
+        yield* []
+
+        return { parts: [{ type: 'text', text: 'Done' }], status: 'ready' }
+      },
+    }
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider transport={transport}>
+          <SendButton />
+          <AIMessages />
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    await user.click(screen.getByRole('button', { name: 'Send Hello' }))
+
+    // The user message is on screen while the run has no content yet.
+    expect(await screen.findByText('Hello')).toBeInTheDocument()
+    expect(document.querySelector('[data-sl-ai-messages]')).toBeTruthy()
+
+    release()
+
+    await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
   })
 })
 

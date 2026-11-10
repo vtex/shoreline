@@ -5,8 +5,6 @@ import { useAIThread } from '../hooks/use-ai-thread'
 
 const append = vi.fn()
 const cancelRun = vi.fn()
-const reset = vi.fn()
-const setThreadId = vi.fn()
 
 vi.mock('@assistant-ui/react', () => ({
   useAui: () => ({
@@ -18,8 +16,6 @@ vi.mock('@assistant-ui/react', () => ({
 vi.mock('../components/provider/ai-context', () => ({
   useAIContextInternal: () => ({
     threadId: 'thread-a',
-    setThreadId,
-    runtime: { thread: { reset } },
     isOpeningThread: false,
     error: null,
   }),
