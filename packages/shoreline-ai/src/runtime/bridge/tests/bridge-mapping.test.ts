@@ -2,9 +2,11 @@ import type { ThreadMessage, ToolCallMessagePart } from '@assistant-ui/react'
 import { describe, expect, it } from 'vitest'
 
 import type { AIMessage, AIMessagePart } from '../../../types/public'
-import { mapAIMessagesToThreadMessages } from '../map-from-assistant-ui'
-import { mapThreadMessageToAIMessage } from '../map-thread-messages'
-import { mapAIMessagePartsToContentParts } from '../map-to-assistant-ui'
+import { mapThreadMessageToAIMessage } from '../map-from-assistant-ui'
+import {
+  mapAIMessagePartsToContentParts,
+  mapAIMessagesToThreadMessages,
+} from '../map-to-assistant-ui'
 
 const metadata = { toolCallId: 'call-1', nested: { a: [1, 2] }, flag: true }
 

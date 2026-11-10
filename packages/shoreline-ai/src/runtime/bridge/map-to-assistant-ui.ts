@@ -1,6 +1,7 @@
 /**
- * Maps Shoreline AI message parts to Assistant-UI content parts.
- * Internal — not exported from the package barrel.
+ * Maps Shoreline AI messages and parts to the engine. Internal — not
+ * exported from the package barrel. The other direction lives in
+ * `map-from-assistant-ui.ts`.
  */
 
 import type {
@@ -9,10 +10,13 @@ import type {
   ImageMessagePart,
   TextMessagePart,
   ThreadAssistantMessagePart,
+  ThreadMessageLike,
+  ThreadUserMessagePart,
   ToolCallMessagePart,
 } from '@assistant-ui/react'
 
 import type {
+  AIMessage,
   AIMessagePart,
   AIReasoningPart,
   AIResourcePart,
@@ -25,7 +29,7 @@ import { packExtras } from './part-extras'
 
 export type AssistantContentPart = ThreadAssistantMessagePart
 
-export function mapTextPart(part: AITextPart): TextMessagePart {
+function mapTextPart(part: AITextPart): TextMessagePart {
   return {
     type: 'text',
     text: part.text,
@@ -58,7 +62,7 @@ function mapToolPart(part: AIToolPart, index: number): AssistantContentPart {
   }
 }
 
-export function mapResourcePart(
+function mapResourcePart(
   part: AIResourcePart
 ): ImageMessagePart | FileMessagePart {
   const extras = packExtras({
@@ -113,6 +117,62 @@ export function mapAIMessagePartsToContentParts(
   }
 
   return mapped
+}
+
+function mapAIMessagePartToUserContent(
+  part: AIMessagePart
+): ThreadUserMessagePart | null {
+  if (part.type === 'text') return mapTextPart(part)
+
+  if (part.type === 'resource') return mapResourcePart(part)
+
+  return null
+}
+
+export function mapAIMessagesToThreadMessages(
+  messages: AIMessage[]
+): ThreadMessageLike[] {
+  return messages.map((message) => {
+    if (message.role === 'user') {
+      const content = message.parts
+        .map(mapAIMessagePartToUserContent)
+        .filter((part): part is ThreadUserMessagePart => part !== null)
+
+      return {
+        id: message.id,
+        role: 'user',
+        content: content.length > 0 ? content : [{ type: 'text', text: '' }],
+        createdAt: new Date(message.createdAt),
+        attachments: [],
+      }
+    }
+
+    if (message.role === 'system') {
+      const text = message.parts
+        .filter((part) => part.type === 'text')
+        .map((part) => (part.type === 'text' ? part.text : ''))
+        .join('')
+
+      return {
+        id: message.id,
+        role: 'system',
+        content: [{ type: 'text', text }],
+        createdAt: new Date(message.createdAt),
+      }
+    }
+
+    const content = mapAIMessagePartsToContentParts(message.parts)
+
+    const threadMessage: ThreadMessageLike = {
+      id: message.id,
+      role: 'assistant',
+      content: content.length > 0 ? content : [{ type: 'text', text: '' }],
+      createdAt: new Date(message.createdAt),
+      status: { type: 'complete', reason: 'stop' },
+    }
+
+    return threadMessage
+  })
 }
 
 /** Maps Shoreline stream status to Assistant-UI message status. */

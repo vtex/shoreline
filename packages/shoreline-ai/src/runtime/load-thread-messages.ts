@@ -1,7 +1,7 @@
 import type { AIMessage } from '../types/public'
 import type { AIRuntime } from '../types/runtime'
 import { getRuntimeCore } from './runtime-core'
-import { mapAIMessagesToThreadMessages } from './bridge/map-from-assistant-ui'
+import { mapAIMessagesToThreadMessages } from './bridge/map-to-assistant-ui'
 
 /**
  * Replaces the current thread messages with the given history.

@@ -29,6 +29,7 @@ export function packExtras(extras: PartExtras): {
 
 /** Reads back what {@link packExtras} stored on a content part. */
 export function readExtras(part: {
+  type: string
   providerMetadata?: PartProviderMetadata
 }): PartExtras {
   return (part.providerMetadata?.[KEY] as PartExtras | undefined) ?? {}

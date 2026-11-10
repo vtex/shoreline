@@ -9,7 +9,7 @@ import { useCallback, useMemo } from 'react'
 
 import { useAIContextInternal } from '../components/provider/ai-context'
 import { loadThreadMessages } from '../runtime/load-thread-messages'
-import { mapThreadMessageToAIMessage } from '../runtime/bridge/map-thread-messages'
+import { mapThreadMessageToAIMessage } from '../runtime/bridge/map-from-assistant-ui'
 import { mapAIMessageInputToContent } from '../runtime/map-message-input'
 import type { AIMessage, AIMessageInput, AIThreadError } from '../types/public'
 

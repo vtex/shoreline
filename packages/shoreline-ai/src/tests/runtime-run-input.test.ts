@@ -3,9 +3,9 @@ import { describe, expect, it } from 'vitest'
 
 import {
   getLastThreadUserMessage,
+  mapThreadMessagesToAIMessages,
   mapThreadUserMessageToAIMessage,
 } from '../runtime/bridge/map-from-assistant-ui'
-import { mapThreadMessagesToAIMessages } from '../runtime/bridge/map-thread-messages'
 import type { RuntimeRunInput } from '../runtime/types'
 
 function buildRunInput(

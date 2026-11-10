@@ -16,9 +16,9 @@ import type { RunEnd, RunStart } from './run-observer'
 import type { RuntimeChannel } from './runtime-core'
 import {
   getLastThreadUserMessage,
+  mapThreadMessagesToAIMessages,
   mapThreadUserMessageToAIMessage,
 } from './bridge/map-from-assistant-ui'
-import { mapThreadMessagesToAIMessages } from './bridge/map-thread-messages'
 import {
   mapAIMessagePartsToContentParts,
   mapStreamStatus,

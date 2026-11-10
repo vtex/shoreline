@@ -1,7 +1,7 @@
 import { type ThreadMessage, useAui, useAuiState } from '@assistant-ui/react'
 import { useMemo } from 'react'
 
-import { mapThreadMessageToAIMessage } from '../runtime/bridge/map-thread-messages'
+import { mapThreadMessageToAIMessage } from '../runtime/bridge/map-from-assistant-ui'
 import type { AIResourcePart } from '../types/public'
 
 function resourceParts(message: ThreadMessage): AIResourcePart[] {
