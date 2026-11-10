@@ -6,6 +6,7 @@ import type { AssistantRuntime } from '@assistant-ui/react'
 import invariant from 'tiny-invariant'
 
 import type { AIRuntime } from '../types/runtime'
+import type { AttachmentErrorReason } from './bridge/attachment-bridge'
 import type { RunObserver } from './run-observer'
 
 /**
@@ -20,6 +21,11 @@ export interface RuntimeChannel {
    * is open. Set by the provider that shows the thread; `null` without one.
    */
   readonly threadIdResolver: { current: (() => string) | null }
+  /**
+   * Why each failed attachment of the composer failed, by attachment id.
+   * Written by the attachment adapter, read by the attachment chips.
+   */
+  readonly attachmentErrors: Map<string, AttachmentErrorReason>
 }
 
 /** The runtime returned by `useRuntime`. */
@@ -28,7 +34,11 @@ export interface RuntimeCore extends AIRuntime, RuntimeChannel {
 }
 
 export function createRuntimeChannel(): RuntimeChannel {
-  return { observers: new Set(), threadIdResolver: { current: null } }
+  return {
+    observers: new Set(),
+    threadIdResolver: { current: null },
+    attachmentErrors: new Map(),
+  }
 }
 
 export function createRuntimeCore(

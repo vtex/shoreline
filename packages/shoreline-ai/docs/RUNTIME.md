@@ -351,10 +351,10 @@ How it works:
 
 1. **`add`** runs when the user picks a file. Yield `uploading` states with a `progress` from 0 to 1, then `ready`. The composer shows the progress on the chip. To fail, yield `{ status: 'error', progress: 0, error: 'message' }`: do not throw. If `add` throws, the chip also shows an error.
 2. **`accept`, `maxSize`, `maxCount`** are checked before `add` runs. `accept` also sets the file types the picker offers. A file that is too large or beyond `maxCount` shows an error chip and is not uploaded. A file whose type is not accepted shows a notice in the composer. See [COMPOSER.md](./COMPOSER.md#attachments).
-3. **`send`** runs when the user sends the message. Return the resource of the uploaded file.
+3. **`send`** runs when the user sends the message. Return the resource of the uploaded file. It is not called for a file that failed: a failed file never blocks sending, and the message goes out without it (no `resource` part). See [COMPOSER.md](./COMPOSER.md#errors).
 4. The sent file reaches your transport as a part with `type: 'resource'` in `trigger.message.parts` (and in `messages`), with `uri`, `name`, `mimeType` and `size`.
 5. **`remove`** runs when the user removes a file that was added and not sent yet. Use it to delete the uploaded file.
-6. The package releases its own state for the file (the preview and the pending entry) when the message is sent, when the file is removed and when the upload fails.
+6. The package releases its own state for the file (the preview and the pending entry) when the message is sent, when the file is removed and when the upload fails. The reason of a failed file, used for the chip message, is kept until the file is removed or the message is sent.
 
 Resource parts of user messages stay in the history: they come back in `useAIThread().messages` and survive `loadThreadMessages`. A resource link in an assistant message (a `resource` part in a snapshot) shows as an image when `mimeType` starts with `image/` and as a file otherwise.
 

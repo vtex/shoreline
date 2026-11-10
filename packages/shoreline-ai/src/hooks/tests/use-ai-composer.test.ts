@@ -1,6 +1,10 @@
 import { describe, expect, it, renderHook } from '@vtex/shoreline-test-utils'
 import { afterEach, vi } from 'vitest'
 
+import {
+  createRuntimeChannel,
+  createRuntimeCore,
+} from '../../runtime/runtime-core'
 import { useAIComposer } from '../use-ai-composer'
 
 const setText = vi.fn()
@@ -36,7 +40,7 @@ vi.mock('@assistant-ui/react', () => ({
 
 vi.mock('../../components/provider/ai-context', () => ({
   useAIContextInternal: () => ({
-    runtime: {},
+    runtime: createRuntimeCore({} as never, createRuntimeChannel()),
     threadId: null,
     isOpeningThread: false,
     error: null,

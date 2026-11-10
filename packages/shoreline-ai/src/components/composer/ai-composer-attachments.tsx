@@ -2,7 +2,9 @@ import { ComposerPrimitive, useAuiEvent } from '@assistant-ui/react'
 import { Text, forwardRef } from '@vtex/shoreline'
 import { memo, useState } from 'react'
 
+import { getRuntimeCore } from '../../runtime/runtime-core'
 import type { AIAttachment } from '../../types/public'
+import { useAIContextInternal } from '../provider/ai-context'
 import { AIComposerAttachment } from './ai-composer-attachment'
 import { useComposerMessagesContext } from './composer-messages-context'
 import { toAIAttachment } from '../../utils/to-ai-attachment'
@@ -27,6 +29,7 @@ export const AIComposerAttachments = forwardRef<
 >(function AIComposerAttachments(props, ref) {
   const { children, ...divProps } = props
   const getMessage = useComposerMessagesContext()
+  const { attachmentErrors } = getRuntimeCore(useAIContextInternal().runtime)
   const [typeRejected, setTypeRejected] = useState(false)
 
   // The engine refuses a file type the handler does not accept before any
@@ -40,7 +43,11 @@ export const AIComposerAttachments = forwardRef<
     <div ref={ref} data-sl-ai-composer-attachments {...divProps}>
       <ComposerPrimitive.Attachments>
         {({ attachment }) => {
-          const mapped = toAIAttachment(attachment, getMessage)
+          const mapped = toAIAttachment(
+            attachment,
+            getMessage,
+            attachmentErrors.get(attachment.id)
+          )
 
           return children ? (
             children({ attachment: mapped })

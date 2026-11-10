@@ -4,25 +4,14 @@
  * @status experimental
  */
 
-import { useAui, useAuiState, type Attachment } from '@assistant-ui/react'
+import { useAui, useAuiState } from '@assistant-ui/react'
 import { useCallback, useMemo } from 'react'
 
 import { useComposerMessagesContext } from '../components/composer/composer-messages-context'
-import { readErrorReason } from '../runtime/bridge/attachment-error'
+import { useAIContextInternal } from '../components/provider/ai-context'
+import { getRuntimeCore } from '../runtime/runtime-core'
 import type { AIAttachment } from '../types/public'
 import { toAIAttachment } from '../utils/to-ai-attachment'
-
-const OUTSIDE_MESSAGE =
-  'useAIAttachment must be used inside AIComposerAttachments'
-
-// The engine throws its own error without a provider or an attachment scope.
-function useEngineAttachment(): Attachment {
-  try {
-    return useAuiState((s) => s.attachment)
-  } catch {
-    throw new Error(OUTSIDE_MESSAGE)
-  }
-}
 
 /**
  * Returns the attachment of the chip being rendered and the actions to
@@ -44,18 +33,29 @@ export function useAIAttachment(): {
   retry: (() => void) | undefined
 } {
   const aui = useAui()
-  const engineAttachment = useEngineAttachment()
+  const hasAttachment = aui.attachment.source != null
+  const engineAttachment = useAuiState((s) =>
+    hasAttachment ? s.attachment : null
+  )
 
+  if (!engineAttachment) {
+    throw new Error('useAIAttachment must be used inside AIComposerAttachments')
+  }
+
+  const { runtime } = useAIContextInternal()
+  const reason = getRuntimeCore(runtime).attachmentErrors.get(
+    engineAttachment.id
+  )
   const getMessage = useComposerMessagesContext()
   const attachment = useMemo(
-    () => toAIAttachment(engineAttachment, getMessage),
-    [engineAttachment, getMessage]
+    () => toAIAttachment(engineAttachment, getMessage, reason),
+    [engineAttachment, getMessage, reason]
   )
   const { file } = attachment
   const canRetry =
     attachment.status === 'error' &&
     file !== undefined &&
-    readErrorReason(engineAttachment.content)?.code === 'upload-failed'
+    reason?.code === 'upload-failed'
 
   const remove = useCallback(() => {
     void aui.attachment().remove()

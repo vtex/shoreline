@@ -8,6 +8,7 @@ import { useAui, useAuiState } from '@assistant-ui/react'
 import { useCallback, useMemo } from 'react'
 
 import { useAIContextInternal } from '../components/provider/ai-context'
+import { getRuntimeCore } from '../runtime/runtime-core'
 import type { AIAttachment } from '../types/public'
 import { useComposerMessage } from '../components/composer/composer-messages-context'
 import { toAIAttachment } from '../utils/to-ai-attachment'
@@ -20,7 +21,7 @@ export function useAIComposer(): {
   send: () => void
   reset: () => void
 } {
-  useAIContextInternal()
+  const { attachmentErrors } = getRuntimeCore(useAIContextInternal().runtime)
   const aui = useAui()
 
   const text = useAuiState((s) => s.composer.text)
@@ -28,8 +29,11 @@ export function useAIComposer(): {
   const engineAttachments = useAuiState((s) => s.composer.attachments)
   const getMessage = useComposerMessage()
   const attachments = useMemo(
-    () => engineAttachments.map((item) => toAIAttachment(item, getMessage)),
-    [engineAttachments, getMessage]
+    () =>
+      engineAttachments.map((item) =>
+        toAIAttachment(item, getMessage, attachmentErrors.get(item.id))
+      ),
+    [engineAttachments, getMessage, attachmentErrors]
   )
 
   const setText = useCallback(

@@ -1,6 +1,6 @@
 import type { Attachment } from '@assistant-ui/react'
 
-import { readErrorReason } from '../runtime/bridge/attachment-error'
+import type { AttachmentErrorReason } from '../runtime/bridge/attachment-bridge'
 import type { AIAttachment } from '../types/public'
 import { formatFileSize } from './attachment-utils'
 
@@ -11,11 +11,9 @@ export type AttachmentGetMessage = (
 ) => string
 
 function reasonMessage(
-  attachment: Attachment,
+  reason: AttachmentErrorReason | undefined,
   getMessage: AttachmentGetMessage
 ): string | undefined {
-  const reason = readErrorReason(attachment.content)
-
   if (!reason) return undefined
 
   if (reason.code === 'too-large') {
@@ -31,7 +29,8 @@ function reasonMessage(
 
 function toStatus(
   attachment: Attachment,
-  getMessage: AttachmentGetMessage
+  getMessage: AttachmentGetMessage,
+  reason: AttachmentErrorReason | undefined
 ): Pick<AIAttachment, 'status' | 'progress' | 'error'> {
   const status = attachment.status
 
@@ -45,7 +44,7 @@ function toStatus(
     return status.reason === 'error'
       ? {
           status: 'error',
-          error: status.message || reasonMessage(attachment, getMessage),
+          error: status.message || reasonMessage(reason, getMessage),
         }
       : { status: 'uploading' }
   }
@@ -53,10 +52,14 @@ function toStatus(
   return { status: 'ready' }
 }
 
-/** Turns an engine attachment into the public attachment shape. */
+/**
+ * Turns an engine attachment into the public attachment shape. `reason` is
+ * why it failed, from the attachment errors of the runtime.
+ */
 export function toAIAttachment(
   attachment: Attachment,
-  getMessage: AttachmentGetMessage
+  getMessage: AttachmentGetMessage,
+  reason: AttachmentErrorReason | undefined
 ): AIAttachment {
   const type: AIAttachment['type'] =
     attachment.type === 'image'
@@ -71,6 +74,6 @@ export function toAIAttachment(
     type,
     contentType: attachment.contentType,
     file: attachment.file,
-    ...toStatus(attachment, getMessage),
+    ...toStatus(attachment, getMessage, reason),
   }
 }

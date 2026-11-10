@@ -1,5 +1,5 @@
 /**
- * Bridges AttachmentHandler to Assistant-UI attachment adapter shape.
+ * Bridges AttachmentHandler to the attachment adapter of the engine.
  */
 
 import type {
@@ -9,8 +9,13 @@ import type {
 
 import { generateId } from '../../utils/generate-id'
 import type { AttachmentHandler, PendingAttachment } from '../types'
-import { packErrorReason, type AttachmentErrorReason } from './attachment-error'
 import { packExtras } from './part-extras'
+
+/** Why an attachment failed, so the chip can show a localized message. */
+export type AttachmentErrorReason =
+  | { code: 'too-large'; max: number }
+  | { code: 'too-many'; max: number }
+  | { code: 'upload-failed' }
 
 function getAttachmentType(file: File): 'image' | 'document' | 'file' {
   if (file.type.startsWith('image/')) return 'image'
@@ -25,12 +30,19 @@ function getAttachmentType(file: File): 'image' | 'document' | 'file' {
   return 'file'
 }
 
+/**
+ * `errors` receives the reason of every failed attachment, by attachment id.
+ * An entry is removed when its attachment is removed or sent.
+ */
 export function createAssistantAttachmentAdapter(
-  handler: AttachmentHandler
+  handler: AttachmentHandler,
+  errors: Map<string, AttachmentErrorReason>
 ): AttachmentAdapter {
   const pendingMap = new Map<string, PendingAttachment>()
   const objectUrlByAttachmentId = new Map<string, string>()
 
+  // Frees the upload of an attachment. Its error reason stays: the chip
+  // shows it until the attachment is removed or sent.
   function release(attachmentId: string): void {
     const url = objectUrlByAttachmentId.get(attachmentId)
 
@@ -67,15 +79,19 @@ export function createAssistantAttachmentAdapter(
         contentType: file.type,
       }
       // A message from the handler is shown as is; otherwise the chip builds
-      // a localized one from the reason.
+      // a localized one from the reason. The reason is stored before the
+      // failed state reaches the chip, so the chip never reads an old value.
       const failed = (
         reason: AttachmentErrorReason,
         message?: string
-      ): EnginePendingAttachment => ({
-        ...base,
-        status: { type: 'incomplete', reason: 'error', message },
-        content: packErrorReason(reason),
-      })
+      ): EnginePendingAttachment => {
+        errors.set(id, reason)
+
+        return {
+          ...base,
+          status: { type: 'incomplete', reason: 'error', message },
+        }
+      }
       const rejection = rejectionFor(file)
 
       if (rejection) {
@@ -139,6 +155,8 @@ export function createAssistantAttachmentAdapter(
       ) {
         // A failed upload never blocks the message: it goes out as a
         // complete attachment with no content, which maps to no part.
+        errors.delete(attachment.id)
+
         return {
           id: attachment.id,
           type: attachment.type,
@@ -183,6 +201,7 @@ export function createAssistantAttachmentAdapter(
       const pending = pendingMap.get(attachment.id)
 
       release(attachment.id)
+      errors.delete(attachment.id)
 
       if (pending) {
         await handler.remove(pending)

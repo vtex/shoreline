@@ -3,7 +3,10 @@ import { afterEach, beforeEach, vi } from 'vitest'
 import type { Attachment, PendingAttachment } from '@assistant-ui/react'
 
 import type { AttachmentHandler } from '../../types'
-import { createAssistantAttachmentAdapter } from '../attachment-bridge'
+import {
+  type AttachmentErrorReason,
+  createAssistantAttachmentAdapter as createAdapter,
+} from '../attachment-bridge'
 import { mapThreadUserMessageToAIMessage } from '../map-from-assistant-ui'
 
 function createHandler(
@@ -49,6 +52,13 @@ async function rejection(promise: Promise<unknown>): Promise<string> {
 }
 
 const file = () => new File(['hello'], 'a.txt', { type: 'text/plain' })
+
+function createAssistantAttachmentAdapter(
+  handler: AttachmentHandler,
+  errors = new Map<string, AttachmentErrorReason>()
+) {
+  return createAdapter(handler, errors)
+}
 
 describe('createAssistantAttachmentAdapter', () => {
   const revoke = vi.fn()
@@ -189,6 +199,101 @@ describe('createAssistantAttachmentAdapter', () => {
 
     expect(handler.remove).toHaveBeenCalledTimes(1)
     expect(revoke).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('attachment error reasons', () => {
+  beforeEach(() => {
+    vi.stubGlobal(
+      'URL',
+      class extends URL {
+        static createObjectURL = vi.fn(() => 'blob:x')
+        static revokeObjectURL = vi.fn()
+      }
+    )
+  })
+
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  it('writes the reason before it yields the failed state', async () => {
+    const errors = new Map<string, AttachmentErrorReason>()
+    const adapter = createAdapter(createHandler({ maxSize: 2 }), errors)
+    const seen: (AttachmentErrorReason | undefined)[] = []
+    const states = adapter.add({ file: file() }) as AsyncGenerator<
+      PendingAttachment,
+      void
+    >
+
+    for await (const state of states) {
+      seen.push(errors.get(state.id))
+    }
+
+    expect(seen).toEqual([{ code: 'too-large', max: 2 }])
+  })
+
+  it('keeps the reason of each failure kind', async () => {
+    const errors = new Map<string, AttachmentErrorReason>()
+    const failing = createAdapter(
+      createHandler({
+        async *add() {
+          yield { progress: 0, status: 'error' }
+        },
+      }),
+      errors
+    )
+    const crashing = createAdapter(
+      createHandler({
+        // biome-ignore lint/correctness/useYield: throws before any state
+        async *add() {
+          throw new Error('boom')
+        },
+      }),
+      errors
+    )
+    const full = createAdapter(createHandler({ maxCount: 0 }), errors)
+
+    const [failed] = (await collect(failing.add({ file: file() }))).slice(-1)
+    const [crashed] = (await collect(crashing.add({ file: file() }))).slice(-1)
+    const [rejected] = (await collect(full.add({ file: file() }))).slice(-1)
+
+    expect(errors.get(failed.id)).toEqual({ code: 'upload-failed' })
+    expect(errors.get(crashed.id)).toEqual({ code: 'upload-failed' })
+    expect(errors.get(rejected.id)).toEqual({ code: 'too-many', max: 0 })
+  })
+
+  it('drops the reason when the failed attachment is removed', async () => {
+    const errors = new Map<string, AttachmentErrorReason>()
+    const adapter = createAdapter(createHandler({ maxSize: 2 }), errors)
+    const states = await collect(adapter.add({ file: file() }))
+    const failed = states.at(-1) as PendingAttachment
+
+    expect(errors.size).toBe(1)
+
+    await adapter.remove(failed)
+
+    expect(errors.size).toBe(0)
+  })
+
+  it('drops the reason when the failed attachment is sent', async () => {
+    const errors = new Map<string, AttachmentErrorReason>()
+    const adapter = createAdapter(createHandler({ maxSize: 2 }), errors)
+    const states = await collect(adapter.add({ file: file() }))
+
+    await adapter.send(states.at(-1) as PendingAttachment)
+
+    expect(errors.size).toBe(0)
+  })
+
+  it('stores no reason for an attachment that uploads', async () => {
+    const errors = new Map<string, AttachmentErrorReason>()
+    const adapter = createAdapter(createHandler(), errors)
+    const states = await collect(adapter.add({ file: file() }))
+
+    await adapter.send(states.at(-1) as PendingAttachment)
+
+    expect(errors.size).toBe(0)
   })
 })
 

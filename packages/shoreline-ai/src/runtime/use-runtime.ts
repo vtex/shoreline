@@ -35,8 +35,11 @@ export function useRuntime(built: BuiltRuntime): AIRuntime {
   const attachmentAdapter = useMemo(() => {
     if (!built.attachmentHandler) return undefined
 
-    return createAssistantAttachmentAdapter(built.attachmentHandler)
-  }, [built.attachmentHandler])
+    return createAssistantAttachmentAdapter(
+      built.attachmentHandler,
+      channel.attachmentErrors
+    )
+  }, [built.attachmentHandler, channel])
 
   const engine = useLocalRuntime(chatModelAdapter, {
     adapters: attachmentAdapter

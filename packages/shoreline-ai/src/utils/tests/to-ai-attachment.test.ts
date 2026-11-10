@@ -1,12 +1,16 @@
 import { describe, expect, it } from 'vitest'
 import type { Attachment } from '@assistant-ui/react'
 
+import type { AttachmentErrorReason } from '../../runtime/bridge/attachment-bridge'
 import { toAIAttachment as map } from '../to-ai-attachment'
 
 const getMessage = (id: string, variables?: Record<string, string | number>) =>
   `${id}:${JSON.stringify(variables ?? {})}`
 
-const toAIAttachment = (attachment: Attachment) => map(attachment, getMessage)
+const toAIAttachment = (
+  attachment: Attachment,
+  reason?: AttachmentErrorReason
+) => map(attachment, getMessage, reason)
 
 const file = new File(['x'], 'a.png', { type: 'image/png' })
 const base = { id: 'a1', name: 'a.png', contentType: 'image/png', file }
@@ -65,29 +69,22 @@ describe('toAIAttachment', () => {
   })
 
   it('builds the error text from the reason when the handler gave none', () => {
-    const failed = (reason: object) =>
-      ({
-        ...base,
-        type: 'image',
-        status: { type: 'incomplete', reason: 'error' },
-        content: [
-          {
-            type: 'text',
-            text: '',
-            providerMetadata: { shoreline: { errorReason: reason } },
-          },
-        ],
-      }) as Attachment
+    const failed = {
+      ...base,
+      type: 'image',
+      status: { type: 'incomplete', reason: 'error' },
+    } as Attachment
 
-    expect(toAIAttachment(failed({ code: 'too-large', max: 2048 })).error).toBe(
+    expect(toAIAttachment(failed, { code: 'too-large', max: 2048 }).error).toBe(
       'attachmentTooLarge:{"max":"2.0 KB"}'
     )
-    expect(toAIAttachment(failed({ code: 'too-many', max: 3 })).error).toBe(
+    expect(toAIAttachment(failed, { code: 'too-many', max: 3 }).error).toBe(
       'attachmentTooMany:{"max":3}'
     )
-    expect(toAIAttachment(failed({ code: 'upload-failed' })).error).toBe(
+    expect(toAIAttachment(failed, { code: 'upload-failed' }).error).toBe(
       'attachmentUploadFailed:{}'
     )
+    expect(toAIAttachment(failed).error).toBeUndefined()
   })
 
   it('keeps the handler message as is even when a reason exists', () => {
@@ -99,17 +96,10 @@ describe('toAIAttachment', () => {
         reason: 'error',
         message: 'Server said no',
       },
-      content: [
-        {
-          type: 'text',
-          text: '',
-          providerMetadata: {
-            shoreline: { errorReason: { code: 'upload-failed' } },
-          },
-        },
-      ],
     } as Attachment
 
-    expect(toAIAttachment(attachment).error).toBe('Server said no')
+    expect(toAIAttachment(attachment, { code: 'upload-failed' }).error).toBe(
+      'Server said no'
+    )
   })
 })
