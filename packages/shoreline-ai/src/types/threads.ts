@@ -1,4 +1,4 @@
-import type { AIMessage, AIThreadData } from './public'
+import type { AIMessage, AIThreadData, AIThreadError } from './public'
 
 /**
  * Thread operations backed by your server. Pass it to `AIProvider` as
@@ -27,4 +27,20 @@ export interface AIThreadAdapter {
   load?(threadId: string): Promise<AIMessage[]>
   /** Archives a thread. */
   archive?(threadId: string): Promise<void>
+}
+
+/**
+ * Value returned by `useAIThreadList`: the saved threads and the actions
+ * to refresh or archive them.
+ *
+ * @status experimental
+ * @example
+ * const list: AIThreadListState = useAIThreadList()
+ */
+export interface AIThreadListState {
+  threads: AIThreadData[]
+  isLoading: boolean
+  error: AIThreadError | null
+  refresh: () => Promise<void>
+  archiveThread: (threadId: string) => Promise<void>
 }

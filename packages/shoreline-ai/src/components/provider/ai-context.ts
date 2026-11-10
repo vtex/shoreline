@@ -3,7 +3,7 @@ import invariant from 'tiny-invariant'
 
 import type { AIThreadError } from '../../types/public'
 import type { AIRuntime } from '../../types/runtime'
-import type { AIThreadListState } from './use-thread-list-state'
+import type { AIThreadListState } from '../../types/threads'
 
 interface CanvasState {
   toolCallId: string | null

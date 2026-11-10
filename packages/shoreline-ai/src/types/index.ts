@@ -17,4 +17,4 @@ export type {
   AIThreadError,
   AIThreadErrorType,
 } from './public'
-export type { AIThreadAdapter } from './threads'
+export type { AIThreadAdapter, AIThreadListState } from './threads'

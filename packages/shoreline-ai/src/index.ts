@@ -25,6 +25,7 @@ export type {
   AIThreadError,
   AIThreadErrorType,
   AIThreadAdapter,
+  AIThreadListState,
 } from './types'
 
 export type { AIRuntime } from './types/runtime'
@@ -73,7 +74,6 @@ export { useAIResources } from './hooks/use-ai-resources'
 export { useAIStatus } from './hooks/use-ai-status'
 export { useAIThread } from './hooks/use-ai-thread'
 export { useAIThreadList } from './hooks/use-ai-thread-list'
-export type { AIThreadListState } from './components/provider/use-thread-list-state'
 export { useAIComposer } from './hooks/use-ai-composer'
 export { useAIAttachment } from './hooks/use-ai-attachment'
 export { useAIMessageParts } from './hooks/use-ai-message-parts'

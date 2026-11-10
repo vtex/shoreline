@@ -1,5 +1,5 @@
 import { useAIThreadListContext } from '../components/provider/ai-context'
-import type { AIThreadListState } from '../components/provider/use-thread-list-state'
+import type { AIThreadListState } from '../types/threads'
 
 /**
  * Returns the saved threads and actions to refresh or archive them. The list

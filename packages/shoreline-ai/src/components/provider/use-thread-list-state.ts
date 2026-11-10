@@ -1,24 +1,8 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react'
 
 import type { AIThreadData, AIThreadError } from '../../types/public'
-import type { AIThreadAdapter } from '../../types/threads'
+import type { AIThreadAdapter, AIThreadListState } from '../../types/threads'
 import { toAIThreadError } from '../../utils/to-ai-thread-error'
-
-/**
- * Value returned by `useAIThreadList`: the saved threads and the actions
- * to refresh or archive them.
- *
- * @status experimental
- * @example
- * const list: AIThreadListState = useAIThreadList()
- */
-export interface AIThreadListState {
-  threads: AIThreadData[]
-  isLoading: boolean
-  error: AIThreadError | null
-  refresh: () => Promise<void>
-  archiveThread: (threadId: string) => Promise<void>
-}
 
 interface ListState {
   threads: AIThreadData[]

@@ -104,7 +104,8 @@ export interface AIProviderOptions {
 }
 
 /**
- * Props of `AIProvider`: `AIProviderOptions` plus the ref.
+ * Props of `AIProvider`. They are the same as `AIProviderOptions`, because
+ * the provider takes no HTML attributes. The ref goes to its wrapping `div`.
  *
  * @status experimental
  * @example

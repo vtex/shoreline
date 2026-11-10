@@ -12,7 +12,7 @@ function resourceParts(message: ThreadMessage): AIResourcePart[] {
 
 export function useAIResources(messageId?: string): AIResourcePart[] {
   const aui = useAui()
-  const contextMessage = useAuiState((s) =>
+  const contextMessage = useAuiState((s): ThreadMessage | null =>
     aui.message.source ? s.message : null
   )
   const threadMessages = useAuiState((s) =>
@@ -27,7 +27,7 @@ export function useAIResources(messageId?: string): AIResourcePart[] {
     }
 
     if (contextMessage) {
-      return resourceParts(contextMessage as ThreadMessage)
+      return resourceParts(contextMessage)
     }
 
     return []
