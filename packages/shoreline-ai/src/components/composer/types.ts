@@ -12,6 +12,12 @@ export type AIComposerLayout = 'stacked' | 'expanded' | 'inline'
 /** @status experimental */
 export interface AIComposerOptions {
   /**
+   * Arrangement of the field: `stacked` (text, then a footer row),
+   * `expanded` (start slot above the text) or `inline` (one row).
+   * @default 'stacked'
+   */
+  layout?: AIComposerLayout
+  /**
    * Renders skeleton instead of the interactive composer.
    * @default false
    */

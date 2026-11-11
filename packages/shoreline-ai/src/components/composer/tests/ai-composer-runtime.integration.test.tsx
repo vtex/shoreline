@@ -47,6 +47,31 @@ describe('AIComposer runtime integration', () => {
   })
 })
 
+describe('AIComposer loading', () => {
+  it('keeps the draft when loading toggles off', async () => {
+    const user = userEvent.setup()
+    const tree = (loading: boolean) => (
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer loading={loading}>
+            <AIComposerField>
+              <AIComposerInput placeholder="Type here" />
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+    const { rerender } = render(tree(false))
+
+    await user.type(screen.getByPlaceholderText('Type here'), 'Hello')
+    rerender(tree(true))
+    expect(screen.queryByPlaceholderText('Type here')).toBeNull()
+    rerender(tree(false))
+
+    expect(screen.getByPlaceholderText('Type here')).toHaveValue('Hello')
+  })
+})
+
 describe('AIComposerAction while a run is active', () => {
   it('shows stop while the run has no content yet and send again when it ends', async () => {
     const user = userEvent.setup()

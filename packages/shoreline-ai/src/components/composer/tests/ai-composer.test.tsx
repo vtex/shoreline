@@ -92,6 +92,58 @@ describe('AIComposer', () => {
     expect(document.querySelector('[data-sl-ai-composer]')).toBeNull()
   })
 
+  it('defaults to the stacked layout', () => {
+    render(
+      <LocaleProvider locale="en-US">
+        <AIComposer />
+      </LocaleProvider>
+    )
+
+    expect(document.querySelector('[data-sl-ai-composer]')).toHaveAttribute(
+      'data-layout',
+      'stacked'
+    )
+  })
+
+  it.each(['expanded', 'inline'] as const)('sets the %s layout', (layout) => {
+    render(
+      <LocaleProvider locale="en-US">
+        <AIComposer layout={layout} />
+      </LocaleProvider>
+    )
+
+    expect(document.querySelector('[data-sl-ai-composer]')).toHaveAttribute(
+      'data-layout',
+      layout
+    )
+  })
+
+  it('treats an undefined layout as stacked', () => {
+    render(
+      <LocaleProvider locale="en-US">
+        <AIComposer layout={undefined} />
+      </LocaleProvider>
+    )
+
+    expect(document.querySelector('[data-sl-ai-composer]')).toHaveAttribute(
+      'data-layout',
+      'stacked'
+    )
+  })
+
+  it('passes the layout to the skeleton when loading', () => {
+    render(
+      <LocaleProvider locale="en-US">
+        <AIComposer loading layout="inline" />
+      </LocaleProvider>
+    )
+
+    expect(
+      document.querySelector('[data-sl-ai-composer-skeleton]')
+    ).toHaveAttribute('data-layout', 'inline')
+    expect(document.querySelector('[data-sl-ai-composer]')).toBeNull()
+  })
+
   it('uses pt-BR catalog without messages override', () => {
     render(
       <LocaleProvider locale="pt-BR">
