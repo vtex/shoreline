@@ -56,6 +56,12 @@ export interface AIComposerInputOptions {
    * @default false
    */
   autoFocus?: boolean
+  /**
+   * Renders the child as the textarea, so an app can attach its own
+   * behavior, such as a combobox.
+   * @default false
+   */
+  asChild?: boolean
 }
 
 export type AIComposerInputProps = AIComposerInputOptions &
