@@ -12,7 +12,9 @@ import { LocaleProvider } from '@vtex/shoreline'
 
 import {
   AIComposer,
+  AIComposerActions,
   AIComposerField,
+  AIComposerFooter,
   AIComposerInput,
   AIComposerSkeleton,
 } from '..'
@@ -203,5 +205,68 @@ describe('AIComposerSkeleton', () => {
     expect(
       document.querySelector('[data-sl-ai-composer-skeleton]')
     ).toHaveAttribute('data-layout', 'inline')
+  })
+})
+
+function WrappedActions() {
+  return (
+    <AIComposerActions>
+      <span data-testid="wrapped-action" />
+    </AIComposerActions>
+  )
+}
+
+describe('AIComposerFooter', () => {
+  it('puts actions in the actions slot when wrapped in a Fragment', () => {
+    render(
+      <AIComposerFooter>
+        <span data-testid="start-item" />
+        <>
+          <span data-testid="fragment-sibling" />
+          <AIComposerActions>
+            <span data-testid="action" />
+          </AIComposerActions>
+        </>
+      </AIComposerFooter>
+    )
+
+    const start = document.querySelector('[data-sl-ai-composer-footer-start]')
+
+    expect(start).toContainElement(screen.getByTestId('start-item'))
+    expect(start).toContainElement(screen.getByTestId('fragment-sibling'))
+    expect(start).not.toContainElement(screen.getByTestId('action'))
+    expect(
+      document.querySelector('[data-sl-ai-composer-actions]')
+    ).toContainElement(screen.getByTestId('action'))
+  })
+
+  it('keeps non-actions children in the start slot', () => {
+    render(
+      <AIComposerFooter>
+        <span data-testid="one" />
+        <>
+          <span data-testid="two" />
+          <span data-testid="three" />
+        </>
+      </AIComposerFooter>
+    )
+
+    const start = document.querySelector('[data-sl-ai-composer-footer-start]')
+
+    expect(start).toContainElement(screen.getByTestId('one'))
+    expect(start).toContainElement(screen.getByTestId('two'))
+    expect(start).toContainElement(screen.getByTestId('three'))
+  })
+
+  it('leaves a custom wrapper component in the start slot', () => {
+    render(
+      <AIComposerFooter>
+        <WrappedActions />
+      </AIComposerFooter>
+    )
+
+    expect(
+      document.querySelector('[data-sl-ai-composer-footer-start]')
+    ).toContainElement(screen.getByTestId('wrapped-action'))
   })
 })

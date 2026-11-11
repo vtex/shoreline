@@ -1,7 +1,7 @@
-import { Children } from 'react'
 import { forwardRef } from '@vtex/shoreline'
 
 import { isAIComposerActions } from './ai-composer-actions'
+import { flattenFragments } from './utils'
 import type { AIComposerFooterProps } from './types'
 
 /**
@@ -14,7 +14,7 @@ export const AIComposerFooter = forwardRef<
   AIComposerFooterProps
 >(function AIComposerFooter(props, ref) {
   const { children, ...divProps } = props
-  const items = Children.toArray(children)
+  const items = flattenFragments(children)
   const start = items.filter((child) => !isAIComposerActions(child))
   const actions = items.filter(isAIComposerActions)
 
