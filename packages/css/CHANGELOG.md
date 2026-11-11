@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.22](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.1.21...@vtex/shoreline-css@1.1.22) (2026-11-10)
+
+**Note:** Version bump only for package @vtex/shoreline-css
+
+
+
+
+
+## [1.1.21](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.1.20...@vtex/shoreline-css@1.1.21) (2026-09-28)
+
+**Note:** Version bump only for package @vtex/shoreline-css
+
+
+
+
+
+## [1.1.20](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.1.19...@vtex/shoreline-css@1.1.20) (2026-08-14)
+
+**Note:** Version bump only for package @vtex/shoreline-css
+
+
+
+
+
+## [1.1.19](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.1.18...@vtex/shoreline-css@1.1.19) (2026-08-13)
+
+**Note:** Version bump only for package @vtex/shoreline-css
+
+
+
+
+
+## [1.1.18](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.1.17...@vtex/shoreline-css@1.1.18) (2026-08-13)
+
+**Note:** Version bump only for package @vtex/shoreline-css
+
+
+
+
+
+## [1.1.17](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.1.16...@vtex/shoreline-css@1.1.17) (2026-08-13)
+
+**Note:** Version bump only for package @vtex/shoreline-css
+
+
+
+
+
+## [1.1.16](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.1.15...@vtex/shoreline-css@1.1.16) (2026-08-12)
+
+**Note:** Version bump only for package @vtex/shoreline-css
+
+
+
+
+
+## [1.1.15](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.1.14...@vtex/shoreline-css@1.1.15) (2026-08-04)
+
+**Note:** Version bump only for package @vtex/shoreline-css
+
+
+
+
+
+## [1.1.14](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.1.13...@vtex/shoreline-css@1.1.14) (2026-08-03)
+
+**Note:** Version bump only for package @vtex/shoreline-css
+
+
+
+
+
 ## [1.1.13](https://github.com/vtex/shoreline/compare/@vtex/shoreline-css@1.1.12...@vtex/shoreline-css@1.1.13) (2026-05-15)
 
 **Note:** Version bump only for package @vtex/shoreline-css

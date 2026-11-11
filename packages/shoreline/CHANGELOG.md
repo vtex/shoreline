@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.21...@vtex/shoreline@1.13.0) (2026-11-10)
+
+
+### Features
+
+* **theme:** add horizon theme ([60670a6](https://github.com/vtex/shoreline/commit/60670a6126da6a81601f77b93bc6326da8fc4867))
+
+
+
+
+
+## [1.12.21](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.20...@vtex/shoreline@1.12.21) (2026-09-28)
+
+
+### Bug Fixes
+
+* **icons:** remove border box from IconArrowUpSmall ([302b26f](https://github.com/vtex/shoreline/commit/302b26f9a03e7b84782d4bcd1fa7a998531b13a8))
+
+
+
+
+
+## [1.12.20](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.19...@vtex/shoreline@1.12.20) (2026-08-14)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.12.19](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.18...@vtex/shoreline@1.12.19) (2026-08-13)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.12.18](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.17...@vtex/shoreline@1.12.18) (2026-08-13)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.12.17](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.16...@vtex/shoreline@1.12.17) (2026-08-13)
+
+
+### Bug Fixes
+
+* **popover:** update border-radius from radius-2 to radius-3 ([7150626](https://github.com/vtex/shoreline/commit/71506262b7374a212868f8fc2e45e0234e50f3ae)), closes [#2057](https://github.com/vtex/shoreline/issues/2057)
+* update border-radius tokens for tooltip, toast, alert, and docs ([358db69](https://github.com/vtex/shoreline/commit/358db69a10bdeaa48cdd828a451923142d2189cd)), closes [#2063](https://github.com/vtex/shoreline/issues/2063) [#2062](https://github.com/vtex/shoreline/issues/2062) [#2061](https://github.com/vtex/shoreline/issues/2061) [#2060](https://github.com/vtex/shoreline/issues/2060) [#2059](https://github.com/vtex/shoreline/issues/2059) [#2058](https://github.com/vtex/shoreline/issues/2058)
+
+
+
+
+
+## [1.12.16](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.15...@vtex/shoreline@1.12.16) (2026-08-12)
+
+
+### Bug Fixes
+
+* document body not reachable when drawer is open ([e16b15b](https://github.com/vtex/shoreline/commit/e16b15b90c6824acb53ba6b754fc1b5abe1cd00e))
+* **drawer:** gate controlled open unlock with regression tests ([9ecf473](https://github.com/vtex/shoreline/commit/9ecf473035a0120a945a4005026a6904abd911ab))
+
+
+
+
+
+## [1.12.15](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.14...@vtex/shoreline@1.12.15) (2026-08-04)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
+## [1.12.14](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.13...@vtex/shoreline@1.12.14) (2026-08-03)
+
+**Note:** Version bump only for package @vtex/shoreline
+
+
+
+
+
 ## [1.12.13](https://github.com/vtex/shoreline/compare/@vtex/shoreline@1.12.12...@vtex/shoreline@1.12.13) (2026-05-15)
 
 **Note:** Version bump only for package @vtex/shoreline

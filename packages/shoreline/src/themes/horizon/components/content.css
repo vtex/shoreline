@@ -1,0 +1,15 @@
+/*
+ * AI Workspace centers free-standing content at a maximum width
+ * (admin-platform app/globals.css). Page content and page headers keep
+ * managing their own width through Page's layout prop.
+ */
+[data-sl-content]:not([data-sl-page-content]):not(
+    [data-sl-page-header-container]
+  ) {
+  --sl-content-max-width: 85rem;
+
+  width: 100%;
+  max-width: var(--sl-content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline",
-  "version": "1.12.13",
+  "version": "1.13.0",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -36,7 +36,17 @@
     "./themes/sunrise/base": "./dist/themes/sunrise/base.css",
     "./themes/sunrise/base/unlayered": "./dist/themes/sunrise/base-unlayered.css",
     "./themes/sunrise/components": "./dist/themes/sunrise/components.css",
-    "./themes/sunrise/components/unlayered": "./dist/themes/sunrise/components-unlayered.css"
+    "./themes/sunrise/components/unlayered": "./dist/themes/sunrise/components-unlayered.css",
+    "./themes/horizon": "./dist/themes/horizon/styles.css",
+    "./themes/horizon/unlayered": "./dist/themes/horizon/styles-unlayered.css",
+    "./themes/horizon/tokens": "./dist/themes/horizon/tokens.css",
+    "./themes/horizon/tokens/unlayered": "./dist/themes/horizon/tokens-unlayered.css",
+    "./themes/horizon/reset": "./dist/themes/horizon/reset.css",
+    "./themes/horizon/reset/unlayered": "./dist/themes/horizon/reset-unlayered.css",
+    "./themes/horizon/base": "./dist/themes/horizon/base.css",
+    "./themes/horizon/base/unlayered": "./dist/themes/horizon/base-unlayered.css",
+    "./themes/horizon/components": "./dist/themes/horizon/components.css",
+    "./themes/horizon/components/unlayered": "./dist/themes/horizon/components-unlayered.css"
   },
   "engines": {
     "node": ">=20"
@@ -87,7 +97,7 @@
     "@react-stately/calendar": "3.5.5",
     "@react-stately/datepicker": "3.10.3",
     "@react-stately/toggle": "3.7.4",
-    "@vtex/shoreline-utils": "^1.0.117",
+    "@vtex/shoreline-utils": "^1.0.126",
     "react-hot-toast": "2.6.0",
     "vaul": "1.1.2"
   }

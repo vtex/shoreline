@@ -1,0 +1,29 @@
+/*
+ * AI Workspace links inherit the surrounding color and only underline on
+ * hover (admin-platform app/globals.css). The states are pinned because the
+ * shared Sunrise rules win on specificity inside the layer and would
+ * reintroduce the accent colors otherwise. The focus ring stays.
+ */
+[data-sl-link] {
+  font: var(--sl-text-emphasis-font);
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  &:focus {
+    color: inherit;
+  }
+
+  &:visited {
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+  }
+}
