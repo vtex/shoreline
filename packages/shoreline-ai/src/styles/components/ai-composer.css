@@ -476,7 +476,22 @@
     justify-content: center;
   }
 
-  /* Context items: a lighter band above the pill, which overlaps it by the radius. */
+  /* Header: the neutral slot above the field. The field overlaps it by the pill radius. */
+  /* The root owns the variable: the field is a sibling of the header and must inherit it too. */
+  [data-sl-ai-composer] {
+    --sl-ai-composer-overlap: var(--sl-radius-4, 1.5rem);
+  }
+
+  [data-sl-ai-composer-header] {
+    position: relative;
+    min-width: 0;
+  }
+
+  [data-sl-ai-composer-header]:not(:empty) + [data-sl-ai-composer-field] {
+    margin-top: calc(var(--sl-ai-composer-overlap) * -1);
+  }
+
+  /* Context items: a lighter band that extends behind the pill by the overlap. */
   [data-sl-ai-composer-context-items] {
     list-style: none;
     margin: 0;
@@ -485,19 +500,10 @@
     gap: var(--sl-space-1);
     min-width: 0;
     padding: var(--sl-space-2) var(--sl-space-4)
-      calc(var(--sl-radius-4, 1.5rem) + var(--sl-space-1));
+      calc(var(--sl-ai-composer-overlap, 1.5rem) + var(--sl-space-1));
     border-radius: var(--sl-radius-4, 1.5rem) var(--sl-radius-4, 1.5rem) 0 0;
     background: var(--sl-color-gray-1);
     box-sizing: border-box;
-  }
-
-  [data-sl-ai-composer-context-items]:empty {
-    display: none;
-  }
-
-  [data-sl-ai-composer-context-items]:not(:empty)
-    + [data-sl-ai-composer-field] {
-    margin-top: calc(var(--sl-radius-4, 1.5rem) * -1);
   }
 
   [data-sl-ai-composer-context-item] {

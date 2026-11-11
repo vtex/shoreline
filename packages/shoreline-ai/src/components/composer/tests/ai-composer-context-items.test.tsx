@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { createRef, type ReactNode } from 'react'
 import {
   describe,
   expect,
@@ -50,6 +50,73 @@ describe('AIComposerContextItems', () => {
 
     expect(items).toHaveLength(2)
     for (const item of items) expect(list).toContainElement(item)
+  })
+})
+
+describe('AIComposerContextItems without children', () => {
+  it('renders nothing when it has no children', () => {
+    render(
+      <Harness>
+        <AIComposerContextItems>{[]}</AIComposerContextItems>
+      </Harness>
+    )
+
+    expect(
+      document.querySelector('[data-sl-ai-composer-context-items]')
+    ).toBeNull()
+  })
+})
+
+describe('AIComposerContextItem asChild', () => {
+  it('renders the child as the item and keeps the package attributes', () => {
+    render(
+      <Harness>
+        <AIComposerContextItems>
+          <AIComposerContextItem asChild>
+            <li data-testid="own">Custom UI</li>
+          </AIComposerContextItem>
+        </AIComposerContextItems>
+      </Harness>
+    )
+
+    const own = screen.getByTestId('own')
+
+    expect(own).toHaveAttribute('data-sl-ai-composer-context-item')
+    expect(document.querySelectorAll('li')).toHaveLength(1)
+    expect(own).toHaveTextContent('Custom UI')
+  })
+
+  it('does not render the default icon, label or remove button', () => {
+    render(
+      <Harness>
+        <AIComposerContextItems>
+          <AIComposerContextItem asChild onRemove={() => {}}>
+            <li>Custom UI</li>
+          </AIComposerContextItem>
+        </AIComposerContextItems>
+      </Harness>
+    )
+
+    expect(screen.queryByRole('button')).toBeNull()
+    expect(
+      document.querySelector('[data-sl-ai-composer-context-item-icon]')
+    ).toBeNull()
+  })
+
+  it('forwards the ref to the child', () => {
+    const ref = createRef<HTMLLIElement>()
+
+    render(
+      <Harness>
+        <AIComposerContextItems>
+          <AIComposerContextItem asChild ref={ref}>
+            <li data-testid="own">Custom UI</li>
+          </AIComposerContextItem>
+        </AIComposerContextItems>
+      </Harness>
+    )
+
+    expect(ref.current).toBe(screen.getByTestId('own'))
   })
 })
 

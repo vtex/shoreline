@@ -16,11 +16,13 @@ import {
   AIComposerSend,
   AIComposerField,
   AIComposerFooter,
+  AIComposerHeader,
   AIComposerInput,
 } from '../index'
 import { useAIComposer } from '../../../hooks/use-ai-composer'
 import { useAIStatus } from '../../../hooks/use-ai-status'
 import { ComposerStoryDecorator } from './decorators'
+import { InitiativeCard } from './initiative-card'
 import { StoryPanel, type StoryPanelSection } from './panel'
 
 const meta: Meta = {
@@ -181,18 +183,20 @@ export const RemoveContextItem: Story = {
 
       return (
         <AIComposer>
-          <AIComposerContextItems>
-            {items.map((item) => (
-              <AIComposerContextItem
-                key={item}
-                onRemove={() =>
-                  setItems((current) => current.filter((i) => i !== item))
-                }
-              >
-                {item}
-              </AIComposerContextItem>
-            ))}
-          </AIComposerContextItems>
+          <AIComposerHeader>
+            <AIComposerContextItems>
+              {items.map((item) => (
+                <AIComposerContextItem
+                  key={item}
+                  onRemove={() =>
+                    setItems((current) => current.filter((i) => i !== item))
+                  }
+                >
+                  {item}
+                </AIComposerContextItem>
+              ))}
+            </AIComposerContextItems>
+          </AIComposerHeader>
           <AIComposerField>
             <AIComposerInput placeholder="Type a message" />
           </AIComposerField>
@@ -216,11 +220,41 @@ export const RemoveContextItem: Story = {
     )
     await waitFor(() => expect(canvas.queryByText('Order 1043')).toBeNull())
 
-    const band = canvasElement.querySelector(
-      '[data-sl-ai-composer-context-items]'
-    )
+    // With no items the band renders nothing, so the pill is not pulled up.
+    await expect(
+      canvasElement.querySelector('[data-sl-ai-composer-context-items]')
+    ).toBeNull()
+  },
+}
 
-    await expect(band).not.toBeNull()
-    await expect(getComputedStyle(band as Element).display).toBe('none')
+export const ExpandHeaderCard: Story = {
+  render: () => (
+    <AIComposer>
+      <AIComposerHeader>
+        <InitiativeCard />
+      </AIComposerHeader>
+      <AIComposerField>
+        <AIComposerInput placeholder="Type a message" />
+      </AIComposerField>
+    </AIComposer>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const toggle = canvas.getByRole('button', { name: /IN6401/ })
+
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    await expect(canvas.queryByText(/landing pages/)).toBeNull()
+
+    await userEvent.click(toggle)
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true')
+    await expect(canvas.getByText(/landing pages/)).toBeInTheDocument()
+
+    const header = canvasElement.querySelector('[data-sl-ai-composer-header]')
+    const field = canvasElement.querySelector('[data-sl-ai-composer-field]')
+
+    // The pill overlaps the header by the radius, so it starts above the header's end.
+    await expect((field as Element).getBoundingClientRect().top).toBeLessThan(
+      (header as Element).getBoundingClientRect().bottom
+    )
   },
 }

@@ -99,15 +99,21 @@ describe('ai-composer.css', () => {
     ).toContain('align-self: center')
   })
 
-  it('an empty context band is hidden and does not pull the field up', () => {
-    expect(
-      declarationsFor('[data-sl-ai-composer-context-items]:empty')
-    ).toContain('display: none')
+  it('the root exposes the overlap variable to the header and the field', () => {
+    expect(declarationsFor('[data-sl-ai-composer]')).toContain(
+      '--sl-ai-composer-overlap: var(--sl-radius-4, 1.5rem)'
+    )
     expect(
       declarationsMatching(
-        '[data-sl-ai-composer-context-items]:not(:empty) + [data-sl-ai-composer-field]'
+        '[data-sl-ai-composer-header]:not(:empty) + [data-sl-ai-composer-field]'
       )
-    ).toContain('margin-top')
+    ).toContain('var(--sl-ai-composer-overlap)')
+  })
+
+  it('the context band covers the overlap zone through the variable', () => {
+    expect(declarationsFor('[data-sl-ai-composer-context-items]')).toContain(
+      'var(--sl-ai-composer-overlap, 1.5rem)'
+    )
   })
 
   it('the textarea grows with its content when the app supplies it', () => {

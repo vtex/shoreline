@@ -59,7 +59,8 @@ Normative tree (matches AI Workspace layout: attachments and textarea inside the
 | Component | Purpose |
 |-----------|---------|
 | `AIComposer` | Root form; `loading` swaps in skeleton; optional `messages` overrides i18n |
-| `AIComposerContextItems` | Band of context items above the field (place before `AIComposerField`) |
+| `AIComposerHeader` | Neutral slot above the field: handles position and the overlap with the pill, draws nothing |
+| `AIComposerContextItems` | Preset band of context items; place it inside `AIComposerHeader` |
 | `AIComposerContextItem` | One removable context item: pin icon, truncated label, optional remove button |
 | `AIComposerField` | Pill container (gray-2 surface, focus ring) |
 | `AIComposerAttachments` | Pending file chips above the input |
@@ -138,24 +139,49 @@ Use before the provider is ready or in layouts without a full composer:
 
 In `inline` an app can show only the avatar of its agent pill by reading `[data-layout="inline"]` on the form in its own CSS.
 
-### Context items
+### Header and context items
 
-Removable items above the field, for example documents pinned as context. Place `AIComposerContextItems` before `AIComposerField`: the items sit in a lighter band and the pill overlaps it. The package stores nothing; the app owns the list.
+`AIComposerHeader` is a neutral slot placed before `AIComposerField`. It has no background, border or padding. The pill overlaps it by the pill radius, exposed as `--sl-ai-composer-overlap` on the form, so the app can draw anything in it and use the variable as `padding-bottom` to keep its content clear of the pill.
 
 ```tsx
 <AIComposer>
-  <AIComposerContextItems>
-    {items.map((item) => (
-      <AIComposerContextItem key={item.id} onRemove={() => remove(item.id)}>
-        {item.title}
-      </AIComposerContextItem>
-    ))}
-  </AIComposerContextItems>
+  <AIComposerHeader>
+    <InitiativeCard />
+  </AIComposerHeader>
   <AIComposerField>…</AIComposerField>
 </AIComposer>
 ```
 
-Long labels truncate with an ellipsis; a string label also becomes the `title`. The remove label is localized (`removeContext`) and each remove button is described by the text of its item. An empty `AIComposerContextItems` renders nothing. Removing an item unmounts its button, so move focus yourself if the user was on it.
+`AIComposerContextItems` is the preset for removable chips (for example documents pinned as context). It draws the lighter band, reads the variable to extend behind the pill, and renders nothing when it has no children. The package stores nothing; the app owns the list.
+
+```tsx
+<AIComposer>
+  <AIComposerHeader>
+    <AIComposerContextItems>
+      {items.map((item) => (
+        <AIComposerContextItem key={item.id} onRemove={() => remove(item.id)}>
+          {item.title}
+        </AIComposerContextItem>
+      ))}
+    </AIComposerContextItems>
+  </AIComposerHeader>
+  <AIComposerField>…</AIComposerField>
+</AIComposer>
+```
+
+Long labels truncate with an ellipsis; a string label also becomes the `title`. The remove label is localized (`removeContext`) and each remove button is described by the text of its item. Removing an item unmounts its button, so move focus yourself if the user was on it.
+
+With `asChild` the child becomes the item, so the app owns its whole UI and keeps the package attributes and the ref. The default icon, label and remove button are not rendered. The child should be an `li`:
+
+```tsx
+<AIComposerContextItem asChild>
+  <li>
+    <a href={doc.url}>{doc.title}</a>
+  </li>
+</AIComposerContextItem>
+```
+
+An expandable card, like the initiative card in the AI Workspace, needs no package component: the app draws it inside `AIComposerHeader`. See the `StackedWithHeaderCard` and `ExpandHeaderCard` stories.
 
 ### History and suggestions panel
 
@@ -325,6 +351,7 @@ No `onRemove` prop — removal is handled by the chip’s control and the runtim
 |------|---------|---------|
 | `icon` | Pin | Leading icon |
 | `onRemove` | — | Shows a remove button and is called on removal |
+| `asChild` | `false` | Render the child as the item; the default content is not rendered |
 
 ### `AIComposerSkeleton`
 

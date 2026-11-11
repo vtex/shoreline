@@ -132,6 +132,9 @@ export type AIComposerSkeletonProps = AIComposerSkeletonOptions &
   ComponentPropsWithoutRef<'div'>
 
 /** @status experimental */
+export type AIComposerHeaderProps = ComponentPropsWithoutRef<'div'>
+
+/** @status experimental */
 export type AIComposerContextItemsProps = ComponentPropsWithoutRef<'ul'>
 
 /** @status experimental */
@@ -144,6 +147,13 @@ export interface AIComposerContextItemOptions {
    * Shows a remove button when set. Called when the user removes the item.
    */
   onRemove?: () => void
+  /**
+   * Renders the child as the item, so the app owns the whole UI and keeps the
+   * package attributes and the ref. The default icon, label and remove button
+   * are not rendered. The child should be an `li`.
+   * @default false
+   */
+  asChild?: boolean
 }
 
 export type AIComposerContextItemProps = AIComposerContextItemOptions &

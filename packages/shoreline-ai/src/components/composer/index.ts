@@ -2,6 +2,7 @@ export { AIComposer } from './ai-composer'
 export { AIComposerAttachments } from './ai-composer-attachments'
 export { AIComposerAttachment } from './ai-composer-attachment'
 export { AIComposerAddAttachment } from './ai-composer-add-attachment'
+export { AIComposerHeader } from './ai-composer-header'
 export { AIComposerContextItems } from './ai-composer-context-items'
 export { AIComposerContextItem } from './ai-composer-context-item'
 export { AIComposerField } from './ai-composer-field'
@@ -34,6 +35,7 @@ export type {
   AIComposerAttachmentOptions,
   AIComposerSkeletonProps,
   AIComposerSkeletonOptions,
+  AIComposerHeaderProps,
   AIComposerContextItemsProps,
   AIComposerContextItemProps,
   AIComposerContextItemOptions,

@@ -16,11 +16,13 @@ import {
   AIComposerContextItems,
   AIComposerField,
   AIComposerFooter,
+  AIComposerHeader,
   AIComposerInput,
   AIComposerSkeleton,
   type AIComposerLayout,
 } from '../index'
 import { MockRuntimeProvider } from '../../../test-utils'
+import { InitiativeCard } from './initiative-card'
 import type { StreamTransport } from '../../../runtime/types'
 import { ComposerStoryDecorator } from './decorators'
 
@@ -331,16 +333,34 @@ export const StackedWithContext: Story = {
       placeholder="Message Search Optimizer..."
       agent="name"
       contextItems={
-        <AIComposerContextItems>
-          <AIComposerContextItem onRemove={() => {}}>
-            Post-Checkout Order Finalization Is Failingetail Pages are
-            showcasing Low-Quality Content
-          </AIComposerContextItem>
-          <AIComposerContextItem onRemove={() => {}}>
-            High-Demand Products are at Risk of Stockoutshowcasing Low-Quality
-            Content
-          </AIComposerContextItem>
-        </AIComposerContextItems>
+        <AIComposerHeader>
+          <AIComposerContextItems>
+            <AIComposerContextItem onRemove={() => {}}>
+              Post-Checkout Order Finalization Is Failingetail Pages are
+              showcasing Low-Quality Content
+            </AIComposerContextItem>
+            <AIComposerContextItem onRemove={() => {}}>
+              High-Demand Products are at Risk of Stockoutshowcasing Low-Quality
+              Content
+            </AIComposerContextItem>
+          </AIComposerContextItems>
+        </AIComposerHeader>
+      }
+    />
+  ),
+}
+
+/** An app card inside the neutral header: it draws its own surface and clears the pill. */
+export const StackedWithHeaderCard: Story = {
+  render: () => (
+    <LayoutComposer
+      layout="stacked"
+      placeholder="Message VTEX My Assistant..."
+      agent="name"
+      contextItems={
+        <AIComposerHeader>
+          <InitiativeCard defaultOpen />
+        </AIComposerHeader>
       }
     />
   ),
