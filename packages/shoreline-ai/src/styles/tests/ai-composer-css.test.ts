@@ -77,6 +77,36 @@ describe('ai-composer.css', () => {
     }
   })
 
+  it('inline centers the start slot and the actions on the row', () => {
+    expect(
+      declarationsMatching(
+        '[data-layout="inline"] [data-sl-ai-composer-footer] > *'
+      )
+    ).toContain('align-self: center')
+  })
+
+  it('inline lets the textarea size to its content so the text centers', () => {
+    expect(
+      declarationsMatching('[data-layout="inline"] [data-sl-textarea] textarea')
+    ).toContain('min-height: 0')
+  })
+
+  it('inline centers the textarea box on the row', () => {
+    expect(
+      declarationsFor(
+        '[data-sl-ai-composer][data-layout="inline"] [data-sl-textarea]'
+      )
+    ).toContain('align-self: center')
+  })
+
+  it('an empty attachments row adds no spacing', () => {
+    expect(
+      declarationsFor(
+        '[data-sl-ai-composer-field] > [data-sl-ai-composer-attachments]:empty'
+      )
+    ).toContain('margin-bottom: 0')
+  })
+
   it('inline keeps the minimum height token', () => {
     expect(
       declarationsMatching('[data-layout="inline"] [data-sl-ai-composer-field]')
@@ -98,9 +128,12 @@ describe('ai-composer.css', () => {
   })
 
   it('skeleton is one gray-2 pill that stops animating on reduced motion', () => {
-    expect(declarationsFor('[data-sl-ai-composer-skeleton-pill]')).toContain(
-      'var(--sl-color-gray-2)'
+    const pill = declarationsMatching(
+      '[data-sl-skeleton][data-sl-ai-composer-skeleton-pill]'
     )
+
+    expect(pill).toContain('var(--sl-color-gray-2)')
+    expect(pill).toContain('var(--sl-radius-4, 1.5rem)')
     expect(css).toContain('prefers-reduced-motion: reduce')
   })
 

@@ -91,6 +91,24 @@
     display: contents;
   }
 
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-footer] > * {
+    align-self: center;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea],
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea-input],
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
+    min-height: 0;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] {
+    align-self: center;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
+    height: auto;
+  }
+
   [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea-input],
   [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
     padding-inline: 0;
@@ -101,6 +119,10 @@
     flex-wrap: wrap;
     gap: var(--sl-space-2);
     margin-bottom: var(--sl-space-2);
+  }
+
+  [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments]:empty {
+    margin-bottom: 0;
   }
 
   [data-sl-ai-composer-field] [data-sl-textarea] {
@@ -495,7 +517,8 @@
     width: 100%;
   }
 
-  [data-sl-ai-composer-skeleton-pill] {
+  /* Two attributes: the Shoreline Skeleton sets its own radius with one. */
+  [data-sl-skeleton][data-sl-ai-composer-skeleton-pill] {
     display: block;
     width: 100%;
     height: calc(var(--sl-space-24) + var(--sl-space-1));
