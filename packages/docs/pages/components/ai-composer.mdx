@@ -251,6 +251,10 @@ The accepted file types come from `accept` on the `AttachmentHandler`. There is 
 
 <PropsDocs name="ai-composer-attachments" />
 
+### AIComposerHeader and AIComposerContextItems
+
+These two have no props of their own. `AIComposerHeader` accepts the props of a `div` and `AIComposerContextItems` the props of a `ul`. `AIComposerContextItems` renders nothing when it has no children, so an empty list leaves no space above the field.
+
 ### AIComposerContextItem
 
 <PropsDocs name="ai-composer-context-item" />
@@ -277,6 +281,9 @@ Use the `data-sl-*` attributes to adjust the look in your CSS:
 | Attribute | Region |
 |-----------|--------|
 | `[data-sl-ai-composer]` | The form. It has `data-layout` |
+| `[data-sl-ai-composer-header]` | The empty slot above the field |
+| `[data-sl-ai-composer-context-items]` | The band of context items |
+| `[data-sl-ai-composer-context-item]` | One context item |
 | `[data-sl-ai-composer-field]` | The rounded box |
 | `[data-sl-ai-composer-attachments]` | The list of chips |
 | `[data-sl-ai-composer-attachment]` | One chip |
