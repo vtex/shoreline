@@ -28,7 +28,9 @@ function declarationsFor(selector: string): string {
 /** Joins the declaration blocks of every rule whose selector mentions the fragment. */
 function declarationsMatching(fragment: string): string {
   return [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)]
-    .filter(([, selectors]) => selectors.includes(fragment))
+    .filter(([, selectors]) =>
+      selectors.replace(/\s+/g, ' ').includes(fragment)
+    )
     .map(([, , body]) => body)
     .join('\n')
 }
@@ -56,6 +58,28 @@ describe('ai-composer.css', () => {
     expect(declarationsMatching('[data-sl-ai-composer-cancel]')).toContain(
       'var(--sl-color-blue-10)'
     )
+  })
+
+  it('defines a rule per layout', () => {
+    for (const layout of ['stacked', 'expanded', 'inline']) {
+      expect(css).toContain(`[data-layout="${layout}"]`)
+    }
+  })
+
+  it('footer uses display contents in expanded and inline', () => {
+    for (const layout of ['expanded', 'inline']) {
+      expect(
+        declarationsMatching(
+          `[data-layout="${layout}"] [data-sl-ai-composer-footer]`
+        )
+      ).toContain('display: contents')
+    }
+  })
+
+  it('inline keeps the minimum height token', () => {
+    expect(
+      declarationsMatching('[data-layout="inline"] [data-sl-ai-composer-field]')
+    ).toContain('var(--sl-space-16)')
   })
 
   it('skeleton is one gray-2 pill that stops animating on reduced motion', () => {

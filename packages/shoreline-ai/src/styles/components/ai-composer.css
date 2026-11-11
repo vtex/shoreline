@@ -12,8 +12,8 @@
   }
 
   [data-sl-ai-composer-field] {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -28,6 +28,72 @@
 
   [data-sl-ai-composer-field]:focus-within {
     box-shadow: var(--sl-focus-ring-base);
+  }
+
+  /* Areas for the three layouts. The DOM order never changes. */
+  [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments] {
+    grid-area: attachments;
+  }
+
+  [data-sl-ai-composer-field] > [data-sl-textarea] {
+    grid-area: text;
+  }
+
+  [data-sl-ai-composer-field] > [data-sl-ai-composer-footer] {
+    grid-area: footer;
+  }
+
+  [data-sl-ai-composer-footer-start] {
+    grid-area: start;
+  }
+
+  [data-sl-ai-composer-actions] {
+    grid-area: actions;
+  }
+
+  /* stacked (default): text, then the footer row. */
+  [data-sl-ai-composer][data-layout="stacked"] [data-sl-ai-composer-field] {
+    grid-template-areas:
+      "attachments"
+      "text"
+      "footer";
+  }
+
+  /* expanded: the start slot sits above the text, actions at the bottom end. */
+  [data-sl-ai-composer][data-layout="expanded"] [data-sl-ai-composer-field] {
+    grid-template-areas:
+      "attachments"
+      "start"
+      "text"
+      "actions";
+  }
+
+  [data-sl-ai-composer][data-layout="expanded"] [data-sl-ai-composer-footer] {
+    display: contents;
+  }
+
+  [data-sl-ai-composer][data-layout="expanded"] [data-sl-ai-composer-actions] {
+    justify-self: end;
+  }
+
+  /* inline: start slot, text and actions on one row. */
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-field] {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "attachments attachments attachments"
+      "start text actions";
+    align-items: center;
+    column-gap: var(--sl-space-3);
+    min-height: var(--sl-space-16);
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-footer] {
+    display: contents;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea-input],
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
+    padding-inline: 0;
   }
 
   [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments] {
