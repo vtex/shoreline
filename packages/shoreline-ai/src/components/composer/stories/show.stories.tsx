@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import '@vtex/shoreline-ai/css'
 
-import { IconSparkle, Text } from '@vtex/shoreline'
 import type { ReactNode } from 'react'
 
 import {
@@ -22,6 +21,7 @@ import {
   type AIComposerLayout,
 } from '../index'
 import { MockRuntimeProvider } from '../../../test-utils'
+import { StoryAgentPill } from './agent-pill'
 import { InitiativeCard } from './initiative-card'
 import type { StreamTransport } from '../../../runtime/types'
 import { ComposerStoryDecorator } from './decorators'
@@ -43,46 +43,6 @@ const meta: Meta<typeof AIComposer> = {
 export default meta
 
 type Story = StoryObj<typeof AIComposer>
-
-function MockAgentPill(props: { compact?: boolean }) {
-  const { compact = false } = props
-
-  return (
-    <div
-      style={{
-        display: 'flex',
-        gap: 4,
-        alignItems: 'center',
-        height: 32,
-        padding: '4px 8px 4px 4px',
-        borderRadius: 30,
-      }}
-    >
-      <span
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: 20,
-          height: 20,
-          color: 'var(--sl-color-purple-8)',
-        }}
-      >
-        <IconSparkle />
-      </span>
-      <Text
-        variant="body"
-        style={
-          compact
-            ? { position: 'absolute', width: 1, height: 1, overflow: 'hidden' }
-            : { fontSize: 14, fontWeight: 500 }
-        }
-      >
-        Meu assistente
-      </Text>
-    </div>
-  )
-}
 
 async function uploadComposerFiles(canvasElement: HTMLElement) {
   const canvas = within(canvasElement)
@@ -163,10 +123,10 @@ export const ReferenceLayout: Story = {
     <AIComposer>
       <AIComposerField>
         <AIComposerAttachments />
-        <AIComposerInput placeholder="Mensagem para Meu assistente…" />
+        <AIComposerInput placeholder="Message VTEX My Assistant..." />
         <AIComposerFooter>
           <AIComposerAddAttachment />
-          <MockAgentPill />
+          <StoryAgentPill />
           <AIComposerActions>
             <AIComposerAction />
           </AIComposerActions>
@@ -183,10 +143,10 @@ export const WithAttachments: Story = {
     <AIComposer>
       <AIComposerField>
         <AIComposerAttachments />
-        <AIComposerInput placeholder="Mensagem para Meu assistente…" />
+        <AIComposerInput placeholder="Message VTEX My Assistant..." />
         <AIComposerFooter>
           <AIComposerAddAttachment />
-          <MockAgentPill />
+          <StoryAgentPill />
           <AIComposerActions>
             <AIComposerAction />
           </AIComposerActions>
@@ -238,7 +198,7 @@ function LayoutComposer(props: {
         <AIComposerInput placeholder={placeholder} />
         <AIComposerFooter>
           <AIComposerAddAttachment />
-          {agent ? <MockAgentPill compact={agent === 'compact'} /> : null}
+          {agent ? <StoryAgentPill compact={agent === 'compact'} /> : null}
           <AIComposerActions>
             <AIComposerAction />
           </AIComposerActions>
@@ -308,7 +268,7 @@ export const InlineWithAgent: Story = {
   render: () => (
     <LayoutComposer
       layout="inline"
-      placeholder="Message Meu assistente..."
+      placeholder="Message VTEX My Assistant..."
       agent="compact"
     />
   ),
@@ -319,7 +279,7 @@ export const StackedWithAgent: Story = {
   render: () => (
     <LayoutComposer
       layout="stacked"
-      placeholder="Message Meu assistente..."
+      placeholder="Message VTEX My Assistant..."
       agent="name"
     />
   ),
