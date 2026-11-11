@@ -172,6 +172,11 @@
     letter-spacing: var(--sl-text-body-letter-spacing);
   }
 
+  /* An app-supplied textarea (asChild) has no autosize; let it grow with its content. */
+  [data-sl-ai-composer-field] [data-sl-textarea] textarea {
+    field-sizing: content;
+  }
+
   [data-sl-ai-composer-field] [data-sl-textarea-input]:placeholder-shown,
   [data-sl-ai-composer-field] [data-sl-textarea] textarea:placeholder-shown {
     white-space: nowrap;
@@ -250,6 +255,8 @@
     min-height: var(--sl-space-10);
     padding: 0;
     border-radius: 50%;
+    background: var(--sl-color-gray-3);
+    color: var(--sl-fg-base-soft);
   }
 
   [data-sl-ai-composer-send]:disabled svg,
@@ -484,7 +491,12 @@
     box-sizing: border-box;
   }
 
-  [data-sl-ai-composer-context-items] + [data-sl-ai-composer-field] {
+  [data-sl-ai-composer-context-items]:empty {
+    display: none;
+  }
+
+  [data-sl-ai-composer-context-items]:not(:empty)
+    + [data-sl-ai-composer-field] {
     margin-top: calc(var(--sl-radius-4, 1.5rem) * -1);
   }
 

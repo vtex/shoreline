@@ -99,6 +99,32 @@ describe('ai-composer.css', () => {
     ).toContain('align-self: center')
   })
 
+  it('an empty context band is hidden and does not pull the field up', () => {
+    expect(
+      declarationsFor('[data-sl-ai-composer-context-items]:empty')
+    ).toContain('display: none')
+    expect(
+      declarationsMatching(
+        '[data-sl-ai-composer-context-items]:not(:empty) + [data-sl-ai-composer-field]'
+      )
+    ).toContain('margin-top')
+  })
+
+  it('the textarea grows with its content when the app supplies it', () => {
+    expect(
+      declarationsMatching(
+        '[data-sl-ai-composer-field] [data-sl-textarea] textarea'
+      )
+    ).toContain('field-sizing: content')
+  })
+
+  it('disabled send uses the Design colors', () => {
+    const disabled = declarationsMatching('[data-sl-ai-composer-send]:disabled')
+
+    expect(disabled).toContain('var(--sl-color-gray-3)')
+    expect(disabled).toContain('var(--sl-fg-base-soft)')
+  })
+
   it('an empty attachments row adds no spacing', () => {
     expect(
       declarationsFor(
@@ -117,14 +143,6 @@ describe('ai-composer.css', () => {
     expect(declarationsFor('[data-sl-ai-composer-context-items]')).toContain(
       'var(--sl-color-gray-1)'
     )
-  })
-
-  it('field overlaps the band through an adjacent sibling selector', () => {
-    expect(
-      declarationsMatching(
-        '[data-sl-ai-composer-context-items] + [data-sl-ai-composer-field]'
-      )
-    ).toContain('margin-top')
   })
 
   it('skeleton is one gray-2 pill that stops animating on reduced motion', () => {

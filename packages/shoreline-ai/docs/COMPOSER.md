@@ -134,6 +134,8 @@ Use before the provider is ready or in layouts without a full composer:
 <AIComposer layout="inline">…</AIComposer>
 ```
 
+`AIComposerFooter` is `display: contents` in `expanded` and `inline`, so a `className` or `style` on it has no visual effect there. It finds `AIComposerActions` even inside a Fragment; a custom component that wraps it stays in the start slot.
+
 In `inline` an app can show only the avatar of its agent pill by reading `[data-layout="inline"]` on the form in its own CSS.
 
 ### Context items
@@ -153,7 +155,7 @@ Removable items above the field, for example documents pinned as context. Place 
 </AIComposer>
 ```
 
-Long labels truncate with an ellipsis; a string label also becomes the `title`. The remove label is localized (`removeContext`).
+Long labels truncate with an ellipsis; a string label also becomes the `title`. The remove label is localized (`removeContext`) and each remove button is described by the text of its item. An empty `AIComposerContextItems` renders nothing. Removing an item unmounts its button, so move focus yourself if the user was on it.
 
 ### History and suggestions panel
 
@@ -176,7 +178,12 @@ function HistoryInput() {
       </AIComposerInput>
       <ComboboxPopover>
         {entries.map((entry) => (
-          <ComboboxItem key={entry} value={entry} onClick={() => sendMessage({ text: entry })}>
+          <ComboboxItem
+            key={entry}
+            value={entry}
+            {...{ setValueOnClick: false }}
+            onClick={() => sendMessage({ text: entry })}
+          >
             {entry}
           </ComboboxItem>
         ))}
@@ -185,6 +192,8 @@ function HistoryInput() {
   )
 }
 ```
+
+`setValueOnClick: false` keeps the clicked entry out of the draft. The Shoreline `ComboboxItem` type omits this Ariakit prop, so it is spread from an object; it is forwarded at runtime. With `asChild` the textarea is yours, so the package does not autosize it: it adds `field-sizing: content`, which grows the box in browsers that support it and leaves one row elsewhere.
 
 Keep the `useAIComposer()` subscription in a small component like this one: it re-renders on each keystroke, so it should not wrap the whole composer. The field is `position: relative`, so a popover can open above the input. See the `HistoryAndSuggestions` and `ComboboxOnInput` stories.
 

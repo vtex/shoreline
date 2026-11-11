@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import { IconButton, IconXSmall, Text } from '@vtex/shoreline'
 import { forwardRef } from '@vtex/shoreline'
 
@@ -18,6 +19,7 @@ export const AIComposerContextItem = forwardRef<
 >(function AIComposerContextItem(props, ref) {
   const { icon, onRemove, children, ...liProps } = props
   const getMessage = useComposerMessagesContext()
+  const labelId = useId()
 
   return (
     <li ref={ref} data-sl-ai-composer-context-item {...liProps}>
@@ -25,6 +27,7 @@ export const AIComposerContextItem = forwardRef<
         {icon ?? <IconPushPin />}
       </span>
       <Text
+        id={labelId}
         variant="caption1"
         title={typeof children === 'string' ? children : undefined}
       >
@@ -34,6 +37,7 @@ export const AIComposerContextItem = forwardRef<
         <IconButton
           variant="tertiary"
           label={getMessage('removeContext')}
+          aria-describedby={labelId}
           onClick={onRemove}
           data-sl-ai-composer-context-item-remove
         >

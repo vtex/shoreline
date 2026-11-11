@@ -140,6 +140,28 @@ describe('AIComposerContextItem', () => {
     }
   )
 
+  it('describes each remove button with the label of its item', () => {
+    render(
+      <Harness>
+        <AIComposerContextItems>
+          <AIComposerContextItem onRemove={() => {}}>
+            First
+          </AIComposerContextItem>
+          <AIComposerContextItem onRemove={() => {}}>
+            Second
+          </AIComposerContextItem>
+        </AIComposerContextItems>
+      </Harness>
+    )
+
+    const [first, second] = screen.getAllByRole('button', {
+      name: 'Remove context',
+    })
+
+    expect(first).toHaveAccessibleDescription('First')
+    expect(second).toHaveAccessibleDescription('Second')
+  })
+
   it('localizes the remove label', () => {
     render(
       <Harness locale="pt-BR">

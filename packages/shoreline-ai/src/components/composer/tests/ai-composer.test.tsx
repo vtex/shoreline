@@ -240,6 +240,29 @@ describe('AIComposerFooter', () => {
     ).toContainElement(screen.getByTestId('action'))
   })
 
+  it('does not warn about duplicate keys when it flattens Fragments', () => {
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    render(
+      <AIComposerFooter>
+        <span data-testid="start-item" />
+        <>
+          <span data-testid="fragment-sibling" />
+          <AIComposerActions>
+            <span data-testid="action" />
+          </AIComposerActions>
+        </>
+      </AIComposerFooter>
+    )
+
+    const keyWarnings = error.mock.calls.filter((call) =>
+      String(call[0]).includes('same key')
+    )
+
+    error.mockRestore()
+    expect(keyWarnings).toEqual([])
+  })
+
   it('keeps non-actions children in the start slot', () => {
     render(
       <AIComposerFooter>

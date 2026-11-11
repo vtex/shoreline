@@ -220,5 +220,17 @@ export const RemoveContextItem: Story = {
     )
     await waitFor(() => expect(canvas.queryByText('Order 1042')).toBeNull())
     await expect(canvas.getByText('Order 1043')).toBeInTheDocument()
+
+    await userEvent.click(
+      canvas.getByRole('button', { name: /remove context/i })
+    )
+    await waitFor(() => expect(canvas.queryByText('Order 1043')).toBeNull())
+
+    const band = canvasElement.querySelector(
+      '[data-sl-ai-composer-context-items]'
+    )
+
+    await expect(band).not.toBeNull()
+    await expect(getComputedStyle(band as Element).display).toBe('none')
   },
 }
