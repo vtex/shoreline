@@ -281,6 +281,40 @@ describe('AIComposerFooter', () => {
     expect(start).toContainElement(screen.getByTestId('three'))
   })
 
+  it('warns in development when a custom component wraps the actions', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    render(
+      <AIComposerFooter>
+        <WrappedActions />
+      </AIComposerFooter>
+    )
+
+    const messages = warn.mock.calls.map((call) => String(call[0]))
+
+    warn.mockRestore()
+    expect(
+      messages.some((message) => message.includes('AIComposerActions'))
+    ).toBe(true)
+  })
+
+  it('does not warn when the actions are a direct child', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    render(
+      <AIComposerFooter>
+        <AIComposerActions>
+          <span />
+        </AIComposerActions>
+      </AIComposerFooter>
+    )
+
+    const calls = warn.mock.calls.length
+
+    warn.mockRestore()
+    expect(calls).toBe(0)
+  })
+
   it('leaves a custom wrapper component in the start slot', () => {
     render(
       <AIComposerFooter>

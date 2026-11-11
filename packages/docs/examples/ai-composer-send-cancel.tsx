@@ -13,11 +13,7 @@ import { AIDemoProvider } from '../components/ai-demo'
 function SendOrCancel() {
   const { isStreaming } = useAIStatus()
 
-  return (
-    <AIComposerActions>
-      {isStreaming ? <AIComposerCancel /> : <AIComposerSend />}
-    </AIComposerActions>
-  )
+  return isStreaming ? <AIComposerCancel /> : <AIComposerSend />
 }
 
 export default function Example() {
@@ -27,7 +23,9 @@ export default function Example() {
         <AIComposerField>
           <AIComposerInput />
           <AIComposerFooter>
-            <SendOrCancel />
+            <AIComposerActions>
+              <SendOrCancel />
+            </AIComposerActions>
           </AIComposerFooter>
         </AIComposerField>
       </AIComposer>

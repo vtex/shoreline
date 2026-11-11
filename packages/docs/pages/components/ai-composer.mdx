@@ -93,9 +93,13 @@ Use `layout` to choose how the pieces are arranged. The default is `stacked`.
 
 `AIComposerAction` is the easiest option: it sends when the draft has text and turns into a stop button while the assistant is answering. The send button stays disabled while the draft is empty.
 
-If you want to control which button shows, use `AIComposerSend` and `AIComposerCancel` with the `useAIStatus` hook. Try sending a message below:
+If you want to control which button shows, use `AIComposerSend` and `AIComposerCancel` with the `useAIStatus` hook, inside `AIComposerActions`. Try sending a message below:
 
 <Preview name="ai-composer-send-cancel" />
+
+<Callout type="warning">
+  Put your component **inside** `AIComposerActions`, like `SendOrCancel` above. The footer finds `AIComposerActions` among its own children, so a custom component that renders `AIComposerActions` itself puts the buttons on the left side, and a warning is logged in development.
+</Callout>
 
 ### Attachments
 

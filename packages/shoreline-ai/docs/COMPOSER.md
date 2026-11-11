@@ -91,16 +91,20 @@ One control that sends when idle and stops while streaming. Send is disabled whe
 ```tsx
 import { useAIStatus } from '@vtex/shoreline-ai'
 
-function ComposerSendSlot() {
+function SendOrCancel() {
   const { isStreaming } = useAIStatus()
 
-  return (
-    <AIComposerActions>
-      {isStreaming ? <AIComposerCancel /> : <AIComposerSend />}
-    </AIComposerActions>
-  )
+  return isStreaming ? <AIComposerCancel /> : <AIComposerSend />
 }
+
+<AIComposerFooter>
+  <AIComposerActions>
+    <SendOrCancel />
+  </AIComposerActions>
+</AIComposerFooter>
 ```
+
+Wrap the **content** of `AIComposerActions` in your component, not `AIComposerActions` itself. The footer finds `AIComposerActions` among its own children (through Fragments). If a custom component renders it, it lands in the left slot, and a warning is logged in development.
 
 ### Loading on `AIComposer`
 
@@ -135,7 +139,7 @@ Use before the provider is ready or in layouts without a full composer:
 <AIComposer layout="inline">…</AIComposer>
 ```
 
-`AIComposerFooter` is `display: contents` in `expanded` and `inline`, so a `className` or `style` on it has no visual effect there. It finds `AIComposerActions` even inside a Fragment; a custom component that wraps it stays in the start slot.
+`AIComposerFooter` is `display: contents` in `expanded` and `inline`, so a `className` or `style` on it has no visual effect there. It finds `AIComposerActions` even inside a Fragment. A custom component that renders `AIComposerActions` is not seen and the actions land in the start slot, with a warning in development: wrap the content of `AIComposerActions` instead.
 
 In `inline` an app can show only the avatar of its agent pill by reading `[data-layout="inline"]` on the form in its own CSS.
 
