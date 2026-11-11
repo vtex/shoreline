@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npm run gen:examples && npm run gen:props && next dev",
-    "build-docs": "npm --prefix ../../ run build && npm run gen:contributors && npm run gen:examples && npm run gen:props && next build",
+    "dev": "npm run gen:examples && npm run gen:props && npm run gen:ai-css && next dev",
+    "build-docs": "npm --prefix ../../ run build && npm run gen:contributors && npm run gen:examples && npm run gen:props && npm run gen:ai-css && next build",
     "start": "next start",
     "gen:examples": "node ./scripts/build-examples.mjs",
+    "gen:ai-css": "node ./scripts/build-ai-css.mjs",
     "gen:props": "node ./scripts/build-props.mjs",
     "gen:contributors": "node ./scripts/build-contributors.mjs"
   },
@@ -21,6 +22,7 @@
     "@sentry/nextjs": "^8.35.0",
     "@tanstack/react-table": "8.17.3",
     "@vtex/shoreline": "workspace:*",
+    "@vtex/shoreline-ai": "workspace:*",
     "@vtex/shoreline-charts": "workspace:*",
     "@vtex/shoreline-ts-table": "workspace:*",
     "@vtex/shoreline-utils": "workspace:*",
