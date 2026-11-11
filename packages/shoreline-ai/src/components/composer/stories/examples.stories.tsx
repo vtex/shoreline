@@ -4,11 +4,11 @@ import '@vtex/shoreline-ai/css'
 
 import {
   ComboboxInput,
-  ComboboxItem,
-  ComboboxPopover,
   ComboboxProvider,
+  IconCounterClockwise,
+  IconSparkle,
 } from '@vtex/shoreline'
-import { useState } from 'react'
+import { type RefObject, useRef, useState } from 'react'
 
 import {
   AIComposer,
@@ -24,6 +24,7 @@ import { useAIComposer } from '../../../hooks/use-ai-composer'
 import { useAIStatus } from '../../../hooks/use-ai-status'
 import { useAIThread } from '../../../hooks/use-ai-thread'
 import { ComposerStoryDecorator } from './decorators'
+import { StoryPanel, type StoryPanelSection } from './panel'
 
 const meta: Meta = {
   title: 'shoreline-ai/composer',
@@ -62,18 +63,27 @@ export const WorkspaceLayout: Story = {
   ),
 }
 
-// The Shoreline ComboboxItem type omits this Ariakit prop; it is forwarded at runtime.
-// It keeps the clicked entry out of the draft.
-const KEEP_DRAFT = { setValueOnClick: false }
-
-const HISTORY = [
-  'Qual o status dos pedidos de hoje?',
-  'Resuma as vendas da semana',
+const SECTIONS: StoryPanelSection[] = [
+  {
+    title: 'Últimos prompts',
+    icon: IconCounterClockwise,
+    entries: [
+      'Qual o status dos pedidos de hoje?',
+      'Resuma as vendas da semana',
+    ],
+  },
+  {
+    title: 'Sugestões',
+    icon: IconSparkle,
+    entries: ['Quais produtos estão com estoque baixo?'],
+  },
 ]
-const SUGGESTED = ['Quais produtos estão com estoque baixo?']
 
 /** Leaf component: only it re-renders on each keystroke, not the composer shell. */
-function HistoryAndSuggestionsInput() {
+function HistoryAndSuggestionsInput(props: {
+  fieldRef: RefObject<HTMLDivElement>
+}) {
+  const { fieldRef } = props
   const { text, setText } = useAIComposer()
   const { isStreaming } = useAIStatus()
   const { sendMessage } = useAIThread()
@@ -92,35 +102,36 @@ function HistoryAndSuggestionsInput() {
           <textarea />
         </ComboboxInput>
       </AIComposerInput>
-      <ComboboxPopover>
-        {[...HISTORY, ...SUGGESTED].map((entry) => (
-          <ComboboxItem
-            key={entry}
-            value={entry}
-            {...KEEP_DRAFT}
-            onClick={() => sendMessage({ text: entry })}
-          >
-            {entry}
-          </ComboboxItem>
-        ))}
-      </ComboboxPopover>
+      <StoryPanel
+        fieldRef={fieldRef}
+        sections={SECTIONS}
+        onPick={(entry) => sendMessage({ text: entry })}
+      />
     </ComboboxProvider>
   )
 }
 
 /** History and suggestions panel built by the app, as in admin-platform PR #1013. */
 export const HistoryAndSuggestions: Story = {
-  render: () => (
-    <AIComposer>
-      <AIComposerField>
-        <HistoryAndSuggestionsInput />
-        <AIComposerFooter>
-          <AIComposerAddAttachment />
-          <AIComposerActions>
-            <AIComposerAction />
-          </AIComposerActions>
-        </AIComposerFooter>
-      </AIComposerField>
-    </AIComposer>
-  ),
+  render: () => <HistoryAndSuggestionsComposer />,
+}
+
+function HistoryAndSuggestionsComposer() {
+  const fieldRef = useRef<HTMLDivElement>(null)
+
+  return (
+    <div style={{ paddingTop: 280 }}>
+      <AIComposer>
+        <AIComposerField ref={fieldRef}>
+          <HistoryAndSuggestionsInput fieldRef={fieldRef} />
+          <AIComposerFooter>
+            <AIComposerAddAttachment />
+            <AIComposerActions>
+              <AIComposerAction />
+            </AIComposerActions>
+          </AIComposerFooter>
+        </AIComposerField>
+      </AIComposer>
+    </div>
+  )
 }

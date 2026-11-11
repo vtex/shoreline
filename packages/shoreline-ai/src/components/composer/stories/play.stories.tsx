@@ -3,13 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import '@vtex/shoreline-ai/css'
 
-import {
-  ComboboxInput,
-  ComboboxItem,
-  ComboboxPopover,
-  ComboboxProvider,
-} from '@vtex/shoreline'
-import { useState } from 'react'
+import { ComboboxInput, ComboboxProvider, IconSparkle } from '@vtex/shoreline'
+import { useRef, useState } from 'react'
 
 import {
   AIComposer,
@@ -26,6 +21,7 @@ import {
 import { useAIComposer } from '../../../hooks/use-ai-composer'
 import { useAIStatus } from '../../../hooks/use-ai-status'
 import { ComposerStoryDecorator } from './decorators'
+import { StoryPanel, type StoryPanelSection } from './panel'
 
 const meta: Meta = {
   title: 'shoreline-ai/composer',
@@ -112,11 +108,9 @@ export const AddAttachment: Story = {
   },
 }
 
-// The Shoreline ComboboxItem type omits this Ariakit prop; it is forwarded at runtime.
-// It keeps the clicked entry out of the draft.
-const KEEP_DRAFT = { setValueOnClick: false }
-
-const SUGGESTIONS = ['Alpha', 'Beta']
+const SECTIONS: StoryPanelSection[] = [
+  { title: 'Suggestions', icon: IconSparkle, entries: ['Alpha', 'Beta'] },
+]
 
 /** The PR #1013 panel recipe: a combobox on the input, opened while the draft is empty. */
 function PanelComposer(props: { onPick: (text: string) => void }) {
@@ -124,42 +118,38 @@ function PanelComposer(props: { onPick: (text: string) => void }) {
   const { text, setText } = useAIComposer()
   const { isStreaming } = useAIStatus()
   const [requested, setRequested] = useState(false)
+  const fieldRef = useRef<HTMLDivElement>(null)
   const open = requested && !text.trim() && !isStreaming
 
   return (
-    <AIComposer>
-      <AIComposerField>
-        <ComboboxProvider
-          open={open}
-          setOpen={setRequested}
-          value={text}
-          setValue={setText}
-        >
-          <AIComposerInput asChild placeholder="Type a message">
-            <ComboboxInput asChild>
-              <textarea />
-            </ComboboxInput>
-          </AIComposerInput>
-          <ComboboxPopover>
-            {SUGGESTIONS.map((suggestion) => (
-              <ComboboxItem
-                key={suggestion}
-                value={suggestion}
-                {...KEEP_DRAFT}
-                onClick={() => onPick(suggestion)}
-              >
-                {suggestion}
-              </ComboboxItem>
-            ))}
-          </ComboboxPopover>
-        </ComboboxProvider>
-        <AIComposerFooter>
-          <AIComposerActions>
-            <AIComposerSend />
-          </AIComposerActions>
-        </AIComposerFooter>
-      </AIComposerField>
-    </AIComposer>
+    <div style={{ paddingTop: 160 }}>
+      <AIComposer>
+        <AIComposerField ref={fieldRef}>
+          <ComboboxProvider
+            open={open}
+            setOpen={setRequested}
+            value={text}
+            setValue={setText}
+          >
+            <AIComposerInput asChild placeholder="Type a message">
+              <ComboboxInput asChild>
+                <textarea />
+              </ComboboxInput>
+            </AIComposerInput>
+            <StoryPanel
+              fieldRef={fieldRef}
+              sections={SECTIONS}
+              onPick={onPick}
+            />
+          </ComboboxProvider>
+          <AIComposerFooter>
+            <AIComposerActions>
+              <AIComposerSend />
+            </AIComposerActions>
+          </AIComposerFooter>
+        </AIComposerField>
+      </AIComposer>
+    </div>
   )
 }
 
