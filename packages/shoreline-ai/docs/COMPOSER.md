@@ -2,7 +2,7 @@
 
 > **Status:** experimental
 
-Shoreline-styled chat input for AI apps: the **`AIComposer*`** family from `@vtex/shoreline-ai` (pill layout, footer slots, circular send, file attachments, built-in i18n). Draft state lives in the package runtime — mount inside `<AIProvider>`.
+Shoreline-styled chat input for AI apps: the **`AIComposer*`** family from `@vtex/shoreline-ai` (pill layout in three arrangements, footer slots, circular send, file attachments, context items, built-in i18n). Draft state lives in the package runtime — mount inside `<AIProvider>`.
 
 Related guides: [RUNTIME.md](./RUNTIME.md) (builder, `AttachmentHandler`), [PROVIDER.md](./PROVIDER.md), [HOOKS.md](./HOOKS.md) (`useAIComposer`, `useAIStatus`).
 
@@ -59,7 +59,9 @@ Normative tree (matches AI Workspace layout: attachments and textarea inside the
 | Component | Purpose |
 |-----------|---------|
 | `AIComposer` | Root form; `loading` swaps in skeleton; optional `messages` overrides i18n |
-| `AIComposerField` | Pill container (border, min/max height) |
+| `AIComposerContextItems` | Band of context items above the field (place before `AIComposerField`) |
+| `AIComposerContextItem` | One removable context item: pin icon, truncated label, optional remove button |
+| `AIComposerField` | Pill container (gray-2 surface, focus ring) |
 | `AIComposerAttachments` | Pending file chips above the input |
 | `AIComposerInput` | Draft textarea |
 | `AIComposerFooter` | Bottom row: start slot (left) + actions slot (right) |
@@ -115,8 +117,76 @@ Use before the provider is ready or in layouts without a full composer:
 
 ```tsx
 <AIComposerSkeleton />
-<AIComposerSkeleton compact />
+<AIComposerSkeleton layout="inline" />
 ```
+
+### Layouts
+
+`layout` on `AIComposer` picks the arrangement. It only sets `data-layout` on the form; the DOM order stays the same, so tab order follows the DOM and can differ from the visual order in `expanded` and `inline`.
+
+| Value | Arrangement | Design states |
+|-------|-------------|---------------|
+| `stacked` (default) | Text, then a footer row with the start slot on the left and the actions on the right | "ações abaixo do texto", "com contexto" |
+| `expanded` | The start slot (the `+`) above the text, actions at the bottom end | "padrão", "enviando", "com anexos" |
+| `inline` | One row: start slot, text, actions (minimum height `--sl-space-16`) | "compacta", "com agente", "ações na mesma linha" |
+
+```tsx
+<AIComposer layout="inline">…</AIComposer>
+```
+
+In `inline` an app can show only the avatar of its agent pill by reading `[data-layout="inline"]` on the form in its own CSS.
+
+### Context items
+
+Removable items above the field, for example documents pinned as context. Place `AIComposerContextItems` before `AIComposerField`: the items sit in a lighter band and the pill overlaps it. The package stores nothing; the app owns the list.
+
+```tsx
+<AIComposer>
+  <AIComposerContextItems>
+    {items.map((item) => (
+      <AIComposerContextItem key={item.id} onRemove={() => remove(item.id)}>
+        {item.title}
+      </AIComposerContextItem>
+    ))}
+  </AIComposerContextItems>
+  <AIComposerField>…</AIComposerField>
+</AIComposer>
+```
+
+Long labels truncate with an ellipsis; a string label also becomes the `title`. The remove label is localized (`removeContext`).
+
+### History and suggestions panel
+
+The package has no panel component. An app builds it with a Shoreline combobox on the input through `asChild`, reading the draft with `useAIComposer()` and sending the chosen entry with `useAIThread().sendMessage`:
+
+```tsx
+function HistoryInput() {
+  const { text, setText } = useAIComposer()
+  const { isStreaming } = useAIStatus()
+  const { sendMessage } = useAIThread()
+  const [requested, setRequested] = useState(false)
+  const open = requested && !text.trim() && !isStreaming
+
+  return (
+    <ComboboxProvider open={open} setOpen={setRequested} value={text} setValue={setText}>
+      <AIComposerInput asChild>
+        <ComboboxInput asChild>
+          <textarea />
+        </ComboboxInput>
+      </AIComposerInput>
+      <ComboboxPopover>
+        {entries.map((entry) => (
+          <ComboboxItem key={entry} value={entry} onClick={() => sendMessage({ text: entry })}>
+            {entry}
+          </ComboboxItem>
+        ))}
+      </ComboboxPopover>
+    </ComboboxProvider>
+  )
+}
+```
+
+Keep the `useAIComposer()` subscription in a small component like this one: it re-renders on each keystroke, so it should not wrap the whole composer. The field is `position: relative`, so a popover can open above the input. See the `HistoryAndSuggestions` and `ComboboxOnInput` stories.
 
 ### Footer with product slots
 
@@ -192,11 +262,12 @@ function PromptToolbar() {
 
 | Prop | Default | Purpose |
 |------|---------|---------|
+| `layout` | `'stacked'` | `'stacked'`, `'expanded'` or `'inline'` |
 | `loading` | `false` | Renders skeleton instead of the interactive composer |
 | `messages` | — | Partial override of the internal i18n catalog |
 | `children` | — | Composer subtree (`AIComposerField`, etc.) |
 
-Message ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed`, `attachmentTypeNotAllowed`.
+Message ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `removeContext`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed`, `attachmentTypeNotAllowed`.
 
 `attachmentTooLarge` and `attachmentTooMany` have a `{max}` placeholder: the largest size (for example `5.0 MB`) and the largest number of files.
 
@@ -215,6 +286,7 @@ Only `AIComposer` accepts `messages`; child components read from context.
 | `placeholder` | Catalog | Input placeholder |
 | `rows` | `1` | Visible row count |
 | `autoFocus` | `false` | Focus on mount |
+| `asChild` | `false` | Render the child as the textarea, to attach a combobox |
 
 ### `AIComposerAddAttachment`
 
@@ -238,11 +310,18 @@ The file types the picker offers come from `accept` of the `AttachmentHandler`. 
 
 No `onRemove` prop — removal is handled by the chip’s control and the runtime handler.
 
+### `AIComposerContextItem`
+
+| Prop | Default | Purpose |
+|------|---------|---------|
+| `icon` | Pin | Leading icon |
+| `onRemove` | — | Shows a remove button and is called on removal |
+
 ### `AIComposerSkeleton`
 
 | Prop | Default | Purpose |
 |------|---------|---------|
-| `compact` | `false` | Single-line skeleton variant |
+| `layout` | `'stacked'` | Layout the skeleton stands in for; `inline` renders the one-row height |
 
 `AIComposerSend`, `AIComposerCancel`, and `AIComposerAction` do not accept `children`; labels come from i18n.
 
