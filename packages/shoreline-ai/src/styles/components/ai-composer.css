@@ -6,7 +6,7 @@
     box-sizing: border-box;
   }
 
-  /* TODO(token): add --sl-radius-4: 1.5rem to @vtex/shoreline-css (sunrise); matches ai-workspace-shell theme.css */
+  /* Sunrise has no --sl-radius-4; the fallback is the Design value (1.5rem). */
   [data-sl-ai-composer-field],
   [data-sl-ai-composer-skeleton-field] {
     border-radius: var(--sl-radius-4, 1.5rem);
@@ -18,19 +18,17 @@
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    min-height: 72px; /* TODO(token): pill min-height */
-    max-height: 200px; /* TODO(token): pill max-height */
+    min-height: 0;
     height: auto;
-    padding-block: var(--sl-space-3);
-    padding-inline: var(--sl-space-4) var(--sl-space-3);
-    border: 1px solid var(--sl-color-gray-4);
-    background: var(--sl-bg-base);
+    padding: var(--sl-space-3);
+    border: 0;
+    background: var(--sl-color-gray-2);
     box-sizing: border-box;
+    position: relative;
   }
 
   [data-sl-ai-composer-field]:focus-within {
-    box-shadow: none;
-    outline: none;
+    box-shadow: var(--sl-focus-ring-base);
   }
 
   [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments] {
@@ -42,7 +40,8 @@
 
   [data-sl-ai-composer-field] [data-sl-textarea] {
     flex: 1 1 0;
-    min-height: var(--sl-space-8); /* TODO(token): textarea min-height 32px */
+    min-height: var(--sl-space-8);
+    max-height: var(--sl-space-32);
     min-width: 0;
     width: 100%;
     max-width: none;
@@ -55,7 +54,7 @@
   [data-sl-ai-composer-field] [data-sl-textarea-input],
   [data-sl-ai-composer-field] [data-sl-textarea] textarea {
     min-height: var(--sl-space-8);
-    padding: var(--sl-space-1) var(--sl-space-1) var(--sl-space-1) 0; /* TODO(token): 6px 4px 6px 0 */
+    padding: var(--sl-space-1) var(--sl-space-3);
     box-sizing: border-box;
     height: 100%;
     border: none;
@@ -86,13 +85,20 @@
     letter-spacing: var(--sl-text-body-letter-spacing);
   }
 
+  [data-sl-ai-composer-field] [data-sl-textarea-input]:placeholder-shown,
+  [data-sl-ai-composer-field] [data-sl-textarea] textarea:placeholder-shown {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+  }
+
   [data-sl-ai-composer-footer] {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     width: 100%;
     min-width: 0;
-    min-height: 2.25rem; /* TODO(token): footer min-height 36px */
+    min-height: calc(var(--sl-space-8) + var(--sl-space-1));
     flex-shrink: 0;
     margin-top: auto;
     padding-top: var(--sl-space-05);
@@ -106,7 +112,7 @@
 
   [data-sl-ai-composer-footer-start] {
     display: flex;
-    gap: var(--sl-space-1); /* TODO(token): 4px */
+    gap: var(--sl-space-1);
     align-items: center;
   }
 
@@ -179,6 +185,19 @@
     border-radius: 50%;
   }
 
+  [data-sl-icon-button][data-sl-ai-composer-cancel]:not(:disabled):not(
+      [aria-disabled="true"]
+    ) {
+    background: var(--sl-color-blue-10);
+    color: var(--sl-color-gray-0);
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-cancel]:not(:disabled):not(
+      [aria-disabled="true"]
+    ):hover {
+    background: var(--sl-color-blue-11);
+  }
+
   [data-sl-ai-composer-cancel] svg,
   [data-sl-ai-composer-cancel] svg path {
     width: var(--sl-space-5);
@@ -191,17 +210,21 @@
     flex-shrink: 0;
     border-radius: var(--sl-radius-full);
     background: transparent;
-    color: var(--sl-fg-muted);
+    color: var(--sl-fg-base-soft);
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: var(--sl-space-8);
+    height: var(--sl-space-8);
+    min-width: var(--sl-space-8);
+    min-height: var(--sl-space-8);
     padding: 0;
     line-height: 0;
     box-sizing: border-box;
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment]:hover {
-    background: var(--sl-bg-muted);
+    background: var(--sl-color-gray-3);
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment]
@@ -217,8 +240,8 @@
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment] svg {
-    width: 1.5rem; /* TODO(token): icon size 24px in composer */
-    height: 1.5rem;
+    width: var(--sl-space-6);
+    height: var(--sl-space-6);
     display: block;
     flex-shrink: 0;
   }
@@ -368,7 +391,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 72px; /* TODO(token) */
+    min-height: 72px;
     padding-block: var(--sl-space-3);
     padding-inline: var(--sl-space-4) var(--sl-space-3);
     border: 1px solid var(--sl-color-gray-4);
