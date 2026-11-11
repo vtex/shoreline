@@ -103,6 +103,8 @@ export {
   AIComposerAttachments,
   AIComposerAttachment,
   AIComposerAddAttachment,
+  AIComposerContextItems,
+  AIComposerContextItem,
   AIComposerField,
   AIComposerFooter,
   AIComposerInput,
@@ -133,6 +135,9 @@ export type {
   AIComposerAttachmentOptions,
   AIComposerSkeletonProps,
   AIComposerSkeletonOptions,
+  AIComposerContextItemsProps,
+  AIComposerContextItemProps,
+  AIComposerContextItemOptions,
 } from './components/composer'
 
 // Messages

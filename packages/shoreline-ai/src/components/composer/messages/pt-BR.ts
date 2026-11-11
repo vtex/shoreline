@@ -3,6 +3,7 @@ export default {
   cancel: 'Parar',
   removeAttachment: 'Remover anexo',
   addAttachment: 'Adicionar anexo',
+  removeContext: 'Remover contexto',
   attachmentTooLarge: 'Arquivo muito grande (máx. {max})',
   attachmentTooMany: 'Muitos arquivos (máx. {max})',
   attachmentUploadFailed: 'Falha no envio',

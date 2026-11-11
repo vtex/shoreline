@@ -447,6 +447,50 @@
     justify-content: center;
   }
 
+  /* Context items: a lighter band above the pill, which overlaps it by the radius. */
+  [data-sl-ai-composer-context-items] {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sl-space-1);
+    min-width: 0;
+    padding: var(--sl-space-2) var(--sl-space-4)
+      calc(var(--sl-radius-4, 1.5rem) + var(--sl-space-1));
+    border-radius: var(--sl-radius-4, 1.5rem) var(--sl-radius-4, 1.5rem) 0 0;
+    background: var(--sl-color-gray-1);
+    box-sizing: border-box;
+  }
+
+  [data-sl-ai-composer-context-items] + [data-sl-ai-composer-field] {
+    margin-top: calc(var(--sl-radius-4, 1.5rem) * -1);
+  }
+
+  [data-sl-ai-composer-context-item] {
+    display: flex;
+    align-items: center;
+    gap: var(--sl-space-2);
+    min-width: 0;
+    color: var(--sl-fg-base);
+  }
+
+  [data-sl-ai-composer-context-item-icon] {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  [data-sl-ai-composer-context-item] [data-sl-text] {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-context-item-remove] {
+    flex-shrink: 0;
+  }
+
   [data-sl-ai-composer-skeleton] {
     width: 100%;
   }

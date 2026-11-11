@@ -17,8 +17,9 @@ function declarationsFor(selector: string): string {
   return rules
     .filter(([, selectors]) =>
       selectors
+        .replace(/\/\*[\s\S]*?\*\//g, '')
         .split(',')
-        .map((item) => item.replace(/\/\*[\s\S]*?\*\//g, '').trim())
+        .map((item) => item.trim())
         .includes(selector)
     )
     .map(([, , body]) => body)
@@ -80,6 +81,20 @@ describe('ai-composer.css', () => {
     expect(
       declarationsMatching('[data-layout="inline"] [data-sl-ai-composer-field]')
     ).toContain('var(--sl-space-16)')
+  })
+
+  it('context band uses gray-1', () => {
+    expect(declarationsFor('[data-sl-ai-composer-context-items]')).toContain(
+      'var(--sl-color-gray-1)'
+    )
+  })
+
+  it('field overlaps the band through an adjacent sibling selector', () => {
+    expect(
+      declarationsMatching(
+        '[data-sl-ai-composer-context-items] + [data-sl-ai-composer-field]'
+      )
+    ).toContain('margin-top')
   })
 
   it('skeleton is one gray-2 pill that stops animating on reduced motion', () => {

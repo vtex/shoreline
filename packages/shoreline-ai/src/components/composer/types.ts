@@ -130,3 +130,21 @@ export interface AIComposerSkeletonOptions {
 
 export type AIComposerSkeletonProps = AIComposerSkeletonOptions &
   ComponentPropsWithoutRef<'div'>
+
+/** @status experimental */
+export type AIComposerContextItemsProps = ComponentPropsWithoutRef<'ul'>
+
+/** @status experimental */
+export interface AIComposerContextItemOptions {
+  /**
+   * Leading icon. Uses a pin when omitted.
+   */
+  icon?: ReactNode
+  /**
+   * Shows a remove button when set. Called when the user removes the item.
+   */
+  onRemove?: () => void
+}
+
+export type AIComposerContextItemProps = AIComposerContextItemOptions &
+  ComponentPropsWithoutRef<'li'>
