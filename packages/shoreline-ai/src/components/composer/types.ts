@@ -3,6 +3,12 @@ import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import type { AIAttachment } from '../../types/public'
 import type enUS from './messages/en-US'
 
+/**
+ * Arrangement of the composer field.
+ * @status experimental
+ */
+export type AIComposerLayout = 'stacked' | 'expanded' | 'inline'
+
 /** @status experimental */
 export interface AIComposerOptions {
   /**
@@ -104,10 +110,10 @@ export type AIComposerAttachmentProps = AIComposerAttachmentOptions &
 /** @status experimental */
 export interface AIComposerSkeletonOptions {
   /**
-   * Renders a single-line skeleton.
-   * @default false
+   * Layout the skeleton stands in for. `inline` renders the one-row height.
+   * @default 'stacked'
    */
-  compact?: boolean
+  layout?: AIComposerLayout
 }
 
 export type AIComposerSkeletonProps = AIComposerSkeletonOptions &

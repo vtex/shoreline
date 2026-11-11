@@ -133,4 +133,23 @@ describe('AIComposerSkeleton', () => {
       document.querySelector('[data-sl-ai-composer-skeleton]')
     ).toBeTruthy()
   })
+
+  it('renders one pill with the default layout', () => {
+    render(<AIComposerSkeleton />)
+
+    const root = document.querySelector('[data-sl-ai-composer-skeleton]')
+
+    expect(root).toHaveAttribute('data-layout', 'stacked')
+    expect(
+      document.querySelectorAll('[data-sl-ai-composer-skeleton-pill]')
+    ).toHaveLength(1)
+  })
+
+  it('marks the inline layout', () => {
+    render(<AIComposerSkeleton layout="inline" />)
+
+    expect(
+      document.querySelector('[data-sl-ai-composer-skeleton]')
+    ).toHaveAttribute('data-layout', 'inline')
+  })
 })

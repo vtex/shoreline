@@ -14,6 +14,7 @@ export { AIComposerSkeleton } from './ai-composer-skeleton'
 export type {
   AIComposerProps,
   AIComposerOptions,
+  AIComposerLayout,
   AIComposerMessages,
   AIComposerFieldProps,
   AIComposerFooterProps,

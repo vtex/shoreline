@@ -58,6 +58,13 @@ describe('ai-composer.css', () => {
     )
   })
 
+  it('skeleton is one gray-2 pill that stops animating on reduced motion', () => {
+    expect(declarationsFor('[data-sl-ai-composer-skeleton-pill]')).toContain(
+      'var(--sl-color-gray-2)'
+    )
+    expect(css).toContain('prefers-reduced-motion: reduce')
+  })
+
   it('has no leftover token TODOs', () => {
     expect(css).not.toMatch(/TODO\(token\)/)
   })

@@ -7,8 +7,7 @@
   }
 
   /* Sunrise has no --sl-radius-4; the fallback is the Design value (1.5rem). */
-  [data-sl-ai-composer-field],
-  [data-sl-ai-composer-skeleton-field] {
+  [data-sl-ai-composer-field] {
     border-radius: var(--sl-radius-4, 1.5rem);
   }
 
@@ -384,35 +383,26 @@
 
   [data-sl-ai-composer-skeleton] {
     width: 100%;
-    padding-bottom: var(--sl-space-4);
   }
 
-  [data-sl-ai-composer-skeleton-field] {
-    display: flex;
-    flex-direction: column;
+  [data-sl-ai-composer-skeleton-pill] {
+    display: block;
     width: 100%;
-    min-height: 72px;
-    padding-block: var(--sl-space-3);
-    padding-inline: var(--sl-space-4) var(--sl-space-3);
-    border: 1px solid var(--sl-color-gray-4);
-    background: var(--sl-bg-base);
-    box-sizing: border-box;
+    height: calc(var(--sl-space-24) + var(--sl-space-1));
+    border-radius: var(--sl-radius-4, 1.5rem);
+    background: var(--sl-color-gray-2);
+    --skeleton-bg: var(--sl-color-gray-2);
   }
 
-  [data-sl-ai-composer-skeleton-prompt] {
-    align-self: flex-start;
+  [data-sl-ai-composer-skeleton][data-layout="inline"]
+    [data-sl-ai-composer-skeleton-pill] {
+    height: var(--sl-space-16);
   }
 
-  [data-sl-ai-composer-skeleton-footer] {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: auto;
-    min-height: var(--sl-space-10);
-    gap: var(--sl-space-2);
-  }
-
-  [data-sl-ai-composer-skeleton-footer-start] {
-    flex-shrink: 0;
+  @media (prefers-reduced-motion: reduce) {
+    [data-sl-ai-composer-skeleton-pill]::after {
+      animation: none;
+      background: transparent;
+    }
   }
 }

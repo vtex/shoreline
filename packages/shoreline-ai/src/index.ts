@@ -115,6 +115,7 @@ export {
 export type {
   AIComposerProps,
   AIComposerOptions,
+  AIComposerLayout,
   AIComposerMessages,
   AIComposerFieldProps,
   AIComposerFooterProps,
