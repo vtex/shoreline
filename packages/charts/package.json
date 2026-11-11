@@ -45,7 +45,7 @@
     "typescript": ">=5"
   },
   "devDependencies": {
-    "@types/node": "20.14.9",
+    "@types/node": "20.19.43",
     "@vtex/shoreline": "workspace:*",
     "@vtex/shoreline-css": "workspace:*",
     "concurrently": "8.2.2",
