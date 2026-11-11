@@ -8,9 +8,11 @@ import {
   waitFor,
 } from '@vtex/shoreline-test-utils'
 import { LocaleProvider } from '@vtex/shoreline'
+import { createRef } from 'react'
 import { afterEach, beforeEach, vi } from 'vitest'
 
 import { MockRuntimeProvider } from '../../../test-utils'
+import { useAIComposer } from '../../../hooks/use-ai-composer'
 import type { StreamTransport } from '../../../runtime/types'
 
 import {
@@ -44,6 +46,133 @@ describe('AIComposer runtime integration', () => {
     await user.type(input, 'Hello')
 
     expect(input).toHaveValue('Hello')
+  })
+})
+
+function DraftProbe() {
+  const { text } = useAIComposer()
+
+  return <output data-testid="draft">{text}</output>
+}
+
+describe('AIComposerInput asChild', () => {
+  it('renders the child as the textarea', () => {
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer>
+            <AIComposerField>
+              <AIComposerInput asChild>
+                <textarea data-testid="own" />
+              </AIComposerInput>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    expect(screen.getByTestId('own')).toHaveAttribute('data-sl-textarea-input')
+    expect(document.querySelectorAll('textarea')).toHaveLength(1)
+  })
+
+  it('keeps the draft in sync through the child', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer>
+            <AIComposerField>
+              <AIComposerInput asChild>
+                <textarea data-testid="own" />
+              </AIComposerInput>
+            </AIComposerField>
+            <DraftProbe />
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    await user.type(screen.getByTestId('own'), 'Hello')
+
+    expect(screen.getByTestId('own')).toHaveValue('Hello')
+    expect(screen.getByTestId('draft')).toHaveTextContent('Hello')
+  })
+
+  it('still sends on Enter', async () => {
+    const user = userEvent.setup()
+    const run = vi.fn()
+    const transport: StreamTransport = {
+      // biome-ignore lint/correctness/useYield: the run ends without snapshots
+      async *run(...args: unknown[]) {
+        run(...args)
+
+        return { parts: [{ type: 'text', text: 'Done' }], status: 'ready' }
+      },
+    }
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider transport={transport}>
+          <AIComposer>
+            <AIComposerField>
+              <AIComposerInput asChild>
+                <textarea data-testid="own" />
+              </AIComposerInput>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    await user.type(screen.getByTestId('own'), 'Hello{Enter}')
+
+    await waitFor(() => expect(run).toHaveBeenCalledTimes(1))
+  })
+
+  it('forwards the ref to the child', () => {
+    const ref = createRef<HTMLTextAreaElement>()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer>
+            <AIComposerField>
+              <AIComposerInput asChild ref={ref}>
+                <textarea data-testid="own" />
+              </AIComposerInput>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    expect(ref.current).toBe(screen.getByTestId('own'))
+  })
+})
+
+describe('AIComposer loading', () => {
+  it('keeps the draft when loading toggles off', async () => {
+    const user = userEvent.setup()
+    const tree = (loading: boolean) => (
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer loading={loading}>
+            <AIComposerField>
+              <AIComposerInput placeholder="Type here" />
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+    const { rerender } = render(tree(false))
+
+    await user.type(screen.getByPlaceholderText('Type here'), 'Hello')
+    rerender(tree(true))
+    expect(screen.queryByPlaceholderText('Type here')).toBeNull()
+    rerender(tree(false))
+
+    expect(screen.getByPlaceholderText('Type here')).toHaveValue('Hello')
   })
 })
 

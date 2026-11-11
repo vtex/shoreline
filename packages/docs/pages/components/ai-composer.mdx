@@ -1,0 +1,307 @@
+# AIComposer
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning" emoji="⚠️">
+  **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
+</Callout>
+
+The box where people write to an AI assistant. It has a text field, a button to send (and to stop the answer), and optionally file attachments and context items.
+
+`AIComposer` is a family of small components that you put together, like blocks. The draft text and the attachments live in the chat runtime, so you do not manage them with `useState`.
+
+<Preview name="ai-composer" />
+
+<Callout type="info">
+  The examples on this page run with a mock runtime that answers with a fake reply, so they work without a backend. In your app, wrap the composer with `<AIProvider>` and a runtime built from your own transport. See the [Runtime guide](/guides/shoreline-ai-runtime).
+</Callout>
+
+## Setup
+
+Import the package styles once, next to the Shoreline ones:
+
+```tsx
+import '@vtex/shoreline/css'
+import '@vtex/shoreline-ai/css'
+```
+
+Then mount the composer inside `<AIProvider>`. Wrap your app with `LocaleProvider` to get the built-in labels in `en-US` or `pt-BR`.
+
+## How it is built
+
+Every composer follows the same tree. The field is the rounded box, and the footer has the buttons that sit below the text:
+
+```tsx
+<AIComposer>
+  <AIComposerField>
+    <AIComposerAttachments />      {/* optional: files already added */}
+    <AIComposerInput />
+    <AIComposerFooter>
+      <AIComposerAddAttachment />  {/* optional: the + button */}
+      <AIComposerActions>
+        <AIComposerAction />       {/* send, or stop while answering */}
+      </AIComposerActions>
+    </AIComposerFooter>
+  </AIComposerField>
+</AIComposer>
+```
+
+| Component | What it is |
+|-----------|-----------|
+| `AIComposer` | The form. Sets the layout, the loading state and the labels |
+| `AIComposerHeader` | An empty slot above the field, for a card or the context items |
+| `AIComposerField` | The rounded box that holds everything |
+| `AIComposerInput` | The text area |
+| `AIComposerFooter` | The row below the text. Anything that is not `AIComposerActions` goes to the left side |
+| `AIComposerActions` | The group on the right side of the footer |
+| `AIComposerAction` | One button that sends when idle and stops while the assistant answers |
+| `AIComposerSend` / `AIComposerCancel` | The same button split in two, when you want to control it |
+| `AIComposerAddAttachment` | The `+` button that opens the file picker |
+| `AIComposerAttachments` | The chips of the files that were added |
+| `AIComposerContextItems` / `AIComposerContextItem` | The band of removable chips (for example, pinned documents) |
+| `AIComposerSkeleton` | The loading placeholder |
+
+## Examples
+
+### Layouts
+
+Use `layout` to choose how the pieces are arranged. The default is `stacked`.
+
+| Value | Arrangement |
+|-------|-------------|
+| `stacked` | The text, then a row below with the `+` on the left and the actions on the right |
+| `expanded` | The `+` above the text and the actions at the bottom end |
+| `inline` | Everything in one row. The most compact |
+
+<Callout type="info">
+  Only the look changes. The order in the DOM stays the same, so the tab order follows the DOM and can differ from what you see in `expanded` and `inline`.
+</Callout>
+
+#### Stacked
+
+<Preview name="ai-composer-layout-stacked" />
+
+#### Expanded
+
+<Preview name="ai-composer-layout-expanded" />
+
+#### Inline
+
+<Preview name="ai-composer-layout-inline" />
+
+### Send and stop
+
+`AIComposerAction` is the easiest option: it sends when the draft has text and turns into a stop button while the assistant is answering. The send button stays disabled while the draft is empty.
+
+If you want to control which button shows, use `AIComposerSend` and `AIComposerCancel` with the `useAIStatus` hook, inside `AIComposerActions`. Try sending a message below:
+
+<Preview name="ai-composer-send-cancel" />
+
+<Callout type="warning">
+  Put your component **inside** `AIComposerActions`, like `SendOrCancel` above. The footer finds `AIComposerActions` among its own children, so a custom component that renders `AIComposerActions` itself puts the buttons on the left side, and a warning is logged in development.
+</Callout>
+
+### Attachments
+
+To let people attach files:
+
+1. Register an `AttachmentHandler` on the runtime builder. It defines the accepted file types and the limits. See [Runtime](/guides/shoreline-ai-runtime).
+2. Render `AIComposerAttachments` as the first child of `AIComposerField`.
+3. Add `AIComposerAddAttachment` to the footer.
+
+Each file becomes a chip with the upload progress. When the user sends, the uploaded files reach your transport as `resource` parts.
+
+<Preview name="ai-composer-attachments" />
+
+A chip can show three states: uploading (with the percentage), ready (an image preview or the file name and size) and error (the message in red, with a remove button).
+
+A failed upload **does not block sending**. The message is sent without that file. To show a toast or a retry button, render your own chip with `useAIAttachment`:
+
+```tsx
+function UploadChip() {
+  const { attachment, remove, retry } = useAIAttachment()
+
+  return (
+    <div>
+      <span>{attachment.name}</span>
+      {attachment.status === 'error' && retry && (
+        <button onClick={retry}>Try again</button>
+      )}
+      <button onClick={remove}>Remove</button>
+    </div>
+  )
+}
+
+<AIComposerAttachments>{() => <UploadChip />}</AIComposerAttachments>
+```
+
+### Header and context items
+
+`AIComposerHeader` is an empty slot above the field. It draws nothing, so you can put anything in it. The field overlaps it by the size of its radius, exposed as `--sl-ai-composer-overlap`. Use it as `padding-bottom` so your content stays clear of the field.
+
+`AIComposerContextItems` is a ready-made band for removable chips, like documents pinned as context. The package stores nothing: you own the list and remove the item in `onRemove`. Long labels are truncated.
+
+<Preview name="ai-composer-context-items" />
+
+<Callout type="info">
+  Removing an item unmounts its button, so move the focus yourself if the user was on it.
+</Callout>
+
+With `asChild`, the child becomes the item and you control its content. The default icon, label and remove button are not rendered. The child should be an `li`:
+
+```tsx
+<AIComposerContextItem asChild>
+  <li>
+    <a href={doc.url}>{doc.title}</a>
+  </li>
+</AIComposerContextItem>
+```
+
+### Footer with your own buttons
+
+Anything inside `AIComposerFooter` that is not `AIComposerActions` goes to the left side. It is the place for an agent selector, a menu or any other control of your product:
+
+```tsx
+<AIComposerFooter>
+  <AIComposerAddAttachment />
+  <AgentPill />
+  <AIComposerActions>
+    <AIComposerAction />
+  </AIComposerActions>
+</AIComposerFooter>
+```
+
+### Read or change the draft
+
+`useAIComposer` gives you the draft outside of the text area. It is useful for a "prefill" button or a character counter. To send **without** using the draft, use `useAIThread().sendMessage`.
+
+<Preview name="ai-composer-toolbar" />
+
+Keep this hook in a small component, like `Toolbar` above. It re-renders on each keystroke, so it should not wrap the whole composer.
+
+### History and suggestions panel
+
+The package has no panel component. Build it with a Shoreline combobox on the input, using `asChild`. The combobox reads the draft with `useAIComposer` and sends the chosen entry with `useAIThread().sendMessage`:
+
+```tsx
+function HistoryInput() {
+  const { text, setText } = useAIComposer()
+  const { isStreaming } = useAIStatus()
+  const { sendMessage } = useAIThread()
+  const [requested, setRequested] = useState(false)
+  const open = requested && !text.trim() && !isStreaming
+
+  return (
+    <ComboboxProvider open={open} setOpen={setRequested} value={text} setValue={setText}>
+      <AIComposerInput asChild>
+        <ComboboxInput asChild>
+          <textarea />
+        </ComboboxInput>
+      </AIComposerInput>
+      <ComboboxPopover>
+        {entries.map((entry) => (
+          <ComboboxItem
+            key={entry}
+            value={entry}
+            {...{ setValueOnClick: false }}
+            onClick={() => sendMessage({ text: entry })}
+          >
+            {entry}
+          </ComboboxItem>
+        ))}
+      </ComboboxPopover>
+    </ComboboxProvider>
+  )
+}
+```
+
+`setValueOnClick: false` keeps the clicked entry out of the draft. The Shoreline `ComboboxItem` type omits this prop, so it is spread from an object, and it is forwarded at runtime. With `asChild` the textarea is yours, so the package does not autosize it: it adds `field-sizing: content`, which grows the box in browsers that support it.
+
+### Loading
+
+Use `loading` while your app is not ready. Only a skeleton is rendered, with no interactive form:
+
+<Preview name="ai-composer-loading" />
+
+To show the skeleton outside of a composer, use `AIComposerSkeleton`. It accepts the same `layout`.
+
+### Labels and languages
+
+The labels (`send`, `cancel`, placeholder, errors) come from a built-in catalog in `en-US` and `pt-BR`, chosen by the `LocaleProvider`. To change some of them, pass `messages` to `AIComposer`. Unset keys keep the default:
+
+<Preview name="ai-composer-messages" />
+
+Available ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `removeContext`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed` and `attachmentTypeNotAllowed`. The first two attachment messages have a `{max}` placeholder.
+
+## Props
+
+### AIComposer
+
+<PropsDocs name="ai-composer" />
+
+### AIComposerInput
+
+<PropsDocs name="ai-composer-input" />
+
+Do not replace it with a controlled `Textarea` bound to local state. The draft must stay in the runtime.
+
+### AIComposerAddAttachment
+
+<PropsDocs name="ai-composer-add-attachment" />
+
+The accepted file types come from `accept` on the `AttachmentHandler`. There is no `accept` prop here.
+
+### AIComposerAttachments
+
+<PropsDocs name="ai-composer-attachments" />
+
+### AIComposerHeader and AIComposerContextItems
+
+These two have no props of their own. `AIComposerHeader` accepts the props of a `div` and `AIComposerContextItems` the props of a `ul`. `AIComposerContextItems` renders nothing when it has no children, so an empty list leaves no space above the field.
+
+### AIComposerContextItem
+
+<PropsDocs name="ai-composer-context-item" />
+
+### AIComposerSkeleton
+
+<PropsDocs name="ai-composer-skeleton" />
+
+`AIComposerSend`, `AIComposerCancel` and `AIComposerAction` do not accept `children`. Their labels come from the catalog.
+
+## Hooks
+
+| Hook | Use it to |
+|------|-----------|
+| `useAIComposer()` | Read or change the draft: `text`, `attachments`, `disabled`, `setText`, `send`, `reset` |
+| `useAIAttachment()` | Read, `remove` or `retry` one chip, inside `AIComposerAttachments` |
+| `useAIStatus()` | Know if the assistant is answering (`isStreaming`) |
+| `useAIThread()` | `sendMessage` without the draft, and `stopGeneration` |
+
+## Styling
+
+Use the `data-sl-*` attributes to adjust the look in your CSS:
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-composer]` | The form. It has `data-layout` |
+| `[data-sl-ai-composer-header]` | The empty slot above the field |
+| `[data-sl-ai-composer-context-items]` | The band of context items |
+| `[data-sl-ai-composer-context-item]` | One context item |
+| `[data-sl-ai-composer-field]` | The rounded box |
+| `[data-sl-ai-composer-attachments]` | The list of chips |
+| `[data-sl-ai-composer-attachment]` | One chip |
+| `[data-sl-ai-composer-footer]` | The footer row |
+| `[data-sl-ai-composer-footer-start]` | The left side of the footer |
+| `[data-sl-ai-composer-actions]` | The right side of the footer |
+| `[data-sl-ai-composer-send]` | The send button |
+| `[data-sl-ai-composer-cancel]` | The stop button |
+| `[data-sl-ai-composer-add-attachment]` | The `+` button |
+| `[data-sl-ai-composer-skeleton]` | The skeleton |
+
+`AIComposerFooter` has `display: contents` in `expanded` and `inline`, so a `className` or `style` on it has no visual effect there.
+
+## Related
+
+- [Shoreline AI overview](/guides/shoreline-ai)
+- [Runtime](/guides/shoreline-ai-runtime): the transport and the `AttachmentHandler`

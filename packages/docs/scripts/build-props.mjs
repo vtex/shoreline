@@ -141,6 +141,26 @@ const files = [
    */
   join(dirname(''), '../charts/src/components/bar-chart/bar-chart.tsx'),
   /**
+   * Shoreline AI
+   */
+  ...[
+    'ai-composer',
+    'ai-composer-input',
+    'ai-composer-add-attachment',
+    'ai-composer-attachments',
+    'ai-composer-context-item',
+    'ai-composer-skeleton',
+  ].map((file) => ({
+    file: join(
+      dirname(''),
+      `../shoreline-ai/src/components/composer/${file}.tsx`
+    ),
+    types: join(
+      dirname(''),
+      '../shoreline-ai/src/components/composer/types.ts'
+    ),
+  })),
+  /**
    * Date
    */
   getPath('components', 'calendar', 'calendar'),
@@ -167,8 +187,9 @@ export default {
 async function main() {
   const refs = {}
 
-  files.forEach((file) => {
-    const ref = getReferences(file)[0]
+  files.forEach((entry) => {
+    const { file, types } = typeof entry === 'string' ? { file: entry } : entry
+    const ref = getReferences(file, types)[0]
 
     if (ref) {
       refs[kebabCase(ref?.name)] = ref

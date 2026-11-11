@@ -4,41 +4,26 @@ import { forwardRef } from '@vtex/shoreline'
 import type { AIComposerSkeletonProps } from './types'
 
 /**
- * Loading placeholder matching composer pill dimensions.
+ * Loading placeholder matching the composer pill dimensions.
  *
  * @status experimental
+ * @example
+ * <AIComposerSkeleton layout="inline" />
  */
 export const AIComposerSkeleton = forwardRef<
   HTMLDivElement,
   AIComposerSkeletonProps
 >(function AIComposerSkeleton(props, ref) {
-  const { compact = false, ...divProps } = props
-
-  if (compact) {
-    return (
-      <div ref={ref} data-sl-ai-composer-skeleton {...divProps}>
-        <Skeleton data-sl-skeleton="composer-input" height="32px" />
-      </div>
-    )
-  }
+  const { layout = 'stacked', ...divProps } = props
 
   return (
-    <div ref={ref} data-sl-ai-composer-skeleton {...divProps}>
-      <div data-sl-ai-composer-skeleton-field>
-        <Skeleton
-          data-sl-ai-composer-skeleton-prompt
-          height="20px"
-          width="68%"
-        />
-        <div data-sl-ai-composer-skeleton-footer>
-          <Skeleton
-            data-sl-ai-composer-skeleton-footer-start
-            height="36px"
-            width="36px"
-          />
-          <Skeleton shape="circle" height="40px" width="40px" />
-        </div>
-      </div>
+    <div
+      ref={ref}
+      data-sl-ai-composer-skeleton
+      data-layout={layout}
+      {...divProps}
+    >
+      <Skeleton data-sl-ai-composer-skeleton-pill />
     </div>
   )
 })

@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Flex, Text } from '@vtex/shoreline'
 
-import '@vtex/shoreline/css'
 import '@vtex/shoreline-ai/css'
 
 import type { AIStreamDebugRun } from '../types'

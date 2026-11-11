@@ -227,6 +227,9 @@ importers:
       '@vtex/shoreline':
         specifier: workspace:*
         version: link:../shoreline
+      '@vtex/shoreline-ai':
+        specifier: workspace:*
+        version: link:../shoreline-ai
       '@vtex/shoreline-charts':
         specifier: workspace:*
         version: link:../charts

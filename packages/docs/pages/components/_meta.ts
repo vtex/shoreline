@@ -62,4 +62,7 @@ export default {
   flex: 'Flex',
   grid: 'Grid',
   stack: 'Stack',
+
+  ShorelineAI: { type: 'separator', title: 'Shoreline AI' },
+  'ai-composer': 'AIComposer',
 }

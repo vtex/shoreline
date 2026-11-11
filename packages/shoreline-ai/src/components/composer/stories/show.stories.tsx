@@ -1,10 +1,9 @@
 import { expect, userEvent, within } from '@storybook/test'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import '@vtex/shoreline/css'
 import '@vtex/shoreline-ai/css'
 
-import { IconSparkle, Text } from '@vtex/shoreline'
+import type { ReactNode } from 'react'
 
 import {
   AIComposer,
@@ -12,11 +11,19 @@ import {
   AIComposerAction,
   AIComposerAddAttachment,
   AIComposerAttachments,
+  AIComposerContextItem,
+  AIComposerContextItems,
   AIComposerField,
   AIComposerFooter,
+  AIComposerHeader,
   AIComposerInput,
   AIComposerSkeleton,
+  type AIComposerLayout,
 } from '../index'
+import { MockRuntimeProvider } from '../../../test-utils'
+import { StoryAgentPill } from './agent-pill'
+import { InitiativeCard } from './initiative-card'
+import type { StreamTransport } from '../../../runtime/types'
 import { ComposerStoryDecorator } from './decorators'
 
 const meta: Meta<typeof AIComposer> = {
@@ -36,37 +43,6 @@ const meta: Meta<typeof AIComposer> = {
 export default meta
 
 type Story = StoryObj<typeof AIComposer>
-
-function MockAgentPill() {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        gap: 4,
-        alignItems: 'center',
-        height: 32,
-        padding: '4px 8px 4px 4px',
-        borderRadius: 30,
-      }}
-    >
-      <span
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: 20,
-          height: 20,
-          color: 'var(--sl-color-purple-8)',
-        }}
-      >
-        <IconSparkle />
-      </span>
-      <Text variant="body" style={{ fontSize: 14, fontWeight: 500 }}>
-        Meu assistente
-      </Text>
-    </div>
-  )
-}
 
 async function uploadComposerFiles(canvasElement: HTMLElement) {
   const canvas = within(canvasElement)
@@ -147,10 +123,10 @@ export const ReferenceLayout: Story = {
     <AIComposer>
       <AIComposerField>
         <AIComposerAttachments />
-        <AIComposerInput placeholder="Mensagem para Meu assistente…" />
+        <AIComposerInput placeholder="Message VTEX My Assistant..." />
         <AIComposerFooter>
           <AIComposerAddAttachment />
-          <MockAgentPill />
+          <StoryAgentPill />
           <AIComposerActions>
             <AIComposerAction />
           </AIComposerActions>
@@ -167,10 +143,10 @@ export const WithAttachments: Story = {
     <AIComposer>
       <AIComposerField>
         <AIComposerAttachments />
-        <AIComposerInput placeholder="Mensagem para Meu assistente…" />
+        <AIComposerInput placeholder="Message VTEX My Assistant..." />
         <AIComposerFooter>
           <AIComposerAddAttachment />
-          <MockAgentPill />
+          <StoryAgentPill />
           <AIComposerActions>
             <AIComposerAction />
           </AIComposerActions>
@@ -194,4 +170,162 @@ export const Loading: Story = {
 
 export const SkeletonOnly: Story = {
   render: () => <AIComposerSkeleton />,
+}
+
+/** Holds the run open, so the composer keeps showing the stop button. */
+const holdingTransport: StreamTransport = {
+  async *run() {
+    await new Promise<never>(() => {})
+
+    return { parts: [], status: 'ready' }
+  },
+}
+
+function LayoutComposer(props: {
+  layout: AIComposerLayout
+  placeholder?: string
+  agent?: 'name' | 'compact'
+  contextItems?: ReactNode
+  children?: ReactNode
+}) {
+  const { layout, placeholder, agent, contextItems, children } = props
+
+  return (
+    <AIComposer layout={layout}>
+      {contextItems}
+      <AIComposerField>
+        <AIComposerAttachments />
+        <AIComposerInput placeholder={placeholder} />
+        <AIComposerFooter>
+          <AIComposerAddAttachment />
+          {agent ? <StoryAgentPill compact={agent === 'compact'} /> : null}
+          <AIComposerActions>
+            <AIComposerAction />
+          </AIComposerActions>
+        </AIComposerFooter>
+      </AIComposerField>
+      {children}
+    </AIComposer>
+  )
+}
+
+async function typeDraft(canvasElement: HTMLElement, text: string) {
+  const input = within(canvasElement).getByRole('textbox')
+
+  await userEvent.type(input, text)
+}
+
+/** Design "padrão": the start slot above the text, send at the bottom end. */
+export const Expanded: Story = {
+  render: () => (
+    <LayoutComposer layout="expanded" placeholder="Type a message..." />
+  ),
+}
+
+/** Design "enviando": a run is active, so the stop button shows. */
+export const ExpandedStreaming: Story = {
+  decorators: [
+    (Story) => (
+      <MockRuntimeProvider transport={holdingTransport}>
+        <Story />
+      </MockRuntimeProvider>
+    ),
+  ],
+  render: () => (
+    <LayoutComposer layout="expanded" placeholder="Type a message..." />
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    await typeDraft(canvasElement, 'Hi')
+    await userEvent.click(canvas.getByRole('button', { name: /send/i }))
+    await canvas.findByRole('button', { name: /stop/i })
+    await typeDraft(canvasElement, 'Analyzing your store data...')
+  },
+}
+
+/** Design "com anexos": chips above the text. */
+export const ExpandedWithAttachments: Story = {
+  tags: ['skip-test'],
+  render: () => (
+    <LayoutComposer layout="expanded" placeholder="Type a message..." />
+  ),
+  play: async ({ canvasElement }) => {
+    await uploadComposerFiles(canvasElement)
+    await typeDraft(canvasElement, 'Here are the files')
+  },
+}
+
+/** Design "compacta": one row. */
+export const Inline: Story = {
+  render: () => (
+    <LayoutComposer layout="inline" placeholder="Quick message..." />
+  ),
+}
+
+/** Design "com agente" and "ações na mesma linha": the pill shows only its avatar. */
+export const InlineWithAgent: Story = {
+  render: () => (
+    <LayoutComposer
+      layout="inline"
+      placeholder="Message VTEX My Assistant..."
+      agent="compact"
+    />
+  ),
+}
+
+/** Design "ações abaixo do texto": the layout the package had before. */
+export const StackedWithAgent: Story = {
+  render: () => (
+    <LayoutComposer
+      layout="stacked"
+      placeholder="Message VTEX My Assistant..."
+      agent="name"
+    />
+  ),
+}
+
+/** Design "com contexto": removable items above the pill. */
+export const StackedWithContext: Story = {
+  render: () => (
+    <LayoutComposer
+      layout="stacked"
+      placeholder="Message Search Optimizer..."
+      agent="name"
+      contextItems={
+        <AIComposerHeader>
+          <AIComposerContextItems>
+            <AIComposerContextItem onRemove={() => {}}>
+              Post-Checkout Order Finalization Is Failingetail Pages are
+              showcasing Low-Quality Content
+            </AIComposerContextItem>
+            <AIComposerContextItem onRemove={() => {}}>
+              High-Demand Products are at Risk of Stockoutshowcasing Low-Quality
+              Content
+            </AIComposerContextItem>
+          </AIComposerContextItems>
+        </AIComposerHeader>
+      }
+    />
+  ),
+}
+
+/** An app card inside the neutral header: it draws its own surface and clears the pill. */
+export const StackedWithHeaderCard: Story = {
+  render: () => (
+    <LayoutComposer
+      layout="stacked"
+      placeholder="Message VTEX My Assistant..."
+      agent="name"
+      contextItems={
+        <AIComposerHeader>
+          <InitiativeCard defaultOpen />
+        </AIComposerHeader>
+      }
+    />
+  ),
+}
+
+export const LoadingInline: Story = {
+  render: () => <AIComposer loading layout="inline" />,
 }

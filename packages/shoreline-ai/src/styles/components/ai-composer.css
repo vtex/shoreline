@@ -6,31 +6,112 @@
     box-sizing: border-box;
   }
 
-  /* TODO(token): add --sl-radius-4: 1.5rem to @vtex/shoreline-css (sunrise); matches ai-workspace-shell theme.css */
-  [data-sl-ai-composer-field],
-  [data-sl-ai-composer-skeleton-field] {
+  /* Sunrise has no --sl-radius-4; the fallback is the Design value (1.5rem). */
+  [data-sl-ai-composer-field] {
     border-radius: var(--sl-radius-4, 1.5rem);
   }
 
   [data-sl-ai-composer-field] {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    min-height: 72px; /* TODO(token): pill min-height */
-    max-height: 200px; /* TODO(token): pill max-height */
+    min-height: 0;
     height: auto;
-    padding-block: var(--sl-space-3);
-    padding-inline: var(--sl-space-4) var(--sl-space-3);
-    border: 1px solid var(--sl-color-gray-4);
-    background: var(--sl-bg-base);
+    padding: var(--sl-space-3);
+    border: 0;
+    background: var(--sl-color-gray-2);
     box-sizing: border-box;
+    position: relative;
   }
 
   [data-sl-ai-composer-field]:focus-within {
-    box-shadow: none;
-    outline: none;
+    box-shadow: var(--sl-focus-ring-base);
+  }
+
+  /* Areas for the three layouts. The DOM order never changes. */
+  [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments] {
+    grid-area: attachments;
+  }
+
+  [data-sl-ai-composer-field] > [data-sl-textarea] {
+    grid-area: text;
+  }
+
+  [data-sl-ai-composer-field] > [data-sl-ai-composer-footer] {
+    grid-area: footer;
+  }
+
+  [data-sl-ai-composer-footer-start] {
+    grid-area: start;
+  }
+
+  [data-sl-ai-composer-actions] {
+    grid-area: actions;
+  }
+
+  /* stacked (default): text, then the footer row. */
+  [data-sl-ai-composer][data-layout="stacked"] [data-sl-ai-composer-field] {
+    grid-template-areas:
+      "attachments"
+      "text"
+      "footer";
+  }
+
+  /* expanded: the start slot sits above the text, actions at the bottom end. */
+  [data-sl-ai-composer][data-layout="expanded"] [data-sl-ai-composer-field] {
+    grid-template-areas:
+      "attachments"
+      "start"
+      "text"
+      "actions";
+  }
+
+  [data-sl-ai-composer][data-layout="expanded"] [data-sl-ai-composer-footer] {
+    display: contents;
+  }
+
+  [data-sl-ai-composer][data-layout="expanded"] [data-sl-ai-composer-actions] {
+    justify-self: end;
+  }
+
+  /* inline: start slot, text and actions on one row. */
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-field] {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "attachments attachments attachments"
+      "start text actions";
+    align-items: center;
+    column-gap: var(--sl-space-3);
+    min-height: var(--sl-space-16);
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-footer] {
+    display: contents;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-footer] > * {
+    align-self: center;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea],
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea-input],
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
+    min-height: 0;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] {
+    align-self: center;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
+    height: auto;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea-input],
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
+    padding-inline: 0;
   }
 
   [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments] {
@@ -40,9 +121,14 @@
     margin-bottom: var(--sl-space-2);
   }
 
+  [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments]:empty {
+    margin-bottom: 0;
+  }
+
   [data-sl-ai-composer-field] [data-sl-textarea] {
     flex: 1 1 0;
-    min-height: var(--sl-space-8); /* TODO(token): textarea min-height 32px */
+    min-height: var(--sl-space-8);
+    max-height: var(--sl-space-32);
     min-width: 0;
     width: 100%;
     max-width: none;
@@ -55,7 +141,7 @@
   [data-sl-ai-composer-field] [data-sl-textarea-input],
   [data-sl-ai-composer-field] [data-sl-textarea] textarea {
     min-height: var(--sl-space-8);
-    padding: var(--sl-space-1) var(--sl-space-1) var(--sl-space-1) 0; /* TODO(token): 6px 4px 6px 0 */
+    padding: var(--sl-space-1) var(--sl-space-3);
     box-sizing: border-box;
     height: 100%;
     border: none;
@@ -86,13 +172,25 @@
     letter-spacing: var(--sl-text-body-letter-spacing);
   }
 
+  /* An app-supplied textarea (asChild) has no autosize; let it grow with its content. */
+  [data-sl-ai-composer-field] [data-sl-textarea] textarea {
+    field-sizing: content;
+  }
+
+  [data-sl-ai-composer-field] [data-sl-textarea-input]:placeholder-shown,
+  [data-sl-ai-composer-field] [data-sl-textarea] textarea:placeholder-shown {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+  }
+
   [data-sl-ai-composer-footer] {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     width: 100%;
     min-width: 0;
-    min-height: 2.25rem; /* TODO(token): footer min-height 36px */
+    min-height: calc(var(--sl-space-8) + var(--sl-space-1));
     flex-shrink: 0;
     margin-top: auto;
     padding-top: var(--sl-space-05);
@@ -106,7 +204,7 @@
 
   [data-sl-ai-composer-footer-start] {
     display: flex;
-    gap: var(--sl-space-1); /* TODO(token): 4px */
+    gap: var(--sl-space-1);
     align-items: center;
   }
 
@@ -157,6 +255,8 @@
     min-height: var(--sl-space-10);
     padding: 0;
     border-radius: 50%;
+    background: var(--sl-color-gray-3);
+    color: var(--sl-fg-base-soft);
   }
 
   [data-sl-ai-composer-send]:disabled svg,
@@ -179,6 +279,19 @@
     border-radius: 50%;
   }
 
+  [data-sl-icon-button][data-sl-ai-composer-cancel]:not(:disabled):not(
+      [aria-disabled="true"]
+    ) {
+    background: var(--sl-color-blue-10);
+    color: var(--sl-color-gray-0);
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-cancel]:not(:disabled):not(
+      [aria-disabled="true"]
+    ):hover {
+    background: var(--sl-color-blue-11);
+  }
+
   [data-sl-ai-composer-cancel] svg,
   [data-sl-ai-composer-cancel] svg path {
     width: var(--sl-space-5);
@@ -191,17 +304,21 @@
     flex-shrink: 0;
     border-radius: var(--sl-radius-full);
     background: transparent;
-    color: var(--sl-fg-muted);
+    color: var(--sl-fg-base-soft);
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: var(--sl-space-8);
+    height: var(--sl-space-8);
+    min-width: var(--sl-space-8);
+    min-height: var(--sl-space-8);
     padding: 0;
     line-height: 0;
     box-sizing: border-box;
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment]:hover {
-    background: var(--sl-bg-muted);
+    background: var(--sl-color-gray-3);
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment]
@@ -217,8 +334,8 @@
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment] svg {
-    width: 1.5rem; /* TODO(token): icon size 24px in composer */
-    height: 1.5rem;
+    width: var(--sl-space-6);
+    height: var(--sl-space-6);
     display: block;
     flex-shrink: 0;
   }
@@ -359,37 +476,84 @@
     justify-content: center;
   }
 
-  [data-sl-ai-composer-skeleton] {
-    width: 100%;
-    padding-bottom: var(--sl-space-4);
+  /* Header: the neutral slot above the field. The field overlaps it by the pill radius. */
+  /* The root owns the variable: the field is a sibling of the header and must inherit it too. */
+  [data-sl-ai-composer] {
+    --sl-ai-composer-overlap: var(--sl-radius-4, 1.5rem);
   }
 
-  [data-sl-ai-composer-skeleton-field] {
+  [data-sl-ai-composer-header] {
+    position: relative;
+    min-width: 0;
+  }
+
+  [data-sl-ai-composer-header]:not(:empty) + [data-sl-ai-composer-field] {
+    margin-top: calc(var(--sl-ai-composer-overlap) * -1);
+  }
+
+  /* Context items: a lighter band that extends behind the pill by the overlap. */
+  [data-sl-ai-composer-context-items] {
+    list-style: none;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    min-height: 72px; /* TODO(token) */
-    padding-block: var(--sl-space-3);
-    padding-inline: var(--sl-space-4) var(--sl-space-3);
-    border: 1px solid var(--sl-color-gray-4);
-    background: var(--sl-bg-base);
+    gap: var(--sl-space-1);
+    min-width: 0;
+    padding: var(--sl-space-2) var(--sl-space-4)
+      calc(var(--sl-ai-composer-overlap, 1.5rem) + var(--sl-space-1));
+    border-radius: var(--sl-radius-4, 1.5rem) var(--sl-radius-4, 1.5rem) 0 0;
+    background: var(--sl-color-gray-1);
     box-sizing: border-box;
   }
 
-  [data-sl-ai-composer-skeleton-prompt] {
-    align-self: flex-start;
-  }
-
-  [data-sl-ai-composer-skeleton-footer] {
+  [data-sl-ai-composer-context-item] {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: auto;
-    min-height: var(--sl-space-10);
+    align-items: center;
     gap: var(--sl-space-2);
+    min-width: 0;
+    color: var(--sl-fg-base);
   }
 
-  [data-sl-ai-composer-skeleton-footer-start] {
+  [data-sl-ai-composer-context-item-icon] {
+    display: inline-flex;
     flex-shrink: 0;
+  }
+
+  [data-sl-ai-composer-context-item] [data-sl-text] {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-context-item-remove] {
+    flex-shrink: 0;
+  }
+
+  [data-sl-ai-composer-skeleton] {
+    width: 100%;
+  }
+
+  /* Two attributes: the Shoreline Skeleton sets its own radius with one. */
+  [data-sl-skeleton][data-sl-ai-composer-skeleton-pill] {
+    display: block;
+    width: 100%;
+    height: calc(var(--sl-space-24) + var(--sl-space-1));
+    border-radius: var(--sl-radius-4, 1.5rem);
+    background: var(--sl-color-gray-2);
+    --skeleton-bg: var(--sl-color-gray-2);
+  }
+
+  [data-sl-ai-composer-skeleton][data-layout="inline"]
+    [data-sl-ai-composer-skeleton-pill] {
+    height: var(--sl-space-16);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-sl-ai-composer-skeleton-pill]::after {
+      animation: none;
+      background: transparent;
+    }
   }
 }

@@ -12,7 +12,9 @@ import { LocaleProvider } from '@vtex/shoreline'
 
 import {
   AIComposer,
+  AIComposerActions,
   AIComposerField,
+  AIComposerFooter,
   AIComposerInput,
   AIComposerSkeleton,
 } from '..'
@@ -92,6 +94,58 @@ describe('AIComposer', () => {
     expect(document.querySelector('[data-sl-ai-composer]')).toBeNull()
   })
 
+  it('defaults to the stacked layout', () => {
+    render(
+      <LocaleProvider locale="en-US">
+        <AIComposer />
+      </LocaleProvider>
+    )
+
+    expect(document.querySelector('[data-sl-ai-composer]')).toHaveAttribute(
+      'data-layout',
+      'stacked'
+    )
+  })
+
+  it.each(['expanded', 'inline'] as const)('sets the %s layout', (layout) => {
+    render(
+      <LocaleProvider locale="en-US">
+        <AIComposer layout={layout} />
+      </LocaleProvider>
+    )
+
+    expect(document.querySelector('[data-sl-ai-composer]')).toHaveAttribute(
+      'data-layout',
+      layout
+    )
+  })
+
+  it('treats an undefined layout as stacked', () => {
+    render(
+      <LocaleProvider locale="en-US">
+        <AIComposer layout={undefined} />
+      </LocaleProvider>
+    )
+
+    expect(document.querySelector('[data-sl-ai-composer]')).toHaveAttribute(
+      'data-layout',
+      'stacked'
+    )
+  })
+
+  it('passes the layout to the skeleton when loading', () => {
+    render(
+      <LocaleProvider locale="en-US">
+        <AIComposer loading layout="inline" />
+      </LocaleProvider>
+    )
+
+    expect(
+      document.querySelector('[data-sl-ai-composer-skeleton]')
+    ).toHaveAttribute('data-layout', 'inline')
+    expect(document.querySelector('[data-sl-ai-composer]')).toBeNull()
+  })
+
   it('uses pt-BR catalog without messages override', () => {
     render(
       <LocaleProvider locale="pt-BR">
@@ -132,5 +186,144 @@ describe('AIComposerSkeleton', () => {
     expect(
       document.querySelector('[data-sl-ai-composer-skeleton]')
     ).toBeTruthy()
+  })
+
+  it('renders one pill with the default layout', () => {
+    render(<AIComposerSkeleton />)
+
+    const root = document.querySelector('[data-sl-ai-composer-skeleton]')
+
+    expect(root).toHaveAttribute('data-layout', 'stacked')
+    expect(
+      document.querySelectorAll('[data-sl-ai-composer-skeleton-pill]')
+    ).toHaveLength(1)
+  })
+
+  it('marks the inline layout', () => {
+    render(<AIComposerSkeleton layout="inline" />)
+
+    expect(
+      document.querySelector('[data-sl-ai-composer-skeleton]')
+    ).toHaveAttribute('data-layout', 'inline')
+  })
+})
+
+function WrappedActions() {
+  return (
+    <AIComposerActions>
+      <span data-testid="wrapped-action" />
+    </AIComposerActions>
+  )
+}
+
+describe('AIComposerFooter', () => {
+  it('puts actions in the actions slot when wrapped in a Fragment', () => {
+    render(
+      <AIComposerFooter>
+        <span data-testid="start-item" />
+        <>
+          <span data-testid="fragment-sibling" />
+          <AIComposerActions>
+            <span data-testid="action" />
+          </AIComposerActions>
+        </>
+      </AIComposerFooter>
+    )
+
+    const start = document.querySelector('[data-sl-ai-composer-footer-start]')
+
+    expect(start).toContainElement(screen.getByTestId('start-item'))
+    expect(start).toContainElement(screen.getByTestId('fragment-sibling'))
+    expect(start).not.toContainElement(screen.getByTestId('action'))
+    expect(
+      document.querySelector('[data-sl-ai-composer-actions]')
+    ).toContainElement(screen.getByTestId('action'))
+  })
+
+  it('does not warn about duplicate keys when it flattens Fragments', () => {
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    render(
+      <AIComposerFooter>
+        <span data-testid="start-item" />
+        <>
+          <span data-testid="fragment-sibling" />
+          <AIComposerActions>
+            <span data-testid="action" />
+          </AIComposerActions>
+        </>
+      </AIComposerFooter>
+    )
+
+    const keyWarnings = error.mock.calls.filter((call) =>
+      String(call[0]).includes('same key')
+    )
+
+    error.mockRestore()
+    expect(keyWarnings).toEqual([])
+  })
+
+  it('keeps non-actions children in the start slot', () => {
+    render(
+      <AIComposerFooter>
+        <span data-testid="one" />
+        <>
+          <span data-testid="two" />
+          <span data-testid="three" />
+        </>
+      </AIComposerFooter>
+    )
+
+    const start = document.querySelector('[data-sl-ai-composer-footer-start]')
+
+    expect(start).toContainElement(screen.getByTestId('one'))
+    expect(start).toContainElement(screen.getByTestId('two'))
+    expect(start).toContainElement(screen.getByTestId('three'))
+  })
+
+  it('warns in development when a custom component wraps the actions', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    render(
+      <AIComposerFooter>
+        <WrappedActions />
+      </AIComposerFooter>
+    )
+
+    const messages = warn.mock.calls.map((call) => String(call[0]))
+
+    warn.mockRestore()
+    expect(
+      messages.some((message) => message.includes('AIComposerActions'))
+    ).toBe(true)
+  })
+
+  it('does not warn when the actions are a direct child', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    render(
+      <AIComposerFooter>
+        <AIComposerActions>
+          <span />
+        </AIComposerActions>
+      </AIComposerFooter>
+    )
+
+    const calls = warn.mock.calls.length
+
+    warn.mockRestore()
+    expect(calls).toBe(0)
+  })
+
+  it('leaves a custom wrapper component in the start slot', () => {
+    render(
+      <AIComposerFooter>
+        <WrappedActions />
+      </AIComposerFooter>
+    )
+
+    expect(
+      document.querySelector('[data-sl-ai-composer-footer-start]')
+    ).toContainElement(screen.getByTestId('wrapped-action'))
   })
 })

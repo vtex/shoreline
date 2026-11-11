@@ -11,8 +11,10 @@ const project = new Project({
 
 /**
  * @param {string} filename
+ * @param {string} [typesFilename] File that exports `<Name>Options`, when the
+ * types do not live in the same file as the component.
  */
-export function getReferences(filename) {
+export function getReferences(filename, typesFilename) {
   let sourceFile = project.getSourceFile(filename)
 
   if (!sourceFile) {
@@ -23,6 +25,12 @@ export function getReferences(filename) {
   }
 
   const exportedDecls = sourceFile.getExportedDeclarations()
+  const typesDecls = typesFilename
+    ? (
+        project.getSourceFile(typesFilename) ??
+        project.addSourceFileAtPath(typesFilename)
+      ).getExportedDeclarations()
+    : undefined
 
   /** @type {import("./types.js").Reference[]} */
   const references = []
@@ -33,7 +41,9 @@ export function getReferences(filename) {
     if (!decl) continue
 
     if (Node.isVariableDeclaration(decl)) {
-      const options = exportedDecls.get(`${name}Options`)?.at(0)
+      const options = (
+        exportedDecls.get(`${name}Options`) ?? typesDecls?.get(`${name}Options`)
+      )?.at(0)
       references.push(getReference(filename, decl, options))
     } else if (Node.isFunctionDeclaration(decl)) {
       references.push(getReference(filename, decl))

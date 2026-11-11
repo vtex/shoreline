@@ -1,20 +1,29 @@
-import { expect, userEvent, within } from '@storybook/test'
+import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import '@vtex/shoreline/css'
 import '@vtex/shoreline-ai/css'
+
+import { ComboboxInput, ComboboxProvider, IconSparkle } from '@vtex/shoreline'
+import { useRef, useState } from 'react'
 
 import {
   AIComposer,
   AIComposerActions,
   AIComposerAddAttachment,
   AIComposerAttachments,
+  AIComposerContextItem,
+  AIComposerContextItems,
   AIComposerSend,
   AIComposerField,
   AIComposerFooter,
+  AIComposerHeader,
   AIComposerInput,
 } from '../index'
+import { useAIComposer } from '../../../hooks/use-ai-composer'
+import { useAIStatus } from '../../../hooks/use-ai-status'
 import { ComposerStoryDecorator } from './decorators'
+import { InitiativeCard } from './initiative-card'
+import { StoryPanel, type StoryPanelSection } from './panel'
 
 const meta: Meta = {
   title: 'shoreline-ai/composer',
@@ -98,5 +107,154 @@ export const AddAttachment: Story = {
 
     await expect(canvas.getByText('notes.txt')).toBeInTheDocument()
     expect(field.contains(canvas.getByText('notes.txt'))).toBe(true)
+  },
+}
+
+const SECTIONS: StoryPanelSection[] = [
+  { title: 'Suggestions', icon: IconSparkle, entries: ['Alpha', 'Beta'] },
+]
+
+/** The PR #1013 panel recipe: a combobox on the input, opened while the draft is empty. */
+function PanelComposer(props: { onPick: (text: string) => void }) {
+  const { onPick } = props
+  const { text, setText } = useAIComposer()
+  const { isStreaming } = useAIStatus()
+  const [requested, setRequested] = useState(false)
+  const fieldRef = useRef<HTMLDivElement>(null)
+  const open = requested && !text.trim() && !isStreaming
+
+  return (
+    <div style={{ paddingTop: 160 }}>
+      <AIComposer>
+        <AIComposerField ref={fieldRef}>
+          <ComboboxProvider
+            open={open}
+            setOpen={setRequested}
+            value={text}
+            setValue={setText}
+          >
+            <AIComposerInput asChild placeholder="Type a message">
+              <ComboboxInput asChild>
+                <textarea />
+              </ComboboxInput>
+            </AIComposerInput>
+            <StoryPanel
+              fieldRef={fieldRef}
+              sections={SECTIONS}
+              onPick={onPick}
+            />
+          </ComboboxProvider>
+          <AIComposerFooter>
+            <AIComposerActions>
+              <AIComposerSend />
+            </AIComposerActions>
+          </AIComposerFooter>
+        </AIComposerField>
+      </AIComposer>
+    </div>
+  )
+}
+
+const onPick = fn()
+
+export const ComboboxOnInput: Story = {
+  render: () => <PanelComposer onPick={onPick} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const page = within(document.body)
+    const input = canvas.getByPlaceholderText('Type a message')
+
+    await userEvent.click(input)
+    await expect(await page.findByRole('listbox')).toBeInTheDocument()
+
+    await userEvent.keyboard('{ArrowDown}')
+    await userEvent.keyboard('{Enter}')
+    await waitFor(() => expect(onPick).toHaveBeenCalledWith('Alpha'))
+
+    await userEvent.type(input, 'x')
+    await waitFor(() => expect(page.queryByRole('listbox')).toBeNull())
+  },
+}
+
+export const RemoveContextItem: Story = {
+  render: () => {
+    function Items() {
+      const [items, setItems] = useState(['Order 1042', 'Order 1043'])
+
+      return (
+        <AIComposer>
+          <AIComposerHeader>
+            <AIComposerContextItems>
+              {items.map((item) => (
+                <AIComposerContextItem
+                  key={item}
+                  onRemove={() =>
+                    setItems((current) => current.filter((i) => i !== item))
+                  }
+                >
+                  {item}
+                </AIComposerContextItem>
+              ))}
+            </AIComposerContextItems>
+          </AIComposerHeader>
+          <AIComposerField>
+            <AIComposerInput placeholder="Type a message" />
+          </AIComposerField>
+        </AIComposer>
+      )
+    }
+
+    return <Items />
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    await userEvent.click(
+      canvas.getAllByRole('button', { name: /remove context/i })[0]
+    )
+    await waitFor(() => expect(canvas.queryByText('Order 1042')).toBeNull())
+    await expect(canvas.getByText('Order 1043')).toBeInTheDocument()
+
+    await userEvent.click(
+      canvas.getByRole('button', { name: /remove context/i })
+    )
+    await waitFor(() => expect(canvas.queryByText('Order 1043')).toBeNull())
+
+    // With no items the band renders nothing, so the pill is not pulled up.
+    await expect(
+      canvasElement.querySelector('[data-sl-ai-composer-context-items]')
+    ).toBeNull()
+  },
+}
+
+export const ExpandHeaderCard: Story = {
+  render: () => (
+    <AIComposer>
+      <AIComposerHeader>
+        <InitiativeCard />
+      </AIComposerHeader>
+      <AIComposerField>
+        <AIComposerInput placeholder="Type a message" />
+      </AIComposerField>
+    </AIComposer>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const toggle = canvas.getByRole('button', { name: /IN6401/ })
+
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false')
+    await expect(canvas.queryByText(/landing pages/)).toBeNull()
+
+    await userEvent.click(toggle)
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true')
+    await expect(canvas.getByText(/landing pages/)).toBeInTheDocument()
+
+    const header = canvasElement.querySelector('[data-sl-ai-composer-header]')
+    const field = canvasElement.querySelector('[data-sl-ai-composer-field]')
+
+    // The pill overlaps the header by the radius, so it starts above the header's end.
+    await expect((field as Element).getBoundingClientRect().top).toBeLessThan(
+      (header as Element).getBoundingClientRect().bottom
+    )
   },
 }
