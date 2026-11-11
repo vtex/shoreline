@@ -1,3 +1,4 @@
 @import "./internal/chart-container/chart-container.css";
 @import "./internal/tooltip/tooltip.css";
 @import "./components/bar-chart/bar-chart.css";
+@import "./components/line-chart/line-chart.css";
