@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.126](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.125...@vtex/shoreline-ts-table@1.0.126) (2026-11-10)
+
+**Note:** Version bump only for package @vtex/shoreline-ts-table
+
+
+
+
+
+## [1.0.125](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.124...@vtex/shoreline-ts-table@1.0.125) (2026-09-28)
+
+**Note:** Version bump only for package @vtex/shoreline-ts-table
+
+
+
+
+
+## [1.0.124](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.123...@vtex/shoreline-ts-table@1.0.124) (2026-08-14)
+
+**Note:** Version bump only for package @vtex/shoreline-ts-table
+
+
+
+
+
+## [1.0.123](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.122...@vtex/shoreline-ts-table@1.0.123) (2026-08-13)
+
+**Note:** Version bump only for package @vtex/shoreline-ts-table
+
+
+
+
+
+## [1.0.122](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.121...@vtex/shoreline-ts-table@1.0.122) (2026-08-13)
+
+**Note:** Version bump only for package @vtex/shoreline-ts-table
+
+
+
+
+
+## [1.0.121](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.120...@vtex/shoreline-ts-table@1.0.121) (2026-08-13)
+
+**Note:** Version bump only for package @vtex/shoreline-ts-table
+
+
+
+
+
+## [1.0.120](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.119...@vtex/shoreline-ts-table@1.0.120) (2026-08-12)
+
+**Note:** Version bump only for package @vtex/shoreline-ts-table
+
+
+
+
+
+## [1.0.119](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.118...@vtex/shoreline-ts-table@1.0.119) (2026-08-04)
+
+**Note:** Version bump only for package @vtex/shoreline-ts-table
+
+
+
+
+
+## [1.0.118](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.117...@vtex/shoreline-ts-table@1.0.118) (2026-08-03)
+
+**Note:** Version bump only for package @vtex/shoreline-ts-table
+
+
+
+
+
 ## [1.0.117](https://github.com/vtex/shoreline/compare/@vtex/shoreline-ts-table@1.0.116...@vtex/shoreline-ts-table@1.0.117) (2026-05-15)
 
 **Note:** Version bump only for package @vtex/shoreline-ts-table

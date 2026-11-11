@@ -1,0 +1,15 @@
+[data-sl-bar-chart] {
+  position: relative;
+  inline-size: 100%;
+  block-size: var(--sl-bar-chart-block-size, 20rem);
+}
+
+[data-sl-bar-chart-empty] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  block-size: 100%;
+  color: var(--sl-fg-muted);
+  font: var(--sl-text-body-font);
+  letter-spacing: var(--sl-text-body-letter-spacing);
+}

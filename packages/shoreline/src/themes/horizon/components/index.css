@@ -1,0 +1,15 @@
+/*
+ * Horizon shares the component stylesheets with Sunrise: they only consume
+ * tokens, so most of the theme delta lives in tokens.css. Horizon-specific
+ * overrides are registered after the shared import, one file per component,
+ * so they win inside the `sl-components` layer that the build applies to
+ * this entry while the shared rules remain the fallback.
+ */
+@import "../../sunrise/components/index.css";
+
+@import "content.css";
+@import "link.css";
+@import "page.css";
+@import "search.css";
+@import "tab.css";
+@import "tag.css";

@@ -63,6 +63,10 @@ import '@vtex/shoreline/css/components/unlayered'
 | `@vtex/shoreline/css/base` | Base global styles | ✅ | `@vtex/shoreline/css/base/unlayered` |
 | `@vtex/shoreline/css/components` | Component styles | ✅ | `@vtex/shoreline/css/components/unlayered` |
 
+### Themes
+
+`@vtex/shoreline/css` selects the default theme, Sunrise. Every theme offers the same entries under `@vtex/shoreline/themes/<theme>`, for example `@vtex/shoreline/themes/horizon`. See the [Themes guide](./themes) for the available themes and how to select one.
+
 > **Note:** Layered stylesheets use [CSS cascade layers](./cascade-layers) for better style organization and control. Unlayered versions are available for environments that don't support cascade layers.
 
 The way you will apply the styles in your application depends on the tooling you are using. In the following example we will show how to apply styles using `CSS` and html `style` property.
@@ -72,7 +76,7 @@ The way you will apply the styles in your application depends on the tooling you
 2. Use the token in your application using the `style` property.
 
 ```jsx
-import '@vtex/shoreline-theme-sunrise/css'
+import '@vtex/shoreline/css'
 
 function Example() {
   return (
@@ -98,7 +102,7 @@ function Example() {
 <Tabs.Tab>
 
 ```jsx
-import '@vtex/shoreline-theme-sunrise/css'
+import '@vtex/shoreline/css'
 import './usage.css'
 
 function Example() {

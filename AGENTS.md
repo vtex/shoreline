@@ -17,7 +17,7 @@
 - **Lint / format**: Biome `1.9.4` (single tool — no ESLint, no Prettier)
 - **Bundler**: tsup → ESM + CJS + `.d.ts` per package
 - **Component primitives**: `@ariakit/react`, `@react-aria/*`, `@react-stately/*`, `vaul`
-- **Styling**: CSS Cascade Layers (`sl-reset`, `sl-base`, `sl-tokens`, `sl-components`); `data-sl-*` attribute architecture; design tokens as `--sl-*` CSS custom properties from `@vtex/shoreline-css`
+- **Styling**: CSS Cascade Layers (`sl-reset`, `sl-base`, `sl-tokens`, `sl-components`); `data-sl-*` attribute architecture; `--sl-*` design tokens declared per theme in `packages/shoreline/src/themes/<theme>/tokens.css` (`sunrise` default, `horizon` experimental), built with `@vtex/shoreline-css`
 - **Testing**: Vitest `1.6.0`, `@storybook/test-runner` + Playwright, Chromatic, Storybook `8.6.15`
 - **Release**: `lerna publish --conventional-commits --create-release github` on push to `main`
 
@@ -27,7 +27,7 @@
 shoreline/
 ├── packages/
 │   ├── shoreline/        # @vtex/shoreline — React components
-│   ├── css/              # @vtex/shoreline-css — tokens + global styles
+│   ├── css/              # @vtex/shoreline-css — CSS build engine (lightningcss bundling)
 │   ├── utils/            # @vtex/shoreline-utils — TS helpers (no React)
 │   ├── ts-table/         # @vtex/shoreline-ts-table — table primitives
 │   ├── test-utils/       # @vtex/shoreline-test-utils — testing helpers
@@ -84,7 +84,9 @@ The full set of rules and patterns lives in the spec repo (constitution + `docs/
 | Task | Path |
 |---|---|
 | Add or edit a React component | `packages/shoreline/src/components/<name>/` |
-| Add a design token | `packages/css/src/` |
+| Add or change a design token | `packages/shoreline/src/themes/<theme>/tokens.css` — in **every** theme (see `src/themes/tests/theme-contract.test.ts`) |
+| Add a theme | `packages/shoreline/src/themes/<name>/` + `src/themes/themes.ts` + `packages/shoreline/package.json` exports |
+| Edit the CSS build engine | `packages/css/src/` |
 | Add a TS helper (no React) | `packages/utils/src/` |
 | Add a table primitive | `packages/ts-table/src/` |
 | Add a test helper | `packages/test-utils/src/` |
@@ -106,6 +108,7 @@ The full set of rules and patterns lives in the spec repo (constitution + `docs/
 - **Chromatic baseline drift**: visual changes that affect more than one component require explicit reviewer approval. Don't accept a baseline without scanning every diff.
 - **Husky `HUSKY=0` is reserved** for the release workflow only. Do not set it locally to skip hooks.
 - **Figma Code Connect** requires `FIGMA_ACCESS_TOKEN` env var; dry-run first to avoid publishing partial mappings.
+- **Themes share component CSS**: `sunrise` (default, `@vtex/shoreline/css`) and `horizon` (`@vtex/shoreline/themes/horizon`) differ only in `tokens.css`; reset/base live in `packages/shoreline/src/foundations/`. Every token must exist in every theme — `theme-contract.test.ts` fails otherwise. One theme per document; stories must not import theme CSS (the Storybook toolbar switches themes).
 
 ## Resources
 
