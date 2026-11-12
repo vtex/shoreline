@@ -11,10 +11,17 @@
    * Override the placeholder height used before a message is first
    * rendered with --sl-ai-message-intrinsic-size (default: 5rem, an
    * estimate of an average message height).
+   *
+   * content-visibility clips painting to the message box, so the padding
+   * gives focus rings and the reasoning trigger (which sits left of the
+   * content) room to paint. Negative margins cancel the padding, so the
+   * layout is unchanged.
    */
   [data-sl-ai-message] {
     content-visibility: auto;
     contain-intrinsic-size: auto var(--sl-ai-message-intrinsic-size, 5rem);
+    padding: var(--sl-space-2) var(--sl-space-4);
+    margin: calc(var(--sl-space-2) * -1) calc(var(--sl-space-4) * -1);
   }
 
   [data-sl-ai-message][data-sl-ai-message-role="user"] {
