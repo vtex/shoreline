@@ -66,6 +66,15 @@
     color: var(--sl-fg-muted);
   }
 
+  [data-sl-ai-thinking-indicator] {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sl-space-1);
+    font: var(--sl-text-caption-1-font);
+    letter-spacing: var(--sl-text-caption-1-letter-spacing);
+    color: var(--sl-fg-muted);
+  }
+
   [data-sl-ai-message-reasoning-content] {
     border-left: var(--sl-border-base);
     border-left-width: 3px;

@@ -154,6 +154,17 @@ export interface AIMessageReasoningTriggerOptions {
 export type AIMessageReasoningTriggerProps = AIMessageReasoningTriggerOptions &
   Omit<ComponentPropsWithoutRef<'button'>, 'children'>
 
+export interface AIThinkingIndicatorOptions {
+  /**
+   * Overrides the label next to the dots. Uses the localized default when omitted.
+   * @default 'Thinking'
+   */
+  label?: ReactNode
+}
+
+export type AIThinkingIndicatorProps = AIThinkingIndicatorOptions &
+  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
+
 export type AIMessageReasoningContentProps = ComponentPropsWithoutRef<'div'>
 
 export type AIMessageReasoningTextProps = ComponentPropsWithoutRef<'div'>
