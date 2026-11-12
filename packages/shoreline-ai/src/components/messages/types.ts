@@ -61,7 +61,13 @@ export type AIMessagesProps = AIMessagesOptions &
 
 export type AIMessageMessages = Partial<
   Record<
-    'reasoningStreaming' | 'reasoningReady' | 'copyMessage' | 'copyCode',
+    | 'reasoningStreaming'
+    | 'reasoningReady'
+    | 'copyMessage'
+    | 'copyCode'
+    | 'workedFor'
+    | 'thinking'
+    | 'messageCopied',
     string
   >
 >
