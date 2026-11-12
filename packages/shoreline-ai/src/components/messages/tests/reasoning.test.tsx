@@ -8,8 +8,11 @@ import {
   screen,
   vi,
 } from '@vtex/shoreline-test-utils'
+import { LocaleProvider } from '@vtex/shoreline'
 
 import { AIMessageReasoningContent } from '../ai-message-reasoning-content'
+import { AIMessageReasoningGroup } from '../ai-message-reasoning-group'
+import { AIMessageReasoningMeta } from '../ai-message-reasoning-meta'
 import { AIMessageReasoningRoot } from '../ai-message-reasoning-root'
 import { AIMessageReasoningTrigger } from '../ai-message-reasoning-trigger'
 import { MessageMessagesProvider } from '../message-messages-context'
@@ -113,5 +116,66 @@ describe('AIMessageReasoningRoot and Trigger', () => {
     renderReasoning({ status: 'running' })
 
     expect(screen.getByTestId('root')).toHaveAttribute('data-status', 'running')
+  })
+})
+
+describe('AIMessageReasoningMeta', () => {
+  function renderMeta(status: 'running' | 'complete', duration?: number) {
+    return render(
+      <LocaleProvider locale="en-US">
+        <MessageMessagesProvider>
+          <AIMessageReasoningRoot status={status} duration={duration}>
+            <AIMessageReasoningMeta />
+          </AIMessageReasoningRoot>
+        </MessageMessagesProvider>
+      </LocaleProvider>
+    )
+  }
+
+  const meta = () =>
+    document.querySelector('[data-sl-ai-message-reasoning-meta]')
+
+  it('shows the dots and no duration while running', () => {
+    renderMeta('running', 180000)
+    expect(meta()?.querySelector('[data-sl-ai-dots-loader]')).toBeTruthy()
+    expect(screen.queryByText(/Worked for/)).toBeNull()
+  })
+
+  it('shows Worked for when complete with a duration', () => {
+    renderMeta('complete', 180000)
+    expect(meta()).toHaveTextContent('Worked for 3 min')
+    expect(meta()?.querySelector('[data-sl-ai-dots-loader]')).toBeNull()
+  })
+
+  it('has no text when complete without a duration', () => {
+    renderMeta('complete')
+    expect(meta()?.textContent ?? '').toBe('')
+  })
+
+  it('has no text when the duration is NaN', () => {
+    renderMeta('complete', Number.NaN)
+    expect(meta()?.textContent ?? '').toBe('')
+  })
+})
+
+describe('AIMessageReasoningGroup', () => {
+  it('renders trigger, meta and content in one root', () => {
+    render(
+      <LocaleProvider locale="en-US">
+        <MessageMessagesProvider>
+          <AIMessageReasoningGroup status="complete" duration={5000}>
+            body
+          </AIMessageReasoningGroup>
+        </MessageMessagesProvider>
+      </LocaleProvider>
+    )
+    const root = document.querySelector('[data-sl-ai-message-reasoning]')
+
+    expect(root).toHaveAttribute('data-status', 'complete')
+    expect(screen.getByRole('button')).toHaveTextContent('Reasoned')
+    expect(root).toHaveTextContent('Worked for 5 sec')
+    expect(
+      root?.querySelector('[data-sl-ai-message-reasoning-content]')
+    ).toBeTruthy()
   })
 })

@@ -152,7 +152,6 @@ export {
   AIMessageText,
   AIMarkdown,
   AIMessageReasoningRoot,
-  AIMessageReasoningHeader,
   AIMessageReasoningTrigger,
   AIMessageReasoningContent,
   AIMessageReasoningText,
