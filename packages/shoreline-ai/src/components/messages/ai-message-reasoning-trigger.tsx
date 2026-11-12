@@ -7,6 +7,14 @@ import type { AIMessageReasoningTriggerProps } from './types'
 /**
  * Toggles the reasoning panel open and closed.
  *
+ * @example
+ * <AIMessageReasoningRoot status="complete" defaultExpanded>
+ *   <AIMessageReasoningTrigger />
+ *   <AIMessageReasoningContent>
+ *     <AIMessageReasoningText />
+ *   </AIMessageReasoningContent>
+ * </AIMessageReasoningRoot>
+ *
  * @status experimental
  */
 export const AIMessageReasoningTrigger = forwardRef<

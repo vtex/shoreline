@@ -215,6 +215,10 @@ The duration comes from the timing of the reasoning group. The runtime does not 
 
 The row is hidden (`opacity: 0`) until the message is hovered or has focus inside, so keyboard users reveal it with `Tab`. On `(hover: none)` devices it is always visible.
 
+`AIMessageAssistant` always renders its own thinking indicator and actions row, also when you pass custom `children`, so do not add your own copy button or indicator inside it. An opt-out is planned with the feedback work.
+
+Messages with status `incomplete` (for example a cancelled run) never show the actions row, so a partial answer cannot be copied.
+
 The drop-in `AIMessageAssistant` has no slot for extra buttons: it renders its own actions row, so a second `AIMessageActions` inside it would draw two rows. To add buttons (for example feedback), compose the message from `AIMessageRoot messageRole="assistant"`, `AIMessageParts` and your own `AIMessageActions` with the buttons as `children`. Such a list needs the message labels and the engine message context, which `AIMessages` provides; `MessageMessagesProvider` is not exported from the package root yet.
 
 ### Thinking indicator
@@ -485,6 +489,8 @@ Every `[data-sl-ai-message]` uses `content-visibility: auto` and `contain-intrin
   <AIMessageReasoningContent>{/* ... */}</AIMessageReasoningContent>
 </AIMessageReasoningRoot>
 ```
+
+A panel built by hand with `AIMessageReasoningRoot` shows no running dots and no "Worked for" text, because the row and the meta span are internal to `AIMessageParts` and are not exported. For the same reason, `duration` on the root only matters for the built-in row.
 
 Selector change: `[data-sl-ai-message-reasoning-header]` is replaced by `[data-sl-ai-message-reasoning-row]`. The trigger label changed from "Reasoning…" / "Reasoning" to "Reasoning" / "Reasoned".
 

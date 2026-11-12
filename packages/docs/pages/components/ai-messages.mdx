@@ -101,6 +101,8 @@ When the duration of the reasoning is known, the default panel shows "Worked for
 </AIMessageReasoningRoot>
 ```
 
+A panel built by hand with `AIMessageReasoningRoot` shows no running dots and no "Worked for" text, because the row and the meta are internal to `AIMessageParts`. For the same reason, `duration` on the root only matters for the built-in row.
+
 The data attribute `data-sl-ai-message-reasoning-header` is gone too. Use `data-sl-ai-message-reasoning-row` for the row.
 
 ### Hide the tool steps
@@ -125,10 +127,14 @@ A finished assistant answer that has text gets an `AIMessageActions` row. It has
 
 `AIMessageCopy` copies the text parts of the message. No toast is shown: the icon turns into a check for 2 seconds and a hidden live region announces the "Message copied" label to screen readers. Pass `onCopied` to know when it worked, for example to track it.
 
+Messages with status `incomplete`, for example a cancelled run, never show the actions row, so a partial answer cannot be copied.
+
+`AIMessageAssistant` always renders its own thinking indicator and actions row, also when you pass custom `children`. Do not add your own copy button or indicator inside it. An opt-out is planned with the feedback work.
+
 `AIMessageActions` accepts `children`, that are rendered after the copy button. This is the slot for your own buttons, like a feedback button.
 
 <Callout type="warning">
-  `AIMessageAssistant` already renders its own actions row, and it has no slot for extra buttons. A second `AIMessageActions` inside it would draw a second row. To add buttons, compose the message with `AIMessageRoot messageRole="assistant"`, `AIMessageParts` and your own `AIMessageActions`, and render it for each assistant message. This is how the Storybook story of the package does it. The pieces read the message and the labels from the list that renders them, so a list that is not `AIMessages` needs the `MessageMessagesProvider` and the message context of the chat engine. The package does not export a ready-made slot yet.
+  `AIMessageAssistant` already renders its own actions row, and it has no slot for extra buttons. A second `AIMessageActions` inside it would draw a second row. To add buttons, compose the message with `AIMessageRoot messageRole="assistant"`, `AIMessageParts` and your own `AIMessageActions`, and render it for each assistant message. This is how the Storybook story of the package does it. The pieces read the message and the labels from the list that renders them, so a list that is not `AIMessages` needs the `MessageMessagesProvider` (which is not exported from the package root yet) and the message context of the chat engine. The package does not export a ready-made slot yet.
 </Callout>
 
 ### Custom parts

@@ -34,6 +34,14 @@ export function useAIMessageReasoningRootContext(): ReasoningRootContextValue {
 /**
  * Collapsible root for the reasoning (Chain of Thought) panel.
  *
+ * @example
+ * <AIMessageReasoningRoot status="complete" defaultExpanded>
+ *   <AIMessageReasoningTrigger />
+ *   <AIMessageReasoningContent>
+ *     <AIMessageReasoningText />
+ *   </AIMessageReasoningContent>
+ * </AIMessageReasoningRoot>
+ *
  * @status experimental
  */
 export const AIMessageReasoningRoot = forwardRef<

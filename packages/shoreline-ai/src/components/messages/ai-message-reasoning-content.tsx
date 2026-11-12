@@ -6,6 +6,14 @@ import type { AIMessageReasoningContentProps } from './types'
 /**
  * Collapsible body of the reasoning panel.
  *
+ * @example
+ * <AIMessageReasoningRoot status="complete" defaultExpanded>
+ *   <AIMessageReasoningTrigger />
+ *   <AIMessageReasoningContent>
+ *     <AIMessageReasoningText />
+ *   </AIMessageReasoningContent>
+ * </AIMessageReasoningRoot>
+ *
  * @status experimental
  */
 export const AIMessageReasoningContent = forwardRef<
