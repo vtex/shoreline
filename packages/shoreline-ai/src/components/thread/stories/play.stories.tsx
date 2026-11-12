@@ -153,3 +153,76 @@ export const AutoScrollAfterSend: Story = {
     })
   },
 }
+
+const veryLongHistory = createMockThreadMessages(200)
+
+export const LongThreadStaysAtBottom: Story = {
+  render: () => (
+    <NormativeThreadTree
+      history={veryLongHistory}
+      showMessages
+      composerPlaceholder="Type a message…"
+    />
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const user = userEvent.setup()
+
+    await waitFor(() => {
+      const viewport = getThreadViewport(canvasElement)
+
+      expect(viewport).toBeTruthy()
+
+      if (viewport) {
+        expect(viewport.scrollHeight).toBeGreaterThan(viewport.clientHeight)
+      }
+    })
+
+    const viewport = getThreadViewport(canvasElement) as HTMLElement
+
+    viewport.scrollTop = viewport.scrollHeight
+    viewport.dispatchEvent(new Event('scroll', { bubbles: true }))
+
+    await waitFor(() => {
+      expect(isThreadViewportNearBottom(viewport)).toBe(true)
+    })
+
+    const lastMessage = await canvas.findByText('Assistant reply 200')
+
+    await waitFor(() => {
+      const viewportRect = viewport.getBoundingClientRect()
+      const messageRect = lastMessage.getBoundingClientRect()
+
+      expect(messageRect.bottom).toBeLessThanOrEqual(viewportRect.bottom + 1)
+      expect(messageRect.top).toBeGreaterThanOrEqual(viewportRect.top - 1)
+    })
+
+    await waitFor(() => {
+      // At the bottom the control stays mounted but disabled (not actionable)
+      const button = canvas.queryByRole('button', { name: 'Scroll to bottom' })
+
+      if (button) {
+        expect(button).toBeDisabled()
+      }
+    })
+
+    await user.type(
+      canvas.getByPlaceholderText('Type a message…'),
+      'One more message'
+    )
+    await user.keyboard('{Enter}')
+
+    await waitFor(
+      () => {
+        expect(
+          canvas.getByText(/You said: "One more message"/)
+        ).toBeInTheDocument()
+      },
+      { timeout: 5000 }
+    )
+
+    await waitFor(() => {
+      expect(isThreadViewportNearBottom(viewport)).toBe(true)
+    })
+  },
+}
