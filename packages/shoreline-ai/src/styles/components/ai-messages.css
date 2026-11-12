@@ -6,6 +6,17 @@
     width: 100%;
   }
 
+  /*
+   * Skip layout and paint for off-screen messages in long threads.
+   * Override the placeholder height used before a message is first
+   * rendered with --sl-ai-message-intrinsic-size (default: 5rem, an
+   * estimate of an average message height).
+   */
+  [data-sl-ai-message] {
+    content-visibility: auto;
+    contain-intrinsic-size: auto var(--sl-ai-message-intrinsic-size, 5rem);
+  }
+
   [data-sl-ai-message][data-sl-ai-message-role="user"] {
     align-self: flex-end;
     max-width: 100%;
