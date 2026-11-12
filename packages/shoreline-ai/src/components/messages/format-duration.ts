@@ -1,11 +1,14 @@
 function formatUnit(value: number, unit: 'minute' | 'second', locale: string) {
-  return new Intl.NumberFormat(locale, {
-    style: 'unit',
-    unit,
-    unitDisplay: 'short',
-  })
-    .format(value)
-    .replace(/[  ]/g, ' ')
+  return (
+    new Intl.NumberFormat(locale, {
+      style: 'unit',
+      unit,
+      unitDisplay: 'short',
+    })
+      .format(value)
+      // ICU may emit NBSP (U+00A0) or NNBSP (U+202F) before the unit; normalise to a plain space
+      .replace(/[\u00A0\u202F]/g, ' ')
+  )
 }
 
 /**

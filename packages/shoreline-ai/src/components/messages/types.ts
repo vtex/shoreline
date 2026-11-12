@@ -133,7 +133,9 @@ export interface AIMessageReasoningRootOptions {
   defaultExpanded?: boolean
   /**
    * Controlled expanded state. When defined, the panel follows this value and
-   * only reports toggles through `onExpandedChange`.
+   * only reports toggles through `onExpandedChange`. `defaultExpanded` is
+   * ignored when controlled. Switching between controlled and uncontrolled
+   * during the component lifetime is not supported.
    */
   expanded?: boolean
   /**
@@ -157,7 +159,7 @@ export type AIMessageReasoningTriggerProps = AIMessageReasoningTriggerOptions &
 export interface AIThinkingIndicatorOptions {
   /**
    * Overrides the label next to the dots. Uses the localized default when omitted.
-   * @default 'Thinking'
+   * @default the localized `thinking` message
    */
   label?: ReactNode
 }
