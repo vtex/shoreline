@@ -8,7 +8,7 @@
 
   [data-sl-ai-message][data-sl-ai-message-role="user"] {
     align-self: flex-end;
-    max-width: 85%;
+    max-width: 100%;
   }
 
   [data-sl-ai-message][data-sl-ai-message-role="assistant"] {
@@ -16,11 +16,16 @@
     max-width: 100%;
   }
 
+  /*
+   * User bubble. Override the maximum width with
+   * --sl-ai-message-user-max-width (default: 33.75rem).
+   */
   [data-sl-ai-message][data-sl-ai-message-role="user"]
     [data-sl-ai-message-content] {
-    border-radius: var(--sl-radius-3) 2px var(--sl-radius-3) var(--sl-radius-3);
-    background-color: var(--sl-bg-base-soft);
+    border-radius: var(--sl-radius-3);
+    background-color: var(--sl-bg-muted);
     padding: var(--sl-space-3) var(--sl-space-4);
+    max-width: var(--sl-ai-message-user-max-width, 33.75rem);
     width: fit-content;
   }
 
