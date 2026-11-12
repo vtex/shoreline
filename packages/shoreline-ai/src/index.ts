@@ -161,6 +161,7 @@ export {
   AIMessageResource,
   AIMessageResourceFile,
   AIMessageResourceImage,
+  defaultMessageGroupBy,
   renderDefaultParts,
 } from './components/messages'
 export type {

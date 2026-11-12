@@ -17,7 +17,7 @@ export {
   AIMessageResourceFile,
   AIMessageResourceImage,
 } from './ai-message-resource'
-export { renderDefaultParts } from './default-parts'
+export { defaultMessageGroupBy, renderDefaultParts } from './default-parts'
 export { MessageMessagesProvider } from './message-messages-context'
 
 export type {

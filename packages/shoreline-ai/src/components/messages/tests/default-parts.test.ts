@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
+import { defaultMessageGroupBy as publicDefaultMessageGroupBy } from '../../..'
+
 import type { AIMessagePart } from '../../types/public'
 import { defaultMessageGroupBy } from '../default-parts'
 import type { GroupByContext } from '../types'
@@ -52,5 +54,12 @@ describe('defaultMessageGroupBy', () => {
     }
 
     expect(defaultMessageGroupBy(tool, ctx)).toBeNull()
+  })
+})
+
+describe('package entry', () => {
+  it('exports defaultMessageGroupBy', () => {
+    expect(publicDefaultMessageGroupBy).toBeDefined()
+    expect(publicDefaultMessageGroupBy).toBe(defaultMessageGroupBy)
   })
 })

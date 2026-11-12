@@ -11,14 +11,14 @@ import type { AIMessageReasoningContentProps } from './types'
 export const AIMessageReasoningContent = forwardRef<
   HTMLDivElement,
   AIMessageReasoningContentProps
->(function AIMessageReasoningContent(props, _ref) {
+>(function AIMessageReasoningContent(props, ref) {
   const { children, ...divProps } = props
   const { getCollapseProps } = useAIMessageReasoningRootContext()
 
   return (
     <div
       data-sl-ai-message-reasoning-content
-      {...getCollapseProps()}
+      {...getCollapseProps({ ref })}
       {...divProps}
     >
       {children}
