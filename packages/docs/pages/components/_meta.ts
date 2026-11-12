@@ -65,4 +65,6 @@ export default {
 
   ShorelineAI: { type: 'separator', title: 'Shoreline AI' },
   'ai-composer': 'AIComposer',
+  'ai-messages': 'AIMessages',
+  'ai-thread': 'AIThread',
 }

@@ -1,0 +1,140 @@
+# AIThread
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning" emoji="⚠️">
+  **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
+</Callout>
+
+The frame of a chat screen. It gives you a scrollable area for the conversation, a spot for a welcome message, a footer that stays at the bottom (where the composer goes) and a button that takes people back to the latest message.
+
+`AIThread` is a family of small components that you put together, like blocks. It only handles the layout and the scroll. What is drawn for each message comes from [AIMessages](/components/ai-messages), and the box to write comes from [AIComposer](/components/ai-composer).
+
+<Preview name="ai-thread" />
+
+<Callout type="info">
+  The examples on this page run with a mock runtime that answers with a fake reply, so they work without a backend. In your app, wrap the thread with `<AIProvider>` and a runtime built from your own transport. See the [Runtime guide](/guides/shoreline-ai-runtime).
+</Callout>
+
+## Setup
+
+Import the package styles once, next to the Shoreline ones:
+
+```tsx
+import '@vtex/shoreline/css'
+import '@vtex/shoreline-ai/css'
+```
+
+Then mount the thread inside `<AIProvider>`. Wrap your app with `LocaleProvider` to get the built-in labels in `en-US` or `pt-BR`. The thread fills the height of its parent (`height: 100%`), so give the parent a height, like the `420px` box in the examples.
+
+## How it is built
+
+The viewport is the part that scrolls. The footer sticks to its bottom edge:
+
+```tsx
+<AIThread>
+  <AIThreadViewport>
+    <AIThreadEmpty />               {/* optional: welcome, only when there are no messages */}
+    <AIMessages />                  {/* the conversation */}
+    <AIThreadViewportFooter>
+      <AIThreadScrollToBottom />    {/* first child of the footer */}
+      <AIComposer />                {/* your input, alerts, anything fixed */}
+    </AIThreadViewportFooter>
+  </AIThreadViewport>
+</AIThread>
+```
+
+| Component | What it is |
+|-----------|-----------|
+| `AIThread` | The root. Sets the layout and the labels |
+| `AIThreadViewport` | The scrollable area. It scrolls to the end on new messages, when a run starts, when the history loads and when the thread changes |
+| `AIThreadEmpty` | Shows its children only while the thread has no messages and is not opening a thread |
+| `AIThreadViewportFooter` | The footer that stays at the bottom of the viewport. Its height is measured, so the last message is never hidden behind it |
+| `AIThreadScrollToBottom` | The round button that jumps to the latest message |
+
+## Examples
+
+### Empty thread
+
+`AIThreadEmpty` renders its children only while the thread is empty. It has no styles of its own, so you control the look of the welcome. It also stays hidden while `useAIThread().isOpeningThread` is `true`, so the welcome does not flash before the history arrives.
+
+<Preview name="ai-thread-empty" />
+
+### Scroll to bottom
+
+`AIThreadScrollToBottom` is placed above the footer. When the viewport is already at the bottom it is disabled and fully transparent, so it only shows after the person scrolls up. Put it as the **first child** of `AIThreadViewportFooter`, before the composer. Scroll up in the thread below to see it:
+
+<Preview name="ai-thread-labels" />
+
+The viewport follows new messages by itself. Turn each behavior off with props on `AIThreadViewport`: `autoScroll`, `scrollToBottomOnRunStart`, `scrollToBottomOnInitialize` and `scrollToBottomOnThreadSwitch`. They are all `true` by default.
+
+### Long conversations
+
+Each message row uses `content-visibility: auto`, so the browser skips the layout and the paint of rows that are off screen. Long threads stay fast. Before a row is rendered for the first time the browser does not know its height, so it uses a placeholder, set by `--sl-ai-message-intrinsic-size` (default `5rem`). After the row has been seen, the browser remembers the real height. If your messages are usually much taller, raise the variable to make the scroll bar jump less:
+
+```css
+[data-sl-ai-messages] {
+  --sl-ai-message-intrinsic-size: 8rem;
+}
+```
+
+Because the heights of rows that were never on screen are estimates, the scroll bar can shift a little while you scroll up through a long history. This is expected.
+
+<Callout type="warning">
+  `[data-sl-ai-message]` has some padding and an opposite negative margin. They give focus rings room to paint inside the clipped row, and they cancel each other, so the layout does not change. Do not override `padding` or `margin` on that element.
+</Callout>
+
+### Errors when opening a thread
+
+`useAIThread().error` is only set when `threads.load` fails, with `type: 'thread_open'`. The package does not draw it. Read it and render your own alert in the footer. Run errors come from `useAIStatus().error`. See the [Runtime guide](/guides/shoreline-ai-runtime).
+
+### Labels and languages
+
+The label of the scroll button (`scrollToBottom`) comes from a built-in catalog in `en-US` and `pt-BR`, chosen by the `LocaleProvider`. To change it, pass `messages` to `AIThread`. Unset keys keep the default. The example under "Scroll to bottom" above sets it to "Go to the latest message".
+
+```tsx
+<AIThread messages={{ scrollToBottom: 'Ir para o fim' }} />
+```
+
+Only `AIThread` accepts `messages`. The other parts read from it.
+
+## Props
+
+### AIThread
+
+<PropsDocs name="ai-thread" />
+
+### AIThreadViewport
+
+<PropsDocs name="ai-thread-viewport" />
+
+### AIThreadEmpty, AIThreadViewportFooter and AIThreadScrollToBottom
+
+These have no props of their own. `AIThreadEmpty` and `AIThreadViewportFooter` accept the props of a `div`. `AIThreadScrollToBottom` accepts the props of a `button`, and its `children` replace the default arrow icon.
+
+## Hooks
+
+| Hook | Use it to |
+|------|-----------|
+| `useAIThread()` | Read `messages`, `isEmpty`, `isOpeningThread`, `error` and `threadId`, and call `sendMessage`, `stopGeneration`, `switchThread`, `createThread` and `loadMessages` |
+| `useAIStatus()` | Know if the assistant is answering (`isStreaming`) and read the run error |
+
+## Styling
+
+Use the `data-sl-*` attributes to adjust the look in your CSS:
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-thread]` | The root |
+| `[data-sl-ai-thread-viewport]` | The scrollable area |
+| `[data-sl-ai-thread-empty]` | The empty slot. It has no styles |
+| `[data-sl-ai-thread-viewport-footer]` | The sticky footer |
+| `[data-sl-ai-thread-scroll-to-bottom]` | The scroll button, above the footer |
+| `[data-sl-ai-thread-error]` | A convention for your own error banner in the footer. The package only styles its margin |
+
+## Related
+
+- [AIMessages](/components/ai-messages): what is drawn for each message
+- [AIComposer](/components/ai-composer): the box to write
+- [Shoreline AI overview](/guides/shoreline-ai)
+- [Runtime](/guides/shoreline-ai-runtime): the transport and the thread adapter
