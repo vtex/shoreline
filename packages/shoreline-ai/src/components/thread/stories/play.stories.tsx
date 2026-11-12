@@ -1,6 +1,8 @@
 import { expect, userEvent, within, waitFor } from '@storybook/test'
 import type { Meta, StoryObj } from '@storybook/react'
 
+import type { AIMessage } from '../../../types'
+
 import '@vtex/shoreline-ai/css'
 
 import { ThreadStoryDecorator } from './decorators'
@@ -154,12 +156,27 @@ export const AutoScrollAfterSend: Story = {
   },
 }
 
-const veryLongHistory = createMockThreadMessages(200)
+// Built on first use and kept stable: ThreadHistorySeed reloads on a new array
+let veryLongHistory: AIMessage[] | undefined
+
+function getVeryLongHistory() {
+  veryLongHistory ??= createMockThreadMessages(200)
+
+  return veryLongHistory
+}
+
+function expectVisibleInViewport(element: HTMLElement, viewport: HTMLElement) {
+  const viewportRect = viewport.getBoundingClientRect()
+  const rect = element.getBoundingClientRect()
+
+  expect(rect.bottom).toBeLessThanOrEqual(viewportRect.bottom + 1)
+  expect(rect.top).toBeGreaterThanOrEqual(viewportRect.top - 1)
+}
 
 export const LongThreadStaysAtBottom: Story = {
   render: () => (
     <NormativeThreadTree
-      history={veryLongHistory}
+      history={getVeryLongHistory()}
       showMessages
       composerPlaceholder="Type a message…"
     />
@@ -189,22 +206,12 @@ export const LongThreadStaysAtBottom: Story = {
 
     const lastMessage = await canvas.findByText('Assistant reply 200')
 
-    await waitFor(() => {
-      const viewportRect = viewport.getBoundingClientRect()
-      const messageRect = lastMessage.getBoundingClientRect()
+    await waitFor(() => expectVisibleInViewport(lastMessage, viewport))
 
-      expect(messageRect.bottom).toBeLessThanOrEqual(viewportRect.bottom + 1)
-      expect(messageRect.top).toBeGreaterThanOrEqual(viewportRect.top - 1)
-    })
-
-    await waitFor(() => {
-      // At the bottom the control stays mounted but disabled (not actionable)
-      const button = canvas.queryByRole('button', { name: 'Scroll to bottom' })
-
-      if (button) {
-        expect(button).toBeDisabled()
-      }
-    })
+    // At the bottom the control stays mounted but disabled (hidden)
+    await expect(
+      await canvas.findByRole('button', { name: 'Scroll to bottom' })
+    ).toBeDisabled()
 
     await user.type(
       canvas.getByPlaceholderText('Type a message…'),
@@ -224,5 +231,85 @@ export const LongThreadStaysAtBottom: Story = {
     await waitFor(() => {
       expect(isThreadViewportNearBottom(viewport)).toBe(true)
     })
+
+    await waitFor(() =>
+      expectVisibleInViewport(
+        canvas.getByText(/You said: "One more message"/),
+        viewport
+      )
+    )
+  },
+}
+
+const focusRingHistory: AIMessage[] = [
+  {
+    id: 'focus-user',
+    role: 'user',
+    createdAt: '2026-05-20T12:00:00.000Z',
+    parts: [{ type: 'text', text: 'Why is my order late?' }],
+  },
+  {
+    id: 'focus-assistant',
+    role: 'assistant',
+    createdAt: '2026-05-20T12:00:01.000Z',
+    parts: [
+      { type: 'reasoning', text: 'Checking the order', status: 'complete' },
+      { type: 'text', text: 'The carrier delayed it.' },
+    ],
+  },
+]
+
+function getFocusRingRect(element: HTMLElement): DOMRect {
+  const { outlineWidth, outlineOffset } = getComputedStyle(element)
+  const grow =
+    Number.parseFloat(outlineWidth) + Number.parseFloat(outlineOffset)
+  const rect = element.getBoundingClientRect()
+
+  return new DOMRect(
+    rect.x - grow,
+    rect.y - grow,
+    rect.width + grow * 2,
+    rect.height + grow * 2
+  )
+}
+
+function expectRectInside(inner: DOMRect, outer: DOMRect) {
+  expect(inner.left).toBeGreaterThanOrEqual(outer.left)
+  expect(inner.right).toBeLessThanOrEqual(outer.right)
+  expect(inner.top).toBeGreaterThanOrEqual(outer.top)
+  expect(inner.bottom).toBeLessThanOrEqual(outer.bottom)
+}
+
+export const FocusRingsNotClippedInMessages: Story = {
+  render: () => <NormativeThreadTree history={focusRingHistory} showMessages />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    const trigger = await waitFor(() => {
+      const element = canvasElement.querySelector(
+        '[data-sl-ai-message-reasoning-trigger]'
+      )
+
+      expect(element).toBeInstanceOf(HTMLElement)
+
+      return element as HTMLElement
+    })
+
+    const copy = await canvas.findByRole('button', { name: /copy/i })
+
+    for (const control of [trigger, copy]) {
+      const message = control.closest('[data-sl-ai-message]') as HTMLElement
+
+      control.focus()
+
+      await expect(control).toHaveFocus()
+
+      // content-visibility: auto paints only inside the message box, so the
+      // focus ring must fit inside it.
+      expectRectInside(
+        getFocusRingRect(control),
+        message.getBoundingClientRect()
+      )
+    }
   },
 }
