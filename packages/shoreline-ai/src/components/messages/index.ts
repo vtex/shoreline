@@ -35,6 +35,7 @@ export type {
   AIMarkdownOptions,
   AIMessageReasoningRootProps,
   AIMessageReasoningRootOptions,
+  AIMessageReasoningStatus,
   AIMessageReasoningTriggerProps,
   AIMessageReasoningTriggerOptions,
   AIMessageReasoningContentProps,

@@ -114,12 +114,32 @@ export interface AIMessagePartsOptions {
 export type AIMessagePartsProps = AIMessagePartsOptions &
   Omit<ComponentPropsWithoutRef<'div'>, 'children'>
 
+export type AIMessageReasoningStatus = 'running' | 'complete'
+
 export interface AIMessageReasoningRootOptions {
   /**
-   * Whether the reasoning panel starts expanded.
+   * Whether the reasoning is still being generated. Drives the trigger label.
+   * @default 'complete'
+   */
+  status?: AIMessageReasoningStatus
+  /**
+   * Time spent reasoning, in milliseconds.
+   */
+  duration?: number
+  /**
+   * Whether the reasoning panel starts expanded (uncontrolled).
    * @default false
    */
   defaultExpanded?: boolean
+  /**
+   * Controlled expanded state. When defined, the panel follows this value and
+   * only reports toggles through `onExpandedChange`.
+   */
+  expanded?: boolean
+  /**
+   * Called with the next expanded state whenever the trigger is toggled.
+   */
+  onExpandedChange?: (expanded: boolean) => void
   children?: ReactNode
 }
 
@@ -128,9 +148,7 @@ export type AIMessageReasoningRootProps = AIMessageReasoningRootOptions &
 
 export interface AIMessageReasoningTriggerOptions {
   /** Overrides the collapse button label. Uses localized default when omitted. */
-  label?: string
-  /** Whether the assistant is still generating the current message. */
-  streaming?: boolean
+  label?: ReactNode
 }
 
 export type AIMessageReasoningTriggerProps = AIMessageReasoningTriggerOptions &

@@ -45,7 +45,10 @@ export const AIMessageParts = forwardRef<HTMLDivElement, AIMessagePartsProps>(
           {({ part, children }) => {
             if (part.type === 'group-cot') {
               return (
-                <AIMessageReasoningRoot defaultExpanded={false}>
+                <AIMessageReasoningRoot
+                  defaultExpanded={false}
+                  status={streaming ? 'running' : 'complete'}
+                >
                   <AIMessageReasoningHeader streaming={streaming} />
                   <AIMessageReasoningContent>
                     <AIMessagePartPlacementProvider placement="cot">

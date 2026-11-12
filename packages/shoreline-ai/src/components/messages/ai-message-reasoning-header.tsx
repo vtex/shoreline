@@ -30,7 +30,7 @@ export const AIMessageReasoningHeader = forwardRef<
       data-sl-ai-message-reasoning-header
       {...divProps}
     >
-      <AIMessageReasoningTrigger streaming={streaming} />
+      <AIMessageReasoningTrigger />
       {streaming ? <AIDotsLoader /> : null}
     </Flex>
   )
