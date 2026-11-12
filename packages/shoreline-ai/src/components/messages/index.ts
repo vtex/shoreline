@@ -10,6 +10,8 @@ export { AIMessageReasoningTrigger } from './ai-message-reasoning-trigger'
 export { AIMessageReasoningContent } from './ai-message-reasoning-content'
 export { AIMessageReasoningText } from './ai-message-reasoning-text'
 export { AIMessageReasoningToolStep } from './ai-message-reasoning-tool-step'
+export { AIMessageActions } from './ai-message-actions'
+export { AIMessageCopy } from './ai-message-copy'
 export { AIThinkingIndicator } from './ai-thinking-indicator'
 export { AIMessageResources } from './ai-message-resources'
 export {
@@ -39,6 +41,10 @@ export type {
   AIMessageReasoningTriggerProps,
   AIMessageReasoningTriggerOptions,
   AIMessageReasoningContentProps,
+  AIMessageActionsProps,
+  AIMessageActionsOptions,
+  AIMessageCopyProps,
+  AIMessageCopyOptions,
   AIThinkingIndicatorProps,
   AIThinkingIndicatorOptions,
   AIMessageReasoningTextProps,

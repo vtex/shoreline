@@ -1,6 +1,7 @@
 import { useAuiState } from '@assistant-ui/react'
 import { forwardRef } from '@vtex/shoreline'
 
+import { AIMessageActions } from './ai-message-actions'
 import { AIMessageParts } from './ai-message-parts'
 import { AIMessageRoot } from './ai-message-root'
 import { AIThinkingIndicator } from './ai-thinking-indicator'
@@ -33,9 +34,23 @@ export const AIMessageAssistant = forwardRef<
     )
   })
 
+  const showActions = useAuiState((state) => {
+    const status = state.message.status
+    const complete = status
+      ? status.type === 'complete'
+      : !(state.message.isLast && state.thread.isRunning)
+
+    if (!complete) return false
+
+    return state.message.content.some(
+      (part) => part.type === 'text' && part.text.length > 0
+    )
+  })
+
   return (
     <AIMessageRoot ref={ref} messageRole="assistant" {...rootProps}>
       {children ?? <AIMessageParts showReasoningTools={showReasoningTools} />}
+      {showActions ? <AIMessageActions /> : null}
       {showThinking ? <AIThinkingIndicator /> : null}
     </AIMessageRoot>
   )

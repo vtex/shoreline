@@ -165,6 +165,22 @@ export interface AIThinkingIndicatorOptions {
 export type AIThinkingIndicatorProps = AIThinkingIndicatorOptions &
   Omit<ComponentPropsWithoutRef<'div'>, 'children'>
 
+export interface AIMessageActionsOptions {
+  /** Extra actions rendered after the copy button. */
+  children?: ReactNode
+}
+
+export type AIMessageActionsProps = AIMessageActionsOptions &
+  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
+
+export interface AIMessageCopyOptions {
+  /** Called once after the message text is copied successfully. */
+  onCopied?: () => void
+}
+
+export type AIMessageCopyProps = AIMessageCopyOptions &
+  Omit<ComponentPropsWithoutRef<'button'>, 'children'>
+
 export type AIMessageReasoningContentProps = ComponentPropsWithoutRef<'div'>
 
 export type AIMessageReasoningTextProps = ComponentPropsWithoutRef<'div'>

@@ -204,4 +204,31 @@
     display: flex;
     align-items: center;
   }
+
+  [data-sl-ai-message-actions] {
+    display: flex;
+    align-items: center;
+    gap: var(--sl-space-1);
+    min-height: 2rem;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  [data-sl-ai-message]:hover [data-sl-ai-message-actions],
+  [data-sl-ai-message]:focus-within [data-sl-ai-message-actions],
+  [data-sl-ai-message-actions]:focus-within {
+    opacity: 1;
+  }
+
+  @media (hover: none) {
+    [data-sl-ai-message-actions] {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-sl-ai-message-actions] {
+      transition: none;
+    }
+  }
 }
