@@ -119,7 +119,7 @@ describe('AIMessageAssistant thinking indicator', () => {
     const transport: StreamTransport = {
       async *run() {
         yield {
-          parts: [{ type: 'reasoning', text: 'Hmm', status: 'running' }],
+          parts: [{ type: 'reasoning', text: 'Hmm', status: 'streaming' }],
           status: 'streaming',
         }
         await gate
@@ -146,8 +146,85 @@ describe('AIMessageAssistant thinking indicator', () => {
     )
     expect(document.querySelectorAll(SELECTOR)).toHaveLength(0)
 
+    // A running group from the real runtime reaches the panel.
+    const root = document.querySelector('[data-sl-ai-message-reasoning]')
+
+    expect(root).toHaveAttribute('data-status', 'running')
+    expect(
+      root?.querySelector(
+        '[data-sl-ai-message-reasoning-meta] [data-sl-ai-dots-loader]'
+      )
+    ).toBeTruthy()
+    expect(
+      root?.querySelector('[data-sl-ai-message-reasoning-trigger]')
+    ).toHaveTextContent('Reasoning')
+
     release()
     await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
+  })
+
+  it('marks an earlier reasoning group complete while the last one still runs', async () => {
+    const user = userEvent.setup()
+    const { gate, release } = gated()
+    const transport: StreamTransport = {
+      async *run() {
+        yield {
+          parts: [
+            { type: 'reasoning', text: 'First', status: 'complete' },
+            { type: 'text', text: 'Partial answer' },
+            { type: 'reasoning', text: 'Second', status: 'streaming' },
+          ],
+          status: 'streaming',
+        }
+        await gate
+
+        return {
+          parts: [
+            { type: 'reasoning', text: 'First', status: 'complete' },
+            { type: 'text', text: 'Partial answer' },
+            { type: 'reasoning', text: 'Second', status: 'complete' },
+          ],
+          status: 'ready',
+        }
+      },
+    }
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider transport={transport}>
+          <SendButton />
+          <AIMessages />
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    await user.click(screen.getByRole('button', { name: 'Send Hello' }))
+
+    await waitFor(() =>
+      expect(
+        document.querySelectorAll('[data-sl-ai-message-reasoning]')
+      ).toHaveLength(2)
+    )
+
+    const roots = document.querySelectorAll('[data-sl-ai-message-reasoning]')
+
+    expect(roots[0]).toHaveAttribute('data-status', 'complete')
+    expect(roots[1]).toHaveAttribute('data-status', 'running')
+    expect(
+      roots[0].querySelector('[data-sl-ai-dots-loader]')
+    ).not.toBeInTheDocument()
+    expect(
+      roots[1].querySelector('[data-sl-ai-dots-loader]')
+    ).toBeInTheDocument()
+
+    release()
+    await waitFor(() =>
+      expect(
+        document.querySelectorAll(
+          '[data-sl-ai-message-reasoning][data-status="running"]'
+        )
+      ).toHaveLength(0)
+    )
   })
 
   it('renders Pensando in pt-BR while waiting', async () => {

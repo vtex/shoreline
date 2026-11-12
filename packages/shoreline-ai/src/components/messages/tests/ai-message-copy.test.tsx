@@ -163,18 +163,15 @@ describe('AIMessageCopy', () => {
       expect(onCopied).not.toHaveBeenCalled()
     })
 
-    it('does not warn when unmounted before the timer fires', async () => {
-      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    it('clears the pending timer when unmounted before it fires', async () => {
       const { unmount } = renderCopy()
 
       await click(screen.getByRole('button', { name: 'Copy message' }))
-      unmount()
-      act(() => {
-        vi.advanceTimersByTime(3000)
-      })
+      expect(vi.getTimerCount()).toBe(1)
 
-      expect(errorSpy).not.toHaveBeenCalled()
-      errorSpy.mockRestore()
+      unmount()
+
+      expect(vi.getTimerCount()).toBe(0)
     })
 
     it('does not update state when the write resolves after unmount', async () => {

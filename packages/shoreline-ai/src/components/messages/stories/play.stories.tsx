@@ -81,7 +81,7 @@ export const CopyShowsCheckThenResets: Story = {
     </ThreadHistorySeed>
   ),
   play: async ({ canvasElement }) => {
-    const writeText = async (_text: string) => {}
+    const original = Object.getOwnPropertyDescriptor(navigator, 'clipboard')
     const calls: string[] = []
 
     Object.defineProperty(navigator, 'clipboard', {
@@ -89,21 +89,29 @@ export const CopyShowsCheckThenResets: Story = {
       value: {
         writeText: async (text: string) => {
           calls.push(text)
-          await writeText(text)
         },
       },
     })
 
-    const button = await within(canvasElement).findByRole('button', {
-      name: 'Copy message',
-    })
+    try {
+      const button = await within(canvasElement).findByRole('button', {
+        name: 'Copy message',
+      })
 
-    await userEvent.click(button)
-    await waitFor(() => expect(button).toHaveAttribute('data-copied'))
-    await expect(calls).toEqual(['Three orders are late this week.'])
-    await waitFor(() => expect(button).not.toHaveAttribute('data-copied'), {
-      timeout: 4000,
-    })
+      await userEvent.click(button)
+      await waitFor(() => expect(button).toHaveAttribute('data-copied'))
+      await expect(calls).toEqual(['Three orders are late this week.'])
+      await waitFor(() => expect(button).not.toHaveAttribute('data-copied'), {
+        timeout: 4000,
+      })
+    } finally {
+      // Do not leak the fake clipboard into later stories.
+      if (original) {
+        Object.defineProperty(navigator, 'clipboard', original)
+      } else {
+        Reflect.deleteProperty(navigator, 'clipboard')
+      }
+    }
   },
 }
 

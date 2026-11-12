@@ -48,13 +48,17 @@ export const AIMessageCopy = forwardRef<HTMLButtonElement, AIMessageCopyProps>(
       async (event: React.MouseEvent<HTMLButtonElement>) => {
         onClick?.(event)
 
+        // Keep this explicit: `await navigator.clipboard?.writeText()` resolves
+        // when the clipboard is missing and would show the check icon.
+        if (!navigator.clipboard) return
+
         try {
-          await navigator.clipboard?.writeText(text)
+          await navigator.clipboard.writeText(text)
         } catch {
           return
         }
 
-        if (!navigator.clipboard || !mounted.current) return
+        if (!mounted.current) return
 
         setCopied(true)
         onCopied?.()
