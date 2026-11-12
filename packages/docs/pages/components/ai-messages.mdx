@@ -159,7 +159,7 @@ The bubble of the user is only CSS, so there is no component to configure. The w
 
 ### Long threads
 
-Each message row uses `content-visibility: auto`, so rows that are off screen cost nothing. Their placeholder height comes from `--sl-ai-message-intrinsic-size` (default `5rem`). `[data-sl-ai-message]` also has padding and a negative margin that cancel each other so that focus rings and the reasoning button are not clipped. Do not override `padding` or `margin` on it. See [AIThread](/components/ai-thread#long-conversations).
+Each message row uses `content-visibility: auto`, so rows that are off screen cost nothing. Their placeholder height comes from `--sl-ai-message-intrinsic-size` (default `5rem`). `[data-sl-ai-message]` also has padding and a negative margin that cancel each other, so the content keeps its width and position, and focus rings and the reasoning button are not clipped by the row. The row box extends about `1rem` past the messages container, so a focus ring at the very edge is still clipped by an ancestor with `overflow: hidden`: give the messages container about `1rem` of horizontal padding. Do not override `padding` or `margin` on it. See [AIThread](/components/ai-thread#long-conversations).
 
 ### Labels and languages
 

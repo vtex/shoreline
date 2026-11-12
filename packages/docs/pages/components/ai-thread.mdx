@@ -81,7 +81,7 @@ Each message row uses `content-visibility: auto`, so the browser skips the layou
 Because the heights of rows that were never on screen are estimates, the scroll bar can shift a little while you scroll up through a long history. This is expected.
 
 <Callout type="warning">
-  `[data-sl-ai-message]` has some padding and an opposite negative margin. They give focus rings room to paint inside the clipped row, and they cancel each other, so the layout does not change. Do not override `padding` or `margin` on that element.
+  `[data-sl-ai-message]` has some padding and an opposite negative margin. They give focus rings room to paint inside the clipped row, and they cancel each other, so the content keeps its width and position. The row box itself extends about 1rem past the messages container on each side, so a focus ring at the very edge is still clipped by an ancestor with `overflow: hidden`, such as the viewport. Give the messages container about 1rem of horizontal padding. Do not override `padding` or `margin` on that element.
 </Callout>
 
 ### Errors when opening a thread
