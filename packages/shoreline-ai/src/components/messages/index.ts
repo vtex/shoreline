@@ -6,18 +6,20 @@ export { AIMessageParts } from './ai-message-parts'
 export { AIMessageText } from './ai-message-text'
 export { AIMarkdown } from './ai-markdown'
 export { AIMessageReasoningRoot } from './ai-message-reasoning-root'
-export { AIMessageReasoningHeader } from './ai-message-reasoning-header'
 export { AIMessageReasoningTrigger } from './ai-message-reasoning-trigger'
 export { AIMessageReasoningContent } from './ai-message-reasoning-content'
 export { AIMessageReasoningText } from './ai-message-reasoning-text'
 export { AIMessageReasoningToolStep } from './ai-message-reasoning-tool-step'
+export { AIMessageActions } from './ai-message-actions'
+export { AIMessageCopy } from './ai-message-copy'
+export { AIThinkingIndicator } from './ai-thinking-indicator'
 export { AIMessageResources } from './ai-message-resources'
 export {
   AIMessageResource,
   AIMessageResourceFile,
   AIMessageResourceImage,
 } from './ai-message-resource'
-export { renderDefaultParts } from './default-parts'
+export { defaultMessageGroupBy, renderDefaultParts } from './default-parts'
 export { MessageMessagesProvider } from './message-messages-context'
 
 export type {
@@ -35,9 +37,16 @@ export type {
   AIMarkdownOptions,
   AIMessageReasoningRootProps,
   AIMessageReasoningRootOptions,
+  AIMessageReasoningStatus,
   AIMessageReasoningTriggerProps,
   AIMessageReasoningTriggerOptions,
   AIMessageReasoningContentProps,
+  AIMessageActionsProps,
+  AIMessageActionsOptions,
+  AIMessageCopyProps,
+  AIMessageCopyOptions,
+  AIThinkingIndicatorProps,
+  AIThinkingIndicatorOptions,
   AIMessageReasoningTextProps,
   AIMessageReasoningToolStepProps,
   AIMessageReasoningToolStepOptions,

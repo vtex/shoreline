@@ -6,9 +6,33 @@
     width: 100%;
   }
 
+  /*
+   * Skip layout and paint for off-screen messages in long threads.
+   * Override the placeholder block size used before a message is first
+   * rendered with --sl-ai-message-intrinsic-size (default: 5rem, an
+   * estimate of an average message height).
+   *
+   * content-visibility clips painting to the message box, so the padding
+   * gives focus rings and the reasoning trigger (which sits left of the
+   * content) room to paint. Negative margins cancel the padding, and
+   * content-box keeps max-width: 100% applied to the content, so the
+   * content width and position are the same as without the padding.
+   * The row box itself extends by the padding on each side, so a focus
+   * ring at the very edge of the messages container is still clipped by an
+   * ancestor with overflow hidden (such as the thread viewport): give the
+   * messages container about 1rem of horizontal padding.
+   */
+  [data-sl-ai-message] {
+    box-sizing: content-box;
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto var(--sl-ai-message-intrinsic-size, 5rem);
+    padding: var(--sl-space-2) var(--sl-space-4);
+    margin: calc(var(--sl-space-2) * -1) calc(var(--sl-space-4) * -1);
+  }
+
   [data-sl-ai-message][data-sl-ai-message-role="user"] {
     align-self: flex-end;
-    max-width: 85%;
+    max-width: 100%;
   }
 
   [data-sl-ai-message][data-sl-ai-message-role="assistant"] {
@@ -16,11 +40,16 @@
     max-width: 100%;
   }
 
+  /*
+   * User bubble. Override the maximum width with
+   * --sl-ai-message-user-max-width (default: 33.75rem).
+   */
   [data-sl-ai-message][data-sl-ai-message-role="user"]
     [data-sl-ai-message-content] {
-    border-radius: var(--sl-radius-3) 2px var(--sl-radius-3) var(--sl-radius-3);
-    background-color: var(--sl-bg-base-soft);
+    border-radius: var(--sl-radius-3);
+    background-color: var(--sl-bg-muted);
     padding: var(--sl-space-3) var(--sl-space-4);
+    max-width: var(--sl-ai-message-user-max-width, 33.75rem);
     width: fit-content;
   }
 
@@ -44,15 +73,35 @@
     gap: var(--sl-space-2);
   }
 
-  [data-sl-ai-message-reasoning-header] {
+  [data-sl-ai-message-reasoning-row] {
+    display: flex;
+    align-items: center;
     gap: var(--sl-space-0);
   }
 
-  [data-sl-ai-message-reasoning-header] [data-sl-ai-message-reasoning-trigger] {
+  [data-sl-ai-message-reasoning-row] [data-sl-ai-message-reasoning-trigger] {
     margin-left: calc(var(--sl-space-3) * -1);
     font: var(--sl-text-caption-1-font);
     letter-spacing: var(--sl-text-caption-1-letter-spacing);
     color: var(--sl-fg-base-soft);
+  }
+
+  [data-sl-ai-message-reasoning-meta] {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sl-space-1);
+    font: var(--sl-text-caption-1-font);
+    letter-spacing: var(--sl-text-caption-1-letter-spacing);
+    color: var(--sl-fg-muted);
+  }
+
+  [data-sl-ai-thinking-indicator] {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sl-space-1);
+    font: var(--sl-text-caption-1-font);
+    letter-spacing: var(--sl-text-caption-1-letter-spacing);
+    color: var(--sl-fg-muted);
   }
 
   [data-sl-ai-message-reasoning-content] {
@@ -103,6 +152,12 @@
 
   [data-sl-ai-dots-loader] > div:nth-child(3) {
     animation-delay: 0.6s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-sl-ai-dots-loader] > div {
+      animation: none;
+    }
   }
 
   [data-sl-ai-message-resources] {
@@ -177,5 +232,36 @@
   [data-sl-ai-message-reasoning-tool-step] {
     display: flex;
     align-items: center;
+  }
+
+  [data-sl-ai-message-actions] {
+    display: flex;
+    align-items: center;
+    gap: var(--sl-space-1);
+    min-height: var(--sl-space-8);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  [data-sl-ai-message-copy-status] {
+    display: contents;
+  }
+
+  [data-sl-ai-message]:hover [data-sl-ai-message-actions],
+  [data-sl-ai-message]:focus-within [data-sl-ai-message-actions],
+  [data-sl-ai-message-actions]:focus-within {
+    opacity: 1;
+  }
+
+  @media (hover: none) {
+    [data-sl-ai-message-actions] {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-sl-ai-message-actions] {
+      transition: none;
+    }
   }
 }

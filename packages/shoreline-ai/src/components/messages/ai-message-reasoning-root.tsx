@@ -3,12 +3,17 @@ import { useCollapse } from 'react-collapsed'
 import { forwardRef } from '@vtex/shoreline'
 import invariant from 'tiny-invariant'
 
-import type { AIMessageReasoningRootProps } from './types'
+import type {
+  AIMessageReasoningRootProps,
+  AIMessageReasoningStatus,
+} from './types'
 
 type ReasoningRootContextValue = {
   getCollapseProps: ReturnType<typeof useCollapse>['getCollapseProps']
   isExpanded: boolean
   setExpanded: (expanded: boolean) => void
+  status: AIMessageReasoningStatus
+  duration?: number
 }
 
 const ReasoningRootContext = createContext<ReasoningRootContextValue | null>(
@@ -29,26 +34,57 @@ export function useAIMessageReasoningRootContext(): ReasoningRootContextValue {
 /**
  * Collapsible root for the reasoning (Chain of Thought) panel.
  *
+ * @example
+ * <AIMessageReasoningRoot status="complete" defaultExpanded>
+ *   <AIMessageReasoningTrigger />
+ *   <AIMessageReasoningContent>
+ *     <AIMessageReasoningText />
+ *   </AIMessageReasoningContent>
+ * </AIMessageReasoningRoot>
+ *
  * @status experimental
  */
 export const AIMessageReasoningRoot = forwardRef<
   HTMLDivElement,
   AIMessageReasoningRootProps
 >(function AIMessageReasoningRoot(props, ref) {
-  const { defaultExpanded = false, children, ...divProps } = props
+  const {
+    status = 'complete',
+    duration,
+    defaultExpanded = false,
+    expanded,
+    onExpandedChange,
+    children,
+    ...divProps
+  } = props
+
   const { getCollapseProps, isExpanded, setExpanded } = useCollapse({
     defaultExpanded,
+    isExpanded: expanded,
   })
+
+  function handleSetExpanded(next: boolean) {
+    // In controlled mode the parent owns the state, so we only notify it.
+    if (expanded === undefined) setExpanded(next)
+    onExpandedChange?.(next)
+  }
 
   const contextValue: ReasoningRootContextValue = {
     getCollapseProps,
     isExpanded,
-    setExpanded,
+    setExpanded: handleSetExpanded,
+    status,
+    duration,
   }
 
   return (
     <ReasoningRootContext.Provider value={contextValue}>
-      <div ref={ref} data-sl-ai-message-reasoning {...divProps}>
+      <div
+        ref={ref}
+        data-sl-ai-message-reasoning
+        data-status={status}
+        {...divProps}
+      >
         {children}
       </div>
     </ReasoningRootContext.Provider>
