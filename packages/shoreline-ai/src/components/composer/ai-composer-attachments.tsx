@@ -1,6 +1,7 @@
 import { ComposerPrimitive, useAuiEvent } from '@assistant-ui/react'
 import { Text, forwardRef } from '@vtex/shoreline'
 import {
+  type MutableRefObject,
   type RefObject,
   memo,
   useEffect,
@@ -132,7 +133,7 @@ const ROW_EASING = 'cubic-bezier(0.2, 0.8, 0.2, 1)'
 function useAnimatedRowHeight(
   listRef: RefObject<HTMLDivElement | null>,
   expanded: boolean,
-  fromHeight: RefObject<number | null>
+  fromHeight: MutableRefObject<number | null>
 ) {
   useLayoutEffect(() => {
     const list = listRef.current
