@@ -14,6 +14,7 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
 
 const revenue = [4200, 5100, 4800, 6300, 5900, 7200]
 const cost = [2100, 2400, 2600, 2900, 2700, 3100]
+const refunds = [-900, -1200, -800, -1400, -1100, -700]
 const conversion = [2.1, 2.4, 2.3, 2.8, 2.6, 3.1]
 
 /**
@@ -52,6 +53,30 @@ export function StackedBarsWithLine() {
       series={[
         { type: 'bar', name: 'Revenue', data: revenue },
         { type: 'bar', name: 'Cost', data: cost },
+        {
+          type: 'line',
+          name: 'Conversion',
+          data: conversion,
+          unit: 'percentage',
+        },
+      ]}
+    />
+  )
+}
+
+/**
+ * Bars on both sides of zero: the zero line is emphasized so the split between
+ * revenue and refunds stays legible, while every other gridline — the bottom
+ * one included — keeps the quiet grid tone.
+ */
+export function NegativeValues() {
+  return (
+    <ComposedChart
+      label="Revenue, refunds and conversion rate by month"
+      categories={months}
+      series={[
+        { type: 'bar', name: 'Revenue', data: revenue },
+        { type: 'bar', name: 'Refunds', data: refunds },
         {
           type: 'line',
           name: 'Conversion',

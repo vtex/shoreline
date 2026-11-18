@@ -11,6 +11,7 @@ import {
   buildGrid,
   buildLegend,
   buildValueAxis,
+  hasNegativeValues,
 } from '../../internal/option'
 import { createNumberFormatter } from '../../internal/format'
 import { legendIcon } from '../../internal/legend'
@@ -171,6 +172,17 @@ export function buildComposedOption(
 
   const seams = forecastSeams(renderedLines)
 
+  // The category axis' line follows the primary value axis' zero, and only the
+  // primary axis owns the grid: bars, plus any line that stays on their axis.
+  // A negative line on the secondary axis lives on its own scale, so it must
+  // not recolor the primary's zero.
+  const primarySeries = hasSecondaryAxis
+    ? [
+        ...renderedBars,
+        ...renderedLines.filter((item) => item.unit === leftUnit),
+      ]
+    : renderedSeries
+
   const axisPointer: ChartAxisPointer =
     renderedBars.length > 0
       ? {
@@ -239,7 +251,10 @@ export function buildComposedOption(
         'forecast',
     }),
     grid: buildGrid({ tokens, showLegend }),
-    xAxis: buildCategoryAxis(categories),
+    xAxis: buildCategoryAxis(categories, {
+      tokens,
+      zeroLine: hasNegativeValues(primarySeries),
+    }),
     // The left axis owns the horizontal grid. Both axes derive their own tick
     // intervals from their own scales, so drawing the secondary axis' ticks
     // too would place a second, overlapping set of gridlines at different

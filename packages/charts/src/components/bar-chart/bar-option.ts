@@ -8,6 +8,7 @@ import {
   buildGrid,
   buildLegend,
   buildValueAxis,
+  hasNegativeValues,
 } from '../../internal/option'
 import type { ChartSeries } from '../../internal/series'
 import {
@@ -223,6 +224,13 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
     shadowStyle: { color: tokens.get(hoverOverlayToken) },
   }
 
+  // The zero line lives on the category axis whatever the bars' direction: it
+  // is the axis line the engine slides to zero when the values cross it.
+  const categoryAxis = buildCategoryAxis(categories, {
+    tokens,
+    zeroLine: hasNegativeValues(series),
+  })
+
   return {
     legend: buildLegend(
       series.length,
@@ -247,12 +255,12 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
     grid: buildGrid({ tokens, showLegend }),
     xAxis:
       direction === 'vertical'
-        ? buildCategoryAxis(categories)
+        ? categoryAxis
         : buildValueAxis({ formatter: formatNumber }),
     yAxis:
       direction === 'vertical'
         ? buildValueAxis({ formatter: formatNumber })
-        : buildCategoryAxis(categories),
+        : categoryAxis,
     series: buildBarSeries({
       series,
       direction,

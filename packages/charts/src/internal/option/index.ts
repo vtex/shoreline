@@ -5,4 +5,5 @@ export {
   buildGrid,
   buildLegend,
   buildValueAxis,
+  hasNegativeValues,
 } from './option'
