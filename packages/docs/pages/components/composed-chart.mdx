@@ -39,7 +39,7 @@ Every series accepts a `unit`: `number` (the default) or `percentage`. Bars anch
 
 ### Curves
 
-`curve` sets how the line series connect their points: `linear` (the default) draws straight segments, `smooth` draws a spline. Bars are unaffected. Smoothing overshoots between points, so a curve can rise above or dip below the values it joins — visible when the axis is fitted tightly to the data.
+`curve` sets how the line series connect their points: `linear` (the default) draws straight segments, `smooth` draws a spline. Bars are unaffected. A smooth curve never goes beyond the values it joins, but between categories it draws values nobody measured — treat it as a trend, not as exact readings.
 
 <Preview name="composed-chart-smooth" />
 
