@@ -11,6 +11,7 @@ export {
   isImageAttachmentType,
   isAttachmentLoading,
   isAttachmentError,
+  getAttachmentTag,
 } from '../../utils/attachment-utils'
 
 /**

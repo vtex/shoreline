@@ -164,6 +164,97 @@ export const WithAttachments: Story = {
   },
 }
 
+const PNG_BASE64 =
+  'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='
+
+/** Adds eight files (images and documents), more than one row holds. */
+async function uploadManyFiles(canvasElement: HTMLElement) {
+  const canvas = within(canvasElement)
+
+  await userEvent.click(canvas.getByRole('button', { name: /add attachment/i }))
+
+  const fileInputs = document.body.querySelectorAll('input[type="file"]')
+  const fileInput = fileInputs.item(fileInputs.length - 1)
+
+  if (!(fileInput instanceof HTMLInputElement)) {
+    throw new Error('File input not found after clicking add attachment')
+  }
+
+  const binary = atob(PNG_BASE64)
+  const bytes = new Uint8Array(binary.length)
+
+  for (let index = 0; index < binary.length; index++) {
+    bytes[index] = binary.charCodeAt(index)
+  }
+
+  const image = (name: string) => new File([bytes], name, { type: 'image/png' })
+
+  await userEvent.upload(fileInput, [
+    image('preview.png'),
+    new File(['%PDF-1.4'], 'relatorio_vendas_outubro.pdf', {
+      type: 'application/pdf',
+    }),
+    image('banner.png'),
+    new File(['docx'], 'estoque_parado.docx', {
+      type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    }),
+    image('capa.png'),
+    new File(['name,amount\nfoo,1'], 'criar_budget.csv', { type: 'text/csv' }),
+    image('detalhe.png'),
+    new File(['text'], 'notas.txt', { type: 'text/plain' }),
+  ])
+}
+
+/** More attachments than one row holds: the rest collapse into the "+N" button. */
+export const ManyAttachments: Story = {
+  // Deferred to the component review (see shoreline-ai-ci-readiness spec)
+  tags: ['skip-test'],
+  render: () => (
+    <AIComposer>
+      <AIComposerField>
+        <AIComposerAttachments />
+        <AIComposerInput placeholder="Message VTEX My Assistant..." />
+        <AIComposerFooter>
+          <AIComposerAddAttachment />
+          <StoryAgentPill />
+          <AIComposerActions>
+            <AIComposerAction />
+          </AIComposerActions>
+        </AIComposerFooter>
+      </AIComposerField>
+    </AIComposer>
+  ),
+  play: async ({ canvasElement }) => {
+    await uploadManyFiles(canvasElement)
+
+    const canvas = within(canvasElement)
+
+    await expect(
+      await canvas.findByRole('button', { name: /show all attachments/i })
+    ).toHaveAttribute('aria-expanded', 'false')
+  },
+}
+
+/** The "+N" button opened: every attachment shows and the button reads "Less". */
+export const ManyAttachmentsExpanded: Story = {
+  // Deferred to the component review (see shoreline-ai-ci-readiness spec)
+  tags: ['skip-test'],
+  render: ManyAttachments.render,
+  play: async ({ canvasElement }) => {
+    await uploadManyFiles(canvasElement)
+
+    const canvas = within(canvasElement)
+
+    await userEvent.click(
+      await canvas.findByRole('button', { name: /show all attachments/i })
+    )
+    await expect(canvas.getByRole('button', { name: 'Less' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    )
+  },
+}
+
 export const Loading: Story = {
   render: () => <AIComposer loading />,
 }

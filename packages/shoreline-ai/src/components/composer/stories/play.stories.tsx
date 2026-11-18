@@ -65,6 +65,69 @@ export const TypeAndSend: Story = {
   },
 }
 
+export const ExpandAndCollapseAttachments: Story = {
+  // Deferred to the component review (see shoreline-ai-ci-readiness spec)
+  tags: ['skip-test'],
+  render: () => (
+    <AIComposer>
+      <AIComposerField>
+        <AIComposerAttachments />
+        <AIComposerInput placeholder="Type a message" />
+        <AIComposerFooter>
+          <AIComposerAddAttachment />
+          <AIComposerActions>
+            <AIComposerSend />
+          </AIComposerActions>
+        </AIComposerFooter>
+      </AIComposerField>
+    </AIComposer>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    await userEvent.click(
+      canvas.getByRole('button', { name: /add attachment/i })
+    )
+
+    const fileInputs = document.body.querySelectorAll('input[type="file"]')
+    const fileInput = fileInputs.item(fileInputs.length - 1)
+
+    if (!(fileInput instanceof HTMLInputElement)) {
+      throw new Error('File input not found after clicking add attachment')
+    }
+
+    // Twelve document cards cannot share one row of the 640px story.
+    await userEvent.upload(
+      fileInput,
+      Array.from(
+        { length: 12 },
+        (_, index) =>
+          new File(['text'], `file_${index + 1}.pdf`, {
+            type: 'application/pdf',
+          })
+      )
+    )
+
+    const more = await canvas.findByRole('button', {
+      name: /show all attachments/i,
+    })
+
+    await expect(more).toHaveAttribute('aria-expanded', 'false')
+    await expect(more).toHaveTextContent(/^\+\d+$/)
+
+    await userEvent.click(more)
+    await expect(canvas.getByRole('button', { name: 'Less' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    )
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Less' }))
+    await expect(
+      await canvas.findByRole('button', { name: /show all attachments/i })
+    ).toHaveAttribute('aria-expanded', 'false')
+  },
+}
+
 export const AddAttachment: Story = {
   // Deferred to the component review (see shoreline-ai-ci-readiness spec)
   tags: ['skip-test'],
