@@ -1,3 +1,5 @@
+import type { ChartCurve } from '../../internal/curve'
+import { isSmoothCurve } from '../../internal/curve'
 import type { EChartsCoreOption } from '../../internal/echarts'
 import type { ChartAxisPointer } from '../../internal/option'
 import {
@@ -49,10 +51,10 @@ export interface BuildLineOptionArgs {
   othersLabel: string
   maxSeries: number
   /**
-   * Draw the lines as smooth curves instead of straight segments.
-   * @default false
+   * How the lines connect their points.
+   * @default 'linear'
    */
-  smooth?: boolean
+  curve?: ChartCurve
   tokens: ChartTokens
 }
 
@@ -65,7 +67,7 @@ const guideLine = '--sl-color-gray-3'
  * style values come from the resolved tokens.
  */
 export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
-  const { categories, othersLabel, maxSeries, smooth = false, tokens } = args
+  const { categories, othersLabel, maxSeries, curve = 'linear', tokens } = args
 
   // Everything downstream — legend, palette order — reads the collapsed list,
   // so the aggregate behaves like any other series.
@@ -94,7 +96,7 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
       name: item.name,
       type: 'line',
       data: item.data,
-      smooth,
+      smooth: isSmoothCurve(curve),
     })),
   }
 }

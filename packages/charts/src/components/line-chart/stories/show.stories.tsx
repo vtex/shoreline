@@ -77,7 +77,7 @@ export function Show() {
         <LineChart
           label="Revenue by month"
           categories={months}
-          smooth
+          curve="smooth"
           series={[{ name: 'Revenue', data: revenue }]}
         />
       </Section>

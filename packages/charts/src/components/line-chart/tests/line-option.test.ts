@@ -90,10 +90,11 @@ describe('buildLineOption', () => {
     expect(option.series[0]?.connectNulls).toBeUndefined()
   })
 
-  test('draws straight segments by default and smooth curves when smooth is set', () => {
+  test('draws straight segments for the default curve and a spline for smooth', () => {
     expect(build().series[0]?.smooth).toBe(false)
+    expect(build({ curve: 'linear' }).series[0]?.smooth).toBe(false)
 
-    const smooth = build({ smooth: true })
+    const smooth = build({ curve: 'smooth' })
 
     expect(smooth.series[0]?.smooth).toBe(true)
   })
