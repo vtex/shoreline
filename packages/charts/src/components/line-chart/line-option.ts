@@ -8,6 +8,7 @@ import {
   buildGrid,
   buildLegend,
   buildValueAxis,
+  hasNegativeValues,
 } from '../../internal/option'
 import { collapseSeries, createDeltaLookup } from '../../internal/series'
 import { chartSeriesTokens } from '../../internal/theme'
@@ -237,7 +238,10 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
       getDashed: (seriesIndex) => series[seriesIndex]?.variant === 'forecast',
     }),
     grid: buildGrid({ tokens, showLegend }),
-    xAxis: buildCategoryAxis(categories),
+    xAxis: buildCategoryAxis(categories, {
+      tokens,
+      zeroLine: hasNegativeValues(series),
+    }),
     yAxis: buildValueAxis(),
     // `connectNulls` defaults to false, so null values render as gaps rather
     // than being silently interpolated — the design spec's missing-data rule.

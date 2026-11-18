@@ -7,6 +7,7 @@ import {
   buildGrid,
   buildLegend,
   buildValueAxis,
+  hasNegativeValues,
 } from '../option'
 
 const tokens: ChartTokens = {
@@ -49,6 +50,25 @@ describe('buildCategoryAxis / buildValueAxis', () => {
     expect(buildValueAxis()).toEqual({ type: 'value' })
   })
 
+  test('recolors the axis line only when the chart crosses zero', () => {
+    const zeroLineTokens: ChartTokens = {
+      get: (token) => (token === '--sl-color-gray-6' ? '#adadad' : undefined),
+      px: () => 8,
+    }
+
+    expect(
+      buildCategoryAxis(['Jan'], { tokens: zeroLineTokens, zeroLine: true })
+    ).toEqual({
+      type: 'category',
+      data: ['Jan'],
+      axisLine: { lineStyle: { color: '#adadad' } },
+    })
+
+    expect(
+      buildCategoryAxis(['Jan'], { tokens: zeroLineTokens, zeroLine: false })
+    ).toEqual({ type: 'category', data: ['Jan'] })
+  })
+
   test('hides the gridlines of a secondary axis on request', () => {
     expect(buildValueAxis({ showSplitLine: false })).toEqual({
       type: 'value',
@@ -61,6 +81,21 @@ describe('buildCategoryAxis / buildValueAxis', () => {
       axisLabel: { formatter: expect.any(Function) },
       splitLine: { show: false },
     })
+  })
+})
+
+describe('hasNegativeValues', () => {
+  test('counts only rendered values below zero', () => {
+    expect(hasNegativeValues([])).toBe(false)
+    expect(hasNegativeValues([{ data: [1, 2] }])).toBe(false)
+    expect(hasNegativeValues([{ data: [1, 0] }])).toBe(false)
+    // A gap is missing data, not a value below zero.
+    expect(hasNegativeValues([{ data: [1, null] }])).toBe(false)
+    expect(hasNegativeValues([{ data: [1, -1] }])).toBe(true)
+    // Any series crossing zero is enough.
+    expect(hasNegativeValues([{ data: [1, 2] }, { data: [3, -0.1] }])).toBe(
+      true
+    )
   })
 })
 
