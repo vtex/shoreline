@@ -47,11 +47,11 @@ describe('ai-composer.css', () => {
     expect(field).toContain('var(--sl-radius-3)')
   })
 
-  it('pill shows a focus ring on focus-within', () => {
+  it('focus only steps the card border up one gray', () => {
     const focus = declarationsFor('[data-sl-ai-composer-field]:focus-within')
 
-    expect(focus).toContain('var(--sl-focus-ring-base)')
-    expect(focus).not.toContain('outline: none')
+    expect(focus).toContain('border-color: var(--sl-color-gray-5)')
+    expect(focus).not.toContain('box-shadow')
   })
 
   it('uses no radius token that Sunrise lacks', () => {
@@ -147,9 +147,8 @@ describe('ai-composer.css', () => {
   it('empty send stays blue at 72% instead of turning gray', () => {
     const disabled = declarationsMatching('[data-sl-ai-composer-send]:disabled')
 
-    expect(disabled).toContain(
-      'color-mix(in srgb, var(--sl-bg-accent-strong) 72%'
-    )
+    expect(disabled).toContain('var(--sl-bg-accent-strong)')
+    expect(disabled).toContain('opacity: 0.72')
     expect(disabled).toContain('var(--sl-fg-inverted)')
     expect(disabled).not.toContain('gray')
   })
@@ -195,11 +194,24 @@ describe('ai-composer.css', () => {
     }
   })
 
-  it('the document card is 80px high and 128px wide', () => {
+  it('the document card is 80px high and 124px wide', () => {
     const card = declarationsFor('[data-sl-ai-composer-attachment-card]')
 
-    expect(card).toContain('width: var(--sl-space-32)')
+    expect(card).toContain('width: 7.75rem')
     expect(card).toContain('height: var(--sl-space-20)')
+  })
+
+  it('the file type tag is a 16px micro label', () => {
+    const tag = declarationsFor('[data-sl-ai-composer-attachment-tag]')
+
+    expect(tag).toContain('9px / 1')
+    expect(tag).toContain('letter-spacing: 0.04em')
+    expect(tag).toContain('border-radius: 0.25rem')
+    expect(tag).toContain('padding: 0 var(--sl-space-1)')
+  })
+
+  it('only the tiles an expansion reveals animate', () => {
+    expect(css).toContain('[data-sl-ai-composer-attachment][data-overflow]')
   })
 
   it('a failed attachment uses the critical border token', () => {

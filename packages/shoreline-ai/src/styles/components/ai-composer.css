@@ -27,8 +27,9 @@
     position: relative;
   }
 
+  /* Focus does not change the card's shape: only the border steps up one gray. */
   [data-sl-ai-composer-field]:focus-within {
-    box-shadow: var(--sl-focus-ring-base);
+    border-color: var(--sl-color-gray-5);
   }
 
   /* Areas for the three layouts. The DOM order never changes. */
@@ -118,7 +119,7 @@
 
   [data-sl-ai-composer-field] [data-sl-textarea] {
     flex: 1 1 0;
-    min-height: calc(var(--sl-space-5) + var(--sl-space-1));
+    min-height: var(--sl-space-6);
     max-height: var(--sl-space-32);
     min-width: 0;
     width: 100%;
@@ -131,8 +132,8 @@
 
   [data-sl-ai-composer-field] [data-sl-textarea-input],
   [data-sl-ai-composer-field] [data-sl-textarea] textarea {
-    min-height: calc(var(--sl-space-5) + var(--sl-space-1));
-    padding: var(--sl-space-1) var(--sl-space-1) 0;
+    min-height: var(--sl-space-6);
+    padding: var(--sl-space-05) var(--sl-space-1);
     box-sizing: border-box;
     height: 100%;
     border: none;
@@ -177,25 +178,27 @@
 
   [data-sl-ai-composer-footer] {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
     min-width: 0;
-    min-height: calc(var(--sl-space-8) + var(--sl-space-1));
+    /* The send control (28px) plus its 6px top gap; the 32px controls overflow it equally. */
+    height: calc(var(--sl-space-7) + var(--sl-space-05) + var(--sl-space-1));
     flex-shrink: 0;
     margin-top: auto;
-    padding-top: var(--sl-space-05);
+    padding-top: calc(var(--sl-space-05) + var(--sl-space-1));
     gap: var(--sl-space-2);
   }
 
   [data-sl-ai-composer-footer] > * {
-    align-self: flex-end;
+    align-self: center;
     min-width: 0;
   }
 
+  /* No gap: the controls in the slot, like the agent selector, carry their own padding. */
   [data-sl-ai-composer-footer-start] {
     display: flex;
-    gap: var(--sl-space-1);
+    gap: 0;
     align-items: center;
   }
 
@@ -212,12 +215,11 @@
     height: var(--sl-space-7);
     min-width: var(--sl-space-7);
     min-height: var(--sl-space-7);
-    margin-inline-end: var(--sl-space-05);
     padding: 0;
     border-radius: 50%;
     background: var(--sl-bg-accent-strong);
     color: var(--sl-fg-inverted);
-    transition: background-color 150ms ease;
+    transition: background-color 150ms ease, opacity 150ms ease;
   }
 
   [data-sl-icon-button][data-sl-ai-composer-send]:not(:disabled):not(
@@ -231,8 +233,9 @@
 
   [data-sl-icon-button][data-sl-ai-composer-send]:disabled,
   [data-sl-icon-button][data-sl-ai-composer-send][aria-disabled="true"] {
-    background: color-mix(in srgb, var(--sl-bg-accent-strong) 72%, transparent);
+    background: var(--sl-bg-accent-strong);
     color: var(--sl-fg-inverted);
+    opacity: 0.72;
   }
 
   [data-sl-ai-composer-send] svg,
@@ -378,7 +381,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: var(--sl-space-05);
-    width: var(--sl-space-32);
+    width: 7.75rem;
     height: var(--sl-space-20);
     box-sizing: border-box;
     padding: var(--sl-space-2);
@@ -409,10 +412,10 @@
     align-items: center;
     height: var(--sl-space-4);
     padding: 0 var(--sl-space-1);
-    border-radius: var(--sl-radius-1);
-    font: var(--sl-text-caption-2-font);
-    font-weight: var(--sl-font-weight-semibold);
-    letter-spacing: var(--sl-text-caption-2-letter-spacing);
+    border-radius: 0.25rem;
+    /* A micro label, smaller than any type token: 9px. */
+    font: var(--sl-font-weight-semibold) 9px / 1 var(--sl-font-family-sans);
+    letter-spacing: 0.04em;
     background: var(--sl-color-gray-2);
     color: var(--sl-color-gray-11);
   }
@@ -592,62 +595,19 @@
     }
   }
 
-  /* Opening: the tiles come in one after another, each a little later than the one before. */
+  /* Opening: the revealed tiles come in one after another, each a little later than the one before. */
   @media (prefers-reduced-motion: no-preference) {
     [data-sl-ai-composer-attachments-more-label] {
       animation: sl-ai-composer-attachments-more-label-in 220ms
         cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
+    /* Only the tiles the expansion reveals animate, one after another. */
     [data-sl-ai-composer-attachments][data-expanded]
-      > [data-sl-ai-composer-attachment] {
+      > [data-sl-ai-composer-attachment][data-overflow] {
       animation: sl-ai-composer-attachment-in 260ms
         cubic-bezier(0.2, 0.8, 0.2, 1) both;
-    }
-
-    [data-sl-ai-composer-attachments][data-expanded]
-      > [data-sl-ai-composer-attachment]:nth-child(2) {
-      animation-delay: 30ms;
-    }
-
-    [data-sl-ai-composer-attachments][data-expanded]
-      > [data-sl-ai-composer-attachment]:nth-child(3) {
-      animation-delay: 60ms;
-    }
-
-    [data-sl-ai-composer-attachments][data-expanded]
-      > [data-sl-ai-composer-attachment]:nth-child(4) {
-      animation-delay: 90ms;
-    }
-
-    [data-sl-ai-composer-attachments][data-expanded]
-      > [data-sl-ai-composer-attachment]:nth-child(5) {
-      animation-delay: 120ms;
-    }
-
-    [data-sl-ai-composer-attachments][data-expanded]
-      > [data-sl-ai-composer-attachment]:nth-child(6) {
-      animation-delay: 150ms;
-    }
-
-    [data-sl-ai-composer-attachments][data-expanded]
-      > [data-sl-ai-composer-attachment]:nth-child(7) {
-      animation-delay: 180ms;
-    }
-
-    [data-sl-ai-composer-attachments][data-expanded]
-      > [data-sl-ai-composer-attachment]:nth-child(8) {
-      animation-delay: 210ms;
-    }
-
-    [data-sl-ai-composer-attachments][data-expanded]
-      > [data-sl-ai-composer-attachment]:nth-child(9) {
-      animation-delay: 240ms;
-    }
-
-    [data-sl-ai-composer-attachments][data-expanded]
-      > [data-sl-ai-composer-attachment]:nth-child(n + 10) {
-      animation-delay: 270ms;
+      animation-delay: calc(min(var(--sl-ai-composer-enter-index, 0), 9) * 30ms);
     }
   }
 
@@ -714,7 +674,7 @@
   [data-sl-skeleton][data-sl-ai-composer-skeleton-pill] {
     display: block;
     width: 100%;
-    height: calc(var(--sl-space-20) + var(--sl-space-1));
+    height: calc(var(--sl-space-20) - var(--sl-space-1));
     border-radius: var(--sl-radius-3);
     background: var(--sl-color-gray-2);
     --skeleton-bg: var(--sl-color-gray-2);

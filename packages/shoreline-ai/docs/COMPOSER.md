@@ -62,7 +62,7 @@ Normative tree (matches AI Workspace layout: attachments and textarea inside the
 | `AIComposerHeader` | Neutral slot above the field: handles position and the overlap with the pill, draws nothing |
 | `AIComposerContextItems` | Preset band of context items; place it inside `AIComposerHeader` |
 | `AIComposerContextItem` | One removable context item: pin icon, truncated label, optional remove button |
-| `AIComposerField` | The compact white card: thin border, soft shadow (Horizon), focus ring |
+| `AIComposerField` | The compact white card: thin border, soft shadow (Horizon); focus only darkens the border |
 | `AIComposerAttachments` | Pending files above the input: one row of 80px tiles, with a "+N" button for the ones that do not fit |
 | `AIComposerInput` | Draft textarea |
 | `AIComposerFooter` | Bottom row: start slot (left) + actions slot (right) |
