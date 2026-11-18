@@ -25,7 +25,7 @@ import '@vtex/shoreline-charts/css'
 
 ### Smooth curves
 
-`smooth` draws the lines as curves instead of straight segments. Straight segments are the default because they read exact values more precisely; smooth curves suit trend-forward narratives.
+`curve` sets how the lines connect their points: `linear` (the default) draws straight segments, `smooth` draws a spline. Straight segments read exact values more precisely; smooth curves suit trend-forward narratives. Smoothing overshoots between points, so a curve can rise above or dip below the values it joins.
 
 <Preview name="line-chart-smooth" />
 
