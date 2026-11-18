@@ -132,9 +132,9 @@ export interface LineChartOptions {
    * because they read exact values more precisely; smooth curves suit
    * trend-forward narratives.
    *
-   * Smoothing overshoots between points, so a curve can rise above or dip
-   * below the values it joins — especially visible when the axis is fitted
-   * tightly to the data.
+   * A smooth curve never goes beyond the values it joins, but between
+   * categories it draws values nobody measured — it reads as a trend, not as
+   * a series of exact readings.
    * @default 'linear'
    */
   curve?: ChartCurve
