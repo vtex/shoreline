@@ -3,6 +3,7 @@ import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef, useId, useMemo } from 'react'
 
 import { ChartContainer } from '../../internal/chart-container'
+import type { ChartCurve } from '../../internal/curve'
 import { chartMessages, type ChartMessages } from '../../internal/messages'
 import type { ChartTokens } from '../../internal/theme'
 import type { LineChartSeries } from './line-option'
@@ -32,7 +33,7 @@ export const LineChart = forwardRef<HTMLDivElement, LineChartProps>(
       loading = false,
       messages: messageOverrides,
       maxSeries = defaultMaxSeries,
-      smooth = false,
+      curve = 'linear',
       ...htmlProps
     } = props
 
@@ -51,10 +52,10 @@ export const LineChart = forwardRef<HTMLDivElement, LineChartProps>(
           categories,
           othersLabel,
           maxSeries,
-          smooth,
+          curve,
           tokens,
         }),
-      [series, categories, othersLabel, maxSeries, smooth]
+      [series, categories, othersLabel, maxSeries, curve]
     )
 
     return (
@@ -127,12 +128,16 @@ export interface LineChartOptions {
    */
   maxSeries?: number
   /**
-   * Draw the lines as smooth curves instead of straight segments. Off by
-   * default: straight segments read exact values more precisely, smooth
-   * curves suit trend-forward narratives.
-   * @default false
+   * How the lines connect their points. Straight segments are the default
+   * because they read exact values more precisely; smooth curves suit
+   * trend-forward narratives.
+   *
+   * Smoothing overshoots between points, so a curve can rise above or dip
+   * below the values it joins — especially visible when the axis is fitted
+   * tightly to the data.
+   * @default 'linear'
    */
-  smooth?: boolean
+  curve?: ChartCurve
 }
 
 export type LineChartProps = LineChartOptions & ComponentPropsWithoutRef<'div'>

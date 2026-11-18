@@ -28,15 +28,15 @@ export function Default() {
 }
 
 /**
- * `smooth` swaps straight segments for curves — trend-forward narratives
- * over precise value reading.
+ * `curve="smooth"` swaps straight segments for curves — trend-forward
+ * narratives over precise value reading.
  */
 export function Smooth() {
   return (
     <LineChart
       label="Revenue by month"
       categories={months}
-      smooth
+      curve="smooth"
       series={[{ name: 'Revenue', data: revenue }]}
     />
   )
