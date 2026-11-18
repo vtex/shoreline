@@ -23,7 +23,7 @@ import { useAIComposer } from '../../../hooks/use-ai-composer'
 import { useAIStatus } from '../../../hooks/use-ai-status'
 import { ComposerStoryDecorator } from './decorators'
 import { InitiativeCard } from './initiative-card'
-import { StoryPanel, type StoryPanelSection } from './panel'
+import { StoryPanel, type StoryPanelSection, inputKeys } from './panel'
 
 const meta: Meta = {
   title: 'shoreline-ai/composer',
@@ -197,7 +197,7 @@ function PanelComposer(props: { onPick: (text: string) => void }) {
             setValue={setText}
           >
             <AIComposerInput asChild placeholder="Type a message">
-              <ComboboxInput asChild>
+              <ComboboxInput asChild {...inputKeys(open)}>
                 <textarea />
               </ComboboxInput>
             </AIComposerInput>
@@ -233,9 +233,25 @@ export const ComboboxOnInput: Story = {
     await userEvent.keyboard('{ArrowDown}')
     await userEvent.keyboard('{Enter}')
     await waitFor(() => expect(onPick).toHaveBeenCalledWith('Alpha'))
-
-    await userEvent.type(input, 'x')
+    // The picked entry fills the draft and the list closes.
+    await waitFor(() => expect(input).toHaveValue('Alpha'))
     await waitFor(() => expect(page.queryByRole('listbox')).toBeNull())
+
+    // With a multi-line draft the arrows are left to the browser, which moves
+    // the caret between the lines (user-event does not simulate that move).
+    await userEvent.clear(input)
+    await userEvent.type(input, 'a{Shift>}{Enter}{/Shift}b')
+
+    for (const key of ['ArrowUp', 'ArrowDown']) {
+      const keydown = new KeyboardEvent('keydown', {
+        key,
+        bubbles: true,
+        cancelable: true,
+      })
+
+      input.dispatchEvent(keydown)
+      await expect(keydown.defaultPrevented).toBe(false)
+    }
   },
 }
 

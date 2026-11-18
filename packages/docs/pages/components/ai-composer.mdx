@@ -70,20 +70,15 @@ Use `layout` to choose how the pieces are arranged. The default is `stacked`.
 | Value | Arrangement |
 |-------|-------------|
 | `stacked` | The text, then a row below with the `+` on the left and the actions on the right |
-| `expanded` | The `+` above the text and the actions at the bottom end |
 | `inline` | Everything in one row. The most compact |
 
 <Callout type="info">
-  Only the look changes. The order in the DOM stays the same, so the tab order follows the DOM and can differ from what you see in `expanded` and `inline`.
+  Only the look changes. The order in the DOM stays the same, so the tab order follows the DOM and can differ from what you see in `inline`.
 </Callout>
 
 #### Stacked
 
 <Preview name="ai-composer-layout-stacked" />
-
-#### Expanded
-
-<Preview name="ai-composer-layout-expanded" />
 
 #### Inline
 
@@ -181,31 +176,25 @@ Keep this hook in a small component, like `Toolbar` above. It re-renders on each
 
 ### History and suggestions panel
 
-The package has no panel component. Build it with a Shoreline combobox on the input, using `asChild`. The combobox reads the draft with `useAIComposer` and sends the chosen entry with `useAIThread().sendMessage`:
+The package has no panel component. Build it with a Shoreline combobox on the input, using `asChild`. The combobox reads the draft with `useAIComposer`. The chosen entry fills the draft, so the user can edit it before sending:
 
 ```tsx
 function HistoryInput() {
   const { text, setText } = useAIComposer()
   const { isStreaming } = useAIStatus()
-  const { sendMessage } = useAIThread()
   const [requested, setRequested] = useState(false)
   const open = requested && !text.trim() && !isStreaming
 
   return (
     <ComboboxProvider open={open} setOpen={setRequested} value={text} setValue={setText}>
       <AIComposerInput asChild>
-        <ComboboxInput asChild>
+        <ComboboxInput asChild showOnKeyPress={false} moveOnKeyPress={open}>
           <textarea />
         </ComboboxInput>
       </AIComposerInput>
       <ComboboxPopover>
         {entries.map((entry) => (
-          <ComboboxItem
-            key={entry}
-            value={entry}
-            {...{ setValueOnClick: false }}
-            onClick={() => sendMessage({ text: entry })}
-          >
+          <ComboboxItem key={entry} value={entry}>
             {entry}
           </ComboboxItem>
         ))}
@@ -215,7 +204,7 @@ function HistoryInput() {
 }
 ```
 
-`setValueOnClick: false` keeps the clicked entry out of the draft. The Shoreline `ComboboxItem` type omits this prop, so it is spread from an object, and it is forwarded at runtime. With `asChild` the textarea is yours, so the package does not autosize it: it adds `field-sizing: content`, which grows the box in browsers that support it.
+`showOnKeyPress={false}` and `moveOnKeyPress={open}` make ArrowUp and ArrowDown drive the list only while it is open. Otherwise they move the caret between the lines of a multi-line draft. If the Shoreline `ComboboxInput` type omits these Ariakit props, spread them from an object: they are forwarded at runtime. With `asChild` the textarea is yours, so the package does not autosize it: it adds `field-sizing: content`, which grows the box in browsers that support it.
 
 ### Loading
 
@@ -300,7 +289,7 @@ Use the `data-sl-*` attributes to adjust the look in your CSS:
 | `[data-sl-ai-composer-add-attachment]` | The `+` button |
 | `[data-sl-ai-composer-skeleton]` | The skeleton |
 
-`AIComposerFooter` has `display: contents` in `expanded` and `inline`, so a `className` or `style` on it has no visual effect there.
+`AIComposerFooter` has `display: contents` in `inline`, so a `className` or `style` on it has no visual effect there.
 
 ## Related
 

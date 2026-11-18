@@ -82,19 +82,21 @@ describe('ai-composer.css', () => {
   })
 
   it('defines a rule per layout', () => {
-    for (const layout of ['stacked', 'expanded', 'inline']) {
+    for (const layout of ['stacked', 'inline']) {
       expect(css).toContain(`[data-layout="${layout}"]`)
     }
   })
 
-  it('footer uses display contents in expanded and inline', () => {
-    for (const layout of ['expanded', 'inline']) {
-      expect(
-        declarationsMatching(
-          `[data-layout="${layout}"] [data-sl-ai-composer-footer]`
-        )
-      ).toContain('display: contents')
-    }
+  it('footer uses display contents in inline', () => {
+    expect(
+      declarationsMatching(
+        '[data-layout="inline"] [data-sl-ai-composer-footer]'
+      )
+    ).toContain('display: contents')
+  })
+
+  it('has no expanded layout', () => {
+    expect(css).not.toContain('[data-layout="expanded"]')
   })
 
   it('inline centers the start slot and the actions on the row', () => {
@@ -161,12 +163,6 @@ describe('ai-composer.css', () => {
     ).toContain('margin-block: 0')
   })
 
-  it('inline is 44px high: the send control plus 16px', () => {
-    expect(
-      declarationsMatching('[data-layout="inline"] [data-sl-ai-composer-field]')
-    ).toContain('calc(var(--sl-space-7) + var(--sl-space-4))')
-  })
-
   it('context band uses the soft base background', () => {
     expect(declarationsFor('[data-sl-ai-composer-context-items]')).toContain(
       'var(--sl-bg-base-soft)'
@@ -194,10 +190,10 @@ describe('ai-composer.css', () => {
     }
   })
 
-  it('the document card is 80px high and 124px wide', () => {
+  it('the document card is 80px high and 128px wide', () => {
     const card = declarationsFor('[data-sl-ai-composer-attachment-card]')
 
-    expect(card).toContain('width: 7.75rem')
+    expect(card).toContain('width: var(--sl-space-32)')
     expect(card).toContain('height: var(--sl-space-20)')
   })
 
@@ -208,6 +204,12 @@ describe('ai-composer.css', () => {
     expect(tag).toContain('letter-spacing: 0.04em')
     expect(tag).toContain('border-radius: 0.25rem')
     expect(tag).toContain('padding: 0 var(--sl-space-1)')
+  })
+
+  it('sizes come from tokens, not from calc() sums of them', () => {
+    const sizing = css.match(/(?:min-|max-)?(?:height|width):\s*calc\([^;]*;/g)
+
+    expect(sizing).toBeNull()
   })
 
   it('only the tiles an expansion reveals animate', () => {

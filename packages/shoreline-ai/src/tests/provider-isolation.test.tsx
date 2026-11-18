@@ -89,7 +89,7 @@ describe('provider isolation', () => {
 
     await waitFor(() => expect(screen.getByText('a status=ready')).toBeTruthy())
     expect(screen.getByText('a messages=2')).toBeTruthy()
-    expect(screen.getByText('a debug=1')).toBeTruthy()
+    await waitFor(() => expect(screen.getByText('a debug=1')).toBeTruthy())
 
     expect(screen.getByText('b status=idle')).toBeTruthy()
     expect(screen.getByText('b messages=0')).toBeTruthy()
@@ -139,7 +139,8 @@ describe('provider isolation', () => {
     await waitFor(() =>
       expect(screen.getByText('outer status=ready')).toBeTruthy()
     )
-    expect(screen.getByText('outer debug=1')).toBeTruthy()
+    // The debug record lands after the status flips to ready, so wait for it.
+    await waitFor(() => expect(screen.getByText('outer debug=1')).toBeTruthy())
     expect(screen.getByText('inner messages=2')).toBeTruthy()
     expect(screen.getByText('inner debug=off')).toBeTruthy()
   })

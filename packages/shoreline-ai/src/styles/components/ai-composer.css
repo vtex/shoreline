@@ -32,7 +32,7 @@
     border-color: var(--sl-color-gray-5);
   }
 
-  /* Areas for the three layouts. The DOM order never changes. */
+  /* Areas for the two layouts. The DOM order never changes. */
   [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments] {
     grid-area: attachments;
   }
@@ -61,23 +61,6 @@
       "footer";
   }
 
-  /* expanded: the start slot sits above the text, actions at the bottom end. */
-  [data-sl-ai-composer][data-layout="expanded"] [data-sl-ai-composer-field] {
-    grid-template-areas:
-      "attachments"
-      "start"
-      "text"
-      "actions";
-  }
-
-  [data-sl-ai-composer][data-layout="expanded"] [data-sl-ai-composer-footer] {
-    display: contents;
-  }
-
-  [data-sl-ai-composer][data-layout="expanded"] [data-sl-ai-composer-actions] {
-    justify-self: end;
-  }
-
   /* inline: start slot, text and actions on one row. */
   [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-field] {
     grid-template-columns: auto minmax(0, 1fr) auto;
@@ -86,8 +69,6 @@
       "start text actions";
     align-items: center;
     column-gap: var(--sl-space-2);
-    /* 44px: the 28px send control and 16px of padding. */
-    min-height: calc(var(--sl-space-7) + var(--sl-space-4));
   }
 
   [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-footer] {
@@ -182,11 +163,9 @@
     justify-content: space-between;
     width: 100%;
     min-width: 0;
-    /* The send control (28px) plus its 6px top gap; the 32px controls overflow it equally. */
-    height: calc(var(--sl-space-7) + var(--sl-space-05) + var(--sl-space-1));
     flex-shrink: 0;
     margin-top: auto;
-    padding-top: calc(var(--sl-space-05) + var(--sl-space-1));
+    padding-top: var(--sl-space-1);
     gap: var(--sl-space-2);
   }
 
@@ -246,11 +225,11 @@
     fill: currentColor;
   }
 
-  /* The stop icon draws its square at 15/20 of the box; 5/6 of 16px makes it 10px. */
+  /* The stop icon draws its square at 15/20 of the box, so a 12px box keeps it light. */
   [data-sl-ai-composer-cancel] svg,
   [data-sl-ai-composer-cancel] svg path {
-    width: calc(var(--sl-space-4) * 5 / 6);
-    height: calc(var(--sl-space-4) * 5 / 6);
+    width: var(--sl-space-3);
+    height: var(--sl-space-3);
     color: currentColor;
     fill: currentColor;
   }
@@ -313,8 +292,8 @@
     margin-top: calc(var(--sl-space-2) * -1);
     margin-inline: 0 calc(var(--sl-space-2) * -1);
     margin-bottom: var(--sl-space-3);
-    border-start-start-radius: calc(var(--sl-radius-3) - var(--sl-space-1));
-    border-start-end-radius: calc(var(--sl-radius-3) - var(--sl-space-1));
+    border-start-start-radius: var(--sl-radius-2);
+    border-start-end-radius: var(--sl-radius-2);
   }
 
   [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments]:empty {
@@ -337,12 +316,6 @@
   [data-sl-ai-composer-attachment][hidden],
   [data-sl-ai-composer-attachments-more][hidden] {
     display: none;
-  }
-
-  /* With attachments, the text and the footer get a little more room. */
-  [data-sl-ai-composer-field]:has([data-sl-ai-composer-attachment])
-    [data-sl-ai-composer-footer] {
-    padding-top: calc(var(--sl-space-05) + var(--sl-space-1));
   }
 
   /* Tiles are 80px with no visible text. An image shows its preview; anything else is a card. */
@@ -371,7 +344,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: calc(var(--sl-radius-2) - 1px);
+    border-radius: inherit;
   }
 
   /* A document card: the type tag on top, the name under it, the size pinned to the bottom. */
@@ -381,7 +354,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: var(--sl-space-05);
-    width: 7.75rem;
+    width: var(--sl-space-32);
     height: var(--sl-space-20);
     box-sizing: border-box;
     padding: var(--sl-space-2);
@@ -674,7 +647,7 @@
   [data-sl-skeleton][data-sl-ai-composer-skeleton-pill] {
     display: block;
     width: 100%;
-    height: calc(var(--sl-space-20) - var(--sl-space-1));
+    height: var(--sl-space-20);
     border-radius: var(--sl-radius-3);
     background: var(--sl-color-gray-2);
     --skeleton-bg: var(--sl-color-gray-2);
@@ -682,7 +655,7 @@
 
   [data-sl-ai-composer-skeleton][data-layout="inline"]
     [data-sl-ai-composer-skeleton-pill] {
-    height: calc(var(--sl-space-7) + var(--sl-space-4));
+    height: var(--sl-space-12);
   }
 
   @media (prefers-reduced-motion: reduce) {

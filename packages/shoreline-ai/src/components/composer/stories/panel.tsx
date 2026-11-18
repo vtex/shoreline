@@ -2,8 +2,11 @@ import type { ComponentType, RefObject } from 'react'
 import { ComboboxItem, ComboboxPopover, Text } from '@vtex/shoreline'
 
 // The Shoreline Combobox types omit these Ariakit props; they are forwarded at runtime.
-// `setValueOnClick: false` keeps the clicked entry out of the draft.
-const KEEP_DRAFT = { setValueOnClick: false }
+// ArrowUp and ArrowDown drive the list only while it is open. Otherwise they move the
+// caret between the lines of a multi-line draft, as in any textarea.
+export function inputKeys(open: boolean) {
+  return { showOnKeyPress: false, moveOnKeyPress: open }
+}
 const FLOAT_ABOVE = {
   placement: 'top',
   gutter: 8,
@@ -25,7 +28,8 @@ export interface StoryPanelSection {
 export function StoryPanel(props: {
   fieldRef: RefObject<HTMLElement>
   sections: StoryPanelSection[]
-  onPick: (entry: string) => void
+  /** Called after the entry fills the draft. */
+  onPick?: (entry: string) => void
 }) {
   const { fieldRef, sections, onPick } = props
   const floating = {
@@ -56,8 +60,7 @@ export function StoryPanel(props: {
                 key={entry}
                 value={entry}
                 data-story-panel-item=""
-                {...KEEP_DRAFT}
-                onClick={() => onPick(entry)}
+                onClick={() => onPick?.(entry)}
               >
                 <section.icon />
                 {entry}

@@ -306,15 +306,8 @@ async function typeDraft(canvasElement: HTMLElement, text: string) {
   await userEvent.type(input, text)
 }
 
-/** Design "padrão": the start slot above the text, send at the bottom end. */
-export const Expanded: Story = {
-  render: () => (
-    <LayoutComposer layout="expanded" placeholder="Type a message..." />
-  ),
-}
-
 /** Design "enviando": a run is active, so the stop button shows. */
-export const ExpandedStreaming: Story = {
+export const StackedStreaming: Story = {
   decorators: [
     (Story) => (
       <MockRuntimeProvider transport={holdingTransport}>
@@ -323,7 +316,7 @@ export const ExpandedStreaming: Story = {
     ),
   ],
   render: () => (
-    <LayoutComposer layout="expanded" placeholder="Type a message..." />
+    <LayoutComposer layout="stacked" placeholder="Type a message..." />
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -336,10 +329,10 @@ export const ExpandedStreaming: Story = {
 }
 
 /** Design "com anexos": chips above the text. */
-export const ExpandedWithAttachments: Story = {
+export const StackedWithAttachments: Story = {
   tags: ['skip-test'],
   render: () => (
-    <LayoutComposer layout="expanded" placeholder="Type a message..." />
+    <LayoutComposer layout="stacked" placeholder="Type a message..." />
   ),
   play: async ({ canvasElement }) => {
     await uploadComposerFiles(canvasElement)

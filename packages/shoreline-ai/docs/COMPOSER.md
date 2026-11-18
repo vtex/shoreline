@@ -127,19 +127,18 @@ Use before the provider is ready or in layouts without a full composer:
 
 ### Layouts
 
-`layout` on `AIComposer` picks the arrangement. It only sets `data-layout` on the form; the DOM order stays the same, so tab order follows the DOM and can differ from the visual order in `expanded` and `inline`.
+`layout` on `AIComposer` picks the arrangement. It only sets `data-layout` on the form; the DOM order stays the same, so tab order follows the DOM and can differ from the visual order in `inline`.
 
 | Value | Arrangement | Design states |
 |-------|-------------|---------------|
-| `stacked` (default) | Text, then a footer row with the start slot on the left and the actions on the right | "ações abaixo do texto", "com contexto" |
-| `expanded` | The start slot (the `+`) above the text, actions at the bottom end | "padrão", "enviando", "com anexos" |
+| `stacked` (default) | Text, then a footer row with the start slot on the left and the actions on the right | "padrão", "enviando", "com anexos", "com contexto" |
 | `inline` | One row: start slot, text, actions (minimum height `--sl-space-16`) | "compacta", "com agente", "ações na mesma linha" |
 
 ```tsx
 <AIComposer layout="inline">…</AIComposer>
 ```
 
-`AIComposerFooter` is `display: contents` in `expanded` and `inline`, so a `className` or `style` on it has no visual effect there. It finds `AIComposerActions` even inside a Fragment. A custom component that renders `AIComposerActions` is not seen and the actions land in the start slot, with a warning in development: wrap the content of `AIComposerActions` instead.
+`AIComposerFooter` is `display: contents` in `inline`, so a `className` or `style` on it has no visual effect there. It finds `AIComposerActions` even inside a Fragment. A custom component that renders `AIComposerActions` is not seen and the actions land in the start slot, with a warning in development: wrap the content of `AIComposerActions` instead.
 
 In `inline` an app can show only the avatar of its agent pill by reading `[data-layout="inline"]` on the form in its own CSS.
 
@@ -189,31 +188,25 @@ An expandable card, like the initiative card in the AI Workspace, needs no packa
 
 ### History and suggestions panel
 
-The package has no panel component. An app builds it with a Shoreline combobox on the input through `asChild`, reading the draft with `useAIComposer()` and sending the chosen entry with `useAIThread().sendMessage`:
+The package has no panel component. An app builds it with a Shoreline combobox on the input through `asChild`, reading the draft with `useAIComposer()`. The chosen entry fills the draft, so the user can edit it before sending:
 
 ```tsx
 function HistoryInput() {
   const { text, setText } = useAIComposer()
   const { isStreaming } = useAIStatus()
-  const { sendMessage } = useAIThread()
   const [requested, setRequested] = useState(false)
   const open = requested && !text.trim() && !isStreaming
 
   return (
     <ComboboxProvider open={open} setOpen={setRequested} value={text} setValue={setText}>
       <AIComposerInput asChild>
-        <ComboboxInput asChild>
+        <ComboboxInput asChild showOnKeyPress={false} moveOnKeyPress={open}>
           <textarea />
         </ComboboxInput>
       </AIComposerInput>
       <ComboboxPopover>
         {entries.map((entry) => (
-          <ComboboxItem
-            key={entry}
-            value={entry}
-            {...{ setValueOnClick: false }}
-            onClick={() => sendMessage({ text: entry })}
-          >
+          <ComboboxItem key={entry} value={entry}>
             {entry}
           </ComboboxItem>
         ))}
@@ -223,7 +216,7 @@ function HistoryInput() {
 }
 ```
 
-`setValueOnClick: false` keeps the clicked entry out of the draft. The Shoreline `ComboboxItem` type omits this Ariakit prop, so it is spread from an object; it is forwarded at runtime. With `asChild` the textarea is yours, so the package does not autosize it: it adds `field-sizing: content`, which grows the box in browsers that support it and leaves one row elsewhere.
+`showOnKeyPress={false}` and `moveOnKeyPress={open}` make ArrowUp and ArrowDown drive the list only while it is open; otherwise they move the caret between the lines of a multi-line draft, as in any textarea. The Shoreline `ComboboxInput` type may omit these Ariakit props; they are forwarded at runtime, so spread them from an object if the compiler complains. With `asChild` the textarea is yours, so the package does not autosize it: it adds `field-sizing: content`, which grows the box in browsers that support it and leaves one row elsewhere.
 
 Keep the `useAIComposer()` subscription in a small component like this one: it re-renders on each keystroke, so it should not wrap the whole composer. The field is `position: relative`, so a popover can open above the input. See the `HistoryAndSuggestions` and `ComboboxOnInput` stories.
 
@@ -301,7 +294,7 @@ function PromptToolbar() {
 
 | Prop | Default | Purpose |
 |------|---------|---------|
-| `layout` | `'stacked'` | `'stacked'`, `'expanded'` or `'inline'` |
+| `layout` | `'stacked'` | `'stacked'` or `'inline'` |
 | `loading` | `false` | Renders skeleton instead of the interactive composer |
 | `messages` | — | Partial override of the internal i18n catalog |
 | `children` | — | Composer subtree (`AIComposerField`, etc.) |
