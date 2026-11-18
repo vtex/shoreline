@@ -86,3 +86,20 @@ expectTypeOf<${signature}>().toMatchTypeOf<NonNullable<Children>>()
     expect(errors.length).toBeGreaterThan(0)
   })
 })
+
+describe('AIComposerInput asChild type', () => {
+  it('is an optional boolean prop', () => {
+    const errors = diagnose(`
+import type { ComponentProps } from 'react'
+import { expectTypeOf } from 'vitest'
+
+import type { AIComposerInput } from '${join(dirname(__dirname), 'index')}'
+
+expectTypeOf<ComponentProps<typeof AIComposerInput>['asChild']>().toEqualTypeOf<
+  boolean | undefined
+>()
+`)
+
+    expect(errors).toEqual([])
+  })
+})

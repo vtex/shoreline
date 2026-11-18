@@ -6,43 +6,102 @@
     box-sizing: border-box;
   }
 
-  /* TODO(token): add --sl-radius-4: 1.5rem to @vtex/shoreline-css (sunrise); matches ai-workspace-shell theme.css */
-  [data-sl-ai-composer-field],
-  [data-sl-ai-composer-skeleton-field] {
-    border-radius: var(--sl-radius-4, 1.5rem);
+  /* A compact white card with a thin border. Sunrise has no shadow token, so it stays flat. */
+  [data-sl-ai-composer-field] {
+    border-radius: var(--sl-radius-3);
   }
 
   [data-sl-ai-composer-field] {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    min-height: 72px; /* TODO(token): pill min-height */
-    max-height: 200px; /* TODO(token): pill max-height */
+    min-height: 0;
     height: auto;
-    padding-block: var(--sl-space-3);
-    padding-inline: var(--sl-space-4) var(--sl-space-3);
-    border: 1px solid var(--sl-color-gray-4);
+    padding: var(--sl-space-2);
+    border: var(--sl-border-base);
     background: var(--sl-bg-base);
+    box-shadow: var(--sl-shadow-3, none);
     box-sizing: border-box;
+    position: relative;
   }
 
+  /* Focus does not change the card's shape: only the border steps up one gray. */
   [data-sl-ai-composer-field]:focus-within {
-    box-shadow: none;
-    outline: none;
+    border-color: var(--sl-color-gray-5);
   }
 
+  /* Areas for the two layouts. The DOM order never changes. */
   [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments] {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--sl-space-2);
-    margin-bottom: var(--sl-space-2);
+    grid-area: attachments;
+  }
+
+  [data-sl-ai-composer-field] > [data-sl-textarea] {
+    grid-area: text;
+  }
+
+  [data-sl-ai-composer-field] > [data-sl-ai-composer-footer] {
+    grid-area: footer;
+  }
+
+  [data-sl-ai-composer-footer-start] {
+    grid-area: start;
+  }
+
+  [data-sl-ai-composer-actions] {
+    grid-area: actions;
+  }
+
+  /* stacked (default): text, then the footer row. */
+  [data-sl-ai-composer][data-layout="stacked"] [data-sl-ai-composer-field] {
+    grid-template-areas:
+      "attachments"
+      "text"
+      "footer";
+  }
+
+  /* inline: start slot, text and actions on one row. */
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-field] {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "attachments attachments attachments"
+      "start text actions";
+    align-items: center;
+    column-gap: var(--sl-space-2);
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-footer] {
+    display: contents;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-footer] > * {
+    align-self: center;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea],
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea-input],
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
+    min-height: 0;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] {
+    align-self: center;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
+    height: auto;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea-input],
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
+    padding-inline: 0;
   }
 
   [data-sl-ai-composer-field] [data-sl-textarea] {
     flex: 1 1 0;
-    min-height: var(--sl-space-8); /* TODO(token): textarea min-height 32px */
+    min-height: var(--sl-space-6);
+    max-height: var(--sl-space-32);
     min-width: 0;
     width: 100%;
     max-width: none;
@@ -54,8 +113,8 @@
 
   [data-sl-ai-composer-field] [data-sl-textarea-input],
   [data-sl-ai-composer-field] [data-sl-textarea] textarea {
-    min-height: var(--sl-space-8);
-    padding: var(--sl-space-1) var(--sl-space-1) var(--sl-space-1) 0; /* TODO(token): 6px 4px 6px 0 */
+    min-height: var(--sl-space-6);
+    padding: var(--sl-space-05) var(--sl-space-1);
     box-sizing: border-box;
     height: 100%;
     border: none;
@@ -86,27 +145,39 @@
     letter-spacing: var(--sl-text-body-letter-spacing);
   }
 
+  /* An app-supplied textarea (asChild) has no autosize; let it grow with its content. */
+  [data-sl-ai-composer-field] [data-sl-textarea] textarea {
+    field-sizing: content;
+  }
+
+  [data-sl-ai-composer-field] [data-sl-textarea-input]:placeholder-shown,
+  [data-sl-ai-composer-field] [data-sl-textarea] textarea:placeholder-shown {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+  }
+
   [data-sl-ai-composer-footer] {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
     min-width: 0;
-    min-height: 2.25rem; /* TODO(token): footer min-height 36px */
     flex-shrink: 0;
     margin-top: auto;
-    padding-top: var(--sl-space-05);
+    padding-top: var(--sl-space-1);
     gap: var(--sl-space-2);
   }
 
   [data-sl-ai-composer-footer] > * {
-    align-self: flex-end;
+    align-self: center;
     min-width: 0;
   }
 
+  /* No gap: the controls in the slot, like the agent selector, carry their own padding. */
   [data-sl-ai-composer-footer-start] {
     display: flex;
-    gap: var(--sl-space-1); /* TODO(token): 4px */
+    gap: 0;
     align-items: center;
   }
 
@@ -116,73 +187,49 @@
     flex-shrink: 0;
   }
 
-  [data-sl-icon-button][data-sl-ai-composer-send]:not(:disabled):not(
-      [aria-disabled="true"]
-    ),
-  [data-sl-ai-composer-send]:not(:disabled):not([aria-disabled="true"]) {
-    width: var(--sl-space-10);
-    height: var(--sl-space-10);
-    min-width: var(--sl-space-10);
-    min-height: var(--sl-space-10);
+  /* Send is always blue; empty, it is the same blue at 72% (a composer exception to the gray disabled state). */
+  [data-sl-icon-button][data-sl-ai-composer-send],
+  [data-sl-icon-button][data-sl-ai-composer-cancel] {
+    width: var(--sl-space-7);
+    height: var(--sl-space-7);
+    min-width: var(--sl-space-7);
+    min-height: var(--sl-space-7);
     padding: 0;
     border-radius: 50%;
-    background: var(--sl-color-blue-10);
-    color: var(--sl-color-gray-0);
-  }
-
-  [data-sl-ai-composer-send]:not(:disabled):not([aria-disabled="true"]) svg,
-  [data-sl-ai-composer-send]:not(:disabled):not([aria-disabled="true"])
-    svg
-    path {
-    width: var(--sl-space-5);
-    height: var(--sl-space-5);
-    color: var(--sl-color-gray-0);
-    fill: var(--sl-color-gray-0);
+    background: var(--sl-bg-accent-strong);
+    color: var(--sl-fg-inverted);
+    transition: background-color 150ms ease, opacity 150ms ease;
   }
 
   [data-sl-icon-button][data-sl-ai-composer-send]:not(:disabled):not(
       [aria-disabled="true"]
     ):hover,
-  [data-sl-ai-composer-send]:not(:disabled):not([aria-disabled="true"]):hover {
-    background: var(--sl-color-blue-11);
+  [data-sl-icon-button][data-sl-ai-composer-cancel]:not(:disabled):not(
+      [aria-disabled="true"]
+    ):hover {
+    background: var(--sl-bg-accent-strong-hover);
   }
 
   [data-sl-icon-button][data-sl-ai-composer-send]:disabled,
-  [data-sl-icon-button][data-sl-ai-composer-send][aria-disabled="true"],
-  [data-sl-ai-composer-send]:disabled,
-  [data-sl-ai-composer-send][aria-disabled="true"] {
-    width: var(--sl-space-10);
-    height: var(--sl-space-10);
-    min-width: var(--sl-space-10);
-    min-height: var(--sl-space-10);
-    padding: 0;
-    border-radius: 50%;
+  [data-sl-icon-button][data-sl-ai-composer-send][aria-disabled="true"] {
+    background: var(--sl-bg-accent-strong);
+    color: var(--sl-fg-inverted);
+    opacity: 0.72;
   }
 
-  [data-sl-ai-composer-send]:disabled svg,
-  [data-sl-ai-composer-send]:disabled svg path,
-  [data-sl-ai-composer-send][aria-disabled="true"] svg,
-  [data-sl-ai-composer-send][aria-disabled="true"] svg path {
-    width: var(--sl-space-5);
-    height: var(--sl-space-5);
+  [data-sl-ai-composer-send] svg,
+  [data-sl-ai-composer-send] svg path {
+    width: var(--sl-space-4);
+    height: var(--sl-space-4);
     color: currentColor;
     fill: currentColor;
   }
 
-  [data-sl-icon-button][data-sl-ai-composer-cancel],
-  [data-sl-ai-composer-cancel] {
-    width: var(--sl-space-10);
-    height: var(--sl-space-10);
-    min-width: var(--sl-space-10);
-    min-height: var(--sl-space-10);
-    padding: 0;
-    border-radius: 50%;
-  }
-
+  /* The stop icon draws its square at 15/20 of the box, so a 12px box keeps it light. */
   [data-sl-ai-composer-cancel] svg,
   [data-sl-ai-composer-cancel] svg path {
-    width: var(--sl-space-5);
-    height: var(--sl-space-5);
+    width: var(--sl-space-3);
+    height: var(--sl-space-3);
     color: currentColor;
     fill: currentColor;
   }
@@ -195,13 +242,17 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: var(--sl-space-8);
+    height: var(--sl-space-8);
+    min-width: var(--sl-space-8);
+    min-height: var(--sl-space-8);
     padding: 0;
     line-height: 0;
     box-sizing: border-box;
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment]:hover {
-    background: var(--sl-bg-muted);
+    background: var(--sl-bg-muted-hover);
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment]
@@ -217,140 +268,235 @@
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment] svg {
-    width: 1.5rem; /* TODO(token): icon size 24px in composer */
-    height: 1.5rem;
+    width: var(--sl-space-5);
+    height: var(--sl-space-5);
     display: block;
     flex-shrink: 0;
   }
 
-  /* Attachment chips — visual parity with agentic-ui Artifact (composer variant) */
+  /*
+   * Attachments: one row, no scrolling. The tiles that fit show, and a round
+   * "+N" button stands for the rest. The row runs to the card's inner edge on
+   * the end side and up to its top, so a tile never crosses the border; its
+   * top corners follow the card's curve.
+   */
+  [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments] {
+    grid-area: attachments;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--sl-space-2);
+    min-width: 0;
+    overflow: hidden;
+    padding-top: var(--sl-space-2);
+    padding-inline: 0 var(--sl-space-2);
+    margin-top: calc(var(--sl-space-2) * -1);
+    margin-inline: 0 calc(var(--sl-space-2) * -1);
+    margin-bottom: var(--sl-space-3);
+    border-start-start-radius: var(--sl-radius-2);
+    border-start-end-radius: var(--sl-radius-2);
+  }
+
+  [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments]:empty {
+    padding: 0;
+    margin-block: 0;
+  }
+
+  [data-sl-ai-composer-field] > [data-sl-ai-composer-attachments] > * {
+    flex-shrink: 0;
+  }
+
+  /* Expanded, the list wraps into as many rows as it needs. */
+  [data-sl-ai-composer-field]
+    > [data-sl-ai-composer-attachments][data-expanded] {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  /* The tiles that do not fit are hidden by the row's measurement; the attribute must win over display. */
+  [data-sl-ai-composer-attachment][hidden],
+  [data-sl-ai-composer-attachments-more][hidden] {
+    display: none;
+  }
+
+  /* Tiles are 80px with no visible text. An image shows its preview; anything else is a card. */
   [data-sl-ai-composer-attachment] {
     position: relative;
     display: flex;
-    align-items: center;
-    gap: var(--sl-space-3);
-    background: var(--sl-bg-base-soft);
-    border-radius: var(--sl-radius-2);
-    padding: var(--sl-space-2) var(--sl-space-3);
-    max-width: 20rem;
-    transition: background-color 0.15s ease;
-  }
-
-  [data-sl-ai-composer-attachment][data-type="file"],
-  [data-sl-ai-composer-attachment][data-type="document"] {
-    padding-left: var(--sl-space-3);
-    padding-right: var(--sl-space-5);
-    padding-top: var(--sl-space-2);
-    padding-bottom: var(--sl-space-2);
-  }
-
-  [data-sl-ai-composer-attachment]:hover {
-    background: var(--sl-bg-muted-hover);
-  }
-
-  [data-sl-ai-composer-attachment]:focus-within {
-    outline: none;
-    box-shadow: var(--sl-focus-ring-base);
-  }
-
-  [data-sl-ai-composer-attachment][data-status="error"] {
-    box-shadow: 0 0 0 1px var(--sl-color-red-8);
-  }
-
-  [data-sl-ai-composer-attachment][data-type="image"] {
-    min-width: 3rem;
-    height: 3rem;
-    padding: var(--sl-space-05);
-    border: 1px solid var(--sl-border-base);
+    flex-shrink: 0;
   }
 
   [data-sl-ai-composer-attachment-image] {
     position: relative;
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: var(--sl-space-20);
+    height: var(--sl-space-20);
+    box-sizing: border-box;
+    border: var(--sl-border-base);
+    border-radius: var(--sl-radius-2);
+    background: var(--sl-bg-base-soft);
   }
 
+  /* The image rounds itself: the tile cannot clip, or it would cut the remove button. */
   [data-sl-ai-composer-attachment-image] img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: var(--sl-radius-2);
-    transition: opacity 0.15s ease;
+    border-radius: inherit;
   }
 
-  [data-sl-ai-composer-attachment-image]:hover img {
-    opacity: 0.8;
-  }
-
-  [data-sl-ai-composer-attachment-icon] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.25rem;
-    height: 1.25rem;
-    flex-shrink: 0;
-    color: var(--sl-fg-muted);
-  }
-
-  [data-sl-ai-composer-attachment-icon] [data-sl-icon] {
-    width: 1.25rem;
-    height: 1.25rem;
-  }
-
-  [data-sl-ai-composer-attachment-info] {
+  /* A document card: the type tag on top, the name under it, the size pinned to the bottom. */
+  [data-sl-ai-composer-attachment-card] {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 0;
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
     align-items: flex-start;
-    justify-content: center;
+    gap: var(--sl-space-05);
+    width: var(--sl-space-32);
+    height: var(--sl-space-20);
+    box-sizing: border-box;
+    padding: var(--sl-space-2);
+    border: var(--sl-border-base);
+    border-radius: var(--sl-radius-2);
+    background: none;
+    text-align: left;
   }
 
-  [data-sl-ai-composer-attachment-info] [data-sl-text] {
+  [data-sl-ai-composer-attachment][data-status="error"]
+    [data-sl-ai-composer-attachment-image],
+  [data-sl-ai-composer-attachment][data-status="error"]
+    [data-sl-ai-composer-attachment-card] {
+    border: var(--sl-border-critical-strong);
+  }
+
+  [data-sl-ai-composer-attachment-head] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: var(--sl-space-4);
+  }
+
+  /* The tag's tone is color step 2 for the fill and step 11 for the text. */
+  [data-sl-ai-composer-attachment-tag] {
+    display: inline-flex;
+    align-items: center;
+    height: var(--sl-space-4);
+    padding: 0 var(--sl-space-1);
+    border-radius: 0.25rem;
+    /* A micro label, smaller than any type token: 9px. */
+    font: var(--sl-font-weight-semibold) 9px / 1 var(--sl-font-family-sans);
+    letter-spacing: 0.04em;
+    background: var(--sl-color-gray-2);
+    color: var(--sl-color-gray-11);
+  }
+
+  [data-sl-ai-composer-attachment-tag][data-tone="red"] {
+    background: var(--sl-color-red-2);
+    color: var(--sl-color-red-11);
+  }
+
+  [data-sl-ai-composer-attachment-tag][data-tone="blue"] {
+    background: var(--sl-color-blue-2);
+    color: var(--sl-color-blue-11);
+  }
+
+  [data-sl-ai-composer-attachment-tag][data-tone="green"] {
+    background: var(--sl-color-green-2);
+    color: var(--sl-color-green-11);
+  }
+
+  [data-sl-ai-composer-attachment-tag][data-tone="orange"] {
+    background: var(--sl-color-orange-2);
+    color: var(--sl-color-orange-11);
+  }
+
+  [data-sl-ai-composer-attachment-foot] {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  [data-sl-ai-composer-attachment-title] {
+    display: block;
+    width: 100%;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
+    font: var(--sl-text-caption-1-font);
+    font-weight: var(--sl-font-weight-medium);
+    letter-spacing: var(--sl-text-caption-1-letter-spacing);
+    color: var(--sl-fg-base);
+  }
+
+  [data-sl-ai-composer-attachment-size] {
+    font: var(--sl-text-caption-1-font);
+    letter-spacing: var(--sl-text-caption-1-letter-spacing);
+    color: var(--sl-fg-base-soft);
+  }
+
+  /* The text stays in the DOM for screen readers, off screen. */
+  [data-sl-ai-composer-attachment-info] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
     white-space: nowrap;
   }
 
+  /* Remove: a dark 20px circle on the tile's corner, on hover or focus (always on touch screens). */
   [data-sl-icon-button][data-sl-ai-composer-attachment-remove] {
+    --sl-element-height: var(--sl-line-height-2);
     position: absolute;
-    top: -0.25rem;
-    right: -0.75rem;
-    width: 1.5rem;
-    height: 1.5rem;
-    min-width: 1.5rem;
+    top: var(--sl-space-1);
+    right: var(--sl-space-1);
+    width: var(--sl-line-height-2);
+    height: var(--sl-line-height-2);
+    min-width: var(--sl-line-height-2);
+    min-height: var(--sl-line-height-2);
     padding: 0;
     border-radius: 50%;
-    background-color: var(--sl-bg-base-soft);
+    background-color: var(--sl-bg-inverted);
     border: 2px solid var(--sl-bg-base);
+    color: var(--sl-fg-inverted);
     flex-shrink: 0;
     z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+
+  [data-sl-ai-composer-attachment]:hover
+    [data-sl-icon-button][data-sl-ai-composer-attachment-remove],
+  [data-sl-ai-composer-attachment]:focus-within
+    [data-sl-icon-button][data-sl-ai-composer-attachment-remove] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (hover: none) {
+    [data-sl-icon-button][data-sl-ai-composer-attachment-remove] {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 
   [data-sl-icon-button][data-sl-ai-composer-attachment-remove]:hover,
   [data-sl-icon-button][data-sl-ai-composer-attachment-remove]:active,
   [data-sl-icon-button][data-sl-ai-composer-attachment-remove]:focus-visible {
-    background-color: var(--sl-bg-base-soft);
+    background-color: var(--sl-bg-inverted);
     border: 2px solid var(--sl-bg-base);
-    color: var(--sl-fg-muted);
+    color: var(--sl-fg-inverted);
   }
 
-  [data-sl-ai-composer-attachment][data-type="image"]
-    [data-sl-icon-button][data-sl-ai-composer-attachment-remove] {
-    right: -0.8125rem;
-    top: -0.3125rem;
-  }
-
-  [data-sl-icon-button][data-sl-ai-composer-attachment-remove]
-    [data-sl-icon-small] {
-    width: 1rem;
-    height: 1rem;
+  [data-sl-icon-button][data-sl-ai-composer-attachment-remove] svg {
+    width: var(--sl-space-3);
+    height: var(--sl-space-3);
   }
 
   [data-sl-ai-composer-attachment-progress] {
@@ -359,37 +505,163 @@
     justify-content: center;
   }
 
-  [data-sl-ai-composer-skeleton] {
-    width: 100%;
-    padding-bottom: var(--sl-space-4);
+  /* The "+N" button: a round 80px tile; its label is "+N" collapsed and "Less" expanded. */
+  [data-sl-ai-composer-attachments-more] {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: var(--sl-space-20);
+    height: var(--sl-space-20);
+    align-self: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    border: var(--sl-border-base);
+    border-radius: 50%;
+    background: none;
+    font: var(--sl-text-emphasis-font);
+    letter-spacing: var(--sl-text-emphasis-letter-spacing);
+    color: var(--sl-fg-base-soft);
+    transition: border-color 180ms ease, transform 180ms ease;
   }
 
-  [data-sl-ai-composer-skeleton-field] {
+  [data-sl-ai-composer-attachments-more][aria-expanded="true"] {
+    font: var(--sl-text-caption-2-font);
+    letter-spacing: var(--sl-text-caption-2-letter-spacing);
+  }
+
+  [data-sl-ai-composer-attachments-more]:hover {
+    border-color: var(--sl-color-gray-5);
+  }
+
+  [data-sl-ai-composer-attachments-more]:active {
+    transform: scale(0.94);
+  }
+
+  /* The focus ring token is a box-shadow, not a color. */
+  [data-sl-ai-composer-attachments-more]:focus-visible {
+    outline: none;
+    box-shadow: var(--sl-focus-ring-base);
+  }
+
+  @keyframes sl-ai-composer-attachments-more-label-in {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes sl-ai-composer-attachment-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px) scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Opening: the revealed tiles come in one after another, each a little later than the one before. */
+  @media (prefers-reduced-motion: no-preference) {
+    [data-sl-ai-composer-attachments-more-label] {
+      animation: sl-ai-composer-attachments-more-label-in 220ms
+        cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* Only the tiles the expansion reveals animate, one after another. */
+    [data-sl-ai-composer-attachments][data-expanded]
+      > [data-sl-ai-composer-attachment][data-overflow] {
+      animation: sl-ai-composer-attachment-in 260ms
+        cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      animation-delay: calc(min(var(--sl-ai-composer-enter-index, 0), 9) * 30ms);
+    }
+  }
+
+  /* Header: the neutral slot above the field. The field overlaps it by the pill radius. */
+  /* The root owns the variable: the field is a sibling of the header and must inherit it too. */
+  [data-sl-ai-composer] {
+    --sl-ai-composer-overlap: var(--sl-radius-3);
+  }
+
+  [data-sl-ai-composer-header] {
+    position: relative;
+    min-width: 0;
+  }
+
+  [data-sl-ai-composer-header]:not(:empty) + [data-sl-ai-composer-field] {
+    margin-top: calc(var(--sl-ai-composer-overlap) * -1);
+  }
+
+  /* Context items: a lighter band that extends behind the pill by the overlap. */
+  [data-sl-ai-composer-context-items] {
+    list-style: none;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    min-height: 72px; /* TODO(token) */
-    padding-block: var(--sl-space-3);
-    padding-inline: var(--sl-space-4) var(--sl-space-3);
-    border: 1px solid var(--sl-color-gray-4);
-    background: var(--sl-bg-base);
+    gap: var(--sl-space-1);
+    min-width: 0;
+    padding: var(--sl-space-2) var(--sl-space-4)
+      calc(var(--sl-ai-composer-overlap) + var(--sl-space-1));
+    border-radius: var(--sl-radius-3) var(--sl-radius-3) 0 0;
+    background: var(--sl-bg-base-soft);
     box-sizing: border-box;
   }
 
-  [data-sl-ai-composer-skeleton-prompt] {
-    align-self: flex-start;
-  }
-
-  [data-sl-ai-composer-skeleton-footer] {
+  [data-sl-ai-composer-context-item] {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: auto;
-    min-height: var(--sl-space-10);
+    align-items: center;
     gap: var(--sl-space-2);
+    min-width: 0;
+    color: var(--sl-fg-base);
   }
 
-  [data-sl-ai-composer-skeleton-footer-start] {
+  [data-sl-ai-composer-context-item-icon] {
+    display: inline-flex;
     flex-shrink: 0;
+  }
+
+  [data-sl-ai-composer-context-item] [data-sl-text] {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-sl-icon-button][data-sl-ai-composer-context-item-remove] {
+    flex-shrink: 0;
+  }
+
+  [data-sl-ai-composer-skeleton] {
+    width: 100%;
+  }
+
+  /* Two attributes: the Shoreline Skeleton sets its own radius with one. */
+  [data-sl-skeleton][data-sl-ai-composer-skeleton-pill] {
+    display: block;
+    width: 100%;
+    height: var(--sl-space-20);
+    border-radius: var(--sl-radius-3);
+    background: var(--sl-color-gray-2);
+    --skeleton-bg: var(--sl-color-gray-2);
+  }
+
+  [data-sl-ai-composer-skeleton][data-layout="inline"]
+    [data-sl-ai-composer-skeleton-pill] {
+    height: var(--sl-space-12);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-sl-ai-composer-skeleton-pill]::after {
+      animation: none;
+      background: transparent;
+    }
   }
 }

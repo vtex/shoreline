@@ -1,7 +1,8 @@
 import { ComposerPrimitive } from '@assistant-ui/react'
-import { IconPlus, IconButton } from '@vtex/shoreline'
+import { IconButton } from '@vtex/shoreline'
 import { forwardRef } from '@vtex/shoreline'
 
+import { IconAdd } from '../icons/icon-add'
 import { useComposerMessagesContext } from './composer-messages-context'
 import type { AIComposerAddAttachmentProps } from './types'
 
@@ -28,7 +29,7 @@ export const AIComposerAddAttachment = forwardRef<
         data-sl-ai-composer-add-attachment
         {...buttonProps}
       >
-        <IconPlus />
+        <IconAdd />
       </IconButton>
     </ComposerPrimitive.AddAttachment>
   )

@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import '@vtex/shoreline/themes/sunrise/unlayered'
 import '@vtex/shoreline-charts/css/unlayered'
+import '../__styles__/shoreline-ai.css'
 import './global.css'
 
 export default function MyApp({ Component, pageProps }: AppProps) {

@@ -10,6 +10,14 @@ import type { AIComposerInputProps } from './types'
  * same styles.
  *
  * @status experimental
+ * @example
+ * <AIComposerInput placeholder="Ask anything" />
+ * @example
+ * <AIComposerInput asChild>
+ *   <ComboboxInput asChild>
+ *     <textarea />
+ *   </ComboboxInput>
+ * </AIComposerInput>
  */
 export const AIComposerInput = forwardRef<
   HTMLTextAreaElement,
@@ -19,6 +27,7 @@ export const AIComposerInput = forwardRef<
     placeholder: placeholderProp,
     rows = 1,
     autoFocus = false,
+    asChild = false,
     className,
     ...htmlProps
   } = props
@@ -30,6 +39,7 @@ export const AIComposerInput = forwardRef<
     <div data-sl-textarea className={className}>
       <ComposerPrimitive.Input
         ref={ref}
+        asChild={asChild}
         submitMode="enter"
         rows={rows}
         autoFocus={autoFocus}

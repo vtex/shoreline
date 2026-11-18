@@ -1,11 +1,5 @@
 import { AttachmentPrimitive } from '@assistant-ui/react'
-import {
-  IconFileText,
-  IconButton,
-  IconXSmall,
-  Spinner,
-  Text,
-} from '@vtex/shoreline'
+import { IconButton, IconXSmall, Spinner, Text } from '@vtex/shoreline'
 import { useEffect, useState } from 'react'
 import { forwardRef } from '@vtex/shoreline'
 
@@ -13,6 +7,7 @@ import { useComposerMessagesContext } from './composer-messages-context'
 import type { AIComposerAttachmentProps } from './types'
 import {
   formatFileSize,
+  getAttachmentTag,
   isAttachmentError,
   isAttachmentLoading,
   isImageAttachmentType,
@@ -54,7 +49,8 @@ function AIComposerAttachmentRemove() {
 }
 
 /**
- * Attachment chip for the composer (image preview or file row).
+ * Attachment tile for the composer: an image preview, or a card with the
+ * file type, name and size for any other file.
  *
  * @status experimental
  */
@@ -104,6 +100,7 @@ export const AIComposerAttachment = forwardRef<
           data-sl-ai-composer-attachment
           data-type="image"
           data-status={attachmentStatus}
+          title={attachment.name}
           {...divProps}
         >
           <div data-sl-ai-composer-attachment-image>
@@ -124,6 +121,8 @@ export const AIComposerAttachment = forwardRef<
     )
   }
 
+  const tag = getAttachmentTag(attachment.name)
+
   return (
     <AttachmentPrimitive.Root asChild>
       <div
@@ -131,23 +130,32 @@ export const AIComposerAttachment = forwardRef<
         data-sl-ai-composer-attachment
         data-type={attachmentType}
         data-status={attachmentStatus}
+        title={attachment.name}
         {...divProps}
       >
-        {isLoading && (
-          <AIComposerAttachmentProgress
-            name={attachment.name}
-            percent={percent}
-          />
-        )}
-        {!isLoading && (
-          <div data-sl-ai-composer-attachment-icon>
-            <IconFileText />
+        <div data-sl-ai-composer-attachment-card>
+          <div data-sl-ai-composer-attachment-head>
+            <span data-sl-ai-composer-attachment-tag data-tone={tag.tone}>
+              {tag.label}
+            </span>
+            {isLoading && (
+              <AIComposerAttachmentProgress
+                name={attachment.name}
+                percent={percent}
+              />
+            )}
           </div>
-        )}
+          <div data-sl-ai-composer-attachment-foot>
+            <span data-sl-ai-composer-attachment-title>{attachment.name}</span>
+            {!isLoading && file && (
+              <span data-sl-ai-composer-attachment-size>
+                {formatFileSize(file.size)}
+              </span>
+            )}
+          </div>
+        </div>
+        {/* Visually hidden: progress and error text stay available to screen readers. */}
         <div data-sl-ai-composer-attachment-info>
-          <Text variant="caption1" color="muted">
-            {attachment.name}
-          </Text>
           {isLoading && (
             <Text variant="caption2" color="base-soft">
               {`${percent}%`}
@@ -159,11 +167,6 @@ export const AIComposerAttachment = forwardRef<
                 {attachment.error}
               </Text>
             </div>
-          )}
-          {!isLoading && !hasError && file && (
-            <Text variant="caption2" color="base-soft">
-              {formatFileSize(file.size)}
-            </Text>
           )}
         </div>
         <AIComposerAttachmentRemove />
