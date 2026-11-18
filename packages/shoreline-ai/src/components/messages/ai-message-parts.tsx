@@ -1,16 +1,29 @@
-import { MessagePrimitive, useAuiState } from '@assistant-ui/react'
+import { MessagePrimitive } from '@assistant-ui/react'
 import type { EnrichedPartState, PartState } from '@assistant-ui/react'
 import { useCallback } from 'react'
 import { forwardRef } from '@vtex/shoreline'
 
 import { AIMessagePartLeaf } from './ai-message-part-leaf'
 import { AIMessagePartPlacementProvider } from './ai-message-part-placement-context'
-import { AIMessageReasoningContent } from './ai-message-reasoning-content'
-import { AIMessageReasoningHeader } from './ai-message-reasoning-header'
-import { AIMessageReasoningRoot } from './ai-message-reasoning-root'
+import { AIMessageReasoningGroup } from './ai-message-reasoning-group'
 import { defaultMessageGroupBy, toolRegistry } from './default-parts'
 import { parseMessagePart } from './parser'
-import type { AIMessagePartsProps } from './types'
+import type { AIMessagePartsProps, AIMessageReasoningStatus } from './types'
+
+type GroupPartLike = { status?: { type?: string }; timing?: unknown }
+
+export function getGroupStatus(part: GroupPartLike): AIMessageReasoningStatus {
+  return part.status?.type === 'running' ? 'running' : 'complete'
+}
+
+/** Reads the group duration (ms) defensively; undefined unless a finite number >= 0. */
+export function getGroupDuration(part: GroupPartLike): number | undefined {
+  const { timing } = part
+
+  return typeof timing === 'number' && Number.isFinite(timing) && timing >= 0
+    ? timing
+    : undefined
+}
 
 /**
  * Iterates message parts with grouping and optional per-part overrides.
@@ -24,10 +37,6 @@ export const AIMessageParts = forwardRef<HTMLDivElement, AIMessagePartsProps>(
       children: customPartRenderer,
       ...divProps
     } = props
-
-    const messageIsLast = useAuiState((state) => state.message.isLast)
-    const threadIsRunning = useAuiState((state) => state.thread.isRunning)
-    const streaming = messageIsLast && threadIsRunning
 
     const auiGroupBy = useCallback((part: PartState) => {
       const shorelinePart = parseMessagePart(part)
@@ -45,14 +54,14 @@ export const AIMessageParts = forwardRef<HTMLDivElement, AIMessagePartsProps>(
           {({ part, children }) => {
             if (part.type === 'group-cot') {
               return (
-                <AIMessageReasoningRoot defaultExpanded={false}>
-                  <AIMessageReasoningHeader streaming={streaming} />
-                  <AIMessageReasoningContent>
-                    <AIMessagePartPlacementProvider placement="cot">
-                      {children}
-                    </AIMessagePartPlacementProvider>
-                  </AIMessageReasoningContent>
-                </AIMessageReasoningRoot>
+                <AIMessageReasoningGroup
+                  status={getGroupStatus(part)}
+                  duration={getGroupDuration(part)}
+                >
+                  <AIMessagePartPlacementProvider placement="cot">
+                    {children}
+                  </AIMessagePartPlacementProvider>
+                </AIMessageReasoningGroup>
               )
             }
 

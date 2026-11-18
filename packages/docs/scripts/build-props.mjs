@@ -160,6 +160,32 @@ const files = [
       '../shoreline-ai/src/components/composer/types.ts'
     ),
   })),
+  ...['ai-thread', 'ai-thread-viewport'].map((file) => ({
+    file: join(
+      dirname(''),
+      `../shoreline-ai/src/components/thread/${file}.tsx`
+    ),
+    types: join(dirname(''), '../shoreline-ai/src/components/thread/types.ts'),
+  })),
+  ...[
+    'ai-messages',
+    'ai-message-assistant',
+    'ai-message-parts',
+    'ai-message-reasoning-root',
+    'ai-message-reasoning-trigger',
+    'ai-message-actions',
+    'ai-message-copy',
+    'ai-thinking-indicator',
+  ].map((file) => ({
+    file: join(
+      dirname(''),
+      `../shoreline-ai/src/components/messages/${file}.tsx`
+    ),
+    types: join(
+      dirname(''),
+      '../shoreline-ai/src/components/messages/types.ts'
+    ),
+  })),
   /**
    * Date
    */

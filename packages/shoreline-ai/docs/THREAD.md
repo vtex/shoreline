@@ -52,6 +52,10 @@ Normative tree: empty slot and message area inside the viewport; sticky footer w
 
 Message rendering, part overrides, and CoT grouping: [MESSAGES.md](./MESSAGES.md).
 
+The docs site has a page with live examples: `/components/ai-thread`.
+
+The scroll behavior comes from the chat engine the package is built on. Its version is pinned in the package `package.json` (`0.15.32` at the time of writing), so scroll details change only when the package updates it.
+
 `AIThreadViewport` is the scroll container. `AIThreadViewportFooter` stays sticky at the bottom of the viewport. The scroll-to-bottom control is positioned above the footer via `[data-sl-ai-thread-scroll-to-bottom]`.
 
 ## Components
@@ -176,7 +180,20 @@ Standard `div` props. Sticky at the bottom of the viewport; footer height is use
 |------|---------|
 | `children` | Optional custom control content (default: caret icon) |
 
-Standard `button` props. Hidden via `disabled` and `opacity: 0` when the viewport is already at the bottom. Must be the **first child** of `AIThreadViewportFooter`.
+Standard `button` props. When the viewport is already at the bottom the button is `disabled` and has `opacity: 0` with `pointer-events: none`, so it only appears after the user scrolls up. It is absolutely positioned above the footer (`bottom: 100%`), so mount it as the **first child** of `AIThreadViewportFooter`. The accessible name comes from the `scrollToBottom` message.
+
+## Scroll behavior
+
+`AIThreadViewport` forwards its four props to the scrolling engine of the chat:
+
+- `autoScroll`: keeps the viewport pinned to the end while new content arrives. Defaults to `true`.
+- `scrollToBottomOnRunStart`, `scrollToBottomOnInitialize`, `scrollToBottomOnThreadSwitch`: jump to the end when a run starts, when history is first loaded, and when the thread changes. All default to `true`.
+
+`AIThreadScrollToBottom` is the manual control for the same action. It is enabled only while the viewport is not at the bottom.
+
+### Long threads and `content-visibility`
+
+Each message row (`[data-sl-ai-message]`) uses `content-visibility: auto`, so rows that are off screen skip layout and paint. The browser does not know the height of a row that was never rendered and uses `--sl-ai-message-intrinsic-size` (default `5rem`) as a placeholder, then remembers the real height after the first render. The scroll bar can therefore shift slightly while scrolling up through a long history. Raise the variable if your messages are usually much taller. The row also has padding and a cancelling negative margin so focus rings are not clipped (focus rings at the very edge of the container still need about `1rem` of horizontal padding on the messages container); do not override `padding` or `margin` on `[data-sl-ai-message]`. Details: [MESSAGES.md](./MESSAGES.md#content-visibility).
 
 ## Types
 

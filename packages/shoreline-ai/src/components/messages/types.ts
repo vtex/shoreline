@@ -61,7 +61,13 @@ export type AIMessagesProps = AIMessagesOptions &
 
 export type AIMessageMessages = Partial<
   Record<
-    'reasoningStreaming' | 'reasoningReady' | 'copyMessage' | 'copyCode',
+    | 'reasoningStreaming'
+    | 'reasoningReady'
+    | 'copyMessage'
+    | 'copyCode'
+    | 'workedFor'
+    | 'thinking'
+    | 'messageCopied',
     string
   >
 >
@@ -108,12 +114,34 @@ export interface AIMessagePartsOptions {
 export type AIMessagePartsProps = AIMessagePartsOptions &
   Omit<ComponentPropsWithoutRef<'div'>, 'children'>
 
+export type AIMessageReasoningStatus = 'running' | 'complete'
+
 export interface AIMessageReasoningRootOptions {
   /**
-   * Whether the reasoning panel starts expanded.
+   * Whether the reasoning is still being generated. Drives the trigger label.
+   * @default 'complete'
+   */
+  status?: AIMessageReasoningStatus
+  /**
+   * Time spent reasoning, in milliseconds.
+   */
+  duration?: number
+  /**
+   * Whether the reasoning panel starts expanded (uncontrolled).
    * @default false
    */
   defaultExpanded?: boolean
+  /**
+   * Controlled expanded state. When defined, the panel follows this value and
+   * only reports toggles through `onExpandedChange`. `defaultExpanded` is
+   * ignored when controlled. Switching between controlled and uncontrolled
+   * during the component lifetime is not supported.
+   */
+  expanded?: boolean
+  /**
+   * Called with the next expanded state whenever the trigger is toggled.
+   */
+  onExpandedChange?: (expanded: boolean) => void
   children?: ReactNode
 }
 
@@ -122,12 +150,37 @@ export type AIMessageReasoningRootProps = AIMessageReasoningRootOptions &
 
 export interface AIMessageReasoningTriggerOptions {
   /** Overrides the collapse button label. Uses localized default when omitted. */
-  label?: string
-  /** Whether the assistant is still generating the current message. */
-  streaming?: boolean
+  label?: ReactNode
 }
 
 export type AIMessageReasoningTriggerProps = AIMessageReasoningTriggerOptions &
+  Omit<ComponentPropsWithoutRef<'button'>, 'children'>
+
+export interface AIThinkingIndicatorOptions {
+  /**
+   * Overrides the label next to the dots. Uses the localized default when omitted.
+   * @default the localized `thinking` message
+   */
+  label?: ReactNode
+}
+
+export type AIThinkingIndicatorProps = AIThinkingIndicatorOptions &
+  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
+
+export interface AIMessageActionsOptions {
+  /** Extra actions rendered after the copy button. */
+  children?: ReactNode
+}
+
+export type AIMessageActionsProps = AIMessageActionsOptions &
+  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
+
+export interface AIMessageCopyOptions {
+  /** Called once after the message text is copied successfully. */
+  onCopied?: () => void
+}
+
+export type AIMessageCopyProps = AIMessageCopyOptions &
   Omit<ComponentPropsWithoutRef<'button'>, 'children'>
 
 export type AIMessageReasoningContentProps = ComponentPropsWithoutRef<'div'>

@@ -202,3 +202,45 @@ async function findText(text: string) {
     tick()
   })
 }
+
+describe('AIMessageParts reasoning groups', () => {
+  it('renders one reasoning root per reasoning run and no Header export', async () => {
+    const historyMessages: AIMessage[] = [
+      {
+        id: 'msg-assistant-1',
+        role: 'assistant',
+        createdAt: '2026-05-20T12:00:01.000Z',
+        parts: [
+          { type: 'reasoning', text: 'First', status: 'complete' },
+          { type: 'text', text: 'Middle' },
+          { type: 'reasoning', text: 'Second', status: 'complete' },
+        ],
+      },
+    ]
+
+    render(
+      <MessagesTestShell>
+        <ThreadHistorySeed messages={historyMessages}>
+          <AIMessages />
+        </ThreadHistorySeed>
+      </MessagesTestShell>
+    )
+
+    await findText('Middle')
+    const roots = document.querySelectorAll('[data-sl-ai-message-reasoning]')
+
+    expect(roots).toHaveLength(2)
+    for (const root of roots) {
+      expect(root).toHaveAttribute('data-status', 'complete')
+    }
+    expect(
+      document.querySelector('[data-sl-ai-message-reasoning-header]')
+    ).toBeNull()
+  })
+
+  it('does not export AIMessageReasoningHeader from the package entry', async () => {
+    const pkg = await import('../../..')
+
+    expect('AIMessageReasoningHeader' in pkg).toBe(false)
+  })
+})

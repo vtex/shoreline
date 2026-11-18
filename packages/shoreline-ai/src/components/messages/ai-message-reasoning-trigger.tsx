@@ -7,18 +7,27 @@ import type { AIMessageReasoningTriggerProps } from './types'
 /**
  * Toggles the reasoning panel open and closed.
  *
+ * @example
+ * <AIMessageReasoningRoot status="complete" defaultExpanded>
+ *   <AIMessageReasoningTrigger />
+ *   <AIMessageReasoningContent>
+ *     <AIMessageReasoningText />
+ *   </AIMessageReasoningContent>
+ * </AIMessageReasoningRoot>
+ *
  * @status experimental
  */
 export const AIMessageReasoningTrigger = forwardRef<
   HTMLButtonElement,
   AIMessageReasoningTriggerProps
 >(function AIMessageReasoningTrigger(props, ref) {
-  const { label, streaming = false, ...buttonProps } = props
-  const { isExpanded, setExpanded } = useAIMessageReasoningRootContext()
+  const { label, ...buttonProps } = props
+  const { isExpanded, setExpanded, status } = useAIMessageReasoningRootContext()
   const getMessage = useMessageMessagesContext()
 
   const resolvedLabel =
-    label ?? getMessage(streaming ? 'reasoningStreaming' : 'reasoningReady')
+    label ??
+    getMessage(status === 'running' ? 'reasoningStreaming' : 'reasoningReady')
 
   function handleClick() {
     setExpanded(!isExpanded)
