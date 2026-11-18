@@ -62,8 +62,8 @@ Normative tree (matches AI Workspace layout: attachments and textarea inside the
 | `AIComposerHeader` | Neutral slot above the field: handles position and the overlap with the pill, draws nothing |
 | `AIComposerContextItems` | Preset band of context items; place it inside `AIComposerHeader` |
 | `AIComposerContextItem` | One removable context item: pin icon, truncated label, optional remove button |
-| `AIComposerField` | Pill container (gray-2 surface, focus ring) |
-| `AIComposerAttachments` | Pending file chips above the input |
+| `AIComposerField` | The compact white card: thin border, soft shadow (Horizon), focus ring |
+| `AIComposerAttachments` | Pending files above the input: one row of 80px tiles, with a "+N" button for the ones that do not fit |
 | `AIComposerInput` | Draft textarea |
 | `AIComposerFooter` | Bottom row: start slot (left) + actions slot (right) |
 | `AIComposerAddAttachment` | `+` button to open the file picker |
@@ -72,7 +72,7 @@ Normative tree (matches AI Workspace layout: attachments and textarea inside the
 | `AIComposerCancel` | Stop button while a run is streaming |
 | `AIComposerAction` | Toggles send ↔ cancel from `useAIStatus()` |
 | `AIComposerSkeleton` | Loading placeholder (also used when `AIComposer loading`) |
-| `AIComposerAttachment` | Single chip — use only inside `AIComposerAttachments` |
+| `AIComposerAttachment` | Single tile (image preview or file card) — use only inside `AIComposerAttachments` |
 
 ## Composition variants
 
@@ -306,7 +306,7 @@ function PromptToolbar() {
 | `messages` | — | Partial override of the internal i18n catalog |
 | `children` | — | Composer subtree (`AIComposerField`, etc.) |
 
-Message ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `removeContext`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed`, `attachmentTypeNotAllowed`.
+Message ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `removeContext`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed`, `attachmentTypeNotAllowed`, `showAllAttachments`, `showFewerAttachments`.
 
 `attachmentTooLarge` and `attachmentTooMany` have a `{max}` placeholder: the largest size (for example `5.0 MB`) and the largest number of files.
 
@@ -369,8 +369,8 @@ No `onRemove` prop — removal is handled by the chip’s control and the runtim
 
 | State | Component | Visual |
 |-------|-----------|--------|
-| Draft empty / cannot send | `AIComposerSend` | Disabled, muted circle |
-| Can send | `AIComposerSend` | Blue 40×40 circle |
+| Draft empty / cannot send | `AIComposerSend` | Disabled, the same blue at 72% (a composer exception to the gray disabled state) |
+| Can send | `AIComposerSend` | Blue 28×28 circle, darker on hover |
 | Streaming | `AIComposerCancel` or `AIComposerAction` | Stop control (`useAIStatus().isStreaming`) |
 
 `stopGeneration()` from `useAIThread()` has the same effect as the cancel button.
@@ -382,7 +382,7 @@ flowchart LR
   AddAttachment[AIComposerAddAttachment] --> Runtime[AIProvider runtime]
   Runtime --> List[AIComposerAttachments]
   List --> Chip[AIComposerAttachment]
-  Chip --> Remove[Remove on chip]
+  Chip --> Remove[Remove on tile]
   Remove --> Handler[AttachmentHandler]
 ```
 
@@ -390,15 +390,21 @@ flowchart LR
 - Do not mount `<AIComposerAttachment />` alone — it must be inside the attachments list.
 - Removing a file updates composer state via the registered handler; apps do not pass `onRemove`.
 
-### Chip states
+### Tiles
 
-| State | What the chip shows |
+Attachments are 80px tiles with no visible text. An image shows its preview. Any other file is a card, 80px high, with a type tag on top (PDF, DOCX, XLSX, CSV, or the file extension), the name, and the size at the bottom. The remove button is a dark 20px circle on the tile's corner; it shows on hover or focus, and always on touch screens.
+
+| State | What the tile shows |
 |-------|---------------------|
-| Uploading | A spinner with the progress in percent (from the `progress` the handler yields, 0 to 1) |
-| Ready | The image preview, or the file name and size |
-| Error | The file name and the error message in red. The chip has a remove button |
+| Uploading | A spinner with the progress in percent (from the `progress` the handler yields, 0 to 1); the percent is read to screen readers |
+| Ready | The image preview, or the file card |
+| Error | A red border. The error message stays in the DOM, visually hidden, with `role="alert"`. The tile has a remove button |
 
-An image whose upload failed shows as a file row, without a preview.
+An image whose upload failed shows as a file card, without a preview.
+
+### One row, "+N" and expanding
+
+The tiles stay on one row, without scrolling. The ones that do not fit are hidden and a round button shows how many: with 5 attachments and 3 visible, it reads "+2". The button toggles `data-expanded` on the list: expanded, the tiles wrap into as many rows as needed and the button reads "Less". The button has `aria-expanded` and, while collapsed, an `aria-label` from the `showAllAttachments` message. The animation (tiles entering one after another, the label cross-fading) does not run when the user prefers reduced motion.
 
 ### Errors
 
@@ -411,7 +417,7 @@ An error chip appears when:
 
 The built-in messages are localized (`en-US`, `pt-BR`) and can be overridden on `AIComposer` with `messages`. A file whose type is not accepted by the handler never becomes a chip: `AIComposerAttachments` shows a notice with `attachmentTypeNotAllowed` until the next file is added.
 
-A failed upload does not block sending. The component only signals the error: the attachment stays in `useAIComposer().attachments` with `status: 'error'` (and an `error` message), and it is passed to the `children` render prop of `AIComposerAttachments`, so the app decides what to show (a toast, a chip with retry, a remove button). `AIComposerSend` and the Enter key stay enabled, and the message is sent without the failed attachment: it has no `resource` part. Sending clears the failed attachment from the composer along with the rest of the draft. The user can also remove the chip before sending, and a file that fails can be added again after that.
+A failed upload does not block sending. The component only signals the error: the attachment stays in `useAIComposer().attachments` with `status: 'error'` (and an `error` message), and it is passed to the `children` render prop of `AIComposerAttachments`, so the app decides what to show (a toast, a chip with retry, a remove button). `AIComposerSend` and the Enter key stay enabled, and the message is sent without the failed attachment: it has no `resource` part. Sending clears the failed attachment from the composer along with the rest of the draft. The user can also remove the tile before sending, and a file that fails can be added again after that.
 
 To handle the failure, render your own chip and use `useAIAttachment()` inside it. The example shows a toast once when the attachment fails, and offers retry and remove:
 

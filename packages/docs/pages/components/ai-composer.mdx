@@ -57,7 +57,7 @@ Every composer follows the same tree. The field is the rounded box, and the foot
 | `AIComposerAction` | One button that sends when idle and stops while the assistant answers |
 | `AIComposerSend` / `AIComposerCancel` | The same button split in two, when you want to control it |
 | `AIComposerAddAttachment` | The `+` button that opens the file picker |
-| `AIComposerAttachments` | The chips of the files that were added |
+| `AIComposerAttachments` | The tiles of the files that were added, on one row with a "+N" button |
 | `AIComposerContextItems` / `AIComposerContextItem` | The band of removable chips (for example, pinned documents) |
 | `AIComposerSkeleton` | The loading placeholder |
 
@@ -109,11 +109,11 @@ To let people attach files:
 2. Render `AIComposerAttachments` as the first child of `AIComposerField`.
 3. Add `AIComposerAddAttachment` to the footer.
 
-Each file becomes a chip with the upload progress. When the user sends, the uploaded files reach your transport as `resource` parts.
+Each file becomes an 80px tile: an image preview, or a card with the file type, name and size. The tiles stay on one row; the ones that do not fit collapse into a round "+N" button (with 5 files and 3 visible, it reads "+2"), and clicking it shows them all, with "Less" to collapse. When the user sends, the uploaded files reach your transport as `resource` parts.
 
 <Preview name="ai-composer-attachments" />
 
-A chip can show three states: uploading (with the percentage), ready (an image preview or the file name and size) and error (the message in red, with a remove button).
+A tile can show three states: uploading (with the percentage), ready (an image preview or the file card) and error (a red border, with a remove button; the message is read to screen readers).
 
 A failed upload **does not block sending**. The message is sent without that file. To show a toast or a retry button, render your own chip with `useAIAttachment`:
 
@@ -231,7 +231,7 @@ The labels (`send`, `cancel`, placeholder, errors) come from a built-in catalog 
 
 <Preview name="ai-composer-messages" />
 
-Available ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `removeContext`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed` and `attachmentTypeNotAllowed`. The first two attachment messages have a `{max}` placeholder.
+Available ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `removeContext`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed`, `attachmentTypeNotAllowed`, `showAllAttachments` and `showFewerAttachments`. The first two attachment messages have a `{max}` placeholder.
 
 ## Props
 
@@ -288,9 +288,10 @@ Use the `data-sl-*` attributes to adjust the look in your CSS:
 | `[data-sl-ai-composer-header]` | The empty slot above the field |
 | `[data-sl-ai-composer-context-items]` | The band of context items |
 | `[data-sl-ai-composer-context-item]` | One context item |
-| `[data-sl-ai-composer-field]` | The rounded box |
-| `[data-sl-ai-composer-attachments]` | The list of chips |
-| `[data-sl-ai-composer-attachment]` | One chip |
+| `[data-sl-ai-composer-field]` | The card |
+| `[data-sl-ai-composer-attachments]` | The row of tiles. It has `data-expanded` when opened |
+| `[data-sl-ai-composer-attachment]` | One tile |
+| `[data-sl-ai-composer-attachments-more]` | The "+N" button |
 | `[data-sl-ai-composer-footer]` | The footer row |
 | `[data-sl-ai-composer-footer-start]` | The left side of the footer |
 | `[data-sl-ai-composer-actions]` | The right side of the footer |
