@@ -15,6 +15,7 @@ import {
   othersColorToken,
 } from '../../internal/series'
 import { createNumberFormatter } from '../../internal/format'
+import { legendIcon } from '../../internal/legend'
 import type { ChartTokens } from '../../internal/theme'
 import type { ChartTooltipDelta } from '../../internal/tooltip'
 
@@ -108,7 +109,13 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
   }
 
   return {
-    legend: buildLegend(series.length),
+    legend: buildLegend(
+      series.length,
+      series.map((item) => ({
+        name: item.name,
+        icon: legendIcon('standard'),
+      }))
+    ),
     tooltip: buildAxisTooltip({
       tokens,
       axisPointer,

@@ -19,7 +19,13 @@ function build(overrides: Partial<BuildLineOptionArgs> = {}) {
     tokens,
     ...overrides,
   }) as {
-    legend: { show: boolean }
+    legend: {
+      show: boolean
+      data?: Array<{
+        name: string
+        icon: string
+      }>
+    }
     tooltip: {
       trigger: string
       axisPointer: { type: string; lineStyle?: { color?: string } }
@@ -70,7 +76,26 @@ describe('buildLineOption', () => {
       ],
     })
 
-    expect(multi.legend).toEqual({ show: true, left: 0, bottom: 0 })
+    expect(multi.legend).toMatchObject({ show: true, left: 0, bottom: 0 })
+  })
+
+  test('draws a standard line icon with a center dot for each line series', () => {
+    const option = build({
+      series: [
+        { name: 'A', data: [1] },
+        { name: 'B', data: [2] },
+      ],
+    })
+
+    expect(option.legend.data).toHaveLength(2)
+
+    for (const entry of option.legend.data ?? []) {
+      expect(entry.icon).toMatch(/^path:\/\//)
+      // The path draws a horizontal stroke plus a circle at its center, both
+      // as filled subpaths so the legend paints them in the series' color.
+      expect(entry.icon).toContain('A')
+      expect(entry.icon).toContain('Z')
+    }
   })
 
   test('renders every series as a line, never stacked', () => {

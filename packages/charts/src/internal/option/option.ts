@@ -21,9 +21,23 @@ export type ChartAxisPointer =
 
 /**
  * Legend shown only for multiple series, bottom left, per the design spec.
+ *
+ * `data` supplies one entry per series that needs an icon different from the
+ * engine's default square — a line draws a stroke with a center dot, a forecast
+ * a dashed stroke without one. Each entry names the series it belongs to, so
+ * the legend keeps the series' own color and order; the icon's fill inherits
+ * that color too.
  */
-export function buildLegend(seriesCount: number) {
-  return { show: seriesCount > 1, left: 0, bottom: 0 }
+export function buildLegend(
+  seriesCount: number,
+  data?: Array<{ name: string; icon: string }>
+) {
+  return {
+    show: seriesCount > 1,
+    left: 0,
+    bottom: 0,
+    ...(data && data.length > 0 ? { data } : {}),
+  }
 }
 
 /**
