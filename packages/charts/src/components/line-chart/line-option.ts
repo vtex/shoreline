@@ -115,21 +115,39 @@ function lastKnownPoint(
 }
 
 /**
- * Duplicates the continued series' last known value into the forecast at that
- * category, so the dashed segment starts exactly where the solid one ends.
- * Writes to a copy: the consumer's data is never mutated. A value the consumer
- * already gives the forecast at that category wins — the seam only fills gaps.
+ * Where each forecast joins the series it continues: the position of the
+ * continued series' last known value, which the forecast duplicates so the
+ * dashed segment starts exactly where the solid one ends. A forecast that
+ * already carries a value at that category is not seamed — that value is data,
+ * not the drawing aid.
+ */
+function forecastSeams(
+  series: LineChartSeries[]
+): Map<number, { index: number; value: number }> {
+  const seams = new Map<number, { index: number; value: number }>()
+
+  series.forEach((item, seriesIndex) => {
+    if (item.variant !== 'forecast') return
+
+    const continued = series[seriesIndex - 1]
+    const point = continued ? lastKnownPoint(continued.data) : undefined
+
+    if (!point || item.data[point.index] !== null) return
+
+    seams.set(seriesIndex, point)
+  })
+
+  return seams
+}
+
+/**
+ * Duplicates the continued series' last known value into the forecast at its
+ * seam. Writes to a copy: the consumer's data is never mutated.
  */
 function withSeam(
   forecast: Array<number | null>,
-  continued: Array<number | null> | undefined
+  point: { index: number; value: number }
 ): Array<number | null> {
-  if (!continued) return forecast
-
-  const point = lastKnownPoint(continued)
-
-  if (!point || forecast[point.index] !== null) return forecast
-
   const seam = [...forecast]
 
   seam[point.index] = point.value
@@ -171,6 +189,8 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
     lineStyle: { color: tokens.get(guideLine) },
   }
 
+  const seams = forecastSeams(series)
+
   return {
     legend: buildLegend(
       series.length,
@@ -184,6 +204,11 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
       axisPointer,
       formatValue: formatNumber,
       getDelta: createDeltaLookup(series),
+      // The seam point is a duplicate of the predecessor's last value, so the
+      // forecast has no row of its own there.
+      skipRow: (seriesIndex, dataIndex) =>
+        seams.get(seriesIndex)?.index === dataIndex,
+      getDashed: (seriesIndex) => series[seriesIndex]?.variant === 'forecast',
     }),
     grid: buildGrid({ tokens, showLegend }),
     xAxis: buildCategoryAxis(categories),
@@ -217,11 +242,12 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
         continued === undefined
           ? undefined
           : tokens.get(chartSeriesTokens[continuedIndex])
+      const seam = seams.get(seriesIndex)
 
       return {
         name: item.name,
         type: 'line',
-        data: withSeam(item.data, continued?.data),
+        data: seam === undefined ? item.data : withSeam(item.data, seam),
         smooth: isSmoothCurve(curve),
         lineStyle: { type: 'dashed' },
         showSymbol: false,
