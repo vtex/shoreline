@@ -108,7 +108,7 @@ function lastKnownPoint(
  * already carries a value at that category is not seamed — that value is data,
  * not the drawing aid.
  */
-function forecastSeams(
+export function forecastSeams(
   series: LineChartSeries[]
 ): Map<number, { index: number; value: number }> {
   const seams = new Map<number, { index: number; value: number }>()

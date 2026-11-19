@@ -1,7 +1,7 @@
 import type { BarChartGrouping, BarChartSeries } from '../bar-chart'
 import { buildBarSeries } from '../bar-chart/bar-option'
 import type { LineChartSeries } from '../line-chart'
-import { buildLineSeries } from '../line-chart/line-option'
+import { buildLineSeries, forecastSeams } from '../line-chart/line-option'
 import type { ChartCurve } from '../../internal/curve'
 import type { EChartsCoreOption } from '../../internal/echarts'
 import type { ChartAxisPointer } from '../../internal/option'
@@ -144,6 +144,8 @@ export function buildComposedOption(
 
   const units = renderedSeries.map((item) => item.unit ?? defaultChartUnit)
 
+  const seams = forecastSeams(renderedLines)
+
   const axisPointer: ChartAxisPointer =
     renderedBars.length > 0
       ? {
@@ -178,6 +180,13 @@ export function buildComposedOption(
       axisPointer,
       getDelta: createDeltaLookup(renderedSeries),
       getUnit: (seriesIndex) => units[seriesIndex],
+      // Seams are positions among the lines, and the bars occupy the leading
+      // slots, so the shadowed index also keeps bar rows out of the lookup.
+      skipRow: (seriesIndex, dataIndex) =>
+        seams.get(seriesIndex - renderedBars.length)?.index === dataIndex,
+      getDashed: (seriesIndex) =>
+        renderedLines[seriesIndex - renderedBars.length]?.variant ===
+        'forecast',
     }),
     grid: buildGrid({ tokens, showLegend }),
     xAxis: buildCategoryAxis(categories),
