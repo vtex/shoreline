@@ -12,6 +12,7 @@ import {
   buildLegend,
   buildValueAxis,
 } from '../../internal/option'
+import { createNumberFormatter } from '../../internal/format'
 import { collapseSeries, createDeltaLookup } from '../../internal/series'
 import type { ChartTokens } from '../../internal/theme'
 import type { ChartUnit } from '../../internal/unit'
@@ -90,6 +91,12 @@ export interface BuildComposedOptionArgs {
    * @default 'linear'
    */
   curve?: ChartCurve
+  /**
+   * Locale the chart writes numbers in — the reader's, from `LocaleProvider`,
+   * so `3100` reads `3,100` there, `3.100` where the locale groups with a dot,
+   * and a percentage reads with the same separator before its `%` sign.
+   */
+  locale: string
   tokens: ChartTokens
 }
 
@@ -115,8 +122,11 @@ export function buildComposedOption(
     totalLabel,
     maxSeries,
     curve,
+    locale,
     tokens,
   } = args
+
+  const formatNumber = createNumberFormatter(locale)
 
   // Bars and lines compile separately so each keeps its native treatment
   // (stacking + sign-aware radii vs. forecast seams), then render bars-first:
@@ -202,6 +212,7 @@ export function buildComposedOption(
       total: stacked
         ? { label: totalLabel, seriesCount: renderedBars.length }
         : undefined,
+      formatValue: formatNumber,
       getDelta: createDeltaLookup(renderedSeries),
       getUnit: (seriesIndex) => units[seriesIndex],
       // Seams are positions among the lines, and the bars occupy the leading
@@ -220,10 +231,14 @@ export function buildComposedOption(
     // heights — the right axis keeps its labels, without gridlines.
     yAxis: hasSecondaryAxis
       ? [
-          buildValueAxis({ unit: leftUnit }),
-          buildValueAxis({ unit: secondaryLine?.unit, showSplitLine: false }),
+          buildValueAxis({ unit: leftUnit, formatter: formatNumber }),
+          buildValueAxis({
+            unit: secondaryLine?.unit,
+            formatter: formatNumber,
+            showSplitLine: false,
+          }),
         ]
-      : buildValueAxis({ unit: leftUnit }),
+      : buildValueAxis({ unit: leftUnit, formatter: formatNumber }),
     series: [
       ...buildBarSeries({
         series: renderedBars,

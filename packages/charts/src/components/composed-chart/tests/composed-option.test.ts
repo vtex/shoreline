@@ -66,6 +66,7 @@ function build(overrides: Partial<BuildComposedOptionArgs> = {}) {
     grouping: 'grouped',
     othersLabel: 'Others',
     totalLabel: 'Total',
+    locale: 'en-US',
     maxSeries: defaultMaxSeries,
     tokens,
     ...overrides,
@@ -96,8 +97,8 @@ describe('buildComposedOption', () => {
     const axes = axesOf(mixed)
 
     expect(axes).toHaveLength(2)
-    // Bars anchor the left axis: no percentage formatting there.
-    expect(axes[0]?.axisLabel).toBeUndefined()
+    // Bars anchor the left axis: numbers there, no percentage sign.
+    expect(axes[0]?.axisLabel?.formatter(25)).toBe('25')
     // The percentage line reads against the right axis.
     expect(axes[1]?.axisLabel?.formatter(25)).toBe('25%')
     expect(mixed.series[1]?.yAxisIndex).toBe(1)
@@ -118,7 +119,7 @@ describe('buildComposedOption', () => {
 
     expect(axes).toHaveLength(2)
     expect(axes[0]?.axisLabel?.formatter(25)).toBe('25%')
-    expect(axes[1]?.axisLabel).toBeUndefined()
+    expect(axes[1]?.axisLabel?.formatter(25)).toBe('25')
     expect(option.series[1]?.yAxisIndex).toBe(1)
     expect(axes[0]?.splitLine).toBeUndefined()
     expect(axes[1]?.splitLine).toEqual({ show: false })
@@ -133,7 +134,7 @@ describe('buildComposedOption', () => {
     })
 
     expect(Array.isArray(option.yAxis)).toBe(false)
-    expect(option.yAxis).toEqual({ type: 'value' })
+    expect((option.yAxis as BuiltAxis).axisLabel?.formatter(3100)).toBe('3,100')
     expect(option.series[1]?.yAxisIndex).toBe(0)
   })
 
@@ -517,5 +518,26 @@ describe('buildComposedOption', () => {
       expect(html).toContain('Revenue')
       expect(html).not.toContain('data-dashed')
     })
+  })
+
+  test('writes both value axes in the reader’s locale', () => {
+    const option = build({ locale: 'pt-BR' })
+    const axes = axesOf(option)
+
+    expect(axes[0]?.axisLabel?.formatter(3100)).toBe('3.100')
+    // The percentage sign follows the localized number.
+    expect(axes[1]?.axisLabel?.formatter(12.5)).toBe('12,5%')
+  })
+
+  test('writes tooltip values, percentages included, in the reader’s locale', () => {
+    const option = build({ locale: 'pt-BR' })
+
+    const html = option.tooltip.formatter([
+      { name: 'Jan', seriesName: 'Revenue', value: 3100, seriesIndex: 0 },
+      { name: 'Jan', seriesName: 'Conversion', value: 2.5, seriesIndex: 1 },
+    ])
+
+    expect(html).toContain('>3.100<')
+    expect(html).toContain('>2,5%<')
   })
 })

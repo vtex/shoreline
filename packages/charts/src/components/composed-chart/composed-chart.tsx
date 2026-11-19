@@ -1,4 +1,9 @@
-import { Skeleton, VisuallyHidden, createMessageHook } from '@vtex/shoreline'
+import {
+  Skeleton,
+  VisuallyHidden,
+  createMessageHook,
+  useLocale,
+} from '@vtex/shoreline'
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef, useId, useMemo } from 'react'
 
@@ -52,6 +57,7 @@ export const ComposedChart = forwardRef<HTMLDivElement, ComposedChartProps>(
     } = props
 
     const getMessage = useMessage(messageOverrides)
+    const locale = useLocale()
     const emptyLabel = getMessage('empty')
     const othersLabel = getMessage('others')
     const totalLabel = getMessage('total')
@@ -70,9 +76,19 @@ export const ComposedChart = forwardRef<HTMLDivElement, ComposedChartProps>(
           totalLabel,
           maxSeries,
           curve,
+          locale,
           tokens,
         }),
-      [series, categories, grouping, othersLabel, totalLabel, maxSeries, curve]
+      [
+        series,
+        categories,
+        grouping,
+        othersLabel,
+        totalLabel,
+        maxSeries,
+        curve,
+        locale,
+      ]
     )
 
     return (
