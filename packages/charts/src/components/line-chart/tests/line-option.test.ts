@@ -5,7 +5,7 @@ import type { BuildLineOptionArgs } from '../line-option'
 import { buildLineOption, defaultMaxSeries } from '../line-option'
 
 const tokens: ChartTokens = {
-  get: () => undefined,
+  get: (token) => (token === '--sl-color-gray-8' ? '#858585' : undefined),
   px: () => 8,
 }
 
@@ -35,6 +35,7 @@ function build(overrides: Partial<BuildLineOptionArgs> = {}) {
       stack?: string
       connectNulls?: boolean
       smooth?: boolean
+      itemStyle?: { color?: string }
       data: Array<number | null>
     }>
   }
@@ -123,6 +124,30 @@ describe('buildLineOption', () => {
 
     expect(option.series.map((s) => s.name)).toEqual(['A', 'B', 'Others'])
     expect(option.series[2]?.data).toEqual([115, 226])
+  })
+
+  test('paints the aggregate in the neutral gray, keeping the named slots', () => {
+    const option = build({
+      series: Array.from({ length: 5 }, (_, i) => ({
+        name: `S${i}`,
+        data: [1],
+      })),
+    })
+
+    expect(option.series[0]?.itemStyle).toBeUndefined()
+    expect(option.series[1]?.itemStyle).toBeUndefined()
+    expect(option.series[2]?.itemStyle).toEqual({ color: '#858585' })
+  })
+
+  test('leaves every line to the palette when nothing aggregates', () => {
+    const option = build({
+      series: [
+        { name: 'A', data: [1] },
+        { name: 'B', data: [2] },
+      ],
+    })
+
+    expect(option.series.every((s) => s.itemStyle === undefined)).toBe(true)
   })
 
   test('keeps series order in the tooltip (no vertical-stack reversal)', () => {

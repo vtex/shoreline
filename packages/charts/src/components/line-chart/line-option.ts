@@ -9,7 +9,11 @@ import {
   buildLegend,
   buildValueAxis,
 } from '../../internal/option'
-import { collapseSeries, createDeltaLookup } from '../../internal/series'
+import {
+  collapseSeries,
+  createDeltaLookup,
+  othersColorToken,
+} from '../../internal/series'
 import type { ChartTokens } from '../../internal/theme'
 import type { ChartTooltipDelta } from '../../internal/tooltip'
 
@@ -70,8 +74,15 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
   const { categories, othersLabel, maxSeries, curve = 'linear', tokens } = args
 
   // Everything downstream — legend, palette order — reads the collapsed list,
-  // so the aggregate behaves like any other series.
+  // so the aggregate behaves like any other series, except that it leaves the
+  // palette for the neutral color.
   const series = collapseSeries(args.series, othersLabel, maxSeries)
+  // The synthesized aggregate sits last and wears the neutral color, so the
+  // named lines keep their palette slots.
+  const othersColor =
+    series.length < args.series.length
+      ? tokens.get(othersColorToken)
+      : undefined
 
   const showLegend = series.length > 1
 
@@ -92,11 +103,14 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
     yAxis: buildValueAxis(),
     // `connectNulls` defaults to false, so null values render as gaps rather
     // than being silently interpolated — the design spec's missing-data rule.
-    series: series.map((item) => ({
+    series: series.map((item, seriesIndex) => ({
       name: item.name,
       type: 'line',
       data: item.data,
       smooth: isSmoothCurve(curve),
+      ...(othersColor && seriesIndex === series.length - 1
+        ? { itemStyle: { color: othersColor } }
+        : {}),
     })),
   }
 }
