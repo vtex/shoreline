@@ -435,6 +435,7 @@ describe('buildLineOption', () => {
         type: 'line',
         data: [10, 20],
         smooth: false,
+        symbolSize: 6,
       })
       expect(option.series[0]?.lineStyle).toBeUndefined()
       expect(option.series[0]?.showSymbol).toBeUndefined()
@@ -586,7 +587,7 @@ describe('buildLineOption', () => {
       expect(option.series[0]?.markPoint).toEqual({
         silent: true,
         symbol: 'emptyCircle',
-        symbolSize: 4,
+        symbolSize: 6,
         label: { show: false },
         data: [{ coord: [10, 42] }, { coord: [70, 7] }],
       })

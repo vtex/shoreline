@@ -624,7 +624,11 @@ describe('buildComposedOption', () => {
       (entry) => entry.name === 'Revenue'
     )
 
-    expect(barEntry).toEqual({ name: 'Revenue', icon: 'rect' })
+    expect(barEntry).toBeDefined()
+    expect(barEntry?.icon).toMatch(/^path:\/\//)
+    // A square: four corners and no arc, not the engine's wide `rect`.
+    expect(barEntry?.icon.match(/Z/g)).toHaveLength(1)
+    expect(barEntry?.icon).not.toContain('A')
 
     const lineEntry = option.legend.data?.find(
       (entry) => entry.name === 'Conversion'
@@ -655,7 +659,7 @@ describe('buildComposedOption', () => {
 
     expect(forecast).toBeDefined()
     expect(forecast?.icon).not.toContain('A') // no arc = no dot
-    expect(forecast?.icon.match(/Z/g)?.length).toBe(3)
+    expect(forecast?.icon.match(/Z/g)?.length).toBe(4)
   })
 
   describe('point markers', () => {

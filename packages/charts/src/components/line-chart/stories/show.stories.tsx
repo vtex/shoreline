@@ -39,6 +39,18 @@ const forecastMonths = [...months, 'Jul', 'Aug']
 const revenueHistory = [...revenue, null, null]
 const revenueForecast = [null, null, null, null, null, null, 8100, 7600]
 
+// A line that stops and resumes: filled for the first fifth of the width, a
+// lone reading at three tenths, filled again from roughly a third to nine
+// tenths, then a lone reading at 95%.
+const intermittentReadings = Array.from({ length: 90 }, (_, i) => {
+  const day = i + 1
+  if (day <= 18) return 120 + (day % 12)
+  if (day === 28) return 180
+  if (day >= 31 && day <= 81) return 130 + (day % 12)
+  if (day === 86) return 90
+  return null
+})
+
 function Section(props: { label: string; children: ReactNode }) {
   return (
     <div style={{ padding: '1rem 0', borderTop: '1px solid #e0e0e0' }}>
@@ -141,28 +153,15 @@ export function Show() {
 
       <Section label="Crowded series with isolated values (markers kept)">
         {/*
-         * Same density, with readings separated by gaps. A line segment never
-         * reaches an isolated value, so hiding every marker would drop it from
-         * the chart; those points keep a marker of their own.
+         * The line stops and resumes: no markers on either stretch, and a
+         * marker only on the two readings that sit alone between gaps, which
+         * would otherwise disappear with the line.
          */}
         <div style={{ width: 420 }}>
           <LineChart
             label="Intermittent sensor readings, 90 days"
             categories={Array.from({ length: 90 }, (_, i) => `D${i + 1}`)}
-            series={[
-              {
-                name: 'Sensor A',
-                data: Array.from({ length: 90 }, (_, i) =>
-                  i < 12
-                    ? 120 + (i % 12)
-                    : i === 40
-                      ? 180
-                      : i === 70
-                        ? 90
-                        : null
-                ),
-              },
-            ]}
+            series={[{ name: 'Sensor A', data: intermittentReadings }]}
           />
         </div>
       </Section>

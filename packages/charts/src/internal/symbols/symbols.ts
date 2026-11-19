@@ -1,9 +1,12 @@
 /**
- * Diameter of the marker a line draws at each point. Matches the engine's own
- * default, which the chart relies on: the marker and the isolated-point
- * markers drawn in dense charts must be the same size.
+ * Size of the marker a line draws at each point, in the engine's symbol units.
+ *
+ * The engine strokes a marker's circle with a ring a third of the symbol's
+ * size, so this size draws an 8px circle with a 2px ring — the design's
+ * marker. The chart relies on one size everywhere: the marker at each point
+ * and the marker a dense chart keeps on an isolated value must match.
  */
-export const lineSymbolSize = 4
+export const lineSymbolSize = 6
 
 // Design spec, markers: neighbours closer than this many marker diameters turn
 // the line into a bead necklace, and the trend stops reading. The multiple is
