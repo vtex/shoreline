@@ -24,12 +24,15 @@ describe('renderChartTooltip', () => {
     expect(html).not.toContain('data-sl-chart-tooltip-title')
   })
 
-  test('omits the line swatch when the row has no color', () => {
+  test('keeps the swatch space when the row has no color', () => {
     const html = renderChartTooltip({
-      rows: [{ label: 'Revenue', value: '139' }],
+      rows: [{ label: 'Total', value: '139' }],
     })
 
-    expect(html).not.toContain('data-sl-chart-tooltip-row-line')
+    // The total row carries no color, but the empty swatch holds its column
+    // so the label aligns with the colored rows above it.
+    expect(html).toContain('<span data-sl-chart-tooltip-row-line></span>')
+    expect(html).not.toContain('background-color')
   })
 
   test('renders nothing when there are no rows', () => {
