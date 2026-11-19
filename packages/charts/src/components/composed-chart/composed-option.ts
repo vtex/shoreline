@@ -13,6 +13,7 @@ import {
   buildValueAxis,
 } from '../../internal/option'
 import { createNumberFormatter } from '../../internal/format'
+import { legendIcon } from '../../internal/legend'
 import { collapseSeries, createDeltaLookup } from '../../internal/series'
 import type { ChartTokens } from '../../internal/theme'
 import type { ChartUnit } from '../../internal/unit'
@@ -198,7 +199,21 @@ export function buildComposedOption(
   }))
 
   return {
-    legend: buildLegend(renderedSeries.length),
+    legend: buildLegend(
+      renderedSeries.length,
+      renderedSeries.map((item) => ({
+        name: item.name,
+        // Bars take the engine's square; lines draw their stroke, dashed
+        // when the series is a forecast.
+        icon: legendIcon(
+          'variant' in item && item.variant === 'forecast'
+            ? 'forecast'
+            : 'type' in item && item.type === 'bar'
+              ? 'bar'
+              : 'standard'
+        ),
+      }))
+    ),
     tooltip: buildAxisTooltip({
       tokens,
       axisPointer,

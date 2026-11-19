@@ -45,7 +45,10 @@ interface BuiltSeries {
 }
 
 interface BuiltOption {
-  legend: { show: boolean }
+  legend: {
+    show: boolean
+    data?: Array<{ name: string; icon: string }>
+  }
   tooltip: {
     trigger: string
     axisPointer: { type: string }
@@ -539,5 +542,51 @@ describe('buildComposedOption', () => {
 
     expect(html).toContain('>3.100<')
     expect(html).toContain('>2,5%<')
+  })
+
+  test('gives bars a square icon and lines a stroke icon', () => {
+    const option = build({
+      series: [
+        { type: 'bar', name: 'Revenue', data: [10, 20] },
+        { type: 'line', name: 'Conversion', data: [2, 3], unit: 'percentage' },
+      ],
+    })
+
+    const barEntry = option.legend.data?.find(
+      (entry) => entry.name === 'Revenue'
+    )
+
+    expect(barEntry).toEqual({ name: 'Revenue', icon: 'rect' })
+
+    const lineEntry = option.legend.data?.find(
+      (entry) => entry.name === 'Conversion'
+    )
+
+    expect(lineEntry).toBeDefined()
+    expect(lineEntry?.icon).toMatch(/^path:\/\//)
+    expect(lineEntry?.icon).toContain('A') // arc = center dot
+    expect(lineEntry?.icon).toContain('Z')
+  })
+
+  test('gives a forecast line a dashed icon without a dot', () => {
+    const option = build({
+      series: [
+        { type: 'line', name: 'Revenue', data: [10, 20] },
+        {
+          type: 'line',
+          name: 'Forecast',
+          data: [null, 30],
+          variant: 'forecast',
+        },
+      ],
+    })
+
+    const forecast = option.legend.data?.find(
+      (entry) => entry.name === 'Forecast'
+    )
+
+    expect(forecast).toBeDefined()
+    expect(forecast?.icon).not.toContain('A') // no arc = no dot
+    expect(forecast?.icon.match(/Z/g)?.length).toBe(3)
   })
 })
