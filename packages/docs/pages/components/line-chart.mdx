@@ -53,6 +53,8 @@ The chart decides whether to draw a marker at every point. When points crowd the
 
 A line's hovered point always shows a marker even when they're hidden; a value whose neighbours are both gaps (an isolated reading between nulls) keeps its marker too, because without a connecting line segment the point would otherwise disappear.
 
+<Preview name="line-chart-markers" />
+
 ### Tooltip with deltas
 
 Each series can carry a `deltas` array — one entry per category — shown in the hover tooltip beside the value. `direction` (`up` / `down` / `flat`) and `tone` (`success` / `critical` / `neutral`) are independent, because a decrease is not inherently bad: falling complaints is `direction: 'down'` with `tone: 'success'`. The comparison data need not be plotted — it only feeds the tooltip.
