@@ -119,6 +119,42 @@ export function Show() {
         />
       </Section>
 
+      <Section label="Dense markers (hidden for trend legibility)">
+        {/*
+         * 90 daily points on a narrow chart: markers are hidden so the trend
+         * reads as a line, not a bead necklace. The crispness asset confirms
+         * zero markers at this width.
+         */}
+        <LineChart
+          label="Visitors, 90-day trend"
+          categories={Array.from({ length: 90 }, (_, i) => `D${i + 1}`)}
+          series={[
+            {
+              name: 'Visitors',
+              data: Array.from({ length: 90 }, (_, i) => 120 + (i % 12)),
+            },
+          ]}
+        />
+      </Section>
+
+      <Section label="Isolated points (visible even after markers go away)">
+        {/*
+         * A value with null on both sides has no line segment, so hiding
+         * markers would drop it from the chart entirely. The chart keeps a
+         * markPoint exactly on each isolated value.
+         */}
+        <LineChart
+          label="Intermittent sensor readings"
+          categories={months}
+          series={[
+            {
+              name: 'Sensor A',
+              data: [4200, null, 4800, null, null, 3600],
+            },
+          ]}
+        />
+      </Section>
+
       <Section label="Series aggregation (5 series, default maxSeries)">
         <LineChart
           label="Sales by channel"

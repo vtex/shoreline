@@ -49,6 +49,12 @@ Negative values render below the zero line. When a value falls below zero, the c
 
 <Preview name="composed-chart-smooth" />
 
+### Marker density
+
+The chart decides whether to draw a marker at every point. When points crowd the width — 60 daily values on a narrow panel, say — the markers are hidden across every line so the trend reads as a line, not a bead necklace. Widen the chart enough, or chart fewer points, and every point gets a marker. The rule is all-or-nothing for the whole chart: a dense series never draws only some of its markers.
+
+A line's hovered point always shows a marker even when they're hidden; a value whose neighbours are both gaps (an isolated reading between nulls) keeps its marker too, because without a connecting line segment the point would otherwise disappear.
+
 ### Forecast lines
 
 A line can set `variant: 'forecast'`. It renders dashed and without symbols, and it continues the series immediately before it: the chart fills the seam from that series' last non-null value. Forecast data is full-length, with `null` wherever the line has not started yet.

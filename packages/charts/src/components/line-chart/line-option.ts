@@ -11,6 +11,12 @@ import {
   hasNegativeValues,
 } from '../../internal/option'
 import { collapseSeries, createDeltaLookup } from '../../internal/series'
+import type { IsolatedPoint } from '../../internal/symbols'
+import {
+  isolatedPoints,
+  lineSymbolSize,
+  pointMarkersFit,
+} from '../../internal/symbols'
 import { chartSeriesTokens } from '../../internal/theme'
 import type { ChartTokens } from '../../internal/theme'
 import type { ChartTooltipDelta } from '../../internal/tooltip'
@@ -77,6 +83,12 @@ export interface BuildLineOptionArgs {
    * @default 'linear'
    */
   curve?: ChartCurve
+  /**
+   * Width of the chart in px, when known. Marker density is measured in pixels,
+   * so a chart whose width is not measured yet keeps its markers.
+   * @default undefined
+   */
+  width?: number
   tokens: ChartTokens
 }
 
@@ -144,6 +156,25 @@ function withSeam(
 }
 
 /**
+ * Markers for the values the line cannot reach: a point whose neighbours are
+ * both gaps draws no segment, so hiding every marker would drop the value from
+ * the chart. Built as `markPoint` rather than a second series so each data
+ * series keeps exactly one engine series — legend entries, tooltip rows and
+ * palette positions stay untouched.
+ */
+function buildIsolatedMarkers(points: IsolatedPoint[]) {
+  return {
+    // The marker is a visual, not a target: the axis tooltip and the hover
+    // highlight must behave as they do on any other point.
+    silent: true,
+    symbol: 'emptyCircle',
+    symbolSize: lineSymbolSize,
+    label: { show: false },
+    data: points.map(({ index, value }) => ({ coord: [index, value] })),
+  }
+}
+
+/**
  * Compiles shared-series line props into engine line series. Extracted so the
  * composed chart can paint lines with exactly this chart's forecast treatment
  * (dashed, symbol-free, color inherited from the predecessor); internal-only,
@@ -165,18 +196,37 @@ export function buildLineSeries(args: {
    * @default 0
    */
   paletteOffset?: number
+  /**
+   * Whether lines draw a marker at every point. When false, markers are hidden
+   * across the whole series — the trend reads as a line again — except at
+   * isolated values, which would otherwise disappear from the chart.
+   * @default true
+   */
+  showMarkers?: boolean
   tokens: ChartTokens
 }) {
-  const { series, curve = 'linear', paletteOffset = 0, tokens } = args
+  const {
+    series,
+    curve = 'linear',
+    paletteOffset = 0,
+    showMarkers = true,
+    tokens,
+  } = args
   const seams = forecastSeams(series)
 
   return series.map((item, seriesIndex) => {
     if (item.variant !== 'forecast') {
+      const isolated = showMarkers ? [] : isolatedPoints(item.data)
+
       return {
         name: item.name,
         type: 'line',
         data: item.data,
         smooth: isSmoothCurve(curve),
+        ...(showMarkers ? {} : { showSymbol: false }),
+        ...(isolated.length === 0
+          ? {}
+          : { markPoint: buildIsolatedMarkers(isolated) }),
       }
     }
 
@@ -210,13 +260,24 @@ export function buildLineSeries(args: {
  * style values come from the resolved tokens.
  */
 export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
-  const { categories, othersLabel, maxSeries, curve = 'linear', tokens } = args
+  const {
+    categories,
+    othersLabel,
+    maxSeries,
+    curve = 'linear',
+    width,
+    tokens,
+  } = args
 
   // Everything downstream — legend, palette order — reads the collapsed list,
   // so the aggregate behaves like any other series.
   const series = collapseSeries(args.series, othersLabel, maxSeries)
 
   const showLegend = series.length > 1
+  const showMarkers = pointMarkersFit({
+    count: categories.length,
+    width,
+  })
 
   const axisPointer: ChartAxisPointer = {
     type: 'line',
@@ -245,6 +306,6 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
     yAxis: buildValueAxis(),
     // `connectNulls` defaults to false, so null values render as gaps rather
     // than being silently interpolated — the design spec's missing-data rule.
-    series: buildLineSeries({ series, curve, tokens }),
+    series: buildLineSeries({ series, curve, showMarkers, tokens }),
   }
 }
