@@ -14,6 +14,7 @@ function build(overrides: Partial<BuildLineOptionArgs> = {}) {
     series: [{ name: 'Revenue', data: [10, 20] }],
     categories: ['Jan', 'Feb'],
     othersLabel: 'Others',
+    locale: 'en-US',
     maxSeries: defaultMaxSeries,
     tokens,
     ...overrides,
@@ -28,7 +29,10 @@ function build(overrides: Partial<BuildLineOptionArgs> = {}) {
       position: unknown
     }
     xAxis: { type: string; data?: string[] }
-    yAxis: { type: string }
+    yAxis: {
+      type: string
+      axisLabel?: { formatter?: (value: number) => string }
+    }
     series: Array<{
       name: string
       type: string
@@ -53,7 +57,7 @@ describe('buildLineOption', () => {
     const option = build()
 
     expect(option.xAxis).toEqual({ type: 'category', data: ['Jan', 'Feb'] })
-    expect(option.yAxis).toEqual({ type: 'value' })
+    expect(option.yAxis.type).toBe('value')
   })
 
   test('shows the legend only for multiple series, bottom left', () => {
@@ -189,5 +193,28 @@ describe('buildLineOption', () => {
 
     expect(first).toContain('12%')
     expect(first).toContain('data-tone="success"')
+  })
+
+  test('writes the value-axis ticks in the reader’s locale', () => {
+    expect(build().yAxis.axisLabel?.formatter?.(3100)).toBe('3,100')
+    expect(build({ locale: 'pt-BR' }).yAxis.axisLabel?.formatter?.(3100)).toBe(
+      '3.100'
+    )
+  })
+
+  test('writes tooltip values in the reader’s locale', () => {
+    const option = build({ locale: 'pt-BR' })
+
+    const html = option.tooltip.formatter([
+      {
+        name: 'Jan',
+        seriesName: 'Revenue',
+        value: 3100,
+        seriesIndex: 0,
+        dataIndex: 0,
+      },
+    ])
+
+    expect(html).toContain('3.100')
   })
 })

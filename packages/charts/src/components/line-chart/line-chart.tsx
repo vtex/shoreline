@@ -1,4 +1,9 @@
-import { Skeleton, VisuallyHidden, createMessageHook } from '@vtex/shoreline'
+import {
+  Skeleton,
+  VisuallyHidden,
+  createMessageHook,
+  useLocale,
+} from '@vtex/shoreline'
 import type { ComponentPropsWithoutRef } from 'react'
 import { forwardRef, useId, useMemo } from 'react'
 
@@ -38,6 +43,7 @@ export const LineChart = forwardRef<HTMLDivElement, LineChartProps>(
     } = props
 
     const getMessage = useMessage(messageOverrides)
+    const locale = useLocale()
     const emptyLabel = getMessage('empty')
     const othersLabel = getMessage('others')
 
@@ -53,9 +59,10 @@ export const LineChart = forwardRef<HTMLDivElement, LineChartProps>(
           othersLabel,
           maxSeries,
           curve,
+          locale,
           tokens,
         }),
-      [series, categories, othersLabel, maxSeries, curve]
+      [series, categories, othersLabel, maxSeries, curve, locale]
     )
 
     return (

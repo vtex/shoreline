@@ -14,6 +14,7 @@ import {
   createDeltaLookup,
   othersColorToken,
 } from '../../internal/series'
+import { createNumberFormatter } from '../../internal/format'
 import type { ChartTokens } from '../../internal/theme'
 import type { ChartTooltipDelta } from '../../internal/tooltip'
 
@@ -59,6 +60,12 @@ export interface BuildLineOptionArgs {
    * @default 'linear'
    */
   curve?: ChartCurve
+  /**
+   * Locale the chart writes numbers in — the reader's, from `LocaleProvider`,
+   * so `3100` reads `3,100` there and `3.100` where the locale groups with a
+   * dot.
+   */
+  locale: string
   tokens: ChartTokens
 }
 
@@ -71,7 +78,16 @@ const guideLine = '--sl-color-gray-3'
  * style values come from the resolved tokens.
  */
 export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
-  const { categories, othersLabel, maxSeries, curve = 'linear', tokens } = args
+  const {
+    categories,
+    othersLabel,
+    maxSeries,
+    curve = 'linear',
+    locale,
+    tokens,
+  } = args
+
+  const formatNumber = createNumberFormatter(locale)
 
   // Everything downstream — legend, palette order — reads the collapsed list,
   // so the aggregate behaves like any other series, except that it leaves the
@@ -96,11 +112,12 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
     tooltip: buildAxisTooltip({
       tokens,
       axisPointer,
+      formatValue: formatNumber,
       getDelta: createDeltaLookup(series),
     }),
     grid: buildGrid({ tokens, showLegend }),
     xAxis: buildCategoryAxis(categories),
-    yAxis: buildValueAxis(),
+    yAxis: buildValueAxis({ formatter: formatNumber }),
     // `connectNulls` defaults to false, so null values render as gaps rather
     // than being silently interpolated — the design spec's missing-data rule.
     series: series.map((item, seriesIndex) => ({
