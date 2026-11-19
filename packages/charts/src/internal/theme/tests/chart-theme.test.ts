@@ -73,11 +73,13 @@ describe('createChartTheme', () => {
     })
   })
 
-  test('sizes the legend symbol as a square', () => {
-    const theme = createChartTheme(fakeTokens({ '--sl-space-3': 12 }))
+  test('sizes the legend icon box wider than it is tall', () => {
+    const theme = createChartTheme(
+      fakeTokens({ '--sl-space-3': 12, '--sl-space-5': 20 })
+    )
 
-    expect(theme.legend.itemWidth).toBe(12)
-    expect(theme.legend.itemHeight).toBe(theme.legend.itemWidth)
+    expect(theme.legend.itemWidth).toBe(20)
+    expect(theme.legend.itemHeight).toBe(12)
   })
 
   test('leaves the legend symbol to the engine when the token is missing', () => {

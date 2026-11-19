@@ -16,6 +16,7 @@ import {
 } from '../../internal/series'
 import { createNumberFormatter } from '../../internal/format'
 import { legendIcon } from '../../internal/legend'
+import { lineSymbolSize } from '../../internal/symbols'
 import type { ChartTokens } from '../../internal/theme'
 import type { ChartTooltipDelta } from '../../internal/tooltip'
 
@@ -132,6 +133,10 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
       type: 'line',
       data: item.data,
       smooth: isSmoothCurve(curve),
+      // The engine's `emptyCircle` draws a white center inside a ring of the
+      // series' color; the size decides both, so it is the marker the design
+      // draws rather than the engine's default 4.
+      symbolSize: lineSymbolSize,
       ...(othersColor && seriesIndex === series.length - 1
         ? { itemStyle: { color: othersColor } }
         : {}),

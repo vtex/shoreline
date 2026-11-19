@@ -43,8 +43,11 @@ const fgBase = '--sl-fg-base'
 const fgMuted = '--sl-fg-muted'
 // color component of --sl-border-base, which is a full border shorthand
 const lineColor = '--sl-color-gray-3'
-// legend symbols are square, so one token drives both of their dimensions
-const legendSymbolSize = '--sl-space-3'
+// The legend's item box is wider than it is tall: a line needs room to read as
+// a line with a marker on it, and the square a bar gets keeps the box's
+// height. See `internal/legend` for the icons drawn in it.
+const legendSymbolWidth = '--sl-space-5'
+const legendSymbolHeight = '--sl-space-3'
 
 /**
  * Compiles `--sl-*` design tokens into an engine theme object. This bridge is
@@ -82,10 +85,11 @@ export function createChartTheme(tokens: ChartTokens) {
     categoryAxis: axis,
     valueAxis: axis,
     legend: {
-      // The engine's default symbol is a wide rectangle (25×14). Driving both
-      // dimensions from one token squares it off.
-      itemWidth: px(legendSymbolSize),
-      itemHeight: px(legendSymbolSize),
+      // The engine's default symbol is a wide rectangle (25×14); driving the
+      // box from the tokens keeps every chart's legend icons on the same grid
+      // as the series they stand for.
+      itemWidth: px(legendSymbolWidth),
+      itemHeight: px(legendSymbolHeight),
       textStyle: {
         color: get(fgBase),
         fontFamily: get(fontFamily),

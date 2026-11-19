@@ -45,6 +45,7 @@ function build(overrides: Partial<BuildLineOptionArgs> = {}) {
       stack?: string
       connectNulls?: boolean
       smooth?: boolean
+      symbolSize?: number
       itemStyle?: { color?: string }
       data: Array<number | null>
     }>
@@ -91,11 +92,19 @@ describe('buildLineOption', () => {
 
     for (const entry of option.legend.data ?? []) {
       expect(entry.icon).toMatch(/^path:\/\//)
-      // The path draws a horizontal stroke plus a circle at its center, both
-      // as filled subpaths so the legend paints them in the series' color.
+      // The path draws a horizontal stroke plus a ring at its center, both as
+      // filled subpaths so the legend paints them in the series' color.
       expect(entry.icon).toContain('A')
       expect(entry.icon).toContain('Z')
     }
+  })
+
+  test('sizes the point markers as the design draws them', () => {
+    const option = build()
+
+    // 6 symbol units: the engine's ring is a third of the size, so the drawn
+    // marker is 8px across.
+    expect(option.series[0]?.symbolSize).toBe(6)
   })
 
   test('renders every series as a line, never stacked', () => {
