@@ -336,4 +336,92 @@ describe('buildComposedOption', () => {
     expect(option.series[2]?.lineStyle).toEqual({ type: 'dashed' })
     expect(option.series[2]?.showSymbol).toBe(false)
   })
+
+  describe('forecast tooltip', () => {
+    function forecastOption() {
+      return build({
+        categories: ['Jan', 'Feb', 'Mar'],
+        series: [
+          { type: 'bar', name: 'Revenue', data: [10, 20, null] },
+          { type: 'line', name: 'History', data: [1, 2, null] },
+          {
+            type: 'line',
+            name: 'Forecast',
+            data: [null, null, 3],
+            variant: 'forecast',
+          },
+        ],
+      })
+    }
+
+    test('leaves the forecast out at the seam while bars still report', () => {
+      const option = forecastOption()
+
+      // Feb is the seam: the forecast's value there duplicates History's last
+      // one. Series positions include the bar, so the forecast is index 2.
+      const html = option.tooltip.formatter([
+        {
+          name: 'Feb',
+          seriesName: 'Revenue',
+          value: 20,
+          seriesIndex: 0,
+          dataIndex: 1,
+        },
+        {
+          name: 'Feb',
+          seriesName: 'History',
+          value: 2,
+          seriesIndex: 1,
+          dataIndex: 1,
+        },
+        {
+          name: 'Feb',
+          seriesName: 'Forecast',
+          value: 2,
+          seriesIndex: 2,
+          dataIndex: 1,
+        },
+      ])
+
+      expect(html).toContain('Revenue')
+      expect(html).toContain('History')
+      expect(html).not.toContain('Forecast')
+    })
+
+    test('marks the forecast row dashed at projected categories', () => {
+      const option = forecastOption()
+
+      const html = option.tooltip.formatter([
+        {
+          name: 'Mar',
+          seriesName: 'Forecast',
+          value: 3,
+          color: '#3993f4',
+          seriesIndex: 2,
+          dataIndex: 2,
+        },
+      ])
+
+      expect(html).toContain('Forecast')
+      expect(html).toContain('data-dashed')
+    })
+
+    test('keeps bar rows solid', () => {
+      const option = forecastOption()
+
+      const html = option.tooltip.formatter([
+        {
+          name: 'Mar',
+          seriesName: 'Revenue',
+          value: 10,
+          color: '#3993f4',
+          seriesIndex: 0,
+          dataIndex: 0,
+        },
+      ])
+
+      expect(html).toContain('Revenue')
+      expect(html).not.toContain('data-dashed')
+    })
+  })
 })
