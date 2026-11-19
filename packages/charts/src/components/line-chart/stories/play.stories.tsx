@@ -76,7 +76,7 @@ export function TooltipOnHover() {
   return (
     <ChartContainer
       chartRef={tooltipChartRef}
-      option={(tokens: ChartTokens) =>
+      option={(tokens: ChartTokens, width: number) =>
         buildLineOption({
           series: [
             { name: 'Revenue', data: revenue },
@@ -85,6 +85,7 @@ export function TooltipOnHover() {
           categories: months,
           othersLabel: 'Others',
           maxSeries: defaultMaxSeries,
+          width,
           tokens,
         })
       }

@@ -52,7 +52,7 @@ export const LineChart = forwardRef<HTMLDivElement, LineChartProps>(
       item.data.some((value) => value !== null)
     )
     const option = useMemo(
-      () => (tokens: ChartTokens) =>
+      () => (tokens: ChartTokens, width: number) =>
         buildLineOption({
           series,
           categories,
@@ -60,6 +60,7 @@ export const LineChart = forwardRef<HTMLDivElement, LineChartProps>(
           maxSeries,
           curve,
           locale,
+          width,
           tokens,
         }),
       [series, categories, othersLabel, maxSeries, curve, locale]

@@ -146,6 +146,30 @@ export function Show() {
         />
       </Section>
 
+      <Section label="Dense markers (hidden for trend legibility)">
+        {/*
+         * 60 points on a narrow chart: bar markers never show, and the line's
+         * markers are hidden so the trend reads as a line. Isolated values
+         * (a point with null neighbours) keep their own marker.
+         */}
+        <ComposedChart
+          label="Daily revenue and visits, 60-day trend"
+          categories={Array.from({ length: 60 }, (_, i) => `D${i + 1}`)}
+          series={[
+            {
+              type: 'bar',
+              name: 'Revenue',
+              data: Array.from({ length: 60 }, (_, i) => 100 + (i % 7)),
+            },
+            {
+              type: 'line',
+              name: 'Visits',
+              data: Array.from({ length: 60 }, (_, i) => 180 + (i % 11)),
+            },
+          ]}
+        />
+      </Section>
+
       <Section label="Aggregation (5 bars, default maxSeries; lines kept)">
         <ComposedChart
           label="Sales by channel and conversion"

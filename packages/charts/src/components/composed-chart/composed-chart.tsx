@@ -67,7 +67,7 @@ export const ComposedChart = forwardRef<HTMLDivElement, ComposedChartProps>(
       item.data.some((value) => value !== null)
     )
     const option = useMemo(
-      () => (tokens: ChartTokens) =>
+      () => (tokens: ChartTokens, width: number) =>
         buildComposedOption({
           series,
           categories,
@@ -77,6 +77,7 @@ export const ComposedChart = forwardRef<HTMLDivElement, ComposedChartProps>(
           maxSeries,
           curve,
           locale,
+          width,
           tokens,
         }),
       [

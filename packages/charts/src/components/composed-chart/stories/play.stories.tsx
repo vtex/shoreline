@@ -87,7 +87,7 @@ export function TooltipShowsBothUnits() {
   return (
     <ChartContainer
       chartRef={tooltipChartRef}
-      option={(tokens: ChartTokens) =>
+      option={(tokens: ChartTokens, width: number) =>
         buildComposedOption({
           series: [
             { type: 'bar', name: 'Revenue', data: revenue },
@@ -102,6 +102,7 @@ export function TooltipShowsBothUnits() {
           grouping: 'grouped',
           othersLabel: 'Others',
           maxSeries: defaultMaxSeries,
+          width,
           tokens,
         })
       }

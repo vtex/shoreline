@@ -33,7 +33,9 @@ class ResizeObserverStub {
 vi.stubGlobal('ResizeObserver', ResizeObserverStub)
 
 // jsdom does no layout, so give elements a size for the engine to render into
-vi.spyOn(Element.prototype, 'clientWidth', 'get').mockReturnValue(400)
+const clientWidth = vi
+  .spyOn(Element.prototype, 'clientWidth', 'get')
+  .mockReturnValue(400)
 vi.spyOn(Element.prototype, 'clientHeight', 'get').mockReturnValue(300)
 
 // jsdom has no canvas implementation; the engine only uses the 2d context to

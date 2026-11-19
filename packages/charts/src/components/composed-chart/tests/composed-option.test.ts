@@ -657,4 +657,56 @@ describe('buildComposedOption', () => {
     expect(forecast?.icon).not.toContain('A') // no arc = no dot
     expect(forecast?.icon.match(/Z/g)?.length).toBe(3)
   })
+
+  describe('point markers', () => {
+    const denseCategories = Array.from(
+      { length: 60 },
+      (_, index) => `Day ${index + 1}`
+    )
+    const denseBars = denseCategories.map((_, index) => 100 + (index % 5))
+    const denseLine = denseCategories.map((_, index) => 2 + (index % 3))
+
+    test('keeps line markers while the points have room', () => {
+      const option = build({ width: 600 })
+
+      expect(option.series[1]?.showSymbol).toBeUndefined()
+    })
+
+    test('hides line markers when the points crowd the width, bars untouched', () => {
+      const option = build({
+        width: 600,
+        categories: denseCategories,
+        series: [
+          { type: 'bar', name: 'Revenue', data: denseBars },
+          {
+            type: 'line',
+            name: 'Conversion',
+            data: denseLine,
+            unit: 'percentage',
+          },
+        ],
+      })
+
+      expect(option.series[0]?.showSymbol).toBeUndefined()
+      expect(option.series[1]?.showSymbol).toBe(false)
+      // The line still keeps its axis assignment.
+      expect(option.series[1]?.yAxisIndex).toBe(1)
+    })
+
+    test('keeps an isolated line value visible with a marker of its own', () => {
+      const data = denseLine.map(() => null)
+      data[42] = 3
+
+      const option = build({
+        width: 600,
+        categories: denseCategories,
+        series: [
+          { type: 'bar', name: 'Revenue', data: denseBars },
+          { type: 'line', name: 'Conversion', data },
+        ],
+      })
+
+      expect(option.series[1]?.markPoint?.data).toEqual([{ coord: [42, 3] }])
+    })
+  })
 })
