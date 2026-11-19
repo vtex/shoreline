@@ -311,5 +311,88 @@ describe('buildLineOption', () => {
       expect(option.series[1]?.data).toEqual([null, 20, 30])
       expect(option.series[1]?.data).not.toBe(forecast)
     })
+
+    test('leaves the forecast out of the tooltip at the seam', () => {
+      const option = build({
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        series: [
+          { name: 'Revenue', data: [10, 20, 30, 40, 50, null] },
+          {
+            name: 'Forecast',
+            data: [null, null, null, null, null, 60],
+            variant: 'forecast',
+          },
+        ],
+      })
+
+      // May is the seam: the forecast's value there duplicates Revenue's last
+      // one, so only the real series reports at that category.
+      const html = option.tooltip.formatter([
+        {
+          name: 'May',
+          seriesName: 'Revenue',
+          value: 50,
+          seriesIndex: 0,
+          dataIndex: 4,
+        },
+        {
+          name: 'May',
+          seriesName: 'Forecast',
+          value: 50,
+          seriesIndex: 1,
+          dataIndex: 4,
+        },
+      ])
+
+      expect(html).toContain('Revenue')
+      expect(html).not.toContain('Forecast')
+    })
+
+    test('marks the forecast row dashed at projected categories', () => {
+      const option = build({
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        series: [
+          { name: 'Revenue', data: [10, 20, 30, 40, 50, null] },
+          {
+            name: 'Forecast',
+            data: [null, null, null, null, null, 60],
+            variant: 'forecast',
+          },
+        ],
+      })
+
+      const html = option.tooltip.formatter([
+        {
+          name: 'Jun',
+          seriesName: 'Forecast',
+          value: 60,
+          color: '#3993f4',
+          seriesIndex: 1,
+          dataIndex: 5,
+        },
+      ])
+
+      expect(html).toContain('Forecast')
+      expect(html).toContain('data-dashed')
+    })
+
+    test('keeps standard rows solid in the tooltip', () => {
+      const option = build({
+        series: [
+          { name: 'Revenue', data: [10, 20] },
+          { name: 'Cost', data: [5, 6] },
+        ],
+      })
+
+      const html = option.tooltip.formatter(
+        hoveredParams.map((param, seriesIndex) => ({
+          ...param,
+          seriesIndex,
+          dataIndex: 0,
+        }))
+      )
+
+      expect(html).not.toContain('data-dashed')
+    })
   })
 })

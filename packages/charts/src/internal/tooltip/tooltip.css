@@ -37,6 +37,16 @@
   border-radius: var(--sl-radius-1);
 }
 
+/* A forecast's row swatch echoes its dashed line; the series color arrives as
+   the element's color, so the pattern stays here with the other styles. */
+[data-sl-chart-tooltip-row-line][data-dashed] {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    currentColor 0 0.1875rem,
+    transparent 0.1875rem 0.375rem
+  );
+}
+
 [data-sl-chart-tooltip-row-content] {
   display: flex;
   flex: 1;

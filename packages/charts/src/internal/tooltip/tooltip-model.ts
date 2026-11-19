@@ -33,6 +33,12 @@ export interface ChartTooltipRow {
    * Series color swatch rendered as the row's left line.
    */
   color?: string
+  /**
+   * Draws the swatch as a dashed line instead of a solid one, so the row
+   * matches a series that renders dashed (a forecast).
+   * @default false
+   */
+  dashed?: boolean
   delta?: ChartTooltipDelta
 }
 
@@ -83,6 +89,19 @@ export interface AxisTooltipOptions {
     seriesIndex: number,
     dataIndex: number
   ) => ChartTooltipDelta | undefined
+  /**
+   * Leaves out a series' row at one category. A forecast duplicates its
+   * predecessor's last value at the seam so the dashed line starts where the
+   * solid one ends; that duplicated point is a drawing aid, not a prediction,
+   * so its row would claim a forecast the data does not contain.
+   * @default undefined
+   */
+  skipRow?: (seriesIndex: number, dataIndex: number) => boolean
+  /**
+   * Whether a series renders dashed, so its row's swatch matches its line.
+   * @default undefined
+   */
+  getDashed?: (seriesIndex: number) => boolean | undefined
 }
 
 /**
@@ -100,13 +119,23 @@ export function buildAxisTooltipData(
   items: AxisTooltipItem[],
   options: AxisTooltipOptions = {}
 ): ChartTooltipData {
-  const { reverse, getDelta } = options
+  const { reverse, getDelta, skipRow, getDashed } = options
 
   const rows = items
     .filter(
       (item): item is AxisTooltipItem & { value: number } =>
         typeof item.value === 'number'
     )
+    .filter((item) => {
+      if (
+        !skipRow ||
+        item.seriesIndex === undefined ||
+        item.dataIndex === undefined
+      )
+        return true
+
+      return !skipRow(item.seriesIndex, item.dataIndex)
+    })
     .map((item) => {
       const delta =
         getDelta &&
@@ -114,11 +143,16 @@ export function buildAxisTooltipData(
         item.dataIndex !== undefined
           ? getDelta(item.seriesIndex, item.dataIndex)
           : undefined
+      const dashed =
+        getDashed && item.seriesIndex !== undefined
+          ? getDashed(item.seriesIndex)
+          : undefined
 
       return {
         label: item.seriesName ?? '',
         value: String(item.value),
         color: item.color,
+        ...(dashed && { dashed: true }),
         ...(delta && { delta }),
       }
     })

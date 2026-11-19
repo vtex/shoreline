@@ -79,8 +79,18 @@ export function buildAxisTooltip(args: {
     seriesIndex: number,
     dataIndex: number
   ) => ChartTooltipDelta | undefined
+  /**
+   * Leaves out a series' row at one category.
+   * @default undefined
+   */
+  skipRow?: (seriesIndex: number, dataIndex: number) => boolean
+  /**
+   * Whether a series renders dashed, so its row's swatch matches its line.
+   * @default undefined
+   */
+  getDashed?: (seriesIndex: number) => boolean | undefined
 }) {
-  const { tokens, axisPointer, reverse, getDelta } = args
+  const { tokens, axisPointer, reverse, getDelta, skipRow, getDashed } = args
 
   return {
     trigger: 'axis',
@@ -95,7 +105,12 @@ export function buildAxisTooltip(args: {
     borderWidth: 0,
     padding: 0,
     extraCssText: 'box-shadow: none;',
-    formatter: createAxisTooltipFormatter({ reverse, getDelta }),
+    formatter: createAxisTooltipFormatter({
+      reverse,
+      getDelta,
+      skipRow,
+      getDashed,
+    }),
     position: createTooltipPositioner(
       tokens.px(tooltipOffsetToken) ?? tooltipOffsetFallback
     ),

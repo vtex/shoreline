@@ -30,7 +30,11 @@ function renderDelta(delta: ChartTooltipDelta): string {
 
 function renderRow(row: ChartTooltipRow): string {
   const line = row.color
-    ? `<span data-sl-chart-tooltip-row-line style="background-color:${escapeHtml(row.color)}"></span>`
+    ? row.dashed
+      ? // `currentColor` feeds the dashed gradient in tooltip.css, keeping the
+        // pattern there and the color here, where the series supplied it.
+        `<span data-sl-chart-tooltip-row-line data-dashed style="color:${escapeHtml(row.color)}"></span>`
+      : `<span data-sl-chart-tooltip-row-line style="background-color:${escapeHtml(row.color)}"></span>`
     : ''
 
   return `<div data-sl-chart-tooltip-row>${line}<div data-sl-chart-tooltip-row-content><span data-sl-chart-tooltip-row-label>${escapeHtml(row.label)}</span><span data-sl-chart-tooltip-row-value-group><span data-sl-chart-tooltip-row-value>${escapeHtml(row.value)}</span>${row.delta ? renderDelta(row.delta) : ''}</span></div></div>`
