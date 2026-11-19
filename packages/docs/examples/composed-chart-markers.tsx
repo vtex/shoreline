@@ -5,7 +5,7 @@ export default function Example() {
     <div style={{ width: 420 }}>
       <ComposedChart
         label="Daily revenue and visits, 60-day trend"
-        categories={Array.from({ length: 60 }, (_, i) => `D${i + 1}`)}
+        categories={Array.from({ length: 60 }, (_, i) => String(i + 1))}
         series={[
           {
             type: 'bar',
