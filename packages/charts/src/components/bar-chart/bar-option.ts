@@ -253,7 +253,7 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
       direction === 'vertical'
         ? buildValueAxis({ formatter: formatNumber })
         : buildCategoryAxis(categories),
-series: buildBarSeries({
+    series: buildBarSeries({
       series,
       direction,
       grouping,

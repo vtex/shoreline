@@ -229,6 +229,8 @@ export function buildComposedOption(
         series: renderedBars,
         direction: 'vertical',
         grouping,
+        // Only bars aggregate here, and the aggregate wears the neutral color.
+        aggregated: renderedBars.length < barSeries.length,
         tokens,
       }),
       ...lineOptionSeries,

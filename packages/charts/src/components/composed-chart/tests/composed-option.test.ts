@@ -6,7 +6,7 @@ import type { BuildComposedOptionArgs } from '../composed-option'
 import { buildComposedOption, defaultMaxSeries } from '../composed-option'
 
 const tokens: ChartTokens = {
-  get: () => undefined,
+  get: (token) => (token === '--sl-color-gray-8' ? '#858585' : undefined),
   px: () => 8,
 }
 
@@ -231,6 +231,23 @@ describe('buildComposedOption', () => {
     expect(option.series.slice(3).every((item) => item.type === 'line')).toBe(
       true
     )
+  })
+
+  test('paints the aggregate bars in the neutral gray, keeping the named slots', () => {
+    const bars = Array.from({ length: 5 }, (_, index) => ({
+      type: 'bar' as const,
+      name: `Bar ${index + 1}`,
+      data: [index + 1],
+    }))
+    const option = build({
+      series: [...bars, { type: 'line' as const, name: 'Trend', data: [1] }],
+    })
+
+    expect(option.series[0]?.itemStyle).toBeUndefined()
+    expect(option.series[1]?.itemStyle).toBeUndefined()
+    expect(option.series[2]?.itemStyle).toEqual({ color: '#858585' })
+    // Lines never aggregate, so the line keeps its slot too.
+    expect(option.series[3]?.itemStyle).toBeUndefined()
   })
 
   test('leaves lines untouched when only one bar exists', () => {
