@@ -146,28 +146,40 @@ export function Show() {
         />
       </Section>
 
-      <Section label="Dense markers (hidden for trend legibility)">
+      <Section label="Crowded series (line markers hidden, isolated kept)">
         {/*
-         * 60 points on a narrow chart: bar markers never show, and the line's
-         * markers are hidden so the trend reads as a line. Isolated values
-         * (a point with null neighbours) keep their own marker.
+         * A card-width chart with 60 daily points — fewer than 8px between
+         * neighbours. Bars are unaffected; the line's markers are hidden so the
+         * trend reads as a line, while the two readings between gaps keep a
+         * marker of their own so they stay visible. The fixed width makes the
+         * density deterministic for Chromatic.
          */}
-        <ComposedChart
-          label="Daily revenue and visits, 60-day trend"
-          categories={Array.from({ length: 60 }, (_, i) => `D${i + 1}`)}
-          series={[
-            {
-              type: 'bar',
-              name: 'Revenue',
-              data: Array.from({ length: 60 }, (_, i) => 100 + (i % 7)),
-            },
-            {
-              type: 'line',
-              name: 'Visits',
-              data: Array.from({ length: 60 }, (_, i) => 180 + (i % 11)),
-            },
-          ]}
-        />
+        <div style={{ width: 420 }}>
+          <ComposedChart
+            label="Daily revenue and visits, 60-day trend"
+            categories={Array.from({ length: 60 }, (_, i) => `D${i + 1}`)}
+            series={[
+              {
+                type: 'bar',
+                name: 'Revenue',
+                data: Array.from({ length: 60 }, (_, i) => 100 + (i % 7)),
+              },
+              {
+                type: 'line',
+                name: 'Visits',
+                data: Array.from({ length: 60 }, (_, i) =>
+                  i < 20
+                    ? 180 + (i % 11)
+                    : i === 35
+                      ? 240
+                      : i === 50
+                        ? 120
+                        : null
+                ),
+              },
+            ]}
+          />
+        </div>
       </Section>
 
       <Section label="Aggregation (5 bars, default maxSeries; lines kept)">

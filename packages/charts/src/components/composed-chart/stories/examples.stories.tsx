@@ -149,6 +149,37 @@ export function LinesOnly() {
   )
 }
 
+/**
+ * Marker thinning is measured in pixels, not in point count: this 60-day
+ * series sits in a card-width column, so the line's markers are dropped so the
+ * trend reads as a line. Bars keep their own geometry, and an isolated reading
+ * between gaps keeps a marker so it does not vanish with the line.
+ */
+export function Crowded() {
+  return (
+    <div style={{ width: 420 }}>
+      <ComposedChart
+        label="Daily revenue and visits, 60-day trend"
+        categories={Array.from({ length: 60 }, (_, i) => `D${i + 1}`)}
+        series={[
+          {
+            type: 'bar',
+            name: 'Revenue',
+            data: Array.from({ length: 60 }, (_, i) => 100 + (i % 7)),
+          },
+          {
+            type: 'line',
+            name: 'Visits',
+            data: Array.from({ length: 60 }, (_, i) =>
+              i < 20 ? 180 + (i % 11) : i === 35 ? 240 : null
+            ),
+          },
+        ]}
+      />
+    </div>
+  )
+}
+
 export function Loading() {
   return (
     <ComposedChart

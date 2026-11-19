@@ -119,40 +119,52 @@ export function Show() {
         />
       </Section>
 
-      <Section label="Dense markers (hidden for trend legibility)">
+      <Section label="Crowded series (markers hidden)">
         {/*
-         * 90 daily points on a narrow chart: markers are hidden so the trend
-         * reads as a line, not a bead necklace. The crispness asset confirms
-         * zero markers at this width.
+         * A card-width chart with 90 daily points — fewer than 5px between
+         * neighbours. Markers are hidden chart-wide so the trend reads as a
+         * line; the fixed width makes the density deterministic for Chromatic.
          */}
-        <LineChart
-          label="Visitors, 90-day trend"
-          categories={Array.from({ length: 90 }, (_, i) => `D${i + 1}`)}
-          series={[
-            {
-              name: 'Visitors',
-              data: Array.from({ length: 90 }, (_, i) => 120 + (i % 12)),
-            },
-          ]}
-        />
+        <div style={{ width: 420 }}>
+          <LineChart
+            label="Visitors, 90-day trend"
+            categories={Array.from({ length: 90 }, (_, i) => `D${i + 1}`)}
+            series={[
+              {
+                name: 'Visitors',
+                data: Array.from({ length: 90 }, (_, i) => 120 + (i % 12)),
+              },
+            ]}
+          />
+        </div>
       </Section>
 
-      <Section label="Isolated points (visible even after markers go away)">
+      <Section label="Crowded series with isolated values (markers kept)">
         {/*
-         * A value with null on both sides has no line segment, so hiding
-         * markers would drop it from the chart entirely. The chart keeps a
-         * markPoint exactly on each isolated value.
+         * Same density, with readings separated by gaps. A line segment never
+         * reaches an isolated value, so hiding every marker would drop it from
+         * the chart; those points keep a marker of their own.
          */}
-        <LineChart
-          label="Intermittent sensor readings"
-          categories={months}
-          series={[
-            {
-              name: 'Sensor A',
-              data: [4200, null, 4800, null, null, 3600],
-            },
-          ]}
-        />
+        <div style={{ width: 420 }}>
+          <LineChart
+            label="Intermittent sensor readings, 90 days"
+            categories={Array.from({ length: 90 }, (_, i) => `D${i + 1}`)}
+            series={[
+              {
+                name: 'Sensor A',
+                data: Array.from({ length: 90 }, (_, i) =>
+                  i < 12
+                    ? 120 + (i % 12)
+                    : i === 40
+                      ? 180
+                      : i === 70
+                        ? 90
+                        : null
+                ),
+              },
+            ]}
+          />
+        </div>
       </Section>
 
       <Section label="Series aggregation (5 series, default maxSeries)">
