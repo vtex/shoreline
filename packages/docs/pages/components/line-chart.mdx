@@ -47,6 +47,12 @@ A `null` value renders a gap at that category: the line is not interpolated acro
 
 <Preview name="line-chart-missing-data" />
 
+### Marker density
+
+The chart decides whether to draw a marker at every point. When points crowd the width — 90 daily values on a narrow panel, say — the markers are hidden across every line so the trend reads as a line, not a bead necklace. Widen the chart enough, or chart fewer points, and every point gets a marker. The rule is all-or-nothing for the whole chart: a dense series never draws only some of its markers.
+
+A line's hovered point always shows a marker even when they're hidden; a value whose neighbours are both gaps (an isolated reading between nulls) keeps its marker too, because without a connecting line segment the point would otherwise disappear.
+
 ### Tooltip with deltas
 
 Each series can carry a `deltas` array — one entry per category — shown in the hover tooltip beside the value. `direction` (`up` / `down` / `flat`) and `tone` (`success` / `critical` / `neutral`) are independent, because a decrease is not inherently bad: falling complaints is `direction: 'down'` with `tone: 'success'`. The comparison data need not be plotted — it only feeds the tooltip.
