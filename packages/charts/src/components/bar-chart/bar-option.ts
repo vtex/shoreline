@@ -54,6 +54,10 @@ export interface BuildBarOptionArgs {
   direction: BarChartDirection
   grouping: BarChartGrouping
   othersLabel: string
+  /**
+   * Label of the tooltip's total row for a stack, already localized.
+   */
+  totalLabel: string
   maxSeries: number
   tokens: ChartTokens
 }
@@ -129,8 +133,15 @@ function isStackEnd(args: {
  * style values come from the resolved tokens.
  */
 export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
-  const { categories, direction, grouping, othersLabel, maxSeries, tokens } =
-    args
+  const {
+    categories,
+    direction,
+    grouping,
+    othersLabel,
+    totalLabel,
+    maxSeries,
+    tokens,
+  } = args
 
   // Everything downstream — legend, palette order, stack-end resolution —
   // reads the collapsed list, so the aggregate behaves like any other series.
@@ -157,6 +168,13 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
       tokens,
       axisPointer,
       reverse: reverseTooltipRows,
+      // A stack is the one grouping whose total the reader cannot read off the
+      // chart: every segment is sized against the stack, and the whole is only
+      // ever asked about as a sum.
+      total:
+        grouping === 'stacked'
+          ? { label: totalLabel, seriesCount: series.length }
+          : undefined,
       getDelta: createDeltaLookup(series),
     }),
     grid: buildGrid({ tokens, showLegend }),

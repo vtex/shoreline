@@ -44,6 +44,7 @@ export const BarChart = forwardRef<HTMLDivElement, BarChartProps>(
     const getMessage = useMessage(messageOverrides)
     const emptyLabel = getMessage('empty')
     const othersLabel = getMessage('others')
+    const totalLabel = getMessage('total')
 
     const descriptionId = useId()
     const hasData = series.some((item) =>
@@ -57,10 +58,19 @@ export const BarChart = forwardRef<HTMLDivElement, BarChartProps>(
           direction,
           grouping,
           othersLabel,
+          totalLabel,
           maxSeries,
           tokens,
         }),
-      [series, categories, direction, grouping, othersLabel, maxSeries]
+      [
+        series,
+        categories,
+        direction,
+        grouping,
+        othersLabel,
+        totalLabel,
+        maxSeries,
+      ]
     )
 
     return (

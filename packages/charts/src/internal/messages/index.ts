@@ -13,8 +13,9 @@ import th from './th.json'
 
 /**
  * Shared chart internal messages, localized from the surrounding
- * `LocaleProvider`. Every chart uses the same set: the empty-state label and
- * the name of the series that aggregates the tail past `maxSeries`.
+ * `LocaleProvider`. Every chart uses the same set: the empty-state label, the
+ * name of the series that aggregates the tail past `maxSeries`, and the label
+ * of a stack's total row in the tooltip.
  */
 export const chartMessages = {
   'en-US': en,
@@ -39,6 +40,8 @@ export type ChartMessagesKeys =
   | 'empty'
   /** Names the series that aggregates the tail of `series` */
   | 'others'
+  /** Labels the tooltip row that sums the series of a stack */
+  | 'total'
 
 /**
  * Chart internal messages

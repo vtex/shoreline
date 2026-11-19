@@ -72,6 +72,17 @@ export function buildAxisTooltip(args: {
    */
   reverse?: boolean
   /**
+   * Lists only the first N rows in reverse series order, leaving the rest in
+   * order.
+   * @default undefined
+   */
+  reverseUpTo?: number
+  /**
+   * Closes the first N rows with a sum row, labelled by the caller.
+   * @default undefined
+   */
+  total?: { label: string; seriesCount: number }
+  /**
    * Resolves a row's delta from the position of its series and category.
    * @default undefined
    */
@@ -80,7 +91,7 @@ export function buildAxisTooltip(args: {
     dataIndex: number
   ) => ChartTooltipDelta | undefined
 }) {
-  const { tokens, axisPointer, reverse, getDelta } = args
+  const { tokens, axisPointer, reverse, reverseUpTo, total, getDelta } = args
 
   return {
     trigger: 'axis',
@@ -95,7 +106,12 @@ export function buildAxisTooltip(args: {
     borderWidth: 0,
     padding: 0,
     extraCssText: 'box-shadow: none;',
-    formatter: createAxisTooltipFormatter({ reverse, getDelta }),
+    formatter: createAxisTooltipFormatter({
+      reverse,
+      reverseUpTo,
+      total,
+      getDelta,
+    }),
     position: createTooltipPositioner(
       tokens.px(tooltipOffsetToken) ?? tooltipOffsetFallback
     ),

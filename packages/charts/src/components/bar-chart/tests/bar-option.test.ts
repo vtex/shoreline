@@ -16,6 +16,7 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
     direction: 'vertical',
     grouping: 'grouped',
     othersLabel: 'Others',
+    totalLabel: 'Total',
     maxSeries: defaultMaxSeries,
     tokens,
     ...overrides,
@@ -46,8 +47,22 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
 // What the engine passes the tooltip formatter on hover: one item per series
 // at the hovered category, always in series order.
 const hoveredParams = [
-  { name: 'Jan', seriesName: 'Website', value: 10, color: '#3993f4' },
-  { name: 'Jan', seriesName: 'Marketplace', value: 20, color: '#9c56f3' },
+  {
+    name: 'Jan',
+    seriesName: 'Website',
+    value: 10,
+    color: '#3993f4',
+    seriesIndex: 0,
+    dataIndex: 0,
+  },
+  {
+    name: 'Jan',
+    seriesName: 'Marketplace',
+    value: 20,
+    color: '#9c56f3',
+    seriesIndex: 1,
+    dataIndex: 0,
+  },
 ]
 
 function radiusAt(
@@ -343,6 +358,56 @@ describe('buildBarOption', () => {
 
       expect(html.indexOf('Website')).toBeLessThan(html.indexOf('Marketplace'))
     }
+  })
+
+  test('closes a vertical stack tooltip with the total', () => {
+    const option = build({
+      series: [
+        { name: 'Website', data: [10] },
+        { name: 'Marketplace', data: [20] },
+      ],
+      direction: 'vertical',
+      grouping: 'stacked',
+    })
+
+    const html = option.tooltip.formatter(hoveredParams)
+
+    // Top-down segments, then the sum they add up to.
+    expect(html.indexOf('Marketplace')).toBeLessThan(html.indexOf('Website'))
+    expect(html.indexOf('Website')).toBeLessThan(html.indexOf('Total'))
+    expect(html).toContain('30')
+  })
+
+  test('closes a horizontal stack tooltip with the total', () => {
+    const option = build({
+      series: [
+        { name: 'Website', data: [10] },
+        { name: 'Marketplace', data: [20] },
+      ],
+      direction: 'horizontal',
+      grouping: 'stacked',
+      totalLabel: 'Gesamt',
+    })
+
+    const html = option.tooltip.formatter(hoveredParams)
+
+    expect(html.indexOf('Marketplace')).toBeLessThan(html.indexOf('Gesamt'))
+    expect(html).toContain('30')
+  })
+
+  test('adds no total to grouped bars', () => {
+    const option = build({
+      series: [
+        { name: 'Website', data: [10] },
+        { name: 'Marketplace', data: [20] },
+      ],
+      grouping: 'grouped',
+    })
+
+    const html = option.tooltip.formatter(hoveredParams)
+
+    expect(html).not.toContain('Total')
+    expect(html).not.toContain('30')
   })
 
   test('shows a series delta at the hovered category', () => {
