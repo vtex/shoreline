@@ -1,3 +1,5 @@
+import type { ChartUnit } from '../unit'
+
 /**
  * A row's change over the compared period, shown beside its value. Not a
  * tooltip variant: there is one tooltip, and a row renders a delta only when
@@ -102,6 +104,21 @@ export interface AxisTooltipOptions {
    * @default undefined
    */
   getDashed?: (seriesIndex: number) => boolean | undefined
+  /**
+   * Resolves a row's unit from the position of its series, so a percentage
+   * row's value carries the `%` suffix. Left unset, every row renders its
+   * plain numeric value — the case for single-unit charts.
+   * @default undefined
+   */
+  getUnit?: (seriesIndex: number) => ChartUnit | undefined
+}
+
+// Design spec, tooltip: percentages read with a trailing sign, matching the
+// percentage value axis.
+const percentageSuffix = '%'
+
+function formatValue(value: number, unit: ChartUnit | undefined): string {
+  return unit === 'percentage' ? `${value}${percentageSuffix}` : String(value)
 }
 
 /**
@@ -119,7 +136,7 @@ export function buildAxisTooltipData(
   items: AxisTooltipItem[],
   options: AxisTooltipOptions = {}
 ): ChartTooltipData {
-  const { reverse, getDelta, skipRow, getDashed } = options
+  const { reverse, getDelta, skipRow, getDashed, getUnit } = options
 
   const rows = items
     .filter(
@@ -147,10 +164,14 @@ export function buildAxisTooltipData(
         getDashed && item.seriesIndex !== undefined
           ? getDashed(item.seriesIndex)
           : undefined
+      const unit =
+        getUnit && item.seriesIndex !== undefined
+          ? getUnit(item.seriesIndex)
+          : undefined
 
       return {
         label: item.seriesName ?? '',
-        value: String(item.value),
+        value: formatValue(item.value, unit),
         color: item.color,
         ...(dashed && { dashed: true }),
         ...(delta && { delta }),
