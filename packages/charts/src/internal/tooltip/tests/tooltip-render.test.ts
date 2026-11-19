@@ -32,6 +32,19 @@ describe('renderChartTooltip', () => {
     expect(html).not.toContain('data-sl-chart-tooltip-row-line')
   })
 
+  test('draws a dashed row swatch through currentColor', () => {
+    const html = renderChartTooltip({
+      rows: [
+        { label: 'Forecast', value: '7400', color: '#9c56f3', dashed: true },
+      ],
+    })
+
+    expect(html).toContain('data-dashed')
+    expect(html).toContain('color:#9c56f3')
+    // The pattern lives in tooltip.css, so no solid fill is painted inline.
+    expect(html).not.toContain('background-color:#9c56f3')
+  })
+
   test('renders nothing when there are no rows', () => {
     expect(renderChartTooltip({ title: 'Jan', rows: [] })).toBe('')
   })

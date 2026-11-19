@@ -43,12 +43,18 @@ export const defaultMaxSeries = 3
  * The aggregate carries no deltas: they arrive already formatted, so there is
  * no sound way to combine those of the series it replaces. Series that keep
  * their own slot keep their own deltas.
+ *
+ * Generic over the chart's own series type so per-chart fields survive the
+ * collapse: kept series are the same objects, only the synthesized aggregate
+ * is plain. That keeps chart-specific semantics (the line chart's `variant`,
+ * for instance) readable from the collapsed list without widening the chart
+ * API.
  */
-export function collapseSeries(
-  series: ChartSeries[],
+export function collapseSeries<T extends ChartSeries>(
+  series: T[],
   othersLabel: string,
   maxSeries: number
-): ChartSeries[] {
+): T[] {
   // A fractional or non-finite request would otherwise slice unpredictably.
   const limit = Math.min(Math.max(Math.floor(maxSeries) || 1, 1), seriesLimit)
 
@@ -66,7 +72,9 @@ export function collapseSeries(
     }, null)
   )
 
-  return [...series.slice(0, limit - 1), { name: othersLabel, data }]
+  // The aggregate is a plain series: it stands for several others, so none of
+  // their chart-specific fields apply to it. That is why the cast is safe.
+  return [...series.slice(0, limit - 1), { name: othersLabel, data } as T]
 }
 
 /**
