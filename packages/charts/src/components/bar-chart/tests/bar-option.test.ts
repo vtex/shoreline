@@ -9,6 +9,19 @@ const tokens: ChartTokens = {
   px: (token) => (token === '--sl-radius-1' ? 4 : 8),
 }
 
+// Resolves only the zero-line token, so the assertion fails if the builder
+// reaches for any other color.
+const zeroLineTokens: ChartTokens = {
+  get: (token) => (token === '--sl-color-gray-6' ? '#adadad' : undefined),
+  px: (token) => (token === '--sl-radius-1' ? 4 : 8),
+}
+
+interface BuiltAxis {
+  type: string
+  data?: string[]
+  axisLine?: { lineStyle: { color?: string } }
+}
+
 function build(overrides: Partial<BuildBarOptionArgs> = {}) {
   return buildBarOption({
     series: [{ name: 'Revenue', data: [10, 20] }],
@@ -30,8 +43,8 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
       formatter: (params: unknown) => string
       position: unknown
     }
-    xAxis: { type: string; data?: string[] }
-    yAxis: { type: string; data?: string[] }
+    xAxis: BuiltAxis
+    yAxis: BuiltAxis
     series: Array<{
       name: string
       stack?: string
@@ -72,6 +85,36 @@ describe('buildBarOption', () => {
       type: 'category',
       data: ['Jan', 'Feb'],
     })
+  })
+
+  test('recolors the zero line only when a bar goes negative', () => {
+    expect(build({ tokens: zeroLineTokens }).xAxis).toEqual({
+      type: 'category',
+      data: ['Jan', 'Feb'],
+    })
+
+    const vertical = build({
+      tokens: zeroLineTokens,
+      series: [{ name: 'A', data: [10, -10] }],
+    })
+
+    // The category axis line is the one the engine places at zero, whichever
+    // side of the grid it sits on.
+    expect(vertical.xAxis.axisLine).toEqual({
+      lineStyle: { color: '#adadad' },
+    })
+    expect(vertical.yAxis).toEqual({ type: 'value' })
+
+    const horizontal = build({
+      direction: 'horizontal',
+      tokens: zeroLineTokens,
+      series: [{ name: 'A', data: [10, -10] }],
+    })
+
+    expect(horizontal.yAxis.axisLine).toEqual({
+      lineStyle: { color: '#adadad' },
+    })
+    expect(horizontal.xAxis).toEqual({ type: 'value' })
   })
 
   test('shows the legend only for multiple series, bottom left', () => {

@@ -12,6 +12,10 @@ const tooltipOffsetFallback = 8
 // Design spec, axis labels: percentages read with a trailing sign, not as raw
 // ratios.
 const percentageSuffix = '%'
+// Design spec, negative values: zero reads one step stronger than the grid, at
+// the grid's own thickness, so it anchors the sign split without competing with
+// the series.
+const zeroLineColorToken = '--sl-color-gray-6'
 
 /**
  * Percentage value-axis labels, e.g. `25` reads as `25%`.
@@ -53,10 +57,41 @@ export function buildGrid(args: { tokens: ChartTokens; showLegend: boolean }) {
 }
 
 /**
- * Category axis carrying the chart's labels in render order.
+ * Whether any rendered value falls below zero. Missing values are gaps, not
+ * zero: a `null` never puts the chart below it.
  */
-export function buildCategoryAxis(categories: string[]) {
-  return { type: 'category', data: categories }
+export function hasNegativeValues(
+  series: Array<{ data: Array<number | null> }>
+): boolean {
+  return series.some((item) =>
+    item.data.some(
+      (value) => value !== null && value !== undefined && value < 0
+    )
+  )
+}
+
+/**
+ * Category axis carrying the chart's labels in render order.
+ *
+ * The engine already places this axis' line at the zero of the value axis
+ * whenever the values cross it. `zeroLine` recolors that line to the strong
+ * gray so zero reads as the reference it is; it keeps the grid's 1px weight,
+ * and every other gridline — the bottom one included — stays at the quiet grid
+ * tone. Charts that never go negative leave zero on the bottom line, where a
+ * highlight would promote a plain gridline for no reason.
+ */
+export function buildCategoryAxis(
+  categories: string[],
+  options: { tokens?: ChartTokens; zeroLine?: boolean } = {}
+) {
+  const { tokens, zeroLine = false } = options
+  const color = zeroLine ? tokens?.get(zeroLineColorToken) : undefined
+
+  return {
+    type: 'category',
+    data: categories,
+    ...(color === undefined ? {} : { axisLine: { lineStyle: { color } } }),
+  }
 }
 
 /**
