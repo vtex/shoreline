@@ -65,6 +65,7 @@ function build(overrides: Partial<BuildComposedOptionArgs> = {}) {
     categories: ['Jan', 'Feb'],
     grouping: 'grouped',
     othersLabel: 'Others',
+    totalLabel: 'Total',
     maxSeries: defaultMaxSeries,
     tokens,
     ...overrides,
@@ -335,6 +336,82 @@ describe('buildComposedOption', () => {
     expect(option.series[2]?.itemStyle?.color).toBe('#000001')
     expect(option.series[2]?.lineStyle).toEqual({ type: 'dashed' })
     expect(option.series[2]?.showSymbol).toBe(false)
+  })
+
+  describe('stacked tooltip', () => {
+    function stackedOption() {
+      return build({
+        grouping: 'stacked',
+        series: [
+          { type: 'bar', name: 'Website', data: [10] },
+          { type: 'bar', name: 'Marketplace', data: [20] },
+          { type: 'line', name: 'Trend', data: [7] },
+        ],
+      })
+    }
+
+    const params = [
+      {
+        name: 'Jan',
+        seriesName: 'Website',
+        value: 10,
+        seriesIndex: 0,
+        dataIndex: 0,
+      },
+      {
+        name: 'Jan',
+        seriesName: 'Marketplace',
+        value: 20,
+        seriesIndex: 1,
+        dataIndex: 0,
+      },
+      {
+        name: 'Jan',
+        seriesName: 'Trend',
+        value: 7,
+        seriesIndex: 2,
+        dataIndex: 0,
+      },
+    ]
+
+    test('lists the bars top-down, totals them, then lists the lines', () => {
+      const html = stackedOption().tooltip.formatter(params)
+
+      expect(html.indexOf('Marketplace')).toBeLessThan(html.indexOf('Website'))
+      expect(html.indexOf('Website')).toBeLessThan(html.indexOf('Total'))
+      expect(html.indexOf('Total')).toBeLessThan(html.indexOf('Trend'))
+      // Bars only: the line contributes no share to the stack.
+      expect(html).toContain('30')
+    })
+
+    test('keeps series order and adds no total for grouped bars', () => {
+      const option = build({
+        grouping: 'grouped',
+        series: [
+          { type: 'bar', name: 'Website', data: [10] },
+          { type: 'bar', name: 'Marketplace', data: [20] },
+          { type: 'line', name: 'Trend', data: [7] },
+        ],
+      })
+
+      const html = option.tooltip.formatter(params)
+
+      expect(html.indexOf('Website')).toBeLessThan(html.indexOf('Marketplace'))
+      expect(html).not.toContain('Total')
+    })
+
+    test('localizes the total row label', () => {
+      const html = build({
+        grouping: 'stacked',
+        totalLabel: 'Gesamt',
+        series: [
+          { type: 'bar', name: 'Website', data: [10] },
+          { type: 'bar', name: 'Marketplace', data: [20] },
+        ],
+      }).tooltip.formatter(params.slice(0, 2))
+
+      expect(html).toContain('Gesamt')
+    })
   })
 
   describe('forecast tooltip', () => {

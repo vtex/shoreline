@@ -54,6 +54,7 @@ export const ComposedChart = forwardRef<HTMLDivElement, ComposedChartProps>(
     const getMessage = useMessage(messageOverrides)
     const emptyLabel = getMessage('empty')
     const othersLabel = getMessage('others')
+    const totalLabel = getMessage('total')
 
     const descriptionId = useId()
     const hasData = series.some((item) =>
@@ -66,11 +67,12 @@ export const ComposedChart = forwardRef<HTMLDivElement, ComposedChartProps>(
           categories,
           grouping,
           othersLabel,
+          totalLabel,
           maxSeries,
           curve,
           tokens,
         }),
-      [series, categories, grouping, othersLabel, maxSeries, curve]
+      [series, categories, grouping, othersLabel, totalLabel, maxSeries, curve]
     )
 
     return (

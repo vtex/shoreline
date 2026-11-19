@@ -80,6 +80,10 @@ export interface BuildComposedOptionArgs {
   categories: string[]
   grouping: ComposedChartGrouping
   othersLabel: string
+  /**
+   * Label of the tooltip's total row for a stack, already localized.
+   */
+  totalLabel: string
   maxSeries: number
   /**
    * How the line series connect their points. Bars are unaffected.
@@ -104,7 +108,15 @@ const guideLineToken = '--sl-color-gray-3'
 export function buildComposedOption(
   args: BuildComposedOptionArgs
 ): EChartsCoreOption {
-  const { categories, grouping, othersLabel, maxSeries, curve, tokens } = args
+  const {
+    categories,
+    grouping,
+    othersLabel,
+    totalLabel,
+    maxSeries,
+    curve,
+    tokens,
+  } = args
 
   // Bars and lines compile separately so each keeps its native treatment
   // (stacking + sign-aware radii vs. forecast seams), then render bars-first:
@@ -131,6 +143,8 @@ export function buildComposedOption(
 
   const renderedSeries = [...renderedBars, ...renderedLines]
   const showLegend = renderedSeries.length > 1
+  // Bars always render vertically here, so a stack always piles bottom-up.
+  const stacked = grouping === 'stacked'
 
   // Bars anchor the left axis. A line whose unit differs reads against a
   // second, right axis; with no bars there is nothing to differ from, so a
@@ -178,6 +192,16 @@ export function buildComposedOption(
     tooltip: buildAxisTooltip({
       tokens,
       axisPointer,
+      // A vertical stack piles the first bar at the bottom, so its segments run
+      // last-to-first down the bar and the tooltip has to list them in reverse
+      // to read in the same order. Only the bars reverse: the lines drawn
+      // after them already run in series order.
+      reverseUpTo: stacked ? renderedBars.length : undefined,
+      // A stack is the one grouping whose total the reader cannot read off the
+      // chart, and only its bars contribute to it.
+      total: stacked
+        ? { label: totalLabel, seriesCount: renderedBars.length }
+        : undefined,
       getDelta: createDeltaLookup(renderedSeries),
       getUnit: (seriesIndex) => units[seriesIndex],
       // Seams are positions among the lines, and the bars occupy the leading
