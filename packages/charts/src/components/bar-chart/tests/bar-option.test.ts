@@ -17,6 +17,7 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
     grouping: 'grouped',
     othersLabel: 'Others',
     totalLabel: 'Total',
+    locale: 'en-US',
     maxSeries: defaultMaxSeries,
     tokens,
     ...overrides,
@@ -31,8 +32,16 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
       formatter: (params: unknown) => string
       position: unknown
     }
-    xAxis: { type: string; data?: string[] }
-    yAxis: { type: string; data?: string[] }
+    xAxis: {
+      type: string
+      data?: string[]
+      axisLabel?: { formatter?: (value: number) => string }
+    }
+    yAxis: {
+      type: string
+      data?: string[]
+      axisLabel?: { formatter?: (value: number) => string }
+    }
     series: Array<{
       name: string
       stack?: string
@@ -79,11 +88,11 @@ describe('buildBarOption', () => {
     const vertical = build()
 
     expect(vertical.xAxis).toEqual({ type: 'category', data: ['Jan', 'Feb'] })
-    expect(vertical.yAxis).toEqual({ type: 'value' })
+    expect(vertical.yAxis.type).toBe('value')
 
     const horizontal = build({ direction: 'horizontal' })
 
-    expect(horizontal.xAxis).toEqual({ type: 'value' })
+    expect(horizontal.xAxis.type).toBe('value')
     expect(horizontal.yAxis).toEqual({
       type: 'category',
       data: ['Jan', 'Feb'],
@@ -613,5 +622,68 @@ describe('buildBarOption', () => {
     })
 
     expect(radiusAt(noToken, 0, 0)).toEqual([0, 0, 0, 0])
+  })
+
+  test('writes the value-axis ticks in the reader’s locale', () => {
+    const enUS = build({ direction: 'horizontal' }).xAxis.axisLabel?.formatter
+    const ptBR = build({
+      direction: 'horizontal',
+      locale: 'pt-BR',
+    }).xAxis.axisLabel?.formatter
+
+    expect(enUS?.(3100)).toBe('3,100')
+    expect(ptBR?.(3100)).toBe('3.100')
+
+    // The value axis is whichever one the bars grow along.
+    expect(build().yAxis.axisLabel?.formatter?.(3100)).toBe('3,100')
+    expect(build({ locale: 'pt-BR' }).yAxis.axisLabel?.formatter?.(3100)).toBe(
+      '3.100'
+    )
+  })
+
+  test('writes tooltip values in the reader’s locale', () => {
+    const option = build({ locale: 'pt-BR' })
+
+    const html = option.tooltip.formatter([
+      {
+        name: 'Jan',
+        seriesName: 'Website',
+        value: 3100,
+        seriesIndex: 0,
+        dataIndex: 0,
+      },
+    ])
+
+    expect(html).toContain('3.100')
+  })
+
+  test('writes the stack total in the reader’s locale', () => {
+    const option = build({
+      grouping: 'stacked',
+      locale: 'pt-BR',
+      series: [
+        { name: 'A', data: [1200] },
+        { name: 'B', data: [1900] },
+      ],
+    })
+
+    const html = option.tooltip.formatter([
+      {
+        name: 'Jan',
+        seriesName: 'A',
+        value: 1200,
+        seriesIndex: 0,
+        dataIndex: 0,
+      },
+      {
+        name: 'Jan',
+        seriesName: 'B',
+        value: 1900,
+        seriesIndex: 1,
+        dataIndex: 0,
+      },
+    ])
+
+    expect(html).toContain('3.100')
   })
 })

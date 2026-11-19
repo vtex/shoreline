@@ -266,4 +266,31 @@ describe('buildAxisTooltipData', () => {
       ['Revenue', '12%'],
     ])
   })
+
+  test('writes values through the caller’s formatter', () => {
+    const data = buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'A', value: 3100, seriesIndex: 0 },
+        { name: 'Jan', seriesName: 'B', value: 1500, seriesIndex: 1 },
+      ],
+      {
+        total: { label: 'Total', seriesCount: 2 },
+        formatValue: (value) => `#${value}`,
+      }
+    )
+
+    expect(data.rows.map((row) => row.value)).toEqual([
+      '#3100',
+      '#1500',
+      '#4600',
+    ])
+  })
+
+  test('prints values as the engine writes them without a formatter', () => {
+    const data = buildAxisTooltipData([
+      { name: 'Jan', seriesName: 'A', value: 3100 },
+    ])
+
+    expect(data.rows[0]?.value).toBe('3100')
+  })
 })

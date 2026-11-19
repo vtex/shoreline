@@ -93,6 +93,13 @@ export interface AxisTooltipOptions {
    */
   total?: { label: string; seriesCount: number }
   /**
+   * Writes a row's value — the sum row's too — the way the reader's locale
+   * writes numbers, so `3100` reads `3,100` in en-US and `3.100` in pt-BR.
+   * Left unset, values print as the engine writes them.
+   * @default undefined
+   */
+  formatValue?: (value: number) => string
+  /**
    * Resolves a row's delta from the position of its series and of the category
    * it sits at, returning `undefined` where there is nothing to compare
    * against. Left unset, no row shows a delta — the case for every chart whose
@@ -120,7 +127,8 @@ export function buildAxisTooltipData(
   items: AxisTooltipItem[],
   options: AxisTooltipOptions = {}
 ): ChartTooltipData {
-  const { reverse, reverseUpTo, total, getDelta } = options
+  const { reverse, reverseUpTo, total, formatValue, getDelta } = options
+  const write = formatValue ?? String
 
   const entries: Array<{ item: AxisTooltipItem; row: ChartTooltipRow }> = items
     .filter(
@@ -139,7 +147,7 @@ export function buildAxisTooltipData(
         item,
         row: {
           label: item.seriesName ?? '',
-          value: String(item.value),
+          value: write(item.value),
           color: item.color,
           ...(delta && { delta }),
         },
@@ -177,7 +185,7 @@ export function buildAxisTooltipData(
 
       ordered.splice(lastSummed + 1, 0, {
         item: { value: sum },
-        row: { label: total.label, value: String(sum) },
+        row: { label: total.label, value: write(sum) },
       })
     }
   }

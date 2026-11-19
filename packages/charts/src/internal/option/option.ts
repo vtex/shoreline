@@ -1,3 +1,4 @@
+import type { NumberFormatter } from '../format'
 import type { ChartTokens } from '../theme'
 import type { ChartTooltipDelta } from '../tooltip'
 import { createAxisTooltipFormatter, createTooltipPositioner } from '../tooltip'
@@ -49,10 +50,17 @@ export function buildCategoryAxis(categories: string[]) {
 }
 
 /**
- * Value axis for the numeric dimension.
+ * Value axis for the numeric dimension. `formatter` writes its labels, so they
+ * follow the reader's locale; the default leaves the engine's own numeric
+ * labels untouched.
  */
-export function buildValueAxis() {
-  return { type: 'value' }
+export function buildValueAxis(options: { formatter?: NumberFormatter } = {}) {
+  const { formatter } = options
+
+  return {
+    type: 'value',
+    ...(formatter ? { axisLabel: { formatter } } : {}),
+  }
 }
 
 /**
@@ -83,6 +91,11 @@ export function buildAxisTooltip(args: {
    */
   total?: { label: string; seriesCount: number }
   /**
+   * Writes a row's value the way the reader's locale writes numbers.
+   * @default undefined
+   */
+  formatValue?: NumberFormatter
+  /**
    * Resolves a row's delta from the position of its series and category.
    * @default undefined
    */
@@ -91,7 +104,15 @@ export function buildAxisTooltip(args: {
     dataIndex: number
   ) => ChartTooltipDelta | undefined
 }) {
-  const { tokens, axisPointer, reverse, reverseUpTo, total, getDelta } = args
+  const {
+    tokens,
+    axisPointer,
+    reverse,
+    reverseUpTo,
+    total,
+    formatValue,
+    getDelta,
+  } = args
 
   return {
     trigger: 'axis',
@@ -110,6 +131,7 @@ export function buildAxisTooltip(args: {
       reverse,
       reverseUpTo,
       total,
+      formatValue,
       getDelta,
     }),
     position: createTooltipPositioner(

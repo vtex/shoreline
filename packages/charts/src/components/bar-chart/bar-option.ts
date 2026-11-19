@@ -15,6 +15,7 @@ import {
   createDeltaLookup,
   othersColorToken,
 } from '../../internal/series'
+import { createNumberFormatter } from '../../internal/format'
 
 /**
  * A single bar series.
@@ -62,6 +63,12 @@ export interface BuildBarOptionArgs {
    * Label of the tooltip's total row for a stack, already localized.
    */
   totalLabel: string
+  /**
+   * Locale the chart writes numbers in — the reader's, from `LocaleProvider`,
+   * so `3100` reads `3,100` there and `3.100` where the locale groups with a
+   * dot.
+   */
+  locale: string
   maxSeries: number
   tokens: ChartTokens
 }
@@ -143,9 +150,12 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
     grouping,
     othersLabel,
     totalLabel,
+    locale,
     maxSeries,
     tokens,
   } = args
+
+  const formatNumber = createNumberFormatter(locale)
 
   // Everything downstream — legend, palette order, stack-end resolution —
   // reads the collapsed list, so the aggregate behaves like any other series.
@@ -185,16 +195,17 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
         grouping === 'stacked'
           ? { label: totalLabel, seriesCount: series.length }
           : undefined,
+      formatValue: formatNumber,
       getDelta: createDeltaLookup(series),
     }),
     grid: buildGrid({ tokens, showLegend }),
     xAxis:
       direction === 'vertical'
         ? buildCategoryAxis(categories)
-        : buildValueAxis(),
+        : buildValueAxis({ formatter: formatNumber }),
     yAxis:
       direction === 'vertical'
-        ? buildValueAxis()
+        ? buildValueAxis({ formatter: formatNumber })
         : buildCategoryAxis(categories),
     series: series.map((item, seriesIndex) => ({
       name: item.name,

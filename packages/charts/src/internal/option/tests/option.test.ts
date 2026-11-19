@@ -48,6 +48,15 @@ describe('buildCategoryAxis / buildValueAxis', () => {
     })
     expect(buildValueAxis()).toEqual({ type: 'value' })
   })
+
+  test('value axis writes its ticks through the given formatter', () => {
+    const formatter = (value: number) => `${value}!`
+
+    expect(buildValueAxis({ formatter })).toEqual({
+      type: 'value',
+      axisLabel: { formatter },
+    })
+  })
 })
 
 describe('buildAxisTooltip', () => {
