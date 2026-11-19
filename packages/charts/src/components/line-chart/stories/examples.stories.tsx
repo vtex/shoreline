@@ -235,6 +235,29 @@ export function MissingData() {
   )
 }
 
+/**
+ * Marker thinning is measured in pixels, not in point count: this 90-day
+ * series sits in a card-width column, so neighbouring points are a few pixels
+ * apart and the chart drops every marker so the trend reads as a line. Give the
+ * same data more width and the markers return.
+ */
+export function Crowded() {
+  return (
+    <div style={{ width: 420 }}>
+      <LineChart
+        label="Daily visitors, 90 days"
+        categories={Array.from({ length: 90 }, (_, i) => `D${i + 1}`)}
+        series={[
+          {
+            name: 'Visitors',
+            data: Array.from({ length: 90 }, (_, i) => 120 + (i % 12)),
+          },
+        ]}
+      />
+    </div>
+  )
+}
+
 const forecastMonths = [...months, 'Jul', 'Aug']
 const revenueHistory = [...revenue, null, null]
 const revenueForecast = [null, null, null, null, null, null, 8100, 7600]

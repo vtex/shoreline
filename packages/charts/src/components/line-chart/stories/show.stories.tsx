@@ -39,6 +39,18 @@ const forecastMonths = [...months, 'Jul', 'Aug']
 const revenueHistory = [...revenue, null, null]
 const revenueForecast = [null, null, null, null, null, null, 8100, 7600]
 
+// A line that stops and resumes: filled for the first fifth of the width, a
+// lone reading at three tenths, filled again from roughly a third to nine
+// tenths, then a lone reading at 95%.
+const intermittentReadings = Array.from({ length: 90 }, (_, i) => {
+  const day = i + 1
+  if (day <= 18) return 120 + (day % 12)
+  if (day === 28) return 180
+  if (day >= 31 && day <= 81) return 130 + (day % 12)
+  if (day === 86) return 90
+  return null
+})
+
 function Section(props: { label: string; children: ReactNode }) {
   return (
     <div style={{ padding: '1rem 0', borderTop: '1px solid #e0e0e0' }}>
@@ -117,6 +129,41 @@ export function Show() {
             { name: 'Net result', data: [1200, -400, 900, -1100, 300, 1800] },
           ]}
         />
+      </Section>
+
+      <Section label="Crowded series (markers hidden)">
+        {/*
+         * A card-width chart with 90 daily points — fewer than 5px between
+         * neighbours. Markers are hidden chart-wide so the trend reads as a
+         * line; the fixed width makes the density deterministic for Chromatic.
+         */}
+        <div style={{ width: 420 }}>
+          <LineChart
+            label="Visitors, 90-day trend"
+            categories={Array.from({ length: 90 }, (_, i) => `D${i + 1}`)}
+            series={[
+              {
+                name: 'Visitors',
+                data: Array.from({ length: 90 }, (_, i) => 120 + (i % 12)),
+              },
+            ]}
+          />
+        </div>
+      </Section>
+
+      <Section label="Crowded series with isolated values (markers kept)">
+        {/*
+         * The line stops and resumes: no markers on either stretch, and a
+         * marker only on the two readings that sit alone between gaps, which
+         * would otherwise disappear with the line.
+         */}
+        <div style={{ width: 420 }}>
+          <LineChart
+            label="Intermittent sensor readings, 90 days"
+            categories={Array.from({ length: 90 }, (_, i) => `D${i + 1}`)}
+            series={[{ name: 'Sensor A', data: intermittentReadings }]}
+          />
+        </div>
       </Section>
 
       <Section label="Series aggregation (5 series, default maxSeries)">

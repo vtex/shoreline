@@ -14,6 +14,7 @@ import {
   hasNegativeValues,
 } from '../../internal/option'
 import { collapseSeries, createDeltaLookup } from '../../internal/series'
+import { pointMarkersFit } from '../../internal/symbols'
 import type { ChartTokens } from '../../internal/theme'
 import type { ChartUnit } from '../../internal/unit'
 import { defaultChartUnit } from '../../internal/unit'
@@ -87,6 +88,12 @@ export interface BuildComposedOptionArgs {
    * @default 'linear'
    */
   curve?: ChartCurve
+  /**
+   * Width of the chart in px, when known. Marker density is measured in pixels,
+   * so a chart whose width is not measured yet keeps its markers.
+   * @default undefined
+   */
+  width?: number
   tokens: ChartTokens
 }
 
@@ -105,7 +112,8 @@ const guideLineToken = '--sl-color-gray-3'
 export function buildComposedOption(
   args: BuildComposedOptionArgs
 ): EChartsCoreOption {
-  const { categories, grouping, othersLabel, maxSeries, curve, tokens } = args
+  const { categories, grouping, othersLabel, maxSeries, curve, width, tokens } =
+    args
 
   // Bars and lines compile separately so each keeps its native treatment
   // (stacking + sign-aware radii vs. forecast seams), then render bars-first:
@@ -175,6 +183,9 @@ export function buildComposedOption(
     // occupy the first slots.
     paletteOffset: renderedBars.length,
     curve,
+    // Every series shares the one category axis, so the density that decides
+    // the markers is the chart's, never a single line's.
+    showMarkers: pointMarkersFit({ count: categories.length, width }),
     tokens,
   }).map((item, seriesIndex) => ({
     ...item,

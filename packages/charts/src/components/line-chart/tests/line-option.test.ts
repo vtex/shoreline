@@ -61,6 +61,13 @@ function build(overrides: Partial<BuildLineOptionArgs> = {}) {
       lineStyle?: { type: string }
       showSymbol?: boolean
       itemStyle?: { color?: string }
+      markPoint?: {
+        silent: boolean
+        symbol: string
+        symbolSize: number
+        label: { show: boolean }
+        data: Array<{ coord: [number, number] }>
+      }
       data: Array<number | null>
     }>
   }
@@ -430,6 +437,88 @@ describe('buildLineOption', () => {
       )
 
       expect(html).not.toContain('data-dashed')
+    })
+  })
+
+  describe('point markers', () => {
+    const denseCategories = Array.from(
+      { length: 90 },
+      (_, index) => `Day ${index + 1}`
+    )
+    const denseData = denseCategories.map((_, index) => 100 + (index % 7))
+
+    test('keeps a marker at every point while the points have room', () => {
+      const option = build({ width: 600 })
+
+      expect(option.series[0]?.showSymbol).toBeUndefined()
+      expect(option.series[0]?.markPoint).toBeUndefined()
+    })
+
+    test('hides every marker when the points crowd the width', () => {
+      const option = build({
+        width: 600,
+        categories: denseCategories,
+        series: [{ name: 'Revenue', data: denseData }],
+      })
+
+      expect(option.series[0]?.showSymbol).toBe(false)
+      // Nothing is isolated, so no point needs a marker of its own.
+      expect(option.series[0]?.markPoint).toBeUndefined()
+    })
+
+    test('keeps an isolated value visible with a marker of its own', () => {
+      const data = denseData.map(() => null)
+      data[10] = 42
+      data[70] = 7
+
+      const option = build({
+        width: 600,
+        categories: denseCategories,
+        series: [{ name: 'Revenue', data }],
+      })
+
+      expect(option.series[0]?.showSymbol).toBe(false)
+      // The marker is styled like the line's own, and silent so the axis
+      // tooltip behaves as it does on any other point.
+      expect(option.series[0]?.markPoint).toEqual({
+        silent: true,
+        symbol: 'emptyCircle',
+        symbolSize: 4,
+        label: { show: false },
+        data: [{ coord: [10, 42] }, { coord: [70, 7] }],
+      })
+    })
+
+    test('marks only the values with no neighbouring value', () => {
+      const data = denseData.map(() => 10)
+      data[5] = null
+      data[6] = null
+      data[7] = 30
+      data[8] = null
+
+      const option = build({
+        width: 600,
+        categories: denseCategories,
+        series: [{ name: 'Revenue', data }],
+      })
+
+      expect(option.series[0]?.markPoint?.data).toEqual([{ coord: [7, 30] }])
+    })
+
+    test('never marks a forecast series', () => {
+      const forecast = denseCategories.map(() => null)
+      forecast[40] = 90
+
+      const option = build({
+        width: 600,
+        categories: denseCategories,
+        series: [
+          { name: 'Revenue', data: denseData },
+          { name: 'Forecast', data: forecast, variant: 'forecast' },
+        ],
+      })
+
+      expect(option.series[1]?.markPoint).toBeUndefined()
     })
   })
 })
