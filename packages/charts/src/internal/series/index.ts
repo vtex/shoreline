@@ -3,5 +3,6 @@ export {
   collapseSeries,
   createDeltaLookup,
   defaultMaxSeries,
+  othersColorToken,
   seriesLimit,
 } from './series'

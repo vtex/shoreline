@@ -10,7 +10,11 @@ import {
   buildValueAxis,
 } from '../../internal/option'
 import type { ChartSeries } from '../../internal/series'
-import { collapseSeries, createDeltaLookup } from '../../internal/series'
+import {
+  collapseSeries,
+  createDeltaLookup,
+  othersColorToken,
+} from '../../internal/series'
 
 /**
  * A single bar series.
@@ -146,6 +150,12 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
   // Everything downstream — legend, palette order, stack-end resolution —
   // reads the collapsed list, so the aggregate behaves like any other series.
   const series = collapseSeries(args.series, othersLabel, maxSeries)
+  // The synthesized aggregate sits last and wears the neutral color, so the
+  // named bars keep their palette slots.
+  const othersColor =
+    series.length < args.series.length
+      ? tokens.get(othersColorToken)
+      : undefined
 
   const radius = tokens.px(radiusToken)
   const showLegend = series.length > 1
@@ -190,6 +200,9 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
       name: item.name,
       type: 'bar',
       stack: grouping === 'stacked' ? 'total' : undefined,
+      ...(othersColor && seriesIndex === series.length - 1
+        ? { itemStyle: { color: othersColor } }
+        : {}),
       data: item.data.map((value, categoryIndex) => ({
         value,
         itemStyle: {

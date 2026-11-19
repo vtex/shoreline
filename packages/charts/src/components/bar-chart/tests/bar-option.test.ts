@@ -5,7 +5,7 @@ import type { BuildBarOptionArgs } from '../bar-option'
 import { buildBarOption, defaultMaxSeries, seriesLimit } from '../bar-option'
 
 const tokens: ChartTokens = {
-  get: () => undefined,
+  get: (token) => (token === '--sl-color-gray-8' ? '#858585' : undefined),
   px: (token) => (token === '--sl-radius-1' ? 4 : 8),
 }
 
@@ -36,6 +36,7 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
     series: Array<{
       name: string
       stack?: string
+      itemStyle?: { color?: string }
       data: Array<{
         value: number | null
         itemStyle: { borderRadius: number[] }
@@ -250,6 +251,32 @@ describe('buildBarOption', () => {
     expect(build({ maxSeries: 3.7, series }).series.map((s) => s.name)).toEqual(
       ['S0', 'S1', 'Others']
     )
+  })
+
+  test('paints the aggregate in the neutral gray, keeping the named slots', () => {
+    const option = build({
+      series: Array.from({ length: 5 }, (_, i) => ({
+        name: `S${i}`,
+        data: [1],
+      })),
+    })
+
+    expect(option.series.map((s) => s.name)).toEqual(['S0', 'S1', 'Others'])
+    // Only the aggregate leaves the palette; the named bars keep their own.
+    expect(option.series[0]?.itemStyle).toBeUndefined()
+    expect(option.series[1]?.itemStyle).toBeUndefined()
+    expect(option.series[2]?.itemStyle).toEqual({ color: '#858585' })
+  })
+
+  test('leaves every bar to the palette when nothing aggregates', () => {
+    const option = build({
+      series: [
+        { name: 'A', data: [1] },
+        { name: 'B', data: [2] },
+      ],
+    })
+
+    expect(option.series.every((s) => s.itemStyle === undefined)).toBe(true)
   })
 
   test('names the aggregate series from othersLabel', () => {

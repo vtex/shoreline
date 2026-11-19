@@ -28,13 +28,23 @@ export const seriesLimit = chartSeriesTokens.length
 export const defaultMaxSeries = 3
 
 /**
+ * The color the aggregate wears: a neutral gray, deliberately outside the
+ * categorical palette. The aggregate is not one more category — it stands for
+ * everything the chart did not name — and painting it explicitly also leaves
+ * the palette slot it occupies free, so the named series keep their designed
+ * colors.
+ */
+export const othersColorToken = '--sl-color-gray-8'
+
+/**
  * Folds the tail of `series` into a single aggregate so that no more than
  * `maxSeries` series render, keeping every value represented instead of
  * dropping data. Requests above `seriesLimit` clamp to it, because past that
  * point the palette has no color left to tell series apart.
  *
- * The aggregate takes the last rendered slot, so it wears that slot's color —
- * the tertiary color at the default `maxSeries`.
+ * The aggregate takes the last rendered slot; callers paint it in
+ * `othersColorToken`, so the categorical color that slot would assign stays
+ * free for a named series.
  *
  * Values are summed per category. A null contributes nothing, and a category
  * where every folded series is null stays null, so the aggregate renders no
