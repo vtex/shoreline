@@ -95,7 +95,7 @@ function HistoryAndSuggestionsInput(props: {
       value={text}
       setValue={setText}
     >
-      <AIComposerInput asChild placeholder="Mensagem para Meu assistente…">
+      <AIComposerInput asChild>
         <ComboboxInput asChild {...inputKeys(open)}>
           <textarea />
         </ComboboxInput>
@@ -115,7 +115,7 @@ function HistoryAndSuggestionsComposer() {
 
   return (
     <div style={{ paddingTop: 280 }}>
-      <AIComposer>
+      <AIComposer messages={{ placeholder: 'Mensagem para Meu assistente…' }}>
         <AIComposerField ref={fieldRef}>
           <HistoryAndSuggestionsInput fieldRef={fieldRef} />
           <AIComposerFooter>

@@ -120,10 +120,10 @@ export const ReferenceLayout: Story = {
     ),
   ],
   render: () => (
-    <AIComposer>
+    <AIComposer messages={{ placeholder: 'Message VTEX My Assistant...' }}>
       <AIComposerField>
         <AIComposerAttachments />
-        <AIComposerInput placeholder="Message VTEX My Assistant..." />
+        <AIComposerInput />
         <AIComposerFooter>
           <AIComposerAddAttachment />
           <StoryAgentPill />
@@ -140,10 +140,10 @@ export const WithAttachments: Story = {
   // Deferred to the component review (see shoreline-ai-ci-readiness spec)
   tags: ['skip-test'],
   render: () => (
-    <AIComposer>
+    <AIComposer messages={{ placeholder: 'Message VTEX My Assistant...' }}>
       <AIComposerField>
         <AIComposerAttachments />
-        <AIComposerInput placeholder="Message VTEX My Assistant..." />
+        <AIComposerInput />
         <AIComposerFooter>
           <AIComposerAddAttachment />
           <StoryAgentPill />
@@ -210,10 +210,10 @@ export const ManyAttachments: Story = {
   // Deferred to the component review (see shoreline-ai-ci-readiness spec)
   tags: ['skip-test'],
   render: () => (
-    <AIComposer>
+    <AIComposer messages={{ placeholder: 'Message VTEX My Assistant...' }}>
       <AIComposerField>
         <AIComposerAttachments />
-        <AIComposerInput placeholder="Message VTEX My Assistant..." />
+        <AIComposerInput />
         <AIComposerFooter>
           <AIComposerAddAttachment />
           <StoryAgentPill />
@@ -282,11 +282,14 @@ function LayoutComposer(props: {
   const { layout, placeholder, agent, contextItems, children } = props
 
   return (
-    <AIComposer layout={layout}>
+    <AIComposer
+      layout={layout}
+      messages={placeholder ? { placeholder } : undefined}
+    >
       {contextItems}
       <AIComposerField>
         <AIComposerAttachments />
-        <AIComposerInput placeholder={placeholder} />
+        <AIComposerInput />
         <AIComposerFooter>
           <AIComposerAddAttachment />
           {agent ? <StoryAgentPill compact={agent === 'compact'} /> : null}

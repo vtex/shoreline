@@ -365,7 +365,7 @@ No `onRemove` prop — removal is handled by the chip’s control and the runtim
 | State | Component | Visual |
 |-------|-----------|--------|
 | Draft empty / cannot send | `AIComposerSend` | Disabled, gray |
-| Can send | `AIComposerSend` | Blue 28×28 circle, darker on hover |
+| Can send | `AIComposerSend` | Blue circle (32px stacked, 28px inline), darker on hover |
 | Streaming | `AIComposerCancel` or `AIComposerAction` | Stop control (`useAIStatus().isStreaming`) |
 
 `stopGeneration()` from `useAIThread()` has the same effect as the cancel button.
