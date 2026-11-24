@@ -27,9 +27,9 @@
     position: relative;
   }
 
-  /* Focus does not change the card's shape: only the border steps up one gray. */
-  [data-sl-ai-composer-field]:focus-within {
-    border-color: var(--sl-color-gray-5);
+  /* No ring on click: the caret shows the focus. Keyboard focus sets data-focus-visible. */
+  [data-sl-ai-composer-field][data-focus-visible] {
+    box-shadow: var(--sl-focus-ring-base);
   }
 
   /* Areas for the two layouts. The DOM order never changes. */
@@ -91,11 +91,6 @@
 
   [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
     height: auto;
-  }
-
-  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea-input],
-  [data-sl-ai-composer][data-layout="inline"] [data-sl-textarea] textarea {
-    padding-inline: 0;
   }
 
   [data-sl-ai-composer-field] [data-sl-textarea] {

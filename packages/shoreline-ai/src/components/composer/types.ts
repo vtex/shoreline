@@ -13,7 +13,7 @@ export type AIComposerLayout = 'stacked' | 'inline'
 export interface AIComposerOptions {
   /**
    * Arrangement of the field: `stacked` (text, then a footer row)
-   * or `inline` (one row).
+   * or `inline` (one row). With attachments, `inline` renders as `stacked`.
    * @default 'stacked'
    */
   layout?: AIComposerLayout

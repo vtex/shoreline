@@ -72,6 +72,8 @@ Use `layout` to choose how the pieces are arranged. The default is `stacked`.
 | `stacked` | The text, then a row below with the `+` on the left and the actions on the right |
 | `inline` | Everything in one row. The most compact |
 
+The `inline` layout has no row for attachment tiles. While the draft has attachments, the composer renders as `stacked`, and it returns to `inline` when the last one is removed. You do not need to switch the `layout` prop yourself.
+
 <Callout type="info">
   Only the look changes. The order in the DOM stays the same, so the tab order follows the DOM and can differ from what you see in `inline`.
 </Callout>

@@ -47,11 +47,17 @@ describe('ai-composer.css', () => {
     expect(field).toContain('var(--sl-radius-3)')
   })
 
-  it('focus only steps the card border up one gray', () => {
-    const focus = declarationsFor('[data-sl-ai-composer-field]:focus-within')
+  it('the card draws the focus ring only for keyboard focus', () => {
+    expect(css).not.toContain('[data-sl-ai-composer-field]:focus-within')
+    expect(
+      declarationsFor('[data-sl-ai-composer-field][data-focus-visible]')
+    ).toContain('box-shadow: var(--sl-focus-ring-base)')
+  })
 
-    expect(focus).toContain('border-color: var(--sl-color-gray-5)')
-    expect(focus).not.toContain('box-shadow')
+  it('keeps the inline text inset, so the caret is not clipped', () => {
+    expect(css).not.toMatch(
+      /\[data-layout="inline"\] \[data-sl-textarea-input\][^{]*\{[^}]*padding-inline:\s*0/
+    )
   })
 
   it('uses no radius token that Sunrise lacks', () => {

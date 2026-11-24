@@ -62,7 +62,7 @@ Normative tree (matches AI Workspace layout: attachments and textarea inside the
 | `AIComposerHeader` | Neutral slot above the field: handles position and the overlap with the pill, draws nothing |
 | `AIComposerContextItems` | Preset band of context items; place it inside `AIComposerHeader` |
 | `AIComposerContextItem` | One removable context item: pin icon, truncated label, optional remove button |
-| `AIComposerField` | The compact white card: thin border, soft shadow (Horizon); focus only darkens the border |
+| `AIComposerField` | The compact white card: thin border, soft shadow (Horizon). No ring on click (the caret shows the focus); the focus ring shows when focus arrives by Tab |
 | `AIComposerAttachments` | Pending files above the input: one row of 80px tiles, with a "+N" button for the ones that do not fit |
 | `AIComposerInput` | Draft textarea |
 | `AIComposerFooter` | Bottom row: start slot (left) + actions slot (right) |
@@ -139,6 +139,8 @@ Use before the provider is ready or in layouts without a full composer:
 ```
 
 `AIComposerFooter` is `display: contents` in `inline`, so a `className` or `style` on it has no visual effect there. It finds `AIComposerActions` even inside a Fragment. A custom component that renders `AIComposerActions` is not seen and the actions land in the start slot, with a warning in development: wrap the content of `AIComposerActions` instead.
+
+`inline` has no row for the tiles: while the draft has attachments the form renders `data-layout="stacked"`, and goes back to `inline` when the last one is removed. The `layout` prop does not change.
 
 In `inline` an app can show only the avatar of its agent pill by reading `[data-layout="inline"]` on the form in its own CSS.
 
