@@ -1,8 +1,9 @@
 import { AttachmentPrimitive } from '@assistant-ui/react'
-import { IconButton, IconXSmall, Spinner, Text } from '@vtex/shoreline'
+import { IconButton, Spinner, Text } from '@vtex/shoreline'
 import { useEffect, useState } from 'react'
 import { forwardRef } from '@vtex/shoreline'
 
+import { IconClear } from '../icons/icon-clear'
 import { useComposerMessagesContext } from './composer-messages-context'
 import type { AIComposerAttachmentProps } from './types'
 import {
@@ -42,7 +43,7 @@ function AIComposerAttachmentRemove() {
         variant="tertiary"
         data-sl-ai-composer-attachment-remove
       >
-        <IconXSmall />
+        <IconClear />
       </IconButton>
     </AttachmentPrimitive.Remove>
   )

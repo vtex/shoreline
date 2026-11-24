@@ -364,7 +364,7 @@ No `onRemove` prop — removal is handled by the chip’s control and the runtim
 
 | State | Component | Visual |
 |-------|-----------|--------|
-| Draft empty / cannot send | `AIComposerSend` | Disabled, the same blue at 72% (a composer exception to the gray disabled state) |
+| Draft empty / cannot send | `AIComposerSend` | Disabled, gray |
 | Can send | `AIComposerSend` | Blue 28×28 circle, darker on hover |
 | Streaming | `AIComposerCancel` or `AIComposerAction` | Stop control (`useAIStatus().isStreaming`) |
 

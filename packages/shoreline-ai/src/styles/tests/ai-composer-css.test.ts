@@ -83,7 +83,7 @@ describe('ai-composer.css', () => {
     expect(add).toContain('var(--sl-fg-muted)')
     expect(
       declarationsMatching('[data-sl-ai-composer-add-attachment]:hover')
-    ).toContain('var(--sl-color-gray-2)')
+    ).toContain('var(--sl-ai-composer-bg-muted)')
   })
 
   it('defines a rule per layout', () => {
@@ -154,8 +154,8 @@ describe('ai-composer.css', () => {
   it('empty send turns gray, as the disabled state', () => {
     const disabled = declarationsMatching('[data-sl-ai-composer-send]:disabled')
 
-    expect(disabled).toContain('var(--sl-color-gray-2)')
-    expect(disabled).toContain('var(--sl-color-gray-6)')
+    expect(disabled).toContain('var(--sl-ai-composer-bg-muted)')
+    expect(disabled).toContain('var(--sl-ai-composer-fg-muted)')
     expect(disabled).not.toContain('opacity')
   })
 
@@ -260,10 +260,16 @@ describe('ai-composer.css', () => {
       '[data-sl-skeleton][data-sl-ai-composer-skeleton-pill]'
     )
 
-    expect(pill).toContain('var(--sl-color-gray-2)')
+    expect(pill).toContain('var(--sl-ai-composer-bg-muted)')
     expect(pill).toContain('var(--sl-ai-composer-radius)')
     expect(pill).toContain('height: 5.125rem')
     expect(css).toContain('prefers-reduced-motion: reduce')
+  })
+
+  it('names the two grays no semantic token has, once', () => {
+    expect(css).toContain('--sl-ai-composer-bg-muted: var(--sl-color-gray-2)')
+    expect(css).toContain('--sl-ai-composer-fg-muted: var(--sl-color-gray-6)')
+    expect(css.match(/var\(--sl-color-gray-[26]\)/g)).toHaveLength(3)
   })
 
   it('has no leftover token TODOs', () => {

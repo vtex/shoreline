@@ -6,6 +6,12 @@
     /* shadow-1 plus a wider soft one: the Horizon card shadow. */
     --sl-ai-composer-shadow: var(--sl-shadow-1, 0 1px 2px 0 rgb(0 0 0 / 0.05)),
       0 0.125rem 0.625rem 0 rgb(0 0 0 / 0.06);
+    /*
+     * Colors the design asks for that no semantic token has (the nearest ones
+     * resolve to other values in Horizon): gray-2 and gray-6.
+     */
+    --sl-ai-composer-bg-muted: var(--sl-color-gray-2);
+    --sl-ai-composer-fg-muted: var(--sl-color-gray-6);
     width: 100%;
     max-width: 100%;
     min-width: 0;
@@ -142,7 +148,7 @@
 
   [data-sl-ai-composer-field] [data-sl-textarea-input]::placeholder,
   [data-sl-ai-composer-field] [data-sl-textarea] textarea::placeholder {
-    color: var(--sl-color-gray-6);
+    color: var(--sl-ai-composer-fg-muted);
     opacity: 1;
     font: var(--sl-text-body-font);
     letter-spacing: var(--sl-text-body-letter-spacing);
@@ -229,8 +235,8 @@
   /* Empty, send is gray: the usual disabled look. */
   [data-sl-icon-button][data-sl-ai-composer-send]:disabled,
   [data-sl-icon-button][data-sl-ai-composer-send][aria-disabled="true"] {
-    background: var(--sl-color-gray-2);
-    color: var(--sl-color-gray-6);
+    background: var(--sl-ai-composer-bg-muted);
+    color: var(--sl-ai-composer-fg-muted);
   }
 
   /* 18px arrow when stacked, 16px when inline. */
@@ -296,7 +302,7 @@
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment]:hover {
-    background: var(--sl-color-gray-2);
+    background: var(--sl-ai-composer-bg-muted);
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment]
@@ -577,7 +583,7 @@
   }
 
   [data-sl-ai-composer-attachments-more]:hover {
-    border-color: var(--sl-color-gray-5);
+    border: var(--sl-border-base-strong);
   }
 
   [data-sl-ai-composer-attachments-more]:active {
@@ -693,8 +699,8 @@
     width: 100%;
     height: 5.125rem;
     border-radius: var(--sl-ai-composer-radius);
-    background: var(--sl-color-gray-2);
-    --skeleton-bg: var(--sl-color-gray-2);
+    background: var(--sl-ai-composer-bg-muted);
+    --skeleton-bg: var(--sl-ai-composer-bg-muted);
   }
 
   [data-sl-ai-composer-skeleton][data-layout="inline"]
