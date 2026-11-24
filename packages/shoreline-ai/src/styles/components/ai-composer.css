@@ -1,14 +1,20 @@
 @layer sl-components {
-  [data-sl-ai-composer] {
+  [data-sl-ai-composer],
+  [data-sl-ai-composer-skeleton] {
+    /* No radius token is 20px (radius-3 is 16px, radius-4 is 24px), so the card keeps its own. */
+    --sl-ai-composer-radius: 1.25rem;
+    /* shadow-1 plus a wider soft one: the Horizon card shadow. */
+    --sl-ai-composer-shadow: var(--sl-shadow-1, 0 1px 2px 0 rgb(0 0 0 / 0.05)),
+      0 0.125rem 0.625rem 0 rgb(0 0 0 / 0.06);
     width: 100%;
     max-width: 100%;
     min-width: 0;
     box-sizing: border-box;
   }
 
-  /* A compact white card with a thin border. Sunrise has no shadow token, so it stays flat. */
+  /* A compact white card with a thin border and a soft shadow. */
   [data-sl-ai-composer-field] {
-    border-radius: var(--sl-radius-3);
+    border-radius: var(--sl-ai-composer-radius);
   }
 
   [data-sl-ai-composer-field] {
@@ -22,14 +28,14 @@
     padding: var(--sl-space-2);
     border: var(--sl-border-base);
     background: var(--sl-bg-base);
-    box-shadow: var(--sl-shadow-3, none);
+    box-shadow: var(--sl-ai-composer-shadow);
     box-sizing: border-box;
     position: relative;
   }
 
   /* No ring on click: the caret shows the focus. Keyboard focus sets data-focus-visible. */
   [data-sl-ai-composer-field][data-focus-visible] {
-    box-shadow: var(--sl-focus-ring-base);
+    box-shadow: var(--sl-focus-ring-base), var(--sl-ai-composer-shadow);
   }
 
   /* Areas for the two layouts. The DOM order never changes. */
@@ -69,6 +75,8 @@
       "start text actions";
     align-items: center;
     column-gap: var(--sl-space-2);
+    /* 6px: the compact card is 42px high around the 28px send. */
+    padding: calc(var(--sl-space-1) + var(--sl-space-05));
   }
 
   [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-footer] {
@@ -109,7 +117,7 @@
   [data-sl-ai-composer-field] [data-sl-textarea-input],
   [data-sl-ai-composer-field] [data-sl-textarea] textarea {
     min-height: var(--sl-space-6);
-    padding: var(--sl-space-05) var(--sl-space-1);
+    padding: var(--sl-space-05) var(--sl-space-3);
     box-sizing: border-box;
     height: 100%;
     border: none;
@@ -160,7 +168,10 @@
     min-width: 0;
     flex-shrink: 0;
     margin-top: auto;
-    padding-top: var(--sl-space-1);
+    box-sizing: border-box;
+    /* 12px above the controls inside a fixed 44px row. */
+    padding-top: var(--sl-space-3);
+    height: 2.75rem;
     gap: var(--sl-space-2);
   }
 
@@ -182,13 +193,13 @@
     flex-shrink: 0;
   }
 
-  /* Send is always blue; empty, it is the same blue at 72% (a composer exception to the gray disabled state). */
+  /* Send is a 32px blue circle when stacked and 28px when inline. */
   [data-sl-icon-button][data-sl-ai-composer-send],
   [data-sl-icon-button][data-sl-ai-composer-cancel] {
-    width: var(--sl-space-7);
-    height: var(--sl-space-7);
-    min-width: var(--sl-space-7);
-    min-height: var(--sl-space-7);
+    width: var(--sl-space-8);
+    height: var(--sl-space-8);
+    min-width: var(--sl-space-8);
+    min-height: var(--sl-space-8);
     padding: 0;
     border-radius: 50%;
     background: var(--sl-bg-accent-strong);
@@ -205,28 +216,57 @@
     background: var(--sl-bg-accent-strong-hover);
   }
 
+  [data-sl-ai-composer][data-layout="inline"]
+    [data-sl-icon-button][data-sl-ai-composer-send],
+  [data-sl-ai-composer][data-layout="inline"]
+    [data-sl-icon-button][data-sl-ai-composer-cancel] {
+    width: var(--sl-space-7);
+    height: var(--sl-space-7);
+    min-width: var(--sl-space-7);
+    min-height: var(--sl-space-7);
+  }
+
+  /* Empty, send is gray: the usual disabled look. */
   [data-sl-icon-button][data-sl-ai-composer-send]:disabled,
   [data-sl-icon-button][data-sl-ai-composer-send][aria-disabled="true"] {
-    background: var(--sl-bg-accent-strong);
-    color: var(--sl-fg-inverted);
-    opacity: 0.72;
+    background: var(--sl-color-gray-2);
+    color: var(--sl-color-gray-6);
   }
 
+  /* 18px arrow when stacked, 16px when inline. */
   [data-sl-ai-composer-send] svg,
   [data-sl-ai-composer-send] svg path {
-    width: var(--sl-space-4);
-    height: var(--sl-space-4);
+    width: 1.125rem;
+    height: 1.125rem;
     color: currentColor;
     fill: currentColor;
   }
 
-  /* The stop icon draws its square at 15/20 of the box, so a 12px box keeps it light. */
+  /* The stop icon draws its square at 15/20 of the box: 14px when stacked, 12px when inline. */
   [data-sl-ai-composer-cancel] svg,
   [data-sl-ai-composer-cancel] svg path {
-    width: var(--sl-space-3);
-    height: var(--sl-space-3);
+    width: 0.875rem;
+    height: 0.875rem;
     color: currentColor;
     fill: currentColor;
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-send] svg,
+  [data-sl-ai-composer][data-layout="inline"]
+    [data-sl-ai-composer-send]
+    svg
+    path {
+    width: var(--sl-space-4);
+    height: var(--sl-space-4);
+  }
+
+  [data-sl-ai-composer][data-layout="inline"] [data-sl-ai-composer-cancel] svg,
+  [data-sl-ai-composer][data-layout="inline"]
+    [data-sl-ai-composer-cancel]
+    svg
+    path {
+    width: var(--sl-space-3);
+    height: var(--sl-space-3);
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment] {
@@ -246,8 +286,17 @@
     box-sizing: border-box;
   }
 
+  /* Inline, the row is 28px high: the + shrinks with the send. */
+  [data-sl-ai-composer][data-layout="inline"]
+    [data-sl-icon-button][data-sl-ai-composer-add-attachment] {
+    width: var(--sl-space-7);
+    height: var(--sl-space-7);
+    min-width: var(--sl-space-7);
+    min-height: var(--sl-space-7);
+  }
+
   [data-sl-icon-button][data-sl-ai-composer-add-attachment]:hover {
-    background: var(--sl-bg-muted-hover);
+    background: var(--sl-color-gray-2);
   }
 
   [data-sl-icon-button][data-sl-ai-composer-add-attachment]
@@ -349,7 +398,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: var(--sl-space-05);
-    width: var(--sl-space-32);
+    width: 7.75rem;
     height: var(--sl-space-20);
     box-sizing: border-box;
     padding: var(--sl-space-2);
@@ -582,7 +631,7 @@
   /* Header: the neutral slot above the field. The field overlaps it by the pill radius. */
   /* The root owns the variable: the field is a sibling of the header and must inherit it too. */
   [data-sl-ai-composer] {
-    --sl-ai-composer-overlap: var(--sl-radius-3);
+    --sl-ai-composer-overlap: var(--sl-ai-composer-radius);
   }
 
   [data-sl-ai-composer-header] {
@@ -604,7 +653,7 @@
     min-width: 0;
     padding: var(--sl-space-2) var(--sl-space-4)
       calc(var(--sl-ai-composer-overlap) + var(--sl-space-1));
-    border-radius: var(--sl-radius-3) var(--sl-radius-3) 0 0;
+    border-radius: var(--sl-radius-4, 1.5rem) var(--sl-radius-4, 1.5rem) 0 0;
     background: var(--sl-bg-base-soft);
     box-sizing: border-box;
   }
@@ -642,15 +691,15 @@
   [data-sl-skeleton][data-sl-ai-composer-skeleton-pill] {
     display: block;
     width: 100%;
-    height: var(--sl-space-20);
-    border-radius: var(--sl-radius-3);
+    height: 5.125rem;
+    border-radius: var(--sl-ai-composer-radius);
     background: var(--sl-color-gray-2);
     --skeleton-bg: var(--sl-color-gray-2);
   }
 
   [data-sl-ai-composer-skeleton][data-layout="inline"]
     [data-sl-ai-composer-skeleton-pill] {
-    height: var(--sl-space-12);
+    height: 2.625rem;
   }
 
   @media (prefers-reduced-motion: reduce) {

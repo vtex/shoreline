@@ -42,9 +42,12 @@ describe('ai-composer.css', () => {
 
     expect(field).toContain('background: var(--sl-bg-base)')
     expect(field).toContain('border: var(--sl-border-base)')
-    expect(field).toContain('var(--sl-shadow-3, none)')
+    expect(field).toContain('var(--sl-ai-composer-shadow)')
     expect(field).toContain('padding: var(--sl-space-2)')
-    expect(field).toContain('var(--sl-radius-3)')
+    expect(field).toContain('border-radius: var(--sl-ai-composer-radius)')
+    expect(declarationsFor('[data-sl-ai-composer]')).toContain(
+      '--sl-ai-composer-radius: 1.25rem'
+    )
   })
 
   it('the card draws the focus ring only for keyboard focus', () => {
@@ -60,22 +63,18 @@ describe('ai-composer.css', () => {
     )
   })
 
-  it('uses no radius token that Sunrise lacks', () => {
-    expect(css).not.toContain('--sl-radius-4')
-  })
-
-  it('send and stop are blue 28px circles with a darker hover', () => {
+  it('send and stop are blue 32px circles (28px inline) with a darker hover', () => {
     const controls = declarationsMatching('[data-sl-ai-composer-send],')
 
     expect(controls).toContain('var(--sl-bg-accent-strong)')
     expect(controls).toContain('var(--sl-fg-inverted)')
-    expect(controls).toContain('width: var(--sl-space-7)')
+    expect(controls).toContain('width: var(--sl-space-8)')
     expect(
       declarationsMatching('[data-sl-ai-composer-send]:not(:disabled)')
     ).toContain('var(--sl-bg-accent-strong-hover)')
   })
 
-  it('the add attachment button is 32px with a muted hover', () => {
+  it('the add attachment button is 32px with a gray-2 hover', () => {
     const add = declarationsFor(
       '[data-sl-icon-button][data-sl-ai-composer-add-attachment]'
     )
@@ -84,7 +83,7 @@ describe('ai-composer.css', () => {
     expect(add).toContain('var(--sl-fg-muted)')
     expect(
       declarationsMatching('[data-sl-ai-composer-add-attachment]:hover')
-    ).toContain('var(--sl-bg-muted-hover)')
+    ).toContain('var(--sl-color-gray-2)')
   })
 
   it('defines a rule per layout', () => {
@@ -128,8 +127,8 @@ describe('ai-composer.css', () => {
   })
 
   it('the root exposes the overlap variable to the header and the field', () => {
-    expect(declarationsFor('[data-sl-ai-composer]')).toContain(
-      '--sl-ai-composer-overlap: var(--sl-radius-3)'
+    expect(css).toContain(
+      '--sl-ai-composer-overlap: var(--sl-ai-composer-radius)'
     )
     expect(
       declarationsMatching(
@@ -152,13 +151,12 @@ describe('ai-composer.css', () => {
     ).toContain('field-sizing: content')
   })
 
-  it('empty send stays blue at 72% instead of turning gray', () => {
+  it('empty send turns gray, as the disabled state', () => {
     const disabled = declarationsMatching('[data-sl-ai-composer-send]:disabled')
 
-    expect(disabled).toContain('var(--sl-bg-accent-strong)')
-    expect(disabled).toContain('opacity: 0.72')
-    expect(disabled).toContain('var(--sl-fg-inverted)')
-    expect(disabled).not.toContain('gray')
+    expect(disabled).toContain('var(--sl-color-gray-2)')
+    expect(disabled).toContain('var(--sl-color-gray-6)')
+    expect(disabled).not.toContain('opacity')
   })
 
   it('an empty attachments row adds no spacing', () => {
@@ -196,10 +194,10 @@ describe('ai-composer.css', () => {
     }
   })
 
-  it('the document card is 80px high and 128px wide', () => {
+  it('the document card is 80px high and 124px wide', () => {
     const card = declarationsFor('[data-sl-ai-composer-attachment-card]')
 
-    expect(card).toContain('width: var(--sl-space-32)')
+    expect(card).toContain('width: 7.75rem')
     expect(card).toContain('height: var(--sl-space-20)')
   })
 
@@ -263,7 +261,8 @@ describe('ai-composer.css', () => {
     )
 
     expect(pill).toContain('var(--sl-color-gray-2)')
-    expect(pill).toContain('var(--sl-radius-3)')
+    expect(pill).toContain('var(--sl-ai-composer-radius)')
+    expect(pill).toContain('height: 5.125rem')
     expect(css).toContain('prefers-reduced-motion: reduce')
   })
 
