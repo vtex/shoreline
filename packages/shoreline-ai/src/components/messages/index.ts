@@ -5,6 +5,10 @@ export { AIMessageRoot } from './ai-message-root'
 export { AIMessageParts } from './ai-message-parts'
 export { AIMessageText } from './ai-message-text'
 export { AIMarkdown } from './ai-markdown'
+export {
+  AIMessageReasoning,
+  useAIMessageReasoning,
+} from './ai-message-reasoning'
 export { AIMessageReasoningRoot } from './ai-message-reasoning-root'
 export { AIMessageReasoningHeader } from './ai-message-reasoning-header'
 export { AIMessageReasoningMark } from './ai-message-reasoning-mark'
@@ -40,6 +44,8 @@ export type {
   AIMessageTextProps,
   AIMarkdownProps,
   AIMarkdownOptions,
+  AIMessageReasoningProps,
+  AIMessageReasoningOptions,
   AIMessageReasoningRootProps,
   AIMessageReasoningRootOptions,
   AIMessageReasoningStatus,

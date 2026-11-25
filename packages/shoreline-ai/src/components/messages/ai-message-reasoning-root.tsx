@@ -1,4 +1,12 @@
-import { createContext, useContext, useId, useMemo, useRef } from 'react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { useCollapse } from 'react-collapsed'
 import { forwardRef } from '@vtex/shoreline'
 import invariant from 'tiny-invariant'
@@ -16,9 +24,13 @@ type ReasoningRootContextValue = {
     startedAt: number | undefined
     /** Time spent reasoning, in ms. */
     duration: number | undefined
+    /** Whether an `AIMessageReasoningLabel` is mounted to name the panel. */
+    hasLabel: boolean
   }
   actions: {
     setExpanded: (expanded: boolean) => void
+    /** Called by the label on mount; returns the unregister function. */
+    registerLabel: () => () => void
   }
   meta: {
     contentId: string
@@ -130,13 +142,34 @@ export const AIMessageReasoningRoot = forwardRef<
     onExpandedChange?.(next)
   }
 
+  // Labels mounted in this root. Without one, the trigger names itself.
+  const [labelCount, setLabelCount] = useState(0)
+  const registerLabel = useCallback(() => {
+    setLabelCount((count) => count + 1)
+
+    return () => setLabelCount((count) => count - 1)
+  }, [])
+  const hasLabel = labelCount > 0
+
   const contextValue = useMemo<ReasoningRootContextValue>(
     () => ({
-      state: { status, expanded: isExpanded, startedAt, duration },
-      actions: { setExpanded: (next) => handlerRef.current(next) },
+      state: { status, expanded: isExpanded, startedAt, duration, hasLabel },
+      actions: {
+        setExpanded: (next) => handlerRef.current(next),
+        registerLabel,
+      },
       meta: { contentId, labelId },
     }),
-    [status, isExpanded, startedAt, duration, contentId, labelId]
+    [
+      status,
+      isExpanded,
+      startedAt,
+      duration,
+      hasLabel,
+      registerLabel,
+      contentId,
+      labelId,
+    ]
   )
 
   return (

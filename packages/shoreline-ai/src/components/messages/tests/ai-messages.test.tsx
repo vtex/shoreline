@@ -247,8 +247,60 @@ describe('AIMessageParts reasoning groups', () => {
       'AIMessageReasoningLabel',
       'AIMessageReasoningElapsed',
       'AIMessageReasoningTrigger',
+      'AIMessageReasoning',
+      'useAIMessageReasoning',
     ]) {
       expect(name in pkg).toBe(true)
     }
+  })
+})
+
+describe('AIMessages workingMark', () => {
+  it('passes the glyph to the reasoning mark of a running message', async () => {
+    let release: () => void = () => {}
+    const gate = new Promise<void>((resolve) => {
+      release = resolve
+    })
+    const transport: StreamTransport = {
+      async *run() {
+        yield {
+          parts: [{ type: 'reasoning', text: 'Hmm', status: 'streaming' }],
+          status: 'streaming',
+        }
+        await gate
+
+        return { parts: [{ type: 'text', text: 'Done' }], status: 'ready' }
+      },
+    }
+
+    function Send() {
+      const { sendMessage } = useAIThread()
+
+      return (
+        <button type="button" onClick={() => sendMessage({ text: 'Hello' })}>
+          Send Hello
+        </button>
+      )
+    }
+
+    const user = userEvent.setup()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider transport={transport}>
+          <Send />
+          <AIMessages workingMark={<i data-testid="glyph" />} />
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    await user.click(screen.getByRole('button', { name: 'Send Hello' }))
+
+    const glyph = await screen.findByTestId('glyph')
+
+    expect(glyph.closest('[data-sl-ai-message-reasoning-mark]')).toBeTruthy()
+
+    release()
+    await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
   })
 })

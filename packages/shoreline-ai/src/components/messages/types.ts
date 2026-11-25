@@ -1,4 +1,9 @@
-import type { ComponentPropsWithoutRef, ComponentType, ReactNode } from 'react'
+import type {
+  ComponentPropsWithoutRef,
+  ComponentType,
+  ReactElement,
+  ReactNode,
+} from 'react'
 
 import type {
   AIMessagePart,
@@ -54,6 +59,12 @@ export interface AIMessagesOptions {
   children?: ReactNode
   /** Overrides strings from the internal catalog. */
   messages?: AIMessageMessages
+  /**
+   * Glyph of every reasoning mark in the list that has no children of its
+   * own, including the header shown before the first part.
+   * @default a four-point spark
+   */
+  workingMark?: ReactNode
 }
 
 export type AIMessagesProps = AIMessagesOptions &
@@ -108,6 +119,12 @@ export interface AIMessagePartsOptions {
    * Custom renderer for each message part. Return nothing to use the built-in renderer.
    */
   children?: AIMessagePartRenderer
+  /**
+   * Template rendered for each reasoning group, and before the first part
+   * arrives while the message runs.
+   * @default <AIMessageReasoning />
+   */
+  reasoning?: ReactElement
 }
 
 export type AIMessagePartsProps = AIMessagePartsOptions &
@@ -153,6 +170,31 @@ export interface AIMessageReasoningRootOptions {
 }
 
 export type AIMessageReasoningRootProps = AIMessageReasoningRootOptions &
+  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
+
+export interface AIMessageReasoningOptions {
+  /**
+   * Whether the reasoning panel starts expanded (uncontrolled).
+   * @default false
+   */
+  defaultExpanded?: boolean
+  /**
+   * Controlled expanded state. When defined, the panel follows this value and
+   * only reports toggles through `onExpandedChange`.
+   */
+  expanded?: boolean
+  /**
+   * Called with the next expanded state whenever the trigger is toggled.
+   */
+  onExpandedChange?: (expanded: boolean) => void
+  /**
+   * Panel parts.
+   * @default header and content
+   */
+  children?: ReactNode
+}
+
+export type AIMessageReasoningProps = AIMessageReasoningOptions &
   Omit<ComponentPropsWithoutRef<'div'>, 'children'>
 
 export interface AIMessageReasoningHeaderOptions {

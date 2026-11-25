@@ -14,6 +14,7 @@ import { useAIContextInternal } from '../provider/ai-context'
 import { AIMessageAssistant } from './ai-message-assistant'
 import { AIMessageUser } from './ai-message-user'
 import { MessageMessagesProvider } from './message-messages-context'
+import { WorkingMarkProvider } from './working-mark-context'
 import type { AIMessagesProps } from './types'
 
 function DefaultUserMessage() {
@@ -55,7 +56,13 @@ function findChildByComponent(
  */
 export const AIMessages = forwardRef<HTMLDivElement, AIMessagesProps>(
   function AIMessages(props, ref) {
-    const { showReasoningTools = true, children, messages, ...divProps } = props
+    const {
+      showReasoningTools = true,
+      children,
+      messages,
+      workingMark,
+      ...divProps
+    } = props
 
     useAIContextInternal()
 
@@ -96,9 +103,11 @@ export const AIMessages = forwardRef<HTMLDivElement, AIMessagesProps>(
 
     return (
       <MessageMessagesProvider messages={messages}>
-        <div ref={ref} data-sl-ai-messages {...divProps}>
-          <ThreadPrimitive.Messages>{renderMessage}</ThreadPrimitive.Messages>
-        </div>
+        <WorkingMarkProvider value={workingMark}>
+          <div ref={ref} data-sl-ai-messages {...divProps}>
+            <ThreadPrimitive.Messages>{renderMessage}</ThreadPrimitive.Messages>
+          </div>
+        </WorkingMarkProvider>
       </MessageMessagesProvider>
     )
   }

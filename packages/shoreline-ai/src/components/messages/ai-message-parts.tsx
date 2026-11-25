@@ -1,13 +1,14 @@
-import { MessagePrimitive } from '@assistant-ui/react'
+import { MessagePrimitive, useAuiState } from '@assistant-ui/react'
 import type { EnrichedPartState, PartState } from '@assistant-ui/react'
-import { useCallback } from 'react'
+import { useRef } from 'react'
 import { forwardRef } from '@vtex/shoreline'
 
 import { AIMessagePartLeaf } from './ai-message-part-leaf'
 import { AIMessagePartPlacementProvider } from './ai-message-part-placement-context'
-import { AIMessageReasoningGroup } from './ai-message-reasoning-group'
+import { AIMessageReasoning } from './ai-message-reasoning'
 import { defaultMessageGroupBy, toolRegistry } from './default-parts'
 import { parseMessagePart } from './parser'
+import { ReasoningGroupProvider } from './reasoning-group-context'
 import type { AIMessagePartsProps, AIMessageReasoningStatus } from './types'
 
 type GroupPartLike = { status?: { type?: string }; timing?: unknown }
@@ -25,8 +26,23 @@ export function getGroupDuration(part: GroupPartLike): number | undefined {
     : undefined
 }
 
+function auiGroupBy(part: PartState) {
+  const shorelinePart = parseMessagePart(part)
+
+  if (!shorelinePart) {
+    return null
+  }
+
+  return defaultMessageGroupBy(shorelinePart, { toolRegistry })
+}
+
+const defaultReasoning = <AIMessageReasoning />
+
 /**
  * Iterates message parts with grouping and optional per-part overrides.
+ * Reasoning groups render through the `reasoning` template; while the message
+ * runs and has no text, reasoning or tool call yet, the template renders once
+ * as a running header.
  *
  * @status experimental
  */
@@ -35,33 +51,74 @@ export const AIMessageParts = forwardRef<HTMLDivElement, AIMessagePartsProps>(
     const {
       showReasoningTools = true,
       children: customPartRenderer,
+      reasoning = defaultReasoning,
       ...divProps
     } = props
 
-    const auiGroupBy = useCallback((part: PartState) => {
-      const shorelinePart = parseMessagePart(part)
+    const running = useAuiState((state) => {
+      const status = state.message.status
 
-      if (!shorelinePart) {
-        return null
-      }
+      return status
+        ? status.type === 'running'
+        : state.message.isLast && state.thread.isRunning
+    })
 
-      return defaultMessageGroupBy(shorelinePart, { toolRegistry })
-    }, [])
+    const pending = useAuiState(
+      (state) =>
+        !state.message.content.some(
+          (part) =>
+            (part.type === 'text' && part.text.length > 0) ||
+            part.type === 'reasoning' ||
+            part.type === 'tool-call'
+        )
+    )
+
+    // Index of the first part that opens a reasoning group, or -1.
+    const firstGroupIndex = useAuiState((state) =>
+      state.message.parts.findIndex(
+        (part) => auiGroupBy(part)?.[0] === 'group-cot'
+      )
+    )
+
+    // Set at the first running render and kept, so the elapsed time of the
+    // pending header carries over to the first reasoning group.
+    const startedAt = useRef<number>()
+
+    if (running && startedAt.current === undefined) {
+      startedAt.current = Date.now()
+    }
 
     return (
       <div ref={ref} data-sl-ai-message-parts {...divProps}>
+        {running && pending ? (
+          <ReasoningGroupProvider
+            status="running"
+            startedAt={startedAt.current}
+            parts={null}
+          >
+            {reasoning}
+          </ReasoningGroupProvider>
+        ) : null}
         <MessagePrimitive.GroupedParts groupBy={auiGroupBy}>
           {({ part, children }) => {
             if (part.type === 'group-cot') {
               return (
-                <AIMessageReasoningGroup
+                <ReasoningGroupProvider
                   status={getGroupStatus(part)}
                   duration={getGroupDuration(part)}
+                  startedAt={
+                    part.indices[0] === firstGroupIndex
+                      ? startedAt.current
+                      : undefined
+                  }
+                  parts={
+                    <AIMessagePartPlacementProvider placement="cot">
+                      {children}
+                    </AIMessagePartPlacementProvider>
+                  }
                 >
-                  <AIMessagePartPlacementProvider placement="cot">
-                    {children}
-                  </AIMessagePartPlacementProvider>
-                </AIMessageReasoningGroup>
+                  {reasoning}
+                </ReasoningGroupProvider>
               )
             }
 

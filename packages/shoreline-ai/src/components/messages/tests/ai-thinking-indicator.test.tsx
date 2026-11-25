@@ -215,7 +215,4 @@ describe('AIMessageAssistant thinking indicator', () => {
       ).toHaveLength(0)
     )
   })
-
-  // replaced in Task 4
-  it.todo('renders Pensando in pt-BR while waiting')
 })

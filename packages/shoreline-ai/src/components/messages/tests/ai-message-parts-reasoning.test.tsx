@@ -1,0 +1,395 @@
+import type { ReactNode } from 'react'
+import {
+  act,
+  afterEach,
+  describe,
+  expect,
+  fireEvent,
+  render,
+  screen,
+  test,
+  vi,
+  waitFor,
+} from '@vtex/shoreline-test-utils'
+import { LocaleProvider } from '@vtex/shoreline'
+
+import { useAIThread } from '../../../hooks/use-ai-thread'
+import { MockRuntimeProvider } from '../../../test-utils'
+import type { RuntimeSnapshot, StreamTransport } from '../../../runtime/types'
+import { getGroupDuration, getGroupStatus } from '../ai-message-parts'
+import {
+  AIMessageAssistant,
+  AIMessageParts,
+  AIMessageReasoning,
+  AIMessageReasoningContent,
+  AIMessageReasoningHeader,
+  AIMessageReasoningLabel,
+  AIMessageReasoningMark,
+  AIMessages,
+  useAIMessageReasoning,
+} from '../index'
+
+type Step = { snapshot: RuntimeSnapshot; done: boolean }
+
+/** A transport whose run yields the snapshots the test pushes, in order. */
+function controlledTransport() {
+  const queue: Step[] = []
+  let wake: (() => void) | null = null
+
+  function send(step: Step) {
+    queue.push(step)
+    wake?.()
+    wake = null
+  }
+
+  const transport: StreamTransport = {
+    async *run() {
+      while (true) {
+        if (queue.length === 0) {
+          await new Promise<void>((resolve) => {
+            wake = resolve
+          })
+        }
+
+        const step = queue.shift() as Step
+
+        if (step.done) return step.snapshot
+        yield step.snapshot
+      }
+    },
+  }
+
+  return {
+    transport,
+    push: (parts: RuntimeSnapshot['parts']) =>
+      act(() =>
+        send({ snapshot: { parts, status: 'streaming' }, done: false })
+      ),
+    finish: (parts: RuntimeSnapshot['parts']) =>
+      act(() => send({ snapshot: { parts, status: 'ready' }, done: true })),
+  }
+}
+
+function SendButton() {
+  const { sendMessage } = useAIThread()
+
+  return (
+    <button type="button" onClick={() => sendMessage({ text: 'Hello' })}>
+      Send Hello
+    </button>
+  )
+}
+
+function renderThread(
+  transport: StreamTransport,
+  children?: ReactNode,
+  props: { workingMark?: ReactNode; locale?: string } = {}
+) {
+  return render(
+    <LocaleProvider locale={props.locale ?? 'en-US'}>
+      <MockRuntimeProvider transport={transport}>
+        <SendButton />
+        <AIMessages workingMark={props.workingMark}>{children}</AIMessages>
+      </MockRuntimeProvider>
+    </LocaleProvider>
+  )
+}
+
+async function send() {
+  fireEvent.click(screen.getByRole('button', { name: 'Send Hello' }))
+  await waitFor(() => expect(screen.getByText('Hello')).toBeInTheDocument())
+}
+
+const reasoningPart = (text: string, status: 'streaming' | 'complete') =>
+  ({ type: 'reasoning', text, status }) as const
+
+afterEach(() => {
+  vi.useRealTimers()
+})
+
+describe('AIMessageParts pending header', () => {
+  test('pending: running message with no parts shows the running header with role=status and no chevron', async () => {
+    const run = controlledTransport()
+
+    renderThread(run.transport)
+    await send()
+
+    const status = await screen.findByRole('status')
+
+    expect(status).toHaveAttribute('data-sl-ai-message-reasoning-header')
+    expect(status).toHaveTextContent('Reasoning…')
+    expect(status.closest('[data-sl-ai-message-reasoning]')).toHaveAttribute(
+      'data-status',
+      'running'
+    )
+    expect(
+      status.querySelector('[data-sl-ai-message-reasoning-mark]')
+    ).toBeTruthy()
+    // Only the send button is left: the pending header has no chevron.
+    expect(
+      document.querySelector('[data-sl-ai-message-reasoning-trigger]')
+    ).toBeNull()
+
+    run.finish([{ type: 'text', text: 'Done' }])
+    await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
+  })
+
+  test('pending: shows the localized label in pt-BR', async () => {
+    const run = controlledTransport()
+
+    renderThread(run.transport, undefined, { locale: 'pt-BR' })
+    await send()
+
+    expect(await screen.findByRole('status')).toHaveTextContent('Raciocinando…')
+
+    run.finish([{ type: 'text', text: 'Pronto' }])
+    await waitFor(() => expect(screen.getByText('Pronto')).toBeInTheDocument())
+  })
+
+  test('pending → reasoning part: elapsed keeps counting, it does not restart', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    const run = controlledTransport()
+
+    renderThread(run.transport)
+    await send()
+    await screen.findByRole('status')
+
+    act(() => vi.advanceTimersByTime(5000))
+    expect(
+      document.querySelector('[data-sl-ai-message-reasoning-elapsed]')
+    ).toHaveTextContent('5s')
+
+    run.push([reasoningPart('Hmm', 'streaming')])
+    await waitFor(() =>
+      expect(
+        document.querySelector('[data-sl-ai-message-reasoning-trigger]')
+      ).toBeTruthy()
+    )
+    expect(screen.queryByRole('status')).toBeNull()
+    expect(
+      document.querySelector('[data-sl-ai-message-reasoning-elapsed]')
+    ).toHaveTextContent('5s')
+
+    act(() => vi.advanceTimersByTime(1000))
+    expect(
+      document.querySelector('[data-sl-ai-message-reasoning-elapsed]')
+    ).toHaveTextContent('6s')
+
+    run.finish([reasoningPart('Hmm', 'complete'), { type: 'text', text: 'Ok' }])
+    await waitFor(() => expect(screen.getByText('Ok')).toBeInTheDocument())
+  })
+
+  test.each([
+    ['text', { type: 'text', text: 'Partial' }],
+    [
+      'a tool call',
+      { type: 'tool', name: 'search_orders', args: {}, status: 'running' },
+    ],
+  ] as const)(
+    '%s arrives first: the pending header disappears (Review Focus 4)',
+    async (_, part) => {
+      const run = controlledTransport()
+
+      renderThread(run.transport)
+      await send()
+      await screen.findByRole('status')
+
+      run.push([part])
+      await waitFor(() => expect(screen.queryByRole('status')).toBeNull())
+
+      if (part.type === 'text') {
+        expect(screen.queryByText('Reasoning…')).toBeNull()
+      }
+      expect(screen.queryByText('Reasoning complete')).toBeNull()
+
+      run.finish([{ type: 'text', text: 'Done' }])
+      await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
+      expect(screen.queryByText('Reasoning complete')).toBeNull()
+    }
+  )
+})
+
+describe('AIMessageParts reasoning template', () => {
+  test('custom template: reasoning={<AIMessageReasoning defaultExpanded>…custom label…</AIMessageReasoning>} renders once per group with the group parts inside', async () => {
+    const run = controlledTransport()
+
+    renderThread(
+      run.transport,
+      <AIMessageAssistant>
+        <AIMessageParts
+          reasoning={
+            <AIMessageReasoning defaultExpanded data-testid="custom">
+              <AIMessageReasoningHeader>
+                <AIMessageReasoningLabel>Thinking hard</AIMessageReasoningLabel>
+              </AIMessageReasoningHeader>
+              <AIMessageReasoningContent />
+            </AIMessageReasoning>
+          }
+        />
+      </AIMessageAssistant>
+    )
+    await send()
+
+    run.finish([
+      reasoningPart('First thought', 'complete'),
+      { type: 'text', text: 'Middle' },
+      reasoningPart('Second thought', 'complete'),
+    ])
+    await waitFor(() => expect(screen.getByText('Middle')).toBeInTheDocument())
+
+    const groups = screen.getAllByTestId('custom')
+
+    expect(groups).toHaveLength(2)
+    expect(screen.getAllByText('Thinking hard')).toHaveLength(2)
+    expect(groups[0]).toHaveTextContent('First thought')
+    expect(groups[0]).not.toHaveTextContent('Second thought')
+    expect(groups[1]).toHaveTextContent('Second thought')
+    for (const group of groups) {
+      expect(
+        group.querySelector('[data-sl-ai-message-reasoning-content]')
+      ).not.toHaveAttribute('hidden')
+    }
+  })
+
+  test('useAIMessageReasoning exposes status to app parts inside the template', async () => {
+    function StatusProbe() {
+      const { status, expanded, duration } = useAIMessageReasoning()
+
+      return (
+        <span data-testid="probe">
+          {status}/{String(expanded)}/{String(duration)}
+        </span>
+      )
+    }
+
+    const run = controlledTransport()
+
+    renderThread(
+      run.transport,
+      <AIMessageAssistant>
+        <AIMessageParts
+          reasoning={
+            <AIMessageReasoning>
+              <StatusProbe />
+            </AIMessageReasoning>
+          }
+        />
+      </AIMessageAssistant>
+    )
+    await send()
+
+    expect(await screen.findByTestId('probe')).toHaveTextContent(
+      'running/false/undefined'
+    )
+
+    run.push([reasoningPart('Hmm', 'streaming')])
+    run.finish([reasoningPart('Hmm', 'complete'), { type: 'text', text: 'Ok' }])
+    await waitFor(() => expect(screen.getByText('Ok')).toBeInTheDocument())
+    expect(screen.getByTestId('probe')).toHaveTextContent(/^complete\/false\//)
+  })
+
+  test('AIMessageReasoning outside AIMessageParts throws a clear invariant', () => {
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    expect(() => render(<AIMessageReasoning />)).toThrow(
+      /AIMessageReasoning must be used within AIMessageParts/
+    )
+    error.mockRestore()
+  })
+})
+
+describe('workingMark', () => {
+  test('workingMark on AIMessages reaches the pending header and every running group', async () => {
+    const run = controlledTransport()
+
+    renderThread(run.transport, undefined, {
+      workingMark: <i data-testid="glyph" />,
+    })
+    await send()
+
+    const status = await screen.findByRole('status')
+
+    expect(status.querySelector('[data-testid="glyph"]')).toBeTruthy()
+
+    // Only the last group of a message runs, so the groups run one by one.
+    const runningRoot = () =>
+      document.querySelector(
+        '[data-sl-ai-message-reasoning][data-status="running"]'
+      )
+
+    run.push([reasoningPart('First', 'streaming')])
+    await waitFor(() => expect(screen.queryByRole('status')).toBeNull())
+    expect(runningRoot()).toHaveTextContent('First')
+    expect(runningRoot()?.querySelector('[data-testid="glyph"]')).toBeTruthy()
+
+    run.push([
+      reasoningPart('First', 'complete'),
+      { type: 'text', text: 'Middle' },
+      reasoningPart('Second', 'streaming'),
+    ])
+    await waitFor(() => expect(screen.getByText('Middle')).toBeInTheDocument())
+    expect(
+      document.querySelectorAll('[data-sl-ai-message-reasoning]')
+    ).toHaveLength(2)
+    expect(runningRoot()).toHaveTextContent('Second')
+    expect(runningRoot()?.querySelector('[data-testid="glyph"]')).toBeTruthy()
+
+    run.finish([{ type: 'text', text: 'Done' }])
+    await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
+  })
+
+  test('mark children in the template win over workingMark', async () => {
+    const run = controlledTransport()
+
+    renderThread(
+      run.transport,
+      <AIMessageAssistant>
+        <AIMessageParts
+          reasoning={
+            <AIMessageReasoning>
+              <AIMessageReasoningHeader>
+                <AIMessageReasoningMark>
+                  <i data-testid="own" />
+                </AIMessageReasoningMark>
+              </AIMessageReasoningHeader>
+            </AIMessageReasoning>
+          }
+        />
+      </AIMessageAssistant>,
+      { workingMark: <i data-testid="glyph" /> }
+    )
+    await send()
+
+    expect(await screen.findByTestId('own')).toBeInTheDocument()
+    expect(screen.queryByTestId('glyph')).toBeNull()
+
+    run.finish([{ type: 'text', text: 'Done' }])
+    await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
+  })
+})
+
+describe('getGroupDuration', () => {
+  test.each([
+    [{}],
+    [{ timing: Number.NaN }],
+    [{ timing: Number.POSITIVE_INFINITY }],
+    [{ timing: -1 }],
+    [{ timing: '5' }],
+  ])('is undefined for %o', (part) => {
+    expect(getGroupDuration(part)).toBeUndefined()
+  })
+
+  test.each([0, 1234])('passes through %i', (timing) => {
+    expect(getGroupDuration({ timing })).toBe(timing)
+  })
+})
+
+describe('getGroupStatus', () => {
+  test.each([
+    [{ status: { type: 'running' } }, 'running'],
+    [{ status: { type: 'complete' } }, 'complete'],
+    [{}, 'complete'],
+  ] as const)('maps %o to %s', (part, expected) => {
+    expect(getGroupStatus(part)).toBe(expected)
+  })
+})

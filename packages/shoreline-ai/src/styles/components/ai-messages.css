@@ -232,6 +232,7 @@
     gap: var(--sl-space-2);
     font: var(--sl-text-caption-2-font);
     letter-spacing: var(--sl-text-caption-2-letter-spacing);
+    color: var(--sl-fg-base-soft);
   }
 
   [data-sl-ai-message-text] {

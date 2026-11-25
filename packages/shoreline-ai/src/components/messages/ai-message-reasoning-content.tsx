@@ -4,10 +4,12 @@ import {
   useAIMessageReasoningCollapseProps,
   useAIMessageReasoningRootContext,
 } from './ai-message-reasoning-root'
+import { useReasoningGroup } from './reasoning-group-context'
 import type { AIMessageReasoningContentProps } from './types'
 
 /**
- * Collapsible body of the reasoning panel.
+ * Collapsible body of the reasoning panel. Inside the `reasoning` template of
+ * `AIMessageParts` it renders the group's parts when it has no children.
  *
  * @example
  * <AIMessageReasoningRoot status="complete" defaultExpanded>
@@ -24,8 +26,9 @@ export const AIMessageReasoningContent = forwardRef<
   AIMessageReasoningContentProps
 >(function AIMessageReasoningContent(props, ref) {
   const { children, ...divProps } = props
-  const { meta } = useAIMessageReasoningRootContext()
+  const { state, meta } = useAIMessageReasoningRootContext()
   const getCollapseProps = useAIMessageReasoningCollapseProps()
+  const group = useReasoningGroup()
 
   return (
     <div
@@ -33,11 +36,11 @@ export const AIMessageReasoningContent = forwardRef<
       {...getCollapseProps({
         ref,
         id: meta.contentId,
-        'aria-labelledby': meta.labelId,
+        'aria-labelledby': state.hasLabel ? meta.labelId : undefined,
       })}
       {...divProps}
     >
-      {children}
+      {children ?? group?.parts}
     </div>
   )
 })

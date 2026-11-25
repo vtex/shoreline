@@ -1,10 +1,9 @@
-import { forwardRef, useLocale } from '@vtex/shoreline'
+import { forwardRef, useSafeLayoutEffect } from '@vtex/shoreline'
 
 import { AIThinkingIndicator } from './ai-thinking-indicator'
 import { useAIMessageReasoningRootContext } from './ai-message-reasoning-root'
-import { formatReasoningDuration } from './format-duration'
-import { useMessageMessagesContext } from './message-messages-context'
 import type { AIMessageReasoningLabelProps } from './types'
+import { useReasoningStatusText } from './use-reasoning-status-text'
 
 /**
  * Status text of the reasoning panel. It shimmers while running, carries the
@@ -23,23 +22,14 @@ export const AIMessageReasoningLabel = forwardRef<
   AIMessageReasoningLabelProps
 >(function AIMessageReasoningLabel(props, ref) {
   const { children, ...spanProps } = props
-  const { state, meta } = useAIMessageReasoningRootContext()
-  const getMessage = useMessageMessagesContext()
-  const locale = useLocale()
+  const { state, actions, meta } = useAIMessageReasoningRootContext()
+  const statusText = useReasoningStatusText()
+
+  // Tells the trigger and the content that this label names the panel.
+  useSafeLayoutEffect(() => actions.registerLabel(), [actions.registerLabel])
 
   const running = state.status === 'running'
-
-  function defaultText() {
-    if (running) return getMessage('reasoningStreaming')
-
-    const duration = formatReasoningDuration(state.duration, locale)
-
-    return duration
-      ? getMessage('reasoningDoneIn', { duration })
-      : getMessage('reasoningDone')
-  }
-
-  const text = children ?? defaultText()
+  const text = children ?? statusText
 
   return (
     <span

@@ -96,7 +96,7 @@ describe('AIMessageAssistant actions gating', () => {
     expect(document.querySelector(ACTIONS)).not.toBeNull()
   })
 
-  it('keeps the indicator after custom children while running with no parts (FR-08)', () => {
+  it('renders only its children while running with no parts: the pending header lives in AIMessageParts', () => {
     renderAssistant(
       {
         message: { status: { type: 'running' }, isLast: true, content: [] },
@@ -108,24 +108,11 @@ describe('AIMessageAssistant actions gating', () => {
     const content = document.querySelector(
       '[data-testid="root"]'
     ) as HTMLElement
-    const indicator = content.querySelector(INDICATOR)
 
-    expect(indicator).not.toBeNull()
+    expect(content.querySelector(INDICATOR)).toBeNull()
+    expect(content.childElementCount).toBe(1)
     expect(content.firstElementChild).toBe(
       content.querySelector('[data-testid="custom"]')
     )
-    expect(content.lastElementChild).toBe(indicator)
-  })
-
-  it('shows no indicator while running when the only part is a tool call', () => {
-    renderAssistant({
-      message: {
-        status: { type: 'running' },
-        isLast: true,
-        content: [{ type: 'tool-call', toolName: 'search' }],
-      },
-      thread: { isRunning: true },
-    })
-    expect(document.querySelector(INDICATOR)).toBeNull()
   })
 })

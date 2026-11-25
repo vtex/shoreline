@@ -16,11 +16,11 @@ import { LocaleProvider } from '@vtex/shoreline'
 
 import { AIMessageReasoningContent } from '../ai-message-reasoning-content'
 import { AIMessageReasoningElapsed } from '../ai-message-reasoning-elapsed'
-import { AIMessageReasoningGroup } from '../ai-message-reasoning-group'
 import { AIMessageReasoningHeader } from '../ai-message-reasoning-header'
 import { AIMessageReasoningLabel } from '../ai-message-reasoning-label'
 import { AIMessageReasoningMark } from '../ai-message-reasoning-mark'
 import { AIMessageReasoningRoot } from '../ai-message-reasoning-root'
+import { AIMessageReasoningTrigger } from '../ai-message-reasoning-trigger'
 import { MessageMessagesProvider } from '../message-messages-context'
 import { WorkingMarkProvider } from '../working-mark-context'
 import type { AIMessageReasoningRootProps } from '../types'
@@ -217,24 +217,48 @@ describe('AIMessageReasoningRoot expansion', () => {
   })
 })
 
-describe('AIMessageReasoningGroup', () => {
-  it('renders the header and the content in one root', () => {
-    renderPanel(
-      <AIMessageReasoningGroup status="complete" duration={5000}>
-        body
-      </AIMessageReasoningGroup>
-    )
-    const root = document.querySelector('[data-sl-ai-message-reasoning]')
+describe('AIMessageReasoning accessible name without a label', () => {
+  const NoLabel = (p: Partial<AIMessageReasoningRootProps>) => (
+    <AIMessageReasoningRoot {...p}>
+      <AIMessageReasoningHeader>
+        <AIMessageReasoningTrigger />
+      </AIMessageReasoningHeader>
+      <AIMessageReasoningContent>
+        <p>body</p>
+      </AIMessageReasoningContent>
+    </AIMessageReasoningRoot>
+  )
 
-    expect(root).toHaveAttribute('data-status', 'complete')
+  test.each([
+    [{ status: 'running' }, 'Reasoning…'],
+    [{ status: 'complete' }, 'Reasoning complete'],
+    [{ status: 'complete', duration: 5000 }, 'Reasoning completed in 5s'],
+  ] as const)(
+    'the trigger is named by the status text when no label is mounted (%o)',
+    (props, name) => {
+      renderPanel(<NoLabel {...props} />)
+      const button = screen.getByRole('button', { name })
+
+      expect(button).not.toHaveAttribute('aria-labelledby')
+      expect(button).toHaveAttribute('aria-label', name)
+    }
+  )
+
+  test('the content is not labelled by a missing label', () => {
+    renderPanel(<NoLabel status="complete" />)
+
     expect(
-      root?.querySelector('[data-sl-ai-message-reasoning-header]')
-    ).toBeTruthy()
+      document.querySelector('[data-sl-ai-message-reasoning-content]')
+    ).not.toHaveAttribute('aria-labelledby')
+  })
+
+  test('with a label, the trigger and the content point at it', () => {
+    renderPanel(<Panel status="complete" />)
+    const label = document.querySelector('[data-sl-ai-message-reasoning-label]')
+
+    expect(screen.getByRole('button')).not.toHaveAttribute('aria-label')
     expect(
-      screen.getByRole('button', { name: 'Reasoning completed in 5s' })
-    ).toBeInTheDocument()
-    expect(
-      root?.querySelector('[data-sl-ai-message-reasoning-content]')
-    ).toBeTruthy()
+      document.querySelector('[data-sl-ai-message-reasoning-content]')
+    ).toHaveAttribute('aria-labelledby', label?.id)
   })
 })

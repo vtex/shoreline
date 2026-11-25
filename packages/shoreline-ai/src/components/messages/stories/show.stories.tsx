@@ -16,14 +16,14 @@ import {
   AIMessageActions,
   AIMessageAssistant,
   AIMessageParts,
+  AIMessageReasoningContent,
+  AIMessageReasoningHeader,
+  AIMessageReasoningRoot,
   AIMessageRoot,
   AIMessageUser,
   AIMessages,
 } from '../index'
 import { AIThinkingIndicator } from '../ai-thinking-indicator'
-// Internal building blocks: the runtime does not supply a reasoning duration yet,
-// so these stories preview the "Worked for" state it will provide later.
-import { AIMessageReasoningGroup } from '../ai-message-reasoning-group'
 import { MessageMessagesProvider } from '../message-messages-context'
 import { MessagesStoryDecorator } from './decorators'
 import {
@@ -170,9 +170,10 @@ export const ReasoningRunning: Story = {
 export const ReasoningCompleteWithDuration: Story = {
   render: () => (
     <MessageMessagesProvider>
-      <AIMessageReasoningGroup status="complete" duration={180_000}>
-        {reasoningBody}
-      </AIMessageReasoningGroup>
+      <AIMessageReasoningRoot status="complete" duration={180_000}>
+        <AIMessageReasoningHeader />
+        <AIMessageReasoningContent>{reasoningBody}</AIMessageReasoningContent>
+      </AIMessageReasoningRoot>
     </MessageMessagesProvider>
   ),
 }
