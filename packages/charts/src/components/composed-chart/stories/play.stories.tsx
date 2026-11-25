@@ -141,3 +141,120 @@ TooltipShowsBothUnits.play = async ({
     expect(tooltip?.textContent).toContain('%')
   })
 }
+
+const website = [2300, 2900, 2500, 3400, 3100, 3800]
+const marketplace = [1200, 1400, 1500, 1800, 1900, 2200]
+const physicalStore = [700, 800, 800, 1100, 900, 1200]
+
+// Only the projected categories carry a forecast, aligned with the categories
+// the history covers.
+const forecast = [null, null, null, null, 2.6, null]
+
+// The story's render and play share the instance through this module-scoped
+// ref: the engine instance can't ride the DOM (FR-002 keeps it off the public
+// component), so the render fills it and play reads it.
+const stackTooltipChartRef: MutableRefObject<EChartsType | null> = {
+  current: null,
+}
+
+/**
+ * Hovering a stacked composed chart closes the bar rows with the stack's
+ * total — a virtual row with no series of its own, so no swatch — and the
+ * lines drawn after the bars keep their own rows and stay out of the sum. A
+ * forecast's row wears its dashed swatch, matching the dashed line.
+ *
+ * Goes through `ChartContainer` + `chartRef` rather than the public component
+ * because the engine instance is deliberately not exposed to consumers
+ * (FR-002) — the internal container's `chartRef` is the test seam.
+ */
+export function TooltipTotalsTheStack() {
+  return (
+    // The container fills its parent, so the story gives it the height the
+    // composed chart's own stylesheet would: an unsized one collapses.
+    <div style={{ height: '20rem' }}>
+      <ChartContainer
+        chartRef={stackTooltipChartRef}
+        option={(tokens: ChartTokens) =>
+          buildComposedOption({
+            series: [
+              { type: 'bar', name: 'Website', data: website },
+              { type: 'bar', name: 'Marketplace', data: marketplace },
+              { type: 'bar', name: 'Physical store', data: physicalStore },
+              {
+                type: 'line',
+                name: 'Conversion',
+                data: conversion,
+                unit: 'percentage',
+              },
+              {
+                type: 'line',
+                name: 'Forecast',
+                data: forecast,
+                variant: 'forecast',
+                // The unit is per series: a forecast continuing a percentage
+                // line states it too, so it lands on the same axis.
+                unit: 'percentage',
+              },
+            ],
+            categories: months,
+            grouping: 'stacked',
+            othersLabel: 'Others',
+            totalLabel: 'Total',
+            locale: 'en-US',
+            maxSeries: defaultMaxSeries,
+            tokens,
+          })
+        }
+      />
+    </div>
+  )
+}
+
+TooltipTotalsTheStack.play = async ({
+  canvasElement,
+}: {
+  canvasElement: HTMLElement
+}) => {
+  const container = canvasElement.querySelector('[data-sl-chart-container]')
+  expect(container).toBeInTheDocument()
+
+  // Wait for the engine to finish its initial render before pointing.
+  await waitFor(() => {
+    expect(container?.querySelector('svg')).toBeInTheDocument()
+    expect(stackTooltipChartRef.current).not.toBeNull()
+  })
+
+  // Point at the first projected category, so the forecast has a row of its
+  // own — the seam category duplicates the history's last value instead.
+  stackTooltipChartRef.current?.dispatchAction({
+    type: 'showTip',
+    seriesIndex: 0,
+    dataIndex: 4,
+  })
+
+  await waitFor(() => {
+    const tooltip = document.querySelector('[data-sl-chart-tooltip]')
+    expect(tooltip).toBeInTheDocument()
+
+    const labels = Array.from(
+      tooltip?.querySelectorAll('[data-sl-chart-tooltip-row-label]') ?? []
+    ).map((label) => label.textContent)
+
+    // The bars read bottom-up, the total closes the group it sums, and the
+    // lines keep their series order after it.
+    expect(labels).toEqual([
+      'Physical store',
+      'Marketplace',
+      'Website',
+      'Total',
+      'Conversion',
+      'Forecast',
+    ])
+    // 3100 + 1900 + 900, written in the story's locale.
+    expect(tooltip?.textContent).toContain('5,900')
+    // The forecast's swatch is dashed like its line.
+    expect(
+      tooltip?.querySelector('[data-sl-chart-tooltip-row-line][data-dashed]')
+    ).toBeInTheDocument()
+  })
+}
