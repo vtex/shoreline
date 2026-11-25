@@ -130,3 +130,55 @@ export const plainAnswer: AIMessage[] = [
     parts: [{ type: 'text', text: 'Three orders are late this week.' }],
   },
 ]
+
+export const earlierAnswer: AIMessage[] = [
+  userQuestion,
+  {
+    id: 'assistant-5',
+    role: 'assistant',
+    createdAt,
+    parts: [{ type: 'text', text: 'Three orders are late this week.' }],
+  },
+  {
+    id: 'user-2',
+    role: 'user',
+    createdAt,
+    parts: [{ type: 'text', text: 'Which carrier handles them?' }],
+  },
+  {
+    id: 'assistant-6',
+    role: 'assistant',
+    createdAt,
+    parts: [{ type: 'text', text: 'All three ship with the same carrier.' }],
+  },
+]
+
+const thumbProps = {
+  viewBox: '0 0 20 20',
+  width: 20,
+  height: 20,
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 1.5,
+  strokeLinecap: 'round' as const,
+  strokeLinejoin: 'round' as const,
+  'aria-hidden': true,
+}
+
+/** The app's own thumbs-up icon: Shoreline does not ship one. */
+export function ThumbUpIcon() {
+  return (
+    <svg {...thumbProps}>
+      <path d="M6 9v8H3.5V9H6zm0 0 3-6c1.4 0 2 .9 2 2v3h4.4c.9 0 1.5.8 1.3 1.6l-1 5c-.2.8-.8 1.4-1.6 1.4H6" />
+    </svg>
+  )
+}
+
+/** The app's own thumbs-down icon. */
+export function ThumbDownIcon() {
+  return (
+    <svg {...thumbProps}>
+      <path d="M6 11V3H3.5v8H6zm0 0 3 6c1.4 0 2-.9 2-2v-3h4.4c.9 0 1.5-.8 1.3-1.6l-1-5c-.2-.8-.8-1.4-1.6-1.4H6" />
+    </svg>
+  )
+}

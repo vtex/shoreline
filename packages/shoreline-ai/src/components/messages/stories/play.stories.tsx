@@ -9,9 +9,20 @@ import {
   createMockThreadMessages,
   threadStoryShellStyle,
 } from '../../thread/stories/thread-story-shared'
-import { AIMessages } from '../index'
+import {
+  AIMessageAction,
+  AIMessageActions,
+  AIMessageAssistant,
+  AIMessageCopy,
+  AIMessageDate,
+  AIMessageParts,
+  AIMessageUser,
+  AIMessages,
+} from '../index'
 import { MessagesStoryDecorator } from './decorators'
 import {
+  ThumbDownIcon,
+  ThumbUpIcon,
   plainAnswer,
   reasoningToolText,
   twoReasoningGroups,
@@ -63,7 +74,7 @@ export const ExpandsAndCollapsesReasoning: Story = {
   ),
   play: async ({ canvasElement }) => {
     const trigger = await within(canvasElement).findByRole('button', {
-      name: /^Reasoned/,
+      name: /^Reasoning complete/,
     })
 
     await expect(trigger).toHaveAttribute('aria-expanded', 'false')
@@ -100,10 +111,12 @@ export const CopyShowsCheckThenResets: Story = {
 
       await userEvent.click(button)
       await waitFor(() => expect(button).toHaveAttribute('data-copied'))
+      await expect(button).toHaveAccessibleName('Copied!')
       await expect(calls).toEqual(['Three orders are late this week.'])
       await waitFor(() => expect(button).not.toHaveAttribute('data-copied'), {
         timeout: 4000,
       })
+      await expect(button).toHaveAccessibleName('Copy message')
     } finally {
       // Do not leak the fake clipboard into later stories.
       if (original) {
@@ -124,7 +137,7 @@ export const TwoGroupsKeepIndependentState: Story = {
   play: async ({ canvasElement }) => {
     const triggers = await waitFor(() => {
       const found = within(canvasElement).getAllByRole('button', {
-        name: /^Reasoned/,
+        name: /^Reasoning complete/,
       })
 
       expect(found).toHaveLength(2)
@@ -147,20 +160,48 @@ export const TwoGroupsKeepIndependentState: Story = {
 export const ActionsReachableByKeyboard: Story = {
   render: () => (
     <ThreadHistorySeed messages={reasoningToolText}>
-      <AIMessages />
+      <AIMessages>
+        <AIMessageUser />
+        <AIMessageAssistant>
+          <AIMessageParts />
+          <AIMessageActions>
+            <AIMessageAction label="Good response">
+              <ThumbUpIcon />
+            </AIMessageAction>
+            <AIMessageAction label="Bad response">
+              <ThumbDownIcon />
+            </AIMessageAction>
+            <AIMessageCopy />
+            <AIMessageDate />
+          </AIMessageActions>
+        </AIMessageAssistant>
+      </AIMessages>
     </ThreadHistorySeed>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    const trigger = await canvas.findByRole('button', { name: /^Reasoned/ })
-    const copy = await canvas.findByRole('button', { name: 'Copy message' })
-    const actions = canvasElement.querySelector(
-      '[data-sl-ai-message-actions]'
+    const trigger = await canvas.findByRole('button', {
+      name: /^Reasoning complete/,
+    })
+    const up = await canvas.findByRole('button', { name: 'Good response' })
+    const down = canvas.getByRole('button', { name: 'Bad response' })
+    const copy = canvas.getByRole('button', { name: 'Copy message' })
+    const date = canvasElement.querySelector(
+      '[data-sl-ai-message-date]'
     ) as HTMLElement
+
+    // The bar is always visible; the date (created long ago) is not, until
+    // the focus is inside the message.
+    await expect(up).toBeVisible()
+    await expect(getComputedStyle(date).opacity).toBe('0')
 
     trigger.focus()
     await userEvent.tab()
+    await expect(up).toHaveFocus()
+    await userEvent.tab()
+    await expect(down).toHaveFocus()
+    await userEvent.tab()
     await expect(copy).toHaveFocus()
-    await waitFor(() => expect(getComputedStyle(actions).opacity).toBe('1'))
+    await waitFor(() => expect(getComputedStyle(date).opacity).toBe('1'))
   },
 }
