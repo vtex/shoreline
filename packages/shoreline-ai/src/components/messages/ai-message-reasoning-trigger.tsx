@@ -1,19 +1,19 @@
-import { Button, IconCaretDown, IconCaretUp, forwardRef } from '@vtex/shoreline'
+import { forwardRef } from '@vtex/shoreline'
+import type { MouseEvent } from 'react'
 
 import { useAIMessageReasoningRootContext } from './ai-message-reasoning-root'
-import { useMessageMessagesContext } from './message-messages-context'
+import { IconExpandLess, IconExpandMore } from './icons'
 import type { AIMessageReasoningTriggerProps } from './types'
 
 /**
- * Toggles the reasoning panel open and closed.
+ * Chevron button that opens and closes the reasoning content. It is the only
+ * toggle in the header; its accessible name comes from the label.
  *
  * @example
- * <AIMessageReasoningRoot status="complete" defaultExpanded>
+ * <AIMessageReasoningHeader>
+ *   <AIMessageReasoningLabel />
  *   <AIMessageReasoningTrigger />
- *   <AIMessageReasoningContent>
- *     <AIMessageReasoningText />
- *   </AIMessageReasoningContent>
- * </AIMessageReasoningRoot>
+ * </AIMessageReasoningHeader>
  *
  * @status experimental
  */
@@ -21,34 +21,27 @@ export const AIMessageReasoningTrigger = forwardRef<
   HTMLButtonElement,
   AIMessageReasoningTriggerProps
 >(function AIMessageReasoningTrigger(props, ref) {
-  const { label, ...buttonProps } = props
-  const { isExpanded, setExpanded, status } = useAIMessageReasoningRootContext()
-  const getMessage = useMessageMessagesContext()
+  const { onClick, ...buttonProps } = props
+  const { state, actions, meta } = useAIMessageReasoningRootContext()
 
-  const resolvedLabel =
-    label ??
-    getMessage(status === 'running' ? 'reasoningStreaming' : 'reasoningReady')
-
-  function handleClick() {
-    setExpanded(!isExpanded)
+  function handleClick(event: MouseEvent<HTMLButtonElement>) {
+    onClick?.(event)
+    if (event.defaultPrevented) return
+    actions.setExpanded(!state.expanded)
   }
 
   return (
-    <Button
+    <button
       ref={ref}
       type="button"
-      variant="tertiary"
       data-sl-ai-message-reasoning-trigger
-      aria-expanded={isExpanded}
+      aria-expanded={state.expanded}
+      aria-controls={meta.contentId}
+      aria-labelledby={meta.labelId}
       onClick={handleClick}
       {...buttonProps}
     >
-      {resolvedLabel}{' '}
-      {isExpanded ? (
-        <IconCaretUp data-sl-ai-message-reasoning-trigger-icon />
-      ) : (
-        <IconCaretDown data-sl-ai-message-reasoning-trigger-icon />
-      )}
-    </Button>
+      {state.expanded ? <IconExpandLess /> : <IconExpandMore />}
+    </button>
   )
 })

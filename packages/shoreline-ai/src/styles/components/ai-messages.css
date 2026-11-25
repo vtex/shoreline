@@ -73,26 +73,62 @@
     gap: var(--sl-space-2);
   }
 
-  [data-sl-ai-message-reasoning-row] {
+  /* Mark, label, elapsed time and chevron in one 20px row. */
+  [data-sl-ai-message-reasoning-header] {
     display: flex;
     align-items: center;
-    gap: var(--sl-space-0);
+    gap: var(--sl-space-05);
+    height: var(--sl-space-5);
+    color: var(--sl-color-gray-8);
   }
 
-  [data-sl-ai-message-reasoning-row] [data-sl-ai-message-reasoning-trigger] {
-    margin-left: calc(var(--sl-space-3) * -1);
-    font: var(--sl-text-caption-1-font);
-    letter-spacing: var(--sl-text-caption-1-letter-spacing);
-    color: var(--sl-fg-base-soft);
+  /* 8px from the mark to the label: the row gap plus this margin. */
+  [data-sl-ai-message-reasoning-mark] {
+    flex-shrink: 0;
+    margin-inline-end: calc(var(--sl-space-2) - var(--sl-space-05));
   }
 
-  [data-sl-ai-message-reasoning-meta] {
+  [data-sl-ai-message-reasoning-label],
+  [data-sl-ai-message-reasoning-elapsed] {
+    font: var(--sl-text-body-font);
+    letter-spacing: var(--sl-text-body-letter-spacing);
+    color: var(--sl-color-gray-8);
+  }
+
+  [data-sl-ai-message-reasoning-elapsed] {
+    margin-inline-start: var(--sl-space-05);
+    font-variant-numeric: tabular-nums;
+  }
+
+  [data-sl-ai-message-reasoning-trigger] {
     display: inline-flex;
     align-items: center;
-    gap: var(--sl-space-1);
-    font: var(--sl-text-caption-1-font);
-    letter-spacing: var(--sl-text-caption-1-letter-spacing);
-    color: var(--sl-fg-muted);
+    justify-content: center;
+    flex-shrink: 0;
+    width: var(--sl-space-5);
+    height: var(--sl-space-5);
+    padding: 0;
+    border: none;
+    border-radius: var(--sl-radius-1);
+    background: transparent;
+    color: var(--sl-color-gray-8);
+    cursor: pointer;
+  }
+
+  [data-sl-ai-message-reasoning-trigger]:hover {
+    background: var(--sl-bg-muted-plain-hover);
+    color: var(--sl-color-gray-9);
+  }
+
+  /* The focus ring token is a box-shadow, not a color. */
+  [data-sl-ai-message-reasoning-trigger]:focus-visible {
+    outline: none;
+    box-shadow: var(--sl-focus-ring-base);
+  }
+
+  [data-sl-ai-message-reasoning-trigger] > svg {
+    width: var(--sl-space-4);
+    height: var(--sl-space-4);
   }
 
   [data-sl-ai-thinking-indicator] {
@@ -186,13 +222,16 @@
     }
   }
 
+  /* 3px bar, 16px inset, 8px between paragraphs. */
   [data-sl-ai-message-reasoning-content] {
-    border-left: var(--sl-border-base);
-    border-left-width: 3px;
-    padding-left: var(--sl-space-4);
+    border-inline-start: calc(var(--sl-space-05) * 1.5) solid
+      var(--sl-color-gray-3);
+    padding-inline-start: var(--sl-space-4);
     display: flex;
     flex-direction: column;
     gap: var(--sl-space-2);
+    font: var(--sl-text-caption-2-font);
+    letter-spacing: var(--sl-text-caption-2-letter-spacing);
   }
 
   [data-sl-ai-message-text] {
@@ -205,41 +244,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--sl-space-2);
-  }
-
-  [data-sl-ai-dots-loader] {
-    display: flex;
-    justify-content: center;
-  }
-
-  [data-sl-ai-dots-loader] > div {
-    width: 5px;
-    height: 5px;
-    margin: 0 2px;
-    border-radius: 50%;
-    background-color: var(--sl-color-blue-4);
-    animation: sl-ai-dots-loader-bounce 0.6s infinite alternate;
-  }
-
-  @keyframes sl-ai-dots-loader-bounce {
-    to {
-      background-color: var(--sl-color-blue-9);
-      transform: translateY(-2px);
-    }
-  }
-
-  [data-sl-ai-dots-loader] > div:nth-child(2) {
-    animation-delay: 0.3s;
-  }
-
-  [data-sl-ai-dots-loader] > div:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    [data-sl-ai-dots-loader] > div {
-      animation: none;
-    }
   }
 
   [data-sl-ai-message-resources] {

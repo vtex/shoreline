@@ -204,7 +204,7 @@ async function findText(text: string) {
 }
 
 describe('AIMessageParts reasoning groups', () => {
-  it('renders one reasoning root per reasoning run and no Header export', async () => {
+  it('renders one reasoning root, each with a header, per reasoning run', async () => {
     const historyMessages: AIMessage[] = [
       {
         id: 'msg-assistant-1',
@@ -232,15 +232,23 @@ describe('AIMessageParts reasoning groups', () => {
     expect(roots).toHaveLength(2)
     for (const root of roots) {
       expect(root).toHaveAttribute('data-status', 'complete')
+      expect(
+        root.querySelector('[data-sl-ai-message-reasoning-header]')
+      ).toBeTruthy()
     }
-    expect(
-      document.querySelector('[data-sl-ai-message-reasoning-header]')
-    ).toBeNull()
   })
 
-  it('does not export AIMessageReasoningHeader from the package entry', async () => {
+  it('exports the reasoning header parts from the package entry', async () => {
     const pkg = await import('../../..')
 
-    expect('AIMessageReasoningHeader' in pkg).toBe(false)
+    for (const name of [
+      'AIMessageReasoningHeader',
+      'AIMessageReasoningMark',
+      'AIMessageReasoningLabel',
+      'AIMessageReasoningElapsed',
+      'AIMessageReasoningTrigger',
+    ]) {
+      expect(name in pkg).toBe(true)
+    }
   })
 })

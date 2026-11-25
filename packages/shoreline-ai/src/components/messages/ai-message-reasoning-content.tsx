@@ -1,6 +1,9 @@
 import { forwardRef } from '@vtex/shoreline'
 
-import { useAIMessageReasoningRootContext } from './ai-message-reasoning-root'
+import {
+  useAIMessageReasoningCollapseProps,
+  useAIMessageReasoningRootContext,
+} from './ai-message-reasoning-root'
 import type { AIMessageReasoningContentProps } from './types'
 
 /**
@@ -8,7 +11,7 @@ import type { AIMessageReasoningContentProps } from './types'
  *
  * @example
  * <AIMessageReasoningRoot status="complete" defaultExpanded>
- *   <AIMessageReasoningTrigger />
+ *   <AIMessageReasoningHeader />
  *   <AIMessageReasoningContent>
  *     <AIMessageReasoningText />
  *   </AIMessageReasoningContent>
@@ -21,12 +24,17 @@ export const AIMessageReasoningContent = forwardRef<
   AIMessageReasoningContentProps
 >(function AIMessageReasoningContent(props, ref) {
   const { children, ...divProps } = props
-  const { getCollapseProps } = useAIMessageReasoningRootContext()
+  const { meta } = useAIMessageReasoningRootContext()
+  const getCollapseProps = useAIMessageReasoningCollapseProps()
 
   return (
     <div
       data-sl-ai-message-reasoning-content
-      {...getCollapseProps({ ref })}
+      {...getCollapseProps({
+        ref,
+        id: meta.contentId,
+        'aria-labelledby': meta.labelId,
+      })}
       {...divProps}
     >
       {children}

@@ -62,11 +62,10 @@ export type AIMessagesProps = AIMessagesOptions &
 export type AIMessageMessages = Partial<
   Record<
     | 'reasoningStreaming'
-    | 'reasoningReady'
+    | 'reasoningDone'
+    | 'reasoningDoneIn'
     | 'copyMessage'
     | 'copyCode'
-    | 'workedFor'
-    | 'thinking'
     | 'messageCopied',
     string
   >
@@ -118,14 +117,22 @@ export type AIMessageReasoningStatus = 'running' | 'complete'
 
 export interface AIMessageReasoningRootOptions {
   /**
-   * Whether the reasoning is still being generated. Drives the trigger label.
+   * Whether the reasoning is still being generated. Drives the header label,
+   * the mark and the elapsed time.
    * @default 'complete'
    */
   status?: AIMessageReasoningStatus
   /**
-   * Time spent reasoning, in milliseconds.
+   * Time spent reasoning, in milliseconds. When omitted, the time counted
+   * from `startedAt` until `status` turns `complete` is used.
    */
   duration?: number
+  /**
+   * When the reasoning started, in epoch milliseconds. Origin of the elapsed
+   * time.
+   * @default the time of the first render with `status="running"`
+   */
+  startedAt?: number
   /**
    * Whether the reasoning panel starts expanded (uncontrolled).
    * @default false
@@ -148,10 +155,46 @@ export interface AIMessageReasoningRootOptions {
 export type AIMessageReasoningRootProps = AIMessageReasoningRootOptions &
   Omit<ComponentPropsWithoutRef<'div'>, 'children'>
 
-export interface AIMessageReasoningTriggerOptions {
-  /** Overrides the collapse button label. Uses localized default when omitted. */
-  label?: ReactNode
+export interface AIMessageReasoningHeaderOptions {
+  /**
+   * Header parts.
+   * @default mark, label, elapsed time and trigger, in that order
+   */
+  children?: ReactNode
 }
+
+export type AIMessageReasoningHeaderProps = AIMessageReasoningHeaderOptions &
+  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
+
+export interface AIMessageReasoningMarkOptions {
+  /**
+   * Custom glyph. Falls back to the glyph from the messages, then to the
+   * default spark.
+   */
+  children?: ReactNode
+}
+
+export type AIMessageReasoningMarkProps = AIMessageReasoningMarkOptions &
+  Omit<ComponentPropsWithoutRef<'span'>, 'children'>
+
+export interface AIMessageReasoningLabelOptions {
+  /**
+   * Custom label text. Uses the localized status text when omitted.
+   */
+  children?: ReactNode
+}
+
+export type AIMessageReasoningLabelProps = AIMessageReasoningLabelOptions &
+  Omit<ComponentPropsWithoutRef<'span'>, 'children'>
+
+/** The elapsed time has no own props. */
+export type AIMessageReasoningElapsedOptions = Record<never, never>
+
+export type AIMessageReasoningElapsedProps = AIMessageReasoningElapsedOptions &
+  Omit<ComponentPropsWithoutRef<'span'>, 'children'>
+
+/** The trigger has no own props: its accessible name comes from the label. */
+export type AIMessageReasoningTriggerOptions = Record<never, never>
 
 export type AIMessageReasoningTriggerProps = AIMessageReasoningTriggerOptions &
   Omit<ComponentPropsWithoutRef<'button'>, 'children'>

@@ -18,6 +18,13 @@ import { AIThinkingIndicator } from '../ai-thinking-indicator'
 
 const SELECTOR = '[data-sl-ai-thinking-indicator]'
 
+/** Thinking indicators outside a reasoning panel (the panel label shimmers too). */
+function messageIndicators() {
+  return Array.from(document.querySelectorAll(SELECTOR)).filter(
+    (el) => !el.closest('[data-sl-ai-message-reasoning]')
+  )
+}
+
 function SendButton() {
   const { sendMessage } = useAIThread()
 
@@ -128,20 +135,18 @@ describe('AIMessageAssistant thinking indicator', () => {
         document.querySelector('[data-sl-ai-message-reasoning]')
       ).toBeTruthy()
     )
-    expect(document.querySelectorAll(SELECTOR)).toHaveLength(0)
+    expect(messageIndicators()).toHaveLength(0)
 
     // A running group from the real runtime reaches the panel.
     const root = document.querySelector('[data-sl-ai-message-reasoning]')
 
     expect(root).toHaveAttribute('data-status', 'running')
     expect(
-      root?.querySelector(
-        '[data-sl-ai-message-reasoning-meta] [data-sl-ai-dots-loader]'
-      )
+      root?.querySelector('[data-sl-ai-message-reasoning-mark]')
     ).toBeTruthy()
-    expect(
-      root?.querySelector('[data-sl-ai-message-reasoning-trigger]')
-    ).toHaveTextContent('Reasoning')
+    expect(screen.getByRole('button', { name: 'Reasoning…' })).toHaveAttribute(
+      'data-sl-ai-message-reasoning-trigger'
+    )
 
     release()
     await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
@@ -195,10 +200,10 @@ describe('AIMessageAssistant thinking indicator', () => {
     expect(roots[0]).toHaveAttribute('data-status', 'complete')
     expect(roots[1]).toHaveAttribute('data-status', 'running')
     expect(
-      roots[0].querySelector('[data-sl-ai-dots-loader]')
+      roots[0].querySelector('[data-sl-ai-message-reasoning-mark]')
     ).not.toBeInTheDocument()
     expect(
-      roots[1].querySelector('[data-sl-ai-dots-loader]')
+      roots[1].querySelector('[data-sl-ai-message-reasoning-mark]')
     ).toBeInTheDocument()
 
     release()

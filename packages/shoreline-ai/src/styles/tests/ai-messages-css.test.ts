@@ -52,15 +52,33 @@ describe('ai-messages.css reduced motion', () => {
     expect(blocks.length).toBeGreaterThan(0)
   })
 
-  it('stops the dots loader animation', () => {
-    expect(ruleBody(blocks, '[data-sl-ai-dots-loader]')).toMatch(
-      /animation:\s*none/
-    )
-  })
-
   it('removes the actions row transition', () => {
     expect(ruleBody(blocks, '[data-sl-ai-message-actions]')).toMatch(
       /transition:\s*none/
     )
+  })
+})
+
+describe('ai-messages.css reasoning header', () => {
+  it('drops the dots loader, the meta and the row rules', () => {
+    expect(css).not.toContain('[data-sl-ai-dots-loader]')
+    expect(css).not.toContain('[data-sl-ai-message-reasoning-meta]')
+    expect(css).not.toContain('[data-sl-ai-message-reasoning-row]')
+  })
+
+  it('darkens the chevron on hover with token colors', () => {
+    const hover = ruleBody(
+      [css],
+      '[data-sl-ai-message-reasoning-trigger]:hover'
+    )
+
+    expect(hover).toContain('color: var(--sl-color-gray-9)')
+    expect(hover).toContain('background: var(--sl-bg-muted-plain-hover)')
+  })
+
+  it('shows a keyboard focus ring on the chevron', () => {
+    expect(
+      ruleBody([css], '[data-sl-ai-message-reasoning-trigger]:focus-visible')
+    ).toContain('box-shadow: var(--sl-focus-ring-base)')
   })
 })

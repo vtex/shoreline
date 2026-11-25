@@ -6,6 +6,10 @@ export { AIMessageParts } from './ai-message-parts'
 export { AIMessageText } from './ai-message-text'
 export { AIMarkdown } from './ai-markdown'
 export { AIMessageReasoningRoot } from './ai-message-reasoning-root'
+export { AIMessageReasoningHeader } from './ai-message-reasoning-header'
+export { AIMessageReasoningMark } from './ai-message-reasoning-mark'
+export { AIMessageReasoningLabel } from './ai-message-reasoning-label'
+export { AIMessageReasoningElapsed } from './ai-message-reasoning-elapsed'
 export { AIMessageReasoningTrigger } from './ai-message-reasoning-trigger'
 export { AIMessageReasoningContent } from './ai-message-reasoning-content'
 export { AIMessageReasoningText } from './ai-message-reasoning-text'
@@ -39,6 +43,14 @@ export type {
   AIMessageReasoningRootProps,
   AIMessageReasoningRootOptions,
   AIMessageReasoningStatus,
+  AIMessageReasoningHeaderProps,
+  AIMessageReasoningHeaderOptions,
+  AIMessageReasoningMarkProps,
+  AIMessageReasoningMarkOptions,
+  AIMessageReasoningLabelProps,
+  AIMessageReasoningLabelOptions,
+  AIMessageReasoningElapsedProps,
+  AIMessageReasoningElapsedOptions,
   AIMessageReasoningTriggerProps,
   AIMessageReasoningTriggerOptions,
   AIMessageReasoningContentProps,
