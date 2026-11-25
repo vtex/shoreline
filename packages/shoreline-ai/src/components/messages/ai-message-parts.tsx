@@ -83,14 +83,27 @@ export const AIMessageParts = forwardRef<HTMLDivElement, AIMessagePartsProps>(
     // Set at the first running render and kept, so the elapsed time of the
     // pending header carries over to the first reasoning group.
     const startedAt = useRef<number>()
+    const showPending = running && pending
+    // Whether the first reasoning group took the place of the pending header.
+    // Decided once, on the render the header goes away. When something else
+    // ended it (text, a widget tool, the run stopping), the first group
+    // counts from its own start, not from the message start.
+    const pendingShown = useRef(false)
+    const handedOff = useRef<boolean>()
 
     if (running && startedAt.current === undefined) {
       startedAt.current = Date.now()
     }
 
+    if (showPending) {
+      pendingShown.current = true
+    } else if (pendingShown.current && handedOff.current === undefined) {
+      handedOff.current = firstGroupIndex !== -1
+    }
+
     return (
       <div ref={ref} data-sl-ai-message-parts {...divProps}>
-        {running && pending ? (
+        {showPending ? (
           <ReasoningGroupProvider
             status="running"
             startedAt={startedAt.current}
@@ -107,6 +120,7 @@ export const AIMessageParts = forwardRef<HTMLDivElement, AIMessagePartsProps>(
                   status={getGroupStatus(part)}
                   duration={getGroupDuration(part)}
                   startedAt={
+                    handedOff.current === true &&
                     part.indices[0] === firstGroupIndex
                       ? startedAt.current
                       : undefined

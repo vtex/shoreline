@@ -179,34 +179,108 @@ describe('AIMessageParts pending header', () => {
     await waitFor(() => expect(screen.getByText('Ok')).toBeInTheDocument())
   })
 
-  test.each([
-    ['text', { type: 'text', text: 'Partial' }],
-    [
-      'a tool call',
+  test('text arrives first: the pending header disappears and no reasoning header is left', async () => {
+    const run = controlledTransport()
+
+    renderThread(run.transport)
+    await send()
+    await screen.findByRole('status')
+
+    run.push([{ type: 'text', text: 'Partial' }])
+    await waitFor(() => expect(screen.getByText('Partial')).toBeInTheDocument())
+    expect(screen.queryByRole('status')).toBeNull()
+    expect(screen.queryByText('Reasoning…')).toBeNull()
+    expect(
+      document.querySelector('[data-sl-ai-message-reasoning-header]')
+    ).toBeNull()
+
+    run.finish([{ type: 'text', text: 'Done' }])
+    await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
+    expect(screen.queryByText('Reasoning complete')).toBeNull()
+  })
+
+  test('an unregistered tool call arrives first: the pending header gives way to a running reasoning group with its chevron', async () => {
+    const run = controlledTransport()
+
+    renderThread(run.transport)
+    await send()
+    await screen.findByRole('status')
+
+    run.push([
       { type: 'tool', name: 'search_orders', args: {}, status: 'running' },
-    ],
-  ] as const)(
-    '%s arrives first: the pending header disappears (Review Focus 4)',
-    async (_, part) => {
-      const run = controlledTransport()
+    ])
+    await waitFor(() => expect(screen.queryByRole('status')).toBeNull())
 
-      renderThread(run.transport)
-      await send()
-      await screen.findByRole('status')
+    const roots = document.querySelectorAll('[data-sl-ai-message-reasoning]')
 
-      run.push([part])
-      await waitFor(() => expect(screen.queryByRole('status')).toBeNull())
+    expect(roots).toHaveLength(1)
+    expect(roots[0]).toHaveAttribute('data-status', 'running')
+    expect(
+      roots[0].querySelector('[data-sl-ai-message-reasoning-header]')
+    ).not.toHaveAttribute('role')
+    expect(screen.getByRole('button', { name: 'Reasoning…' })).toHaveAttribute(
+      'data-sl-ai-message-reasoning-trigger'
+    )
 
-      if (part.type === 'text') {
-        expect(screen.queryByText('Reasoning…')).toBeNull()
-      }
-      expect(screen.queryByText('Reasoning complete')).toBeNull()
+    run.finish([{ type: 'text', text: 'Done' }])
+    await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
+    expect(screen.queryByText('Reasoning complete')).toBeNull()
+  })
 
-      run.finish([{ type: 'text', text: 'Done' }])
-      await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
-      expect(screen.queryByText('Reasoning complete')).toBeNull()
-    }
-  )
+  test('text first, then reasoning: the group elapsed starts from the group, not the message', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    const run = controlledTransport()
+
+    renderThread(run.transport)
+    await send()
+    await screen.findByRole('status')
+
+    run.push([{ type: 'text', text: 'Partial' }])
+    await waitFor(() => expect(screen.queryByRole('status')).toBeNull())
+
+    act(() => vi.advanceTimersByTime(5000))
+    run.push([
+      { type: 'text', text: 'Partial' },
+      reasoningPart('Hmm', 'streaming'),
+    ])
+    await waitFor(() =>
+      expect(
+        document.querySelector('[data-sl-ai-message-reasoning-elapsed]')
+      ).toBeTruthy()
+    )
+    expect(
+      document.querySelector('[data-sl-ai-message-reasoning-elapsed]')
+    ).toHaveTextContent('1s')
+
+    run.finish([{ type: 'text', text: 'Done' }])
+    await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
+  })
+
+  test('pending with a defaultExpanded template: no empty content is mounted', async () => {
+    const run = controlledTransport()
+
+    renderThread(
+      run.transport,
+      <AIMessageAssistant>
+        <AIMessageParts reasoning={<AIMessageReasoning defaultExpanded />} />
+      </AIMessageAssistant>
+    )
+    await send()
+    await screen.findByRole('status')
+
+    expect(
+      document.querySelector('[data-sl-ai-message-reasoning-content]')
+    ).toBeNull()
+
+    run.push([reasoningPart('Hmm', 'streaming')])
+    await waitFor(() => expect(screen.getByText('Hmm')).toBeInTheDocument())
+    expect(
+      document.querySelector('[data-sl-ai-message-reasoning-content]')
+    ).toBeTruthy()
+
+    run.finish([{ type: 'text', text: 'Done' }])
+    await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
+  })
 })
 
 describe('AIMessageParts reasoning template', () => {

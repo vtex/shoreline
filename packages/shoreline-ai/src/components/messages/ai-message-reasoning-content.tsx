@@ -9,7 +9,8 @@ import type { AIMessageReasoningContentProps } from './types'
 
 /**
  * Collapsible body of the reasoning panel. Inside the `reasoning` template of
- * `AIMessageParts` it renders the group's parts when it has no children.
+ * `AIMessageParts` it renders the group's parts when it has no children, and
+ * nothing before the message has any part.
  *
  * @example
  * <AIMessageReasoningRoot status="complete" defaultExpanded>
@@ -29,6 +30,10 @@ export const AIMessageReasoningContent = forwardRef<
   const { state, meta } = useAIMessageReasoningRootContext()
   const getCollapseProps = useAIMessageReasoningCollapseProps()
   const group = useReasoningGroup()
+  const content = children ?? group?.parts
+
+  // Pending header: there is nothing to show yet, not even the empty bar.
+  if (group && group.parts === null && children === undefined) return null
 
   return (
     <div
@@ -40,7 +45,7 @@ export const AIMessageReasoningContent = forwardRef<
       })}
       {...divProps}
     >
-      {children ?? group?.parts}
+      {content}
     </div>
   )
 })
