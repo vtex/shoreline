@@ -1,28 +1,24 @@
 import { forwardRef } from '@vtex/shoreline'
 
-import { AIDotsLoader } from './ai-dots-loader'
-import { useMessageMessagesContext } from './message-messages-context'
 import type { AIThinkingIndicatorProps } from './types'
 
 /**
- * Status shown while the assistant has not produced any content yet.
+ * Text effect shown while the assistant has not produced any content yet.
+ * Renders its children with a shimmer sweep; it carries no role and no default text.
  *
  * @status experimental
  * @example
- * <AIThinkingIndicator />
+ * <AIThinkingIndicator>Loading orders…</AIThinkingIndicator>
  */
 export const AIThinkingIndicator = forwardRef<
-  HTMLDivElement,
+  HTMLSpanElement,
   AIThinkingIndicatorProps
 >(function AIThinkingIndicator(props, ref) {
-  const { label, ...rest } = props
-  const getMessage = useMessageMessagesContext()
+  const { children, ...rest } = props
 
   return (
-    // biome-ignore lint/a11y/useSemanticElements: spec requires a div carrying role="status"
-    <div ref={ref} role="status" data-sl-ai-thinking-indicator {...rest}>
-      <AIDotsLoader />
-      {label ?? getMessage('thinking')}
-    </div>
+    <span ref={ref} data-sl-ai-thinking-indicator {...rest}>
+      {children}
+    </span>
   )
 })

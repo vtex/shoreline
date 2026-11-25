@@ -15,7 +15,6 @@ import { MockRuntimeProvider } from '../../../test-utils'
 import type { StreamTransport } from '../../../runtime/types'
 import { AIMessages } from '../ai-messages'
 import { AIThinkingIndicator } from '../ai-thinking-indicator'
-import { MessageMessagesProvider } from '../message-messages-context'
 
 const SELECTOR = '[data-sl-ai-thinking-indicator]'
 
@@ -39,43 +38,28 @@ function gated() {
 }
 
 describe('AIThinkingIndicator', () => {
-  it('renders a status with the localized label', () => {
-    render(
-      <LocaleProvider locale="en-US">
-        <MessageMessagesProvider>
-          <AIThinkingIndicator />
-        </MessageMessagesProvider>
-      </LocaleProvider>
-    )
+  it('renders its children in a span with the data attribute and no role', () => {
+    render(<AIThinkingIndicator>Loading orders…</AIThinkingIndicator>)
 
-    expect(screen.getByRole('status')).toHaveTextContent('Thinking')
+    const el = screen.getByText('Loading orders…')
+
+    expect(el.tagName).toBe('SPAN')
+    expect(el).toHaveAttribute('data-sl-ai-thinking-indicator')
+    expect(el).not.toHaveAttribute('role')
   })
 
-  it('renders Pensando in pt-BR', () => {
-    render(
-      <LocaleProvider locale="pt-BR">
-        <MessageMessagesProvider>
-          <AIThinkingIndicator />
-        </MessageMessagesProvider>
-      </LocaleProvider>
-    )
-
-    expect(screen.getByRole('status')).toHaveTextContent('Pensando')
-  })
-
-  it('overrides the label and forwards the ref', () => {
-    const ref = createRef<HTMLDivElement>()
+  it('works without a messages provider and forwards props and ref', () => {
+    const ref = createRef<HTMLSpanElement>()
 
     render(
-      <LocaleProvider locale="en-US">
-        <MessageMessagesProvider>
-          <AIThinkingIndicator ref={ref} label="Working" />
-        </MessageMessagesProvider>
-      </LocaleProvider>
+      // biome-ignore lint/a11y/useSemanticElements: asserting prop forwarding
+      <AIThinkingIndicator ref={ref} role="status" data-x="1">
+        x
+      </AIThinkingIndicator>
     )
 
-    expect(screen.getByRole('status')).toHaveTextContent('Working')
-    expect(ref.current).toBe(document.querySelector(SELECTOR))
+    expect(ref.current).toHaveAttribute('role', 'status')
+    expect(ref.current).toHaveAttribute('data-x', '1')
   })
 })
 
@@ -227,32 +211,6 @@ describe('AIMessageAssistant thinking indicator', () => {
     )
   })
 
-  it('renders Pensando in pt-BR while waiting', async () => {
-    const user = userEvent.setup()
-    const { gate, release } = gated()
-    const transport: StreamTransport = {
-      async *run() {
-        await gate
-        yield* []
-
-        return { parts: [{ type: 'text', text: 'Done' }], status: 'ready' }
-      },
-    }
-
-    render(
-      <LocaleProvider locale="pt-BR">
-        <MockRuntimeProvider transport={transport}>
-          <SendButton />
-          <AIMessages />
-        </MockRuntimeProvider>
-      </LocaleProvider>
-    )
-
-    await user.click(screen.getByRole('button', { name: 'Send Hello' }))
-
-    expect(await screen.findByText('Pensando')).toBeInTheDocument()
-
-    release()
-    await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
-  })
+  // replaced in Task 4
+  it.todo('renders Pensando in pt-BR while waiting')
 })

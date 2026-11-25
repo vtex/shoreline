@@ -13,6 +13,7 @@ export { AIMessageReasoningToolStep } from './ai-message-reasoning-tool-step'
 export { AIMessageActions } from './ai-message-actions'
 export { AIMessageCopy } from './ai-message-copy'
 export { AIThinkingIndicator } from './ai-thinking-indicator'
+export { AIWorkingMark } from './ai-working-mark'
 export { AIMessageResources } from './ai-message-resources'
 export {
   AIMessageResource,
@@ -47,6 +48,8 @@ export type {
   AIMessageCopyOptions,
   AIThinkingIndicatorProps,
   AIThinkingIndicatorOptions,
+  AIWorkingMarkProps,
+  AIWorkingMarkOptions,
   AIMessageReasoningTextProps,
   AIMessageReasoningToolStepProps,
   AIMessageReasoningToolStepOptions,

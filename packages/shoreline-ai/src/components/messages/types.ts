@@ -157,15 +157,23 @@ export type AIMessageReasoningTriggerProps = AIMessageReasoningTriggerOptions &
   Omit<ComponentPropsWithoutRef<'button'>, 'children'>
 
 export interface AIThinkingIndicatorOptions {
-  /**
-   * Overrides the label next to the dots. Uses the localized default when omitted.
-   * @default the localized `thinking` message
-   */
-  label?: ReactNode
+  /** Text rendered with the shimmer effect. Nothing is rendered by default. */
+  children?: ReactNode
 }
 
 export type AIThinkingIndicatorProps = AIThinkingIndicatorOptions &
-  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
+  ComponentPropsWithoutRef<'span'>
+
+export interface AIWorkingMarkOptions {
+  /**
+   * Custom glyph. Replaces the default spark.
+   * @default a four-point spark
+   */
+  children?: ReactNode
+}
+
+export type AIWorkingMarkProps = AIWorkingMarkOptions &
+  ComponentPropsWithoutRef<'span'>
 
 export interface AIMessageActionsOptions {
   /** Extra actions rendered after the copy button. */
