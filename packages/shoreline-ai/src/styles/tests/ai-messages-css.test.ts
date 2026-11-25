@@ -96,6 +96,29 @@ describe('ai-messages.css actions bar', () => {
     expect(css).not.toContain('[data-sl-ai-message-copy][data-copied]')
   })
 
+  it('keeps room for the last bar and takes its padding from the thread', () => {
+    const list = ruleBody([css], '[data-sl-ai-messages] ')
+
+    expect(list).toContain('box-sizing: border-box')
+    expect(list).toContain('padding: var(--sl-ai-messages-padding, 0)')
+    expect(list).toContain(
+      'padding-block-end: var(--sl-ai-messages-gap, var(--sl-space-8))'
+    )
+  })
+
+  it('colors the bar icons with the soft foreground', () => {
+    expect(ruleBody([css], '[data-sl-ai-message-action] ')).toContain(
+      'color: var(--sl-fg-base-soft)'
+    )
+  })
+
+  it('does not apply the hover look to a disabled action', () => {
+    expect(css).toContain(
+      '[data-sl-ai-message-action]:hover:where(:not(:disabled))'
+    )
+    expect(css).not.toMatch(/\[data-sl-ai-message-action\]:hover\s*[,{]/)
+  })
+
   it('raises the gap between messages', () => {
     expect(ruleBody([css], '[data-sl-ai-messages] ')).toContain(
       'gap: var(--sl-ai-messages-gap, var(--sl-space-8))'
@@ -108,6 +131,38 @@ describe('ai-messages.css reasoning header', () => {
     expect(css).not.toContain('[data-sl-ai-dots-loader]')
     expect(css).not.toContain('[data-sl-ai-message-reasoning-meta]')
     expect(css).not.toContain('[data-sl-ai-message-reasoning-row]')
+  })
+
+  it('grows with a wrapping label: min-height, not a fixed height', () => {
+    const header = ruleBody([css], '[data-sl-ai-message-reasoning-header] ')
+
+    expect(header).toContain('min-height: var(--sl-space-5)')
+    expect(header).not.toMatch(/(^|[^-])height:/)
+  })
+
+  it('colors the label, the elapsed time, the chevron and the shimmer with the soft foreground', () => {
+    expect(ruleBody([css], '[data-sl-ai-message-reasoning-label]')).toContain(
+      'color: var(--sl-fg-base-soft)'
+    )
+    expect(ruleBody([css], '[data-sl-ai-message-reasoning-elapsed]')).toContain(
+      'color: var(--sl-fg-base-soft)'
+    )
+    expect(
+      ruleBody([css], '[data-sl-ai-message-reasoning-trigger] ')
+    ).toContain('color: var(--sl-fg-base-soft)')
+
+    const shimmer = ruleBody([css], '[data-sl-ai-thinking-indicator] ')
+
+    expect(shimmer).toContain('var(--sl-fg-base-soft) 0%')
+    expect(shimmer).toContain('var(--sl-color-gray-4) 50%')
+    expect(shimmer).not.toContain('--sl-color-gray-8')
+  })
+
+  it('does not say the trigger sits left of the content', () => {
+    // Comments wrap: compare the text with line breaks and stars removed.
+    const prose = css.replace(/\s*\n\s*\*?\s*/g, ' ')
+
+    expect(prose).not.toContain('sits left of the content')
   })
 
   it('darkens the chevron on hover with token colors', () => {

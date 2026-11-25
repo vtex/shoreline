@@ -216,7 +216,7 @@ Each reasoning group is one 20px header row, with an optional body below it:
 
 Only the chevron is a button. It has `aria-expanded` and `aria-controls`, and its accessible name is the label text (`aria-labelledby`). The open body is a `role="group"` named by the same label; with no label mounted it has no role. When no `AIMessageReasoningLabel` is mounted in the header, the chevron gets an `aria-label` with the status text from the catalog instead. Clicking the label or the time does nothing.
 
-The open body sits 8px below the header, with a 3px left bar and 16px of left padding; reasoning text is `caption-2` in the soft foreground color.
+The label, the elapsed time and the chevron icon use `--sl-fg-base-soft` (the chevron darkens to `--sl-color-gray-9` on hover); a long label wraps and the row grows. The open body sits 8px below the header, with a 3px left bar and 16px of left padding; reasoning text is `caption-2` in the soft foreground color.
 
 Times and durations come from `Intl.NumberFormat` (`unit` style, `narrow`) with the `LocaleProvider` locale: en-US "40s" and "1m 5s", pt-BR "40 s" and "1 min 5 s". While running, the header counts seconds itself; when the group completes it shows the runtime duration if there is one, otherwise the time it counted. A message loaded from history with no duration reads "Reasoning complete". The runtime does not stamp a duration on reasoning yet, so durations appear for groups that you watched run.
 
@@ -272,7 +272,7 @@ For a controlled panel pass `expanded` and `onExpandedChange`; `defaultExpanded`
 
 Both are primitives you can use anywhere, with no catalog and no message around them.
 
-`AIThinkingIndicator` is the text loading effect and nothing else: a `span` whose children shimmer (light band in `--sl-color-gray-4` over `--sl-color-gray-8` text, one sweep every 2.4 seconds). It has no dots, no default label and no `role`; set `role="status"` yourself when you need an announcement.
+`AIThinkingIndicator` is the text loading effect and nothing else: a `span` whose children shimmer (light band in `--sl-color-gray-4` over `--sl-fg-base-soft` text, one sweep every 2.4 seconds). It has no dots, no default label and no `role`; set `role="status"` yourself when you need an announcement.
 
 ```tsx
 <AIThinkingIndicator>Searching orders…</AIThinkingIndicator>
@@ -314,7 +314,7 @@ With `prefers-reduced-motion: reduce` the text effect is plain gray text and the
 </AIMessages>
 ```
 
-Thumbs and their behavior belong to the app; the package ships neither. Use any Shoreline icon or your own SVG as the child of `AIMessageAction`. `AIMessageAction` sets `aria-pressed` styling (the pressed color is `--sl-fg-base-soft`).
+Thumbs and their behavior belong to the app; the package ships neither. Use any Shoreline icon or your own SVG as the child of `AIMessageAction`. `AIMessageAction` sets `aria-pressed` styling. Bar icons use `--sl-fg-base-soft` and darken to `--sl-color-gray-9` with a hover background; a disabled action does not react to hover, and a pressed one keeps `--sl-fg-base-soft`.
 
 `AIMessageCopy` writes the text parts of the message (joined by a blank line) to the clipboard. It shows Shoreline's copy icon; after a successful copy it shows the check icon for 2 seconds (`data-copied` is set), its accessible name becomes the `copied` string ("Copied!"), `onCopied` is called once, and a visually hidden live region announces `messageCopied`. No toast and no visible text is shown. If the clipboard is unavailable or rejects, nothing changes.
 
@@ -614,6 +614,7 @@ User bubble styling is applied via CSS on `[data-sl-ai-message-role="user"] [dat
 | `--sl-ai-message-intrinsic-size` | `5rem` | Placeholder height of a message row that was not rendered yet |
 | `--sl-ai-messages-gap` | `var(--sl-space-8)` | Gap between messages, and the space below the last one for the floating bar (see [THREAD.md](./THREAD.md#layout-and-spacing)) |
 | `--sl-ai-thread-padding` | `var(--sl-space-4)` | Padding around the messages inside `AIThreadViewport` |
+| `--sl-ai-messages-padding` | `0`; inside `AIThreadViewport`, the thread padding | Padding of `[data-sl-ai-messages]`. The viewport sets it and it is inherited, so a wrapper around `AIMessages` keeps the spacing; set it to `0` on a wrapper that pads itself |
 
 ### `content-visibility`
 

@@ -25,7 +25,7 @@ import '@vtex/shoreline/css'
 import '@vtex/shoreline-ai/css'
 ```
 
-Then mount `AIMessages` inside `<AIProvider>`, usually as a direct child of the viewport of an [AIThread](/components/ai-thread). The thread gives the list its spacing only in that position. Wrap your app with `LocaleProvider` to get the built-in labels in `en-US` or `pt-BR`.
+Then mount `AIMessages` inside `<AIProvider>`, usually inside the viewport of an [AIThread](/components/ai-thread). The thread gives the list its padding through `--sl-ai-messages-padding`, also when you wrap the list in your own element; outside a thread the list has no side padding. Wrap your app with `LocaleProvider` to get the built-in labels in `en-US` or `pt-BR`.
 
 ## How it is built
 
@@ -318,6 +318,7 @@ Use the `data-sl-*` attributes to adjust the look in your CSS:
 | `--sl-ai-message-intrinsic-size` | `5rem` | The placeholder height of a message that was not rendered yet |
 | `--sl-ai-messages-gap` | `var(--sl-space-8)` | The gap between messages, and the space below the last one |
 | `--sl-ai-thread-padding` | `var(--sl-space-4)` | The padding around the messages inside the thread viewport |
+| `--sl-ai-messages-padding` | `0`, the thread padding inside a thread viewport | The padding of the list. Set it to `0` on a wrapper that pads itself |
 
 ## Breaking changes
 

@@ -188,13 +188,14 @@ The thread owns its layout, so a raw thread with no app CSS already looks right:
 
 - **The composer sits at the bottom.** `AIThreadViewportFooter` has `margin-top: auto`, so in a short or empty thread the footer stays at the bottom of the viewport instead of floating under the last message.
 - **Empty state.** `AIThreadEmpty` grows to fill the free space (`flex: 1`) and centers its children horizontally and vertically. Its children are still yours to style.
-- **Default spacing.** The messages have `var(--sl-ai-thread-padding, var(--sl-space-4))` (16px) on every side, and the footer has the same value on its sides and bottom (no top padding), so the composer lines up with the message column. Apps do not wrap `AIMessages` in a padded element.
+- **Default spacing.** The messages have `var(--sl-ai-thread-padding, var(--sl-space-4))` (16px) on every side, and the footer has the same value on its sides and bottom (no top padding), so the composer lines up with the message column. The viewport hands that padding to `AIMessages` through `--sl-ai-messages-padding`, so it also applies when `AIMessages` sits inside a wrapper (see [Wrapping `AIMessages`](#wrapping-aimessages)). Apps do not need to pad the list themselves.
 - **Gap between messages.** `var(--sl-ai-messages-gap, var(--sl-space-8))` (32px): the smallest space token that holds the floating actions bar of an answer. The same value is left below the last message, so the last bar floats in that space and the sticky footer never covers it.
 
 | Custom property | Default | What it changes |
 |-----------------|---------|-----------------|
 | `--sl-ai-thread-padding` | `var(--sl-space-4)` | Padding around the messages, and on the sides and bottom of the composer footer |
 | `--sl-ai-messages-gap` | `var(--sl-space-8)` | Gap between messages, and the space below the last message |
+| `--sl-ai-messages-padding` | the thread padding inside `AIThreadViewport`, `0` elsewhere | Padding of `AIMessages`; set `0` on a wrapper that pads itself |
 
 Set them on `[data-sl-ai-thread]` (or any ancestor):
 
@@ -205,17 +206,20 @@ Set them on `[data-sl-ai-thread]` (or any ancestor):
 }
 ```
 
-### The messages padding needs `AIMessages` as a direct child of the viewport
+### Wrapping `AIMessages`
 
-The padding around the messages comes from the selector `[data-sl-ai-thread-viewport] > [data-sl-ai-messages]`, so it applies only when `AIMessages` is a **direct child** of `AIThreadViewport`. If your app wraps `AIMessages` in its own element, the thread cannot pad the list for you: put the same padding on that wrapper, with the extra room at the bottom for the last actions bar, to keep the composer aligned with the message column.
+`AIMessages` takes its padding from `--sl-ai-messages-padding` (default `0`), and keeps `--sl-ai-messages-gap` of room below the last message for its actions bar. `AIThreadViewport` sets `--sl-ai-messages-padding` to the thread padding, and custom properties are inherited, so the list gets the same spacing when your app wraps it in its own element: the composer stays aligned with the message column and the sticky footer does not cover the last bar.
+
+If your wrapper already pads itself, turn the list padding off so it is not applied twice:
 
 ```css
 .my-messages-wrapper {
-  box-sizing: border-box;
-  padding: var(--sl-ai-thread-padding, var(--sl-space-4));
-  padding-bottom: var(--sl-ai-messages-gap, var(--sl-space-8));
+  padding: var(--sl-space-6);
+  --sl-ai-messages-padding: 0;
 }
 ```
+
+Outside a thread, `AIMessages` has no side padding, and still keeps the room below the last message.
 
 ## Scroll behavior
 

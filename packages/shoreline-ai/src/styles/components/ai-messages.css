@@ -2,12 +2,20 @@
   /*
    * Room between messages, which also holds the actions bar floating under
    * an assistant message. Override with --sl-ai-messages-gap (default: 2rem).
+   * The same room is kept below the list for the bar of the last answer.
+   *
+   * Padding comes from --sl-ai-messages-padding (default: 0). Inside a
+   * thread viewport it inherits the thread padding, also through wrappers;
+   * a wrapper that pads itself sets --sl-ai-messages-padding: 0.
    */
   [data-sl-ai-messages] {
     display: flex;
     flex-direction: column;
     gap: var(--sl-ai-messages-gap, var(--sl-space-8));
     width: 100%;
+    box-sizing: border-box;
+    padding: var(--sl-ai-messages-padding, 0);
+    padding-block-end: var(--sl-ai-messages-gap, var(--sl-space-8));
   }
 
   /*
@@ -17,8 +25,7 @@
    * estimate of an average message height).
    *
    * content-visibility clips painting to the message box, so the padding
-   * gives focus rings and the reasoning trigger (which sits left of the
-   * content) room to paint. Negative margins cancel the padding, and
+   * gives focus rings (such as the reasoning chevron's) room to paint. Negative margins cancel the padding, and
    * content-box keeps max-width: 100% applied to the content, so the
    * content width and position are the same as without the padding.
    * The row box itself extends by the padding on each side, so a focus
@@ -84,12 +91,15 @@
     gap: var(--sl-space-2);
   }
 
-  /* Mark, label, elapsed time and chevron in one 20px row. */
+  /*
+   * Mark, label, elapsed time and chevron in one 20px row. min-height lets
+   * a long label wrap without overlapping the body below.
+   */
   [data-sl-ai-message-reasoning-header] {
     display: flex;
     align-items: center;
     gap: var(--sl-space-05);
-    height: var(--sl-space-5);
+    min-height: var(--sl-space-5);
     color: var(--sl-color-gray-8);
   }
 
@@ -103,7 +113,7 @@
   [data-sl-ai-message-reasoning-elapsed] {
     font: var(--sl-text-body-font);
     letter-spacing: var(--sl-text-body-letter-spacing);
-    color: var(--sl-color-gray-8);
+    color: var(--sl-fg-base-soft);
   }
 
   [data-sl-ai-message-reasoning-elapsed] {
@@ -122,7 +132,7 @@
     border: none;
     border-radius: var(--sl-radius-1);
     background: transparent;
-    color: var(--sl-color-gray-8);
+    color: var(--sl-fg-base-soft);
     cursor: pointer;
   }
 
@@ -145,11 +155,11 @@
   [data-sl-ai-thinking-indicator] {
     background: linear-gradient(
         90deg,
-        var(--sl-color-gray-8) 0%,
-        var(--sl-color-gray-8) 35%,
+        var(--sl-fg-base-soft) 0%,
+        var(--sl-fg-base-soft) 35%,
         var(--sl-color-gray-4) 50%,
-        var(--sl-color-gray-8) 65%,
-        var(--sl-color-gray-8) 100%
+        var(--sl-fg-base-soft) 65%,
+        var(--sl-fg-base-soft) 100%
       )
       100% 0 / 300% 100%;
     -webkit-background-clip: text;
@@ -230,7 +240,7 @@
     [data-sl-ai-thinking-indicator] {
       animation: none;
       background: none;
-      color: var(--sl-color-gray-8);
+      color: var(--sl-fg-base-soft);
     }
 
     [data-sl-ai-working-mark] {
@@ -376,12 +386,14 @@
     border: none;
     border-radius: var(--sl-radius-1);
     background: transparent;
-    color: var(--sl-color-gray-8);
+    color: var(--sl-fg-base-soft);
     cursor: pointer;
     transition: color 0.16s ease, background-color 0.16s ease;
   }
 
-  [data-sl-ai-message-action]:hover {
+  /* A disabled action keeps its resting look. :where keeps the specificity
+     low, so the pressed color still wins on hover. */
+  [data-sl-ai-message-action]:hover:where(:not(:disabled)) {
     background: var(--sl-bg-muted-plain-hover);
     color: var(--sl-color-gray-9);
     transition: color 0.22s ease 80ms, background-color 0.22s ease 80ms;
@@ -438,7 +450,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     [data-sl-ai-message-action],
-    [data-sl-ai-message-action]:hover,
+    [data-sl-ai-message-action]:hover:where(:not(:disabled)),
     [data-sl-ai-message-date] {
       transition: none;
     }

@@ -9,6 +9,7 @@ import { ThreadStoryDecorator } from './decorators'
 import { AIMessages } from '../../messages'
 import { AIThread, AIThreadViewport } from '../index'
 import {
+  ComposerFooter,
   NormativeThreadTree,
   ThreadHistorySeed,
   createMockThreadMessages,
@@ -516,5 +517,51 @@ export const LastAnswerBarIsNotCoveredByTheFooter: Story = {
 
     expect(lastBar.height).toBeGreaterThan(0)
     expect(lastBar.bottom).toBeLessThanOrEqual(footer.top)
+  },
+}
+
+// AIMessages inside a plain wrapper: the padding and the room for the last
+// bar must not depend on AIMessages being a direct child of the viewport.
+function WrappedMessagesTree(props: { history: AIMessage[] }) {
+  return (
+    <ThreadHistorySeed messages={props.history}>
+      <AIThread>
+        <AIThreadViewport autoScroll scrollToBottomOnInitialize>
+          <div data-testid="messages-wrapper">
+            <AIMessages />
+          </div>
+          <ComposerFooter />
+        </AIThreadViewport>
+      </AIThread>
+    </ThreadHistorySeed>
+  )
+}
+
+export const LastAnswerBarIsNotCoveredWhenMessagesAreWrapped: Story = {
+  render: () => <WrappedMessagesTree history={longHistory} />,
+  play: async ({ canvasElement }) => {
+    const viewport = getThreadViewport(canvasElement) as HTMLElement
+
+    await waitFor(() => {
+      expect(isThreadViewportNearBottom(viewport)).toBe(true)
+    })
+
+    const bars = canvasElement.querySelectorAll('[data-sl-ai-message-actions]')
+
+    expect(bars.length).toBeGreaterThan(0)
+
+    const lastBar = bars[bars.length - 1].getBoundingClientRect()
+    const footer = queryRect('[data-sl-ai-thread-viewport-footer]')
+
+    expect(lastBar.height).toBeGreaterThan(0)
+    expect(lastBar.bottom).toBeLessThanOrEqual(footer.top)
+
+    const messages = getContentBox(
+      document.querySelector('[data-sl-ai-messages]') as HTMLElement
+    )
+    const composer = queryRect('[data-sl-ai-composer]')
+
+    expect(Math.abs(composer.left - messages.left)).toBeLessThanOrEqual(1)
+    expect(Math.abs(composer.right - messages.right)).toBeLessThanOrEqual(1)
   },
 }

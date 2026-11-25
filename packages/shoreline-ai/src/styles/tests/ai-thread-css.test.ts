@@ -33,18 +33,16 @@ describe('ai-thread.css layout', () => {
     )
   })
 
-  it('gives the messages area the thread padding and room for the last bar', () => {
-    const messages = rule(
-      '[data-sl-ai-thread-viewport] > [data-sl-ai-messages]'
+  it('hands the thread padding to the messages through a custom property', () => {
+    expect(rule('[data-sl-ai-thread-viewport]')).toContain(
+      '--sl-ai-messages-padding: var(--sl-ai-thread-padding, var(--sl-space-4))'
     )
+  })
 
-    expect(messages).toContain(
-      'padding: var(--sl-ai-thread-padding, var(--sl-space-4))'
+  it('has no direct-child rule for the messages', () => {
+    expect(css).not.toMatch(
+      /\[data-sl-ai-thread-viewport\]\s*>\s*\[data-sl-ai-messages\]/
     )
-    expect(messages).toContain(
-      'padding-bottom: var(--sl-ai-messages-gap, var(--sl-space-8))'
-    )
-    expect(messages).toContain('box-sizing: border-box')
   })
 
   it('fills and centers the empty state', () => {

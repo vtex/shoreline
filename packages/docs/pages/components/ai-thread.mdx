@@ -62,6 +62,7 @@ A thread with no app CSS already looks right. The footer has `margin-top: auto`,
 |-----------------|---------|-----------------|
 | `--sl-ai-thread-padding` | `var(--sl-space-4)` | The padding around the messages, and on the sides and bottom of the composer footer |
 | `--sl-ai-messages-gap` | `var(--sl-space-8)` | The gap between messages, and the space below the last one |
+| `--sl-ai-messages-padding` | the thread padding | The padding of `AIMessages`. Set it to `0` on a wrapper that pads itself |
 
 ```css
 [data-sl-ai-thread] {
@@ -69,9 +70,7 @@ A thread with no app CSS already looks right. The footer has `margin-top: auto`,
 }
 ```
 
-<Callout type="warning">
-  The padding around the messages comes from the selector `[data-sl-ai-thread-viewport] > [data-sl-ai-messages]`, so it applies only when `AIMessages` is a **direct child** of `AIThreadViewport`. If your app wraps `AIMessages` in its own element, put `padding: var(--sl-ai-thread-padding, var(--sl-space-4))` on that wrapper, with `padding-bottom: var(--sl-ai-messages-gap, var(--sl-space-8))` for the last actions bar. This keeps the composer aligned with the message column.
-</Callout>
+`AIMessages` does not need to be a direct child of the viewport. The viewport hands its padding to the list through `--sl-ai-messages-padding`, which is inherited, so a wrapper around `AIMessages` keeps the composer aligned and the last actions bar uncovered. If the wrapper pads itself, set `--sl-ai-messages-padding: 0` on it so the padding is not applied twice.
 
 ### Empty thread
 
