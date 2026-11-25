@@ -101,10 +101,10 @@ If text arrives before any reasoning part, the header disappears. If an unregist
 `AIMessages` has one reasoning shortcut: `workingMark`. It is the glyph of every mark in the list, including the one in the header before the first part, so an app with its own mark does not recompose anything:
 
 ```tsx
-<AIMessages workingMark={<MyAssistantMark />} />
+<AIMessages workingMark={<IconSparkle />} />
 ```
 
-Without it, the mark is a neutral spark.
+Without it, the mark is the My Assistant mark. You can override it in three ways: children of `AIWorkingMark`, children of `AIMessageReasoningMark` in a reasoning template, or `workingMark` on `AIMessages` for every mark in the list.
 
 #### The reasoning template
 

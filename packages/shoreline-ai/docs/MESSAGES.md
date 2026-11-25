@@ -200,10 +200,10 @@ Inside the default flow, `AIMessageResource` picks the variant from the current 
 `AIMessages` takes one reasoning-specific shortcut: `workingMark`. It is the glyph of every reasoning mark in the list, including the header shown before the first part, so an app with its own mark does not recompose the reasoning:
 
 ```tsx
-<AIMessages workingMark={<MyAssistantMark />} />
+<AIMessages workingMark={<IconSparkle />} />
 ```
 
-Without it the mark is a neutral four-point spark. Anything else about the reasoning goes through the template (next section).
+Without it the mark is the My Assistant mark (the pink four-point star). There are three ways to override it: children of `AIWorkingMark`, children of `AIMessageReasoningMark` (in a reasoning template), or `workingMark` on `AIMessages` for every mark in the list. Anything else about the reasoning goes through the template (next section).
 
 ### Reasoning
 
@@ -315,14 +315,15 @@ function Thumbs(props: {
         aria-pressed={vote === 'up'}
         onClick={() => props.onVote(id, vote === 'up' ? null : 'up')}
       >
-        <ThumbUpIcon />   {/* the app's own icon */}
+        {/* the app's own icons; a filled glyph shows the pressed state */}
+        {vote === 'up' ? <ThumbUpFilledIcon /> : <ThumbUpIcon />}
       </AIMessageAction>
       <AIMessageAction
         label="Bad response"
         aria-pressed={vote === 'down'}
         onClick={() => props.onVote(id, vote === 'down' ? null : 'down')}
       >
-        <ThumbDownIcon />
+        {vote === 'down' ? <ThumbDownFilledIcon /> : <ThumbDownIcon />}
       </AIMessageAction>
     </>
   )
@@ -341,7 +342,7 @@ function Thumbs(props: {
 </AIMessages>
 ```
 
-Thumbs and their behavior belong to the app; the package ships neither. Use any Shoreline icon or your own SVG as the child of `AIMessageAction`. `AIMessageAction` sets `aria-pressed` styling. Bar icons use `--sl-fg-base-soft` and darken to `--sl-color-gray-9` with a hover background; a disabled action does not react to hover, and a pressed one keeps `--sl-fg-base-soft`.
+Thumbs and their behavior belong to the app; the package ships neither. Use any Shoreline icon or your own SVG as the child of `AIMessageAction`. `AIMessageAction` sets `aria-pressed` styling; to match the proposal, swap to a filled glyph when pressed and keep the color. Bar icons use `--sl-fg-base-soft` and darken to `--sl-color-gray-9` with a hover background; a disabled action does not react to hover, and a pressed one keeps `--sl-fg-base-soft`.
 
 `AIMessageCopy` writes the text parts of the message (joined by a blank line) to the clipboard. It shows Shoreline's copy icon; after a successful copy it shows the check icon for 2 seconds (`data-copied` is set), its accessible name becomes the `copied` string ("Copied!"), `onCopied` is called once, and a visually hidden live region announces `messageCopied`. No toast and no visible text is shown. If the clipboard is unavailable or rejects, nothing changes. An `onClick` that calls `event.preventDefault()` cancels the copy.
 
@@ -473,7 +474,7 @@ function LastAssistantSummary() {
 |------|---------|---------|
 | `showReasoningTools` | `true` | Compact tool steps inside CoT for unregistered tools |
 | `messages` | — | Partial i18n override for the whole messages family |
-| `workingMark` | a four-point spark | Glyph of every reasoning mark in the list that has no children of its own |
+| `workingMark` | the My Assistant mark | Glyph of every reasoning mark in the list that has no children of its own |
 | `children` | — | Optional `AIMessageUser` + `AIMessageAssistant` templates |
 
 Also accepts native `div` attributes.
@@ -518,7 +519,7 @@ Also accepts native `div` attributes.
 | Component | Prop | Default | Purpose |
 |-----------|------|---------|---------|
 | `AIMessageReasoningHeader` | `children` | mark, label, elapsed time, trigger | Header parts |
-| `AIMessageReasoningMark` | `children` | `workingMark` from `AIMessages`, then the spark | Custom glyph |
+| `AIMessageReasoningMark` | `children` | `workingMark` from `AIMessages`, then the My Assistant mark | Custom glyph |
 | `AIMessageReasoningLabel` | `children` | the localized status text | Custom label text |
 
 `AIMessageReasoningElapsed` and `AIMessageReasoningTrigger` have no props of their own: the trigger takes native `button` attributes and its accessible name comes from the label.
@@ -528,7 +529,7 @@ Also accepts native `div` attributes.
 | Component | Prop | Purpose |
 |-----------|------|---------|
 | `AIThinkingIndicator` | `children` | The text that shimmers. Nothing is rendered by default |
-| `AIWorkingMark` | `children` | The glyph that spins. Default is a four-point spark |
+| `AIWorkingMark` | `children` | The glyph that spins. Default is the My Assistant mark |
 
 Both accept native `span` attributes.
 

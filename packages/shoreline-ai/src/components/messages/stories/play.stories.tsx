@@ -21,12 +21,11 @@ import {
 } from '../index'
 import { MessagesStoryDecorator } from './decorators'
 import {
-  ThumbDownIcon,
-  ThumbUpIcon,
   plainAnswer,
   reasoningToolText,
   twoReasoningGroups,
 } from './messages-story-shared'
+import { ThumbIcon } from './story-icons'
 
 const meta: Meta<typeof AIMessages> = {
   title: 'shoreline-ai/messages',
@@ -166,10 +165,10 @@ export const ActionsReachableByKeyboard: Story = {
           <AIMessageParts />
           <AIMessageActions>
             <AIMessageAction label="Good response">
-              <ThumbUpIcon />
+              <ThumbIcon direction="up" />
             </AIMessageAction>
             <AIMessageAction label="Bad response">
-              <ThumbDownIcon />
+              <ThumbIcon direction="down" />
             </AIMessageAction>
             <AIMessageCopy />
             <AIMessageDate />

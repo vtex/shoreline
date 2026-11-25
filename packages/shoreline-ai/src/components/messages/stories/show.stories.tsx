@@ -40,14 +40,13 @@ import {
 } from './decorators'
 import {
   SendOnMount,
-  ThumbDownIcon,
-  ThumbUpIcon,
   earlierAnswer,
   holdingNoParts,
   plainAnswer,
   reasoningToolText,
   twoReasoningGroups,
 } from './messages-story-shared'
+import { ThumbIcon } from './story-icons'
 
 const meta: Meta<typeof AIMessages> = {
   title: 'shoreline-ai/messages',
@@ -272,7 +271,10 @@ export const ReasoningCustomTemplate: Story = {
             reasoning={
               <AIMessageReasoning defaultExpanded>
                 <AIMessageReasoningHeader>
-                  <AIMessageReasoningMark />
+                  {/* Overrides the default My Assistant mark. */}
+                  <AIMessageReasoningMark>
+                    <IconSparkle />
+                  </AIMessageReasoningMark>
                   <AIMessageReasoningLabel>
                     Analyzing orders
                   </AIMessageReasoningLabel>
@@ -328,7 +330,8 @@ export const ActionsEarlierAnswer: Story = {
 
 /**
  * The app's own thumbs in the bar, in front of copy and date. The first is
- * pressed. Thumb icons belong to the app: the package ships none.
+ * pressed, so it shows the filled glyph in the same color. Thumb icons belong
+ * to the app (these are the proposal's): the package ships none.
  */
 export const ActionsWithAppThumbs: Story = {
   render: () => (
@@ -339,10 +342,10 @@ export const ActionsWithAppThumbs: Story = {
           <AIMessageParts />
           <AIMessageActions>
             <AIMessageAction label="Good response" aria-pressed>
-              <ThumbUpIcon />
+              <ThumbIcon direction="up" selected />
             </AIMessageAction>
             <AIMessageAction label="Bad response" aria-pressed={false}>
-              <ThumbDownIcon />
+              <ThumbIcon direction="down" />
             </AIMessageAction>
             <AIMessageCopy />
             <AIMessageDate />
@@ -388,12 +391,12 @@ export const ThinkingIndicatorStandalone: Story = {
   render: () => <AIThinkingIndicator>Searching orders…</AIThinkingIndicator>,
 }
 
-/** The working mark on its own, with the default glyph. */
+/** The working mark on its own, with the default My Assistant glyph. */
 export const WorkingMarkStandalone: Story = {
   render: () => <AIWorkingMark />,
 }
 
-/** The working mark with the app's own glyph. */
+/** The working mark with the app's own glyph, overriding the default. */
 export const WorkingMarkCustomGlyph: Story = {
   render: () => (
     <AIWorkingMark>

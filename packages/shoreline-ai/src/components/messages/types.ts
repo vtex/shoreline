@@ -62,7 +62,7 @@ export interface AIMessagesOptions {
   /**
    * Glyph of every reasoning mark in the list that has no children of its
    * own, including the header shown before the first part.
-   * @default a four-point spark
+   * @default the My Assistant mark
    */
   workingMark?: ReactNode
 }
@@ -238,8 +238,8 @@ export type AIMessageReasoningHeaderProps = AIMessageReasoningHeaderOptions &
 
 export interface AIMessageReasoningMarkOptions {
   /**
-   * Custom glyph. Falls back to the glyph from the messages, then to the
-   * default spark.
+   * Custom glyph. Falls back to `workingMark` of `AIMessages`, then to the
+   * My Assistant mark.
    */
   children?: ReactNode
 }
@@ -279,8 +279,8 @@ export type AIThinkingIndicatorProps = AIThinkingIndicatorOptions &
 
 export interface AIWorkingMarkOptions {
   /**
-   * Custom glyph. Replaces the default spark.
-   * @default a four-point spark
+   * Custom glyph. Replaces the default My Assistant mark.
+   * @default the My Assistant mark
    */
   children?: ReactNode
 }

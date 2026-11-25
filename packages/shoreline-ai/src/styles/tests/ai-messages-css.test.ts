@@ -92,6 +92,21 @@ describe('ai-messages.css actions bar', () => {
     )
   })
 
+  it('scales the stroke of the bar icons with the icon, as the designer page does', () => {
+    expect(
+      ruleBody(
+        [css],
+        '[data-sl-ai-message-action] > svg :is(path, rect, circle, line, polyline, polygon, ellipse)'
+      )
+    ).toContain('vector-effect: none')
+  })
+
+  it('places the date 10px after the buttons', () => {
+    expect(ruleBody([css], '[data-sl-ai-message-date] ')).toContain(
+      'margin-inline-start: calc(var(--sl-space-2) + var(--sl-space-05))'
+    )
+  })
+
   it('has no rule for a visible "Copied!" text', () => {
     expect(css).not.toContain('[data-sl-ai-message-copy][data-copied]')
   })

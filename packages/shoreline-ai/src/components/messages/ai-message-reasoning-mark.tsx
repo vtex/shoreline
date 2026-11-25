@@ -7,7 +7,8 @@ import { useWorkingMark } from './working-mark-context'
 
 /**
  * Animated mark before the reasoning label. Renders only while the reasoning
- * is running.
+ * is running. Its glyph is, in order: its children, `workingMark` of
+ * `AIMessages`, then the default My Assistant mark.
  *
  * @example
  * <AIMessageReasoningHeader>

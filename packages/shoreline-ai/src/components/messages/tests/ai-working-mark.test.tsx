@@ -20,6 +20,14 @@ describe('AIWorkingMark', () => {
     ).toBeTruthy()
   })
 
+  it('defaults to the My Assistant mark', () => {
+    const { container } = render(<AIWorkingMark />)
+    const svg = container.querySelector('[data-sl-ai-working-mark-glyph] svg')
+
+    expect(svg).toHaveAttribute('viewBox', '0 0 14 14')
+    expect(svg?.querySelector('path')).toHaveAttribute('fill', '#F71963')
+  })
+
   it('renders children as the glyph', () => {
     render(
       <AIWorkingMark>
