@@ -263,6 +263,40 @@ export function Show() {
         />
       </Section>
 
+      <Section label="Stacked, a line and its forecast">
+        <TooltipPreview
+          data={buildAxisTooltipData(
+            [
+              ...stackedItems,
+              {
+                name: 'Jul 05',
+                seriesName: 'Conversion',
+                value: 3.1,
+                color: seriesColor.gray,
+                seriesIndex: 3,
+                dataIndex: 6,
+              },
+              {
+                // A forecast continues the line before it, so it wears that
+                // line's color; its swatch is dashed to match the dashed line.
+                name: 'Jul 05',
+                seriesName: 'Forecast',
+                value: 3.4,
+                color: seriesColor.gray,
+                seriesIndex: 4,
+                dataIndex: 7,
+              },
+            ],
+            {
+              reverseUpTo: 3,
+              total: { label: 'Total', seriesCount: 3 },
+              formatValue,
+              getDashed: (seriesIndex) => seriesIndex === 4,
+            }
+          )}
+        />
+      </Section>
+
       <Section label="Stacked, a summed series missing">
         <TooltipPreview
           data={buildAxisTooltipData(
