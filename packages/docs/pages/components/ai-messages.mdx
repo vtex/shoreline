@@ -66,7 +66,7 @@ Then mount `AIMessages` inside `<AIProvider>`, usually inside the viewport of an
 | `AIMessageDate` | The relative date of the message |
 | `AIMessageResources`, `AIMessageResource`, `AIMessageResourceImage`, `AIMessageResourceFile` | The files and images attached to a message |
 
-The package also exports two helpers: `renderDefaultParts`, which draws one part the default way, and `defaultMessageGroupBy`, the rule that decides which parts go into the reasoning panel. `MessageMessagesProvider` gives message pieces their labels, for rendering them outside `AIMessages`, for example in a test.
+The package also exports two helpers: `renderDefaultParts`, which draws one part the default way, and `defaultMessageGroupBy`, the rule that decides which parts go into the reasoning panel. `AIMessagesI18nProvider` gives message pieces their labels, for rendering them outside `AIMessages`, for example in a test.
 
 ## Examples
 
@@ -87,7 +87,7 @@ The pieces are public, so you can build your own panel with `AIMessageReasoningR
 <Preview name="ai-messages-reasoning" />
 
 <Callout type="info">
-  The reasoning pieces read their labels from `AIMessages`, so mount them inside an `AIMessageAssistant` template of an `AIMessages`, like above, or wrap them in `MessageMessagesProvider`.
+  The reasoning pieces read their labels from `AIMessages`, so mount them inside an `AIMessageAssistant` template of an `AIMessages`, like above, or wrap them in `AIMessagesI18nProvider`.
 </Callout>
 
 #### Before the first part
@@ -331,6 +331,7 @@ These changes align the reasoning, the thinking indicator and the actions bar wi
 4. **Reasoning is composed from parts.** `AIMessageReasoningTrigger` loses its `label` prop and is only the chevron, so clicking the label or the time no longer toggles the panel (the old trigger was the whole row). The text moves to `AIMessageReasoningLabel`, and `AIMessageReasoningHeader` is the row. The `[data-sl-ai-message-reasoning-row]`, `[data-sl-ai-message-reasoning-meta]` and `[data-sl-ai-dots-loader]` selectors are gone.
 5. **Catalog keys changed.** `reasoningReady` is now `reasoningDone`, `workedFor` is now `reasoningDoneIn`, `thinking` is removed, and `copied` is new.
 6. **`AIMessageCopy` and `AIMessageAction` take no `aria-label`.** The accessible name comes from the `label` prop of `AIMessageAction`, and from the built-in strings for `AIMessageCopy`.
+7. **`MessageMessagesProvider` is now `AIMessagesI18nProvider`.** It takes the same props. The old name has no alias.
 
 The gap between messages also grows from 16px to 32px, and the thread now pads the messages and the composer. See [AIThread](/components/ai-thread#layout-and-spacing).
 

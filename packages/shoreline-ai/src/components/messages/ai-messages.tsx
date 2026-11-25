@@ -13,7 +13,7 @@ import { forwardRef } from '@vtex/shoreline'
 import { useAIContextInternal } from '../provider/ai-context'
 import { AIMessageAssistant } from './ai-message-assistant'
 import { AIMessageUser } from './ai-message-user'
-import { MessageMessagesProvider } from './message-messages-context'
+import { AIMessagesI18nProvider } from './message-messages-context'
 import { WorkingMarkProvider } from './working-mark-context'
 import type { AIMessagesProps } from './types'
 
@@ -102,13 +102,13 @@ export const AIMessages = forwardRef<HTMLDivElement, AIMessagesProps>(
     )
 
     return (
-      <MessageMessagesProvider messages={messages}>
+      <AIMessagesI18nProvider messages={messages}>
         <WorkingMarkProvider value={workingMark}>
           <div ref={ref} data-sl-ai-messages {...divProps}>
             <ThreadPrimitive.Messages>{renderMessage}</ThreadPrimitive.Messages>
           </div>
         </WorkingMarkProvider>
-      </MessageMessagesProvider>
+      </AIMessagesI18nProvider>
     )
   }
 )

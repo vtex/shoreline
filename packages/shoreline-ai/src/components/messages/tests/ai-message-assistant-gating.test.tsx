@@ -3,7 +3,7 @@ import { LocaleProvider } from '@vtex/shoreline'
 import { vi } from 'vitest'
 
 import { AIMessageAssistant } from '../ai-message-assistant'
-import { MessageMessagesProvider } from '../message-messages-context'
+import { AIMessagesI18nProvider } from '../message-messages-context'
 
 type FakeState = {
   message: {
@@ -50,9 +50,9 @@ function renderAssistant(state: FakeState, children?: React.ReactNode) {
 
   return render(
     <LocaleProvider locale="en-US">
-      <MessageMessagesProvider>
+      <AIMessagesI18nProvider>
         <AIMessageAssistant>{children}</AIMessageAssistant>
-      </MessageMessagesProvider>
+      </AIMessagesI18nProvider>
     </LocaleProvider>
   )
 }

@@ -14,7 +14,7 @@ import { AIMessageAction } from '../ai-message-action'
 import { AIMessageActions } from '../ai-message-actions'
 import { AIMessageCopy } from '../ai-message-copy'
 import { AIMessageDate } from '../ai-message-date'
-import { MessageMessagesProvider } from '../message-messages-context'
+import { AIMessagesI18nProvider } from '../message-messages-context'
 
 type FakeMessage = {
   role?: 'user' | 'assistant'
@@ -62,7 +62,7 @@ function renderActions(
 
   return render(
     <LocaleProvider locale="en-US">
-      <MessageMessagesProvider>{node}</MessageMessagesProvider>
+      <AIMessagesI18nProvider>{node}</AIMessagesI18nProvider>
     </LocaleProvider>
   )
 }

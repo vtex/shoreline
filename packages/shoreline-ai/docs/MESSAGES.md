@@ -109,7 +109,7 @@ Full message shape and transport details: [RUNTIME.md](./RUNTIME.md). Read threa
 |--------|---------|
 | `renderDefaultParts(part, meta, options?)` | Built-in renderer — use as fallback in hybrid overrides |
 | `defaultMessageGroupBy(part, ctx)` | The default grouping rule: reasoning and unregistered tools go to `group-cot`; everything else returns `null` (message level) |
-| `MessageMessagesProvider` | Provides the messages catalog. `AIMessages` mounts it; mount it yourself to render or test message parts outside `AIMessages` |
+| `AIMessagesI18nProvider` | Provides the messages catalog. `AIMessages` mounts it; mount it yourself to render or test message parts outside `AIMessages` |
 
 ## Composition variants
 
@@ -265,7 +265,7 @@ Build a panel by hand with `AIMessageReasoningRoot`, outside the grouping rules.
 </AIMessageReasoningRoot>
 ```
 
-The parts must be used inside `AIMessageReasoningRoot`. All message pieces read their labels from the messages catalog, so mount them under `AIMessages` or wrap them in `MessageMessagesProvider`. `AIMessageReasoningText` reads the current reasoning part, so it only works where `AIMessageParts` renders a reasoning part.
+The parts must be used inside `AIMessageReasoningRoot`. All message pieces read their labels from the messages catalog, so mount them under `AIMessages` or wrap them in `AIMessagesI18nProvider`. `AIMessageReasoningText` reads the current reasoning part, so it only works where `AIMessageParts` renders a reasoning part.
 
 For a controlled panel pass `expanded` and `onExpandedChange`; `defaultExpanded` is then ignored. Without `startedAt`, the root counts from its first render with `status="running"`.
 
@@ -660,6 +660,7 @@ This change aligns the reasoning, the thinking indicator and the actions bar wit
 4. **Reasoning is composed from parts.** `AIMessageReasoningTrigger` loses its `label` prop and is only the chevron button, so clicking the label or the time no longer toggles the panel (the old trigger was the whole row); the text moves to `AIMessageReasoningLabel`. `AIMessageReasoningHeader` is the row of mark, label, elapsed time and trigger. The internal meta span ("Worked for") is removed, and so are `[data-sl-ai-message-reasoning-row]` and `[data-sl-ai-message-reasoning-meta]`: use `[data-sl-ai-message-reasoning-header]`, `-mark`, `-label` and `-elapsed`.
 5. **Catalog keys changed.** `reasoningReady` is now `reasoningDone`, `workedFor` is now `reasoningDoneIn`, `thinking` is removed and `copied` is new. `reasoningStreaming` now reads "Reasoning…" / "Raciocinando…".
 6. **`AIMessageCopyProps` and `AIMessageActionProps` omit `aria-label`.** The accessible name comes from the `label` prop of `AIMessageAction` and from the catalog for `AIMessageCopy` (`copyMessage`, then `copied`).
+7. **`MessageMessagesProvider` is now `AIMessagesI18nProvider`.** Same props (`messages`, `children`), now typed as `AIMessagesI18nProviderProps`. There is no alias for the old name.
 
 Layout changes in the thread are visual rather than API breaks: the gap between messages grows from 16px to 32px and the thread now pads the messages and the composer (see [THREAD.md](./THREAD.md#layout-and-spacing)).
 

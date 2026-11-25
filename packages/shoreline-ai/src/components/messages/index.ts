@@ -32,7 +32,7 @@ export {
   AIMessageResourceImage,
 } from './ai-message-resource'
 export { defaultMessageGroupBy, renderDefaultParts } from './default-parts'
-export { MessageMessagesProvider } from './message-messages-context'
+export { AIMessagesI18nProvider } from './message-messages-context'
 
 export type {
   AIMessagesProps,
@@ -83,6 +83,8 @@ export type {
   AIMessageState,
   AIMessageStatus,
   AIMessageMessages,
+  AIMessagesI18nProviderOptions,
+  AIMessagesI18nProviderProps,
   AIMessagePartMeta,
   AIMessagePartRenderer,
   GroupByContext,

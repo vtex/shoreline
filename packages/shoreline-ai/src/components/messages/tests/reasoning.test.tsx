@@ -21,14 +21,14 @@ import { AIMessageReasoningLabel } from '../ai-message-reasoning-label'
 import { AIMessageReasoningMark } from '../ai-message-reasoning-mark'
 import { AIMessageReasoningRoot } from '../ai-message-reasoning-root'
 import { AIMessageReasoningTrigger } from '../ai-message-reasoning-trigger'
-import { MessageMessagesProvider } from '../message-messages-context'
+import { AIMessagesI18nProvider } from '../message-messages-context'
 import { WorkingMarkProvider } from '../working-mark-context'
 import type { AIMessageReasoningRootProps } from '../types'
 
 function wrap(ui: ReactElement) {
   return (
     <LocaleProvider locale="en-US">
-      <MessageMessagesProvider>{ui}</MessageMessagesProvider>
+      <AIMessagesI18nProvider>{ui}</AIMessagesI18nProvider>
     </LocaleProvider>
   )
 }

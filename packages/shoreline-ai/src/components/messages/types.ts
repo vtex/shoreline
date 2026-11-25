@@ -83,6 +83,28 @@ export type AIMessageMessages = Partial<
   >
 >
 
+/**
+ * Props of `AIMessagesI18nProvider`. It renders no element, so it takes no
+ * HTML props.
+ *
+ * @status experimental
+ * @example
+ * <AIMessagesI18nProvider messages={{ copied: 'Done!' }}>
+ *   <AIMessageCopy />
+ * </AIMessagesI18nProvider>
+ */
+export interface AIMessagesI18nProviderOptions {
+  /**
+   * Strings that replace the built-in ones of the current locale.
+   * @default undefined
+   */
+  messages?: AIMessageMessages
+  /** Message pieces that read the strings. */
+  children: ReactNode
+}
+
+export type AIMessagesI18nProviderProps = AIMessagesI18nProviderOptions
+
 export interface AIMessageRootOptions {
   /** Message author role. Set automatically by `AIMessageUser` / `AIMessageAssistant`. */
   messageRole: 'user' | 'assistant'

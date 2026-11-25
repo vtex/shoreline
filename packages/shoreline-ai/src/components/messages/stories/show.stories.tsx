@@ -30,7 +30,7 @@ import {
   AIMessages,
   AIThinkingIndicator,
   AIWorkingMark,
-  MessageMessagesProvider,
+  AIMessagesI18nProvider,
 } from '../index'
 import {
   CopiedEnvironment,
@@ -174,19 +174,19 @@ const reasoningBody = (
 /** Running for 42 seconds: mark, shimmering label, elapsed time and chevron. */
 export const ReasoningRunning: Story = {
   render: () => (
-    <MessageMessagesProvider>
+    <AIMessagesI18nProvider>
       <AIMessageReasoningRoot status="running" startedAt={FROZEN_NOW - 42_000}>
         <AIMessageReasoningHeader />
         <AIMessageReasoningContent>{reasoningBody}</AIMessageReasoningContent>
       </AIMessageReasoningRoot>
-    </MessageMessagesProvider>
+    </AIMessagesI18nProvider>
   ),
 }
 
 /** Running and open: the body shows under the header. */
 export const ReasoningRunningExpanded: Story = {
   render: () => (
-    <MessageMessagesProvider>
+    <AIMessagesI18nProvider>
       <AIMessageReasoningRoot
         status="running"
         startedAt={FROZEN_NOW - 65_000}
@@ -195,38 +195,38 @@ export const ReasoningRunningExpanded: Story = {
         <AIMessageReasoningHeader />
         <AIMessageReasoningContent>{reasoningBody}</AIMessageReasoningContent>
       </AIMessageReasoningRoot>
-    </MessageMessagesProvider>
+    </AIMessagesI18nProvider>
   ),
 }
 
 /** Complete with a duration: "Reasoning completed in 2m", no mark. */
 export const ReasoningCompleteWithDuration: Story = {
   render: () => (
-    <MessageMessagesProvider>
+    <AIMessagesI18nProvider>
       <AIMessageReasoningRoot status="complete" duration={120_000}>
         <AIMessageReasoningHeader />
         <AIMessageReasoningContent>{reasoningBody}</AIMessageReasoningContent>
       </AIMessageReasoningRoot>
-    </MessageMessagesProvider>
+    </AIMessagesI18nProvider>
   ),
 }
 
 /** Complete without a duration (for example loaded from history). */
 export const ReasoningCompleteWithoutDuration: Story = {
   render: () => (
-    <MessageMessagesProvider>
+    <AIMessagesI18nProvider>
       <AIMessageReasoningRoot status="complete">
         <AIMessageReasoningHeader />
         <AIMessageReasoningContent>{reasoningBody}</AIMessageReasoningContent>
       </AIMessageReasoningRoot>
-    </MessageMessagesProvider>
+    </AIMessagesI18nProvider>
   ),
 }
 
 /** Complete and open: 3px bar, 16px padding and the reasoning text. */
 export const ReasoningCompleteExpanded: Story = {
   render: () => (
-    <MessageMessagesProvider>
+    <AIMessagesI18nProvider>
       <AIMessageReasoningRoot
         status="complete"
         duration={42_000}
@@ -240,7 +240,7 @@ export const ReasoningCompleteExpanded: Story = {
           </p>
         </AIMessageReasoningContent>
       </AIMessageReasoningRoot>
-    </MessageMessagesProvider>
+    </AIMessagesI18nProvider>
   ),
 }
 

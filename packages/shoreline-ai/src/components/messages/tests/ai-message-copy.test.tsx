@@ -20,7 +20,7 @@ import { MockRuntimeProvider } from '../../../test-utils'
 import type { StreamTransport } from '../../../runtime/types'
 import { AIMessageCopy } from '../ai-message-copy'
 import { AIMessages } from '../ai-messages'
-import { MessageMessagesProvider } from '../message-messages-context'
+import { AIMessagesI18nProvider } from '../message-messages-context'
 
 const aui = vi.hoisted(() => ({
   override: null as null | { content: unknown[] },
@@ -79,9 +79,9 @@ describe('AIMessageCopy', () => {
     function renderCopy(onCopied?: () => void, node?: ReactNode) {
       return render(
         <LocaleProvider locale="en-US">
-          <MessageMessagesProvider>
+          <AIMessagesI18nProvider>
             {node ?? <AIMessageCopy onCopied={onCopied} />}
-          </MessageMessagesProvider>
+          </AIMessagesI18nProvider>
         </LocaleProvider>
       )
     }
