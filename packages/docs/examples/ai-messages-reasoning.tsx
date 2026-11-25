@@ -2,8 +2,8 @@ import { Text } from '@vtex/shoreline'
 import {
   AIMessageAssistant,
   AIMessageReasoningContent,
+  AIMessageReasoningHeader,
   AIMessageReasoningRoot,
-  AIMessageReasoningTrigger,
   AIMessages,
 } from '@vtex/shoreline-ai'
 import {
@@ -18,19 +18,23 @@ export default function Example() {
       <AIDemoMessages messages={demoAnswer}>
         <AIMessages>
           <AIMessageAssistant>
-            {/* Running: the label reads "Reasoning" */}
+            {/* Running: mark, shimmering label, elapsed time and chevron */}
             <AIMessageReasoningRoot status="running">
-              <AIMessageReasoningTrigger />
+              <AIMessageReasoningHeader />
             </AIMessageReasoningRoot>
 
-            {/* Complete: the label reads "Reasoned" */}
-            <AIMessageReasoningRoot status="complete">
-              <AIMessageReasoningTrigger />
+            {/* Complete with a duration: "Reasoning completed in 2m" */}
+            <AIMessageReasoningRoot status="complete" duration={120_000}>
+              <AIMessageReasoningHeader />
             </AIMessageReasoningRoot>
 
-            {/* Expanded from the start, with the reasoning text inside */}
-            <AIMessageReasoningRoot status="complete" defaultExpanded>
-              <AIMessageReasoningTrigger />
+            {/* Complete and open from the start, with the reasoning text */}
+            <AIMessageReasoningRoot
+              status="complete"
+              duration={42_000}
+              defaultExpanded
+            >
+              <AIMessageReasoningHeader />
               <AIMessageReasoningContent>
                 <Text variant="caption2" color="base-soft">
                   Comparing each order with its promised delivery date.

@@ -48,15 +48,34 @@ The viewport is the part that scrolls. The footer sticks to its bottom edge:
 |-----------|-----------|
 | `AIThread` | The root. Sets the layout and the labels |
 | `AIThreadViewport` | The scrollable area. It scrolls to the end on new messages, when a run starts, when the history loads and when the thread changes |
-| `AIThreadEmpty` | Shows its children only while the thread has no messages and is not opening a thread |
+| `AIThreadEmpty` | Shows its children only while the thread has no messages and is not opening a thread. It fills the free space and centers them |
 | `AIThreadViewportFooter` | The footer that stays at the bottom of the viewport. Its height is measured, so the last message is never hidden behind it |
 | `AIThreadScrollToBottom` | The round button that jumps to the latest message |
 
 ## Examples
 
+### Layout and spacing
+
+A thread with no app CSS already looks right. The footer has `margin-top: auto`, so the composer stays at the bottom when the conversation is short or empty. The thread also owns the spacing: the messages and the footer have `--sl-ai-thread-padding` (default `var(--sl-space-4)`, 16px) around them, so the composer lines up with the message column. Messages are `--sl-ai-messages-gap` apart (default `var(--sl-space-8)`, 32px, the room the floating actions bar of an answer needs). The same gap is left below the last message, so the last bar is never covered by the footer.
+
+| Custom property | Default | What it changes |
+|-----------------|---------|-----------------|
+| `--sl-ai-thread-padding` | `var(--sl-space-4)` | The padding around the messages and around the composer footer |
+| `--sl-ai-messages-gap` | `var(--sl-space-8)` | The gap between messages, and the space below the last one |
+
+```css
+[data-sl-ai-thread] {
+  --sl-ai-thread-padding: var(--sl-space-6);
+}
+```
+
+<Callout type="warning">
+  The padding around the messages comes from the selector `[data-sl-ai-thread-viewport] > [data-sl-ai-messages]`, so it applies only when `AIMessages` is a **direct child** of `AIThreadViewport`. If your app wraps `AIMessages` in its own element, put `padding: var(--sl-ai-thread-padding, var(--sl-space-4))` on that wrapper, with `padding-bottom: var(--sl-ai-messages-gap, var(--sl-space-8))` for the last actions bar. This keeps the composer aligned with the message column.
+</Callout>
+
 ### Empty thread
 
-`AIThreadEmpty` renders its children only while the thread is empty. It has no styles of its own, so you control the look of the welcome. It also stays hidden while `useAIThread().isOpeningThread` is `true`, so the welcome does not flash before the history arrives.
+`AIThreadEmpty` renders its children only while the thread is empty. It grows to fill the free space and centers its children, and it has no other styles, so you control the look of the welcome. It also stays hidden while `useAIThread().isOpeningThread` is `true`, so the welcome does not flash before the history arrives.
 
 <Preview name="ai-thread-empty" />
 
@@ -81,7 +100,7 @@ Each message row uses `content-visibility: auto`, so the browser skips the layou
 Because the heights of rows that were never on screen are estimates, the scroll bar can shift a little while you scroll up through a long history. This is expected.
 
 <Callout type="warning">
-  `[data-sl-ai-message]` has some padding and an opposite negative margin. They give focus rings room to paint inside the clipped row, and they cancel each other, so the content keeps its width and position. The row box itself extends about 1rem past the messages container on each side, so a focus ring at the very edge is still clipped by an ancestor with `overflow: hidden`, such as the viewport. Give the messages container about 1rem of horizontal padding. Do not override `padding` or `margin` on that element.
+  `[data-sl-ai-message]` has some padding and an opposite negative margin. They give focus rings room to paint inside the clipped row, and they cancel each other, so the content keeps its width and position. The row box itself extends about 1rem past the messages container on each side, so a focus ring at the very edge is still clipped by an ancestor with `overflow: hidden`, such as the viewport. The default thread spacing covers this when `AIMessages` is a direct child of `AIThreadViewport`; if you wrap it, add the padding to your wrapper as described in [Layout and spacing](#layout-and-spacing). Do not override `padding` or `margin` on the message row.
 </Callout>
 
 ### Errors when opening a thread
@@ -127,7 +146,7 @@ Use the `data-sl-*` attributes to adjust the look in your CSS:
 |-----------|--------|
 | `[data-sl-ai-thread]` | The root |
 | `[data-sl-ai-thread-viewport]` | The scrollable area |
-| `[data-sl-ai-thread-empty]` | The empty slot. It has no styles |
+| `[data-sl-ai-thread-empty]` | The empty slot. It fills the free space and centers its children |
 | `[data-sl-ai-thread-viewport-footer]` | The sticky footer |
 | `[data-sl-ai-thread-scroll-to-bottom]` | The scroll button, above the footer |
 | `[data-sl-ai-thread-error]` | A convention for your own error banner in the footer. The package only styles its margin |

@@ -64,7 +64,7 @@ The scroll behavior comes from the chat engine the package is built on. Its vers
 |-----------|---------|
 | `AIThread` | Root container; optional `messages` overrides i18n |
 | `AIThreadViewport` | Scrollable viewport with auto-scroll on new messages and thread switches |
-| `AIThreadEmpty` | Renders children only when the thread is empty and not opening |
+| `AIThreadEmpty` | Renders children only when the thread is empty and not opening. Fills the free space and centers them |
 | `AIThreadViewportFooter` | Sticky footer; height is measured for scroll inset |
 | `AIThreadScrollToBottom` | Button to jump to the latest messages when not at the bottom |
 
@@ -164,7 +164,7 @@ Also accepts native `div` attributes.
 |------|---------|
 | `children` | Welcome or onboarding UI |
 
-Standard `div` props. **Behavior:** renders children only when `useAIThread().isEmpty` is `true` and `isOpeningThread` is `false`; otherwise returns `null`. No package layout styles on this slot.
+Standard `div` props. **Behavior:** renders children only when `useAIThread().isEmpty` is `true` and `isOpeningThread` is `false`; otherwise returns `null`. The slot grows to fill the free space and centers its children; it adds no other styles.
 
 ### `AIThreadViewportFooter`
 
@@ -182,6 +182,41 @@ Standard `div` props. Sticky at the bottom of the viewport; footer height is use
 
 Standard `button` props. When the viewport is already at the bottom the button is `disabled` and has `opacity: 0` with `pointer-events: none`, so it only appears after the user scrolls up. It is absolutely positioned above the footer (`bottom: 100%`), so mount it as the **first child** of `AIThreadViewportFooter`. The accessible name comes from the `scrollToBottom` message.
 
+## Layout and spacing
+
+The thread owns its layout, so a raw thread with no app CSS already looks right:
+
+- **The composer sits at the bottom.** `AIThreadViewportFooter` has `margin-top: auto`, so in a short or empty thread the footer stays at the bottom of the viewport instead of floating under the last message.
+- **Empty state.** `AIThreadEmpty` grows to fill the free space (`flex: 1`) and centers its children horizontally and vertically. Its children are still yours to style.
+- **Default spacing.** The messages and the footer have `var(--sl-ai-thread-padding, var(--sl-space-4))` (16px) around them, so the composer lines up with the message column. Apps do not wrap `AIMessages` in a padded element.
+- **Gap between messages.** `var(--sl-ai-messages-gap, var(--sl-space-8))` (32px): the smallest space token that holds the floating actions bar of an answer. The same value is left below the last message, so the last bar floats in that space and the sticky footer never covers it.
+
+| Custom property | Default | What it changes |
+|-----------------|---------|-----------------|
+| `--sl-ai-thread-padding` | `var(--sl-space-4)` | Padding around the messages and around the composer footer |
+| `--sl-ai-messages-gap` | `var(--sl-space-8)` | Gap between messages, and the space below the last message |
+
+Set them on `[data-sl-ai-thread]` (or any ancestor):
+
+```css
+[data-sl-ai-thread] {
+  --sl-ai-thread-padding: var(--sl-space-6);
+  --sl-ai-messages-gap: var(--sl-space-10);
+}
+```
+
+### The messages padding needs `AIMessages` as a direct child of the viewport
+
+The padding around the messages comes from the selector `[data-sl-ai-thread-viewport] > [data-sl-ai-messages]`, so it applies only when `AIMessages` is a **direct child** of `AIThreadViewport`. If your app wraps `AIMessages` in its own element, the thread cannot pad the list for you: put the same padding on that wrapper, with the extra room at the bottom for the last actions bar, to keep the composer aligned with the message column.
+
+```css
+.my-messages-wrapper {
+  box-sizing: border-box;
+  padding: var(--sl-ai-thread-padding, var(--sl-space-4));
+  padding-bottom: var(--sl-ai-messages-gap, var(--sl-space-8));
+}
+```
+
 ## Scroll behavior
 
 `AIThreadViewport` forwards its four props to the scrolling engine of the chat:
@@ -193,7 +228,7 @@ Standard `button` props. When the viewport is already at the bottom the button i
 
 ### Long threads and `content-visibility`
 
-Each message row (`[data-sl-ai-message]`) uses `content-visibility: auto`, so rows that are off screen skip layout and paint. The browser does not know the height of a row that was never rendered and uses `--sl-ai-message-intrinsic-size` (default `5rem`) as a placeholder, then remembers the real height after the first render. The scroll bar can therefore shift slightly while scrolling up through a long history. Raise the variable if your messages are usually much taller. The row also has padding and a cancelling negative margin so focus rings are not clipped (focus rings at the very edge of the container still need about `1rem` of horizontal padding on the messages container); do not override `padding` or `margin` on `[data-sl-ai-message]`. Details: [MESSAGES.md](./MESSAGES.md#content-visibility).
+Each message row (`[data-sl-ai-message]`) uses `content-visibility: auto`, so rows that are off screen skip layout and paint. The browser does not know the height of a row that was never rendered and uses `--sl-ai-message-intrinsic-size` (default `5rem`) as a placeholder, then remembers the real height after the first render. The scroll bar can therefore shift slightly while scrolling up through a long history. Raise the variable if your messages are usually much taller. The row also has padding and a cancelling negative margin so focus rings are not clipped (the default thread spacing already gives the messages `1rem` of padding, so rings at the edge are not cut; if you wrap `AIMessages` yourself, see "The messages padding needs `AIMessages` as a direct child" above); do not override `padding` or `margin` on `[data-sl-ai-message]`. Details: [MESSAGES.md](./MESSAGES.md#content-visibility).
 
 ## Types
 
@@ -273,7 +308,7 @@ Stable `data-sl-*` hooks for app overrides:
 |-----------|--------|
 | `[data-sl-ai-thread]` | Root |
 | `[data-sl-ai-thread-viewport]` | Scrollable viewport |
-| `[data-sl-ai-thread-empty]` | Empty slot (no package layout styles) |
+| `[data-sl-ai-thread-empty]` | Empty slot (fills the free space and centers its children) |
 | `[data-sl-ai-thread-viewport-footer]` | Sticky footer |
 | `[data-sl-ai-thread-scroll-to-bottom]` | Scroll control (floated above footer) |
 | `[data-sl-ai-thread-error]` | App error banner in footer (convention) |

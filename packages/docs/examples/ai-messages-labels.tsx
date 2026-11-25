@@ -1,9 +1,12 @@
 import {
   AIMessageAssistant,
+  AIMessageParts,
   AIMessageReasoningRoot,
+  AIMessageReasoningHeader,
+  AIMessageReasoningLabel,
   AIMessageReasoningTrigger,
+  AIMessageActions,
   AIMessages,
-  AIThinkingIndicator,
 } from '@vtex/shoreline-ai'
 import {
   AIDemoMessages,
@@ -15,21 +18,34 @@ export default function Example() {
   return (
     <AIDemoProvider>
       <AIDemoMessages messages={demoAnswer}>
+        {/* A text for the whole chat: the catalog override */}
         <AIMessages
           messages={{
-            reasoningStreaming: 'Working on it',
+            reasoningStreaming: 'Working on it…',
             reasoningDone: 'Done thinking',
-            messageCopied: 'Copied to the clipboard',
+            copyMessage: 'Copy the answer',
           }}
         >
           <AIMessageAssistant>
-            <AIThinkingIndicator />
             <AIMessageReasoningRoot status="running">
-              <AIMessageReasoningTrigger />
+              <AIMessageReasoningHeader />
             </AIMessageReasoningRoot>
             <AIMessageReasoningRoot status="complete">
-              <AIMessageReasoningTrigger />
+              <AIMessageReasoningHeader />
             </AIMessageReasoningRoot>
+
+            {/* A text for one label: children of the label */}
+            <AIMessageReasoningRoot status="complete">
+              <AIMessageReasoningHeader>
+                <AIMessageReasoningLabel>
+                  Checked 3 orders
+                </AIMessageReasoningLabel>
+                <AIMessageReasoningTrigger />
+              </AIMessageReasoningHeader>
+            </AIMessageReasoningRoot>
+
+            <AIMessageParts />
+            <AIMessageActions />
           </AIMessageAssistant>
         </AIMessages>
       </AIDemoMessages>
