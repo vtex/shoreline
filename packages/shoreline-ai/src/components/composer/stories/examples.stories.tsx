@@ -22,9 +22,8 @@ import {
 } from '../index'
 import { useAIComposer } from '../../../hooks/use-ai-composer'
 import { useAIStatus } from '../../../hooks/use-ai-status'
-import { useAIThread } from '../../../hooks/use-ai-thread'
 import { ComposerStoryDecorator } from './decorators'
-import { StoryPanel, type StoryPanelSection } from './panel'
+import { StoryPanel, type StoryPanelSection, inputKeys } from './panel'
 
 const meta: Meta = {
   title: 'shoreline-ai/composer',
@@ -86,7 +85,6 @@ function HistoryAndSuggestionsInput(props: {
   const { fieldRef } = props
   const { text, setText } = useAIComposer()
   const { isStreaming } = useAIStatus()
-  const { sendMessage } = useAIThread()
   const [requested, setRequested] = useState(false)
   const open = requested && !text.trim() && !isStreaming
 
@@ -97,16 +95,12 @@ function HistoryAndSuggestionsInput(props: {
       value={text}
       setValue={setText}
     >
-      <AIComposerInput asChild placeholder="Mensagem para Meu assistente…">
-        <ComboboxInput asChild>
+      <AIComposerInput asChild>
+        <ComboboxInput asChild {...inputKeys(open)}>
           <textarea />
         </ComboboxInput>
       </AIComposerInput>
-      <StoryPanel
-        fieldRef={fieldRef}
-        sections={SECTIONS}
-        onPick={(entry) => sendMessage({ text: entry })}
-      />
+      <StoryPanel fieldRef={fieldRef} sections={SECTIONS} />
     </ComboboxProvider>
   )
 }
@@ -121,7 +115,7 @@ function HistoryAndSuggestionsComposer() {
 
   return (
     <div style={{ paddingTop: 280 }}>
-      <AIComposer>
+      <AIComposer messages={{ placeholder: 'Mensagem para Meu assistente…' }}>
         <AIComposerField ref={fieldRef}>
           <HistoryAndSuggestionsInput fieldRef={fieldRef} />
           <AIComposerFooter>

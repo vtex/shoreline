@@ -6,7 +6,7 @@ import { Callout } from 'nextra/components'
   **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
 </Callout>
 
-The box where people write to an AI assistant. It has a text field, a button to send (and to stop the answer), and optionally file attachments and context items.
+The box where people write to an AI assistant. It has a text field, a button to send (and to stop the answer), and optionally file attachments.
 
 `AIComposer` is a family of small components that you put together, like blocks. The draft text and the attachments live in the chat runtime, so you do not manage them with `useState`.
 
@@ -49,7 +49,7 @@ Every composer follows the same tree. The field is the rounded box, and the foot
 | Component | What it is |
 |-----------|-----------|
 | `AIComposer` | The form. Sets the layout, the loading state and the labels |
-| `AIComposerHeader` | An empty slot above the field, for a card or the context items |
+| `AIComposerHeader` | An empty slot above the field, for a card or any content of yours |
 | `AIComposerField` | The rounded box that holds everything |
 | `AIComposerInput` | The text area |
 | `AIComposerFooter` | The row below the text. Anything that is not `AIComposerActions` goes to the left side |
@@ -57,8 +57,7 @@ Every composer follows the same tree. The field is the rounded box, and the foot
 | `AIComposerAction` | One button that sends when idle and stops while the assistant answers |
 | `AIComposerSend` / `AIComposerCancel` | The same button split in two, when you want to control it |
 | `AIComposerAddAttachment` | The `+` button that opens the file picker |
-| `AIComposerAttachments` | The chips of the files that were added |
-| `AIComposerContextItems` / `AIComposerContextItem` | The band of removable chips (for example, pinned documents) |
+| `AIComposerAttachments` | The tiles of the files that were added, on one row with a "+N" button |
 | `AIComposerSkeleton` | The loading placeholder |
 
 ## Examples
@@ -70,20 +69,17 @@ Use `layout` to choose how the pieces are arranged. The default is `stacked`.
 | Value | Arrangement |
 |-------|-------------|
 | `stacked` | The text, then a row below with the `+` on the left and the actions on the right |
-| `expanded` | The `+` above the text and the actions at the bottom end |
 | `inline` | Everything in one row. The most compact |
 
+The `inline` layout has no row for attachment tiles. While the draft has attachments, the composer renders as `stacked`, and it returns to `inline` when the last one is removed. You do not need to switch the `layout` prop yourself.
+
 <Callout type="info">
-  Only the look changes. The order in the DOM stays the same, so the tab order follows the DOM and can differ from what you see in `expanded` and `inline`.
+  Only the look changes. The order in the DOM stays the same, so the tab order follows the DOM and can differ from what you see in `inline`.
 </Callout>
 
 #### Stacked
 
 <Preview name="ai-composer-layout-stacked" />
-
-#### Expanded
-
-<Preview name="ai-composer-layout-expanded" />
 
 #### Inline
 
@@ -109,11 +105,11 @@ To let people attach files:
 2. Render `AIComposerAttachments` as the first child of `AIComposerField`.
 3. Add `AIComposerAddAttachment` to the footer.
 
-Each file becomes a chip with the upload progress. When the user sends, the uploaded files reach your transport as `resource` parts.
+Each file becomes an 80px tile: an image preview, or a card with the file type, name and size. The tiles stay on one row; the ones that do not fit collapse into a round "+N" button (with 5 files and 3 visible, it reads "+2"), and clicking it shows them all, with "Less" to collapse. When the user sends, the uploaded files reach your transport as `resource` parts.
 
 <Preview name="ai-composer-attachments" />
 
-A chip can show three states: uploading (with the percentage), ready (an image preview or the file name and size) and error (the message in red, with a remove button).
+A tile can show three states: uploading (with the percentage), ready (an image preview or the file card) and error (a red border, with a remove button; the message is read to screen readers).
 
 A failed upload **does not block sending**. The message is sent without that file. To show a toast or a retry button, render your own chip with `useAIAttachment`:
 
@@ -135,27 +131,11 @@ function UploadChip() {
 <AIComposerAttachments>{() => <UploadChip />}</AIComposerAttachments>
 ```
 
-### Header and context items
+### Header
 
 `AIComposerHeader` is an empty slot above the field. It draws nothing, so you can put anything in it. The field overlaps it by the size of its radius, exposed as `--sl-ai-composer-overlap`. Use it as `padding-bottom` so your content stays clear of the field.
 
-`AIComposerContextItems` is a ready-made band for removable chips, like documents pinned as context. The package stores nothing: you own the list and remove the item in `onRemove`. Long labels are truncated.
-
-<Preview name="ai-composer-context-items" />
-
-<Callout type="info">
-  Removing an item unmounts its button, so move the focus yourself if the user was on it.
-</Callout>
-
-With `asChild`, the child becomes the item and you control its content. The default icon, label and remove button are not rendered. The child should be an `li`:
-
-```tsx
-<AIComposerContextItem asChild>
-  <li>
-    <a href={doc.url}>{doc.title}</a>
-  </li>
-</AIComposerContextItem>
-```
+<Preview name="ai-composer-header" />
 
 ### Footer with your own buttons
 
@@ -181,31 +161,25 @@ Keep this hook in a small component, like `Toolbar` above. It re-renders on each
 
 ### History and suggestions panel
 
-The package has no panel component. Build it with a Shoreline combobox on the input, using `asChild`. The combobox reads the draft with `useAIComposer` and sends the chosen entry with `useAIThread().sendMessage`:
+The package has no panel component. Build it with a Shoreline combobox on the input, using `asChild`. The combobox reads the draft with `useAIComposer`. The chosen entry fills the draft, so the user can edit it before sending:
 
 ```tsx
 function HistoryInput() {
   const { text, setText } = useAIComposer()
   const { isStreaming } = useAIStatus()
-  const { sendMessage } = useAIThread()
   const [requested, setRequested] = useState(false)
   const open = requested && !text.trim() && !isStreaming
 
   return (
     <ComboboxProvider open={open} setOpen={setRequested} value={text} setValue={setText}>
       <AIComposerInput asChild>
-        <ComboboxInput asChild>
+        <ComboboxInput asChild showOnKeyPress={false} moveOnKeyPress={open}>
           <textarea />
         </ComboboxInput>
       </AIComposerInput>
       <ComboboxPopover>
         {entries.map((entry) => (
-          <ComboboxItem
-            key={entry}
-            value={entry}
-            {...{ setValueOnClick: false }}
-            onClick={() => sendMessage({ text: entry })}
-          >
+          <ComboboxItem key={entry} value={entry}>
             {entry}
           </ComboboxItem>
         ))}
@@ -215,7 +189,7 @@ function HistoryInput() {
 }
 ```
 
-`setValueOnClick: false` keeps the clicked entry out of the draft. The Shoreline `ComboboxItem` type omits this prop, so it is spread from an object, and it is forwarded at runtime. With `asChild` the textarea is yours, so the package does not autosize it: it adds `field-sizing: content`, which grows the box in browsers that support it.
+`showOnKeyPress={false}` and `moveOnKeyPress={open}` make ArrowUp and ArrowDown drive the list only while it is open. Otherwise they move the caret between the lines of a multi-line draft. If the Shoreline `ComboboxInput` type omits these Ariakit props, spread them from an object: they are forwarded at runtime. With `asChild` the textarea is yours, so the package does not autosize it: it adds `field-sizing: content`, which grows the box in browsers that support it.
 
 ### Loading
 
@@ -231,7 +205,9 @@ The labels (`send`, `cancel`, placeholder, errors) come from a built-in catalog 
 
 <Preview name="ai-composer-messages" />
 
-Available ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `removeContext`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed` and `attachmentTypeNotAllowed`. The first two attachment messages have a `{max}` placeholder.
+To name the agent in the placeholder, override it: `messages={{ placeholder: 'Message VTEX My Assistant…' }}`.
+
+Available ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed`, `attachmentTypeNotAllowed`, `showAllAttachments` and `showFewerAttachments`. The first two attachment messages have a `{max}` placeholder.
 
 ## Props
 
@@ -255,13 +231,9 @@ The accepted file types come from `accept` on the `AttachmentHandler`. There is 
 
 <PropsDocs name="ai-composer-attachments" />
 
-### AIComposerHeader and AIComposerContextItems
+### AIComposerHeader
 
-These two have no props of their own. `AIComposerHeader` accepts the props of a `div` and `AIComposerContextItems` the props of a `ul`. `AIComposerContextItems` renders nothing when it has no children, so an empty list leaves no space above the field.
-
-### AIComposerContextItem
-
-<PropsDocs name="ai-composer-context-item" />
+It has no props of its own and accepts the props of a `div`.
 
 ### AIComposerSkeleton
 
@@ -286,11 +258,10 @@ Use the `data-sl-*` attributes to adjust the look in your CSS:
 |-----------|--------|
 | `[data-sl-ai-composer]` | The form. It has `data-layout` |
 | `[data-sl-ai-composer-header]` | The empty slot above the field |
-| `[data-sl-ai-composer-context-items]` | The band of context items |
-| `[data-sl-ai-composer-context-item]` | One context item |
-| `[data-sl-ai-composer-field]` | The rounded box |
-| `[data-sl-ai-composer-attachments]` | The list of chips |
-| `[data-sl-ai-composer-attachment]` | One chip |
+| `[data-sl-ai-composer-field]` | The card |
+| `[data-sl-ai-composer-attachments]` | The row of tiles. It has `data-expanded` when opened |
+| `[data-sl-ai-composer-attachment]` | One tile |
+| `[data-sl-ai-composer-attachments-more]` | The "+N" button |
 | `[data-sl-ai-composer-footer]` | The footer row |
 | `[data-sl-ai-composer-footer-start]` | The left side of the footer |
 | `[data-sl-ai-composer-actions]` | The right side of the footer |
@@ -299,7 +270,7 @@ Use the `data-sl-*` attributes to adjust the look in your CSS:
 | `[data-sl-ai-composer-add-attachment]` | The `+` button |
 | `[data-sl-ai-composer-skeleton]` | The skeleton |
 
-`AIComposerFooter` has `display: contents` in `expanded` and `inline`, so a `className` or `style` on it has no visual effect there.
+`AIComposerFooter` has `display: contents` in `inline`, so a `className` or `style` on it has no visual effect there.
 
 ## Related
 

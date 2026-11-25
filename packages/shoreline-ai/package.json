@@ -1,6 +1,6 @@
 {
   "name": "@vtex/shoreline-ai",
-  "version": "0.1.0-beta.0",
+  "version": "0.1.0-beta.2",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "@assistant-ui/react": "0.15.32",
+    "@react-aria/interactions": "3.22.3",
     "react-collapsed": "^4.2.0",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",

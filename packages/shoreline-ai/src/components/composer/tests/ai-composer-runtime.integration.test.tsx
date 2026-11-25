@@ -8,7 +8,7 @@ import {
   waitFor,
 } from '@vtex/shoreline-test-utils'
 import { LocaleProvider } from '@vtex/shoreline'
-import { createRef } from 'react'
+import { act, createRef } from 'react'
 import { afterEach, beforeEach, vi } from 'vitest'
 
 import { MockRuntimeProvider } from '../../../test-utils'
@@ -283,5 +283,111 @@ describe('AIComposer attachments', () => {
     await waitFor(() => {
       expect(screen.queryByText('notes.txt')).not.toBeInTheDocument()
     })
+  })
+
+  it('falls back to stacked while an inline composer has attachments', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer layout="inline" data-testid="composer">
+            <AIComposerField>
+              <AIComposerAttachments />
+              <AIComposerInput placeholder="Type here" />
+              <AIComposerFooter>
+                <AIComposerAddAttachment />
+              </AIComposerFooter>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    const composer = screen.getByTestId('composer')
+
+    expect(composer).toHaveAttribute('data-layout', 'inline')
+
+    await user.click(screen.getByRole('button', { name: /add attachment/i }))
+
+    const fileInputs = document.body.querySelectorAll('input[type="file"]')
+    const fileInput = fileInputs.item(fileInputs.length - 1)
+
+    if (!(fileInput instanceof HTMLInputElement)) {
+      throw new Error('File input not found after clicking add attachment')
+    }
+
+    await user.upload(
+      fileInput,
+      new File(['hello'], 'notes.txt', { type: 'text/plain' })
+    )
+
+    await waitFor(() => {
+      expect(composer).toHaveAttribute('data-layout', 'stacked')
+    })
+
+    await user.click(screen.getByRole('button', { name: /remove attachment/i }))
+
+    await waitFor(() => {
+      expect(composer).toHaveAttribute('data-layout', 'inline')
+    })
+  })
+
+  it('marks the field for the focus ring only when focus does not come from a pointer', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer>
+            <AIComposerField data-testid="field">
+              <AIComposerInput placeholder="Type here" />
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    const field = screen.getByTestId('field')
+
+    await user.click(screen.getByPlaceholderText('Type here'))
+    expect(field).not.toHaveAttribute('data-focus-visible')
+
+    await user.click(document.body)
+    await user.tab()
+    expect(field).toHaveAttribute('data-focus-visible')
+
+    await user.tab()
+    expect(field).not.toHaveAttribute('data-focus-visible')
+  })
+  it('keeps the field ring off for buttons and for focus set by code after a click', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer>
+            <AIComposerField data-testid="field">
+              <AIComposerInput placeholder="Type here" />
+              <button type="button">Other</button>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    const field = screen.getByTestId('field')
+    const input = screen.getByPlaceholderText('Type here')
+
+    await user.tab()
+    expect(field).toHaveAttribute('data-focus-visible')
+
+    await user.tab()
+    expect(screen.getByText('Other')).toHaveFocus()
+    expect(field).not.toHaveAttribute('data-focus-visible')
+
+    await user.click(document.body)
+    act(() => input.focus())
+    expect(field).not.toHaveAttribute('data-focus-visible')
   })
 })

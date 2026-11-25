@@ -12,7 +12,10 @@ import { AIDemoProvider } from '../components/ai-demo'
 export default function Example() {
   return (
     <AIDemoProvider>
-      <AIComposer layout="inline">
+      <AIComposer
+        layout="inline"
+        messages={{ placeholder: 'Message VTEX My Assistant...' }}
+      >
         <AIComposerField>
           <AIComposerInput />
           <AIComposerFooter>

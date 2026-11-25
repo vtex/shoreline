@@ -62,8 +62,8 @@ Normative tree (matches AI Workspace layout: attachments and textarea inside the
 | `AIComposerHeader` | Neutral slot above the field: handles position and the overlap with the pill, draws nothing |
 | `AIComposerContextItems` | Preset band of context items; place it inside `AIComposerHeader` |
 | `AIComposerContextItem` | One removable context item: pin icon, truncated label, optional remove button |
-| `AIComposerField` | Pill container (gray-2 surface, focus ring) |
-| `AIComposerAttachments` | Pending file chips above the input |
+| `AIComposerField` | The compact white card: thin border, soft shadow (Horizon). No ring on click (the caret shows the focus); the focus ring shows when focus arrives by Tab |
+| `AIComposerAttachments` | Pending files above the input: one row of 80px tiles, with a "+N" button for the ones that do not fit |
 | `AIComposerInput` | Draft textarea |
 | `AIComposerFooter` | Bottom row: start slot (left) + actions slot (right) |
 | `AIComposerAddAttachment` | `+` button to open the file picker |
@@ -72,7 +72,7 @@ Normative tree (matches AI Workspace layout: attachments and textarea inside the
 | `AIComposerCancel` | Stop button while a run is streaming |
 | `AIComposerAction` | Toggles send ↔ cancel from `useAIStatus()` |
 | `AIComposerSkeleton` | Loading placeholder (also used when `AIComposer loading`) |
-| `AIComposerAttachment` | Single chip — use only inside `AIComposerAttachments` |
+| `AIComposerAttachment` | Single tile (image preview or file card) — use only inside `AIComposerAttachments` |
 
 ## Composition variants
 
@@ -127,19 +127,20 @@ Use before the provider is ready or in layouts without a full composer:
 
 ### Layouts
 
-`layout` on `AIComposer` picks the arrangement. It only sets `data-layout` on the form; the DOM order stays the same, so tab order follows the DOM and can differ from the visual order in `expanded` and `inline`.
+`layout` on `AIComposer` picks the arrangement. It only sets `data-layout` on the form; the DOM order stays the same, so tab order follows the DOM and can differ from the visual order in `inline`.
 
 | Value | Arrangement | Design states |
 |-------|-------------|---------------|
-| `stacked` (default) | Text, then a footer row with the start slot on the left and the actions on the right | "ações abaixo do texto", "com contexto" |
-| `expanded` | The start slot (the `+`) above the text, actions at the bottom end | "padrão", "enviando", "com anexos" |
+| `stacked` (default) | Text, then a footer row with the start slot on the left and the actions on the right | "padrão", "enviando", "com anexos", "com contexto" |
 | `inline` | One row: start slot, text, actions (minimum height `--sl-space-16`) | "compacta", "com agente", "ações na mesma linha" |
 
 ```tsx
 <AIComposer layout="inline">…</AIComposer>
 ```
 
-`AIComposerFooter` is `display: contents` in `expanded` and `inline`, so a `className` or `style` on it has no visual effect there. It finds `AIComposerActions` even inside a Fragment. A custom component that renders `AIComposerActions` is not seen and the actions land in the start slot, with a warning in development: wrap the content of `AIComposerActions` instead.
+`AIComposerFooter` is `display: contents` in `inline`, so a `className` or `style` on it has no visual effect there. It finds `AIComposerActions` even inside a Fragment. A custom component that renders `AIComposerActions` is not seen and the actions land in the start slot, with a warning in development: wrap the content of `AIComposerActions` instead.
+
+`inline` has no row for the tiles: while the draft has attachments the form renders `data-layout="stacked"`, and goes back to `inline` when the last one is removed. The `layout` prop does not change.
 
 In `inline` an app can show only the avatar of its agent pill by reading `[data-layout="inline"]` on the form in its own CSS.
 
@@ -189,31 +190,25 @@ An expandable card, like the initiative card in the AI Workspace, needs no packa
 
 ### History and suggestions panel
 
-The package has no panel component. An app builds it with a Shoreline combobox on the input through `asChild`, reading the draft with `useAIComposer()` and sending the chosen entry with `useAIThread().sendMessage`:
+The package has no panel component. An app builds it with a Shoreline combobox on the input through `asChild`, reading the draft with `useAIComposer()`. The chosen entry fills the draft, so the user can edit it before sending:
 
 ```tsx
 function HistoryInput() {
   const { text, setText } = useAIComposer()
   const { isStreaming } = useAIStatus()
-  const { sendMessage } = useAIThread()
   const [requested, setRequested] = useState(false)
   const open = requested && !text.trim() && !isStreaming
 
   return (
     <ComboboxProvider open={open} setOpen={setRequested} value={text} setValue={setText}>
       <AIComposerInput asChild>
-        <ComboboxInput asChild>
+        <ComboboxInput asChild showOnKeyPress={false} moveOnKeyPress={open}>
           <textarea />
         </ComboboxInput>
       </AIComposerInput>
       <ComboboxPopover>
         {entries.map((entry) => (
-          <ComboboxItem
-            key={entry}
-            value={entry}
-            {...{ setValueOnClick: false }}
-            onClick={() => sendMessage({ text: entry })}
-          >
+          <ComboboxItem key={entry} value={entry}>
             {entry}
           </ComboboxItem>
         ))}
@@ -223,7 +218,7 @@ function HistoryInput() {
 }
 ```
 
-`setValueOnClick: false` keeps the clicked entry out of the draft. The Shoreline `ComboboxItem` type omits this Ariakit prop, so it is spread from an object; it is forwarded at runtime. With `asChild` the textarea is yours, so the package does not autosize it: it adds `field-sizing: content`, which grows the box in browsers that support it and leaves one row elsewhere.
+`showOnKeyPress={false}` and `moveOnKeyPress={open}` make ArrowUp and ArrowDown drive the list only while it is open; otherwise they move the caret between the lines of a multi-line draft, as in any textarea. The Shoreline `ComboboxInput` type may omit these Ariakit props; they are forwarded at runtime, so spread them from an object if the compiler complains. With `asChild` the textarea is yours, so the package does not autosize it: it adds `field-sizing: content`, which grows the box in browsers that support it and leaves one row elsewhere.
 
 Keep the `useAIComposer()` subscription in a small component like this one: it re-renders on each keystroke, so it should not wrap the whole composer. The field is `position: relative`, so a popover can open above the input. See the `HistoryAndSuggestions` and `ComboboxOnInput` stories.
 
@@ -301,12 +296,12 @@ function PromptToolbar() {
 
 | Prop | Default | Purpose |
 |------|---------|---------|
-| `layout` | `'stacked'` | `'stacked'`, `'expanded'` or `'inline'` |
+| `layout` | `'stacked'` | `'stacked'` or `'inline'` |
 | `loading` | `false` | Renders skeleton instead of the interactive composer |
 | `messages` | — | Partial override of the internal i18n catalog |
 | `children` | — | Composer subtree (`AIComposerField`, etc.) |
 
-Message ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `removeContext`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed`, `attachmentTypeNotAllowed`.
+Message ids: `send`, `cancel`, `removeAttachment`, `addAttachment`, `removeContext`, `placeholder`, `attachmentTooLarge`, `attachmentTooMany`, `attachmentUploadFailed`, `attachmentTypeNotAllowed`, `showAllAttachments`, `showFewerAttachments`.
 
 `attachmentTooLarge` and `attachmentTooMany` have a `{max}` placeholder: the largest size (for example `5.0 MB`) and the largest number of files.
 
@@ -369,8 +364,8 @@ No `onRemove` prop — removal is handled by the chip’s control and the runtim
 
 | State | Component | Visual |
 |-------|-----------|--------|
-| Draft empty / cannot send | `AIComposerSend` | Disabled, muted circle |
-| Can send | `AIComposerSend` | Blue 40×40 circle |
+| Draft empty / cannot send | `AIComposerSend` | Disabled, gray |
+| Can send | `AIComposerSend` | Blue circle (32px stacked, 28px inline), darker on hover |
 | Streaming | `AIComposerCancel` or `AIComposerAction` | Stop control (`useAIStatus().isStreaming`) |
 
 `stopGeneration()` from `useAIThread()` has the same effect as the cancel button.
@@ -382,7 +377,7 @@ flowchart LR
   AddAttachment[AIComposerAddAttachment] --> Runtime[AIProvider runtime]
   Runtime --> List[AIComposerAttachments]
   List --> Chip[AIComposerAttachment]
-  Chip --> Remove[Remove on chip]
+  Chip --> Remove[Remove on tile]
   Remove --> Handler[AttachmentHandler]
 ```
 
@@ -390,15 +385,21 @@ flowchart LR
 - Do not mount `<AIComposerAttachment />` alone — it must be inside the attachments list.
 - Removing a file updates composer state via the registered handler; apps do not pass `onRemove`.
 
-### Chip states
+### Tiles
 
-| State | What the chip shows |
+Attachments are 80px tiles with no visible text. An image shows its preview. Any other file is a card, 80px high, with a type tag on top (PDF, DOCX, XLSX, CSV, or the file extension), the name, and the size at the bottom. The remove button is a dark 20px circle on the tile's corner; it shows on hover or focus, and always on touch screens.
+
+| State | What the tile shows |
 |-------|---------------------|
-| Uploading | A spinner with the progress in percent (from the `progress` the handler yields, 0 to 1) |
-| Ready | The image preview, or the file name and size |
-| Error | The file name and the error message in red. The chip has a remove button |
+| Uploading | A spinner with the progress in percent (from the `progress` the handler yields, 0 to 1); the percent is read to screen readers |
+| Ready | The image preview, or the file card |
+| Error | A red border. The error message stays in the DOM, visually hidden, with `role="alert"`. The tile has a remove button |
 
-An image whose upload failed shows as a file row, without a preview.
+An image whose upload failed shows as a file card, without a preview.
+
+### One row, "+N" and expanding
+
+The tiles stay on one row, without scrolling. The ones that do not fit are hidden and a round button shows how many: with 5 attachments and 3 visible, it reads "+2". The button toggles `data-expanded` on the list: expanded, the tiles wrap into as many rows as needed and the button reads "Less". The button has `aria-expanded` and, while collapsed, an `aria-label` from the `showAllAttachments` message. The animation (tiles entering one after another, the label cross-fading) does not run when the user prefers reduced motion.
 
 ### Errors
 
@@ -411,7 +412,7 @@ An error chip appears when:
 
 The built-in messages are localized (`en-US`, `pt-BR`) and can be overridden on `AIComposer` with `messages`. A file whose type is not accepted by the handler never becomes a chip: `AIComposerAttachments` shows a notice with `attachmentTypeNotAllowed` until the next file is added.
 
-A failed upload does not block sending. The component only signals the error: the attachment stays in `useAIComposer().attachments` with `status: 'error'` (and an `error` message), and it is passed to the `children` render prop of `AIComposerAttachments`, so the app decides what to show (a toast, a chip with retry, a remove button). `AIComposerSend` and the Enter key stay enabled, and the message is sent without the failed attachment: it has no `resource` part. Sending clears the failed attachment from the composer along with the rest of the draft. The user can also remove the chip before sending, and a file that fails can be added again after that.
+A failed upload does not block sending. The component only signals the error: the attachment stays in `useAIComposer().attachments` with `status: 'error'` (and an `error` message), and it is passed to the `children` render prop of `AIComposerAttachments`, so the app decides what to show (a toast, a chip with retry, a remove button). `AIComposerSend` and the Enter key stay enabled, and the message is sent without the failed attachment: it has no `resource` part. Sending clears the failed attachment from the composer along with the rest of the draft. The user can also remove the tile before sending, and a file that fails can be added again after that.
 
 To handle the failure, render your own chip and use `useAIAttachment()` inside it. The example shows a toast once when the attachment fails, and offers retry and remove:
 

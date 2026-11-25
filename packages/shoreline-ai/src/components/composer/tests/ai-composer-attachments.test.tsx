@@ -583,3 +583,135 @@ describe('AIComposer attachments', () => {
     }
   )
 })
+
+describe('AIComposer attachment tiles', () => {
+  beforeEach(() => {
+    vi.stubGlobal(
+      'URL',
+      class extends URL {
+        static createObjectURL = vi.fn(() => 'blob:mock-object-url')
+        static revokeObjectURL = vi.fn()
+      }
+    )
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+    vi.unstubAllGlobals()
+  })
+
+  it('shows a card with the type tag, the name and the size for a file', async () => {
+    const user = userEvent.setup()
+
+    renderComposer(createHandler())
+    await pickFile(user, notes())
+
+    const tile = await screen.findByTitle('notes.txt')
+
+    expect(
+      tile.querySelector('[data-sl-ai-composer-attachment-card]')
+    ).not.toBeNull()
+    expect(
+      tile.querySelector('[data-sl-ai-composer-attachment-tag]')?.textContent
+    ).toBe('TXT')
+    expect(
+      tile.querySelector('[data-sl-ai-composer-attachment-title]')?.textContent
+    ).toBe('notes.txt')
+    expect(
+      tile.querySelector('[data-sl-ai-composer-attachment-size]')?.textContent
+    ).toBe('5 B')
+  })
+
+  describe('when the row is too narrow for every tile', () => {
+    async function addThreeFiles() {
+      const user = userEvent.setup()
+
+      // Each tile is 80px wide and the row is 200px: one tile fits next to
+      // the 80px "+N" button.
+      vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(80)
+      vi.spyOn(Element.prototype, 'clientWidth', 'get').mockReturnValue(200)
+
+      renderComposer(createHandler())
+
+      for (const name of ['a.txt', 'b.txt', 'c.txt']) {
+        await pickFile(user, new File(['x'], name, { type: 'text/plain' }))
+        await screen.findByTitle(name)
+      }
+
+      return user
+    }
+
+    it('hides the tiles that do not fit and counts them', async () => {
+      await addThreeFiles()
+
+      const more = await screen.findByRole('button', {
+        name: /show all attachments/i,
+      })
+
+      expect(more.textContent).toBe('+2')
+      expect(more.getAttribute('aria-expanded')).toBe('false')
+      expect(screen.getByTitle('a.txt').hidden).toBe(false)
+      expect(screen.getByTitle('b.txt').hidden).toBe(true)
+      expect(screen.getByTitle('c.txt').hidden).toBe(true)
+    })
+
+    it('expands every tile and reads "Less", then collapses again', async () => {
+      const user = await addThreeFiles()
+
+      await user.click(
+        await screen.findByRole('button', { name: /show all attachments/i })
+      )
+
+      const less = screen.getByRole('button', { name: 'Less' })
+
+      expect(less.getAttribute('aria-expanded')).toBe('true')
+      expect(screen.getByTitle('b.txt').hidden).toBe(false)
+      expect(screen.getByTitle('c.txt').hidden).toBe(false)
+      expect(
+        document.querySelector(
+          '[data-sl-ai-composer-attachments][data-expanded]'
+        )
+      ).not.toBeNull()
+
+      await user.click(less)
+
+      expect(
+        screen.getByRole('button', { name: /show all attachments/i })
+          .textContent
+      ).toBe('+2')
+      expect(screen.getByTitle('c.txt').hidden).toBe(true)
+    })
+
+    it('labels the button in Portuguese', async () => {
+      const user = userEvent.setup()
+
+      vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(80)
+      vi.spyOn(Element.prototype, 'clientWidth', 'get').mockReturnValue(200)
+
+      renderComposer(createHandler(), undefined, 'pt-BR')
+
+      for (const name of ['a.txt', 'b.txt', 'c.txt']) {
+        await pickFile(user, new File(['x'], name, { type: 'text/plain' }))
+        await screen.findByTitle(name)
+      }
+
+      await user.click(
+        await screen.findByRole('button', { name: /mostrar todos os anexos/i })
+      )
+
+      expect(screen.getByRole('button', { name: 'Menos' })).toBeTruthy()
+    })
+  })
+
+  it('shows no "+N" button when every tile fits', async () => {
+    const user = userEvent.setup()
+
+    renderComposer(createHandler())
+    await pickFile(user, notes())
+    await screen.findByTitle('notes.txt')
+
+    expect(
+      screen.queryByRole('button', { name: /show all attachments/i })
+    ).toBeNull()
+  })
+})

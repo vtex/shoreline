@@ -8,5 +8,7 @@ export default {
   attachmentTooMany: 'Muitos arquivos (máx. {max})',
   attachmentUploadFailed: 'Falha no envio',
   attachmentTypeNotAllowed: 'Tipo de arquivo não permitido',
+  showAllAttachments: 'Mostrar todos os anexos',
+  showFewerAttachments: 'Menos',
   placeholder: 'Pergunte qualquer coisa…',
 }

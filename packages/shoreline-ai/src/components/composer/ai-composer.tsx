@@ -1,4 +1,4 @@
-import { ComposerPrimitive } from '@assistant-ui/react'
+import { ComposerPrimitive, useAuiState } from '@assistant-ui/react'
 import { forwardRef } from '@vtex/shoreline'
 
 import { ComposerMessagesProvider } from './composer-messages-context'
@@ -32,15 +32,34 @@ export const AIComposer = forwardRef<HTMLFormElement, AIComposerProps>(
 
     return (
       <ComposerMessagesProvider messages={messages}>
-        <ComposerPrimitive.Root
-          ref={ref}
-          data-sl-ai-composer
-          data-layout={layout}
-          {...formProps}
-        >
+        <AIComposerRoot ref={ref} layout={layout} {...formProps}>
           {children}
-        </ComposerPrimitive.Root>
+        </AIComposerRoot>
       </ComposerMessagesProvider>
     )
   }
 )
+
+/**
+ * The form itself. `inline` has no row for tiles, so while the draft has
+ * attachments the layout falls back to `stacked`, and returns to `inline`
+ * when the last one is removed.
+ */
+const AIComposerRoot = forwardRef<
+  HTMLFormElement,
+  Omit<AIComposerProps, 'loading' | 'messages'>
+>(function AIComposerRoot(props, ref) {
+  const { layout = 'stacked', children, ...formProps } = props
+  const hasAttachments = useAuiState((s) => s.composer.attachments.length > 0)
+
+  return (
+    <ComposerPrimitive.Root
+      ref={ref}
+      data-sl-ai-composer
+      data-layout={hasAttachments ? 'stacked' : layout}
+      {...formProps}
+    >
+      {children}
+    </ComposerPrimitive.Root>
+  )
+})

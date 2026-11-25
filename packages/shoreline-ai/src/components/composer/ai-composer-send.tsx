@@ -1,7 +1,8 @@
 import { ComposerPrimitive } from '@assistant-ui/react'
-import { IconArrowUp, IconButton } from '@vtex/shoreline'
+import { IconButton } from '@vtex/shoreline'
 import { forwardRef } from '@vtex/shoreline'
 
+import { IconArrowUpward } from '../icons/icon-arrow-upward'
 import { useAIComposer } from '../../hooks/use-ai-composer'
 import { useComposerMessagesContext } from './composer-messages-context'
 import type { AIComposerSendProps } from './types'
@@ -31,7 +32,7 @@ export const AIComposerSend = forwardRef<
         disabled={isDisabled}
         data-sl-ai-composer-send
       >
-        <IconArrowUp />
+        <IconArrowUpward />
       </IconButton>
     </ComposerPrimitive.Send>
   )

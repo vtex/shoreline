@@ -7,13 +7,13 @@ import type enUS from './messages/en-US'
  * Arrangement of the composer field.
  * @status experimental
  */
-export type AIComposerLayout = 'stacked' | 'expanded' | 'inline'
+export type AIComposerLayout = 'stacked' | 'inline'
 
 /** @status experimental */
 export interface AIComposerOptions {
   /**
-   * Arrangement of the field: `stacked` (text, then a footer row),
-   * `expanded` (start slot above the text) or `inline` (one row).
+   * Arrangement of the field: `stacked` (text, then a footer row)
+   * or `inline` (one row). With attachments, `inline` renders as `stacked`.
    * @default 'stacked'
    */
   layout?: AIComposerLayout

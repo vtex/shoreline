@@ -107,7 +107,7 @@ describe('AIComposer', () => {
     )
   })
 
-  it.each(['expanded', 'inline'] as const)('sets the %s layout', (layout) => {
+  it.each(['inline'] as const)('sets the %s layout', (layout) => {
     render(
       <LocaleProvider locale="en-US">
         <AIComposer layout={layout} />

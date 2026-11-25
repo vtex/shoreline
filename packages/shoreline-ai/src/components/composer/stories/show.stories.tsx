@@ -120,10 +120,10 @@ export const ReferenceLayout: Story = {
     ),
   ],
   render: () => (
-    <AIComposer>
+    <AIComposer messages={{ placeholder: 'Message VTEX My Assistant...' }}>
       <AIComposerField>
         <AIComposerAttachments />
-        <AIComposerInput placeholder="Message VTEX My Assistant..." />
+        <AIComposerInput />
         <AIComposerFooter>
           <AIComposerAddAttachment />
           <StoryAgentPill />
@@ -140,10 +140,10 @@ export const WithAttachments: Story = {
   // Deferred to the component review (see shoreline-ai-ci-readiness spec)
   tags: ['skip-test'],
   render: () => (
-    <AIComposer>
+    <AIComposer messages={{ placeholder: 'Message VTEX My Assistant...' }}>
       <AIComposerField>
         <AIComposerAttachments />
-        <AIComposerInput placeholder="Message VTEX My Assistant..." />
+        <AIComposerInput />
         <AIComposerFooter>
           <AIComposerAddAttachment />
           <StoryAgentPill />
@@ -161,6 +161,97 @@ export const WithAttachments: Story = {
 
     await expect(canvas.getByText('criar_budget.csv')).toBeInTheDocument()
     await expect(canvas.getByAltText('preview.png')).toBeInTheDocument()
+  },
+}
+
+const PNG_BASE64 =
+  'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=='
+
+/** Adds eight files (images and documents), more than one row holds. */
+async function uploadManyFiles(canvasElement: HTMLElement) {
+  const canvas = within(canvasElement)
+
+  await userEvent.click(canvas.getByRole('button', { name: /add attachment/i }))
+
+  const fileInputs = document.body.querySelectorAll('input[type="file"]')
+  const fileInput = fileInputs.item(fileInputs.length - 1)
+
+  if (!(fileInput instanceof HTMLInputElement)) {
+    throw new Error('File input not found after clicking add attachment')
+  }
+
+  const binary = atob(PNG_BASE64)
+  const bytes = new Uint8Array(binary.length)
+
+  for (let index = 0; index < binary.length; index++) {
+    bytes[index] = binary.charCodeAt(index)
+  }
+
+  const image = (name: string) => new File([bytes], name, { type: 'image/png' })
+
+  await userEvent.upload(fileInput, [
+    image('preview.png'),
+    new File(['%PDF-1.4'], 'relatorio_vendas_outubro.pdf', {
+      type: 'application/pdf',
+    }),
+    image('banner.png'),
+    new File(['docx'], 'estoque_parado.docx', {
+      type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    }),
+    image('capa.png'),
+    new File(['name,amount\nfoo,1'], 'criar_budget.csv', { type: 'text/csv' }),
+    image('detalhe.png'),
+    new File(['text'], 'notas.txt', { type: 'text/plain' }),
+  ])
+}
+
+/** More attachments than one row holds: the rest collapse into the "+N" button. */
+export const ManyAttachments: Story = {
+  // Deferred to the component review (see shoreline-ai-ci-readiness spec)
+  tags: ['skip-test'],
+  render: () => (
+    <AIComposer messages={{ placeholder: 'Message VTEX My Assistant...' }}>
+      <AIComposerField>
+        <AIComposerAttachments />
+        <AIComposerInput />
+        <AIComposerFooter>
+          <AIComposerAddAttachment />
+          <StoryAgentPill />
+          <AIComposerActions>
+            <AIComposerAction />
+          </AIComposerActions>
+        </AIComposerFooter>
+      </AIComposerField>
+    </AIComposer>
+  ),
+  play: async ({ canvasElement }) => {
+    await uploadManyFiles(canvasElement)
+
+    const canvas = within(canvasElement)
+
+    await expect(
+      await canvas.findByRole('button', { name: /show all attachments/i })
+    ).toHaveAttribute('aria-expanded', 'false')
+  },
+}
+
+/** The "+N" button opened: every attachment shows and the button reads "Less". */
+export const ManyAttachmentsExpanded: Story = {
+  // Deferred to the component review (see shoreline-ai-ci-readiness spec)
+  tags: ['skip-test'],
+  render: ManyAttachments.render,
+  play: async ({ canvasElement }) => {
+    await uploadManyFiles(canvasElement)
+
+    const canvas = within(canvasElement)
+
+    await userEvent.click(
+      await canvas.findByRole('button', { name: /show all attachments/i })
+    )
+    await expect(canvas.getByRole('button', { name: 'Less' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    )
   },
 }
 
@@ -191,11 +282,14 @@ function LayoutComposer(props: {
   const { layout, placeholder, agent, contextItems, children } = props
 
   return (
-    <AIComposer layout={layout}>
+    <AIComposer
+      layout={layout}
+      messages={placeholder ? { placeholder } : undefined}
+    >
       {contextItems}
       <AIComposerField>
         <AIComposerAttachments />
-        <AIComposerInput placeholder={placeholder} />
+        <AIComposerInput />
         <AIComposerFooter>
           <AIComposerAddAttachment />
           {agent ? <StoryAgentPill compact={agent === 'compact'} /> : null}
@@ -215,15 +309,8 @@ async function typeDraft(canvasElement: HTMLElement, text: string) {
   await userEvent.type(input, text)
 }
 
-/** Design "padrão": the start slot above the text, send at the bottom end. */
-export const Expanded: Story = {
-  render: () => (
-    <LayoutComposer layout="expanded" placeholder="Type a message..." />
-  ),
-}
-
 /** Design "enviando": a run is active, so the stop button shows. */
-export const ExpandedStreaming: Story = {
+export const StackedStreaming: Story = {
   decorators: [
     (Story) => (
       <MockRuntimeProvider transport={holdingTransport}>
@@ -232,7 +319,7 @@ export const ExpandedStreaming: Story = {
     ),
   ],
   render: () => (
-    <LayoutComposer layout="expanded" placeholder="Type a message..." />
+    <LayoutComposer layout="stacked" placeholder="Type a message..." />
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
@@ -245,10 +332,10 @@ export const ExpandedStreaming: Story = {
 }
 
 /** Design "com anexos": chips above the text. */
-export const ExpandedWithAttachments: Story = {
+export const StackedWithAttachments: Story = {
   tags: ['skip-test'],
   render: () => (
-    <LayoutComposer layout="expanded" placeholder="Type a message..." />
+    <LayoutComposer layout="stacked" placeholder="Type a message..." />
   ),
   play: async ({ canvasElement }) => {
     await uploadComposerFiles(canvasElement)

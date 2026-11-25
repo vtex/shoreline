@@ -23,7 +23,7 @@ import { useAIComposer } from '../../../hooks/use-ai-composer'
 import { useAIStatus } from '../../../hooks/use-ai-status'
 import { ComposerStoryDecorator } from './decorators'
 import { InitiativeCard } from './initiative-card'
-import { StoryPanel, type StoryPanelSection } from './panel'
+import { StoryPanel, type StoryPanelSection, inputKeys } from './panel'
 
 const meta: Meta = {
   title: 'shoreline-ai/composer',
@@ -62,6 +62,69 @@ export const TypeAndSend: Story = {
 
     await userEvent.type(input, 'Hello Shoreline')
     await expect(input).toHaveValue('Hello Shoreline')
+  },
+}
+
+export const ExpandAndCollapseAttachments: Story = {
+  // Deferred to the component review (see shoreline-ai-ci-readiness spec)
+  tags: ['skip-test'],
+  render: () => (
+    <AIComposer>
+      <AIComposerField>
+        <AIComposerAttachments />
+        <AIComposerInput placeholder="Type a message" />
+        <AIComposerFooter>
+          <AIComposerAddAttachment />
+          <AIComposerActions>
+            <AIComposerSend />
+          </AIComposerActions>
+        </AIComposerFooter>
+      </AIComposerField>
+    </AIComposer>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    await userEvent.click(
+      canvas.getByRole('button', { name: /add attachment/i })
+    )
+
+    const fileInputs = document.body.querySelectorAll('input[type="file"]')
+    const fileInput = fileInputs.item(fileInputs.length - 1)
+
+    if (!(fileInput instanceof HTMLInputElement)) {
+      throw new Error('File input not found after clicking add attachment')
+    }
+
+    // Twelve document cards cannot share one row of the 640px story.
+    await userEvent.upload(
+      fileInput,
+      Array.from(
+        { length: 12 },
+        (_, index) =>
+          new File(['text'], `file_${index + 1}.pdf`, {
+            type: 'application/pdf',
+          })
+      )
+    )
+
+    const more = await canvas.findByRole('button', {
+      name: /show all attachments/i,
+    })
+
+    await expect(more).toHaveAttribute('aria-expanded', 'false')
+    await expect(more).toHaveTextContent(/^\+\d+$/)
+
+    await userEvent.click(more)
+    await expect(canvas.getByRole('button', { name: 'Less' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    )
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Less' }))
+    await expect(
+      await canvas.findByRole('button', { name: /show all attachments/i })
+    ).toHaveAttribute('aria-expanded', 'false')
   },
 }
 
@@ -134,7 +197,7 @@ function PanelComposer(props: { onPick: (text: string) => void }) {
             setValue={setText}
           >
             <AIComposerInput asChild placeholder="Type a message">
-              <ComboboxInput asChild>
+              <ComboboxInput asChild {...inputKeys(open)}>
                 <textarea />
               </ComboboxInput>
             </AIComposerInput>
@@ -170,9 +233,25 @@ export const ComboboxOnInput: Story = {
     await userEvent.keyboard('{ArrowDown}')
     await userEvent.keyboard('{Enter}')
     await waitFor(() => expect(onPick).toHaveBeenCalledWith('Alpha'))
-
-    await userEvent.type(input, 'x')
+    // The picked entry fills the draft and the list closes.
+    await waitFor(() => expect(input).toHaveValue('Alpha'))
     await waitFor(() => expect(page.queryByRole('listbox')).toBeNull())
+
+    // With a multi-line draft the arrows are left to the browser, which moves
+    // the caret between the lines (user-event does not simulate that move).
+    await userEvent.clear(input)
+    await userEvent.type(input, 'a{Shift>}{Enter}{/Shift}b')
+
+    for (const key of ['ArrowUp', 'ArrowDown']) {
+      const keydown = new KeyboardEvent('keydown', {
+        key,
+        bubbles: true,
+        cancelable: true,
+      })
+
+      input.dispatchEvent(keydown)
+      await expect(keydown.defaultPrevented).toBe(false)
+    }
   },
 }
 
