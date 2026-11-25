@@ -17,7 +17,6 @@ import { LocaleProvider } from '@vtex/shoreline'
 import { useAIThread } from '../../../hooks/use-ai-thread'
 import { MockRuntimeProvider } from '../../../test-utils'
 import type { StreamTransport } from '../../../runtime/types'
-import { AIMessageActions } from '../ai-message-actions'
 import { AIMessageCopy } from '../ai-message-copy'
 import { AIMessages } from '../ai-messages'
 import { MessageMessagesProvider } from '../message-messages-context'
@@ -31,14 +30,13 @@ vi.mock('@assistant-ui/react', async (importOriginal) => {
 
   return {
     ...actual,
-    useAuiState: ((selector: (state: unknown) => unknown) =>
+    useAui: (() =>
       aui.override
-        ? selector({ message: aui.override })
-        : actual.useAuiState(selector as never)) as typeof actual.useAuiState,
+        ? { message: { getState: () => aui.override } }
+        : actual.useAui()) as typeof actual.useAui,
   }
 })
 
-const COPY = '[data-sl-ai-message-copy]'
 const ACTIONS = '[data-sl-ai-message-actions]'
 
 function setClipboard(value: unknown) {
@@ -98,20 +96,38 @@ describe('AIMessageCopy', () => {
       )
     })
 
-    it('clears data-copied after 2000 ms', async () => {
+    it('after copying shows "Copied!" for 2s, then the icon again', async () => {
       renderCopy()
       const button = screen.getByRole('button', { name: 'Copy message' })
 
+      expect(button.querySelector('svg')).not.toBeNull()
+      expect(button).not.toHaveTextContent('Copied!')
+
       await click(button)
+      expect(button).toHaveTextContent('Copied!')
+      expect(button.querySelector('svg')).toBeNull()
+
       act(() => {
         vi.advanceTimersByTime(1999)
       })
       expect(button).toHaveAttribute('data-copied')
+      expect(button).toHaveTextContent('Copied!')
 
       act(() => {
         vi.advanceTimersByTime(1)
       })
       expect(button).not.toHaveAttribute('data-copied')
+      expect(button).not.toHaveTextContent('Copied!')
+      expect(button.querySelector('svg')).not.toBeNull()
+    })
+
+    it('copies the text the message has at click time', async () => {
+      renderCopy()
+      aui.override = { content: [{ type: 'text', text: 'Updated' }] }
+
+      await click(screen.getByRole('button', { name: 'Copy message' }))
+
+      expect(writeText).toHaveBeenCalledWith('Updated')
     })
 
     it('restarts the timer on a second click', async () => {
@@ -195,52 +211,6 @@ describe('AIMessageCopy', () => {
       expect(onCopied).not.toHaveBeenCalled()
       expect(errorSpy).not.toHaveBeenCalled()
       errorSpy.mockRestore()
-    })
-  })
-
-  describe('AIMessageActions', () => {
-    beforeEach(() => {
-      aui.override = { content: [{ type: 'text', text: 'Hi' }] }
-    })
-    afterEach(() => {
-      aui.override = null
-    })
-
-    it('renders only the copy button without children', () => {
-      render(
-        <LocaleProvider locale="en-US">
-          <MessageMessagesProvider>
-            <AIMessageActions />
-          </MessageMessagesProvider>
-        </LocaleProvider>
-      )
-
-      const row = document.querySelector(ACTIONS) as HTMLElement
-
-      expect(row.querySelectorAll('button')).toHaveLength(1)
-      expect(row.querySelector(COPY)).not.toBeNull()
-    })
-
-    it('renders children after the copy button', () => {
-      render(
-        <LocaleProvider locale="en-US">
-          <MessageMessagesProvider>
-            <AIMessageActions>
-              <button type="button">Like</button>
-            </AIMessageActions>
-          </MessageMessagesProvider>
-        </LocaleProvider>
-      )
-
-      const buttons = Array.from(
-        (document.querySelector(ACTIONS) as HTMLElement).querySelectorAll(
-          'button'
-        )
-      )
-
-      expect(buttons).toHaveLength(2)
-      expect(buttons[0]).toHaveAttribute('data-sl-ai-message-copy')
-      expect(buttons[1]).toHaveTextContent('Like')
     })
   })
 

@@ -52,9 +52,30 @@ describe('ai-messages.css reduced motion', () => {
     expect(blocks.length).toBeGreaterThan(0)
   })
 
-  it('removes the actions row transition', () => {
-    expect(ruleBody(blocks, '[data-sl-ai-message-actions]')).toMatch(
+  it('removes the action button and date transitions', () => {
+    expect(ruleBody(blocks, '[data-sl-ai-message-action]')).toMatch(
       /transition:\s*none/
+    )
+    expect(ruleBody(blocks, '[data-sl-ai-message-date]')).toMatch(
+      /transition:\s*none/
+    )
+  })
+})
+
+describe('ai-messages.css actions bar', () => {
+  it('floats the bar 4px under the message, 20px high with a 2px gap', () => {
+    const bar = ruleBody([css], '[data-sl-ai-message-actions] ')
+
+    expect(bar).toContain('position: absolute')
+    expect(bar).toContain('top: calc(100% + var(--sl-space-1))')
+    expect(bar).toContain('height: var(--sl-space-5)')
+    expect(bar).toContain('gap: var(--sl-space-05)')
+    expect(css).not.toMatch(/\[data-sl-ai-message-actions\][^{]*\{[^}]*opacity/)
+  })
+
+  it('raises the gap between messages', () => {
+    expect(ruleBody([css], '[data-sl-ai-messages] ')).toContain(
+      'gap: var(--sl-ai-messages-gap, var(--sl-space-8))'
     )
   })
 })

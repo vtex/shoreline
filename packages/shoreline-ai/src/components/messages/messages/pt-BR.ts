@@ -5,4 +5,5 @@ export default {
   copyMessage: 'Copiar mensagem',
   copyCode: 'Copiar código',
   messageCopied: 'Mensagem copiada',
+  copied: 'Copiado!',
 }

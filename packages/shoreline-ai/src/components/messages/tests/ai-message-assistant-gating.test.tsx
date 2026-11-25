@@ -36,7 +36,12 @@ vi.mock('../ai-message-actions', () => ({
   AIMessageActions: () => <div data-sl-ai-message-actions />,
 }))
 
+vi.mock('../ai-message-parts', () => ({
+  AIMessageParts: () => <div data-sl-ai-message-parts />,
+}))
+
 const ACTIONS = '[data-sl-ai-message-actions]'
+const PARTS = '[data-sl-ai-message-parts]'
 const INDICATOR = '[data-sl-ai-thinking-indicator]'
 const text = [{ type: 'text', text: 'Hello' }]
 
@@ -46,54 +51,43 @@ function renderAssistant(state: FakeState, children?: React.ReactNode) {
   return render(
     <LocaleProvider locale="en-US">
       <MessageMessagesProvider>
-        <AIMessageAssistant>{children ?? <span>body</span>}</AIMessageAssistant>
+        <AIMessageAssistant>{children}</AIMessageAssistant>
       </MessageMessagesProvider>
     </LocaleProvider>
   )
 }
 
-describe('AIMessageAssistant actions gating', () => {
-  it('without a status, shows actions when the message is not the running last one', () => {
-    renderAssistant({
-      message: { isLast: false, content: text },
-      thread: { isRunning: true },
-    })
-    expect(document.querySelector(ACTIONS)).not.toBeNull()
+const completeText: FakeState = {
+  message: { status: { type: 'complete' }, isLast: false, content: text },
+  thread: { isRunning: false },
+}
+
+function getRoot() {
+  return document.querySelector('[data-testid="root"]') as HTMLElement
+}
+
+describe('AIMessageAssistant composition', () => {
+  it('with explicit children it renders exactly the children: no actions row is appended', () => {
+    renderAssistant(completeText, <span data-testid="custom">custom</span>)
+
+    const root = getRoot()
+
+    expect(root.querySelector(ACTIONS)).toBeNull()
+    expect(root.querySelector(PARTS)).toBeNull()
+    expect(root.childElementCount).toBe(1)
+    expect(root.firstElementChild).toBe(
+      root.querySelector('[data-testid="custom"]')
+    )
   })
 
-  it('without a status, shows actions for the last message when the thread is idle', () => {
-    renderAssistant({
-      message: { isLast: true, content: text },
-      thread: { isRunning: false },
-    })
-    expect(document.querySelector(ACTIONS)).not.toBeNull()
-  })
+  it('with no children it renders parts and the actions bar', () => {
+    renderAssistant(completeText)
 
-  it('without a status, hides actions for the last message while the thread runs', () => {
-    renderAssistant({
-      message: { isLast: true, content: text },
-      thread: { isRunning: true },
-    })
-    expect(document.querySelector(ACTIONS)).toBeNull()
-  })
+    const root = getRoot()
 
-  it.each(['incomplete', 'requires-action', 'running'])(
-    'hides actions for a %s message',
-    (type) => {
-      renderAssistant({
-        message: { status: { type }, isLast: false, content: text },
-        thread: { isRunning: false },
-      })
-      expect(document.querySelector(ACTIONS)).toBeNull()
-    }
-  )
-
-  it('shows actions for a complete message with text', () => {
-    renderAssistant({
-      message: { status: { type: 'complete' }, isLast: false, content: text },
-      thread: { isRunning: false },
-    })
-    expect(document.querySelector(ACTIONS)).not.toBeNull()
+    expect(root.childElementCount).toBe(2)
+    expect(root.children[0]).toHaveAttribute('data-sl-ai-message-parts')
+    expect(root.children[1]).toHaveAttribute('data-sl-ai-message-actions')
   })
 
   it('renders only its children while running with no parts: the pending header lives in AIMessageParts', () => {
@@ -105,9 +99,7 @@ describe('AIMessageAssistant actions gating', () => {
       <span data-testid="custom">custom</span>
     )
 
-    const content = document.querySelector(
-      '[data-testid="root"]'
-    ) as HTMLElement
+    const content = getRoot()
 
     expect(content.querySelector(INDICATOR)).toBeNull()
     expect(content.childElementCount).toBe(1)

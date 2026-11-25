@@ -77,7 +77,8 @@ export type AIMessageMessages = Partial<
     | 'reasoningDoneIn'
     | 'copyMessage'
     | 'copyCode'
-    | 'messageCopied',
+    | 'messageCopied'
+    | 'copied',
     string
   >
 >
@@ -261,12 +262,26 @@ export type AIWorkingMarkProps = AIWorkingMarkOptions &
   ComponentPropsWithoutRef<'span'>
 
 export interface AIMessageActionsOptions {
-  /** Extra actions rendered after the copy button. */
+  /**
+   * Actions of the bar. Replace the default ones, so include `AIMessageCopy`
+   * and `AIMessageDate` to keep them.
+   * @default <AIMessageCopy /> and <AIMessageDate />, in that order
+   */
   children?: ReactNode
 }
 
 export type AIMessageActionsProps = AIMessageActionsOptions &
   Omit<ComponentPropsWithoutRef<'div'>, 'children'>
+
+export interface AIMessageActionOptions {
+  /** Accessible name of the button. */
+  label: string
+  /** Content of the button, usually an icon. */
+  children: ReactNode
+}
+
+export type AIMessageActionProps = AIMessageActionOptions &
+  Omit<ComponentPropsWithoutRef<'button'>, 'children' | 'aria-label'>
 
 export interface AIMessageCopyOptions {
   /** Called once after the message text is copied successfully. */
@@ -274,7 +289,18 @@ export interface AIMessageCopyOptions {
 }
 
 export type AIMessageCopyProps = AIMessageCopyOptions &
-  Omit<ComponentPropsWithoutRef<'button'>, 'children'>
+  Omit<ComponentPropsWithoutRef<'button'>, 'children' | 'aria-label'>
+
+export interface AIMessageDateOptions {
+  /**
+   * Date to show, relative to now.
+   * @default the creation date of the current message
+   */
+  date?: Date | string | number
+}
+
+export type AIMessageDateProps = AIMessageDateOptions &
+  Omit<ComponentPropsWithoutRef<'time'>, 'children' | 'dateTime'>
 
 export type AIMessageReasoningContentProps = ComponentPropsWithoutRef<'div'>
 

@@ -15,6 +15,7 @@ import {
 import {
   AIMessageActions,
   AIMessageAssistant,
+  AIMessageCopy,
   AIMessageParts,
   AIMessageReasoningContent,
   AIMessageReasoningHeader,
@@ -263,6 +264,7 @@ export const ActionsVisible: Story = {
               <AIMessageRoot messageRole="assistant">
                 <AIMessageParts />
                 <AIMessageActions>
+                  <AIMessageCopy />
                   <IconButton variant="tertiary" label="Good response">
                     <IconHeart />
                   </IconButton>

@@ -1,20 +1,17 @@
-import { useAuiState } from '@assistant-ui/react'
-import {
-  IconButton,
-  IconCheck,
-  IconCopySimple,
-  VisuallyHidden,
-  forwardRef,
-} from '@vtex/shoreline'
+import { useAui } from '@assistant-ui/react'
+import { VisuallyHidden, forwardRef } from '@vtex/shoreline'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
+import { AIMessageAction } from './ai-message-action'
+import { IconContentCopy } from './icons'
 import { useMessageMessagesContext } from './message-messages-context'
 import type { AIMessageCopyProps } from './types'
 
 const COPIED_DURATION_MS = 2000
 
 /**
- * Copies the text of the current message to the clipboard.
+ * Copies the text of the current message to the clipboard. After a copy it
+ * shows the "Copied!" text for 2 seconds in place of the icon.
  *
  * @status experimental
  * @example
@@ -24,15 +21,10 @@ export const AIMessageCopy = forwardRef<HTMLButtonElement, AIMessageCopyProps>(
   function AIMessageCopy(props, ref) {
     const { onCopied, onClick, ...buttonProps } = props
     const getMessage = useMessageMessagesContext()
+    const aui = useAui()
     const [copied, setCopied] = useState(false)
     const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
     const mounted = useRef(true)
-
-    const text = useAuiState((state) =>
-      state.message.content
-        .flatMap((part) => (part.type === 'text' ? [part.text] : []))
-        .join('\n\n')
-    )
 
     useEffect(() => {
       mounted.current = true
@@ -49,8 +41,14 @@ export const AIMessageCopy = forwardRef<HTMLButtonElement, AIMessageCopyProps>(
         onClick?.(event)
 
         // Keep this explicit: `await navigator.clipboard?.writeText()` resolves
-        // when the clipboard is missing and would show the check icon.
+        // when the clipboard is missing and would show the copied state.
         if (!navigator.clipboard) return
+
+        // Read at click time, so streaming text does not re-render the button.
+        const text = aui.message
+          .getState()
+          .content.flatMap((part) => (part.type === 'text' ? [part.text] : []))
+          .join('\n\n')
 
         try {
           await navigator.clipboard.writeText(text)
@@ -70,23 +68,21 @@ export const AIMessageCopy = forwardRef<HTMLButtonElement, AIMessageCopyProps>(
           setCopied(false)
         }, COPIED_DURATION_MS)
       },
-      [onClick, onCopied, text]
+      [aui, onClick, onCopied]
     )
 
     return (
       <>
-        <IconButton
+        <AIMessageAction
           ref={ref}
-          type="button"
-          variant="tertiary"
           label={getMessage('copyMessage')}
           data-sl-ai-message-copy
           data-copied={copied ? '' : undefined}
           onClick={handleClick}
           {...buttonProps}
         >
-          {copied ? <IconCheck /> : <IconCopySimple />}
-        </IconButton>
+          {copied ? <span>{getMessage('copied')}</span> : <IconContentCopy />}
+        </AIMessageAction>
         <span aria-live="polite" data-sl-ai-message-copy-status>
           {copied ? (
             <VisuallyHidden>{getMessage('messageCopied')}</VisuallyHidden>
