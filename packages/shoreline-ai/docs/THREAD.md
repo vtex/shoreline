@@ -188,12 +188,12 @@ The thread owns its layout, so a raw thread with no app CSS already looks right:
 
 - **The composer sits at the bottom.** `AIThreadViewportFooter` has `margin-top: auto`, so in a short or empty thread the footer stays at the bottom of the viewport instead of floating under the last message.
 - **Empty state.** `AIThreadEmpty` grows to fill the free space (`flex: 1`) and centers its children horizontally and vertically. Its children are still yours to style.
-- **Default spacing.** The messages and the footer have `var(--sl-ai-thread-padding, var(--sl-space-4))` (16px) around them, so the composer lines up with the message column. Apps do not wrap `AIMessages` in a padded element.
+- **Default spacing.** The messages have `var(--sl-ai-thread-padding, var(--sl-space-4))` (16px) on every side, and the footer has the same value on its sides and bottom (no top padding), so the composer lines up with the message column. Apps do not wrap `AIMessages` in a padded element.
 - **Gap between messages.** `var(--sl-ai-messages-gap, var(--sl-space-8))` (32px): the smallest space token that holds the floating actions bar of an answer. The same value is left below the last message, so the last bar floats in that space and the sticky footer never covers it.
 
 | Custom property | Default | What it changes |
 |-----------------|---------|-----------------|
-| `--sl-ai-thread-padding` | `var(--sl-space-4)` | Padding around the messages and around the composer footer |
+| `--sl-ai-thread-padding` | `var(--sl-space-4)` | Padding around the messages, and on the sides and bottom of the composer footer |
 | `--sl-ai-messages-gap` | `var(--sl-space-8)` | Gap between messages, and the space below the last message |
 
 Set them on `[data-sl-ai-thread]` (or any ancestor):

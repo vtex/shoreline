@@ -56,11 +56,11 @@ The viewport is the part that scrolls. The footer sticks to its bottom edge:
 
 ### Layout and spacing
 
-A thread with no app CSS already looks right. The footer has `margin-top: auto`, so the composer stays at the bottom when the conversation is short or empty. The thread also owns the spacing: the messages and the footer have `--sl-ai-thread-padding` (default `var(--sl-space-4)`, 16px) around them, so the composer lines up with the message column. Messages are `--sl-ai-messages-gap` apart (default `var(--sl-space-8)`, 32px, the room the floating actions bar of an answer needs). The same gap is left below the last message, so the last bar is never covered by the footer.
+A thread with no app CSS already looks right. The footer has `margin-top: auto`, so the composer stays at the bottom when the conversation is short or empty. The thread also owns the spacing: the messages have `--sl-ai-thread-padding` (default `var(--sl-space-4)`, 16px) on every side, and the footer has it on its sides and bottom (no top padding), so the composer lines up with the message column. Messages are `--sl-ai-messages-gap` apart (default `var(--sl-space-8)`, 32px, the room the floating actions bar of an answer needs). The same gap is left below the last message, so the last bar is never covered by the footer.
 
 | Custom property | Default | What it changes |
 |-----------------|---------|-----------------|
-| `--sl-ai-thread-padding` | `var(--sl-space-4)` | The padding around the messages and around the composer footer |
+| `--sl-ai-thread-padding` | `var(--sl-space-4)` | The padding around the messages, and on the sides and bottom of the composer footer |
 | `--sl-ai-messages-gap` | `var(--sl-space-8)` | The gap between messages, and the space below the last one |
 
 ```css
