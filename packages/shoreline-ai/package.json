@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "@assistant-ui/react": "0.15.32",
+    "@react-aria/interactions": "3.22.3",
     "react-collapsed": "^4.2.0",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
