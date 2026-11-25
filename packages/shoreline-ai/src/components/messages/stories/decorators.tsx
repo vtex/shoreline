@@ -65,3 +65,58 @@ export function FrozenClock(props: { now?: number; children: ReactNode }) {
 
   return <>{children}</>
 }
+
+type Restore = () => void
+
+/**
+ * Installs a fake clipboard and keeps the 2 second "copied" reset from ever
+ * firing, so a story can leave the copied state on screen. Both are restored
+ * when the story unmounts. The component is not changed: only `setTimeout`
+ * calls of exactly 2000ms are swallowed.
+ */
+function installCopiedEnvironment(): Restore {
+  const clipboard = Object.getOwnPropertyDescriptor(navigator, 'clipboard')
+  const realSetTimeout = window.setTimeout
+
+  Object.defineProperty(navigator, 'clipboard', {
+    configurable: true,
+    value: { writeText: async () => {} },
+  })
+
+  window.setTimeout = ((handler: TimerHandler, delay?: number, ...args: []) =>
+    delay === 2000
+      ? 0
+      : realSetTimeout(handler, delay, ...args)) as typeof window.setTimeout
+
+  return () => {
+    window.setTimeout = realSetTimeout
+
+    if (clipboard) {
+      Object.defineProperty(navigator, 'clipboard', clipboard)
+    } else {
+      Reflect.deleteProperty(navigator, 'clipboard')
+    }
+  }
+}
+
+let restoreCopied: Restore | null = null
+
+function installOnce() {
+  restoreCopied ??= installCopiedEnvironment()
+}
+
+/** Wraps a story whose play function copies and must keep the copied state. */
+export function CopiedEnvironment(props: { children: ReactNode }) {
+  // Installed during render so it is in place before the story mounts.
+  useState(installOnce)
+  useEffect(() => {
+    installOnce()
+
+    return () => {
+      restoreCopied?.()
+      restoreCopied = null
+    }
+  }, [])
+
+  return <>{props.children}</>
+}

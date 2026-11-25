@@ -32,7 +32,12 @@ import {
   AIWorkingMark,
   MessageMessagesProvider,
 } from '../index'
-import { FROZEN_NOW, FrozenClock, MessagesStoryDecorator } from './decorators'
+import {
+  CopiedEnvironment,
+  FROZEN_NOW,
+  FrozenClock,
+  MessagesStoryDecorator,
+} from './decorators'
 import {
   SendOnMount,
   ThumbDownIcon,
@@ -349,22 +354,25 @@ export const ActionsWithAppThumbs: Story = {
 }
 
 /**
- * Right after a copy: the check icon replaces the copy icon. The play
- * function clicks the button with a fake clipboard, and Chromatic captures
- * the story when it ends, well inside the 2 seconds the check stays.
+ * Right after a copy: the check icon replaces the copy icon. The decorator
+ * fakes the clipboard and swallows the 2 second reset timer while the story
+ * is mounted, so the check stays on screen for the snapshot. Both are
+ * restored on unmount.
  */
 export const ActionsCopied: Story = {
+  decorators: [
+    (Story) => (
+      <CopiedEnvironment>
+        <Story />
+      </CopiedEnvironment>
+    ),
+  ],
   render: () => (
     <ThreadHistorySeed messages={plainAnswer}>
       <AIMessages />
     </ThreadHistorySeed>
   ),
   play: async ({ canvasElement }) => {
-    Object.defineProperty(navigator, 'clipboard', {
-      configurable: true,
-      value: { writeText: async () => {} },
-    })
-
     const button = await within(canvasElement).findByRole('button', {
       name: 'Copy message',
     })
