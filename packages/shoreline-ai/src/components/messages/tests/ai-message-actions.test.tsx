@@ -78,7 +78,7 @@ describe('AIMessageActions', () => {
 
     const row = document.querySelector(ACTIONS) as HTMLElement
     const children = Array.from(row.children).filter(
-      (child) => !child.hasAttribute('data-sl-ai-message-copy-status')
+      (child) => !child.querySelector('[data-sl-ai-message-copy-status]')
     )
 
     expect(children).toHaveLength(2)

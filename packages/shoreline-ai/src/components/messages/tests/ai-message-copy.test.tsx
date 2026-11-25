@@ -103,6 +103,42 @@ describe('AIMessageCopy', () => {
       )
     })
 
+    it('keeps a visually hidden live region mounted before any copy', () => {
+      renderCopy()
+
+      const status = document.querySelector(
+        '[data-sl-ai-message-copy-status]'
+      ) as HTMLElement
+
+      expect(status).toHaveAttribute('aria-live', 'polite')
+      expect(status.textContent).toBe('')
+      // Inside a 1px visually hidden box, not display: contents.
+      const hidden = status.parentElement as HTMLElement
+
+      expect(hidden.style.position).toBe('absolute')
+      expect(hidden.style.overflow).toBe('hidden')
+      expect(hidden.style.width).toBe('1px')
+    })
+
+    it('does not copy when a consumer onClick prevents the default', async () => {
+      const onCopied = vi.fn()
+
+      renderCopy(
+        undefined,
+        <AIMessageCopy
+          onCopied={onCopied}
+          onClick={(event) => event.preventDefault()}
+        />
+      )
+      const button = screen.getByRole('button', { name: 'Copy message' })
+
+      await click(button)
+
+      expect(writeText).not.toHaveBeenCalled()
+      expect(onCopied).not.toHaveBeenCalled()
+      expect(button).not.toHaveAttribute('data-copied')
+    })
+
     it('after copying it is named "Copied!" with the check icon for 2s, then back to the copy icon', async () => {
       renderCopy()
       const button = screen.getByRole('button', { name: 'Copy message' })

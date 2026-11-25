@@ -132,7 +132,7 @@ With `prefers-reduced-motion: reduce` the text stays plain and the mark pulses s
 
 A finished assistant answer that has text gets an `AIMessageActions` bar. It floats just below the message, takes no height and is always visible. It does not show while the answer runs, for the messages of the user, or for messages with status `incomplete` (for example a cancelled run), so a partial answer cannot be copied.
 
-With no children the bar has `AIMessageCopy` and then `AIMessageDate`. With children it renders exactly them, in the order you give. There are no boolean props to turn pieces on or off: compose the bar. Thumbs and their behavior belong to your app, so the package ships neither. Wrap your own icon (any Shoreline icon or your SVG) in `AIMessageAction`, give it a `label` for its accessible name, and set `aria-pressed` for a pressed state.
+With no children the bar has `AIMessageCopy` and then `AIMessageDate`. With children it renders exactly them, in the order you give. There are no boolean props to turn pieces on or off: compose the bar. Thumbs and their behavior belong to your app, so the package ships neither. Wrap your own icon (any Shoreline icon or your SVG) in `AIMessageAction`, give it a `label` for its accessible name, and set `aria-pressed` for a pressed state. The bar renders once per answer, so keep per-answer state keyed by the message id that `useAIMessage()` returns, as the example below does.
 
 <Preview name="ai-messages-actions" />
 
@@ -275,6 +275,7 @@ The labels come from a built-in catalog in `en-US` and `pt-BR`, chosen by the `L
 
 | Hook | Use it to |
 |------|-----------|
+| `useAIMessage()` | Read the `id`, `role`, `status` and `createdAt` of the message you are inside, for example to keep a vote per answer |
 | `useAIMessageParts(messageId?)` | Read the parts of a message. Without an id, it reads the message you are inside |
 | `useAIReasonings(messageId?)` | Read only the reasoning parts |
 | `useAITools(messageId?)` | Read only the tool parts |
@@ -329,6 +330,7 @@ These changes align the reasoning, the thinking indicator and the actions bar wi
 3. **`AIThinkingIndicator` is only the text effect.** The `label` prop is removed: pass the text as children. It is a `span` with no `role`, no dots and no default text.
 4. **Reasoning is composed from parts.** `AIMessageReasoningTrigger` loses its `label` prop and is only the chevron, so clicking the label or the time no longer toggles the panel (the old trigger was the whole row). The text moves to `AIMessageReasoningLabel`, and `AIMessageReasoningHeader` is the row. The `[data-sl-ai-message-reasoning-row]`, `[data-sl-ai-message-reasoning-meta]` and `[data-sl-ai-dots-loader]` selectors are gone.
 5. **Catalog keys changed.** `reasoningReady` is now `reasoningDone`, `workedFor` is now `reasoningDoneIn`, `thinking` is removed, and `copied` is new.
+6. **`AIMessageCopy` and `AIMessageAction` take no `aria-label`.** The accessible name comes from the `label` prop of `AIMessageAction`, and from the built-in strings for `AIMessageCopy`.
 
 The gap between messages also grows from 16px to 32px, and the thread now pads the messages and the composer. See [AIThread](/components/ai-thread#layout-and-spacing).
 

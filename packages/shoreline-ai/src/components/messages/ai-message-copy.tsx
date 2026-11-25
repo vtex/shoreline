@@ -44,6 +44,9 @@ export const AIMessageCopy = forwardRef<HTMLButtonElement, AIMessageCopyProps>(
       async (event: React.MouseEvent<HTMLButtonElement>) => {
         onClick?.(event)
 
+        // A consumer can cancel the copy, as with the reasoning trigger.
+        if (event.defaultPrevented) return
+
         // Keep this explicit: `await navigator.clipboard?.writeText()` resolves
         // when the clipboard is missing and would show the copied state.
         if (!navigator.clipboard) return
@@ -87,11 +90,12 @@ export const AIMessageCopy = forwardRef<HTMLButtonElement, AIMessageCopyProps>(
         >
           {copied ? <IconCheck /> : <IconCopySimple />}
         </AIMessageAction>
-        <span aria-live="polite" data-sl-ai-message-copy-status>
-          {copied ? (
-            <VisuallyHidden>{getMessage('messageCopied')}</VisuallyHidden>
-          ) : null}
-        </span>
+        {/* Always mounted, so screen readers pick up the announcement. */}
+        <VisuallyHidden>
+          <span aria-live="polite" data-sl-ai-message-copy-status>
+            {copied ? getMessage('messageCopied') : null}
+          </span>
+        </VisuallyHidden>
       </>
     )
   }

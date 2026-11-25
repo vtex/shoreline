@@ -9,6 +9,7 @@ export {
   AIMessageReasoning,
   useAIMessageReasoning,
 } from './ai-message-reasoning'
+export { useAIMessage } from './use-ai-message'
 export { AIMessageReasoningRoot } from './ai-message-reasoning-root'
 export { AIMessageReasoningHeader } from './ai-message-reasoning-header'
 export { AIMessageReasoningMark } from './ai-message-reasoning-mark'
@@ -79,6 +80,8 @@ export type {
   AIMessageReasoningToolStepOptions,
   AIMessageResourceProps,
   AIMessageResourcesProps,
+  AIMessageState,
+  AIMessageStatus,
   AIMessageMessages,
   AIMessagePartMeta,
   AIMessagePartRenderer,

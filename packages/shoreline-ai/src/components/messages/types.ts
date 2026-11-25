@@ -133,6 +133,33 @@ export type AIMessagePartsProps = AIMessagePartsOptions &
 
 export type AIMessageReasoningStatus = 'running' | 'complete'
 
+/**
+ * Status of a message: `running` while it streams, `complete` when it
+ * finished, `incomplete` when it stopped early (cancelled or failed).
+ *
+ * @status experimental
+ */
+export type AIMessageStatus = 'running' | 'complete' | 'incomplete'
+
+/**
+ * The current message, as `useAIMessage` returns it.
+ *
+ * @status experimental
+ * @example
+ * const { id, role, status, createdAt } = useAIMessage()
+ */
+export interface AIMessageState {
+  /** Stable id of the message. */
+  id: string
+  role: 'user' | 'assistant'
+  status: AIMessageStatus
+  /**
+   * ISO date the message was created.
+   * @default undefined
+   */
+  createdAt?: string
+}
+
 export interface AIMessageReasoningRootOptions {
   /**
    * Whether the reasoning is still being generated. Drives the header label,

@@ -8,6 +8,7 @@ import {
   AIMessageParts,
   AIMessageUser,
   AIMessages,
+  useAIMessage,
 } from '@vtex/shoreline-ai'
 import {
   AIDemoMessages,
@@ -36,8 +37,50 @@ function ThumbIcon(props: { down?: boolean }) {
   )
 }
 
+type Vote = 'up' | 'down'
+
+// One pair of thumbs per answer: the vote is keyed by the message id.
+function Thumbs(props: {
+  votes: Record<string, Vote>
+  onVote: (messageId: string, vote: Vote | null) => void
+}) {
+  const { votes, onVote } = props
+  const { id } = useAIMessage()
+  const vote = votes[id]
+
+  return (
+    <>
+      <AIMessageAction
+        label="Good response"
+        aria-pressed={vote === 'up'}
+        onClick={() => onVote(id, vote === 'up' ? null : 'up')}
+      >
+        <ThumbIcon />
+      </AIMessageAction>
+      <AIMessageAction
+        label="Bad response"
+        aria-pressed={vote === 'down'}
+        onClick={() => onVote(id, vote === 'down' ? null : 'down')}
+      >
+        <ThumbIcon down />
+      </AIMessageAction>
+    </>
+  )
+}
+
 export default function Example() {
-  const [vote, setVote] = useState<'up' | 'down' | null>(null)
+  const [votes, setVotes] = useState<Record<string, Vote>>({})
+
+  function handleVote(messageId: string, vote: Vote | null) {
+    setVotes((current) => {
+      const next = { ...current }
+
+      if (vote) next[messageId] = vote
+      else delete next[messageId]
+
+      return next
+    })
+  }
 
   return (
     <AIDemoProvider>
@@ -48,20 +91,7 @@ export default function Example() {
             <AIMessageParts />
             {/* With children, the bar renders exactly what you pass */}
             <AIMessageActions>
-              <AIMessageAction
-                label="Good response"
-                aria-pressed={vote === 'up'}
-                onClick={() => setVote(vote === 'up' ? null : 'up')}
-              >
-                <ThumbIcon />
-              </AIMessageAction>
-              <AIMessageAction
-                label="Bad response"
-                aria-pressed={vote === 'down'}
-                onClick={() => setVote(vote === 'down' ? null : 'down')}
-              >
-                <ThumbIcon down />
-              </AIMessageAction>
+              <Thumbs votes={votes} onVote={handleVote} />
               <AIMessageCopy />
               <AIMessageDate />
             </AIMessageActions>

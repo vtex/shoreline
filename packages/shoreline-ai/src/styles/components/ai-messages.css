@@ -421,10 +421,6 @@
     height: calc(var(--sl-space-3) + var(--sl-space-05));
   }
 
-  [data-sl-ai-message-copy-status] {
-    display: contents;
-  }
-
   /* Shown on hover or focus of the message, and while it is "now". */
   [data-sl-ai-message-date] {
     margin-inline-start: calc(var(--sl-space-2) + var(--sl-space-05));

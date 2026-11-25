@@ -246,6 +246,19 @@ Omit `messageId` inside an `AIMessage*` component tree; pass `messageId` to read
 
 `useAIResources` returns the `resource` parts of the message, in message order. This includes the files the user attached to a user message (images too, with an `image/*` MIME type), which `useAIMessageParts` does not return, so filtering that hook is not the same thing.
 
+### The current message
+
+```ts
+useAIMessage(): {
+  id: string
+  role: 'user' | 'assistant'
+  status: 'running' | 'complete' | 'incomplete'
+  createdAt?: string
+}
+```
+
+Use it inside `AIMessageUser` or `AIMessageAssistant` (it throws elsewhere). `status` is `incomplete` when the run stopped early (cancelled or failed); `createdAt` is an ISO string. Each field is read on its own, so streamed tokens do not re-render the caller. Key per-message app state by `id`, for example the votes of the thumbs in the actions bar ([MESSAGES.md](./MESSAGES.md#actions-bar)).
+
 ### Inside a custom part renderer
 
 When overriding parts via `AIMessageParts` function children, prefer the second argument over hooks:

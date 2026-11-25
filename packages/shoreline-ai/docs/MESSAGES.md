@@ -82,6 +82,7 @@ Full message shape and transport details: [RUNTIME.md](./RUNTIME.md). Read threa
 | `AIMarkdown` | Standalone GFM markdown (no streaming cursor) |
 | `AIMessageReasoning` | Connected reasoning panel for the `reasoning` template of `AIMessageParts`. Reads status, duration and start time from the group. Only valid inside `AIMessageParts` |
 | `useAIMessageReasoning()` | Read-only `{ status, expanded, duration }` of the closest reasoning panel, for app parts placed inside it |
+| `useAIMessage()` | `{ id, role, status, createdAt }` of the message you are inside (`status`: `running`, `complete` or `incomplete`). Key per-message app state, such as votes, by `id`. Re-renders only when one of these fields changes, not on every streamed token |
 | `AIMessageReasoningRoot` | Owns the panel state. Takes `status`, `duration`, `startedAt`, `defaultExpanded`, `expanded`, `onExpandedChange` |
 | `AIMessageReasoningHeader` | The 20px row: mark, label, elapsed time, chevron. Takes children to compose your own row |
 | `AIMessageReasoningMark` | The working mark, only while running |
@@ -297,16 +298,42 @@ With `prefers-reduced-motion: reduce` the text effect is plain gray text and the
 `AIMessageAssistant` renders `AIMessageActions` for you when it has no children. To put the bar elsewhere or to add actions, compose the assistant:
 
 ```tsx
+type Vote = 'up' | 'down'
+
+// Inside the bar, useAIMessage() gives the id of the answer the thumbs belong to.
+function Thumbs(props: {
+  votes: Record<string, Vote>
+  onVote: (messageId: string, vote: Vote | null) => void
+}) {
+  const { id } = useAIMessage()
+  const vote = props.votes[id]
+
+  return (
+    <>
+      <AIMessageAction
+        label="Good response"
+        aria-pressed={vote === 'up'}
+        onClick={() => props.onVote(id, vote === 'up' ? null : 'up')}
+      >
+        <ThumbUpIcon />   {/* the app's own icon */}
+      </AIMessageAction>
+      <AIMessageAction
+        label="Bad response"
+        aria-pressed={vote === 'down'}
+        onClick={() => props.onVote(id, vote === 'down' ? null : 'down')}
+      >
+        <ThumbDownIcon />
+      </AIMessageAction>
+    </>
+  )
+}
+
+// votes: Record<string, Vote>, keyed by message id, owned by the app.
 <AIMessages>
   <AIMessageAssistant>
     <AIMessageParts />
     <AIMessageActions>
-      <AIMessageAction label="Good response" aria-pressed={liked} onClick={like}>
-        <ThumbUpIcon />   {/* the app's own icon */}
-      </AIMessageAction>
-      <AIMessageAction label="Bad response" onClick={dislike}>
-        <ThumbDownIcon />
-      </AIMessageAction>
+      <Thumbs votes={votes} onVote={vote} />
       <AIMessageCopy onCopied={track} />
       <AIMessageDate />
     </AIMessageActions>
@@ -316,7 +343,7 @@ With `prefers-reduced-motion: reduce` the text effect is plain gray text and the
 
 Thumbs and their behavior belong to the app; the package ships neither. Use any Shoreline icon or your own SVG as the child of `AIMessageAction`. `AIMessageAction` sets `aria-pressed` styling. Bar icons use `--sl-fg-base-soft` and darken to `--sl-color-gray-9` with a hover background; a disabled action does not react to hover, and a pressed one keeps `--sl-fg-base-soft`.
 
-`AIMessageCopy` writes the text parts of the message (joined by a blank line) to the clipboard. It shows Shoreline's copy icon; after a successful copy it shows the check icon for 2 seconds (`data-copied` is set), its accessible name becomes the `copied` string ("Copied!"), `onCopied` is called once, and a visually hidden live region announces `messageCopied`. No toast and no visible text is shown. If the clipboard is unavailable or rejects, nothing changes.
+`AIMessageCopy` writes the text parts of the message (joined by a blank line) to the clipboard. It shows Shoreline's copy icon; after a successful copy it shows the check icon for 2 seconds (`data-copied` is set), its accessible name becomes the `copied` string ("Copied!"), `onCopied` is called once, and a visually hidden live region announces `messageCopied`. No toast and no visible text is shown. If the clipboard is unavailable or rejects, nothing changes. An `onClick` that calls `event.preventDefault()` cancels the copy.
 
 `AIMessageDate` is a `time` element with `dateTime` set to the ISO value and `title` set to the exact local date and time. It reads `createdAt` from the message, or takes a `date` prop, and renders nothing when there is no valid date. The text is relative and localized with `Intl.RelativeTimeFormat` (`narrow`, `numeric: 'auto'`): en-US "now", "1m ago", "2h ago", "yesterday", "4d ago"; pt-BR "agora", "há 1 min.", "há 2 h", "ontem", "há 4 dias". Under one minute it reads "now"; under an hour, minutes; under a day, hours. From 24 hours it counts local calendar days, so "yesterday" means the previous calendar day (47 hours ago across two midnights reads "2d ago"). From 30 days it shows whole months, from 365 days whole years, always with a number (`numeric: 'always'`): en-US "1mo ago", "1y ago"; pt-BR "há 1 mês", "há 1 ano". All dates share one clock that ticks once a minute while any date is mounted.
 
@@ -631,6 +658,7 @@ This change aligns the reasoning, the thinking indicator and the actions bar wit
 3. **`AIThinkingIndicator` is only the text effect.** The `label` prop is removed: pass the text as children. It renders a `span` with no `role`, no dots and no default text. `AIDotsLoader` and `[data-sl-ai-dots-loader]` are gone.
 4. **Reasoning is composed from parts.** `AIMessageReasoningTrigger` loses its `label` prop and is only the chevron button, so clicking the label or the time no longer toggles the panel (the old trigger was the whole row); the text moves to `AIMessageReasoningLabel`. `AIMessageReasoningHeader` is the row of mark, label, elapsed time and trigger. The internal meta span ("Worked for") is removed, and so are `[data-sl-ai-message-reasoning-row]` and `[data-sl-ai-message-reasoning-meta]`: use `[data-sl-ai-message-reasoning-header]`, `-mark`, `-label` and `-elapsed`.
 5. **Catalog keys changed.** `reasoningReady` is now `reasoningDone`, `workedFor` is now `reasoningDoneIn`, `thinking` is removed and `copied` is new. `reasoningStreaming` now reads "Reasoning…" / "Raciocinando…".
+6. **`AIMessageCopyProps` and `AIMessageActionProps` omit `aria-label`.** The accessible name comes from the `label` prop of `AIMessageAction` and from the catalog for `AIMessageCopy` (`copyMessage`, then `copied`).
 
 Layout changes in the thread are visual rather than API breaks: the gap between messages grows from 16px to 32px and the thread now pads the messages and the composer (see [THREAD.md](./THREAD.md#layout-and-spacing)).
 
