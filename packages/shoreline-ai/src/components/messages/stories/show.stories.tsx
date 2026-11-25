@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ThreadPrimitive } from '@assistant-ui/react'
 import { expect, userEvent, waitFor, within } from '@storybook/test'
 import type { CSSProperties } from 'react'
-import { IconButton, IconHeart } from '@vtex/shoreline'
+import { IconHeart } from '@vtex/shoreline'
 
 import '@vtex/shoreline-ai/css'
 
@@ -13,14 +13,15 @@ import {
   threadStoryShellStyle,
 } from '../../thread/stories/thread-story-shared'
 import {
+  AIMessageAction,
   AIMessageActions,
   AIMessageAssistant,
   AIMessageCopy,
+  AIMessageDate,
   AIMessageParts,
   AIMessageReasoningContent,
   AIMessageReasoningHeader,
   AIMessageReasoningRoot,
-  AIMessageRoot,
   AIMessageUser,
   AIMessages,
 } from '../index'
@@ -244,32 +245,32 @@ export const ThinkingIndicatorInMessage: Story = {
 }
 
 /**
- * Actions row in its visible state. The row is hidden until the message is
- * hovered or focused. Synthetic hover events do not trigger the CSS `:hover`
- * state, so the play function moves real focus into the row (`:focus-within`
- * reveals it) and the Chromatic delay covers the opacity transition. The
- * snapshot therefore also shows the focus ring. The feedback slot is a plain
- * IconButton passed as children.
+ * Actions bar with an app action. The bar is always visible; the date shows
+ * on hover or focus of the message. Synthetic hover events do not trigger
+ * the CSS `:hover` state, so the play function moves real focus into the bar
+ * (`:focus-within` reveals the date) and the Chromatic delay covers the
+ * opacity transition. The snapshot therefore also shows the focus ring.
  */
 export const ActionsVisible: Story = {
   parameters: { chromatic: { disableSnapshot: false, delay: 400 } },
   render: () => (
     <ThreadHistorySeed messages={plainAnswer}>
       <MessageMessagesProvider>
-        {/* AIMessageAssistant already renders its own actions row, so the
-            feedback slot is composed here from AIMessageRoot instead. */}
+        {/* With children, AIMessageAssistant renders exactly them, and the
+            children of AIMessageActions replace the default copy and date. */}
         <ThreadPrimitive.Messages>
           {({ message }) =>
             message.role === 'assistant' ? (
-              <AIMessageRoot messageRole="assistant">
+              <AIMessageAssistant>
                 <AIMessageParts />
                 <AIMessageActions>
-                  <AIMessageCopy />
-                  <IconButton variant="tertiary" label="Good response">
+                  <AIMessageAction label="Good response">
                     <IconHeart />
-                  </IconButton>
+                  </AIMessageAction>
+                  <AIMessageCopy />
+                  <AIMessageDate />
                 </AIMessageActions>
-              </AIMessageRoot>
+              </AIMessageAssistant>
             ) : (
               <AIMessageUser />
             )

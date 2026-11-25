@@ -70,7 +70,30 @@ describe('ai-messages.css actions bar', () => {
     expect(bar).toContain('top: calc(100% + var(--sl-space-1))')
     expect(bar).toContain('height: var(--sl-space-5)')
     expect(bar).toContain('gap: var(--sl-space-05)')
+    expect(bar).toContain('inset-inline-start:')
+    expect(bar).not.toMatch(/(^|[^-])left:/)
     expect(css).not.toMatch(/\[data-sl-ai-message-actions\][^{]*\{[^}]*opacity/)
+  })
+
+  it('colors a pressed action with the designer token', () => {
+    expect(
+      ruleBody([css], '[data-sl-ai-message-action][aria-pressed="true"]')
+    ).toContain('color: var(--sl-fg-base-soft)')
+  })
+
+  it('sizes the Shoreline icons of the bar to 14px', () => {
+    const icon = ruleBody([css], '[data-sl-ai-message-action] > svg')
+
+    expect(icon).toContain(
+      'width: calc(var(--sl-space-3) + var(--sl-space-05))'
+    )
+    expect(icon).toContain(
+      'height: calc(var(--sl-space-3) + var(--sl-space-05))'
+    )
+  })
+
+  it('has no rule for a visible "Copied!" text', () => {
+    expect(css).not.toContain('[data-sl-ai-message-copy][data-copied]')
   })
 
   it('raises the gap between messages', () => {

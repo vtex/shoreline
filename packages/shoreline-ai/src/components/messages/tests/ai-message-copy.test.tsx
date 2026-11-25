@@ -12,7 +12,8 @@ import {
   waitFor,
 } from '@vtex/shoreline-test-utils'
 import { vi } from 'vitest'
-import { LocaleProvider } from '@vtex/shoreline'
+import { IconCheck, IconCopySimple, LocaleProvider } from '@vtex/shoreline'
+import { renderToStaticMarkup } from 'react-dom/server'
 
 import { useAIThread } from '../../../hooks/use-ai-thread'
 import { MockRuntimeProvider } from '../../../test-utils'
@@ -38,6 +39,12 @@ vi.mock('@assistant-ui/react', async (importOriginal) => {
 })
 
 const ACTIONS = '[data-sl-ai-message-actions]'
+const COPY_ICON = renderToStaticMarkup(<IconCopySimple />)
+const CHECK_ICON = renderToStaticMarkup(<IconCheck />)
+
+function iconOf(button: HTMLElement) {
+  return button.querySelector('svg[data-sl-icon]')?.outerHTML
+}
 
 function setClipboard(value: unknown) {
   Object.defineProperty(navigator, 'clipboard', {
@@ -96,29 +103,35 @@ describe('AIMessageCopy', () => {
       )
     })
 
-    it('after copying shows "Copied!" for 2s, then the icon again', async () => {
+    it('after copying it is named "Copied!" with the check icon for 2s, then back to the copy icon', async () => {
       renderCopy()
       const button = screen.getByRole('button', { name: 'Copy message' })
 
-      expect(button.querySelector('svg')).not.toBeNull()
-      expect(button).not.toHaveTextContent('Copied!')
+      expect(iconOf(button)).toBe(COPY_ICON)
 
       await click(button)
-      expect(button).toHaveTextContent('Copied!')
-      expect(button.querySelector('svg')).toBeNull()
+
+      expect(button).toHaveAccessibleName('Copied!')
+      expect(iconOf(button)).toBe(CHECK_ICON)
+      // "Copied!" is only the accessible name: no visible text in the button.
+      expect(button.textContent).toBe('')
+      expect(document.body).not.toHaveTextContent('Copied!')
+      expect(document.querySelector('[aria-live="polite"]')).toHaveTextContent(
+        'Message copied'
+      )
 
       act(() => {
         vi.advanceTimersByTime(1999)
       })
       expect(button).toHaveAttribute('data-copied')
-      expect(button).toHaveTextContent('Copied!')
+      expect(button).toHaveAccessibleName('Copied!')
 
       act(() => {
         vi.advanceTimersByTime(1)
       })
       expect(button).not.toHaveAttribute('data-copied')
-      expect(button).not.toHaveTextContent('Copied!')
-      expect(button.querySelector('svg')).not.toBeNull()
+      expect(button).toHaveAccessibleName('Copy message')
+      expect(iconOf(button)).toBe(COPY_ICON)
     })
 
     it('copies the text the message has at click time', async () => {

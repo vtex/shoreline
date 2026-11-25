@@ -346,7 +346,7 @@
   [data-sl-ai-message-actions] {
     position: absolute;
     top: calc(100% + var(--sl-space-1));
-    left: calc(
+    inset-inline-start: calc(
       (var(--sl-space-5) - var(--sl-space-3) - var(--sl-space-05)) /
       -2
     );
@@ -378,8 +378,9 @@
     transition: color 0.22s ease 80ms, background-color 0.22s ease 80ms;
   }
 
+  /* Pressed keeps its color on hover; the hover background still applies. */
   [data-sl-ai-message-action][aria-pressed="true"] {
-    color: var(--sl-color-gray-9);
+    color: var(--sl-fg-base-soft);
   }
 
   /* The focus ring token is a box-shadow, not a color. */
@@ -393,16 +394,10 @@
     background: transparent;
   }
 
+  /* Shoreline icons (svg[data-sl-icon], 20x20) render at 14px. */
   [data-sl-ai-message-action] > svg {
     width: calc(var(--sl-space-3) + var(--sl-space-05));
     height: calc(var(--sl-space-3) + var(--sl-space-05));
-  }
-
-  [data-sl-ai-message-copy][data-copied] {
-    padding-inline: var(--sl-space-1);
-    font: var(--sl-text-caption-2-font);
-    letter-spacing: var(--sl-text-caption-2-letter-spacing);
-    white-space: nowrap;
   }
 
   [data-sl-ai-message-copy-status] {

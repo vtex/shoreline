@@ -1,9 +1,13 @@
 import { useAui } from '@assistant-ui/react'
-import { VisuallyHidden, forwardRef } from '@vtex/shoreline'
+import {
+  IconCheck,
+  IconCopySimple,
+  VisuallyHidden,
+  forwardRef,
+} from '@vtex/shoreline'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { AIMessageAction } from './ai-message-action'
-import { IconContentCopy } from './icons'
 import { useMessageMessagesContext } from './message-messages-context'
 import type { AIMessageCopyProps } from './types'
 
@@ -11,7 +15,7 @@ const COPIED_DURATION_MS = 2000
 
 /**
  * Copies the text of the current message to the clipboard. After a copy it
- * shows the "Copied!" text for 2 seconds in place of the icon.
+ * shows a check icon for 2 seconds and is named "Copied!".
  *
  * @status experimental
  * @example
@@ -75,13 +79,13 @@ export const AIMessageCopy = forwardRef<HTMLButtonElement, AIMessageCopyProps>(
       <>
         <AIMessageAction
           ref={ref}
-          label={getMessage('copyMessage')}
+          label={getMessage(copied ? 'copied' : 'copyMessage')}
           data-sl-ai-message-copy
           data-copied={copied ? '' : undefined}
           onClick={handleClick}
           {...buttonProps}
         >
-          {copied ? <span>{getMessage('copied')}</span> : <IconContentCopy />}
+          {copied ? <IconCheck /> : <IconCopySimple />}
         </AIMessageAction>
         <span aria-live="polite" data-sl-ai-message-copy-status>
           {copied ? (
