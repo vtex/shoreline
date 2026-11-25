@@ -8,7 +8,9 @@ import { useNow } from './use-now'
 /**
  * Date of the message relative to now ("now", "5m ago"), refreshed by the
  * shared one-minute clock. The exact local date and time is its title.
- * Renders nothing without a valid date.
+ * Renders nothing without a valid date. On the server and during hydration
+ * it renders only the `time` element with `dateTime`; the text and the title
+ * come after mount, in the viewer's locale and timezone.
  *
  * @status experimental
  * @example
@@ -25,9 +27,23 @@ export const AIMessageDate = forwardRef<HTMLTimeElement, AIMessageDateProps>(
     const now = useNow()
 
     const value = toDate(date ?? createdAt)
-    const relative = value ? formatRelativeDate(value, now, locale) : null
 
-    if (!value || !relative) return null
+    if (!value || Number.isNaN(value.getTime())) return null
+
+    if (now === null) {
+      return (
+        <time
+          ref={ref}
+          data-sl-ai-message-date
+          dateTime={value.toISOString()}
+          {...rest}
+        />
+      )
+    }
+
+    const relative = formatRelativeDate(value, now, locale)
+
+    if (!relative) return null
 
     return (
       <time

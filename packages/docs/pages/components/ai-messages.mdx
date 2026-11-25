@@ -138,7 +138,7 @@ With no children the bar has `AIMessageCopy` and then `AIMessageDate`. With chil
 
 `AIMessageCopy` copies the text parts of the message. No toast is shown: the copy icon turns into a check for 2 seconds, the accessible name becomes "Copied!", and a hidden live region announces "Message copied" to screen readers. Pass `onCopied` to know when it worked, for example to track it.
 
-`AIMessageDate` shows the age of the message ("now", "5m ago", "yesterday") from `createdAt`, or from its `date` prop. It is a `time` element: `dateTime` is the ISO value and `title` is the exact local date and time. Only the "now" form is always visible. Any other date shows when you hover the message or when focus is inside it, so a keyboard user reaches it with <kbd>Tab</kbd>. On devices without hover it is always visible. All the dates share one timer that ticks once a minute.
+`AIMessageDate` shows the age of the message ("now", "5m ago", "yesterday") from `createdAt`, or from its `date` prop. It is a `time` element: `dateTime` is the ISO value and `title` is the exact local date and time. Only the "now" form is always visible. Any other date shows when you hover the message or when focus is inside it, so a keyboard user reaches it with <kbd>Tab</kbd>. On devices without hover it is always visible. All the dates share one timer that ticks once a minute. "Yesterday" means the previous calendar day; older dates read "4d ago", then "1mo ago" and "1y ago". With server rendering, the text and the title appear after hydration, in the viewer's timezone.
 
 ### Custom parts
 

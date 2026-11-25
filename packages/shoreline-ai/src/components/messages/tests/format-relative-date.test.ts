@@ -29,13 +29,46 @@ describe('formatRelativeDate', () => {
   test('an invalid date is null', () => {
     expect(formatRelativeDate(new Date('nope'), now, 'en-US')).toBeNull()
   })
+})
 
-  test('older than 30 days uses months, older than 365 days uses years', () => {
-    expect(formatRelativeDate(at(45 * 86_400_000), now, 'en-US')?.text).toBe(
-      'last mo.'
+describe('formatRelativeDate by calendar day', () => {
+  // Local-time constructors: the calendar facts hold in any timezone.
+  const today = new Date(2026, 10, 25, 12, 0, 0).getTime()
+  const local = (day: number, hour = 12) => new Date(2026, 10, day, hour, 0, 0)
+
+  test('47h ago, two calendar days back, is the 2-days form', () => {
+    expect(formatRelativeDate(local(23, 13), today, 'en-US')?.text).toBe(
+      '2d ago'
     )
-    expect(formatRelativeDate(at(400 * 86_400_000), now, 'en-US')?.text).toBe(
-      'last yr.'
+  })
+
+  test('25h ago, one calendar day back, is "yesterday"', () => {
+    expect(formatRelativeDate(local(24, 11), today, 'en-US')?.text).toBe(
+      'yesterday'
+    )
+    expect(formatRelativeDate(local(24, 11), today, 'pt-BR')?.text).toBe(
+      'ontem'
+    )
+  })
+
+  test.each([
+    [45, '1mo ago'],
+    [59, '1mo ago'],
+    [60, '2mo ago'],
+    [400, '1y ago'],
+    [729, '1y ago'],
+  ])('%i calendar days back -> %s', (days, text) => {
+    expect(formatRelativeDate(local(25 - days), today, 'en-US')?.text).toBe(
+      text
+    )
+  })
+
+  test('months and years always use numbers in pt-BR too', () => {
+    expect(formatRelativeDate(local(25 - 45), today, 'pt-BR')?.text).toBe(
+      'há 1 mês'
+    )
+    expect(formatRelativeDate(local(25 - 400), today, 'pt-BR')?.text).toBe(
+      'há 1 ano'
     )
   })
 })

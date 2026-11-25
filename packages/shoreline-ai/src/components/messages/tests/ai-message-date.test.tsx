@@ -8,6 +8,7 @@ import {
   render,
 } from '@vtex/shoreline-test-utils'
 import { LocaleProvider } from '@vtex/shoreline'
+import { renderToString } from 'react-dom/server'
 import { vi } from 'vitest'
 
 import { AIMessageDate } from '../ai-message-date'
@@ -138,5 +139,28 @@ describe('AIMessageDate', () => {
     renderDate(new Date(NOW - 2 * 3_600_000), {}, 'pt-BR')
 
     expect(getDate()).toHaveTextContent('há 2 h')
+  })
+
+  it('server render: only dateTime, no relative text, title or data-just-now', () => {
+    const createdAt = new Date(NOW - 30_000)
+
+    aui.createdAt = createdAt
+
+    const html = renderToString(
+      <LocaleProvider locale="en-US">
+        <AIMessageDate />
+      </LocaleProvider>
+    )
+    const host = document.createElement('div')
+
+    host.innerHTML = html
+
+    const time = host.querySelector(DATE) as HTMLElement
+
+    expect(time.tagName).toBe('TIME')
+    expect(time).toHaveAttribute('dateTime', createdAt.toISOString())
+    expect(time.textContent).toBe('')
+    expect(time).not.toHaveAttribute('title')
+    expect(time).not.toHaveAttribute('data-just-now')
   })
 })

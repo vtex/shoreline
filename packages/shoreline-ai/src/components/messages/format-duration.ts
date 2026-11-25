@@ -11,7 +11,7 @@ function formatUnit(
     })
       .format(value)
       // ICU may emit NBSP (U+00A0) or NNBSP (U+202F) before the unit; normalise to a plain space
-      .replace(/[  ]/g, ' ')
+      .replace(/[\u00A0\u202F]/g, ' ')
   )
 }
 
@@ -45,8 +45,8 @@ export function formatElapsed(ms: number, locale: string): string {
 
 /**
  * Formats a finished reasoning duration in milliseconds as a short localized
- * string: seconds under a minute, whole rounded minutes under an hour, then
- * hours and minutes. The minimum shown value is `1s`.
+ * string: seconds under a minute, whole rounded minutes under an hour (59.5
+ * minutes and up reads "1h"), then hours and minutes. The minimum shown value is `1s`.
  * Returns `null` for missing or invalid input.
  */
 export function formatReasoningDuration(
@@ -59,10 +59,14 @@ export function formatReasoningDuration(
 
   if (total < 60) return formatUnit(total, 'second', locale)
 
-  if (total < 3600) return formatUnit(Math.round(total / 60), 'minute', locale)
+  // Round to whole minutes first, so 59m 30s and up reads "1h", not "60m".
+  const totalMinutes =
+    total < 3600 ? Math.round(total / 60) : Math.floor(total / 60)
 
-  const hours = Math.floor(total / 3600)
-  const minutes = Math.floor((total % 3600) / 60)
+  if (totalMinutes < 60) return formatUnit(totalMinutes, 'minute', locale)
+
+  const hours = Math.floor(totalMinutes / 60)
+  const minutes = totalMinutes % 60
   const parts = [formatUnit(hours, 'hour', locale)]
 
   if (minutes > 0) parts.push(formatUnit(minutes, 'minute', locale))
