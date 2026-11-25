@@ -27,7 +27,9 @@ describe('pointMarkersFit', () => {
   test('measures distance, not point count', () => {
     const many = Array.from({ length: 90 }, (_, index) => index)
 
-    expect(pointMarkersFit({ count: many.length, width: 1200 })).toBe(true)
+    // 90 points on a wide chart: neighbours ~20px apart, past the three-size
+    // threshold the drawn marker sets.
+    expect(pointMarkersFit({ count: many.length, width: 1800 })).toBe(true)
   })
 
   test('keeps markers when there is nothing to measure', () => {
