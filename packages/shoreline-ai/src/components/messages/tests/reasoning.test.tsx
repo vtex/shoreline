@@ -143,7 +143,7 @@ describe('AIMessageReasoningMeta', () => {
 
   it('shows Worked for when complete with a duration', () => {
     renderMeta('complete', 180000)
-    expect(meta()).toHaveTextContent('Worked for 3 min')
+    expect(meta()).toHaveTextContent('Worked for 3m')
     expect(meta()?.querySelector('[data-sl-ai-dots-loader]')).toBeNull()
   })
 
@@ -173,7 +173,7 @@ describe('AIMessageReasoningGroup', () => {
 
     expect(root).toHaveAttribute('data-status', 'complete')
     expect(screen.getByRole('button')).toHaveTextContent('Reasoned')
-    expect(root).toHaveTextContent('Worked for 5 sec')
+    expect(root).toHaveTextContent('Worked for 5s')
     expect(
       root?.querySelector('[data-sl-ai-message-reasoning-content]')
     ).toBeTruthy()
