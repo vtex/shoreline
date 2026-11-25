@@ -108,22 +108,34 @@ afterEach(() => {
 })
 
 describe('AIMessageParts pending header', () => {
-  test('pending: running message with no parts shows the running header with role=status and no chevron', async () => {
+  test('pending: running message with no parts shows the running header with a status label and no chevron', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
     const run = controlledTransport()
 
     renderThread(run.transport)
     await send()
 
     const status = await screen.findByRole('status')
+    const header = status.closest('[data-sl-ai-message-reasoning-header]')
+    const elapsed = () =>
+      document.querySelector('[data-sl-ai-message-reasoning-elapsed]')
 
-    expect(status).toHaveAttribute('data-sl-ai-message-reasoning-header')
-    expect(status).toHaveTextContent('Reasoning…')
+    // Only the label is the live region: the ticking elapsed stays outside.
+    expect(status).toHaveAttribute('data-sl-ai-message-reasoning-label')
+    expect(status.textContent).toBe('Reasoning…')
+    expect(header).not.toHaveAttribute('role')
+    expect(status.contains(elapsed())).toBe(false)
+
+    act(() => vi.advanceTimersByTime(3000))
+    expect(status.textContent).toBe('Reasoning…')
+    expect(elapsed()).toHaveTextContent('3s')
+
     expect(status.closest('[data-sl-ai-message-reasoning]')).toHaveAttribute(
       'data-status',
       'running'
     )
     expect(
-      status.querySelector('[data-sl-ai-message-reasoning-mark]')
+      header?.querySelector('[data-sl-ai-message-reasoning-mark]')
     ).toBeTruthy()
     // Only the send button is left: the pending header has no chevron.
     expect(
@@ -174,9 +186,33 @@ describe('AIMessageParts pending header', () => {
     expect(
       document.querySelector('[data-sl-ai-message-reasoning-elapsed]')
     ).toHaveTextContent('6s')
+    // The group that took over from the pending header skips the mark's
+    // enter animation.
+    expect(
+      document.querySelector('[data-sl-ai-message-reasoning]')
+    ).toHaveAttribute('data-continued')
 
     run.finish([reasoningPart('Hmm', 'complete'), { type: 'text', text: 'Ok' }])
     await waitFor(() => expect(screen.getByText('Ok')).toBeInTheDocument())
+  })
+
+  test('pending → a reasoning group that arrives already complete: the label keeps the counted time', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    const run = controlledTransport()
+
+    renderThread(run.transport)
+    await send()
+    await screen.findByRole('status')
+
+    act(() => vi.advanceTimersByTime(8000))
+    // One snapshot carries the whole answer: the group is complete at once.
+    run.finish([reasoningPart('Hmm', 'complete'), { type: 'text', text: 'Ok' }])
+    await waitFor(() => expect(screen.getByText('Ok')).toBeInTheDocument())
+    expect(screen.queryByRole('status')).toBeNull()
+    expect(screen.getByText('Reasoning completed in 8s')).toBeInTheDocument()
+
+    act(() => vi.advanceTimersByTime(5000))
+    expect(screen.getByText('Reasoning completed in 8s')).toBeInTheDocument()
   })
 
   test('text arrives first: the pending header disappears and no reasoning header is left', async () => {
@@ -251,6 +287,9 @@ describe('AIMessageParts pending header', () => {
     expect(
       document.querySelector('[data-sl-ai-message-reasoning-elapsed]')
     ).toHaveTextContent('1s')
+    expect(
+      document.querySelector('[data-sl-ai-message-reasoning]')
+    ).not.toHaveAttribute('data-continued')
 
     run.finish([{ type: 'text', text: 'Done' }])
     await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
@@ -383,7 +422,11 @@ describe('workingMark', () => {
 
     const status = await screen.findByRole('status')
 
-    expect(status.querySelector('[data-testid="glyph"]')).toBeTruthy()
+    expect(
+      status
+        .closest('[data-sl-ai-message-reasoning-header]')
+        ?.querySelector('[data-testid="glyph"]')
+    ).toBeTruthy()
 
     // Only the last group of a message runs, so the groups run one by one.
     const runningRoot = () =>

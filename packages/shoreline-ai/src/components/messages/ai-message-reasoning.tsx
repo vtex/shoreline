@@ -50,6 +50,9 @@ export const AIMessageReasoning = forwardRef<
       status={group.status}
       duration={group.duration}
       startedAt={group.startedAt}
+      // The group that took over from the pending header: its mark skips the
+      // enter animation, so the hand-off does not blink.
+      data-continued={group.continued ? '' : undefined}
       {...rootProps}
     >
       {children ?? (

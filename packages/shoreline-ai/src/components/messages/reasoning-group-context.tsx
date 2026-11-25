@@ -10,6 +10,8 @@ export type ReasoningGroupContextValue = {
   startedAt?: number
   /** The group's rendered parts; `null` while the message has none yet. */
   parts: ReactNode | null
+  /** Whether this group took the place of the pending header. */
+  continued?: boolean
 }
 
 const ReasoningGroupContext = createContext<ReasoningGroupContextValue | null>(
@@ -23,11 +25,11 @@ const ReasoningGroupContext = createContext<ReasoningGroupContextValue | null>(
 export function ReasoningGroupProvider(
   props: ReasoningGroupContextValue & { children: ReactNode }
 ) {
-  const { status, duration, startedAt, parts, children } = props
+  const { status, duration, startedAt, parts, continued, children } = props
 
   const value = useMemo<ReasoningGroupContextValue>(
-    () => ({ status, duration, startedAt, parts }),
-    [status, duration, startedAt, parts]
+    () => ({ status, duration, startedAt, parts, continued }),
+    [status, duration, startedAt, parts, continued]
   )
 
   return (

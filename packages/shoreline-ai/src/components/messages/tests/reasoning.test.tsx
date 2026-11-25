@@ -111,8 +111,43 @@ describe('AIMessageReasoning header parts', () => {
   })
 
   test('complete from history with no duration: plain label (Review Focus 3)', () => {
-    renderPanel(<Panel status="complete" />)
+    const { container } = renderPanel(<Panel status="complete" />)
+
     expect(screen.getByText('Reasoning complete')).toBeInTheDocument()
+    expect(
+      container.querySelector('[data-sl-ai-message-reasoning-mark]')
+    ).toBeNull()
+    expect(
+      container.querySelector('[data-sl-ai-message-reasoning-elapsed]')
+    ).toBeNull()
+  })
+
+  test('labelled content is a group named by the label', () => {
+    const { container } = renderPanel(<Panel status="complete" />)
+    const content = container.querySelector(
+      '[data-sl-ai-message-reasoning-content]'
+    )
+    const label = container.querySelector(
+      '[data-sl-ai-message-reasoning-label]'
+    )
+
+    expect(content).toHaveAttribute('role', 'group')
+    expect(content).toHaveAttribute('aria-labelledby', label?.id)
+  })
+
+  test('content without a label has no group role', () => {
+    const { container } = renderPanel(
+      <AIMessageReasoningRoot status="complete">
+        <AIMessageReasoningTrigger />
+        <AIMessageReasoningContent>body</AIMessageReasoningContent>
+      </AIMessageReasoningRoot>
+    )
+    const content = container.querySelector(
+      '[data-sl-ai-message-reasoning-content]'
+    )
+
+    expect(content).not.toHaveAttribute('role')
+    expect(content).not.toHaveAttribute('aria-labelledby')
   })
 
   test('running → complete without a duration prop uses the counted time', () => {

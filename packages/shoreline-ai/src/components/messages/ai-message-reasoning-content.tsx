@@ -41,6 +41,8 @@ export const AIMessageReasoningContent = forwardRef<
       {...getCollapseProps({
         ref,
         id: meta.contentId,
+        // A group named by the label; without a label, no role at all.
+        role: state.hasLabel ? 'group' : undefined,
         'aria-labelledby': state.hasLabel ? meta.labelId : undefined,
       })}
       {...divProps}

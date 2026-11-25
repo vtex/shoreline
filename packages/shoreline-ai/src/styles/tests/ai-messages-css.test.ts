@@ -125,4 +125,13 @@ describe('ai-messages.css reasoning header', () => {
       ruleBody([css], '[data-sl-ai-message-reasoning-trigger]:focus-visible')
     ).toContain('box-shadow: var(--sl-focus-ring-base)')
   })
+
+  it('skips the mark enter animation on the group that continues the pending header', () => {
+    const glyph = ruleBody(
+      [css],
+      '[data-sl-ai-message-reasoning][data-continued] [data-sl-ai-working-mark]'
+    )
+
+    expect(glyph).toMatch(/animation:\s*none/)
+  })
 })

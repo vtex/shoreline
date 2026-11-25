@@ -90,6 +90,11 @@ export const AIMessageParts = forwardRef<HTMLDivElement, AIMessagePartsProps>(
     // counts from its own start, not from the message start.
     const pendingShown = useRef(false)
     const handedOff = useRef<boolean>()
+    // When the first group arrives already complete and the runtime gives no
+    // duration, the time counted since the message started, so the label
+    // keeps the time the pending header was showing.
+    const handOffDuration = useRef<number>()
+    const handOffRendered = useRef(false)
 
     if (running && startedAt.current === undefined) {
       startedAt.current = Date.now()
@@ -115,16 +120,32 @@ export const AIMessageParts = forwardRef<HTMLDivElement, AIMessagePartsProps>(
         <MessagePrimitive.GroupedParts groupBy={auiGroupBy}>
           {({ part, children }) => {
             if (part.type === 'group-cot') {
+              const status = getGroupStatus(part)
+              const continued =
+                handedOff.current === true &&
+                part.indices[0] === firstGroupIndex
+
+              if (continued && !handOffRendered.current) {
+                handOffRendered.current = true
+
+                if (
+                  status === 'complete' &&
+                  getGroupDuration(part) === undefined &&
+                  startedAt.current !== undefined
+                ) {
+                  handOffDuration.current = Date.now() - startedAt.current
+                }
+              }
+
               return (
                 <ReasoningGroupProvider
-                  status={getGroupStatus(part)}
-                  duration={getGroupDuration(part)}
-                  startedAt={
-                    handedOff.current === true &&
-                    part.indices[0] === firstGroupIndex
-                      ? startedAt.current
-                      : undefined
+                  status={status}
+                  duration={
+                    getGroupDuration(part) ??
+                    (continued ? handOffDuration.current : undefined)
                   }
+                  startedAt={continued ? startedAt.current : undefined}
+                  continued={continued}
                   parts={
                     <AIMessagePartPlacementProvider placement="cot">
                       {children}

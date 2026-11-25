@@ -214,7 +214,7 @@ Each reasoning group is one 20px header row, with an optional body below it:
 | Done, with a duration | no | "Reasoning completed in 2m" ("in 40s" under a minute) | no | yes |
 | Done, no duration | no | "Reasoning complete" | no | yes |
 
-Only the chevron is a button. It has `aria-expanded` and `aria-controls`, and its accessible name is the label text (`aria-labelledby`). When no `AIMessageReasoningLabel` is mounted in the header, the chevron gets an `aria-label` with the status text from the catalog instead. Clicking the label or the time does nothing.
+Only the chevron is a button. It has `aria-expanded` and `aria-controls`, and its accessible name is the label text (`aria-labelledby`). The open body is a `role="group"` named by the same label; with no label mounted it has no role. When no `AIMessageReasoningLabel` is mounted in the header, the chevron gets an `aria-label` with the status text from the catalog instead. Clicking the label or the time does nothing.
 
 The open body sits 8px below the header, with a 3px left bar and 16px of left padding; reasoning text is `caption-2` in the soft foreground color.
 
@@ -222,7 +222,7 @@ Times and durations come from `Intl.NumberFormat` (`unit` style, `narrow`) with 
 
 #### Before the first part
 
-Every answer is assumed to have reasoning. While a message is running and has no text, reasoning or tool call yet, `AIMessageParts` renders the running header with no chevron and `role="status"`: mark, "Reasoning…" and the elapsed time. When the first reasoning part arrives it is the same header (the elapsed time does not reset) and the chevron appears.
+Every answer is assumed to have reasoning. While a message is running and has no text, reasoning or tool call yet, `AIMessageParts` renders the running header with no chevron: mark, "Reasoning…" and the elapsed time. Only the label is a live region (`role="status"`), so screen readers announce "Reasoning…" once and not every tick of the elapsed time. When the first reasoning part arrives it is the same header (the elapsed time does not reset, and the mark does not replay its enter animation: that group's root has `data-continued`) and the chevron appears. If that first group arrives already complete in the same update, its label keeps the time counted so far ("Reasoning completed in 8s") when the runtime gives no duration.
 
 - If text arrives before any reasoning part, the pending header disappears. It never becomes a "complete" header with no body.
 - If an unregistered tool call arrives first, it opens a running reasoning group: the header stays and now has a chevron.
@@ -582,7 +582,7 @@ Stable `data-sl-*` hooks for app overrides. Use only `--sl-*` tokens inside `@la
 | `[data-sl-ai-message][data-sl-ai-message-role="assistant"]` | Assistant message — left-aligned |
 | `[data-sl-ai-message-content]` | Message content wrapper |
 | `[data-sl-ai-message-parts]` | Parts container |
-| `[data-sl-ai-message-reasoning]` | CoT panel. Has `data-status="running" \| "complete"` |
+| `[data-sl-ai-message-reasoning]` | CoT panel. Has `data-status="running" \| "complete"`, and `data-continued` on the group that took over from the pending header |
 | `[data-sl-ai-message-reasoning-header]` | The 20px header row |
 | `[data-sl-ai-message-reasoning-mark]` | The working mark (running only) |
 | `[data-sl-ai-message-reasoning-label]` | The status text |

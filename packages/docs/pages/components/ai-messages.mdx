@@ -92,7 +92,7 @@ The pieces are public, so you can build your own panel with `AIMessageReasoningR
 
 #### Before the first part
 
-Every answer is assumed to have reasoning. While a message runs and has no text, reasoning or tool call yet, `AIMessageParts` draws the running header, with no chevron and with `role="status"`. When the first reasoning part arrives it is the same header, and the elapsed time does not reset.
+Every answer is assumed to have reasoning. While a message runs and has no text, reasoning or tool call yet, `AIMessageParts` draws the running header, with no chevron. Only its label is a live region (`role="status"`), so "Reasoning…" is announced once and the ticking elapsed time is not. When the first reasoning part arrives it is the same header: the elapsed time does not reset and the mark does not blink.
 
 If text arrives before any reasoning part, the header disappears. If an unregistered tool call arrives first, it opens a running reasoning group, so the header stays and now has a chevron.
 
