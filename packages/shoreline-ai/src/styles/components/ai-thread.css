@@ -25,10 +25,31 @@
     position: sticky;
     bottom: 0;
     flex-shrink: 0;
+    /* Sticky only acts on overflow; auto pushes the footer to the bottom of
+       a short or empty thread. */
+    margin-top: auto;
     width: 100%;
     z-index: 1;
     box-sizing: border-box;
+    padding: 0 var(--sl-ai-thread-padding, var(--sl-space-4))
+      var(--sl-ai-thread-padding, var(--sl-space-4));
     background: var(--sl-bg-base);
+  }
+
+  /* The last assistant bar hangs below the list: keep room for it. */
+  [data-sl-ai-thread-viewport] > [data-sl-ai-messages] {
+    box-sizing: border-box;
+    padding: var(--sl-ai-thread-padding, var(--sl-space-4));
+    padding-bottom: var(--sl-ai-messages-gap, var(--sl-space-8));
+  }
+
+  [data-sl-ai-thread-empty] {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
   }
 
   [data-sl-ai-thread-scroll-to-bottom] {

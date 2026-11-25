@@ -64,16 +64,7 @@ export function createMockThreadMessages(
 export function Welcome() {
   return (
     <AIThreadEmpty>
-      <div
-        style={{
-          display: 'flex',
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Text variant="display3">Welcome</Text>
-      </div>
+      <Text variant="display3">Welcome</Text>
     </AIThreadEmpty>
   )
 }
@@ -184,21 +175,7 @@ export function NormativeThreadTree(props: NormativeThreadTreeOptions) {
         scrollToBottomOnInitialize={!scrollUpOnMount}
       >
         {showEmpty ? <Welcome /> : null}
-        {showMessages ? (
-          <div
-            data-story-messages
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 'var(--sl-space-4)',
-              padding: 'var(--sl-space-4)',
-              width: '100%',
-              boxSizing: 'border-box',
-            }}
-          >
-            <AIMessages />
-          </div>
-        ) : null}
+        {showMessages ? <AIMessages /> : null}
         <ComposerFooter
           placeholder={composerPlaceholder}
           loading={composerLoading}

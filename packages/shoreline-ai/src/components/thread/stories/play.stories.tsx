@@ -284,20 +284,12 @@ function expectRectInside(inner: DOMRect, outer: DOMRect) {
 }
 
 // Canonical tree: AIThreadViewport > AIMessages, with no wrapper adding
-// padding. With `padded` the viewport has the 1rem of horizontal padding that
-// focus rings at the edge of the messages need (see MESSAGES.md).
-function CanonicalMessagesTree(props: {
-  history: AIMessage[]
-  padded?: boolean
-}) {
+// padding: the thread gives the messages their own spacing.
+function CanonicalMessagesTree(props: { history: AIMessage[] }) {
   return (
     <ThreadHistorySeed messages={props.history}>
       <AIThread>
-        <AIThreadViewport
-          style={
-            props.padded ? { paddingInline: 'var(--sl-space-4)' } : undefined
-          }
-        >
+        <AIThreadViewport>
           <AIMessages />
         </AIThreadViewport>
       </AIThread>
@@ -306,7 +298,7 @@ function CanonicalMessagesTree(props: {
 }
 
 export const FocusRingsNotClippedInMessages: Story = {
-  render: () => <CanonicalMessagesTree history={focusRingHistory} padded />,
+  render: () => <CanonicalMessagesTree history={focusRingHistory} />,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
 
@@ -337,7 +329,7 @@ export const FocusRingsNotClippedInMessages: Story = {
       expectRectInside(ring, message.getBoundingClientRect())
 
       // The viewport has overflow-x: hidden, so the ring must also fit
-      // inside it. This holds because the viewport has 1rem of horizontal
+      // inside it. This holds because the messages area owns the thread
       // padding; without it the ring at the edge is clipped.
       expectRectInside(ring, viewport.getBoundingClientRect())
     }
@@ -365,6 +357,21 @@ const widthHistory: AIMessage[] = [
   },
 ]
 
+// The content box of an element: its border box minus its padding.
+function getContentBox(element: HTMLElement) {
+  const rect = element.getBoundingClientRect()
+  const style = getComputedStyle(element)
+
+  return {
+    left: rect.left + Number.parseFloat(style.paddingLeft),
+    right: rect.right - Number.parseFloat(style.paddingRight),
+    width:
+      rect.width -
+      Number.parseFloat(style.paddingLeft) -
+      Number.parseFloat(style.paddingRight),
+  }
+}
+
 export const MessageRowsKeepContainerWidth: Story = {
   render: () => <CanonicalMessagesTree history={widthHistory} />,
   play: async ({ canvasElement }) => {
@@ -391,7 +398,7 @@ export const MessageRowsKeepContainerWidth: Story = {
     ) as HTMLElement
 
     const viewport = getThreadViewport(canvasElement) as HTMLElement
-    const box = container.getBoundingClientRect()
+    const box = getContentBox(container)
 
     // The assistant content spans the whole container: the compensation
     // padding must not shrink it.
@@ -423,5 +430,91 @@ export const MessageRowsKeepContainerWidth: Story = {
     expect(viewport.scrollWidth - viewport.clientWidth).toBeLessThanOrEqual(
       bleed + 1
     )
+  },
+}
+
+const fewMessagesHistory = createMockThreadMessages(4)
+
+function queryRect(selector: string): DOMRect {
+  const element = document.querySelector(selector)
+
+  expect(element).toBeInstanceOf(HTMLElement)
+
+  return (element as HTMLElement).getBoundingClientRect()
+}
+
+async function expectFooterAtViewportBottom() {
+  await waitFor(() => {
+    const viewport = queryRect('[data-sl-ai-thread-viewport]')
+    const footer = queryRect('[data-sl-ai-thread-viewport-footer]')
+
+    expect(Math.round(viewport.bottom - footer.bottom)).toBe(0)
+  })
+}
+
+export const ComposerStaysAtBottomWhenEmpty: Story = {
+  render: () => <NormativeThreadTree showEmpty />,
+  play: async () => {
+    await expectFooterAtViewportBottom()
+
+    // The empty state fills the free space above the composer.
+    await waitFor(() => {
+      expect(queryRect('[data-sl-ai-thread-empty]').height).toBeGreaterThan(100)
+    })
+  },
+}
+
+export const ComposerStaysAtBottomWithFewMessages: Story = {
+  render: () => <NormativeThreadTree history={fewMessagesHistory} />,
+  play: async ({ canvasElement }) => {
+    await waitFor(() => {
+      expect(
+        canvasElement.querySelectorAll('[data-sl-ai-message]')
+      ).toHaveLength(4)
+    })
+
+    await expectFooterAtViewportBottom()
+  },
+}
+
+export const ComposerAlignsWithMessages: Story = {
+  render: () => <NormativeThreadTree history={fewMessagesHistory} />,
+  play: async ({ canvasElement }) => {
+    await waitFor(() => {
+      expect(
+        canvasElement.querySelectorAll('[data-sl-ai-message]')
+      ).toHaveLength(4)
+    })
+
+    // Compare against the messages content box: the thread padding is the
+    // gutter both the messages and the composer sit inside.
+    const messages = getContentBox(
+      document.querySelector('[data-sl-ai-messages]') as HTMLElement
+    )
+    const composer = queryRect('[data-sl-ai-composer]')
+
+    expect(Math.abs(composer.left - messages.left)).toBeLessThanOrEqual(1)
+    expect(Math.abs(composer.right - messages.right)).toBeLessThanOrEqual(1)
+  },
+}
+
+export const LastAnswerBarIsNotCoveredByTheFooter: Story = {
+  render: () => <NormativeThreadTree history={longHistory} />,
+  play: async ({ canvasElement }) => {
+    const viewport = getThreadViewport(canvasElement) as HTMLElement
+
+    await waitFor(() => {
+      expect(isThreadViewportNearBottom(viewport)).toBe(true)
+    })
+
+    const bars = canvasElement.querySelectorAll('[data-sl-ai-message-actions]')
+
+    expect(bars.length).toBeGreaterThan(0)
+
+    const lastBar = bars[bars.length - 1].getBoundingClientRect()
+    const footer = queryRect('[data-sl-ai-thread-viewport-footer]')
+
+    expect(lastBar.height).toBeGreaterThan(0)
+    expect(lastBar.bottom).toBeLessThanOrEqual(footer.top)
   },
 }
