@@ -144,6 +144,7 @@ const files = [
     dirname(''),
     '../charts/src/components/composed-chart/composed-chart.tsx'
   ),
+  join(dirname(''), '../charts/src/components/line-chart/line-chart.tsx'),
   /**
    * Date
    */
