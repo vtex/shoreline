@@ -21,11 +21,19 @@ const paletteTokens: ChartTokens = {
   px: () => 8,
 }
 
+// Resolves only the zero-line token, so the assertion fails if the builder
+// reaches for any other color.
+const zeroLineTokens: ChartTokens = {
+  get: (token) => (token === '--sl-color-gray-6' ? '#adadad' : undefined),
+  px: () => 8,
+}
+
 interface BuiltAxis {
   type: string
   data?: string[]
   axisLabel?: { formatter: (value: number) => string }
   splitLine?: { show: boolean }
+  axisLine?: { lineStyle: { color?: string } }
 }
 
 interface BuiltSeries {
@@ -156,6 +164,66 @@ describe('buildComposedOption', () => {
       expect(Array.isArray(option.yAxis)).toBe(false)
       expect(axesOf(option)).toHaveLength(1)
     }
+  })
+
+  test('recolors the zero line when a primary-axis value goes negative', () => {
+    expect(build({ tokens: zeroLineTokens }).xAxis).toEqual({
+      type: 'category',
+      data: ['Jan', 'Feb'],
+    })
+
+    const negativeBars = build({
+      tokens: zeroLineTokens,
+      series: [
+        { type: 'bar', name: 'Net result', data: [10, -20] },
+        { type: 'line', name: 'Conversion', data: [2, 3], unit: 'percentage' },
+      ],
+    })
+
+    expect(negativeBars.xAxis.axisLine).toEqual({
+      lineStyle: { color: '#adadad' },
+    })
+
+    // A negative line sharing the bars' axis is on the primary axis too.
+    const negativeLineOnPrimary = build({
+      tokens: zeroLineTokens,
+      series: [
+        { type: 'bar', name: 'Revenue', data: [10, 20] },
+        { type: 'line', name: 'Cost', data: [-5, 6] },
+      ],
+    })
+
+    expect(negativeLineOnPrimary.xAxis.axisLine).toEqual({
+      lineStyle: { color: '#adadad' },
+    })
+  })
+
+  test('leaves the primary zero alone when only the secondary line is negative', () => {
+    const option = build({
+      tokens: zeroLineTokens,
+      series: [
+        { type: 'bar', name: 'Revenue', data: [10, 20] },
+        { type: 'line', name: 'Conversion', data: [-2, 3], unit: 'percentage' },
+      ],
+    })
+
+    // The category axis line follows the primary axis' zero; the secondary
+    // axis has its own scale and draws no grid.
+    expect(option.xAxis.axisLine).toBeUndefined()
+  })
+
+  test('recolors the zero line for a lines-only chart below zero', () => {
+    const option = build({
+      tokens: zeroLineTokens,
+      series: [
+        { type: 'line', name: 'Revenue', data: [10, 20] },
+        { type: 'line', name: 'Cost', data: [-5, 6] },
+      ],
+    })
+
+    expect(option.xAxis.axisLine).toEqual({
+      lineStyle: { color: '#adadad' },
+    })
   })
 
   test('renders bars below lines regardless of the input order', () => {

@@ -37,6 +37,12 @@ Every series accepts a `unit`: `number` (the default) or `percentage`. Bars anch
 
 <Preview name="composed-chart-stacked" />
 
+### Negative values
+
+Negative values render below the zero line. When a value falls below zero, the chart emphasizes that line — the grid's 1px weight, in a darker gray — so the split between positive and negative stays legible; the bottom line remains an ordinary gridline.
+
+<Preview name="composed-chart-negative" />
+
 ### Curves
 
 `curve` sets how the line series connect their points: `linear` (the default) draws straight segments, `smooth` draws a spline. Bars are unaffected. A smooth curve never goes beyond the values it joins, but between categories it draws values nobody measured — treat it as a trend, not as exact readings.

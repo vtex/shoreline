@@ -63,7 +63,7 @@ When no series has any non-null value, the chart renders its empty state. Overri
 
 ### Negative values
 
-Negative values render below the zero line. Corner radius is resolved per bar from the value's sign, so bars below zero round at their far end rather than at the zero line — including the outermost segment of a stacked bar with mixed signs.
+Negative values render below the zero line. When a value falls below zero, the chart emphasizes that line — the grid's 1px weight, in a darker gray — so the split between positive and negative stays legible; the bottom line remains an ordinary gridline. Corner radius is resolved per bar from the value's sign, so bars below zero round at their far end rather than at the zero line — including the outermost segment of a stacked bar with mixed signs.
 
 <Preview name="bar-chart-negative" />
 

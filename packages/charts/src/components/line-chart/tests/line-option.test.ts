@@ -21,6 +21,13 @@ const paletteTokens: ChartTokens = {
   px: () => 8,
 }
 
+// Resolves only the zero-line token, so the assertion fails if the builder
+// reaches for any other color.
+const zeroLineTokens: ChartTokens = {
+  get: (token) => (token === '--sl-color-gray-6' ? '#adadad' : undefined),
+  px: () => 8,
+}
+
 function build(overrides: Partial<BuildLineOptionArgs> = {}) {
   return buildLineOption({
     series: [{ name: 'Revenue', data: [10, 20] }],
@@ -46,7 +53,11 @@ function build(overrides: Partial<BuildLineOptionArgs> = {}) {
       formatter: (params: unknown) => string
       position: unknown
     }
-    xAxis: { type: string; data?: string[] }
+    xAxis: {
+      type: string
+      data?: string[]
+      axisLine?: { lineStyle: { color?: string } }
+    }
     yAxis: {
       type: string
       axisLabel?: { formatter?: (value: number) => string }
@@ -159,6 +170,32 @@ describe('buildLineOption', () => {
     expect(option.series[0]?.data).toEqual([10, null, 30])
     // connectNulls is left unset so the engine default (false) applies.
     expect(option.series[0]?.connectNulls).toBeUndefined()
+  })
+
+  test('recolors the zero line only when a value goes negative', () => {
+    const positive = build({ tokens: zeroLineTokens })
+
+    expect(positive.xAxis).toEqual({ type: 'category', data: ['Jan', 'Feb'] })
+
+    const negative = build({
+      tokens: zeroLineTokens,
+      series: [{ name: 'Net result', data: [10, -20] }],
+    })
+
+    // The engine already puts the category axis line at zero; the chart only
+    // strengthens it so the sign split stays legible.
+    expect(negative.xAxis.axisLine).toEqual({
+      lineStyle: { color: '#adadad' },
+    })
+  })
+
+  test('treats zero and null as non-negative for the zero line', () => {
+    const option = build({
+      tokens: zeroLineTokens,
+      series: [{ name: 'Net result', data: [0, null] }],
+    })
+
+    expect(option.xAxis.axisLine).toBeUndefined()
   })
 
   test('draws straight segments for the default curve and a spline for smooth', () => {
