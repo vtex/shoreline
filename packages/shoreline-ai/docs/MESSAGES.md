@@ -650,41 +650,6 @@ User bubble styling is applied via CSS on `[data-sl-ai-message-role="user"] [dat
 
 Every `[data-sl-ai-message]` uses `content-visibility: auto` and `contain-intrinsic-block-size: auto var(--sl-ai-message-intrinsic-size, 5rem)`, so off-screen rows skip layout and paint in long threads. Because this clips painting to the row box, the row has padding and a negative margin that cancels it, and `box-sizing: content-box`, so focus rings, the reasoning chevron and the floating actions bar are not cut off. The bottom padding grows to cover the bar. The content keeps the same width and position as without the padding, but the row box itself extends by `--sl-space-4` on each side of the messages container. A focus ring at the very edge of the container is therefore still clipped by an ancestor with `overflow: hidden`, such as `AIThreadViewport`. The default thread spacing covers this: `AIThreadViewport` gives the list `1rem` of padding through `--sl-ai-messages-padding`, which is inherited, so it also applies when your app wraps `AIMessages` in its own element. A wrapper that pads itself sets `--sl-ai-messages-padding: 0` so the padding is not applied twice. See [THREAD.md](./THREAD.md#wrapping-aimessages). Consumers must not override `padding`, `margin` or `box-sizing` on `[data-sl-ai-message]`. Heights of rows that were never on screen are estimates, so the scroll bar can shift slightly in long histories.
 
-## Breaking changes
-
-This change aligns the reasoning, the thinking indicator and the actions bar with the Design docs. `@vtex/shoreline-ai` is in beta, so these are breaking without a deprecation period.
-
-1. **`AIMessageAssistant` with children renders exactly the children.** It no longer appends the actions row or a thinking indicator around them. Add `AIMessageParts` and `AIMessageActions` yourself. The pending reasoning header now comes from `AIMessageParts`.
-2. **`AIMessageActions` children replace the default actions.** Before, children came after the copy button. Now no children means `AIMessageCopy` + `AIMessageDate`, and children are rendered alone: include `AIMessageCopy` and `AIMessageDate` to keep them. The bar is also always visible and floats under the message (the hover-only behavior is gone).
-3. **`AIThinkingIndicator` is only the text effect.** The `label` prop is removed: pass the text as children. It renders a `span` with no `role`, no dots and no default text. `AIDotsLoader` and `[data-sl-ai-dots-loader]` are gone.
-4. **Reasoning is composed from parts.** `AIReasoningTrigger` loses its `label` prop and is only the chevron button, so clicking the label or the time no longer toggles the panel (the old trigger was the whole row); the text moves to `AIReasoningLabel`. `AIReasoningHeader` is the row of mark, label, elapsed time and trigger. The internal meta span ("Worked for") is removed, and so are `[data-sl-ai-reasoning-row]` and `[data-sl-ai-reasoning-meta]`: use `[data-sl-ai-reasoning-header]`, `-mark`, `-label` and `-elapsed`.
-5. **Catalog keys changed.** `reasoningReady` is now `reasoningDone`, `workedFor` is now `reasoningDoneIn`, `thinking` is removed and `copied` is new. `reasoningStreaming` now reads "Reasoning…" / "Raciocinando…".
-6. **`AIMessageCopyProps` and `AIMessageActionProps` omit `aria-label`.** The accessible name comes from the `label` prop of `AIMessageAction` and from the catalog for `AIMessageCopy` (`copyMessage`, then `copied`).
-7. **`MessageMessagesProvider` is now `AIMessagesI18nProvider`.** Same props (`messages`, `children`), now typed as `AIMessagesI18nProviderProps`. There is no alias for the old name.
-8. **The reasoning family is `AIReasoning*`.** `AIMessageReasoning`, `AIMessageReasoningRoot`, `-Header`, `-Mark`, `-Label`, `-Elapsed`, `-Trigger`, `-Content`, `-Text` and `-ToolStep` are now `AIReasoning`, `AIReasoningRoot`, `AIReasoningHeader`, and so on, with their `Props` and `Options` types; `AIMessageReasoningStatus` is `AIReasoningStatus` and `useAIMessageReasoning` is `useAIReasoning`. The selectors follow: `[data-sl-ai-message-reasoning*]` is now `[data-sl-ai-reasoning*]`. The styles live in `ai-reasoning.css`, included in `@vtex/shoreline-ai/css`. There are no aliases for the old names.
-
-Layout changes in the thread are visual rather than API breaks: the gap between messages grows from 16px to 32px and the thread now pads the messages and the composer (see [THREAD.md](./THREAD.md#layout-and-spacing)).
-
-```tsx
-// Before
-<AIMessageAssistant>
-  <AIMessageParts />   {/* the actions row and the indicator were added for you */}
-</AIMessageAssistant>
-<AIThinkingIndicator label="Checking orders" />
-<AIReasoningTrigger label="Analyzing" />
-
-// After
-<AIMessageAssistant>
-  <AIMessageParts />
-  <AIMessageActions />
-</AIMessageAssistant>
-<AIThinkingIndicator>Checking orders</AIThinkingIndicator>
-<AIReasoningHeader>
-  <AIReasoningLabel>Analyzing</AIReasoningLabel>
-  <AIReasoningTrigger />
-</AIReasoningHeader>
-```
-
 ## Best practices
 
 ### Composition
