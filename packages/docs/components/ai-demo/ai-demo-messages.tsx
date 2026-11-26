@@ -74,7 +74,22 @@ export function AIDemoMessages(props: {
   const { loadMessages } = useAIThread()
 
   useEffect(() => {
-    loadMessages(messages)
+    let frame = 0
+
+    // The effect of this child can run before the runtime has mounted its
+    // thread, and loading into the placeholder thread throws. Try again on
+    // the next frame until the thread is there.
+    function load() {
+      try {
+        loadMessages(messages)
+      } catch {
+        frame = requestAnimationFrame(load)
+      }
+    }
+
+    load()
+
+    return () => cancelAnimationFrame(frame)
     // Load once; the examples pass a stable list.
   }, [])
 
