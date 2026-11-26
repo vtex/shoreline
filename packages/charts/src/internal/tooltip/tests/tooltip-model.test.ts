@@ -293,4 +293,87 @@ describe('buildAxisTooltipData', () => {
 
     expect(data.rows[0]?.value).toBe('3100')
   })
+
+  test('drops the one row a series is skipped at', () => {
+    const data = buildAxisTooltipData(
+      [
+        {
+          name: 'Jun',
+          seriesName: 'Revenue',
+          value: 50,
+          seriesIndex: 0,
+          dataIndex: 4,
+        },
+        {
+          name: 'Jun',
+          seriesName: 'Forecast',
+          value: 50,
+          seriesIndex: 1,
+          dataIndex: 4,
+        },
+      ],
+      {
+        skipRow: (seriesIndex, dataIndex) =>
+          seriesIndex === 1 && dataIndex === 4,
+      }
+    )
+
+    expect(data.rows.map((row) => row.label)).toEqual(['Revenue'])
+  })
+
+  test('keeps rows at the other categories of a skipped series', () => {
+    const data = buildAxisTooltipData(
+      [
+        {
+          name: 'Jul',
+          seriesName: 'Forecast',
+          value: 60,
+          seriesIndex: 1,
+          dataIndex: 5,
+        },
+      ],
+      {
+        skipRow: (seriesIndex, dataIndex) =>
+          seriesIndex === 1 && dataIndex === 4,
+      }
+    )
+
+    expect(data.rows.map((row) => row.label)).toEqual(['Forecast'])
+  })
+
+  test('skips the lookup for items missing either position', () => {
+    const skipRow = vi.fn()
+
+    buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'A', value: 10 },
+        { name: 'Jan', seriesName: 'B', value: 10, seriesIndex: 1 },
+        { name: 'Jan', seriesName: 'C', value: 10, dataIndex: 0 },
+      ],
+      { skipRow }
+    )
+
+    expect(skipRow).not.toHaveBeenCalled()
+  })
+
+  test('marks a row dashed when its series renders dashed', () => {
+    const data = buildAxisTooltipData(
+      [
+        { name: 'Jul', seriesName: 'Revenue', value: 10, seriesIndex: 0 },
+        { name: 'Jul', seriesName: 'Forecast', value: 60, seriesIndex: 1 },
+      ],
+      { getDashed: (seriesIndex) => seriesIndex === 1 }
+    )
+
+    expect(data.rows[0]).not.toHaveProperty('dashed')
+    expect(data.rows[1]?.dashed).toBe(true)
+  })
+
+  test('leaves rows solid when no dashed resolver is given', () => {
+    const data = buildAxisTooltipData([
+      { name: 'Jul', seriesName: 'Revenue', value: 10, seriesIndex: 0 },
+    ])
+
+    expect(data.rows[0]).not.toHaveProperty('dashed')
+  })
 })
