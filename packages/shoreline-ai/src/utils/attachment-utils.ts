@@ -38,3 +38,36 @@ export function isAttachmentLoading(status: AIAttachment['status']): boolean {
 export function isAttachmentError(status: AIAttachment['status']): boolean {
   return status === 'error'
 }
+
+export type AttachmentTagTone = 'red' | 'blue' | 'green' | 'orange' | 'gray'
+
+const DOCUMENT_TAGS: Record<
+  string,
+  { label: string; tone: AttachmentTagTone }
+> = {
+  pdf: { label: 'PDF', tone: 'red' },
+  docx: { label: 'DOCX', tone: 'blue' },
+  doc: { label: 'DOC', tone: 'blue' },
+  xlsx: { label: 'XLSX', tone: 'green' },
+  xls: { label: 'XLS', tone: 'green' },
+  csv: { label: 'CSV', tone: 'orange' },
+}
+
+/**
+ * Label and color tone of the type tag on a file card, from the file name's
+ * extension. Unknown extensions show the extension itself; no extension shows
+ * `FILE`.
+ */
+export function getAttachmentTag(name: string): {
+  label: string
+  tone: AttachmentTagTone
+} {
+  const extension = name.includes('.') ? (name.split('.').pop() ?? '') : ''
+
+  return (
+    DOCUMENT_TAGS[extension.toLowerCase()] ?? {
+      label: extension.toUpperCase() || 'FILE',
+      tone: 'gray',
+    }
+  )
+}

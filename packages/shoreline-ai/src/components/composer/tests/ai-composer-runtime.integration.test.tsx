@@ -8,9 +8,11 @@ import {
   waitFor,
 } from '@vtex/shoreline-test-utils'
 import { LocaleProvider } from '@vtex/shoreline'
+import { act, createRef } from 'react'
 import { afterEach, beforeEach, vi } from 'vitest'
 
 import { MockRuntimeProvider } from '../../../test-utils'
+import { useAIComposer } from '../../../hooks/use-ai-composer'
 import type { StreamTransport } from '../../../runtime/types'
 
 import {
@@ -44,6 +46,133 @@ describe('AIComposer runtime integration', () => {
     await user.type(input, 'Hello')
 
     expect(input).toHaveValue('Hello')
+  })
+})
+
+function DraftProbe() {
+  const { text } = useAIComposer()
+
+  return <output data-testid="draft">{text}</output>
+}
+
+describe('AIComposerInput asChild', () => {
+  it('renders the child as the textarea', () => {
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer>
+            <AIComposerField>
+              <AIComposerInput asChild>
+                <textarea data-testid="own" />
+              </AIComposerInput>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    expect(screen.getByTestId('own')).toHaveAttribute('data-sl-textarea-input')
+    expect(document.querySelectorAll('textarea')).toHaveLength(1)
+  })
+
+  it('keeps the draft in sync through the child', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer>
+            <AIComposerField>
+              <AIComposerInput asChild>
+                <textarea data-testid="own" />
+              </AIComposerInput>
+            </AIComposerField>
+            <DraftProbe />
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    await user.type(screen.getByTestId('own'), 'Hello')
+
+    expect(screen.getByTestId('own')).toHaveValue('Hello')
+    expect(screen.getByTestId('draft')).toHaveTextContent('Hello')
+  })
+
+  it('still sends on Enter', async () => {
+    const user = userEvent.setup()
+    const run = vi.fn()
+    const transport: StreamTransport = {
+      // biome-ignore lint/correctness/useYield: the run ends without snapshots
+      async *run(...args: unknown[]) {
+        run(...args)
+
+        return { parts: [{ type: 'text', text: 'Done' }], status: 'ready' }
+      },
+    }
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider transport={transport}>
+          <AIComposer>
+            <AIComposerField>
+              <AIComposerInput asChild>
+                <textarea data-testid="own" />
+              </AIComposerInput>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    await user.type(screen.getByTestId('own'), 'Hello{Enter}')
+
+    await waitFor(() => expect(run).toHaveBeenCalledTimes(1))
+  })
+
+  it('forwards the ref to the child', () => {
+    const ref = createRef<HTMLTextAreaElement>()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer>
+            <AIComposerField>
+              <AIComposerInput asChild ref={ref}>
+                <textarea data-testid="own" />
+              </AIComposerInput>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    expect(ref.current).toBe(screen.getByTestId('own'))
+  })
+})
+
+describe('AIComposer loading', () => {
+  it('keeps the draft when loading toggles off', async () => {
+    const user = userEvent.setup()
+    const tree = (loading: boolean) => (
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer loading={loading}>
+            <AIComposerField>
+              <AIComposerInput placeholder="Type here" />
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+    const { rerender } = render(tree(false))
+
+    await user.type(screen.getByPlaceholderText('Type here'), 'Hello')
+    rerender(tree(true))
+    expect(screen.queryByPlaceholderText('Type here')).toBeNull()
+    rerender(tree(false))
+
+    expect(screen.getByPlaceholderText('Type here')).toHaveValue('Hello')
   })
 })
 
@@ -154,5 +283,111 @@ describe('AIComposer attachments', () => {
     await waitFor(() => {
       expect(screen.queryByText('notes.txt')).not.toBeInTheDocument()
     })
+  })
+
+  it('falls back to stacked while an inline composer has attachments', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer layout="inline" data-testid="composer">
+            <AIComposerField>
+              <AIComposerAttachments />
+              <AIComposerInput placeholder="Type here" />
+              <AIComposerFooter>
+                <AIComposerAddAttachment />
+              </AIComposerFooter>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    const composer = screen.getByTestId('composer')
+
+    expect(composer).toHaveAttribute('data-layout', 'inline')
+
+    await user.click(screen.getByRole('button', { name: /add attachment/i }))
+
+    const fileInputs = document.body.querySelectorAll('input[type="file"]')
+    const fileInput = fileInputs.item(fileInputs.length - 1)
+
+    if (!(fileInput instanceof HTMLInputElement)) {
+      throw new Error('File input not found after clicking add attachment')
+    }
+
+    await user.upload(
+      fileInput,
+      new File(['hello'], 'notes.txt', { type: 'text/plain' })
+    )
+
+    await waitFor(() => {
+      expect(composer).toHaveAttribute('data-layout', 'stacked')
+    })
+
+    await user.click(screen.getByRole('button', { name: /remove attachment/i }))
+
+    await waitFor(() => {
+      expect(composer).toHaveAttribute('data-layout', 'inline')
+    })
+  })
+
+  it('marks the field for the focus ring only when focus does not come from a pointer', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer>
+            <AIComposerField data-testid="field">
+              <AIComposerInput placeholder="Type here" />
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    const field = screen.getByTestId('field')
+
+    await user.click(screen.getByPlaceholderText('Type here'))
+    expect(field).not.toHaveAttribute('data-focus-visible')
+
+    await user.click(document.body)
+    await user.tab()
+    expect(field).toHaveAttribute('data-focus-visible')
+
+    await user.tab()
+    expect(field).not.toHaveAttribute('data-focus-visible')
+  })
+  it('keeps the field ring off for buttons and for focus set by code after a click', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider>
+          <AIComposer>
+            <AIComposerField data-testid="field">
+              <AIComposerInput placeholder="Type here" />
+              <button type="button">Other</button>
+            </AIComposerField>
+          </AIComposer>
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    const field = screen.getByTestId('field')
+    const input = screen.getByPlaceholderText('Type here')
+
+    await user.tab()
+    expect(field).toHaveAttribute('data-focus-visible')
+
+    await user.tab()
+    expect(screen.getByText('Other')).toHaveFocus()
+    expect(field).not.toHaveAttribute('data-focus-visible')
+
+    await user.click(document.body)
+    act(() => input.focus())
+    expect(field).not.toHaveAttribute('data-focus-visible')
   })
 })

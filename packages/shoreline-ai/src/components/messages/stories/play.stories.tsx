@@ -1,7 +1,6 @@
 import { expect } from '@storybook/test'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import '@vtex/shoreline/css'
 import '@vtex/shoreline-ai/css'
 
 import { AIThread, AIThreadViewport } from '../../thread'
