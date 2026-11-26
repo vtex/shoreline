@@ -181,16 +181,6 @@ const files = [
     'ai-message-parts',
     'ai-message-text',
     'ai-markdown',
-    'ai-message-reasoning',
-    'ai-message-reasoning-root',
-    'ai-message-reasoning-header',
-    'ai-message-reasoning-mark',
-    'ai-message-reasoning-label',
-    'ai-message-reasoning-elapsed',
-    'ai-message-reasoning-trigger',
-    'ai-message-reasoning-content',
-    'ai-message-reasoning-text',
-    'ai-message-reasoning-tool-step',
     'ai-message-actions',
     'ai-message-action',
     'ai-message-copy',
@@ -209,6 +199,27 @@ const files = [
     types: join(
       dirname(''),
       '../shoreline-ai/src/components/messages/types.ts'
+    ),
+  })),
+  ...[
+    'ai-reasoning',
+    'ai-reasoning-root',
+    'ai-reasoning-header',
+    'ai-reasoning-mark',
+    'ai-reasoning-label',
+    'ai-reasoning-elapsed',
+    'ai-reasoning-trigger',
+    'ai-reasoning-content',
+    'ai-reasoning-text',
+    'ai-reasoning-tool-step',
+  ].map((file) => ({
+    file: join(
+      dirname(''),
+      `../shoreline-ai/src/components/reasoning/${file}.tsx`
+    ),
+    types: join(
+      dirname(''),
+      '../shoreline-ai/src/components/reasoning/types.ts'
     ),
   })),
   /**

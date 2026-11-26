@@ -1,0 +1,154 @@
+# AIReasoning
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning" emoji="⚠️">
+  **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
+</Callout>
+
+<ComponentDescription>AIReasoning is the panel that collects the reasoning steps of the assistant and the tools it calls while it works. It starts closed; its header shows a spinning mark, a status label, the elapsed time and a chevron that opens the steps.</ComponentDescription>
+
+`AIMessageParts` draws one panel per reasoning group with `<AIReasoning />`, so the drop-in [AIMessages](/components/ai-messages) already shows it. The panel is a family of small components that you put together, like blocks. Each one has its own page in the sidebar.
+
+<Preview name="ai-reasoning" />
+
+<Callout type="info">
+  The examples on this page run with a mock runtime and a short conversation that is loaded when the example opens, so they work without a backend. The first example builds each state by hand with [AIReasoningRoot](/components/ai-reasoning/ai-reasoning-root); in a real thread, the state comes from the message.
+</Callout>
+
+## Setup
+
+The reasoning styles are part of the package styles, so importing them once is enough:
+
+```tsx
+import '@vtex/shoreline/css'
+import '@vtex/shoreline-ai/css'
+```
+
+The reasoning pieces read their labels from `AIMessages`. Use them inside an `AIMessages` template, or wrap them in [AIMessagesI18nProvider](/components/ai-messages/ai-messages-i18n-provider).
+
+## How it is built
+
+```tsx
+<AIReasoning>
+  <AIReasoningHeader>
+    <AIReasoningMark />
+    <AIReasoningLabel />
+    <AIReasoningElapsed />
+    <AIReasoningTrigger />
+  </AIReasoningHeader>
+  <AIReasoningContent />     {/* reasoning text and tool steps */}
+</AIReasoning>
+```
+
+| Component | What it is |
+|-----------|-----------|
+| `AIReasoning` | The connected panel: the `reasoning` template of `AIMessageParts`. This page |
+| [AIReasoningRoot](/components/ai-reasoning/ai-reasoning-root) | The panel and its state, for panels you build by hand |
+| [AIReasoningHeader](/components/ai-reasoning/ai-reasoning-header) | The 20px row of the panel |
+| [AIReasoningMark](/components/ai-reasoning/ai-reasoning-mark) | The spinning mark, while the reasoning runs |
+| [AIReasoningLabel](/components/ai-reasoning/ai-reasoning-label) | The status text |
+| [AIReasoningElapsed](/components/ai-reasoning/ai-reasoning-elapsed) | The elapsed time, while the reasoning runs |
+| [AIReasoningTrigger](/components/ai-reasoning/ai-reasoning-trigger) | The chevron button that opens and closes the panel |
+| [AIReasoningContent](/components/ai-reasoning/ai-reasoning-content) | The body, with `AIReasoningText` and `AIReasoningToolStep` |
+
+The mark and the label are drawn with [AIWorkingMark](/components/ai-working-mark) and [AIThinkingIndicator](/components/ai-thinking-indicator).
+
+## States
+
+| State | Mark | Label | Time | Chevron |
+|-------|------|-------|------|---------|
+| Running | yes | "Reasoning…", shimmering | "40s", then "1m 5s" | yes |
+| Done, with a duration | no | "Reasoning completed in 2m" ("in 40s" under a minute) | no | yes |
+| Done, no duration | no | "Reasoning complete" | no | yes |
+
+While the group runs, the header counts the seconds itself. When it completes, it shows the runtime duration when there is one, and otherwise the time it counted. A message loaded from history has no duration and reads "Reasoning complete". The runtime does not stamp a duration on reasoning yet, so durations appear for groups that you watched run. Times follow the locale of the `LocaleProvider` (en-US "1m 5s", pt-BR "1 min 5 s").
+
+### Before the first part
+
+Every answer is assumed to have reasoning. While a message runs and has no text, reasoning or tool call yet, `AIMessageParts` renders the template once as a running header with no chevron and no body: mark, "Reasoning…" and the elapsed time. When the first reasoning part arrives it is the same header: the elapsed time does not reset, the mark does not replay its enter animation (the root of that group has `data-continued`), and the chevron appears. If that first group arrives already complete and the runtime gives no duration, its label keeps the time counted so far.
+
+- If text arrives before any reasoning part, the header disappears. It never becomes a complete header with no body.
+- If a tool call with no registered UI arrives first, it opens a running reasoning group: the header stays and now has a chevron.
+
+Because the header belongs to `AIMessageParts`, it shows wherever you compose `AIMessageParts`, also inside your own `AIMessageAssistant` children.
+
+## Examples
+
+### Custom template
+
+Pass your own `<AIReasoning>` as the `reasoning` prop of `AIMessageParts` to change the panel: rearrange the header, change its label, or open it from the start. `AIReasoning` reads the status, the duration, the start time and the parts of the group from `AIMessageParts`, so it only works as that template; it throws anywhere else.
+
+```tsx
+<AIMessageParts
+  reasoning={
+    <AIReasoning defaultExpanded>
+      <AIReasoningHeader>
+        <AIReasoningMark />
+        <AIReasoningLabel>Analyzing orders</AIReasoningLabel>
+        <AIReasoningElapsed />
+        <AIReasoningTrigger />
+      </AIReasoningHeader>
+      <AIReasoningContent />
+    </AIReasoning>
+  }
+/>
+```
+
+<Preview name="ai-reasoning-template" />
+
+### Build a panel by hand
+
+For a panel outside the grouping rules of `AIMessageParts`, use [AIReasoningRoot](/components/ai-reasoning/ai-reasoning-root) and set the status, the duration and the start time yourself, as the first example on this page does.
+
+### Tools in the panel
+
+Tools with no `makeAIToolUI` registration are listed in the panel as small steps. You can hide them, or draw them with your own component; see [AIReasoningContent](/components/ai-reasoning/ai-reasoning-content#tool-steps).
+
+### Change the mark or the label
+
+- The glyph of the mark: see [AIWorkingMark](/components/ai-working-mark#change-the-glyph).
+- The text of one label: children of [AIReasoningLabel](/components/ai-reasoning/ai-reasoning-label).
+- The text for the whole chat: `messages` on `AIMessages`; see [Labels and languages](/components/ai-messages#labels-and-languages).
+
+## useAIReasoning
+
+```ts
+useAIReasoning(): {
+  status: 'running' | 'complete'
+  expanded: boolean
+  duration?: number
+}
+```
+
+Gives your own parts read-only access to the closest reasoning panel: inside the `reasoning` template of `AIMessageParts`, or inside an [AIReasoningRoot](/components/ai-reasoning/ai-reasoning-root). `duration` is in milliseconds, when it is known.
+
+```tsx
+function Hint() {
+  const { status } = useAIReasoning()
+
+  return status === 'running' ? <span>Hold on</span> : null
+}
+```
+
+## Optional props
+
+<PropsDocs name="ai-reasoning" />
+
+`AIReasoning` also accepts the props of a `div`. The status, the duration and the start time come from the group, not from props.
+
+## Accessibility
+
+- Only the chevron is a button, named by the label; see [AIReasoningTrigger](/components/ai-reasoning/ai-reasoning-trigger#accessibility).
+- The open body is a group named by the label; see [AIReasoningContent](/components/ai-reasoning/ai-reasoning-content#accessibility).
+- Before the first part, only the label is a live region (`role="status"`), so "Reasoning…" is announced once and the ticking elapsed time is not.
+
+## Styling
+
+`AIReasoning` renders an [AIReasoningRoot](/components/ai-reasoning/ai-reasoning-root#styling), so it has the same selectors. The group that took over from the header shown before the first part also has `data-continued`. The selectors of each part are on its page.
+
+## Related
+
+- [AIMessages](/components/ai-messages): the list that draws the panels
+- [AIMessageParts](/components/ai-messages/ai-message-parts): groups the parts and renders the template
+- [AIThinkingIndicator](/components/ai-thinking-indicator) and [AIWorkingMark](/components/ai-working-mark): the loading pieces of the header

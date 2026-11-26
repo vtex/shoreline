@@ -1,10 +1,10 @@
 import {
   AIMessageAssistant,
   AIMessageParts,
-  AIMessageReasoningRoot,
-  AIMessageReasoningHeader,
-  AIMessageReasoningLabel,
-  AIMessageReasoningTrigger,
+  AIReasoningRoot,
+  AIReasoningHeader,
+  AIReasoningLabel,
+  AIReasoningTrigger,
   AIMessageActions,
   AIMessages,
 } from '@vtex/shoreline-ai'
@@ -27,22 +27,20 @@ export default function Example() {
           }}
         >
           <AIMessageAssistant>
-            <AIMessageReasoningRoot status="running">
-              <AIMessageReasoningHeader />
-            </AIMessageReasoningRoot>
-            <AIMessageReasoningRoot status="complete">
-              <AIMessageReasoningHeader />
-            </AIMessageReasoningRoot>
+            <AIReasoningRoot status="running">
+              <AIReasoningHeader />
+            </AIReasoningRoot>
+            <AIReasoningRoot status="complete">
+              <AIReasoningHeader />
+            </AIReasoningRoot>
 
             {/* A text for one label: children of the label */}
-            <AIMessageReasoningRoot status="complete">
-              <AIMessageReasoningHeader>
-                <AIMessageReasoningLabel>
-                  Checked 3 orders
-                </AIMessageReasoningLabel>
-                <AIMessageReasoningTrigger />
-              </AIMessageReasoningHeader>
-            </AIMessageReasoningRoot>
+            <AIReasoningRoot status="complete">
+              <AIReasoningHeader>
+                <AIReasoningLabel>Checked 3 orders</AIReasoningLabel>
+                <AIReasoningTrigger />
+              </AIReasoningHeader>
+            </AIReasoningRoot>
 
             <AIMessageParts />
             <AIMessageActions />

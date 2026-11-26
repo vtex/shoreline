@@ -1,0 +1,64 @@
+# AIReasoningContent
+
+<ComponentDescription>The body of the reasoning panel, shown while the panel is open. Inside the reasoning template of AIMessageParts it renders the parts of the group when it has no children: the reasoning text and the tool steps.</ComponentDescription>
+
+```tsx
+<AIReasoning>
+  <AIReasoningHeader />
+  <AIReasoningContent />
+</AIReasoning>
+```
+
+In a panel you build by hand with [AIReasoningRoot](/components/ai-reasoning/ai-reasoning-root), pass the content as children. Before the message has any part it renders nothing, not even its left bar.
+
+The example opens the panel from the start: the reasoning text, then the `search_orders` step.
+
+<Preview name="ai-reasoning-content" />
+
+## Reasoning text
+
+`AIReasoningText` draws one reasoning step as markdown, with [AIMarkdown](/components/ai-messages/ai-markdown), in the `caption2` style and the soft foreground color. It reads the current reasoning part, so it only works where `AIMessageParts` renders a reasoning part: in the default content, or in what a [custom part renderer](/components/ai-messages/ai-message-parts#custom-parts) returns for a part with `meta.placement === 'cot'`. It has no props of its own and accepts the props of a `div`.
+
+## Tool steps
+
+`AIReasoningToolStep` is a small row with the name of a tool that has no UI of its own. Tools registered with `makeAIToolUI` are not tool steps: they are drawn in the message, outside the panel. Used alone, it needs the tool part:
+
+```tsx
+<AIReasoningToolStep
+  part={{ type: 'tool', name: 'search_orders', args: {}, status: 'complete' }}
+/>
+```
+
+<PropsDocs name="ai-reasoning-tool-step" required />
+
+It also accepts the props of a `div`.
+
+### Draw a tool your way inside the panel
+
+A tool with no `makeAIToolUI` registration is part of the reasoning group, so a [custom part renderer](/components/ai-messages/ai-message-parts#custom-parts) can draw it inside the panel with your own component. The renderer receives it with `meta.placement === 'cot'`. Return your component for that tool, and `null` for every other part to keep its default drawing. In the example below, `search_orders` is drawn as "Found 3 late orders" instead of a tool step:
+
+<Preview name="ai-reasoning-tool" />
+
+A tool registered with `makeAIToolUI` always renders at the message level, outside the panel. The grouping rule cannot be changed, so to show a tool inside the panel, do not register it and draw it from the renderer, as above.
+
+### Hide the tool steps
+
+To keep only the reasoning text, set `showReasoningTools={false}` on `AIMessages`, `AIMessageAssistant` or `AIMessageParts`. Open the panel below: the reasoning is there, and the `search_orders` step is not.
+
+<Preview name="ai-reasoning-hide-tools" />
+
+## Props
+
+`AIReasoningContent` has no props of its own. It accepts the props of a `div`; its children replace the parts of the group.
+
+## Accessibility
+
+When the header has a label, the body is a `role="group"` named by the same label. With no label mounted it has no role.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-reasoning-content]` | The body: a 3px left bar, 16px of left padding, `caption2` text in `--sl-fg-base-soft` |
+| `[data-sl-ai-reasoning-text]` | One reasoning step |
+| `[data-sl-ai-reasoning-tool-step]` | A tool step. It has `data-status`, the status of the tool |

@@ -3,7 +3,7 @@ import {
   AIMessageActions,
   AIMessageAssistant,
   AIMessageParts,
-  AIMessageReasoning,
+  AIReasoning,
   AIMessageUser,
   AIMessages,
 } from '@vtex/shoreline-ai'
@@ -30,7 +30,7 @@ export default function Example() {
         <AIMessages>
           <AIMessageUser />
           <AIMessageAssistant>
-            <AIMessageParts reasoning={<AIMessageReasoning defaultExpanded />}>
+            <AIMessageParts reasoning={<AIReasoning defaultExpanded />}>
               {(part, meta) => {
                 if (
                   part.type === 'tool' &&

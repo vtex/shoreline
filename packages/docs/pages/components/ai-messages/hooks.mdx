@@ -1,11 +1,11 @@
 # Hooks
 
-<ComponentDescription>Hooks to read the message you are inside, the state of a reasoning panel, the parts of any message, and the thread. Use them inside AIProvider.</ComponentDescription>
+<ComponentDescription>Hooks to read the message you are inside, the parts of any message, and the thread. Use them inside AIProvider.</ComponentDescription>
 
 | Hook | Use it to |
 |------|-----------|
 | [`useAIMessage()`](#useaimessage) | Read the message you are inside, for example to keep a vote per answer |
-| [`useAIMessageReasoning()`](#useaimessagereasoning) | Read the state of the reasoning panel you are inside |
+| [`useAIReasoning()`](/components/ai-reasoning#useaireasoning) | Read the state of the reasoning panel you are inside. It is documented with [AIReasoning](/components/ai-reasoning) |
 | [`useAIMessageParts(messageId?)`](#read-the-parts-of-a-message) | Read the parts of a message |
 | [`useAIReasonings(messageId?)`](#read-the-parts-of-a-message) | Read only the reasoning parts |
 | [`useAITools(messageId?)`](#read-the-parts-of-a-message) | Read only the tool parts |
@@ -49,26 +49,6 @@ function Vote() {
       {pressed ? <ThumbUpFilledIcon /> : <ThumbUpIcon />}
     </AIMessageAction>
   )
-}
-```
-
-## useAIMessageReasoning
-
-```ts
-useAIMessageReasoning(): {
-  status: 'running' | 'complete'
-  expanded: boolean
-  duration?: number
-}
-```
-
-Gives your own parts read-only access to the closest reasoning panel: inside the `reasoning` template of [AIMessageParts](/components/ai-messages/ai-message-reasoning#reading-the-panel-state), or inside an [AIMessageReasoningRoot](/components/ai-messages/ai-message-reasoning-root). `duration` is in milliseconds, when it is known.
-
-```tsx
-function Hint() {
-  const { status } = useAIMessageReasoning()
-
-  return status === 'running' ? <span>Hold on</span> : null
 }
 ```
 

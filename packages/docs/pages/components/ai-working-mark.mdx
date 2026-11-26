@@ -34,15 +34,15 @@ There are three ways to replace the My Assistant mark, from the narrowest to the
    </AIWorkingMark>
    ```
 
-2. **Children of [AIMessageReasoningMark](/components/ai-messages/ai-message-reasoning-mark)**, for the mark of a reasoning template:
+2. **Children of [AIReasoningMark](/components/ai-reasoning/ai-reasoning-mark)**, for the mark of a reasoning template:
 
    ```tsx
-   <AIMessageReasoningHeader>
-     <AIMessageReasoningMark>
+   <AIReasoningHeader>
+     <AIReasoningMark>
        <IconSparkle />
-     </AIMessageReasoningMark>
-     <AIMessageReasoningLabel />
-   </AIMessageReasoningHeader>
+     </AIReasoningMark>
+     <AIReasoningLabel />
+   </AIReasoningHeader>
    ```
 
 3. **`workingMark` on [AIMessages](/components/ai-messages)**, for every reasoning mark in the list, including the header shown before the first part:
@@ -77,4 +77,4 @@ The mark is decorative and hidden from assistive technology (`aria-hidden`). Put
 ## Related
 
 - [AIThinkingIndicator](/components/ai-thinking-indicator): the text loading effect
-- [AIMessageReasoningMark](/components/ai-messages/ai-message-reasoning-mark): the mark of the reasoning header
+- [AIReasoningMark](/components/ai-reasoning/ai-reasoning-mark): the mark of the reasoning header

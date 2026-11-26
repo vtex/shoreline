@@ -11,9 +11,9 @@
 
 ## Reasoning groups
 
-Consecutive reasoning parts and tool calls with no registered UI form one group. `AIMessageParts` draws each group with the `reasoning` template, `<AIMessageReasoning />` by default, and gives it the status, the duration and the parts of the group. Pass your own template to change the panel; see [AIMessageReasoning](/components/ai-messages/ai-message-reasoning) and the [custom template example](/components/ai-messages#custom-reasoning-template).
+Consecutive reasoning parts and tool calls with no registered UI form one group. `AIMessageParts` draws each group with the `reasoning` template, `<AIReasoning />` by default, and gives it the status, the duration and the parts of the group. Pass your own template to change the panel; see [AIReasoning](/components/ai-reasoning) and the [custom template example](/components/ai-reasoning#custom-template).
 
-Tools registered with `makeAIToolUI` are drawn in the message, outside the panel. Set `showReasoningTools={false}` to keep only the reasoning text in the panel; see [AIMessageReasoningContent](/components/ai-messages/ai-message-reasoning-content#hide-the-tool-steps).
+Tools registered with `makeAIToolUI` are drawn in the message, outside the panel. Set `showReasoningTools={false}` to keep only the reasoning text in the panel; see [AIReasoningContent](/components/ai-reasoning/ai-reasoning-content#hide-the-tool-steps).
 
 ## Custom parts
 
@@ -38,7 +38,7 @@ Pass a function as `children`. It is called for each part with the part and a `m
 | `placement` | `'cot'` inside a reasoning panel, `'message'` at the message level |
 | `toolRegistration` | The `makeAIToolUI` registration of a tool part, or `null` |
 
-Prefer `meta.isStreaming` and `meta.placement` over reading the whole thread in a renderer. The function runs inside the scope of the part, so [AIMessageText](/components/ai-messages/ai-message-text), `AIMessageReasoningText` and [AIMessageResources](/components/ai-messages/ai-message-resources) work in what it returns.
+Prefer `meta.isStreaming` and `meta.placement` over reading the whole thread in a renderer. The function runs inside the scope of the part, so [AIMessageText](/components/ai-messages/ai-message-text), `AIReasoningText` and [AIMessageResources](/components/ai-messages/ai-message-resources) work in what it returns.
 
 ### Helpers
 

@@ -2,7 +2,7 @@ import {
   AIMessageActions,
   AIMessageAssistant,
   AIMessageParts,
-  AIMessageReasoning,
+  AIReasoning,
   AIMessageUser,
   AIMessages,
 } from '@vtex/shoreline-ai'
@@ -20,9 +20,7 @@ export default function Example() {
           <AIMessageUser />
           <AIMessageAssistant>
             {/* Open from the start: the reasoning text, then the tool step */}
-            <AIMessageParts
-              reasoning={<AIMessageReasoning defaultExpanded />}
-            />
+            <AIMessageParts reasoning={<AIReasoning defaultExpanded />} />
             <AIMessageActions />
           </AIMessageAssistant>
         </AIMessages>

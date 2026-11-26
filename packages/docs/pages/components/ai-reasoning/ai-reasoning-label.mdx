@@ -1,27 +1,27 @@
-# AIMessageReasoningLabel
+# AIReasoningLabel
 
 <ComponentDescription>The status text of the reasoning header. It shimmers while the reasoning runs, carries the duration when the reasoning is complete, and gives the chevron its accessible name.</ComponentDescription>
 
 ```tsx
-<AIMessageReasoningHeader>
-  <AIMessageReasoningLabel />
-  <AIMessageReasoningTrigger />
-</AIMessageReasoningHeader>
+<AIReasoningHeader>
+  <AIReasoningLabel />
+  <AIReasoningTrigger />
+</AIReasoningHeader>
 ```
 
 With no children it shows the localized status text: "Reasoning…", "Reasoning completed in 2m" or "Reasoning complete". Pass children to change the text of this label only:
 
 ```tsx
-<AIMessageReasoningLabel>Checked 3 orders</AIMessageReasoningLabel>
+<AIReasoningLabel>Checked 3 orders</AIReasoningLabel>
 ```
 
 To change the text for the whole chat, pass `messages` to `AIMessages` instead; see [Labels and languages](/components/ai-messages#labels-and-languages). While running, the text is drawn with [AIThinkingIndicator](/components/ai-thinking-indicator).
 
 ## Optional props
 
-<PropsDocs name="ai-message-reasoning-label" />
+<PropsDocs name="ai-reasoning-label" />
 
-`AIMessageReasoningLabel` also accepts the props of a `span`.
+`AIReasoningLabel` also accepts the props of a `span`.
 
 ## Accessibility
 
@@ -32,4 +32,4 @@ To change the text for the whole chat, pass `messages` to `AIMessages` instead; 
 
 | Attribute | Region |
 |-----------|--------|
-| `[data-sl-ai-message-reasoning-label]` | The label, in the `body` text style and `--sl-fg-base-soft` |
+| `[data-sl-ai-reasoning-label]` | The label, in the `body` text style and `--sl-fg-base-soft` |

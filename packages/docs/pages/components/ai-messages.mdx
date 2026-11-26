@@ -72,25 +72,17 @@ See [AIThread](/components/ai-thread) for the full chat, with the composer.
 </AIMessages>
 ```
 
-The reasoning panel and the actions bar are built from smaller parts in the same way:
+The actions bar is built from smaller parts in the same way:
 
 ```tsx
-<AIMessageReasoning>                {/* the reasoning template of AIMessageParts */}
-  <AIMessageReasoningHeader>
-    <AIMessageReasoningMark />
-    <AIMessageReasoningLabel />
-    <AIMessageReasoningElapsed />
-    <AIMessageReasoningTrigger />
-  </AIMessageReasoningHeader>
-  <AIMessageReasoningContent />     {/* reasoning text and tool steps */}
-</AIMessageReasoning>
-
 <AIMessageActions>
   <AIMessageAction label="…">…</AIMessageAction>  {/* your actions */}
   <AIMessageCopy />
   <AIMessageDate />
 </AIMessageActions>
 ```
+
+The reasoning panel that `AIMessageParts` draws is its own family, [AIReasoning](/components/ai-reasoning), with its own section in the sidebar.
 
 | Component | What it is |
 |-----------|-----------|
@@ -100,19 +92,13 @@ The reasoning panel and the actions bar are built from smaller parts in the same
 | [AIMessageParts](/components/ai-messages/ai-message-parts) | Draws each part of the message and groups the reasoning steps |
 | [AIMessageText](/components/ai-messages/ai-message-text) | A text part, as markdown |
 | [AIMarkdown](/components/ai-messages/ai-markdown) | Markdown on its own, with no message around it |
-| [AIMessageReasoning](/components/ai-messages/ai-message-reasoning) | The connected reasoning panel, for the `reasoning` template of `AIMessageParts` |
-| [AIMessageReasoningRoot](/components/ai-messages/ai-message-reasoning-root) | The reasoning panel and its state, for panels you build by hand |
-| [AIMessageReasoningHeader](/components/ai-messages/ai-message-reasoning-header) | The 20px row of the panel |
-| [AIMessageReasoningMark](/components/ai-messages/ai-message-reasoning-mark), [AIMessageReasoningLabel](/components/ai-messages/ai-message-reasoning-label), [AIMessageReasoningElapsed](/components/ai-messages/ai-message-reasoning-elapsed) | The pieces of the header |
-| [AIMessageReasoningTrigger](/components/ai-messages/ai-message-reasoning-trigger) | The chevron button that opens and closes the panel |
-| [AIMessageReasoningContent](/components/ai-messages/ai-message-reasoning-content) | The body of the panel, with `AIMessageReasoningText` and `AIMessageReasoningToolStep` |
 | [AIMessageActions](/components/ai-messages/ai-message-actions) | The floating bar under an answer |
 | [AIMessageAction](/components/ai-messages/ai-message-action) | A button of the bar, for thumbs or any action of your app |
 | [AIMessageCopy](/components/ai-messages/ai-message-copy) | The button that copies the text of the message |
 | [AIMessageDate](/components/ai-messages/ai-message-date) | The relative date of the message |
 | [AIMessageResources](/components/ai-messages/ai-message-resources) | The files and images attached to a message |
 | [AIMessagesI18nProvider](/components/ai-messages/ai-messages-i18n-provider) | The labels of message pieces rendered outside `AIMessages` |
-| [Hooks](/components/ai-messages/hooks) | `useAIMessage`, `useAIMessageReasoning` and the hooks that read messages |
+| [Hooks](/components/ai-messages/hooks) | `useAIMessage` and the hooks that read messages and the thread |
 
 The reasoning header uses two pieces that also work on their own, anywhere: [AIThinkingIndicator](/components/ai-thinking-indicator), the text loading effect, and [AIWorkingMark](/components/ai-working-mark), the spinning mark.
 
@@ -120,31 +106,15 @@ The reasoning header uses two pieces that also work on their own, anywhere: [AIT
 
 ### Reasoning
 
-While the assistant works, its reasoning steps and the tools it calls are collected in one panel that starts closed. The header is one row: a spinning mark, the label, the elapsed time and a chevron. Only the chevron is a button.
+While the assistant works, its reasoning steps and the tools it calls are collected in one panel that starts closed, as in the first example on this page. `AIMessageParts` draws one panel per reasoning group with the [AIReasoning](/components/ai-reasoning) template; its states, its parts and how to replace the template are on that page.
 
-| State | Mark | Label | Time | Chevron |
-|-------|------|-------|------|---------|
-| Running | yes | "Reasoning…", shimmering | "40s", then "1m 5s" | yes |
-| Done, with a duration | no | "Reasoning completed in 2m" | no | yes |
-| Done, no duration | no | "Reasoning complete" | no | yes |
-
-The example builds each state by hand with [AIMessageReasoningRoot](/components/ai-messages/ai-message-reasoning-root). In a real thread, [AIMessageParts](/components/ai-messages/ai-message-parts) draws one panel per reasoning group and reads its state from the message. Before the first part arrives it draws the running header alone (see [AIMessageReasoning](/components/ai-messages/ai-message-reasoning#before-the-first-part)).
-
-<Preview name="ai-messages-reasoning" />
-
-The mark is the My Assistant mark. To use the glyph of your app in every mark of the list, pass `workingMark`:
+The mark of the panel is the My Assistant mark. To use the glyph of your app in every mark of the list, pass `workingMark`:
 
 ```tsx
 <AIMessages workingMark={<IconSparkle />} />
 ```
 
 The other ways to replace it are on the [AIWorkingMark](/components/ai-working-mark#change-the-glyph) page.
-
-### Custom reasoning template
-
-`AIMessageParts` draws each reasoning group with a template, `<AIMessageReasoning />` by default. Pass your own as `reasoning` to change the header, for example its label, or to open the panel from the start. See [AIMessageReasoning](/components/ai-messages/ai-message-reasoning).
-
-<Preview name="ai-messages-reasoning-template" />
 
 ### Actions bar
 
@@ -162,7 +132,7 @@ Thumbs and their behavior belong to your app, so the package ships neither. Wrap
 
 ### Tool widgets
 
-Register a component for a tool with `makeAIToolUI` and mount the result once under the provider. A registered tool is drawn in the message, not in the reasoning panel. With `mode: 'canvas'` the message shows a trigger and the tool opens in `AICanvas`. A function child of `AIMessageParts` that handles the same tool wins over the registered component. To draw a tool inside the reasoning panel instead, see [AIMessageReasoningContent](/components/ai-messages/ai-message-reasoning-content#draw-a-tool-your-way-inside-the-panel).
+Register a component for a tool with `makeAIToolUI` and mount the result once under the provider. A registered tool is drawn in the message, not in the reasoning panel. With `mode: 'canvas'` the message shows a trigger and the tool opens in `AICanvas`. A function child of `AIMessageParts` that handles the same tool wins over the registered component. To draw a tool inside the reasoning panel instead, see [AIReasoningContent](/components/ai-reasoning/ai-reasoning-content#draw-a-tool-your-way-inside-the-panel).
 
 <Preview name="ai-messages-tool-ui" />
 
@@ -183,9 +153,9 @@ See [AIMessageUser](/components/ai-messages/ai-message-user).
 | You want to change | Use |
 |--------------------|-----|
 | A text for the whole chat | `messages` on `AIMessages` |
-| The text of one reasoning label | Children of [AIMessageReasoningLabel](/components/ai-messages/ai-message-reasoning-label) |
+| The text of one reasoning label | Children of [AIReasoningLabel](/components/ai-reasoning/ai-reasoning-label) |
 | The working mark | `workingMark` on `AIMessages`, or see [AIWorkingMark](/components/ai-working-mark#change-the-glyph) |
-| The header pieces or their order | The `reasoning` template of [AIMessageParts](/components/ai-messages/ai-message-parts) |
+| The header pieces or their order | The `reasoning` template of `AIMessageParts`; see [AIReasoning](/components/ai-reasoning#custom-template) |
 | How one kind of part is drawn | A function child of [AIMessageParts](/components/ai-messages/ai-message-parts#custom-parts) |
 | Bar actions | Children of [AIMessageActions](/components/ai-messages/ai-message-actions) |
 | The layout of one message | An `AIMessageUser` or `AIMessageAssistant` child of `AIMessages` |
@@ -194,7 +164,7 @@ See [AIMessageUser](/components/ai-messages/ai-message-user).
 
 ## Labels and languages
 
-The labels come from a built-in catalog in `en-US` and `pt-BR`, chosen by the `LocaleProvider`. Times, durations and dates follow the same locale (en-US "1m 5s", pt-BR "1 min 5 s"). To change some labels for the whole chat, pass `messages` to `AIMessages`. Unset keys keep the default. To change the text of a single label, pass children to `AIMessageReasoningLabel`:
+The labels come from a built-in catalog in `en-US` and `pt-BR`, chosen by the `LocaleProvider`. Times, durations and dates follow the same locale (en-US "1m 5s", pt-BR "1 min 5 s"). To change some labels for the whole chat, pass `messages` to `AIMessages`. Unset keys keep the default. To change the text of a single label, pass children to `AIReasoningLabel`:
 
 <Preview name="ai-messages-labels" />
 
@@ -240,6 +210,7 @@ The selectors of each piece are on its page.
 
 - [AIThread](/components/ai-thread): the layout around the messages
 - [AIComposer](/components/ai-composer): the box to write
+- [AIReasoning](/components/ai-reasoning): the reasoning panel
 - [AIThinkingIndicator](/components/ai-thinking-indicator) and [AIWorkingMark](/components/ai-working-mark): the loading pieces of the reasoning header
 - [Shoreline AI overview](/guides/shoreline-ai)
 - [Runtime](/guides/shoreline-ai-runtime): the transport and the message model

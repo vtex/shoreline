@@ -2,13 +2,13 @@ import {
   AIMessageAssistant,
   AIMessageActions,
   AIMessageParts,
-  AIMessageReasoning,
-  AIMessageReasoningContent,
-  AIMessageReasoningElapsed,
-  AIMessageReasoningHeader,
-  AIMessageReasoningLabel,
-  AIMessageReasoningMark,
-  AIMessageReasoningTrigger,
+  AIReasoning,
+  AIReasoningContent,
+  AIReasoningElapsed,
+  AIReasoningHeader,
+  AIReasoningLabel,
+  AIReasoningMark,
+  AIReasoningTrigger,
   AIMessageUser,
   AIMessages,
 } from '@vtex/shoreline-ai'
@@ -29,17 +29,15 @@ export default function Example() {
               showReasoningTools={false}
               // The template is rendered once per reasoning group
               reasoning={
-                <AIMessageReasoning defaultExpanded>
-                  <AIMessageReasoningHeader>
-                    <AIMessageReasoningMark />
-                    <AIMessageReasoningLabel>
-                      Analyzing orders
-                    </AIMessageReasoningLabel>
-                    <AIMessageReasoningElapsed />
-                    <AIMessageReasoningTrigger />
-                  </AIMessageReasoningHeader>
-                  <AIMessageReasoningContent />
-                </AIMessageReasoning>
+                <AIReasoning defaultExpanded>
+                  <AIReasoningHeader>
+                    <AIReasoningMark />
+                    <AIReasoningLabel>Analyzing orders</AIReasoningLabel>
+                    <AIReasoningElapsed />
+                    <AIReasoningTrigger />
+                  </AIReasoningHeader>
+                  <AIReasoningContent />
+                </AIReasoning>
               }
             />
             <AIMessageActions />

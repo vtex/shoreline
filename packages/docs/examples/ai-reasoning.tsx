@@ -1,9 +1,9 @@
 import { Text } from '@vtex/shoreline'
 import {
   AIMessageAssistant,
-  AIMessageReasoningContent,
-  AIMessageReasoningHeader,
-  AIMessageReasoningRoot,
+  AIReasoningContent,
+  AIReasoningHeader,
+  AIReasoningRoot,
   AIMessages,
 } from '@vtex/shoreline-ai'
 import {
@@ -19,28 +19,28 @@ export default function Example() {
         <AIMessages>
           <AIMessageAssistant>
             {/* Running: mark, shimmering label, elapsed time and chevron */}
-            <AIMessageReasoningRoot status="running">
-              <AIMessageReasoningHeader />
-            </AIMessageReasoningRoot>
+            <AIReasoningRoot status="running">
+              <AIReasoningHeader />
+            </AIReasoningRoot>
 
             {/* Complete with a duration: "Reasoning completed in 2m" */}
-            <AIMessageReasoningRoot status="complete" duration={120_000}>
-              <AIMessageReasoningHeader />
-            </AIMessageReasoningRoot>
+            <AIReasoningRoot status="complete" duration={120_000}>
+              <AIReasoningHeader />
+            </AIReasoningRoot>
 
             {/* Complete and open from the start, with the reasoning text */}
-            <AIMessageReasoningRoot
+            <AIReasoningRoot
               status="complete"
               duration={42_000}
               defaultExpanded
             >
-              <AIMessageReasoningHeader />
-              <AIMessageReasoningContent>
+              <AIReasoningHeader />
+              <AIReasoningContent>
                 <Text variant="caption2" color="base-soft">
                   Comparing each order with its promised delivery date.
                 </Text>
-              </AIMessageReasoningContent>
-            </AIMessageReasoningRoot>
+              </AIReasoningContent>
+            </AIReasoningRoot>
           </AIMessageAssistant>
         </AIMessages>
       </AIDemoMessages>
