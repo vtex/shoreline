@@ -33,6 +33,14 @@ The example opens the panel from the start: the reasoning text, then the `search
 
 It also accepts the props of a `div`.
 
+### Draw a tool your way inside the panel
+
+A tool with no `makeAIToolUI` registration is part of the reasoning group, so a [custom part renderer](/components/ai-messages/ai-message-parts#custom-parts) can draw it inside the panel with your own component. The renderer receives it with `meta.placement === 'cot'`. Return your component for that tool, and `null` for every other part to keep its default drawing. In the example below, `search_orders` is drawn as "Found 3 late orders" instead of a tool step:
+
+<Preview name="ai-message-reasoning-tool" />
+
+A tool registered with `makeAIToolUI` always renders at the message level, outside the panel. The grouping rule cannot be changed, so to show a tool inside the panel, do not register it and draw it from the renderer, as above.
+
 ### Hide the tool steps
 
 To keep only the reasoning text, set `showReasoningTools={false}` on `AIMessages`, `AIMessageAssistant` or `AIMessageParts`. Open the panel below: the reasoning is there, and the `search_orders` step is not.

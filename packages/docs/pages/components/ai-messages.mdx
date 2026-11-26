@@ -162,7 +162,7 @@ Thumbs and their behavior belong to your app, so the package ships neither. Wrap
 
 ### Tool widgets
 
-Register a component for a tool with `makeAIToolUI` and mount the result once under the provider. A registered tool is drawn in the message, not in the reasoning panel. With `mode: 'canvas'` the message shows a trigger and the tool opens in `AICanvas`. A function child of `AIMessageParts` that handles the same tool wins over the registered component.
+Register a component for a tool with `makeAIToolUI` and mount the result once under the provider. A registered tool is drawn in the message, not in the reasoning panel. With `mode: 'canvas'` the message shows a trigger and the tool opens in `AICanvas`. A function child of `AIMessageParts` that handles the same tool wins over the registered component. To draw a tool inside the reasoning panel instead, see [AIMessageReasoningContent](/components/ai-messages/ai-message-reasoning-content#draw-a-tool-your-way-inside-the-panel).
 
 <Preview name="ai-messages-tool-ui" />
 
@@ -235,20 +235,6 @@ Because `content-visibility` clips the painting of a row to its box, the row has
 | `--sl-ai-messages-padding` | `0`; the thread padding inside a thread viewport | The padding of the list. Set it to `0` on a wrapper that pads itself |
 
 The selectors of each piece are on its page.
-
-## Breaking changes
-
-These changes align the reasoning, the thinking indicator and the actions bar with the Design docs. The package is in beta, so they come with no deprecation period.
-
-1. **`AIMessageAssistant` with children renders exactly the children.** It no longer adds the actions row or a thinking indicator around them. Add `AIMessageParts` and `AIMessageActions` yourself.
-2. **`AIMessageActions` children replace the default actions.** Before, they came after the copy button. Now no children means copy and the date, and children are rendered alone, so include `AIMessageCopy` and `AIMessageDate` to keep them. The bar is always visible and floats below the message; the hover-only behavior is gone.
-3. **`AIThinkingIndicator` is only the text effect.** The `label` prop is removed: pass the text as children. It is a `span` with no `role`, no dots and no default text.
-4. **Reasoning is composed from parts.** `AIMessageReasoningTrigger` loses its `label` prop and is only the chevron, so clicking the label or the time no longer toggles the panel (the old trigger was the whole row). The text moves to `AIMessageReasoningLabel`, and `AIMessageReasoningHeader` is the row. The `[data-sl-ai-message-reasoning-row]`, `[data-sl-ai-message-reasoning-meta]` and `[data-sl-ai-dots-loader]` selectors are gone.
-5. **Catalog keys changed.** `reasoningReady` is now `reasoningDone`, `workedFor` is now `reasoningDoneIn`, `thinking` is removed, and `copied` is new.
-6. **`AIMessageCopy` and `AIMessageAction` take no `aria-label`.** The accessible name comes from the `label` prop of `AIMessageAction`, and from the built-in strings for `AIMessageCopy`.
-7. **`MessageMessagesProvider` is now `AIMessagesI18nProvider`.** It takes the same props. The old name has no alias.
-
-The gap between messages also grows from 16px to 32px, and the thread now pads the messages and the composer. See [AIThread](/components/ai-thread#layout-and-spacing).
 
 ## Related
 
