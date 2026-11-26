@@ -1,0 +1,69 @@
+# AIMessageAction
+
+<ComponentDescription>A button of the actions bar. It renders its children, usually a 14px icon, in a 20px button named by its label. Use it for thumbs or any other action of your app.</ComponentDescription>
+
+```tsx
+<AIMessageAction label="Share" onClick={share}>
+  <IconShareNetwork />
+</AIMessageAction>
+```
+
+Any Shoreline icon or your own SVG works as the child. Shoreline icons are drawn at 14px, with a stroke that scales with the icon.
+
+## Pressed state
+
+The pressed state belongs to your app. Pass `aria-pressed` and swap the icon for a filled glyph when the action is pressed: `AIMessageAction` does not change the color of a pressed action, which keeps its resting color, also on hover. Thumbs are a toggle pair: pressing one presses it, pressing it again clears it, and pressing the other one moves the vote.
+
+```tsx
+type Vote = 'up' | 'down'
+
+function Thumbs(props: {
+  votes: Record<string, Vote>
+  onVote: (messageId: string, vote: Vote | null) => void
+}) {
+  const { votes, onVote } = props
+  const { id } = useAIMessage()
+  const vote = votes[id]
+
+  return (
+    <>
+      <AIMessageAction
+        label="Good response"
+        aria-pressed={vote === 'up'}
+        onClick={() => onVote(id, vote === 'up' ? null : 'up')}
+      >
+        {vote === 'up' ? <ThumbUpFilledIcon /> : <ThumbUpIcon />}
+      </AIMessageAction>
+      <AIMessageAction
+        label="Bad response"
+        aria-pressed={vote === 'down'}
+        onClick={() => onVote(id, vote === 'down' ? null : 'down')}
+      >
+        {vote === 'down' ? <ThumbDownFilledIcon /> : <ThumbDownIcon />}
+      </AIMessageAction>
+    </>
+  )
+}
+```
+
+The icons are your app's. The [actions bar example](/components/ai-messages#actions-bar) runs this pattern with the icons of the design proposal.
+
+## Required props
+
+<PropsDocs name="ai-message-action" required />
+
+`AIMessageAction` also accepts the props of a `button`, such as `onClick`, `disabled` and `aria-pressed`. It takes no `aria-label`: the name comes from `label`.
+
+## Accessibility
+
+- The accessible name is `label`, so an icon-only button is still named.
+- `aria-pressed` tells assistive technology that the action is a toggle and whether it is on.
+- It shows a focus ring for keyboard focus only.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message-action]` | The 20px button. Styled for `:hover`, `:focus-visible` and `:disabled` |
+
+The icon rests at `--sl-fg-base-soft`. On hover the button gets the plain hover background and the icon `--sl-color-gray-9`: darker on Horizon, and the same gray on Sunrise, where `--sl-fg-base-soft` already is `--sl-color-gray-9`, so there only the background changes. A pressed action (`aria-pressed="true"`) keeps `--sl-fg-base-soft`. A disabled action does not react to hover.

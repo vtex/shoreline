@@ -1,0 +1,28 @@
+# AIMessageUser
+
+<ComponentDescription>The message of the person, drawn as a bubble on the right of the list. With no children it renders the parts of the message (the text and any attached files) with AIMessageParts.</ComponentDescription>
+
+```tsx
+<AIMessages>
+  <AIMessageUser />
+</AIMessages>
+```
+
+Pass it as a child of `AIMessages` only to change the layout of every user message, for example to add a class or your own children. `AIMessages` accepts at most one `AIMessageUser` template.
+
+## Props
+
+`AIMessageUser` has no props of its own. It accepts the props of a `div` and the `children` of [AIMessageRoot](/components/ai-messages/ai-message-root); it sets `messageRole="user"` for you.
+
+## Styling
+
+The bubble is only CSS: it is the `[data-sl-ai-message-content]` of a user row.
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message][data-sl-ai-message-role="user"]` | The row, aligned to the end |
+| `[data-sl-ai-message-role="user"] [data-sl-ai-message-content]` | The bubble: `--sl-bg-muted` background, `--sl-radius-3` corners |
+
+| CSS variable | Default | What it changes |
+|--------------|---------|-----------------|
+| `--sl-ai-message-user-max-width` | `33.75rem` | The maximum width of the bubble. See the [user bubble example](/components/ai-messages#user-bubble) |

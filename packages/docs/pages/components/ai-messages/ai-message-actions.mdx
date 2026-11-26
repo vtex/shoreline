@@ -1,0 +1,40 @@
+# AIMessageActions
+
+<ComponentDescription>The bar of actions under an answer of the assistant. It floats just below the message, takes no height in the list and is always visible. With no children it has AIMessageCopy and then AIMessageDate; with children it renders exactly them, in the order you give.</ComponentDescription>
+
+```tsx
+<AIMessageAssistant>
+  <AIMessageParts />
+  <AIMessageActions>
+    <AIMessageAction label="Good response" onClick={like}>
+      <ThumbUpIcon />
+    </AIMessageAction>
+    <AIMessageCopy />
+    <AIMessageDate />
+  </AIMessageActions>
+</AIMessageAssistant>
+```
+
+There are no boolean props to turn pieces on or off: compose the bar. When you pass children, include `AIMessageCopy` and `AIMessageDate` to keep them. The bar renders once per answer, so keep per-answer state, such as a vote, keyed by the message id that [`useAIMessage()`](/components/ai-messages/hooks#useaimessage) returns. See the [actions bar example](/components/ai-messages#actions-bar).
+
+## When it shows
+
+The bar renders only for an assistant message that is complete and has text. It renders nothing:
+
+- while the answer runs;
+- for the messages of the user;
+- for a message with status `incomplete`: a cancelled or failed run, or a message waiting for a tool result. So a partial answer cannot be copied.
+
+## Optional props
+
+<PropsDocs name="ai-message-actions" />
+
+`AIMessageActions` also accepts the props of a `div`.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message-actions]` | The 20px bar, 4px below the message and out of the flow. It is shifted so the first icon lines up with the text |
+
+The room for the bar comes from the gap between messages, `--sl-ai-messages-gap`; see [AIThread](/components/ai-thread#layout-and-spacing).

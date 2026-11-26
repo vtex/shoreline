@@ -1,0 +1,58 @@
+# AIMessageReasoning
+
+<ComponentDescription>The connected reasoning panel. AIMessageParts renders it once per reasoning group, and once before the first part arrives, and gives it the status, the duration, the start time and the parts of the group. Pass your own copy as the reasoning template of AIMessageParts to change the panel.</ComponentDescription>
+
+```tsx
+<AIMessageParts
+  reasoning={
+    <AIMessageReasoning defaultExpanded>
+      <AIMessageReasoningHeader>
+        <AIMessageReasoningMark />
+        <AIMessageReasoningLabel>Analyzing orders</AIMessageReasoningLabel>
+        <AIMessageReasoningElapsed />
+        <AIMessageReasoningTrigger />
+      </AIMessageReasoningHeader>
+      <AIMessageReasoningContent />
+    </AIMessageReasoning>
+  }
+/>
+```
+
+With no children it renders [AIMessageReasoningHeader](/components/ai-messages/ai-message-reasoning-header) and [AIMessageReasoningContent](/components/ai-messages/ai-message-reasoning-content). It reads the group from `AIMessageParts`, so it only works as the `reasoning` template; it throws anywhere else. For a panel outside the grouping rules, use [AIMessageReasoningRoot](/components/ai-messages/ai-message-reasoning-root). See the [custom template example](/components/ai-messages#custom-reasoning-template).
+
+## States
+
+| State | Mark | Label | Time | Chevron |
+|-------|------|-------|------|---------|
+| Running | yes | "Reasoning…", shimmering | "40s", then "1m 5s" | yes |
+| Done, with a duration | no | "Reasoning completed in 2m" ("in 40s" under a minute) | no | yes |
+| Done, no duration | no | "Reasoning complete" | no | yes |
+
+While the group runs, the header counts the seconds itself. When it completes, it shows the runtime duration when there is one, and otherwise the time it counted. A message loaded from history has no duration and reads "Reasoning complete". The runtime does not stamp a duration on reasoning yet, so durations appear for groups that you watched run.
+
+## Before the first part
+
+Every answer is assumed to have reasoning. While a message runs and has no text, reasoning or tool call yet, `AIMessageParts` renders the template once as a running header with no chevron and no body: mark, "Reasoning…" and the elapsed time. When the first reasoning part arrives it is the same header: the elapsed time does not reset, the mark does not replay its enter animation (the root of that group has `data-continued`), and the chevron appears. If that first group arrives already complete and the runtime gives no duration, its label keeps the time counted so far.
+
+- If text arrives before any reasoning part, the header disappears. It never becomes a complete header with no body.
+- If a tool call with no registered UI arrives first, it opens a running reasoning group: the header stays and now has a chevron.
+
+Because the header belongs to `AIMessageParts`, it shows wherever you compose `AIMessageParts`, also inside your own `AIMessageAssistant` children.
+
+## Reading the panel state
+
+Inside the template, [`useAIMessageReasoning()`](/components/ai-messages/hooks#useaimessagereasoning) gives your own parts read-only access to `status`, `expanded` and `duration`.
+
+## Optional props
+
+<PropsDocs name="ai-message-reasoning" />
+
+`AIMessageReasoning` also accepts the props of a `div`. The status, the duration and the start time come from the group, not from props.
+
+## Accessibility
+
+Before the first part, only the label is a live region (`role="status"`), so "Reasoning…" is announced once and the ticking elapsed time is not. The chevron and the body are described on [AIMessageReasoningTrigger](/components/ai-messages/ai-message-reasoning-trigger#accessibility) and [AIMessageReasoningContent](/components/ai-messages/ai-message-reasoning-content#accessibility).
+
+## Styling
+
+`AIMessageReasoning` renders an [AIMessageReasoningRoot](/components/ai-messages/ai-message-reasoning-root#styling), so it has the same selectors. The group that took over from the header shown before the first part also has `data-continued`.

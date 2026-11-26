@@ -1,0 +1,27 @@
+# AIMessageAssistant
+
+<ComponentDescription>The answer of the assistant, on the left of the list. With no children it renders AIMessageParts and then AIMessageActions. With children it renders exactly them, so you choose what goes in the answer and in which order.</ComponentDescription>
+
+```tsx
+<AIMessages>
+  <AIMessageAssistant>
+    <AIMessageParts />
+    <AIMessageActions />
+  </AIMessageAssistant>
+</AIMessages>
+```
+
+Pass it as a child of `AIMessages` to change the layout of every answer, for example to add actions to the bar (see the [actions bar example](/components/ai-messages#actions-bar)). `AIMessages` accepts at most one `AIMessageAssistant` template.
+
+## Optional props
+
+<PropsDocs name="ai-message-assistant" />
+
+`showReasoningTools` only applies to the default children. When you pass children, set it on your `AIMessageParts`. `AIMessageAssistant` also accepts the props of a `div` and the `children` of [AIMessageRoot](/components/ai-messages/ai-message-root); it sets `messageRole="assistant"` for you.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message][data-sl-ai-message-role="assistant"]` | The row, aligned to the start |
+| `[data-sl-ai-message-role="assistant"] [data-sl-ai-message-content]` | The content. It is the containing block of the floating actions bar |

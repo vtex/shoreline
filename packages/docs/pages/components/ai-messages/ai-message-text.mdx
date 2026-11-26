@@ -1,0 +1,29 @@
+# AIMessageText
+
+<ComponentDescription>A text part of a message, drawn as markdown with AIMarkdown. AIMessageParts uses it for every text part.</ComponentDescription>
+
+It reads the text of the current part, so use it in what a [custom part renderer](/components/ai-messages/ai-message-parts#custom-parts) returns, for example to wrap the text:
+
+```tsx
+<AIMessageParts>
+  {(part) =>
+    part.type === 'text' ? (
+      <div className="answer">
+        <AIMessageText />
+      </div>
+    ) : null
+  }
+</AIMessageParts>
+```
+
+## Props
+
+`AIMessageText` has no props of its own. It accepts the props of a `div`.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message-text]` | The text part |
+
+The markdown inside it has the selectors of [AIMarkdown](/components/ai-messages/ai-markdown#styling).

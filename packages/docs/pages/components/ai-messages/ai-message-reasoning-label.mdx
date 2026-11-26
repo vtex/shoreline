@@ -1,0 +1,35 @@
+# AIMessageReasoningLabel
+
+<ComponentDescription>The status text of the reasoning header. It shimmers while the reasoning runs, carries the duration when the reasoning is complete, and gives the chevron its accessible name.</ComponentDescription>
+
+```tsx
+<AIMessageReasoningHeader>
+  <AIMessageReasoningLabel />
+  <AIMessageReasoningTrigger />
+</AIMessageReasoningHeader>
+```
+
+With no children it shows the localized status text: "Reasoning…", "Reasoning completed in 2m" or "Reasoning complete". Pass children to change the text of this label only:
+
+```tsx
+<AIMessageReasoningLabel>Checked 3 orders</AIMessageReasoningLabel>
+```
+
+To change the text for the whole chat, pass `messages` to `AIMessages` instead; see [Labels and languages](/components/ai-messages#labels-and-languages). While running, the text is drawn with [AIThinkingIndicator](/components/ai-thinking-indicator).
+
+## Optional props
+
+<PropsDocs name="ai-message-reasoning-label" />
+
+`AIMessageReasoningLabel` also accepts the props of a `span`.
+
+## Accessibility
+
+- The chevron and the open body are named by the label (`aria-labelledby`). Without a label in the header, the chevron gets an `aria-label` with the status text instead.
+- Before the message has any part, the label is the live region of the header (`role="status"`), so "Reasoning…" is announced once.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message-reasoning-label]` | The label, in the `body` text style and `--sl-fg-base-soft` |

@@ -6,7 +6,7 @@ import { Callout } from 'nextra/components'
   **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
 </Callout>
 
-The frame of a chat screen. It gives you a scrollable area for the conversation, a spot for a welcome message, a footer that stays at the bottom (where the composer goes) and a button that takes people back to the latest message.
+<ComponentDescription>AIThread is the frame of a chat screen. It gives you a scrollable area for the conversation, a spot for a welcome message, a footer that stays at the bottom, where the composer goes, and a button that takes people back to the latest message.</ComponentDescription>
 
 `AIThread` is a family of small components that you put together, like blocks. It only handles the layout and the scroll. What is drawn for each message comes from [AIMessages](/components/ai-messages), and the box to write comes from [AIComposer](/components/ai-composer).
 
@@ -47,10 +47,12 @@ The viewport is the part that scrolls. The footer sticks to its bottom edge:
 | Component | What it is |
 |-----------|-----------|
 | `AIThread` | The root. Sets the layout and the labels |
-| `AIThreadViewport` | The scrollable area. It scrolls to the end on new messages, when a run starts, when the history loads and when the thread changes |
-| `AIThreadEmpty` | Shows its children only while the thread has no messages and is not opening a thread. It fills the free space and centers them |
-| `AIThreadViewportFooter` | The footer that stays at the bottom of the viewport. Its height is measured, so the last message is never hidden behind it |
-| `AIThreadScrollToBottom` | The round button that jumps to the latest message |
+| [AIThreadViewport](/components/ai-thread/ai-thread-viewport) | The scrollable area. It follows new messages |
+| [AIThreadEmpty](/components/ai-thread/ai-thread-empty) | The welcome, shown only while the thread has no messages |
+| [AIThreadViewportFooter](/components/ai-thread/ai-thread-viewport-footer) | The footer that stays at the bottom of the viewport |
+| [AIThreadScrollToBottom](/components/ai-thread/ai-thread-scroll-to-bottom) | The round button that jumps to the latest message |
+
+The example at the top of this page is the raw chat: the thread, the messages and the composer, with no app CSS.
 
 ## Examples
 
@@ -70,21 +72,28 @@ A thread with no app CSS already looks right. The footer has `margin-top: auto`,
 }
 ```
 
-`AIMessages` does not need to be a direct child of the viewport. The viewport hands its padding to the list through `--sl-ai-messages-padding`, which is inherited, so a wrapper around `AIMessages` keeps the composer aligned and the last actions bar uncovered. If the wrapper pads itself, set `--sl-ai-messages-padding: 0` on it so the padding is not applied twice.
+`AIMessages` does not need to be a direct child of the viewport. The viewport hands its padding to the list through `--sl-ai-messages-padding`, which is inherited, so a wrapper around `AIMessages` keeps the composer aligned and the last actions bar uncovered. If the wrapper pads itself, set `--sl-ai-messages-padding: 0` on it so the padding is not applied twice:
+
+```css
+.my-messages-wrapper {
+  padding: var(--sl-space-6);
+  --sl-ai-messages-padding: 0;
+}
+```
 
 ### Empty thread
 
-`AIThreadEmpty` renders its children only while the thread is empty. It grows to fill the free space and centers its children, and it has no other styles, so you control the look of the welcome. It also stays hidden while `useAIThread().isOpeningThread` is `true`, so the welcome does not flash before the history arrives.
+[AIThreadEmpty](/components/ai-thread/ai-thread-empty) renders its children only while the thread is empty. It grows to fill the free space and centers its children, and it has no other styles, so you control the look of the welcome.
 
 <Preview name="ai-thread-empty" />
 
 ### Scroll to bottom
 
-`AIThreadScrollToBottom` is placed above the footer. When the viewport is already at the bottom it is disabled and fully transparent, so it only shows after the person scrolls up. Put it as the **first child** of `AIThreadViewportFooter`, before the composer. Scroll up in the thread below to see it:
+[AIThreadScrollToBottom](/components/ai-thread/ai-thread-scroll-to-bottom) is placed above the footer and only shows after the person scrolls up. Put it as the **first child** of `AIThreadViewportFooter`, before the composer. Scroll up in the thread below to see it:
 
 <Preview name="ai-thread-labels" />
 
-The viewport follows new messages by itself. Turn each behavior off with props on `AIThreadViewport`: `autoScroll`, `scrollToBottomOnRunStart`, `scrollToBottomOnInitialize` and `scrollToBottomOnThreadSwitch`. They are all `true` by default.
+The viewport follows new messages by itself; the props that turn each behavior off are on [AIThreadViewport](/components/ai-thread/ai-thread-viewport).
 
 ### Long conversations
 
@@ -96,15 +105,11 @@ Each message row uses `content-visibility: auto`, so the browser skips the layou
 }
 ```
 
-Because the heights of rows that were never on screen are estimates, the scroll bar can shift a little while you scroll up through a long history. This is expected.
-
-<Callout type="warning">
-  `[data-sl-ai-message]` has some padding and an opposite negative margin. They give focus rings room to paint inside the clipped row, and they cancel each other, so the content keeps its width and position. The row box itself extends about 1rem past the messages container on each side, so a focus ring at the very edge is still clipped by an ancestor with `overflow: hidden`, such as the viewport. The default thread spacing covers this when `AIMessages` is a direct child of `AIThreadViewport`; if you wrap it, add the padding to your wrapper as described in [Layout and spacing](#layout-and-spacing). Do not override `padding` or `margin` on the message row.
-</Callout>
+Because the heights of rows that were never on screen are estimates, the scroll bar can shift a little while you scroll up through a long history. This is expected. How the row keeps focus rings visible is on [AIMessages](/components/ai-messages#long-threads).
 
 ### Errors when opening a thread
 
-`useAIThread().error` is only set when `threads.load` fails, with `type: 'thread_open'`. The package does not draw it. Read it and render your own alert in the footer. Run errors come from `useAIStatus().error`. See the [Runtime guide](/guides/shoreline-ai-runtime).
+`useAIThread().error` is only set when `threads.load` fails, with `type: 'thread_open'`. The package does not draw it. Read it and render your own alert in the footer; `[data-sl-ai-thread-error]` is a convention for that banner, and the package only styles its margin. Run errors come from `useAIStatus().error`. See [Hooks](/components/ai-messages/hooks#useaithread) and the [Runtime guide](/guides/shoreline-ai-runtime).
 
 ### Labels and languages
 
@@ -116,39 +121,20 @@ The label of the scroll button (`scrollToBottom`) comes from a built-in catalog 
 
 Only `AIThread` accepts `messages`. The other parts read from it.
 
-## Props
-
-### AIThread
+## Optional props
 
 <PropsDocs name="ai-thread" />
 
-### AIThreadViewport
-
-<PropsDocs name="ai-thread-viewport" />
-
-### AIThreadEmpty, AIThreadViewportFooter and AIThreadScrollToBottom
-
-These have no props of their own. `AIThreadEmpty` and `AIThreadViewportFooter` accept the props of a `div`. `AIThreadScrollToBottom` accepts the props of a `button`, and its `children` replace the default arrow icon.
-
-## Hooks
-
-| Hook | Use it to |
-|------|-----------|
-| `useAIThread()` | Read `messages`, `isEmpty`, `isOpeningThread`, `error` and `threadId`, and call `sendMessage`, `stopGeneration`, `switchThread`, `createThread` and `loadMessages` |
-| `useAIStatus()` | Know if the assistant is answering (`isStreaming`) and read the run error |
+`AIThread` also accepts the props of a `div`.
 
 ## Styling
 
-Use the `data-sl-*` attributes to adjust the look in your CSS:
-
 | Attribute | Region |
 |-----------|--------|
-| `[data-sl-ai-thread]` | The root |
-| `[data-sl-ai-thread-viewport]` | The scrollable area |
-| `[data-sl-ai-thread-empty]` | The empty slot. It fills the free space and centers its children |
-| `[data-sl-ai-thread-viewport-footer]` | The sticky footer |
-| `[data-sl-ai-thread-scroll-to-bottom]` | The scroll button, above the footer |
+| `[data-sl-ai-thread]` | The root, a flex column that fills the height of its parent |
 | `[data-sl-ai-thread-error]` | A convention for your own error banner in the footer. The package only styles its margin |
+
+The selectors of each part are on its page.
 
 ## Related
 

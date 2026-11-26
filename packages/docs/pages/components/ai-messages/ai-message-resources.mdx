@@ -1,0 +1,34 @@
+# AIMessageResources
+
+<ComponentDescription>The files and images attached to a message. AIMessageParts draws each resource part as an AIMessageResource inside an AIMessageResources row.</ComponentDescription>
+
+```tsx
+<AIMessageResources>
+  <AIMessageResource />
+</AIMessageResources>
+```
+
+The family has four components:
+
+| Component | What it is |
+|-----------|-----------|
+| `AIMessageResources` | The row of attached files |
+| `AIMessageResource` | One read-only chip. It picks the image or the file variant from the current part |
+| `AIMessageResourceImage` | The image preview |
+| `AIMessageResourceFile` | The file row: an icon, the file name and its type |
+
+`AIMessageResource`, `AIMessageResourceImage` and `AIMessageResourceFile` read the current resource part, so use them in what a [custom part renderer](/components/ai-messages/ai-message-parts#custom-parts) returns for a `resource` part.
+
+## Props
+
+None of them has props of its own. They accept the props of a `div`.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message-resources]` | The row of attached files |
+| `[data-sl-ai-message-resource]` | One chip. It has `data-type` (`image` or `file`) |
+| `[data-sl-ai-message-resource-image]` | The image preview |
+| `[data-sl-ai-message-resource-icon]` | The file icon |
+| `[data-sl-ai-message-resource-info]` | The file name and type |

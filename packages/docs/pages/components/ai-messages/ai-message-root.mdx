@@ -1,0 +1,30 @@
+# AIMessageRoot
+
+<ComponentDescription>The container of one message. AIMessageUser and AIMessageAssistant are an AIMessageRoot with the role already set, so you rarely use it directly. Use it to build a message layout that is neither of them.</ComponentDescription>
+
+```tsx
+<AIMessageRoot messageRole="assistant">
+  <AIMessageParts />
+</AIMessageRoot>
+```
+
+It reads the message it is rendered for, so it only works inside a template of `AIMessages`.
+
+## Required props
+
+<PropsDocs name="ai-message-root" required />
+
+## Optional props
+
+<PropsDocs name="ai-message-root" />
+
+`AIMessageRoot` also accepts the props of a `div`.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message]` | The row of one message. It has `data-sl-ai-message-role` (`user` or `assistant`) |
+| `[data-sl-ai-message-content]` | The content of the message, which wraps the children. For the user it is the bubble |
+
+`[data-sl-ai-message]` uses `content-visibility: auto`, with padding and a negative margin that cancel each other. Do not override its `padding`, `margin` or `box-sizing`. See [Long threads](/components/ai-messages#long-threads).

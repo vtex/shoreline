@@ -1,0 +1,151 @@
+# Hooks
+
+<ComponentDescription>Hooks to read the message you are inside, the state of a reasoning panel, the parts of any message, and the thread. Use them inside AIProvider.</ComponentDescription>
+
+| Hook | Use it to |
+|------|-----------|
+| [`useAIMessage()`](#useaimessage) | Read the message you are inside, for example to keep a vote per answer |
+| [`useAIMessageReasoning()`](#useaimessagereasoning) | Read the state of the reasoning panel you are inside |
+| [`useAIMessageParts(messageId?)`](#read-the-parts-of-a-message) | Read the parts of a message |
+| [`useAIReasonings(messageId?)`](#read-the-parts-of-a-message) | Read only the reasoning parts |
+| [`useAITools(messageId?)`](#read-the-parts-of-a-message) | Read only the tool parts |
+| [`useAIResources(messageId?)`](#read-the-parts-of-a-message) | Read only the files |
+| [`useAIThread()`](#useaithread) | Read the messages of the thread and send, stop or load them |
+| [`useAIStatus()`](#useaistatus) | Know if the assistant is answering, and read the run error |
+
+## useAIMessage
+
+```ts
+useAIMessage(): {
+  id: string
+  role: 'user' | 'assistant'
+  status: 'running' | 'complete' | 'incomplete'
+  createdAt?: string
+}
+```
+
+Use it inside `AIMessageUser` or `AIMessageAssistant`, including their templates and the actions bar. It throws anywhere else.
+
+| Field | Value |
+|-------|-------|
+| `id` | The stable id of the message. Key per-message app state by it, such as the votes of the thumbs in the [actions bar](/components/ai-messages/ai-message-action#pressed-state) |
+| `role` | `user` or `assistant` |
+| `status` | `running` while the message streams, `complete` when it finished, and `incomplete` when it is not finished and not streaming: the run was cancelled or failed, or the message is waiting for a tool result. The messages of the user are always `complete` |
+| `createdAt` | The creation date, as an ISO string, when the message has one |
+
+Each field is read on its own, so streamed tokens do not re-render the caller: it re-renders only when one of these fields changes.
+
+```tsx
+function Vote() {
+  const { id } = useAIMessage()
+  const pressed = votes[id] === 'up'
+
+  return (
+    <AIMessageAction
+      label="Good response"
+      aria-pressed={pressed}
+      onClick={() => vote(id, pressed ? null : 'up')}
+    >
+      {pressed ? <ThumbUpFilledIcon /> : <ThumbUpIcon />}
+    </AIMessageAction>
+  )
+}
+```
+
+## useAIMessageReasoning
+
+```ts
+useAIMessageReasoning(): {
+  status: 'running' | 'complete'
+  expanded: boolean
+  duration?: number
+}
+```
+
+Gives your own parts read-only access to the closest reasoning panel: inside the `reasoning` template of [AIMessageParts](/components/ai-messages/ai-message-reasoning#reading-the-panel-state), or inside an [AIMessageReasoningRoot](/components/ai-messages/ai-message-reasoning-root). `duration` is in milliseconds, when it is known.
+
+```tsx
+function Hint() {
+  const { status } = useAIMessageReasoning()
+
+  return status === 'running' ? <span>Hold on</span> : null
+}
+```
+
+## Read the parts of a message
+
+```ts
+useAIMessageParts(messageId?: string): AIMessagePart[]
+useAIReasonings(messageId?: string): AIReasoningPart[]
+useAITools(messageId?: string): AIToolPart[]
+useAIResources(messageId?: string): AIResourcePart[]
+```
+
+Without an id they read the message you are inside. Pass an id to read a message from anywhere in the app.
+
+| Hook | Returns |
+|------|---------|
+| `useAIMessageParts` | All the parts, normalized. Prefer it |
+| `useAIReasonings` | Only the reasoning parts |
+| `useAITools` | Only the tool parts |
+| `useAIResources` | Only the `resource` parts, in message order. It includes the files the user attached to a message, which `useAIMessageParts` does not return |
+
+```tsx
+function ToolSummary(props: { messageId: string }) {
+  const tools = useAITools(props.messageId)
+
+  return <span>{tools.length} tool calls</span>
+}
+```
+
+Inside a [custom part renderer](/components/ai-messages/ai-message-parts#custom-parts), prefer the `meta` argument of the function over these hooks.
+
+## useAIThread
+
+```ts
+const {
+  messages,
+  threadId,
+  isEmpty,
+  isOpeningThread,
+  error,
+  sendMessage,
+  stopGeneration,
+  switchThread,
+  createThread,
+  loadMessages,
+} = useAIThread()
+```
+
+| Member | What it is |
+|--------|-----------|
+| `messages` | The messages of the thread, as `AIMessage[]` |
+| `threadId` | The id of the active thread |
+| `isEmpty` | `true` when the thread has no messages |
+| `isOpeningThread` | `true` while the `threads.load` of the provider loads a thread |
+| `error` | `{ type: 'thread_open', message }` when `threads.load` fails, otherwise `null`. Run errors are in `useAIStatus` |
+| `sendMessage` | Adds a message of the user and starts a run, for example `sendMessage({ text: 'Hello' })` |
+| `stopGeneration` | Cancels the active run |
+| `switchThread` | Cancels the active run and loads another thread with `threads.load` |
+| `createThread` | Cancels the active run, clears the thread and returns the new id |
+| `loadMessages` | Replaces the messages of the thread |
+
+The thread layout uses `isEmpty` and `isOpeningThread` for its [empty state](/components/ai-thread/ai-thread-empty). See the [Runtime guide](/guides/shoreline-ai-runtime#threads) for threads.
+
+## useAIStatus
+
+```ts
+const { status, isLoading, isStreaming, error } = useAIStatus()
+```
+
+`status` is `idle`, `submitted`, `streaming`, `ready` or `error`; the [Runtime guide](/guides/shoreline-ai-runtime#what-happens-during-a-run) explains each one. `isLoading` is `true` while a run is submitted or streaming, `isStreaming` only while it streams, and `error` is `{ type: 'run', message }` after a failed run.
+
+```tsx
+function RunStatus() {
+  const { error } = useAIStatus()
+
+  if (error) return <p role="alert">{error.message}</p>
+
+  return null
+}
+```

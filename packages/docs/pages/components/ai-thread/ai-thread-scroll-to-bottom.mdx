@@ -1,0 +1,26 @@
+# AIThreadScrollToBottom
+
+<ComponentDescription>The round button that takes people back to the latest message. It sits above the footer and only shows after the person scrolls up.</ComponentDescription>
+
+```tsx
+<AIThreadViewportFooter>
+  <AIThreadScrollToBottom />
+  <AIComposer />
+</AIThreadViewportFooter>
+```
+
+Put it as the **first child** of [AIThreadViewportFooter](/components/ai-thread/ai-thread-viewport-footer). When the viewport is already at the bottom it is disabled and fully transparent. See the [scroll to bottom example](/components/ai-thread#scroll-to-bottom).
+
+## Props
+
+`AIThreadScrollToBottom` has no props of its own. It accepts the props of a `button`; its `children` replace the default arrow icon.
+
+## Accessibility
+
+Its accessible name is "Scroll to bottom" (`scrollToBottom`). Change it with `messages` on `AIThread`; see [Labels and languages](/components/ai-thread#labels-and-languages). While it is disabled it is out of the tab order.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-thread-scroll-to-bottom]` | The 40px round button, centered 12px above the footer. Its `:disabled` state is transparent and ignores the pointer |

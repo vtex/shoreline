@@ -1,0 +1,30 @@
+# AIMessageReasoningTrigger
+
+<ComponentDescription>The chevron button that opens and closes the reasoning panel. It is the only control of the header.</ComponentDescription>
+
+```tsx
+<AIMessageReasoningHeader>
+  <AIMessageReasoningLabel />
+  <AIMessageReasoningTrigger />
+</AIMessageReasoningHeader>
+```
+
+It renders nothing before the message has any part, as there is nothing to open yet. An `onClick` that calls `event.preventDefault()` keeps the panel as it is.
+
+## Props
+
+`AIMessageReasoningTrigger` has no props of its own. It accepts the props of a `button`. Its accessible name comes from the label.
+
+## Accessibility
+
+- It has `aria-expanded` and `aria-controls`, which points to the body.
+- Its accessible name is the text of [AIMessageReasoningLabel](/components/ai-messages/ai-message-reasoning-label) (`aria-labelledby`). When the header has no label, it gets an `aria-label` with the status text from the catalog.
+- It shows a focus ring for keyboard focus only.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message-reasoning-trigger]` | The 20px chevron button. It has `aria-expanded` |
+
+The icon rests at `--sl-fg-base-soft`. On hover the button gets the plain hover background and the icon `--sl-color-gray-9`, which is darker on Horizon. On Sunrise `--sl-fg-base-soft` already is `--sl-color-gray-9`, so only the background changes.

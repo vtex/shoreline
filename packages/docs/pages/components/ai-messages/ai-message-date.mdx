@@ -1,0 +1,31 @@
+# AIMessageDate
+
+<ComponentDescription>The age of the message, such as "now", "5m ago" or "yesterday". It is in the default actions bar; add it yourself when you pass children to AIMessageActions.</ComponentDescription>
+
+```tsx
+<AIMessageActions>
+  <AIMessageCopy />
+  <AIMessageDate />
+</AIMessageActions>
+```
+
+It reads `createdAt` from the message, or takes a `date` prop, and renders nothing without a valid date. The text is relative and follows the locale of the `LocaleProvider`: under a minute "now", then minutes and hours. From 24 hours it counts calendar days, so "yesterday" is the previous calendar day; older dates read "4d ago", then "1mo ago" and "1y ago". All the dates share one timer that ticks once a minute.
+
+With server rendering, the text and the title appear after hydration, in the viewer's timezone.
+
+## Optional props
+
+<PropsDocs name="ai-message-date" />
+
+`AIMessageDate` also accepts the props of a `time` element, except `dateTime` and `children`.
+
+## Accessibility
+
+- It is a `time` element: `dateTime` is the ISO value, and `title` is the exact local date and time.
+- Only the "now" form is always visible. Any other date shows when you hover the message or when focus is inside it, so a keyboard user reaches it with <kbd>Tab</kbd>. On devices without hover it is always visible.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message-date]` | The date, in `caption2` and `--sl-color-gray-6`. It has `data-just-now` under a minute, when it is always visible |

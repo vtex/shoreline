@@ -1,0 +1,32 @@
+# AIMessageCopy
+
+<ComponentDescription>The button of the actions bar that copies the text of the message. It is in the default bar; add it yourself when you pass children to AIMessageActions.</ComponentDescription>
+
+```tsx
+<AIMessageActions>
+  <AIMessageCopy onCopied={() => track('copy')} />
+  <AIMessageDate />
+</AIMessageActions>
+```
+
+It copies the text parts of the message, joined by a blank line. No toast is shown: after a copy the copy icon turns into a check for 2 seconds and `onCopied` is called once. If the clipboard is not available or refuses, nothing changes. An `onClick` that calls `event.preventDefault()` cancels the copy.
+
+## Optional props
+
+<PropsDocs name="ai-message-copy" />
+
+`AIMessageCopy` also accepts the props of a `button`. It takes no `aria-label`: its names come from the catalog.
+
+## Accessibility
+
+- Its accessible name is "Copy message" (`copyMessage`), and "Copied!" (`copied`) for 2 seconds after a copy.
+- A visually hidden live region announces "Message copied" (`messageCopied`).
+
+Change these texts with `messages` on `AIMessages`; see [Labels and languages](/components/ai-messages#labels-and-languages).
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message-copy]` | The copy button, also an [action](/components/ai-messages/ai-message-action#styling). It has `data-copied` for 2 seconds after a copy |
+| `[data-sl-ai-message-copy-status]` | The hidden live region |

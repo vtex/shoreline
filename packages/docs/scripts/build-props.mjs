@@ -160,7 +160,13 @@ const files = [
       '../shoreline-ai/src/components/composer/types.ts'
     ),
   })),
-  ...['ai-thread', 'ai-thread-viewport'].map((file) => ({
+  ...[
+    'ai-thread',
+    'ai-thread-viewport',
+    'ai-thread-viewport-footer',
+    'ai-thread-empty',
+    'ai-thread-scroll-to-bottom',
+  ].map((file) => ({
     file: join(
       dirname(''),
       `../shoreline-ai/src/components/thread/${file}.tsx`
@@ -169,8 +175,12 @@ const files = [
   })),
   ...[
     'ai-messages',
+    'ai-message-user',
     'ai-message-assistant',
+    'ai-message-root',
     'ai-message-parts',
+    'ai-message-text',
+    'ai-markdown',
     'ai-message-reasoning',
     'ai-message-reasoning-root',
     'ai-message-reasoning-header',
@@ -178,12 +188,19 @@ const files = [
     'ai-message-reasoning-label',
     'ai-message-reasoning-elapsed',
     'ai-message-reasoning-trigger',
+    'ai-message-reasoning-content',
+    'ai-message-reasoning-text',
+    'ai-message-reasoning-tool-step',
     'ai-message-actions',
     'ai-message-action',
     'ai-message-copy',
     'ai-message-date',
+    'ai-message-resources',
+    'ai-message-resource',
     'ai-thinking-indicator',
     'ai-working-mark',
+    // Exports AIMessagesI18nProvider
+    'message-messages-context',
   ].map((file) => ({
     file: join(
       dirname(''),

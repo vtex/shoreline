@@ -6,9 +6,9 @@ import { Callout } from 'nextra/components'
   **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
 </Callout>
 
-The conversation itself. `AIMessages` draws every message of the thread: the question of the user in a bubble, and the answer of the assistant with its reasoning, its text, its tool results and its attached files. It also gives the answer a floating bar of actions (copy and the date) and shows a running reasoning header while the assistant has not written anything yet.
+<ComponentDescription>AIMessages draws every message of a chat: the question of the user in a bubble, and the answer of the assistant with its reasoning, its text, its tool results and its attached files. Under a finished answer it adds a floating bar of actions, and while the assistant has not written anything yet it shows a running reasoning header.</ComponentDescription>
 
-`AIMessages` works with no props. When you need more control, the same pieces are available as small components that you put together, like blocks.
+`AIMessages` works with no props. When you need more control, the same pieces are available as small components that you put together, like blocks. Each one has its own page in the sidebar.
 
 <Preview name="ai-messages" />
 
@@ -25,11 +25,42 @@ import '@vtex/shoreline/css'
 import '@vtex/shoreline-ai/css'
 ```
 
-Then mount `AIMessages` inside `<AIProvider>`, usually inside the viewport of an [AIThread](/components/ai-thread). The thread gives the list its padding through `--sl-ai-messages-padding`, also when you wrap the list in your own element; outside a thread the list has no side padding. Wrap your app with `LocaleProvider` to get the built-in labels in `en-US` or `pt-BR`.
+Then mount `AIMessages` inside `<AIProvider>`, usually inside the viewport of an [AIThread](/components/ai-thread). The thread gives the list its padding; outside a thread the list has no side padding. Wrap your app with `LocaleProvider` to get the built-in labels in `en-US` or `pt-BR`.
+
+## Usage
+
+The drop-in list needs no props. It draws the user and assistant layouts, groups the reasoning, renders markdown and tool widgets, and adds the actions bar:
+
+```tsx
+import { LocaleProvider } from '@vtex/shoreline'
+import {
+  AIMessages,
+  AIProvider,
+  AIThread,
+  AIThreadViewport,
+  type AIProviderProps,
+} from '@vtex/shoreline-ai'
+
+function Chat(props: { runtime: AIProviderProps['runtime'] }) {
+  return (
+    <LocaleProvider locale="en-US">
+      <AIProvider runtime={props.runtime}>
+        <AIThread>
+          <AIThreadViewport>
+            <AIMessages />
+          </AIThreadViewport>
+        </AIThread>
+      </AIProvider>
+    </LocaleProvider>
+  )
+}
+```
+
+See [AIThread](/components/ai-thread) for the full chat, with the composer.
 
 ## How it is built
 
-`AIMessages` renders one `AIMessageUser` or one `AIMessageAssistant` for each message. You can pass your own copy of each one as a child to change a layout. Each of them is an `AIMessageRoot` that holds the parts of the message:
+`AIMessages` renders one `AIMessageUser` or one `AIMessageAssistant` for each message. Pass your own copy of either one as a child to change its layout. Each of them is an `AIMessageRoot` that holds the parts of the message:
 
 ```tsx
 <AIMessages>
@@ -41,38 +72,55 @@ Then mount `AIMessages` inside `<AIProvider>`, usually inside the viewport of an
 </AIMessages>
 ```
 
+The reasoning panel and the actions bar are built from smaller parts in the same way:
+
+```tsx
+<AIMessageReasoning>                {/* the reasoning template of AIMessageParts */}
+  <AIMessageReasoningHeader>
+    <AIMessageReasoningMark />
+    <AIMessageReasoningLabel />
+    <AIMessageReasoningElapsed />
+    <AIMessageReasoningTrigger />
+  </AIMessageReasoningHeader>
+  <AIMessageReasoningContent />     {/* reasoning text and tool steps */}
+</AIMessageReasoning>
+
+<AIMessageActions>
+  <AIMessageAction label="…">…</AIMessageAction>  {/* your actions */}
+  <AIMessageCopy />
+  <AIMessageDate />
+</AIMessageActions>
+```
+
 | Component | What it is |
 |-----------|-----------|
-| `AIMessages` | The list. It renders every message with the default user and assistant layouts |
-| `AIMessageUser` | The message of the person, as a bubble on the right |
-| `AIMessageAssistant` | The answer of the assistant, on the left. With no children it renders `AIMessageParts` and `AIMessageActions`. With children it renders exactly them |
-| `AIMessageRoot` | The container of one message. It sets `messageRole` |
-| `AIMessageParts` | Draws each part of the message and groups the reasoning steps. Takes a `reasoning` template and a function to draw parts your way. Before the first part it draws the running reasoning header |
-| `AIMessageText` | A text part, as markdown |
-| `AIMarkdown` | Markdown on its own, with no message around it |
-| `AIMessageReasoning` | The connected reasoning panel, for the `reasoning` template of `AIMessageParts` |
-| `AIMessageReasoningRoot` | The reasoning panel and its state, for panels you build by hand |
-| `AIMessageReasoningHeader` | The 20px row: mark, label, elapsed time and chevron |
-| `AIMessageReasoningMark`, `AIMessageReasoningLabel`, `AIMessageReasoningElapsed` | The pieces of the header |
-| `AIMessageReasoningTrigger` | The chevron button that opens and closes the panel |
-| `AIMessageReasoningContent` | The body of the panel |
-| `AIMessageReasoningText` | The text of one reasoning step |
-| `AIMessageReasoningToolStep` | A small row for a tool call that has no UI of its own |
-| `AIThinkingIndicator` | The text loading effect. Its children shimmer |
-| `AIWorkingMark` | The small spinning mark, with a glyph you can replace |
-| `AIMessageActions` | The floating bar under an answer. With no children it has copy and the date |
-| `AIMessageAction` | A button of the bar. Use it for thumbs or any action of your app |
-| `AIMessageCopy` | The button that copies the text of the message |
-| `AIMessageDate` | The relative date of the message |
-| `AIMessageResources`, `AIMessageResource`, `AIMessageResourceImage`, `AIMessageResourceFile` | The files and images attached to a message |
+| [AIMessageUser](/components/ai-messages/ai-message-user) | The message of the person, as a bubble on the right |
+| [AIMessageAssistant](/components/ai-messages/ai-message-assistant) | The answer of the assistant, on the left |
+| [AIMessageRoot](/components/ai-messages/ai-message-root) | The container of one message |
+| [AIMessageParts](/components/ai-messages/ai-message-parts) | Draws each part of the message and groups the reasoning steps |
+| [AIMessageText](/components/ai-messages/ai-message-text) | A text part, as markdown |
+| [AIMarkdown](/components/ai-messages/ai-markdown) | Markdown on its own, with no message around it |
+| [AIMessageReasoning](/components/ai-messages/ai-message-reasoning) | The connected reasoning panel, for the `reasoning` template of `AIMessageParts` |
+| [AIMessageReasoningRoot](/components/ai-messages/ai-message-reasoning-root) | The reasoning panel and its state, for panels you build by hand |
+| [AIMessageReasoningHeader](/components/ai-messages/ai-message-reasoning-header) | The 20px row of the panel |
+| [AIMessageReasoningMark](/components/ai-messages/ai-message-reasoning-mark), [AIMessageReasoningLabel](/components/ai-messages/ai-message-reasoning-label), [AIMessageReasoningElapsed](/components/ai-messages/ai-message-reasoning-elapsed) | The pieces of the header |
+| [AIMessageReasoningTrigger](/components/ai-messages/ai-message-reasoning-trigger) | The chevron button that opens and closes the panel |
+| [AIMessageReasoningContent](/components/ai-messages/ai-message-reasoning-content) | The body of the panel, with `AIMessageReasoningText` and `AIMessageReasoningToolStep` |
+| [AIMessageActions](/components/ai-messages/ai-message-actions) | The floating bar under an answer |
+| [AIMessageAction](/components/ai-messages/ai-message-action) | A button of the bar, for thumbs or any action of your app |
+| [AIMessageCopy](/components/ai-messages/ai-message-copy) | The button that copies the text of the message |
+| [AIMessageDate](/components/ai-messages/ai-message-date) | The relative date of the message |
+| [AIMessageResources](/components/ai-messages/ai-message-resources) | The files and images attached to a message |
+| [AIMessagesI18nProvider](/components/ai-messages/ai-messages-i18n-provider) | The labels of message pieces rendered outside `AIMessages` |
+| [Hooks](/components/ai-messages/hooks) | `useAIMessage`, `useAIMessageReasoning` and the hooks that read messages |
 
-The package also exports two helpers: `renderDefaultParts`, which draws one part the default way, and `defaultMessageGroupBy`, the rule that decides which parts go into the reasoning panel. `AIMessagesI18nProvider` gives message pieces their labels, for rendering them outside `AIMessages`, for example in a test.
+The reasoning header uses two pieces that also work on their own, anywhere: [AIThinkingIndicator](/components/ai-thinking-indicator), the text loading effect, and [AIWorkingMark](/components/ai-working-mark), the spinning mark.
 
 ## Examples
 
 ### Reasoning
 
-While the assistant works, its reasoning steps and the tools it calls are collected in one panel that starts closed. The header is one row: a spinning mark, the label, the elapsed time and a chevron. Only the chevron is a button; it opens and closes the body and is named by the label.
+While the assistant works, its reasoning steps and the tools it calls are collected in one panel that starts closed. The header is one row: a spinning mark, the label, the elapsed time and a chevron. Only the chevron is a button.
 
 | State | Mark | Label | Time | Chevron |
 |-------|------|-------|------|---------|
@@ -80,85 +128,47 @@ While the assistant works, its reasoning steps and the tools it calls are collec
 | Done, with a duration | no | "Reasoning completed in 2m" | no | yes |
 | Done, no duration | no | "Reasoning complete" | no | yes |
 
-Times and durations follow the locale of the `LocaleProvider` (en-US "1m 5s", pt-BR "1 min 5 s"). While the reasoning runs, the header counts the seconds itself. When it completes, it shows the runtime duration when there is one, and otherwise the time it counted. A message loaded from history has no duration and reads "Reasoning complete".
-
-The pieces are public, so you can build your own panel with `AIMessageReasoningRoot`. `status` sets the header, `startedAt` is the origin of the elapsed time, and `defaultExpanded` opens the panel from the start. For a panel you control, pass `expanded` and `onExpandedChange`.
+The example builds each state by hand with [AIMessageReasoningRoot](/components/ai-messages/ai-message-reasoning-root). In a real thread, [AIMessageParts](/components/ai-messages/ai-message-parts) draws one panel per reasoning group and reads its state from the message. Before the first part arrives it draws the running header alone (see [AIMessageReasoning](/components/ai-messages/ai-message-reasoning#before-the-first-part)).
 
 <Preview name="ai-messages-reasoning" />
 
-<Callout type="info">
-  The reasoning pieces read their labels from `AIMessages`, so mount them inside an `AIMessageAssistant` template of an `AIMessages`, like above, or wrap them in `AIMessagesI18nProvider`.
-</Callout>
-
-#### Before the first part
-
-Every answer is assumed to have reasoning. While a message runs and has no text, reasoning or tool call yet, `AIMessageParts` draws the running header, with no chevron. Only its label is a live region (`role="status"`), so "Reasoning…" is announced once and the ticking elapsed time is not. When the first reasoning part arrives it is the same header: the elapsed time does not reset and the mark does not blink.
-
-If text arrives before any reasoning part, the header disappears. If an unregistered tool call arrives first, it opens a running reasoning group, so the header stays and now has a chevron.
-
-#### The working mark
-
-`AIMessages` has one reasoning shortcut: `workingMark`. It is the glyph of every mark in the list, including the one in the header before the first part, so an app with its own mark does not recompose anything:
+The mark is the My Assistant mark. To use the glyph of your app in every mark of the list, pass `workingMark`:
 
 ```tsx
 <AIMessages workingMark={<IconSparkle />} />
 ```
 
-Without it, the mark is the My Assistant mark. You can override it in three ways: children of `AIWorkingMark`, children of `AIMessageReasoningMark` in a reasoning template, or `workingMark` on `AIMessages` for every mark in the list.
+The other ways to replace it are on the [AIWorkingMark](/components/ai-working-mark#change-the-glyph) page.
 
-#### The reasoning template
+### Custom reasoning template
 
-`AIMessageParts` takes a `reasoning` element, the template it draws once per reasoning group. The default is `<AIMessageReasoning />`. Pass your own to change the header, for example its label. `AIMessageReasoning` reads the status, duration and start time of the group, so it only works inside `AIMessageParts`. Inside it, `useAIMessageReasoning()` gives your own parts read-only access to `status`, `expanded` and `duration`.
+`AIMessageParts` draws each reasoning group with a template, `<AIMessageReasoning />` by default. Pass your own as `reasoning` to change the header, for example its label, or to open the panel from the start. See [AIMessageReasoning](/components/ai-messages/ai-message-reasoning).
 
 <Preview name="ai-messages-reasoning-template" />
 
-### Hide the tool steps
-
-By default the panel also lists the tools the assistant called, as small steps. To keep only the reasoning text, set `showReasoningTools={false}` on `AIMessages`, `AIMessageAssistant` or `AIMessageParts`. Open the panel below: the reasoning is there, and the `search_orders` step is not.
-
-<Preview name="ai-messages-hide-tools" />
-
-Tools that you registered with `makeAIToolUI` are not affected. They always show in the message, outside the panel.
-
-### Thinking indicator and working mark
-
-Both are small pieces that you can use anywhere, even outside a message. `AIThinkingIndicator` is the text loading effect: its children shimmer, with a light band that sweeps across the text. It has no default text, no dots and no `role`; set `role="status"` yourself if the text must be announced. `AIWorkingMark` is the spinning mark. It is decorative (`aria-hidden`) and its children replace the glyph.
-
-<Preview name="ai-messages-thinking" />
-
-With `prefers-reduced-motion: reduce` the text stays plain and the mark pulses slowly instead of rotating.
-
 ### Actions bar
 
-A finished assistant answer that has text gets an `AIMessageActions` bar. It floats just below the message, takes no height and is always visible. It does not show while the answer runs, for the messages of the user, or for messages with status `incomplete` (for example a cancelled run), so a partial answer cannot be copied.
+A finished answer that has text gets an [AIMessageActions](/components/ai-messages/ai-message-actions) bar. With no children it has [AIMessageCopy](/components/ai-messages/ai-message-copy) and then [AIMessageDate](/components/ai-messages/ai-message-date), as in the first example on this page. With children it renders exactly them, in the order you give.
 
-With no children the bar has `AIMessageCopy` and then `AIMessageDate`. With children it renders exactly them, in the order you give. There are no boolean props to turn pieces on or off: compose the bar. Thumbs and their behavior belong to your app, so the package ships neither. Wrap your own icon (any Shoreline icon or your SVG) in `AIMessageAction`, give it a `label` for its accessible name, and set `aria-pressed` for a pressed state. The bar renders once per answer, so keep per-answer state keyed by the message id that `useAIMessage()` returns, as the example below does.
+Thumbs and their behavior belong to your app, so the package ships neither. Wrap your own icons in [AIMessageAction](/components/ai-messages/ai-message-action), and keep the vote of each answer keyed by the message id that [`useAIMessage()`](/components/ai-messages/hooks#useaimessage) returns. In the example, press a thumb to vote, press it again to clear the vote, or press the other one to change it:
 
 <Preview name="ai-messages-actions" />
 
-`AIMessageCopy` copies the text parts of the message. No toast is shown: the copy icon turns into a check for 2 seconds, the accessible name becomes "Copied!", and a hidden live region announces "Message copied" to screen readers. Pass `onCopied` to know when it worked, for example to track it.
-
-`AIMessageDate` shows the age of the message ("now", "5m ago", "yesterday") from `createdAt`, or from its `date` prop. It is a `time` element: `dateTime` is the ISO value and `title` is the exact local date and time. Only the "now" form is always visible. Any other date shows when you hover the message or when focus is inside it, so a keyboard user reaches it with <kbd>Tab</kbd>. On devices without hover it is always visible. All the dates share one timer that ticks once a minute. "Yesterday" means the previous calendar day; older dates read "4d ago", then "1mo ago" and "1y ago". With server rendering, the text and the title appear after hydration, in the viewer's timezone.
-
 ### Custom parts
 
-`AIMessageParts` accepts a function as `children`. It is called for each part with the part and some context (`index`, `isStreaming`, `placement` and `toolRegistration`). Return a node to replace the default drawing, or return `null` to keep it. The example below replaces only the text part:
+`AIMessageParts` accepts a function as `children`. It is called for each part; return a node to replace the default drawing, or `null` to keep it. The example below replaces only the text part. See [AIMessageParts](/components/ai-messages/ai-message-parts#custom-parts) for the arguments of the function.
 
 <Preview name="ai-messages-parts" />
 
-Prefer `meta.isStreaming` and `meta.placement` over reading the whole thread in a renderer. If you need to wrap the default drawing of a part instead of replacing it, call `renderDefaultParts(part, meta)` and return its result.
-
 ### Tool widgets
 
-Register a component for a tool with `makeAIToolUI` and mount the result once under the provider. A registered tool is drawn in the message, not in the reasoning panel. With `mode: 'canvas'` the message shows a trigger and the tool opens in `AICanvas`.
+Register a component for a tool with `makeAIToolUI` and mount the result once under the provider. A registered tool is drawn in the message, not in the reasoning panel. With `mode: 'canvas'` the message shows a trigger and the tool opens in `AICanvas`. A function child of `AIMessageParts` that handles the same tool wins over the registered component.
 
 <Preview name="ai-messages-tool-ui" />
 
-A function child of `AIMessageParts` that handles the same tool wins over the registered component.
-
 ### User bubble
 
-The bubble of the user is only CSS, so there is no component to configure. The width is capped at `33.75rem`. Change the cap with `--sl-ai-message-user-max-width`:
+The bubble of the user is only CSS. Its width is capped at `33.75rem`. Change the cap with `--sl-ai-message-user-max-width`:
 
 ```css
 [data-sl-ai-messages] {
@@ -166,13 +176,25 @@ The bubble of the user is only CSS, so there is no component to configure. The w
 }
 ```
 
-### Long threads
+See [AIMessageUser](/components/ai-messages/ai-message-user).
 
-Each message row uses `content-visibility: auto`, so rows that are off screen cost nothing. Their placeholder height comes from `--sl-ai-message-intrinsic-size` (default `5rem`). `[data-sl-ai-message]` also has padding and a negative margin that cancel each other, so the content keeps its width and position, and focus rings and the reasoning button are not clipped by the row. The row box extends about `1rem` past the messages container, so a focus ring at the very edge is still clipped by an ancestor with `overflow: hidden`. The default spacing of the thread covers this, but only when `AIMessages` is a direct child of `AIThreadViewport` (the selector is `[data-sl-ai-thread-viewport] > [data-sl-ai-messages]`). If you wrap `AIMessages` in your own element, put `padding: var(--sl-ai-thread-padding, var(--sl-space-4))` on that wrapper, with `padding-bottom: var(--sl-ai-messages-gap, var(--sl-space-8))` for the last actions bar, so the composer stays aligned with the messages. Do not override `padding` or `margin` on the message row. See [AIThread](/components/ai-thread#long-conversations).
+## Where a customization lives
 
-### Labels and languages
+| You want to change | Use |
+|--------------------|-----|
+| A text for the whole chat | `messages` on `AIMessages` |
+| The text of one reasoning label | Children of [AIMessageReasoningLabel](/components/ai-messages/ai-message-reasoning-label) |
+| The working mark | `workingMark` on `AIMessages`, or see [AIWorkingMark](/components/ai-working-mark#change-the-glyph) |
+| The header pieces or their order | The `reasoning` template of [AIMessageParts](/components/ai-messages/ai-message-parts) |
+| How one kind of part is drawn | A function child of [AIMessageParts](/components/ai-messages/ai-message-parts#custom-parts) |
+| Bar actions | Children of [AIMessageActions](/components/ai-messages/ai-message-actions) |
+| The layout of one message | An `AIMessageUser` or `AIMessageAssistant` child of `AIMessages` |
+| Language, dates and durations | `LocaleProvider` |
+| Spacing around and between messages | The custom properties of [AIThread](/components/ai-thread#layout-and-spacing) |
 
-The labels come from a built-in catalog in `en-US` and `pt-BR`, chosen by the `LocaleProvider`. To change some of them for the whole chat, pass `messages` to `AIMessages`. Unset keys keep the default. To change the text of a single label, pass children to `AIMessageReasoningLabel`:
+## Labels and languages
+
+The labels come from a built-in catalog in `en-US` and `pt-BR`, chosen by the `LocaleProvider`. Times, durations and dates follow the same locale (en-US "1m 5s", pt-BR "1 min 5 s"). To change some labels for the whole chat, pass `messages` to `AIMessages`. Unset keys keep the default. To change the text of a single label, pass children to `AIMessageReasoningLabel`:
 
 <Preview name="ai-messages-labels" />
 
@@ -186,140 +208,33 @@ The labels come from a built-in catalog in `en-US` and `pt-BR`, chosen by the `L
 | `messageCopied` | Message copied | Announced to screen readers after a copy |
 | `copyCode` | Copy code | Not used yet. It is kept for the code blocks |
 
-### Where a customization lives
+To give these labels to message pieces rendered outside `AIMessages`, use [AIMessagesI18nProvider](/components/ai-messages/ai-messages-i18n-provider).
 
-| You want to change | Use |
-|--------------------|-----|
-| A text for the whole chat | `messages` on `AIMessages` |
-| The text of one reasoning label | Children of `AIMessageReasoningLabel` |
-| The working mark | `workingMark` on `AIMessages` |
-| The header pieces or their order | The `reasoning` template of `AIMessageParts` |
-| Bar actions | Children of `AIMessageActions` |
-| Language, dates and durations | `LocaleProvider` |
+## Long threads
 
-## Markdown
+Each message row (`[data-sl-ai-message]`) uses `content-visibility: auto`, so rows that are off screen cost nothing. How that affects the scroll, and how to tune the placeholder height, is on [AIThread](/components/ai-thread#long-conversations).
 
-`AIMessageText` and the reasoning text draw their content with `AIMarkdown`, which supports GitHub-style markdown. You can use `AIMarkdown` alone for static content. Its rendering is documented here as it is today, and may be reworked later.
+Because `content-visibility` clips the painting of a row to its box, the row has padding and a negative margin that cancel each other: the content keeps its width and position, and focus rings, the reasoning chevron and the floating actions bar are not clipped by the row. The row box itself extends about `1rem` past the list on each side, so a focus ring at the very edge would still be clipped by an ancestor with `overflow: hidden`, such as the thread viewport. Inside a thread this does not happen: the viewport gives the list `1rem` of padding through `--sl-ai-messages-padding`, also when you wrap `AIMessages` in your own element. If your wrapper pads itself, set `--sl-ai-messages-padding: 0` on it so the padding is not applied twice, and keep about `1rem` of horizontal padding there. Do not override `padding`, `margin` or `box-sizing` on the message row.
 
-```tsx
-<AIMarkdown>{'# Hello\n\nParagraph with **bold**.'}</AIMarkdown>
-```
-
-## Props
-
-### AIMessages
+## Optional props
 
 <PropsDocs name="ai-messages" />
 
-### AIMessageAssistant
-
-<PropsDocs name="ai-message-assistant" />
-
-`AIMessageAssistant` also accepts the props of a `div` and the `children` of `AIMessageRoot`. When `children` is omitted it renders `AIMessageParts`.
-
-### AIMessageParts
-
-<PropsDocs name="ai-message-parts" />
-
-### AIMessageReasoning
-
-<PropsDocs name="ai-message-reasoning" />
-
-### AIMessageReasoningRoot
-
-<PropsDocs name="ai-message-reasoning-root" />
-
-### AIMessageReasoningHeader
-
-<PropsDocs name="ai-message-reasoning-header" />
-
-### AIMessageReasoningMark
-
-<PropsDocs name="ai-message-reasoning-mark" />
-
-### AIMessageReasoningLabel
-
-<PropsDocs name="ai-message-reasoning-label" />
-
-`AIMessageReasoningElapsed` and `AIMessageReasoningTrigger` have no props of their own. The elapsed time takes the props of a `span`, and the trigger takes the props of a `button`. The accessible name of the trigger comes from the label. When the header has no `AIMessageReasoningLabel`, it gets an `aria-label` with the status text from the catalog.
-
-### AIThinkingIndicator
-
-<PropsDocs name="ai-thinking-indicator" />
-
-### AIWorkingMark
-
-<PropsDocs name="ai-working-mark" />
-
-### AIMessageActions
-
-<PropsDocs name="ai-message-actions" />
-
-### AIMessageAction
-
-#### Required props
-
-<PropsDocs name="ai-message-action" required />
-
-### AIMessageCopy
-
-<PropsDocs name="ai-message-copy" />
-
-### AIMessageDate
-
-<PropsDocs name="ai-message-date" />
-
-`AIMessageUser`, `AIMessageRoot`, `AIMessageText`, `AIMessageReasoningContent`, `AIMessageReasoningText` and the resource components accept the props of a `div`. `AIMessageRoot` also needs `messageRole`. `AIMessageReasoningToolStep` needs a `part` prop when you use it alone.
-
-## Hooks
-
-| Hook | Use it to |
-|------|-----------|
-| `useAIMessage()` | Read the `id`, `role`, `status` and `createdAt` of the message you are inside, for example to keep a vote per answer |
-| `useAIMessageParts(messageId?)` | Read the parts of a message. Without an id, it reads the message you are inside |
-| `useAIReasonings(messageId?)` | Read only the reasoning parts |
-| `useAITools(messageId?)` | Read only the tool parts |
-| `useAIResources(messageId?)` | Read only the files |
-| `useAIThread()` | Read `messages` and call `sendMessage` or `loadMessages` |
-| `useAIStatus()` | Know if the assistant is answering (`isStreaming`) |
+`AIMessages` also accepts the props of a `div`. Its children can only be one `AIMessageUser` and one `AIMessageAssistant`, used as templates.
 
 ## Styling
 
-Use the `data-sl-*` attributes to adjust the look in your CSS:
-
 | Attribute | Region |
 |-----------|--------|
-| `[data-sl-ai-messages]` | The list |
-| `[data-sl-ai-message]` | One message. It has `data-sl-ai-message-role` (`user` or `assistant`). Do not override its `padding` or `margin` |
-| `[data-sl-ai-message-content]` | The content of a message. It is the user bubble |
-| `[data-sl-ai-message-parts]` | The container of the parts |
-| `[data-sl-ai-message-reasoning]` | The reasoning panel. It has `data-status` (`running` or `complete`) |
-| `[data-sl-ai-message-reasoning-header]` | The 20px header row |
-| `[data-sl-ai-message-reasoning-mark]` | The working mark, only while running |
-| `[data-sl-ai-message-reasoning-label]` | The status text |
-| `[data-sl-ai-message-reasoning-elapsed]` | The elapsed time, only while running |
-| `[data-sl-ai-message-reasoning-trigger]` | The chevron button. It has `aria-expanded` |
-| `[data-sl-ai-message-reasoning-content]` | The body of the panel |
-| `[data-sl-ai-message-reasoning-text]` | One reasoning step |
-| `[data-sl-ai-message-reasoning-tool-step]` | A tool step in the panel |
-| `[data-sl-ai-thinking-indicator]` | The text loading effect |
-| `[data-sl-ai-working-mark]` | The working mark |
-| `[data-sl-ai-message-text]` | A text part |
-| `[data-sl-ai-markdown]` | The markdown output |
-| `[data-sl-ai-message-actions]` | The floating actions bar |
-| `[data-sl-ai-message-action]` | A bar button. It is styled for `aria-pressed="true"`, hover and keyboard focus |
-| `[data-sl-ai-message-copy]` | The copy button. It has `data-copied` for 2 seconds after a copy |
-| `[data-sl-ai-message-date]` | The date. It has `data-just-now` under a minute, when it is always visible |
-| `[data-sl-ai-message-resources]` | The row of attached files |
-| `[data-sl-ai-message-resource]` | One file. It has `data-type` (`image` or `file`) |
+| `[data-sl-ai-messages]` | The list. A flex column with `--sl-ai-messages-gap` between messages and the same room below the last one |
 
 | CSS variable | Default | What it changes |
 |--------------|---------|-----------------|
-| `--sl-ai-message-user-max-width` | `33.75rem` | The maximum width of the user bubble |
 | `--sl-ai-message-intrinsic-size` | `5rem` | The placeholder height of a message that was not rendered yet |
-| `--sl-ai-messages-gap` | `var(--sl-space-8)` | The gap between messages, and the space below the last one |
-| `--sl-ai-thread-padding` | `var(--sl-space-4)` | The padding around the messages inside the thread viewport |
-| `--sl-ai-messages-padding` | `0`, the thread padding inside a thread viewport | The padding of the list. Set it to `0` on a wrapper that pads itself |
+| `--sl-ai-messages-gap` | `var(--sl-space-8)` | The gap between messages, and the space below the last one. See [AIThread](/components/ai-thread#layout-and-spacing) |
+| `--sl-ai-messages-padding` | `0`; the thread padding inside a thread viewport | The padding of the list. Set it to `0` on a wrapper that pads itself |
+
+The selectors of each piece are on its page.
 
 ## Breaking changes
 
@@ -339,5 +254,6 @@ The gap between messages also grows from 16px to 32px, and the thread now pads t
 
 - [AIThread](/components/ai-thread): the layout around the messages
 - [AIComposer](/components/ai-composer): the box to write
+- [AIThinkingIndicator](/components/ai-thinking-indicator) and [AIWorkingMark](/components/ai-working-mark): the loading pieces of the reasoning header
 - [Shoreline AI overview](/guides/shoreline-ai)
 - [Runtime](/guides/shoreline-ai-runtime): the transport and the message model

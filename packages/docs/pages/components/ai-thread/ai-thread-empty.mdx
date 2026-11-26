@@ -1,0 +1,24 @@
+# AIThreadEmpty
+
+<ComponentDescription>The welcome of the thread. It renders its children only while the thread has no messages and is not opening a thread, grows to fill the free space, and centers its children.</ComponentDescription>
+
+```tsx
+<AIThreadViewport>
+  <AIThreadEmpty>
+    <Text variant="display3">How can I help you today?</Text>
+  </AIThreadEmpty>
+  <AIMessages />
+</AIThreadViewport>
+```
+
+It stays hidden while `useAIThread().isOpeningThread` is `true`, so the welcome does not flash before the history arrives. It has no other styles: the look of the welcome is yours. See the [empty thread example](/components/ai-thread#empty-thread).
+
+## Props
+
+`AIThreadEmpty` has no props of its own. It accepts the props of a `div`.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-thread-empty]` | The empty slot. It fills the free space (`flex: 1`) and centers its children |

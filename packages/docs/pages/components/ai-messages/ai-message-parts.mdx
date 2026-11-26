@@ -1,0 +1,72 @@
+# AIMessageParts
+
+<ComponentDescription>Draws each part of a message in order: text, reasoning, tool calls and attached files. Reasoning steps and the tools that have no UI of their own are grouped into reasoning panels. While the message runs and has no part yet, it draws a running reasoning header.</ComponentDescription>
+
+```tsx
+<AIMessageAssistant>
+  <AIMessageParts />
+  <AIMessageActions />
+</AIMessageAssistant>
+```
+
+## Reasoning groups
+
+Consecutive reasoning parts and tool calls with no registered UI form one group. `AIMessageParts` draws each group with the `reasoning` template, `<AIMessageReasoning />` by default, and gives it the status, the duration and the parts of the group. Pass your own template to change the panel; see [AIMessageReasoning](/components/ai-messages/ai-message-reasoning) and the [custom template example](/components/ai-messages#custom-reasoning-template).
+
+Tools registered with `makeAIToolUI` are drawn in the message, outside the panel. Set `showReasoningTools={false}` to keep only the reasoning text in the panel; see [AIMessageReasoningContent](/components/ai-messages/ai-message-reasoning-content#hide-the-tool-steps).
+
+## Custom parts
+
+Pass a function as `children`. It is called for each part with the part and a `meta` object, and its result replaces the default drawing. Return `null` (or nothing) to keep the default drawing of that part. See the [custom parts example](/components/ai-messages#custom-parts).
+
+```tsx
+<AIMessageParts>
+  {(part, meta) => {
+    if (part.type === 'text' && !meta.isStreaming) {
+      return <MyText text={part.text} />
+    }
+
+    return null
+  }}
+</AIMessageParts>
+```
+
+| `meta` field | What it is |
+|--------------|-----------|
+| `index` | The position of the part in the message |
+| `isStreaming` | Whether this part is still being written: a streaming reasoning step, a running tool, or a text part of the last message while the thread runs |
+| `placement` | `'cot'` inside a reasoning panel, `'message'` at the message level |
+| `toolRegistration` | The `makeAIToolUI` registration of a tool part, or `null` |
+
+Prefer `meta.isStreaming` and `meta.placement` over reading the whole thread in a renderer. The function runs inside the scope of the part, so [AIMessageText](/components/ai-messages/ai-message-text), `AIMessageReasoningText` and [AIMessageResources](/components/ai-messages/ai-message-resources) work in what it returns.
+
+### Helpers
+
+The package exports the two rules that `AIMessageParts` uses, so a renderer can reuse them:
+
+- `renderDefaultParts(part, meta, options?)` draws one part the default way. Call it to wrap the default drawing instead of replacing it. `options.showReasoningTools` hides the tool steps, like the prop.
+- `defaultMessageGroupBy(part, context)` decides which parts go into the reasoning panel: reasoning parts and tools with no registration in `context.toolRegistry`. It returns the group keys of the part, or `null` for a part drawn at the message level.
+
+```tsx
+import { AIMessageParts, renderDefaultParts } from '@vtex/shoreline-ai'
+
+<AIMessageParts>
+  {(part, meta) => {
+    if (part.type !== 'tool') return null
+
+    return <div className="tool-frame">{renderDefaultParts(part, meta)}</div>
+  }}
+</AIMessageParts>
+```
+
+## Optional props
+
+<PropsDocs name="ai-message-parts" />
+
+`AIMessageParts` also accepts the props of a `div`.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-message-parts]` | The column of parts, with `--sl-space-2` between them |
