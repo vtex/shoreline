@@ -11,6 +11,16 @@ export type {
   BarChartProps,
   BarChartSeries,
 } from './components/bar-chart'
+export { LineChart } from './components/line-chart'
+export type {
+  LineChartMessages,
+  LineChartOptions,
+  LineChartProps,
+  LineChartSeries,
+} from './components/line-chart'
+// Shared by LineChart and ComposedChart, so consumers can name the same
+// `curve` type on either.
+export type { ChartCurve } from './internal/curve'
 // Consumers construct these to fill `BarChartSeries.deltas`, so the shape has
 // to be nameable outside the package even though the tooltip itself is
 // internal.

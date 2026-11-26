@@ -22,7 +22,10 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
     tokens,
     ...overrides,
   }) as {
-    legend: { show: boolean }
+    legend: {
+      show: boolean
+      data?: Array<{ name: string; icon: string }>
+    }
     tooltip: {
       trigger: string
       axisPointer: { type: string }
@@ -109,7 +112,25 @@ describe('buildBarOption', () => {
       ],
     })
 
-    expect(multi.legend).toEqual({ show: true, left: 0, bottom: 0 })
+    expect(multi.legend).toMatchObject({ show: true, left: 0, bottom: 0 })
+  })
+
+  test('draws a square icon for each bar series', () => {
+    const option = build({
+      series: [
+        { name: 'A', data: [1] },
+        { name: 'B', data: [2] },
+      ],
+    })
+
+    expect(option.legend.data).toHaveLength(2)
+
+    for (const entry of option.legend.data ?? []) {
+      expect(entry.icon).toMatch(/^path:\/\//)
+      // Four corners and no arc: a square, not the wide box `'rect'` fills.
+      expect(entry.icon.match(/Z/g)).toHaveLength(1)
+      expect(entry.icon).not.toContain('A')
+    }
   })
 
   test('stacks all series on a single stack when grouping is stacked', () => {

@@ -16,6 +16,7 @@ import {
   othersColorToken,
 } from '../../internal/series'
 import { createNumberFormatter } from '../../internal/format'
+import { legendIcon } from '../../internal/legend'
 
 /**
  * A single bar series.
@@ -183,7 +184,12 @@ export function buildBarOption(args: BuildBarOptionArgs): EChartsCoreOption {
   }
 
   return {
-    legend: buildLegend(series.length),
+    legend: buildLegend(
+      series.length,
+      // Bars draw a square; the legend's icon box is wide enough for a line,
+      // so the square has to be drawn rather than left to the engine's `rect`.
+      series.map((item) => ({ name: item.name, icon: legendIcon('bar') }))
+    ),
     tooltip: buildAxisTooltip({
       tokens,
       axisPointer,
