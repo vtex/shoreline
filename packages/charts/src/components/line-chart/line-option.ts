@@ -17,7 +17,12 @@ import {
 } from '../../internal/series'
 import { createNumberFormatter } from '../../internal/format'
 import { legendIcon } from '../../internal/legend'
-import { lineSymbolSize } from '../../internal/symbols'
+import type { IsolatedPoint } from '../../internal/symbols'
+import {
+  isolatedPoints,
+  lineSymbolSize,
+  pointMarkersFit,
+} from '../../internal/symbols'
 import { chartSeriesTokens } from '../../internal/theme'
 import type { ChartTokens } from '../../internal/theme'
 import type { ChartTooltipDelta } from '../../internal/tooltip'
@@ -90,6 +95,12 @@ export interface BuildLineOptionArgs {
    * dot.
    */
   locale: string
+  /**
+   * Width of the chart in px, when known. Marker density is measured in pixels,
+   * so a chart whose width is not measured yet keeps its markers.
+   * @default undefined
+   */
+  width?: number
   tokens: ChartTokens
 }
 
@@ -157,6 +168,25 @@ function withSeam(
 }
 
 /**
+ * Markers for the values the line cannot reach: a point whose neighbours are
+ * both gaps draws no segment, so hiding every marker would drop the value from
+ * the chart. Built as `markPoint` rather than a second series so each data
+ * series keeps exactly one engine series — legend entries, tooltip rows and
+ * palette positions stay untouched.
+ */
+function buildIsolatedMarkers(points: IsolatedPoint[]) {
+  return {
+    // The marker is a visual, not a target: the axis tooltip and the hover
+    // highlight must behave as they do on any other point.
+    silent: true,
+    symbol: 'emptyCircle',
+    symbolSize: lineSymbolSize,
+    label: { show: false },
+    data: points.map(({ index, value }) => ({ coord: [index, value] })),
+  }
+}
+
+/**
  * Compiles shared-series line props into engine line series. Extracted so the
  * composed chart can paint lines with exactly this chart's forecast treatment
  * (dashed, symbol-free, color inherited from the predecessor); internal-only,
@@ -184,6 +214,13 @@ export function buildLineSeries(args: {
    * @default false
    */
   aggregated?: boolean
+  /**
+   * Whether lines draw a marker at every point. When false, markers are hidden
+   * across the whole series — the trend reads as a line again — except at
+   * isolated values, which would otherwise disappear from the chart.
+   * @default true
+   */
+  showMarkers?: boolean
   tokens: ChartTokens
 }) {
   const {
@@ -191,6 +228,7 @@ export function buildLineSeries(args: {
     curve = 'linear',
     paletteOffset = 0,
     aggregated = false,
+    showMarkers = true,
     tokens,
   } = args
   const seams = forecastSeams(series)
@@ -198,6 +236,8 @@ export function buildLineSeries(args: {
 
   return series.map((item, seriesIndex) => {
     if (item.variant !== 'forecast') {
+      const isolated = showMarkers ? [] : isolatedPoints(item.data)
+
       return {
         name: item.name,
         type: 'line',
@@ -210,6 +250,10 @@ export function buildLineSeries(args: {
         ...(othersColor && seriesIndex === series.length - 1
           ? { itemStyle: { color: othersColor } }
           : {}),
+        ...(showMarkers ? {} : { showSymbol: false }),
+        ...(isolated.length === 0
+          ? {}
+          : { markPoint: buildIsolatedMarkers(isolated) }),
       }
     }
 
@@ -249,6 +293,7 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
     maxSeries,
     curve = 'linear',
     locale,
+    width,
     tokens,
   } = args
 
@@ -260,6 +305,10 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
   const series = collapseSeries(args.series, othersLabel, maxSeries)
 
   const showLegend = series.length > 1
+  const showMarkers = pointMarkersFit({
+    count: categories.length,
+    width,
+  })
 
   const axisPointer: ChartAxisPointer = {
     type: 'line',
@@ -298,6 +347,7 @@ export function buildLineOption(args: BuildLineOptionArgs): EChartsCoreOption {
     series: buildLineSeries({
       series,
       curve,
+      showMarkers,
       aggregated: series.length < args.series.length,
       tokens,
     }),

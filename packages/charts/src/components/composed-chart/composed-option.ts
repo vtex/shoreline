@@ -16,6 +16,7 @@ import {
 import { createNumberFormatter } from '../../internal/format'
 import { legendIcon } from '../../internal/legend'
 import { collapseSeries, createDeltaLookup } from '../../internal/series'
+import { pointMarkersFit } from '../../internal/symbols'
 import type { ChartTokens } from '../../internal/theme'
 import type { ChartUnit } from '../../internal/unit'
 import { defaultChartUnit } from '../../internal/unit'
@@ -99,6 +100,12 @@ export interface BuildComposedOptionArgs {
    * and a percentage reads with the same separator before its `%` sign.
    */
   locale: string
+  /**
+   * Width of the chart in px, when known. Marker density is measured in pixels,
+   * so a chart whose width is not measured yet keeps its markers.
+   * @default undefined
+   */
+  width?: number
   tokens: ChartTokens
 }
 
@@ -125,6 +132,7 @@ export function buildComposedOption(
     maxSeries,
     curve,
     locale,
+    width,
     tokens,
   } = args
 
@@ -200,6 +208,9 @@ export function buildComposedOption(
     // occupy the first slots.
     paletteOffset: renderedBars.length,
     curve,
+    // Every series shares the one category axis, so the density that decides
+    // the markers is the chart's, never a single line's.
+    showMarkers: pointMarkersFit({ count: categories.length, width }),
     tokens,
   }).map((item, seriesIndex) => ({
     ...item,
