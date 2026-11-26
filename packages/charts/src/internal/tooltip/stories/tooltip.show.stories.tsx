@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 
 import type { ChartTooltipData } from '../tooltip-model'
+import { buildAxisTooltipData } from '../tooltip-model'
 import { renderChartTooltip } from '../tooltip-render'
 import '../../../styles.css'
 
@@ -54,6 +55,41 @@ function Section(props: { label: string; children: ReactNode }) {
     </div>
   )
 }
+
+// The row model writes values through the caller's formatter — a chart passes
+// the reader's locale. The story pins en-US so the capture does not change
+// with the machine.
+const formatValue = (value: number) =>
+  new Intl.NumberFormat('en-US').format(value)
+
+// The stack the total sections sum: a vertical stack draws its first series at
+// the bottom, so its rows read bottom-up in the tooltip.
+const stackedItems = [
+  {
+    name: 'Jun 05',
+    seriesName: 'Website',
+    value: 2500,
+    color: seriesColor.blue,
+    seriesIndex: 0,
+    dataIndex: 5,
+  },
+  {
+    name: 'Jun 05',
+    seriesName: 'Marketplace',
+    value: 1500,
+    color: seriesColor.purple,
+    seriesIndex: 1,
+    dataIndex: 5,
+  },
+  {
+    name: 'Jun 05',
+    seriesName: 'Physical store',
+    value: 800,
+    color: seriesColor.orange,
+    seriesIndex: 2,
+    dataIndex: 5,
+  },
+]
 
 export function Show() {
   return (
@@ -185,6 +221,62 @@ export function Show() {
               },
             ],
           }}
+        />
+      </Section>
+
+      <Section label="Stacked, with the stack's total">
+        <TooltipPreview
+          data={buildAxisTooltipData(stackedItems, {
+            // A vertical stack piles its first series at the bottom, so the
+            // rows run bottom-up; the total closes the group it sums.
+            reverse: true,
+            // The total is a virtual row: no series of its own, so no swatch,
+            // and it adds nothing to the legend or the palette.
+            total: { label: 'Total', seriesCount: 3 },
+            formatValue,
+          })}
+        />
+      </Section>
+
+      <Section label="Stacked, with a line after the bars">
+        <TooltipPreview
+          data={buildAxisTooltipData(
+            [
+              ...stackedItems,
+              {
+                name: 'Jun 05',
+                seriesName: 'Conversion',
+                value: 3.1,
+                color: seriesColor.gray,
+                seriesIndex: 3,
+                dataIndex: 5,
+              },
+            ],
+            {
+              // Only the bars read bottom-up; the line drawn after them keeps
+              // the series order and stays out of the sum.
+              reverseUpTo: 3,
+              total: { label: 'Total', seriesCount: 3 },
+              formatValue,
+            }
+          )}
+        />
+      </Section>
+
+      <Section label="Stacked, a summed series missing">
+        <TooltipPreview
+          data={buildAxisTooltipData(
+            // Marketplace has no value at this category: its row drops out and
+            // contributes nothing, rather than zeroing the sum.
+            stackedItems.map((item) =>
+              item.seriesIndex === 1 ? { ...item, value: null } : item
+            ),
+            {
+              reverse: true,
+              total: { label: 'Total', seriesCount: 3 },
+              formatValue,
+            }
+          )}
         />
       </Section>
     </div>

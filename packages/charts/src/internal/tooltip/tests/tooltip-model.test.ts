@@ -153,6 +153,87 @@ describe('buildAxisTooltipData', () => {
     expect(data.rows.map((row) => row.delta?.value)).toEqual(['s0', 's1'])
   })
 
+  test('reverses only the first N rows on request', () => {
+    const data = buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'A', value: 1, seriesIndex: 0 },
+        { name: 'Jan', seriesName: 'B', value: 2, seriesIndex: 1 },
+        { name: 'Jan', seriesName: 'Line', value: 3, seriesIndex: 2 },
+      ],
+      { reverseUpTo: 2 }
+    )
+
+    // The bars are painted bottom-up, the line that follows keeps its order.
+    expect(data.rows.map((row) => row.label)).toEqual(['B', 'A', 'Line'])
+  })
+
+  test('closes the summed rows with the total', () => {
+    const data = buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'A', value: 10, seriesIndex: 0 },
+        { name: 'Jan', seriesName: 'B', value: 20, seriesIndex: 1 },
+        { name: 'Jan', seriesName: 'Line', value: 7, seriesIndex: 2 },
+      ],
+      { total: { label: 'Total', seriesCount: 2 } }
+    )
+
+    expect(data.rows.map((row) => row.label)).toEqual([
+      'A',
+      'B',
+      'Total',
+      'Line',
+    ])
+    expect(data.rows[2]?.value).toBe('30')
+  })
+
+  test('places the total after the reversed group it sums', () => {
+    const data = buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'A', value: 10, seriesIndex: 0 },
+        { name: 'Jan', seriesName: 'B', value: 20, seriesIndex: 1 },
+        { name: 'Jan', seriesName: 'Line', value: 7, seriesIndex: 2 },
+      ],
+      { reverseUpTo: 2, total: { label: 'Total', seriesCount: 2 } }
+    )
+
+    expect(data.rows.map((row) => row.label)).toEqual([
+      'B',
+      'A',
+      'Total',
+      'Line',
+    ])
+  })
+
+  test('sums only the rows the total covers', () => {
+    const data = buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'A', value: 10, seriesIndex: 0 },
+        { name: 'Jan', seriesName: 'B', value: null, seriesIndex: 1 },
+        { name: 'Jan', seriesName: 'Line', value: 7, seriesIndex: 2 },
+      ],
+      { total: { label: 'Total', seriesCount: 2 } }
+    )
+
+    // Null contributes nothing rather than zero-ing the sum.
+    expect(data.rows.map((row) => [row.label, row.value])).toEqual([
+      ['A', '10'],
+      ['Total', '10'],
+      ['Line', '7'],
+    ])
+  })
+
+  test('adds no total when every summed series is empty', () => {
+    const data = buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'A', value: null, seriesIndex: 0 },
+        { name: 'Jan', seriesName: 'Line', value: 7, seriesIndex: 1 },
+      ],
+      { total: { label: 'Total', seriesCount: 1 } }
+    )
+
+    expect(data.rows.map((row) => row.label)).toEqual(['Line'])
+  })
+
   test('keeps each delta with its own row when reversing', () => {
     const data = buildAxisTooltipData(
       [
@@ -184,5 +265,32 @@ describe('buildAxisTooltipData', () => {
       ['Costs', '3%'],
       ['Revenue', '12%'],
     ])
+  })
+
+  test('writes values through the caller’s formatter', () => {
+    const data = buildAxisTooltipData(
+      [
+        { name: 'Jan', seriesName: 'A', value: 3100, seriesIndex: 0 },
+        { name: 'Jan', seriesName: 'B', value: 1500, seriesIndex: 1 },
+      ],
+      {
+        total: { label: 'Total', seriesCount: 2 },
+        formatValue: (value) => `#${value}`,
+      }
+    )
+
+    expect(data.rows.map((row) => row.value)).toEqual([
+      '#3100',
+      '#1500',
+      '#4600',
+    ])
+  })
+
+  test('prints values as the engine writes them without a formatter', () => {
+    const data = buildAxisTooltipData([
+      { name: 'Jan', seriesName: 'A', value: 3100 },
+    ])
+
+    expect(data.rows[0]?.value).toBe('3100')
   })
 })

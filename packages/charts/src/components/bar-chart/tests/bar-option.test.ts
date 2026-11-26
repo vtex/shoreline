@@ -5,7 +5,7 @@ import type { BuildBarOptionArgs } from '../bar-option'
 import { buildBarOption, defaultMaxSeries, seriesLimit } from '../bar-option'
 
 const tokens: ChartTokens = {
-  get: () => undefined,
+  get: (token) => (token === '--sl-color-gray-8' ? '#858585' : undefined),
   px: (token) => (token === '--sl-radius-1' ? 4 : 8),
 }
 
@@ -16,6 +16,8 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
     direction: 'vertical',
     grouping: 'grouped',
     othersLabel: 'Others',
+    totalLabel: 'Total',
+    locale: 'en-US',
     maxSeries: defaultMaxSeries,
     tokens,
     ...overrides,
@@ -30,11 +32,20 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
       formatter: (params: unknown) => string
       position: unknown
     }
-    xAxis: { type: string; data?: string[] }
-    yAxis: { type: string; data?: string[] }
+    xAxis: {
+      type: string
+      data?: string[]
+      axisLabel?: { formatter?: (value: number) => string }
+    }
+    yAxis: {
+      type: string
+      data?: string[]
+      axisLabel?: { formatter?: (value: number) => string }
+    }
     series: Array<{
       name: string
       stack?: string
+      itemStyle?: { color?: string }
       data: Array<{
         value: number | null
         itemStyle: { borderRadius: number[] }
@@ -46,8 +57,22 @@ function build(overrides: Partial<BuildBarOptionArgs> = {}) {
 // What the engine passes the tooltip formatter on hover: one item per series
 // at the hovered category, always in series order.
 const hoveredParams = [
-  { name: 'Jan', seriesName: 'Website', value: 10, color: '#3993f4' },
-  { name: 'Jan', seriesName: 'Marketplace', value: 20, color: '#9c56f3' },
+  {
+    name: 'Jan',
+    seriesName: 'Website',
+    value: 10,
+    color: '#3993f4',
+    seriesIndex: 0,
+    dataIndex: 0,
+  },
+  {
+    name: 'Jan',
+    seriesName: 'Marketplace',
+    value: 20,
+    color: '#9c56f3',
+    seriesIndex: 1,
+    dataIndex: 0,
+  },
 ]
 
 function radiusAt(
@@ -63,11 +88,11 @@ describe('buildBarOption', () => {
     const vertical = build()
 
     expect(vertical.xAxis).toEqual({ type: 'category', data: ['Jan', 'Feb'] })
-    expect(vertical.yAxis).toEqual({ type: 'value' })
+    expect(vertical.yAxis.type).toBe('value')
 
     const horizontal = build({ direction: 'horizontal' })
 
-    expect(horizontal.xAxis).toEqual({ type: 'value' })
+    expect(horizontal.xAxis.type).toBe('value')
     expect(horizontal.yAxis).toEqual({
       type: 'category',
       data: ['Jan', 'Feb'],
@@ -237,6 +262,32 @@ describe('buildBarOption', () => {
     )
   })
 
+  test('paints the aggregate in the neutral gray, keeping the named slots', () => {
+    const option = build({
+      series: Array.from({ length: 5 }, (_, i) => ({
+        name: `S${i}`,
+        data: [1],
+      })),
+    })
+
+    expect(option.series.map((s) => s.name)).toEqual(['S0', 'S1', 'Others'])
+    // Only the aggregate leaves the palette; the named bars keep their own.
+    expect(option.series[0]?.itemStyle).toBeUndefined()
+    expect(option.series[1]?.itemStyle).toBeUndefined()
+    expect(option.series[2]?.itemStyle).toEqual({ color: '#858585' })
+  })
+
+  test('leaves every bar to the palette when nothing aggregates', () => {
+    const option = build({
+      series: [
+        { name: 'A', data: [1] },
+        { name: 'B', data: [2] },
+      ],
+    })
+
+    expect(option.series.every((s) => s.itemStyle === undefined)).toBe(true)
+  })
+
   test('names the aggregate series from othersLabel', () => {
     const option = build({
       othersLabel: 'Outros',
@@ -343,6 +394,56 @@ describe('buildBarOption', () => {
 
       expect(html.indexOf('Website')).toBeLessThan(html.indexOf('Marketplace'))
     }
+  })
+
+  test('closes a vertical stack tooltip with the total', () => {
+    const option = build({
+      series: [
+        { name: 'Website', data: [10] },
+        { name: 'Marketplace', data: [20] },
+      ],
+      direction: 'vertical',
+      grouping: 'stacked',
+    })
+
+    const html = option.tooltip.formatter(hoveredParams)
+
+    // Top-down segments, then the sum they add up to.
+    expect(html.indexOf('Marketplace')).toBeLessThan(html.indexOf('Website'))
+    expect(html.indexOf('Website')).toBeLessThan(html.indexOf('Total'))
+    expect(html).toContain('30')
+  })
+
+  test('closes a horizontal stack tooltip with the total', () => {
+    const option = build({
+      series: [
+        { name: 'Website', data: [10] },
+        { name: 'Marketplace', data: [20] },
+      ],
+      direction: 'horizontal',
+      grouping: 'stacked',
+      totalLabel: 'Gesamt',
+    })
+
+    const html = option.tooltip.formatter(hoveredParams)
+
+    expect(html.indexOf('Marketplace')).toBeLessThan(html.indexOf('Gesamt'))
+    expect(html).toContain('30')
+  })
+
+  test('adds no total to grouped bars', () => {
+    const option = build({
+      series: [
+        { name: 'Website', data: [10] },
+        { name: 'Marketplace', data: [20] },
+      ],
+      grouping: 'grouped',
+    })
+
+    const html = option.tooltip.formatter(hoveredParams)
+
+    expect(html).not.toContain('Total')
+    expect(html).not.toContain('30')
   })
 
   test('shows a series delta at the hovered category', () => {
@@ -521,5 +622,68 @@ describe('buildBarOption', () => {
     })
 
     expect(radiusAt(noToken, 0, 0)).toEqual([0, 0, 0, 0])
+  })
+
+  test('writes the value-axis ticks in the reader’s locale', () => {
+    const enUS = build({ direction: 'horizontal' }).xAxis.axisLabel?.formatter
+    const ptBR = build({
+      direction: 'horizontal',
+      locale: 'pt-BR',
+    }).xAxis.axisLabel?.formatter
+
+    expect(enUS?.(3100)).toBe('3,100')
+    expect(ptBR?.(3100)).toBe('3.100')
+
+    // The value axis is whichever one the bars grow along.
+    expect(build().yAxis.axisLabel?.formatter?.(3100)).toBe('3,100')
+    expect(build({ locale: 'pt-BR' }).yAxis.axisLabel?.formatter?.(3100)).toBe(
+      '3.100'
+    )
+  })
+
+  test('writes tooltip values in the reader’s locale', () => {
+    const option = build({ locale: 'pt-BR' })
+
+    const html = option.tooltip.formatter([
+      {
+        name: 'Jan',
+        seriesName: 'Website',
+        value: 3100,
+        seriesIndex: 0,
+        dataIndex: 0,
+      },
+    ])
+
+    expect(html).toContain('3.100')
+  })
+
+  test('writes the stack total in the reader’s locale', () => {
+    const option = build({
+      grouping: 'stacked',
+      locale: 'pt-BR',
+      series: [
+        { name: 'A', data: [1200] },
+        { name: 'B', data: [1900] },
+      ],
+    })
+
+    const html = option.tooltip.formatter([
+      {
+        name: 'Jan',
+        seriesName: 'A',
+        value: 1200,
+        seriesIndex: 0,
+        dataIndex: 0,
+      },
+      {
+        name: 'Jan',
+        seriesName: 'B',
+        value: 1900,
+        seriesIndex: 1,
+        dataIndex: 0,
+      },
+    ])
+
+    expect(html).toContain('3.100')
   })
 })
