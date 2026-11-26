@@ -9,6 +9,10 @@ import type { AIMessageState, AIMessageStatus } from './types'
  * creation date. Use it inside `AIMessageUser` or `AIMessageAssistant`, for
  * example to key app state (votes, feedback) by message.
  *
+ * `status` is `running` while the message streams, `complete` when it
+ * finished, and `incomplete` otherwise: the run was cancelled or failed, or
+ * the message is waiting for a tool result.
+ *
  * Each field is read on its own, so streamed tokens do not re-render the
  * caller: it re-renders only when one of these fields changes.
  *

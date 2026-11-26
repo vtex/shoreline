@@ -157,7 +157,8 @@ export type AIMessageReasoningStatus = 'running' | 'complete'
 
 /**
  * Status of a message: `running` while it streams, `complete` when it
- * finished, `incomplete` when it stopped early (cancelled or failed).
+ * finished, `incomplete` when it is not finished and not streaming: it was
+ * cancelled, it failed, or it is waiting for a tool result.
  *
  * @status experimental
  */

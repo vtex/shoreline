@@ -257,7 +257,7 @@ useAIMessage(): {
 }
 ```
 
-Use it inside `AIMessageUser` or `AIMessageAssistant` (it throws elsewhere). `status` is `incomplete` when the run stopped early (cancelled or failed); `createdAt` is an ISO string. Each field is read on its own, so streamed tokens do not re-render the caller. Key per-message app state by `id`, for example the votes of the thumbs in the actions bar ([MESSAGES.md](./MESSAGES.md#actions-bar)).
+Use it inside `AIMessageUser` or `AIMessageAssistant` (it throws elsewhere). `status` is `incomplete` when the message is not finished and not streaming: the run was cancelled or failed, or the message is waiting for a tool result; `createdAt` is an ISO string. Each field is read on its own, so streamed tokens do not re-render the caller. Key per-message app state by `id`, for example the votes of the thumbs in the actions bar ([MESSAGES.md](./MESSAGES.md#actions-bar)).
 
 ### Inside a custom part renderer
 

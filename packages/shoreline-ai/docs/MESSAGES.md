@@ -2,7 +2,7 @@
 
 > **Status:** experimental
 
-Shoreline-styled message rendering for AI apps: the **`AIMessage*`** family from `@vtex/shoreline-ai` (user bubble, assistant Chain of Thought, markdown text, tool widgets, resource attachments, reasoning header, message actions). Mount inside `<AIProvider>` and typically as a direct child of `AIThreadViewport`: the thread pads the list only in that position (see [THREAD.md](./THREAD.md#layout-and-spacing)).
+Shoreline-styled message rendering for AI apps: the **`AIMessage*`** family from `@vtex/shoreline-ai` (user bubble, assistant Chain of Thought, markdown text, tool widgets, resource attachments, reasoning header, message actions). Mount inside `<AIProvider>`, usually inside `AIThreadViewport`. The viewport gives the list its padding through `--sl-ai-messages-padding`, also when the list sits inside your own wrapper (see [THREAD.md](./THREAD.md#layout-and-spacing)).
 
 Related guides: [THREAD.md](./THREAD.md) (viewport layout), [PROVIDER.md](./PROVIDER.md), [HOOKS.md](./HOOKS.md) (message part hooks), [TOOL-UI.md](./TOOL-UI.md) (`makeAIToolUI`, canvas), [RUNTIME.md](./RUNTIME.md) (`AIMessage` / `AIMessagePart` model).
 
@@ -217,7 +217,7 @@ Each reasoning group is one 20px header row, with an optional body below it:
 
 Only the chevron is a button. It has `aria-expanded` and `aria-controls`, and its accessible name is the label text (`aria-labelledby`). The open body is a `role="group"` named by the same label; with no label mounted it has no role. When no `AIMessageReasoningLabel` is mounted in the header, the chevron gets an `aria-label` with the status text from the catalog instead. Clicking the label or the time does nothing.
 
-The label, the elapsed time and the chevron icon use `--sl-fg-base-soft` (the chevron darkens to `--sl-color-gray-9` on hover); a long label wraps and the row grows. The open body sits 8px below the header, with a 3px left bar and 16px of left padding; reasoning text is `caption-2` in the soft foreground color.
+The label, the elapsed time and the chevron icon use `--sl-fg-base-soft` (on hover the chevron gets the plain hover background and the `--sl-color-gray-9` color: darker on Horizon, the same gray as at rest on Sunrise, where `--sl-fg-base-soft` is already `--sl-color-gray-9`); a long label wraps and the row grows. The open body sits 8px below the header, with a 3px left bar and 16px of left padding; reasoning text is `caption-2` in the soft foreground color.
 
 Times and durations come from `Intl.NumberFormat` (`unit` style, `narrow`) with the `LocaleProvider` locale: en-US "40s" and "1m 5s", pt-BR "40 s" and "1 min 5 s". While running, the header counts seconds itself; when the group completes it shows the runtime duration if there is one, otherwise the time it counted. A message loaded from history with no duration reads "Reasoning complete". The runtime does not stamp a duration on reasoning yet, so durations appear for groups that you watched run.
 
@@ -279,18 +279,18 @@ Both are primitives you can use anywhere, with no catalog and no message around 
 <AIThinkingIndicator>Searching orders…</AIThinkingIndicator>
 ```
 
-`AIWorkingMark` is the 14px spinning glyph in a 16px box, `aria-hidden`. Children replace the default glyph:
+`AIWorkingMark` is the 14px spinning glyph in a 16px box, `aria-hidden`. The default glyph is the My Assistant mark; children replace it with the glyph of your app:
 
 ```tsx
 <AIWorkingMark />
-<AIWorkingMark><MyAssistantGlyph /></AIWorkingMark>
+<AIWorkingMark><IconSparkle /></AIWorkingMark>
 ```
 
 With `prefers-reduced-motion: reduce` the text effect is plain gray text and the mark pulses slowly instead of rotating.
 
 ### Actions bar
 
-`AIMessageActions` is a 20px bar that floats 4px below a completed assistant message that has text. It takes no height, is always visible, and renders nothing while the message runs, for user messages, or for `incomplete` messages (a cancelled run), so a partial answer cannot be copied. It has no boolean props.
+`AIMessageActions` is a 20px bar that floats 4px below a completed assistant message that has text. It takes no height, is always visible, and renders nothing while the message runs, for user messages, or for `incomplete` messages (a cancelled or failed run, or a message waiting for a tool result), so a partial answer cannot be copied. It has no boolean props.
 
 - No children: `AIMessageCopy` and then `AIMessageDate`.
 - With children: exactly the children, in that order. Include `AIMessageCopy` and `AIMessageDate` to keep them.
@@ -342,7 +342,7 @@ function Thumbs(props: {
 </AIMessages>
 ```
 
-Thumbs and their behavior belong to the app; the package ships neither. Use any Shoreline icon or your own SVG as the child of `AIMessageAction`. `AIMessageAction` sets `aria-pressed` styling; to match the proposal, swap to a filled glyph when pressed and keep the color. Bar icons use `--sl-fg-base-soft` and darken to `--sl-color-gray-9` with a hover background; a disabled action does not react to hover, and a pressed one keeps `--sl-fg-base-soft`.
+Thumbs and their behavior belong to the app; the package ships neither. Use any Shoreline icon or your own SVG as the child of `AIMessageAction`. The pressed state is the app's: pass `aria-pressed` and swap the icon for a filled glyph, as the thumbs above do. `AIMessageAction` does not change the color of a pressed action; it keeps the resting `--sl-fg-base-soft`, also on hover. Bar icons rest at `--sl-fg-base-soft`. On hover the button gets the plain hover background and the icon `--sl-color-gray-9`, which is darker on Horizon and the same gray on Sunrise (there `--sl-fg-base-soft` is `--sl-color-gray-9`), so on Sunrise only the background changes. A disabled action does not react to hover.
 
 `AIMessageCopy` writes the text parts of the message (joined by a blank line) to the clipboard. It shows Shoreline's copy icon; after a successful copy it shows the check icon for 2 seconds (`data-copied` is set), its accessible name becomes the `copied` string ("Copied!"), `onCopied` is called once, and a visually hidden live region announces `messageCopied`. No toast and no visible text is shown. If the clipboard is unavailable or rejects, nothing changes. An `onClick` that calls `event.preventDefault()` cancels the copy.
 
@@ -626,7 +626,7 @@ Stable `data-sl-*` hooks for app overrides. Use only `--sl-*` tokens inside `@la
 | `[data-sl-ai-thinking-indicator]` | The text loading effect |
 | `[data-sl-ai-working-mark]` | The working mark. Its glyph is `[data-sl-ai-working-mark-glyph]` |
 | `[data-sl-ai-message-actions]` | The floating bar under a completed assistant message |
-| `[data-sl-ai-message-action]` | A bar button. Styled for `aria-pressed="true"`, `:hover` and `:focus-visible` |
+| `[data-sl-ai-message-action]` | A bar button. Styled for `:hover` and `:focus-visible`; with `aria-pressed="true"` it keeps its resting color (the app swaps the icon) |
 | `[data-sl-ai-message-copy]` | The copy button (also an action). Has `data-copied` for 2 seconds after a copy |
 | `[data-sl-ai-message-date]` | The date. Has `data-just-now` under a minute, when it is always visible |
 | `[data-sl-ai-message-copy-status]` | Live region with the `messageCopied` announcement |
@@ -648,7 +648,7 @@ User bubble styling is applied via CSS on `[data-sl-ai-message-role="user"] [dat
 
 ### `content-visibility`
 
-Every `[data-sl-ai-message]` uses `content-visibility: auto` and `contain-intrinsic-block-size: auto var(--sl-ai-message-intrinsic-size, 5rem)`, so off-screen rows skip layout and paint in long threads. Because this clips painting to the row box, the row has padding and a negative margin that cancels it, and `box-sizing: content-box`, so focus rings, the reasoning chevron and the floating actions bar are not cut off. The bottom padding grows to cover the bar. The content keeps the same width and position as without the padding, but the row box itself extends by `--sl-space-4` on each side of the messages container. A focus ring at the very edge of the container is therefore still clipped by an ancestor with `overflow: hidden`, such as `AIThreadViewport`. The default thread spacing covers this, but it applies only when `AIMessages` is a direct child of `AIThreadViewport` (the selector is `[data-sl-ai-thread-viewport] > [data-sl-ai-messages]`). If your app wraps `AIMessages` in its own element, put `padding: var(--sl-ai-thread-padding, var(--sl-space-4))` on that wrapper, with `padding-bottom: var(--sl-ai-messages-gap, var(--sl-space-8))` for the last actions bar, to keep the composer aligned with the message column. See [THREAD.md](./THREAD.md#the-messages-padding-needs-aimessages-as-a-direct-child-of-the-viewport). Consumers must not override `padding`, `margin` or `box-sizing` on `[data-sl-ai-message]`. Heights of rows that were never on screen are estimates, so the scroll bar can shift slightly in long histories.
+Every `[data-sl-ai-message]` uses `content-visibility: auto` and `contain-intrinsic-block-size: auto var(--sl-ai-message-intrinsic-size, 5rem)`, so off-screen rows skip layout and paint in long threads. Because this clips painting to the row box, the row has padding and a negative margin that cancels it, and `box-sizing: content-box`, so focus rings, the reasoning chevron and the floating actions bar are not cut off. The bottom padding grows to cover the bar. The content keeps the same width and position as without the padding, but the row box itself extends by `--sl-space-4` on each side of the messages container. A focus ring at the very edge of the container is therefore still clipped by an ancestor with `overflow: hidden`, such as `AIThreadViewport`. The default thread spacing covers this: `AIThreadViewport` gives the list `1rem` of padding through `--sl-ai-messages-padding`, which is inherited, so it also applies when your app wraps `AIMessages` in its own element. A wrapper that pads itself sets `--sl-ai-messages-padding: 0` so the padding is not applied twice. See [THREAD.md](./THREAD.md#wrapping-aimessages). Consumers must not override `padding`, `margin` or `box-sizing` on `[data-sl-ai-message]`. Heights of rows that were never on screen are estimates, so the scroll bar can shift slightly in long histories.
 
 ## Breaking changes
 
