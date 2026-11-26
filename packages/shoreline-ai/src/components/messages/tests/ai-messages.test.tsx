@@ -88,9 +88,7 @@ describe('AIMessages', () => {
     expect(
       document.querySelector('[data-sl-ai-message-role="user"]')
     ).toBeTruthy()
-    expect(
-      document.querySelector('[data-sl-ai-message-reasoning]')
-    ).toBeTruthy()
+    expect(document.querySelector('[data-sl-ai-reasoning]')).toBeTruthy()
   })
 })
 
@@ -227,14 +225,12 @@ describe('AIMessageParts reasoning groups', () => {
     )
 
     await findText('Middle')
-    const roots = document.querySelectorAll('[data-sl-ai-message-reasoning]')
+    const roots = document.querySelectorAll('[data-sl-ai-reasoning]')
 
     expect(roots).toHaveLength(2)
     for (const root of roots) {
       expect(root).toHaveAttribute('data-status', 'complete')
-      expect(
-        root.querySelector('[data-sl-ai-message-reasoning-header]')
-      ).toBeTruthy()
+      expect(root.querySelector('[data-sl-ai-reasoning-header]')).toBeTruthy()
     }
   })
 
@@ -242,13 +238,13 @@ describe('AIMessageParts reasoning groups', () => {
     const pkg = await import('../../..')
 
     for (const name of [
-      'AIMessageReasoningHeader',
-      'AIMessageReasoningMark',
-      'AIMessageReasoningLabel',
-      'AIMessageReasoningElapsed',
-      'AIMessageReasoningTrigger',
-      'AIMessageReasoning',
-      'useAIMessageReasoning',
+      'AIReasoningHeader',
+      'AIReasoningMark',
+      'AIReasoningLabel',
+      'AIReasoningElapsed',
+      'AIReasoningTrigger',
+      'AIReasoning',
+      'useAIReasoning',
     ]) {
       expect(name in pkg).toBe(true)
     }
@@ -298,7 +294,7 @@ describe('AIMessages workingMark', () => {
 
     const glyph = await screen.findByTestId('glyph')
 
-    expect(glyph.closest('[data-sl-ai-message-reasoning-mark]')).toBeTruthy()
+    expect(glyph.closest('[data-sl-ai-reasoning-mark]')).toBeTruthy()
 
     release()
     await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())

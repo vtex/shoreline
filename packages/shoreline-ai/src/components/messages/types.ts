@@ -145,15 +145,13 @@ export interface AIMessagePartsOptions {
   /**
    * Template rendered for each reasoning group, and before the first part
    * arrives while the message runs.
-   * @default <AIMessageReasoning />
+   * @default <AIReasoning />
    */
   reasoning?: ReactElement
 }
 
 export type AIMessagePartsProps = AIMessagePartsOptions &
   Omit<ComponentPropsWithoutRef<'div'>, 'children'>
-
-export type AIMessageReasoningStatus = 'running' | 'complete'
 
 /**
  * Status of a message: `running` while it streams, `complete` when it
@@ -182,115 +180,6 @@ export interface AIMessageState {
    */
   createdAt?: string
 }
-
-export interface AIMessageReasoningRootOptions {
-  /**
-   * Whether the reasoning is still being generated. Drives the header label,
-   * the mark and the elapsed time.
-   * @default 'complete'
-   */
-  status?: AIMessageReasoningStatus
-  /**
-   * Time spent reasoning, in milliseconds. When omitted, the time counted
-   * from `startedAt` until `status` turns `complete` is used.
-   */
-  duration?: number
-  /**
-   * When the reasoning started, in epoch milliseconds. Origin of the elapsed
-   * time.
-   * @default the time of the first render with `status="running"`
-   */
-  startedAt?: number
-  /**
-   * Whether the reasoning panel starts expanded (uncontrolled).
-   * @default false
-   */
-  defaultExpanded?: boolean
-  /**
-   * Controlled expanded state. When defined, the panel follows this value and
-   * only reports toggles through `onExpandedChange`. `defaultExpanded` is
-   * ignored when controlled. Switching between controlled and uncontrolled
-   * during the component lifetime is not supported.
-   */
-  expanded?: boolean
-  /**
-   * Called with the next expanded state whenever the trigger is toggled.
-   */
-  onExpandedChange?: (expanded: boolean) => void
-  children?: ReactNode
-}
-
-export type AIMessageReasoningRootProps = AIMessageReasoningRootOptions &
-  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
-
-export interface AIMessageReasoningOptions {
-  /**
-   * Whether the reasoning panel starts expanded (uncontrolled).
-   * @default false
-   */
-  defaultExpanded?: boolean
-  /**
-   * Controlled expanded state. When defined, the panel follows this value and
-   * only reports toggles through `onExpandedChange`.
-   */
-  expanded?: boolean
-  /**
-   * Called with the next expanded state whenever the trigger is toggled.
-   */
-  onExpandedChange?: (expanded: boolean) => void
-  /**
-   * Panel parts.
-   * @default header and content
-   */
-  children?: ReactNode
-}
-
-export type AIMessageReasoningProps = AIMessageReasoningOptions &
-  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
-
-export interface AIMessageReasoningHeaderOptions {
-  /**
-   * Header parts.
-   * @default mark, label, elapsed time and trigger, in that order
-   */
-  children?: ReactNode
-}
-
-export type AIMessageReasoningHeaderProps = AIMessageReasoningHeaderOptions &
-  Omit<ComponentPropsWithoutRef<'div'>, 'children'>
-
-export interface AIMessageReasoningMarkOptions {
-  /**
-   * Custom glyph. Falls back to `workingMark` of `AIMessages`, then to the
-   * My Assistant mark.
-   */
-  children?: ReactNode
-}
-
-export type AIMessageReasoningMarkProps = AIMessageReasoningMarkOptions &
-  Omit<ComponentPropsWithoutRef<'span'>, 'children'>
-
-export interface AIMessageReasoningLabelOptions {
-  /**
-   * Custom label text. Uses the localized status text when omitted.
-   */
-  children?: ReactNode
-}
-
-export type AIMessageReasoningLabelProps = AIMessageReasoningLabelOptions &
-  Omit<ComponentPropsWithoutRef<'span'>, 'children'>
-
-/** The elapsed time has no own props. */
-export type AIMessageReasoningElapsedOptions = Record<never, never>
-
-export type AIMessageReasoningElapsedProps = AIMessageReasoningElapsedOptions &
-  Omit<ComponentPropsWithoutRef<'span'>, 'children'>
-
-/** The trigger has no own props: its accessible name comes from the label. */
-export type AIMessageReasoningTriggerOptions = Record<never, never>
-
-export type AIMessageReasoningTriggerProps = AIMessageReasoningTriggerOptions &
-  Omit<ComponentPropsWithoutRef<'button'>, 'children'>
 
 export interface AIThinkingIndicatorOptions {
   /** Text rendered with the shimmer effect. Nothing is rendered by default. */
@@ -351,19 +240,6 @@ export interface AIMessageDateOptions {
 
 export type AIMessageDateProps = AIMessageDateOptions &
   Omit<ComponentPropsWithoutRef<'time'>, 'children' | 'dateTime'>
-
-export type AIMessageReasoningContentProps = ComponentPropsWithoutRef<'div'>
-
-export type AIMessageReasoningTextProps = ComponentPropsWithoutRef<'div'>
-
-export interface AIMessageReasoningToolStepOptions {
-  /** Tool part to render as a compact reasoning step. */
-  part: AIToolPart
-}
-
-export type AIMessageReasoningToolStepProps =
-  AIMessageReasoningToolStepOptions &
-    Omit<ComponentPropsWithoutRef<'div'>, 'children'>
 
 export type AIMessageTextProps = ComponentPropsWithoutRef<'div'>
 

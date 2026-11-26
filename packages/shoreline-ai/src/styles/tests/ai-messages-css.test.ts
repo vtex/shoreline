@@ -141,31 +141,8 @@ describe('ai-messages.css actions bar', () => {
   })
 })
 
-describe('ai-messages.css reasoning header', () => {
-  it('drops the dots loader, the meta and the row rules', () => {
-    expect(css).not.toContain('[data-sl-ai-dots-loader]')
-    expect(css).not.toContain('[data-sl-ai-message-reasoning-meta]')
-    expect(css).not.toContain('[data-sl-ai-message-reasoning-row]')
-  })
-
-  it('grows with a wrapping label: min-height, not a fixed height', () => {
-    const header = ruleBody([css], '[data-sl-ai-message-reasoning-header] ')
-
-    expect(header).toContain('min-height: var(--sl-space-5)')
-    expect(header).not.toMatch(/(^|[^-])height:/)
-  })
-
-  it('colors the label, the elapsed time, the chevron and the shimmer with the soft foreground', () => {
-    expect(ruleBody([css], '[data-sl-ai-message-reasoning-label]')).toContain(
-      'color: var(--sl-fg-base-soft)'
-    )
-    expect(ruleBody([css], '[data-sl-ai-message-reasoning-elapsed]')).toContain(
-      'color: var(--sl-fg-base-soft)'
-    )
-    expect(
-      ruleBody([css], '[data-sl-ai-message-reasoning-trigger] ')
-    ).toContain('color: var(--sl-fg-base-soft)')
-
+describe('ai-messages.css thinking indicator', () => {
+  it('shimmers over the soft foreground', () => {
     const shimmer = ruleBody([css], '[data-sl-ai-thinking-indicator] ')
 
     expect(shimmer).toContain('var(--sl-fg-base-soft) 0%')
@@ -173,35 +150,7 @@ describe('ai-messages.css reasoning header', () => {
     expect(shimmer).not.toContain('--sl-color-gray-8')
   })
 
-  it('does not say the trigger sits left of the content', () => {
-    // Comments wrap: compare the text with line breaks and stars removed.
-    const prose = css.replace(/\s*\n\s*\*?\s*/g, ' ')
-
-    expect(prose).not.toContain('sits left of the content')
-  })
-
-  it('darkens the chevron on hover with token colors', () => {
-    const hover = ruleBody(
-      [css],
-      '[data-sl-ai-message-reasoning-trigger]:hover'
-    )
-
-    expect(hover).toContain('color: var(--sl-color-gray-9)')
-    expect(hover).toContain('background: var(--sl-bg-muted-plain-hover)')
-  })
-
-  it('shows a keyboard focus ring on the chevron', () => {
-    expect(
-      ruleBody([css], '[data-sl-ai-message-reasoning-trigger]:focus-visible')
-    ).toContain('box-shadow: var(--sl-focus-ring-base)')
-  })
-
-  it('skips the mark enter animation on the group that continues the pending header', () => {
-    const glyph = ruleBody(
-      [css],
-      '[data-sl-ai-message-reasoning][data-continued] [data-sl-ai-working-mark]'
-    )
-
-    expect(glyph).toMatch(/animation:\s*none/)
+  it('leaves the reasoning rules to ai-reasoning.css', () => {
+    expect(css).not.toContain('[data-sl-ai-reasoning')
   })
 })

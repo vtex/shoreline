@@ -14,16 +14,16 @@ import {
 } from '@vtex/shoreline-test-utils'
 import { LocaleProvider } from '@vtex/shoreline'
 
-import { AIMessageReasoningContent } from '../ai-message-reasoning-content'
-import { AIMessageReasoningElapsed } from '../ai-message-reasoning-elapsed'
-import { AIMessageReasoningHeader } from '../ai-message-reasoning-header'
-import { AIMessageReasoningLabel } from '../ai-message-reasoning-label'
-import { AIMessageReasoningMark } from '../ai-message-reasoning-mark'
-import { AIMessageReasoningRoot } from '../ai-message-reasoning-root'
-import { AIMessageReasoningTrigger } from '../ai-message-reasoning-trigger'
-import { AIMessagesI18nProvider } from '../message-messages-context'
-import { WorkingMarkProvider } from '../working-mark-context'
-import type { AIMessageReasoningRootProps } from '../types'
+import { AIReasoningContent } from '../ai-reasoning-content'
+import { AIReasoningElapsed } from '../ai-reasoning-elapsed'
+import { AIReasoningHeader } from '../ai-reasoning-header'
+import { AIReasoningLabel } from '../ai-reasoning-label'
+import { AIReasoningMark } from '../ai-reasoning-mark'
+import { AIReasoningRoot } from '../ai-reasoning-root'
+import { AIReasoningTrigger } from '../ai-reasoning-trigger'
+import { AIMessagesI18nProvider } from '../../messages/message-messages-context'
+import { WorkingMarkProvider } from '../../messages/working-mark-context'
+import type { AIReasoningRootProps } from '../types'
 
 function wrap(ui: ReactElement) {
   return (
@@ -37,48 +37,46 @@ function renderPanel(ui: ReactElement) {
   return render(wrap(ui))
 }
 
-const Panel = (p: Partial<AIMessageReasoningRootProps>) => (
-  <AIMessageReasoningRoot data-testid="root" {...p}>
-    <AIMessageReasoningHeader />
-    <AIMessageReasoningContent>
+const Panel = (p: Partial<AIReasoningRootProps>) => (
+  <AIReasoningRoot data-testid="root" {...p}>
+    <AIReasoningHeader />
+    <AIReasoningContent>
       <p>body</p>
-    </AIMessageReasoningContent>
-  </AIMessageReasoningRoot>
+    </AIReasoningContent>
+  </AIReasoningRoot>
 )
 
 afterEach(() => {
   vi.useRealTimers()
 })
 
-describe('AIMessageReasoningContent', () => {
+describe('AIReasoningContent', () => {
   it('forwards its ref to the element carrying the content attribute', () => {
     const ref = createRef<HTMLDivElement>()
 
     render(
-      <AIMessageReasoningRoot>
-        <AIMessageReasoningContent ref={ref}>body</AIMessageReasoningContent>
-      </AIMessageReasoningRoot>
+      <AIReasoningRoot>
+        <AIReasoningContent ref={ref}>body</AIReasoningContent>
+      </AIReasoningRoot>
     )
 
     expect(ref.current).toBeInstanceOf(HTMLDivElement)
-    expect(ref.current).toHaveAttribute('data-sl-ai-message-reasoning-content')
+    expect(ref.current).toHaveAttribute('data-sl-ai-reasoning-content')
   })
 })
 
-describe('AIMessageReasoning header parts', () => {
+describe('AIReasoning header parts', () => {
   test('running: mark, shimmering label, elapsed and a chevron button', () => {
     vi.useFakeTimers()
     const { container } = renderPanel(<Panel status="running" />)
 
-    expect(
-      container.querySelector('[data-sl-ai-message-reasoning-mark]')
-    ).toBeTruthy()
+    expect(container.querySelector('[data-sl-ai-reasoning-mark]')).toBeTruthy()
     expect(screen.getByText('Reasoning…')).toHaveAttribute(
       'data-sl-ai-thinking-indicator'
     )
     act(() => vi.advanceTimersByTime(3000))
     expect(
-      container.querySelector('[data-sl-ai-message-reasoning-elapsed]')
+      container.querySelector('[data-sl-ai-reasoning-elapsed]')
     ).toHaveTextContent('3s')
     expect(screen.getByRole('button', { name: 'Reasoning…' })).toHaveAttribute(
       'aria-expanded',
@@ -102,34 +100,22 @@ describe('AIMessageReasoning header parts', () => {
     )
 
     expect(screen.getByText('Reasoning completed in 2m')).toBeInTheDocument()
-    expect(
-      container.querySelector('[data-sl-ai-message-reasoning-mark]')
-    ).toBeNull()
-    expect(
-      container.querySelector('[data-sl-ai-message-reasoning-elapsed]')
-    ).toBeNull()
+    expect(container.querySelector('[data-sl-ai-reasoning-mark]')).toBeNull()
+    expect(container.querySelector('[data-sl-ai-reasoning-elapsed]')).toBeNull()
   })
 
   test('complete from history with no duration: plain label (Review Focus 3)', () => {
     const { container } = renderPanel(<Panel status="complete" />)
 
     expect(screen.getByText('Reasoning complete')).toBeInTheDocument()
-    expect(
-      container.querySelector('[data-sl-ai-message-reasoning-mark]')
-    ).toBeNull()
-    expect(
-      container.querySelector('[data-sl-ai-message-reasoning-elapsed]')
-    ).toBeNull()
+    expect(container.querySelector('[data-sl-ai-reasoning-mark]')).toBeNull()
+    expect(container.querySelector('[data-sl-ai-reasoning-elapsed]')).toBeNull()
   })
 
   test('labelled content is a group named by the label', () => {
     const { container } = renderPanel(<Panel status="complete" />)
-    const content = container.querySelector(
-      '[data-sl-ai-message-reasoning-content]'
-    )
-    const label = container.querySelector(
-      '[data-sl-ai-message-reasoning-label]'
-    )
+    const content = container.querySelector('[data-sl-ai-reasoning-content]')
+    const label = container.querySelector('[data-sl-ai-reasoning-label]')
 
     expect(content).toHaveAttribute('role', 'group')
     expect(content).toHaveAttribute('aria-labelledby', label?.id)
@@ -137,14 +123,12 @@ describe('AIMessageReasoning header parts', () => {
 
   test('content without a label has no group role', () => {
     const { container } = renderPanel(
-      <AIMessageReasoningRoot status="complete">
-        <AIMessageReasoningTrigger />
-        <AIMessageReasoningContent>body</AIMessageReasoningContent>
-      </AIMessageReasoningRoot>
+      <AIReasoningRoot status="complete">
+        <AIReasoningTrigger />
+        <AIReasoningContent>body</AIReasoningContent>
+      </AIReasoningRoot>
     )
-    const content = container.querySelector(
-      '[data-sl-ai-message-reasoning-content]'
-    )
+    const content = container.querySelector('[data-sl-ai-reasoning-content]')
 
     expect(content).not.toHaveAttribute('role')
     expect(content).not.toHaveAttribute('aria-labelledby')
@@ -170,15 +154,15 @@ describe('AIMessageReasoning header parts', () => {
   test('label and mark accept children; startedAt sets the elapsed origin', () => {
     vi.useFakeTimers({ now: 100_000 })
     renderPanel(
-      <AIMessageReasoningRoot status="running" startedAt={40_000}>
-        <AIMessageReasoningHeader>
-          <AIMessageReasoningMark>
+      <AIReasoningRoot status="running" startedAt={40_000}>
+        <AIReasoningHeader>
+          <AIReasoningMark>
             <i data-testid="m" />
-          </AIMessageReasoningMark>
-          <AIMessageReasoningLabel>Analyzing…</AIMessageReasoningLabel>
-          <AIMessageReasoningElapsed />
-        </AIMessageReasoningHeader>
-      </AIMessageReasoningRoot>
+          </AIReasoningMark>
+          <AIReasoningLabel>Analyzing…</AIReasoningLabel>
+          <AIReasoningElapsed />
+        </AIReasoningHeader>
+      </AIReasoningRoot>
     )
     expect(screen.getByTestId('m')).toBeInTheDocument()
     expect(screen.getByText('Analyzing…')).toBeInTheDocument()
@@ -197,10 +181,8 @@ describe('AIMessageReasoning header parts', () => {
   test('the chevron controls the content and is labelled by the label', () => {
     renderPanel(<Panel status="complete" />)
     const button = screen.getByRole('button')
-    const content = document.querySelector(
-      '[data-sl-ai-message-reasoning-content]'
-    )
-    const label = document.querySelector('[data-sl-ai-message-reasoning-label]')
+    const content = document.querySelector('[data-sl-ai-reasoning-content]')
+    const label = document.querySelector('[data-sl-ai-reasoning-label]')
 
     expect(button).toHaveAttribute('aria-controls', content?.id)
     expect(button).toHaveAttribute('aria-labelledby', label?.id)
@@ -209,7 +191,7 @@ describe('AIMessageReasoning header parts', () => {
   })
 })
 
-describe('AIMessageReasoningRoot expansion', () => {
+describe('AIReasoningRoot expansion', () => {
   it('toggles aria-expanded on click', () => {
     renderPanel(<Panel />)
     const button = screen.getByRole('button')
@@ -252,16 +234,16 @@ describe('AIMessageReasoningRoot expansion', () => {
   })
 })
 
-describe('AIMessageReasoning accessible name without a label', () => {
-  const NoLabel = (p: Partial<AIMessageReasoningRootProps>) => (
-    <AIMessageReasoningRoot {...p}>
-      <AIMessageReasoningHeader>
-        <AIMessageReasoningTrigger />
-      </AIMessageReasoningHeader>
-      <AIMessageReasoningContent>
+describe('AIReasoning accessible name without a label', () => {
+  const NoLabel = (p: Partial<AIReasoningRootProps>) => (
+    <AIReasoningRoot {...p}>
+      <AIReasoningHeader>
+        <AIReasoningTrigger />
+      </AIReasoningHeader>
+      <AIReasoningContent>
         <p>body</p>
-      </AIMessageReasoningContent>
-    </AIMessageReasoningRoot>
+      </AIReasoningContent>
+    </AIReasoningRoot>
   )
 
   test.each([
@@ -283,17 +265,17 @@ describe('AIMessageReasoning accessible name without a label', () => {
     renderPanel(<NoLabel status="complete" />)
 
     expect(
-      document.querySelector('[data-sl-ai-message-reasoning-content]')
+      document.querySelector('[data-sl-ai-reasoning-content]')
     ).not.toHaveAttribute('aria-labelledby')
   })
 
   test('with a label, the trigger and the content point at it', () => {
     renderPanel(<Panel status="complete" />)
-    const label = document.querySelector('[data-sl-ai-message-reasoning-label]')
+    const label = document.querySelector('[data-sl-ai-reasoning-label]')
 
     expect(screen.getByRole('button')).not.toHaveAttribute('aria-label')
     expect(
-      document.querySelector('[data-sl-ai-message-reasoning-content]')
+      document.querySelector('[data-sl-ai-reasoning-content]')
     ).toHaveAttribute('aria-labelledby', label?.id)
   })
 })

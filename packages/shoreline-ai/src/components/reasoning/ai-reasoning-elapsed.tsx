@@ -1,9 +1,9 @@
 import { forwardRef, useLocale } from '@vtex/shoreline'
 import { useEffect, useState } from 'react'
 
-import { useAIMessageReasoningRootContext } from './ai-message-reasoning-root'
+import { useAIReasoningRootContext } from './ai-reasoning-root'
 import { formatElapsed } from './format-duration'
-import type { AIMessageReasoningElapsedProps } from './types'
+import type { AIReasoningElapsedProps } from './types'
 
 const TICK = 1000
 
@@ -12,18 +12,18 @@ const TICK = 1000
  * while the reasoning is running.
  *
  * @example
- * <AIMessageReasoningHeader>
- *   <AIMessageReasoningLabel />
- *   <AIMessageReasoningElapsed />
- * </AIMessageReasoningHeader>
+ * <AIReasoningHeader>
+ *   <AIReasoningLabel />
+ *   <AIReasoningElapsed />
+ * </AIReasoningHeader>
  *
  * @status experimental
  */
-export const AIMessageReasoningElapsed = forwardRef<
+export const AIReasoningElapsed = forwardRef<
   HTMLSpanElement,
-  AIMessageReasoningElapsedProps
->(function AIMessageReasoningElapsed(props, ref) {
-  const { state } = useAIMessageReasoningRootContext()
+  AIReasoningElapsedProps
+>(function AIReasoningElapsed(props, ref) {
+  const { state } = useAIReasoningRootContext()
   const locale = useLocale()
   const running = state.status === 'running'
   // The tick lives here, so only this part re-renders every second.
@@ -41,7 +41,7 @@ export const AIMessageReasoningElapsed = forwardRef<
   if (!running || state.startedAt === undefined) return null
 
   return (
-    <span ref={ref} data-sl-ai-message-reasoning-elapsed {...props}>
+    <span ref={ref} data-sl-ai-reasoning-elapsed {...props}>
       {formatElapsed(Math.max(0, now - state.startedAt), locale)}
     </span>
   )

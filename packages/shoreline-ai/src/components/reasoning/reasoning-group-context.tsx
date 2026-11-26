@@ -1,9 +1,9 @@
 import { createContext, useContext, useMemo, type ReactNode } from 'react'
 
-import type { AIMessageReasoningStatus } from './types'
+import type { AIReasoningStatus } from './types'
 
 export type ReasoningGroupContextValue = {
-  status: AIMessageReasoningStatus
+  status: AIReasoningStatus
   /** Time spent reasoning, in ms. */
   duration?: number
   /** Origin of the elapsed time, in epoch ms. */

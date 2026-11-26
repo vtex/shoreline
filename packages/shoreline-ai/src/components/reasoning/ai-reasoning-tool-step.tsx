@@ -1,22 +1,22 @@
 import { Text, forwardRef } from '@vtex/shoreline'
 
-import type { AIMessageReasoningToolStepProps } from './types'
+import type { AIReasoningToolStepProps } from './types'
 
 /**
  * Compact tool step shown inside the reasoning panel.
  *
  * @status experimental
  */
-export const AIMessageReasoningToolStep = forwardRef<
+export const AIReasoningToolStep = forwardRef<
   HTMLDivElement,
-  AIMessageReasoningToolStepProps
->(function AIMessageReasoningToolStep(props, ref) {
+  AIReasoningToolStepProps
+>(function AIReasoningToolStep(props, ref) {
   const { part, ...divProps } = props
 
   return (
     <div
       ref={ref}
-      data-sl-ai-message-reasoning-tool-step
+      data-sl-ai-reasoning-tool-step
       data-status={part.status}
       {...divProps}
     >

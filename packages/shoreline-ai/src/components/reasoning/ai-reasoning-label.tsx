@@ -1,9 +1,9 @@
 import { forwardRef, useSafeLayoutEffect } from '@vtex/shoreline'
 
-import { AIThinkingIndicator } from './ai-thinking-indicator'
-import { useAIMessageReasoningRootContext } from './ai-message-reasoning-root'
+import { AIThinkingIndicator } from '../messages/ai-thinking-indicator'
+import { useAIReasoningRootContext } from './ai-reasoning-root'
 import { useIsPendingReasoning } from './reasoning-group-context'
-import type { AIMessageReasoningLabelProps } from './types'
+import type { AIReasoningLabelProps } from './types'
 import { useReasoningStatusText } from './use-reasoning-status-text'
 
 /**
@@ -12,19 +12,19 @@ import { useReasoningStatusText } from './use-reasoning-status-text'
  * part it is the live region (`role="status"`) of the pending header.
  *
  * @example
- * <AIMessageReasoningHeader>
- *   <AIMessageReasoningLabel>Analyzing orders…</AIMessageReasoningLabel>
- *   <AIMessageReasoningTrigger />
- * </AIMessageReasoningHeader>
+ * <AIReasoningHeader>
+ *   <AIReasoningLabel>Analyzing orders…</AIReasoningLabel>
+ *   <AIReasoningTrigger />
+ * </AIReasoningHeader>
  *
  * @status experimental
  */
-export const AIMessageReasoningLabel = forwardRef<
+export const AIReasoningLabel = forwardRef<
   HTMLSpanElement,
-  AIMessageReasoningLabelProps
->(function AIMessageReasoningLabel(props, ref) {
+  AIReasoningLabelProps
+>(function AIReasoningLabel(props, ref) {
   const { children, ...spanProps } = props
-  const { state, actions, meta } = useAIMessageReasoningRootContext()
+  const { state, actions, meta } = useAIReasoningRootContext()
   const statusText = useReasoningStatusText()
   const pending = useIsPendingReasoning()
 
@@ -38,7 +38,7 @@ export const AIMessageReasoningLabel = forwardRef<
     <span
       ref={ref}
       id={meta.labelId}
-      data-sl-ai-message-reasoning-label
+      data-sl-ai-reasoning-label
       role={pending ? 'status' : undefined}
       {...spanProps}
     >

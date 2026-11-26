@@ -1,11 +1,11 @@
 import { forwardRef } from '@vtex/shoreline'
 
 import {
-  useAIMessageReasoningCollapseProps,
-  useAIMessageReasoningRootContext,
-} from './ai-message-reasoning-root'
+  useAIReasoningCollapseProps,
+  useAIReasoningRootContext,
+} from './ai-reasoning-root'
 import { useReasoningGroup } from './reasoning-group-context'
-import type { AIMessageReasoningContentProps } from './types'
+import type { AIReasoningContentProps } from './types'
 
 /**
  * Collapsible body of the reasoning panel. Inside the `reasoning` template of
@@ -13,22 +13,22 @@ import type { AIMessageReasoningContentProps } from './types'
  * nothing before the message has any part.
  *
  * @example
- * <AIMessageReasoningRoot status="complete" defaultExpanded>
- *   <AIMessageReasoningHeader />
- *   <AIMessageReasoningContent>
- *     <AIMessageReasoningText />
- *   </AIMessageReasoningContent>
- * </AIMessageReasoningRoot>
+ * <AIReasoningRoot status="complete" defaultExpanded>
+ *   <AIReasoningHeader />
+ *   <AIReasoningContent>
+ *     <AIReasoningText />
+ *   </AIReasoningContent>
+ * </AIReasoningRoot>
  *
  * @status experimental
  */
-export const AIMessageReasoningContent = forwardRef<
+export const AIReasoningContent = forwardRef<
   HTMLDivElement,
-  AIMessageReasoningContentProps
->(function AIMessageReasoningContent(props, ref) {
+  AIReasoningContentProps
+>(function AIReasoningContent(props, ref) {
   const { children, ...divProps } = props
-  const { state, meta } = useAIMessageReasoningRootContext()
-  const getCollapseProps = useAIMessageReasoningCollapseProps()
+  const { state, meta } = useAIReasoningRootContext()
+  const getCollapseProps = useAIReasoningCollapseProps()
   const group = useReasoningGroup()
   const content = children ?? group?.parts
 
@@ -37,7 +37,7 @@ export const AIMessageReasoningContent = forwardRef<
 
   return (
     <div
-      data-sl-ai-message-reasoning-content
+      data-sl-ai-reasoning-content
       {...getCollapseProps({
         ref,
         id: meta.contentId,

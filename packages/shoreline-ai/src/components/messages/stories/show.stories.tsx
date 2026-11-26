@@ -17,20 +17,22 @@ import {
   AIMessageCopy,
   AIMessageDate,
   AIMessageParts,
-  AIMessageReasoning,
-  AIMessageReasoningContent,
-  AIMessageReasoningElapsed,
-  AIMessageReasoningHeader,
-  AIMessageReasoningLabel,
-  AIMessageReasoningMark,
-  AIMessageReasoningRoot,
-  AIMessageReasoningTrigger,
   AIMessageUser,
   AIMessages,
   AIThinkingIndicator,
   AIWorkingMark,
   AIMessagesI18nProvider,
 } from '../index'
+import {
+  AIReasoning,
+  AIReasoningContent,
+  AIReasoningElapsed,
+  AIReasoningHeader,
+  AIReasoningLabel,
+  AIReasoningMark,
+  AIReasoningRoot,
+  AIReasoningTrigger,
+} from '../../reasoning'
 import {
   CopiedEnvironment,
   FROZEN_NOW,
@@ -174,10 +176,10 @@ const reasoningBody = (
 export const ReasoningRunning: Story = {
   render: () => (
     <AIMessagesI18nProvider>
-      <AIMessageReasoningRoot status="running" startedAt={FROZEN_NOW - 42_000}>
-        <AIMessageReasoningHeader />
-        <AIMessageReasoningContent>{reasoningBody}</AIMessageReasoningContent>
-      </AIMessageReasoningRoot>
+      <AIReasoningRoot status="running" startedAt={FROZEN_NOW - 42_000}>
+        <AIReasoningHeader />
+        <AIReasoningContent>{reasoningBody}</AIReasoningContent>
+      </AIReasoningRoot>
     </AIMessagesI18nProvider>
   ),
 }
@@ -186,14 +188,14 @@ export const ReasoningRunning: Story = {
 export const ReasoningRunningExpanded: Story = {
   render: () => (
     <AIMessagesI18nProvider>
-      <AIMessageReasoningRoot
+      <AIReasoningRoot
         status="running"
         startedAt={FROZEN_NOW - 65_000}
         defaultExpanded
       >
-        <AIMessageReasoningHeader />
-        <AIMessageReasoningContent>{reasoningBody}</AIMessageReasoningContent>
-      </AIMessageReasoningRoot>
+        <AIReasoningHeader />
+        <AIReasoningContent>{reasoningBody}</AIReasoningContent>
+      </AIReasoningRoot>
     </AIMessagesI18nProvider>
   ),
 }
@@ -202,10 +204,10 @@ export const ReasoningRunningExpanded: Story = {
 export const ReasoningCompleteWithDuration: Story = {
   render: () => (
     <AIMessagesI18nProvider>
-      <AIMessageReasoningRoot status="complete" duration={120_000}>
-        <AIMessageReasoningHeader />
-        <AIMessageReasoningContent>{reasoningBody}</AIMessageReasoningContent>
-      </AIMessageReasoningRoot>
+      <AIReasoningRoot status="complete" duration={120_000}>
+        <AIReasoningHeader />
+        <AIReasoningContent>{reasoningBody}</AIReasoningContent>
+      </AIReasoningRoot>
     </AIMessagesI18nProvider>
   ),
 }
@@ -214,10 +216,10 @@ export const ReasoningCompleteWithDuration: Story = {
 export const ReasoningCompleteWithoutDuration: Story = {
   render: () => (
     <AIMessagesI18nProvider>
-      <AIMessageReasoningRoot status="complete">
-        <AIMessageReasoningHeader />
-        <AIMessageReasoningContent>{reasoningBody}</AIMessageReasoningContent>
-      </AIMessageReasoningRoot>
+      <AIReasoningRoot status="complete">
+        <AIReasoningHeader />
+        <AIReasoningContent>{reasoningBody}</AIReasoningContent>
+      </AIReasoningRoot>
     </AIMessagesI18nProvider>
   ),
 }
@@ -226,19 +228,15 @@ export const ReasoningCompleteWithoutDuration: Story = {
 export const ReasoningCompleteExpanded: Story = {
   render: () => (
     <AIMessagesI18nProvider>
-      <AIMessageReasoningRoot
-        status="complete"
-        duration={42_000}
-        defaultExpanded
-      >
-        <AIMessageReasoningHeader />
-        <AIMessageReasoningContent>
+      <AIReasoningRoot status="complete" duration={42_000} defaultExpanded>
+        <AIReasoningHeader />
+        <AIReasoningContent>
           {reasoningBody}
           <p style={{ margin: 0 }}>
             Three orders are past their promised date.
           </p>
-        </AIMessageReasoningContent>
-      </AIMessageReasoningRoot>
+        </AIReasoningContent>
+      </AIReasoningRoot>
     </AIMessagesI18nProvider>
   ),
 }
@@ -268,20 +266,18 @@ export const ReasoningCustomTemplate: Story = {
         <AIMessageAssistant>
           <AIMessageParts
             reasoning={
-              <AIMessageReasoning defaultExpanded>
-                <AIMessageReasoningHeader>
+              <AIReasoning defaultExpanded>
+                <AIReasoningHeader>
                   {/* Overrides the default My Assistant mark. */}
-                  <AIMessageReasoningMark>
+                  <AIReasoningMark>
                     <IconSparkle />
-                  </AIMessageReasoningMark>
-                  <AIMessageReasoningLabel>
-                    Analyzing orders
-                  </AIMessageReasoningLabel>
-                  <AIMessageReasoningElapsed />
-                  <AIMessageReasoningTrigger />
-                </AIMessageReasoningHeader>
-                <AIMessageReasoningContent />
-              </AIMessageReasoning>
+                  </AIReasoningMark>
+                  <AIReasoningLabel>Analyzing orders</AIReasoningLabel>
+                  <AIReasoningElapsed />
+                  <AIReasoningTrigger />
+                </AIReasoningHeader>
+                <AIReasoningContent />
+              </AIReasoning>
             }
           />
           <AIMessageActions />

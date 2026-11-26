@@ -1,10 +1,10 @@
 import { forwardRef } from '@vtex/shoreline'
 import type { MouseEvent } from 'react'
 
-import { useAIMessageReasoningRootContext } from './ai-message-reasoning-root'
+import { useAIReasoningRootContext } from './ai-reasoning-root'
 import { IconExpandLess, IconExpandMore } from './icons'
 import { useIsPendingReasoning } from './reasoning-group-context'
-import type { AIMessageReasoningTriggerProps } from './types'
+import type { AIReasoningTriggerProps } from './types'
 import { useReasoningStatusText } from './use-reasoning-status-text'
 
 /**
@@ -14,19 +14,19 @@ import { useReasoningStatusText } from './use-reasoning-status-text'
  * message has any part, as there is nothing to open yet.
  *
  * @example
- * <AIMessageReasoningHeader>
- *   <AIMessageReasoningLabel />
- *   <AIMessageReasoningTrigger />
- * </AIMessageReasoningHeader>
+ * <AIReasoningHeader>
+ *   <AIReasoningLabel />
+ *   <AIReasoningTrigger />
+ * </AIReasoningHeader>
  *
  * @status experimental
  */
-export const AIMessageReasoningTrigger = forwardRef<
+export const AIReasoningTrigger = forwardRef<
   HTMLButtonElement,
-  AIMessageReasoningTriggerProps
->(function AIMessageReasoningTrigger(props, ref) {
+  AIReasoningTriggerProps
+>(function AIReasoningTrigger(props, ref) {
   const { onClick, ...buttonProps } = props
-  const { state, actions, meta } = useAIMessageReasoningRootContext()
+  const { state, actions, meta } = useAIReasoningRootContext()
   const statusText = useReasoningStatusText()
   const pending = useIsPendingReasoning()
 
@@ -42,7 +42,7 @@ export const AIMessageReasoningTrigger = forwardRef<
     <button
       ref={ref}
       type="button"
-      data-sl-ai-message-reasoning-trigger
+      data-sl-ai-reasoning-trigger
       aria-expanded={state.expanded}
       aria-controls={meta.contentId}
       aria-labelledby={state.hasLabel ? meta.labelId : undefined}

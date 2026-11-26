@@ -20,9 +20,9 @@ const MessageMessagesContext = createContext<MessageGetMessage | null>(null)
  * @status experimental
  * @example
  * <AIMessagesI18nProvider messages={{ copyMessage: 'Copy answer' }}>
- *   <AIMessageReasoningRoot status="complete">
- *     <AIMessageReasoningHeader />
- *   </AIMessageReasoningRoot>
+ *   <AIReasoningRoot status="complete">
+ *     <AIReasoningHeader />
+ *   </AIReasoningRoot>
  * </AIMessagesI18nProvider>
  */
 export function AIMessagesI18nProvider(props: AIMessagesI18nProviderProps) {

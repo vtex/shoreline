@@ -85,73 +85,6 @@
     width: 100%;
   }
 
-  [data-sl-ai-message-reasoning] {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sl-space-2);
-  }
-
-  /*
-   * Mark, label, elapsed time and chevron in one 20px row. min-height lets
-   * a long label wrap without overlapping the body below.
-   */
-  [data-sl-ai-message-reasoning-header] {
-    display: flex;
-    align-items: center;
-    gap: var(--sl-space-05);
-    min-height: var(--sl-space-5);
-    color: var(--sl-color-gray-8);
-  }
-
-  /* 8px from the mark to the label: the row gap plus this margin. */
-  [data-sl-ai-message-reasoning-mark] {
-    flex-shrink: 0;
-    margin-inline-end: calc(var(--sl-space-2) - var(--sl-space-05));
-  }
-
-  [data-sl-ai-message-reasoning-label],
-  [data-sl-ai-message-reasoning-elapsed] {
-    font: var(--sl-text-body-font);
-    letter-spacing: var(--sl-text-body-letter-spacing);
-    color: var(--sl-fg-base-soft);
-  }
-
-  [data-sl-ai-message-reasoning-elapsed] {
-    margin-inline-start: var(--sl-space-05);
-    font-variant-numeric: tabular-nums;
-  }
-
-  [data-sl-ai-message-reasoning-trigger] {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: var(--sl-space-5);
-    height: var(--sl-space-5);
-    padding: 0;
-    border: none;
-    border-radius: var(--sl-radius-1);
-    background: transparent;
-    color: var(--sl-fg-base-soft);
-    cursor: pointer;
-  }
-
-  [data-sl-ai-message-reasoning-trigger]:hover {
-    background: var(--sl-bg-muted-plain-hover);
-    color: var(--sl-color-gray-9);
-  }
-
-  /* The focus ring token is a box-shadow, not a color. */
-  [data-sl-ai-message-reasoning-trigger]:focus-visible {
-    outline: none;
-    box-shadow: var(--sl-focus-ring-base);
-  }
-
-  [data-sl-ai-message-reasoning-trigger] > svg {
-    width: var(--sl-space-4);
-    height: var(--sl-space-4);
-  }
-
   [data-sl-ai-thinking-indicator] {
     background: linear-gradient(
         90deg,
@@ -203,15 +136,6 @@
     height: 100%;
   }
 
-  /*
-   * The first reasoning group takes over from the pending header in a new
-   * element: its mark skips the enter animation so the hand-off does not
-   * blink. The glyph keeps its beat.
-   */
-  [data-sl-ai-message-reasoning][data-continued] [data-sl-ai-working-mark] {
-    animation: none;
-  }
-
   @keyframes sl-ai-working-mark-enter {
     from {
       opacity: 0;
@@ -250,19 +174,6 @@
     [data-sl-ai-working-mark-glyph] {
       animation: sl-ai-working-mark-breathe 1.6s ease-in-out infinite;
     }
-  }
-
-  /* 3px bar, 16px inset, 8px between paragraphs. */
-  [data-sl-ai-message-reasoning-content] {
-    border-inline-start: calc(var(--sl-space-05) * 1.5) solid
-      var(--sl-color-gray-3);
-    padding-inline-start: var(--sl-space-4);
-    display: flex;
-    flex-direction: column;
-    gap: var(--sl-space-2);
-    font: var(--sl-text-caption-2-font);
-    letter-spacing: var(--sl-text-caption-2-letter-spacing);
-    color: var(--sl-fg-base-soft);
   }
 
   [data-sl-ai-message-text] {
@@ -344,11 +255,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-
-  [data-sl-ai-message-reasoning-tool-step] {
-    display: flex;
-    align-items: center;
   }
 
   /* Containing block of the floating actions bar. */

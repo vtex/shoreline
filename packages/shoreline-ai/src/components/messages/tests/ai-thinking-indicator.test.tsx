@@ -21,7 +21,7 @@ const SELECTOR = '[data-sl-ai-thinking-indicator]'
 /** Thinking indicators outside a reasoning panel (the panel label shimmers too). */
 function messageIndicators() {
   return Array.from(document.querySelectorAll(SELECTOR)).filter(
-    (el) => !el.closest('[data-sl-ai-message-reasoning]')
+    (el) => !el.closest('[data-sl-ai-reasoning]')
   )
 }
 
@@ -131,21 +131,17 @@ describe('AIMessageAssistant thinking indicator', () => {
     await user.click(screen.getByRole('button', { name: 'Send Hello' }))
 
     await waitFor(() =>
-      expect(
-        document.querySelector('[data-sl-ai-message-reasoning]')
-      ).toBeTruthy()
+      expect(document.querySelector('[data-sl-ai-reasoning]')).toBeTruthy()
     )
     expect(messageIndicators()).toHaveLength(0)
 
     // A running group from the real runtime reaches the panel.
-    const root = document.querySelector('[data-sl-ai-message-reasoning]')
+    const root = document.querySelector('[data-sl-ai-reasoning]')
 
     expect(root).toHaveAttribute('data-status', 'running')
-    expect(
-      root?.querySelector('[data-sl-ai-message-reasoning-mark]')
-    ).toBeTruthy()
+    expect(root?.querySelector('[data-sl-ai-reasoning-mark]')).toBeTruthy()
     expect(screen.getByRole('button', { name: 'Reasoning…' })).toHaveAttribute(
-      'data-sl-ai-message-reasoning-trigger'
+      'data-sl-ai-reasoning-trigger'
     )
 
     release()
@@ -190,27 +186,27 @@ describe('AIMessageAssistant thinking indicator', () => {
     await user.click(screen.getByRole('button', { name: 'Send Hello' }))
 
     await waitFor(() =>
-      expect(
-        document.querySelectorAll('[data-sl-ai-message-reasoning]')
-      ).toHaveLength(2)
+      expect(document.querySelectorAll('[data-sl-ai-reasoning]')).toHaveLength(
+        2
+      )
     )
 
-    const roots = document.querySelectorAll('[data-sl-ai-message-reasoning]')
+    const roots = document.querySelectorAll('[data-sl-ai-reasoning]')
 
     expect(roots[0]).toHaveAttribute('data-status', 'complete')
     expect(roots[1]).toHaveAttribute('data-status', 'running')
     expect(
-      roots[0].querySelector('[data-sl-ai-message-reasoning-mark]')
+      roots[0].querySelector('[data-sl-ai-reasoning-mark]')
     ).not.toBeInTheDocument()
     expect(
-      roots[1].querySelector('[data-sl-ai-message-reasoning-mark]')
+      roots[1].querySelector('[data-sl-ai-reasoning-mark]')
     ).toBeInTheDocument()
 
     release()
     await waitFor(() =>
       expect(
         document.querySelectorAll(
-          '[data-sl-ai-message-reasoning][data-status="running"]'
+          '[data-sl-ai-reasoning][data-status="running"]'
         )
       ).toHaveLength(0)
     )

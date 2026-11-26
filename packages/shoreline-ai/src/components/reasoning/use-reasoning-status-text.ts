@@ -1,8 +1,8 @@
 import { useLocale } from '@vtex/shoreline'
 
-import { useAIMessageReasoningRootContext } from './ai-message-reasoning-root'
+import { useAIReasoningRootContext } from './ai-reasoning-root'
 import { formatReasoningDuration } from './format-duration'
-import { useMessageMessagesContext } from './message-messages-context'
+import { useMessageMessagesContext } from '../messages/message-messages-context'
 
 /**
  * Localized status text of the closest reasoning root: "Reasoning…" while
@@ -10,7 +10,7 @@ import { useMessageMessagesContext } from './message-messages-context'
  * Internal; shared by the label and the trigger.
  */
 export function useReasoningStatusText(): string {
-  const { state } = useAIMessageReasoningRootContext()
+  const { state } = useAIReasoningRootContext()
   const getMessage = useMessageMessagesContext()
   const locale = useLocale()
 

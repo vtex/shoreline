@@ -5,15 +5,16 @@ import { forwardRef } from '@vtex/shoreline'
 
 import { AIMessagePartLeaf } from './ai-message-part-leaf'
 import { AIMessagePartPlacementProvider } from './ai-message-part-placement-context'
-import { AIMessageReasoning } from './ai-message-reasoning'
+import { AIReasoning } from '../reasoning/ai-reasoning'
 import { defaultMessageGroupBy, toolRegistry } from './default-parts'
 import { parseMessagePart } from './parser'
-import { ReasoningGroupProvider } from './reasoning-group-context'
-import type { AIMessagePartsProps, AIMessageReasoningStatus } from './types'
+import { ReasoningGroupProvider } from '../reasoning/reasoning-group-context'
+import type { AIReasoningStatus } from '../reasoning/types'
+import type { AIMessagePartsProps } from './types'
 
 type GroupPartLike = { status?: { type?: string }; timing?: unknown }
 
-export function getGroupStatus(part: GroupPartLike): AIMessageReasoningStatus {
+export function getGroupStatus(part: GroupPartLike): AIReasoningStatus {
   return part.status?.type === 'running' ? 'running' : 'complete'
 }
 
@@ -36,7 +37,7 @@ function auiGroupBy(part: PartState) {
   return defaultMessageGroupBy(shorelinePart, { toolRegistry })
 }
 
-const defaultReasoning = <AIMessageReasoning />
+const defaultReasoning = <AIReasoning />
 
 /**
  * Iterates message parts with grouping and optional per-part overrides.

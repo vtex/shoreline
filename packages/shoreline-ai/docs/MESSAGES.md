@@ -56,7 +56,7 @@ Each message is an `AIMessage` with a `parts` array. Parts are typed as `AIMessa
 | Type | Fields | Default rendering |
 |------|--------|-------------------|
 | `text` | `text` | `AIMessageText` → GFM markdown |
-| `reasoning` | `text`, `status: 'streaming' \| 'complete'` | Reasoning panel (the `reasoning` template of `AIMessageParts`) → `AIMessageReasoningText` |
+| `reasoning` | `text`, `status: 'streaming' \| 'complete'` | Reasoning panel (the `reasoning` template of `AIMessageParts`) → `AIReasoningText` |
 | `tool` | `name`, `args`, `output`, `status`, `error?`, `metadata?` | Widget, canvas trigger, CoT step, or fallback |
 | `resource` | `uri`, `name`, `mimeType` | Image preview or file row |
 
@@ -80,18 +80,18 @@ Full message shape and transport details: [RUNTIME.md](./RUNTIME.md). Read threa
 |-----------|---------|
 | `AIMessageText` | Text part rendered as markdown |
 | `AIMarkdown` | Standalone GFM markdown (no streaming cursor) |
-| `AIMessageReasoning` | Connected reasoning panel for the `reasoning` template of `AIMessageParts`. Reads status, duration and start time from the group. Only valid inside `AIMessageParts` |
-| `useAIMessageReasoning()` | Read-only `{ status, expanded, duration }` of the closest reasoning panel, for app parts placed inside it |
+| `AIReasoning` | Connected reasoning panel for the `reasoning` template of `AIMessageParts`. Reads status, duration and start time from the group. Only valid inside `AIMessageParts` |
+| `useAIReasoning()` | Read-only `{ status, expanded, duration }` of the closest reasoning panel, for app parts placed inside it |
 | `useAIMessage()` | `{ id, role, status, createdAt }` of the message you are inside (`status`: `running`, `complete` or `incomplete`). Key per-message app state, such as votes, by `id`. Re-renders only when one of these fields changes, not on every streamed token |
-| `AIMessageReasoningRoot` | Owns the panel state. Takes `status`, `duration`, `startedAt`, `defaultExpanded`, `expanded`, `onExpandedChange` |
-| `AIMessageReasoningHeader` | The 20px row: mark, label, elapsed time, chevron. Takes children to compose your own row |
-| `AIMessageReasoningMark` | The working mark, only while running |
-| `AIMessageReasoningLabel` | The status text ("Reasoning…", "Reasoning completed in 2m"). Shimmers while running |
-| `AIMessageReasoningElapsed` | Elapsed time while running ("42s", "1m 5s") |
-| `AIMessageReasoningTrigger` | The chevron button that opens and closes the panel. The only toggle in the header |
-| `AIMessageReasoningContent` | Collapsible body. Inside `AIMessageReasoning` it renders the group's parts |
-| `AIMessageReasoningText` | Reasoning text inside CoT |
-| `AIMessageReasoningToolStep` | Compact step for unregistered tools in CoT |
+| `AIReasoningRoot` | Owns the panel state. Takes `status`, `duration`, `startedAt`, `defaultExpanded`, `expanded`, `onExpandedChange` |
+| `AIReasoningHeader` | The 20px row: mark, label, elapsed time, chevron. Takes children to compose your own row |
+| `AIReasoningMark` | The working mark, only while running |
+| `AIReasoningLabel` | The status text ("Reasoning…", "Reasoning completed in 2m"). Shimmers while running |
+| `AIReasoningElapsed` | Elapsed time while running ("42s", "1m 5s") |
+| `AIReasoningTrigger` | The chevron button that opens and closes the panel. The only toggle in the header |
+| `AIReasoningContent` | Collapsible body. Inside `AIReasoning` it renders the group's parts |
+| `AIReasoningText` | Reasoning text inside CoT |
+| `AIReasoningToolStep` | Compact step for unregistered tools in CoT |
 | `AIThinkingIndicator` | The text loading effect: its children with a light band that sweeps across. No default text, no role |
 | `AIWorkingMark` | The small spinning mark (16px box, 14px glyph). Decorative (`aria-hidden`) |
 | `AIMessageActions` | Floating bar under a completed assistant message that has text. Without children: `AIMessageCopy` then `AIMessageDate`. With children: exactly them |
@@ -203,7 +203,7 @@ Inside the default flow, `AIMessageResource` picks the variant from the current 
 <AIMessages workingMark={<IconSparkle />} />
 ```
 
-Without it the mark is the My Assistant mark (the pink four-point star). There are three ways to override it: children of `AIWorkingMark`, children of `AIMessageReasoningMark` (in a reasoning template), or `workingMark` on `AIMessages` for every mark in the list. Anything else about the reasoning goes through the template (next section).
+Without it the mark is the My Assistant mark (the pink four-point star). There are three ways to override it: children of `AIWorkingMark`, children of `AIReasoningMark` (in a reasoning template), or `workingMark` on `AIMessages` for every mark in the list. Anything else about the reasoning goes through the template (next section).
 
 ### Reasoning
 
@@ -215,7 +215,7 @@ Each reasoning group is one 20px header row, with an optional body below it:
 | Done, with a duration | no | "Reasoning completed in 2m" ("in 40s" under a minute) | no | yes |
 | Done, no duration | no | "Reasoning complete" | no | yes |
 
-Only the chevron is a button. It has `aria-expanded` and `aria-controls`, and its accessible name is the label text (`aria-labelledby`). The open body is a `role="group"` named by the same label; with no label mounted it has no role. When no `AIMessageReasoningLabel` is mounted in the header, the chevron gets an `aria-label` with the status text from the catalog instead. Clicking the label or the time does nothing.
+Only the chevron is a button. It has `aria-expanded` and `aria-controls`, and its accessible name is the label text (`aria-labelledby`). The open body is a `role="group"` named by the same label; with no label mounted it has no role. When no `AIReasoningLabel` is mounted in the header, the chevron gets an `aria-label` with the status text from the catalog instead. Clicking the label or the time does nothing.
 
 The label, the elapsed time and the chevron icon use `--sl-fg-base-soft` (on hover the chevron gets the plain hover background and the `--sl-color-gray-9` color: darker on Horizon, the same gray as at rest on Sunrise, where `--sl-fg-base-soft` is already `--sl-color-gray-9`); a long label wraps and the row grows. The open body sits 8px below the header, with a 3px left bar and 16px of left padding; reasoning text is `caption-2` in the soft foreground color.
 
@@ -232,40 +232,40 @@ Because the pending header belongs to `AIMessageParts`, it shows wherever you co
 
 #### The reasoning template
 
-`AIMessageParts` takes a `reasoning` element: the template it renders once per reasoning group. The default is `<AIMessageReasoning />`. Pass your own to rearrange or relabel the header; `AIMessageReasoning` reads the group's status, duration, start time and parts from context, so it is only valid inside `AIMessageParts`.
+`AIMessageParts` takes a `reasoning` element: the template it renders once per reasoning group. The default is `<AIReasoning />`. Pass your own to rearrange or relabel the header; `AIReasoning` reads the group's status, duration, start time and parts from context, so it is only valid inside `AIMessageParts`.
 
 ```tsx
 <AIMessageParts
   reasoning={
-    <AIMessageReasoning defaultExpanded>
-      <AIMessageReasoningHeader>
-        <AIMessageReasoningMark />
-        <AIMessageReasoningLabel>Analyzing orders…</AIMessageReasoningLabel>
-        <AIMessageReasoningElapsed />
-        <AIMessageReasoningTrigger />
-      </AIMessageReasoningHeader>
-      <AIMessageReasoningContent />
-    </AIMessageReasoning>
+    <AIReasoning defaultExpanded>
+      <AIReasoningHeader>
+        <AIReasoningMark />
+        <AIReasoningLabel>Analyzing orders…</AIReasoningLabel>
+        <AIReasoningElapsed />
+        <AIReasoningTrigger />
+      </AIReasoningHeader>
+      <AIReasoningContent />
+    </AIReasoning>
   }
 />
 ```
 
-Inside the template, `useAIMessageReasoning()` gives your own parts read-only access to `{ status, expanded, duration }`.
+Inside the template, `useAIReasoning()` gives your own parts read-only access to `{ status, expanded, duration }`.
 
 #### Standalone reasoning compound
 
-Build a panel by hand with `AIMessageReasoningRoot`, outside the grouping rules. This is also how the show stories render each state:
+Build a panel by hand with `AIReasoningRoot`, outside the grouping rules. This is also how the show stories render each state:
 
 ```tsx
-<AIMessageReasoningRoot status="running" startedAt={startedAt}>
-  <AIMessageReasoningHeader />
-  <AIMessageReasoningContent>
-    <AIMessageReasoningText />
-  </AIMessageReasoningContent>
-</AIMessageReasoningRoot>
+<AIReasoningRoot status="running" startedAt={startedAt}>
+  <AIReasoningHeader />
+  <AIReasoningContent>
+    <AIReasoningText />
+  </AIReasoningContent>
+</AIReasoningRoot>
 ```
 
-The parts must be used inside `AIMessageReasoningRoot`. All message pieces read their labels from the messages catalog, so mount them under `AIMessages` or wrap them in `AIMessagesI18nProvider`. `AIMessageReasoningText` reads the current reasoning part, so it only works where `AIMessageParts` renders a reasoning part.
+The parts must be used inside `AIReasoningRoot`. All message pieces read their labels from the messages catalog, so mount them under `AIMessages` or wrap them in `AIMessagesI18nProvider`. `AIReasoningText` reads the current reasoning part, so it only works where `AIMessageParts` renders a reasoning part.
 
 For a controlled panel pass `expanded` and `onExpandedChange`; `defaultExpanded` is then ignored. Without `startedAt`, the root counts from its first render with `status="running"`.
 
@@ -357,8 +357,8 @@ Only the "now" date is always visible. Any other date shows on hover or when foc
 | You want to change | Use |
 |--------------------|-----|
 | A text for the whole chat | `messages` on `AIMessages` |
-| The text of one reasoning label | Children of `AIMessageReasoningLabel` |
-| The working mark | `workingMark` on `AIMessages` (or children of `AIMessageReasoningMark`) |
+| The text of one reasoning label | Children of `AIReasoningLabel` |
+| The working mark | `workingMark` on `AIMessages` (or children of `AIReasoningMark`) |
 | The header pieces or their order | The `reasoning` template of `AIMessageParts` |
 | Bar actions | Children of `AIMessageActions` |
 | Language, dates and durations | `LocaleProvider` |
@@ -383,8 +383,8 @@ Assistant parts are grouped automatically. Reasoning and unregistered tools belo
 flowchart TD
   parts[AIMessageParts] --> groupCoT[group-cot]
   parts --> messageLevel[Message level]
-  groupCoT --> reasoningText[AIMessageReasoningText]
-  groupCoT --> toolStep[AIMessageReasoningToolStep]
+  groupCoT --> reasoningText[AIReasoningText]
+  groupCoT --> toolStep[AIReasoningToolStep]
   messageLevel --> textPart[AIMessageText]
   messageLevel --> widgetTool[Registered widget]
   messageLevel --> canvasTool[Canvas trigger]
@@ -491,10 +491,10 @@ Also accepts native `div` attributes.
 | Prop | Default | Purpose |
 |------|---------|---------|
 | `showReasoningTools` | `true` | Same as above |
-| `reasoning` | `<AIMessageReasoning />` | Element rendered once per reasoning group, and once as the running header before the first part |
+| `reasoning` | `<AIReasoning />` | Element rendered once per reasoning group, and once as the running header before the first part |
 | `children` | — | Optional `(part, meta) => ReactNode` renderer |
 
-### `<AIMessageReasoning>`
+### `<AIReasoning>`
 
 | Prop | Default | Purpose |
 |------|---------|---------|
@@ -503,7 +503,7 @@ Also accepts native `div` attributes.
 | `onExpandedChange` | — | Called with the next state whenever the chevron is toggled |
 | `children` | header and content | Panel parts |
 
-### `<AIMessageReasoningRoot>`
+### `<AIReasoningRoot>`
 
 | Prop | Default | Purpose |
 |------|---------|---------|
@@ -514,15 +514,15 @@ Also accepts native `div` attributes.
 | `expanded` | — | Controlled expanded state. `defaultExpanded` is ignored when set |
 | `onExpandedChange` | — | Called with the next state whenever the chevron is toggled |
 
-### `<AIMessageReasoningHeader>`, `Mark`, `Label`
+### `<AIReasoningHeader>`, `Mark`, `Label`
 
 | Component | Prop | Default | Purpose |
 |-----------|------|---------|---------|
-| `AIMessageReasoningHeader` | `children` | mark, label, elapsed time, trigger | Header parts |
-| `AIMessageReasoningMark` | `children` | `workingMark` from `AIMessages`, then the My Assistant mark | Custom glyph |
-| `AIMessageReasoningLabel` | `children` | the localized status text | Custom label text |
+| `AIReasoningHeader` | `children` | mark, label, elapsed time, trigger | Header parts |
+| `AIReasoningMark` | `children` | `workingMark` from `AIMessages`, then the My Assistant mark | Custom glyph |
+| `AIReasoningLabel` | `children` | the localized status text | Custom label text |
 
-`AIMessageReasoningElapsed` and `AIMessageReasoningTrigger` have no props of their own: the trigger takes native `button` attributes and its accessible name comes from the label.
+`AIReasoningElapsed` and `AIReasoningTrigger` have no props of their own: the trigger takes native `button` attributes and its accessible name comes from the label.
 
 ### `<AIThinkingIndicator>` and `<AIWorkingMark>`
 
@@ -570,7 +570,7 @@ Also accepts native `time` attributes.
 |------|---------|
 | `children` | Markdown source string |
 
-`AIMessageUser`, `AIMessageRoot`, `AIMessageText`, and resource components accept standard `div` HTML attributes. `AIMessageReasoningToolStep` requires a `part: AIToolPart` prop when used standalone.
+`AIMessageUser`, `AIMessageRoot`, `AIMessageText`, and resource components accept standard `div` HTML attributes. `AIReasoningToolStep` requires a `part: AIToolPart` prop when used standalone.
 
 ## i18n
 
@@ -592,7 +592,7 @@ Override only on the root:
 <AIMessages messages={{ reasoningDone: 'Finished reasoning' }} />
 ```
 
-Unset keys fall back to the active `LocaleProvider` catalog. The text of a single label can instead be set with children of `AIMessageReasoningLabel`.
+Unset keys fall back to the active `LocaleProvider` catalog. The text of a single label can instead be set with children of `AIReasoningLabel`.
 
 ## Styling hooks
 
@@ -612,15 +612,15 @@ Stable `data-sl-*` hooks for app overrides. Use only `--sl-*` tokens inside `@la
 | `[data-sl-ai-message][data-sl-ai-message-role="assistant"]` | Assistant message — left-aligned |
 | `[data-sl-ai-message-content]` | Message content wrapper |
 | `[data-sl-ai-message-parts]` | Parts container |
-| `[data-sl-ai-message-reasoning]` | CoT panel. Has `data-status="running" \| "complete"`, and `data-continued` on the group that took over from the pending header |
-| `[data-sl-ai-message-reasoning-header]` | The 20px header row |
-| `[data-sl-ai-message-reasoning-mark]` | The working mark (running only) |
-| `[data-sl-ai-message-reasoning-label]` | The status text |
-| `[data-sl-ai-message-reasoning-elapsed]` | The elapsed time (running only) |
-| `[data-sl-ai-message-reasoning-trigger]` | The chevron button. Has `aria-expanded` |
-| `[data-sl-ai-message-reasoning-content]` | CoT body (left border) |
-| `[data-sl-ai-message-reasoning-text]` | One reasoning step |
-| `[data-sl-ai-message-reasoning-tool-step]` | Compact tool step in CoT |
+| `[data-sl-ai-reasoning]` | CoT panel. Has `data-status="running" \| "complete"`, and `data-continued` on the group that took over from the pending header |
+| `[data-sl-ai-reasoning-header]` | The 20px header row |
+| `[data-sl-ai-reasoning-mark]` | The working mark (running only) |
+| `[data-sl-ai-reasoning-label]` | The status text |
+| `[data-sl-ai-reasoning-elapsed]` | The elapsed time (running only) |
+| `[data-sl-ai-reasoning-trigger]` | The chevron button. Has `aria-expanded` |
+| `[data-sl-ai-reasoning-content]` | CoT body (left border) |
+| `[data-sl-ai-reasoning-text]` | One reasoning step |
+| `[data-sl-ai-reasoning-tool-step]` | Compact tool step in CoT |
 | `[data-sl-ai-message-text]` | Text part |
 | `[data-sl-ai-markdown]` | Markdown output |
 | `[data-sl-ai-thinking-indicator]` | The text loading effect |
@@ -657,10 +657,11 @@ This change aligns the reasoning, the thinking indicator and the actions bar wit
 1. **`AIMessageAssistant` with children renders exactly the children.** It no longer appends the actions row or a thinking indicator around them. Add `AIMessageParts` and `AIMessageActions` yourself. The pending reasoning header now comes from `AIMessageParts`.
 2. **`AIMessageActions` children replace the default actions.** Before, children came after the copy button. Now no children means `AIMessageCopy` + `AIMessageDate`, and children are rendered alone: include `AIMessageCopy` and `AIMessageDate` to keep them. The bar is also always visible and floats under the message (the hover-only behavior is gone).
 3. **`AIThinkingIndicator` is only the text effect.** The `label` prop is removed: pass the text as children. It renders a `span` with no `role`, no dots and no default text. `AIDotsLoader` and `[data-sl-ai-dots-loader]` are gone.
-4. **Reasoning is composed from parts.** `AIMessageReasoningTrigger` loses its `label` prop and is only the chevron button, so clicking the label or the time no longer toggles the panel (the old trigger was the whole row); the text moves to `AIMessageReasoningLabel`. `AIMessageReasoningHeader` is the row of mark, label, elapsed time and trigger. The internal meta span ("Worked for") is removed, and so are `[data-sl-ai-message-reasoning-row]` and `[data-sl-ai-message-reasoning-meta]`: use `[data-sl-ai-message-reasoning-header]`, `-mark`, `-label` and `-elapsed`.
+4. **Reasoning is composed from parts.** `AIReasoningTrigger` loses its `label` prop and is only the chevron button, so clicking the label or the time no longer toggles the panel (the old trigger was the whole row); the text moves to `AIReasoningLabel`. `AIReasoningHeader` is the row of mark, label, elapsed time and trigger. The internal meta span ("Worked for") is removed, and so are `[data-sl-ai-reasoning-row]` and `[data-sl-ai-reasoning-meta]`: use `[data-sl-ai-reasoning-header]`, `-mark`, `-label` and `-elapsed`.
 5. **Catalog keys changed.** `reasoningReady` is now `reasoningDone`, `workedFor` is now `reasoningDoneIn`, `thinking` is removed and `copied` is new. `reasoningStreaming` now reads "Reasoning…" / "Raciocinando…".
 6. **`AIMessageCopyProps` and `AIMessageActionProps` omit `aria-label`.** The accessible name comes from the `label` prop of `AIMessageAction` and from the catalog for `AIMessageCopy` (`copyMessage`, then `copied`).
 7. **`MessageMessagesProvider` is now `AIMessagesI18nProvider`.** Same props (`messages`, `children`), now typed as `AIMessagesI18nProviderProps`. There is no alias for the old name.
+8. **The reasoning family is `AIReasoning*`.** `AIMessageReasoning`, `AIMessageReasoningRoot`, `-Header`, `-Mark`, `-Label`, `-Elapsed`, `-Trigger`, `-Content`, `-Text` and `-ToolStep` are now `AIReasoning`, `AIReasoningRoot`, `AIReasoningHeader`, and so on, with their `Props` and `Options` types; `AIMessageReasoningStatus` is `AIReasoningStatus` and `useAIMessageReasoning` is `useAIReasoning`. The selectors follow: `[data-sl-ai-message-reasoning*]` is now `[data-sl-ai-reasoning*]`. The styles live in `ai-reasoning.css`, included in `@vtex/shoreline-ai/css`. There are no aliases for the old names.
 
 Layout changes in the thread are visual rather than API breaks: the gap between messages grows from 16px to 32px and the thread now pads the messages and the composer (see [THREAD.md](./THREAD.md#layout-and-spacing)).
 
@@ -670,7 +671,7 @@ Layout changes in the thread are visual rather than API breaks: the gap between 
   <AIMessageParts />   {/* the actions row and the indicator were added for you */}
 </AIMessageAssistant>
 <AIThinkingIndicator label="Checking orders" />
-<AIMessageReasoningTrigger label="Analyzing" />
+<AIReasoningTrigger label="Analyzing" />
 
 // After
 <AIMessageAssistant>
@@ -678,10 +679,10 @@ Layout changes in the thread are visual rather than API breaks: the gap between 
   <AIMessageActions />
 </AIMessageAssistant>
 <AIThinkingIndicator>Checking orders</AIThinkingIndicator>
-<AIMessageReasoningHeader>
-  <AIMessageReasoningLabel>Analyzing</AIMessageReasoningLabel>
-  <AIMessageReasoningTrigger />
-</AIMessageReasoningHeader>
+<AIReasoningHeader>
+  <AIReasoningLabel>Analyzing</AIReasoningLabel>
+  <AIReasoningTrigger />
+</AIReasoningHeader>
 ```
 
 ## Best practices

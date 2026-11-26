@@ -305,7 +305,7 @@ export const FocusRingsNotClippedInMessages: Story = {
 
     const trigger = await waitFor(() => {
       const element = canvasElement.querySelector(
-        '[data-sl-ai-message-reasoning-trigger]'
+        '[data-sl-ai-reasoning-trigger]'
       )
 
       expect(element).toBeInstanceOf(HTMLElement)
