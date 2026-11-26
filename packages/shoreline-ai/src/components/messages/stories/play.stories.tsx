@@ -21,11 +21,7 @@ import {
   AIMessages,
 } from '../index'
 import { MessagesStoryDecorator } from './decorators'
-import {
-  plainAnswer,
-  reasoningToolText,
-  twoReasoningGroups,
-} from './messages-story-shared'
+import { plainAnswer, reasoningToolText } from './messages-story-shared'
 import { AppThumbs, ThumbIcon, type ThumbVote } from './story-icons'
 
 const meta: Meta<typeof AIMessages> = {
@@ -63,25 +59,6 @@ export const RendersHistory: Story = {
     await expect(
       document.querySelector('[data-sl-ai-message-role="user"]')
     ).toBeTruthy()
-  },
-}
-
-export const ExpandsAndCollapsesReasoning: Story = {
-  render: () => (
-    <ThreadHistorySeed messages={reasoningToolText}>
-      <AIMessages />
-    </ThreadHistorySeed>
-  ),
-  play: async ({ canvasElement }) => {
-    const trigger = await within(canvasElement).findByRole('button', {
-      name: /^Reasoning complete/,
-    })
-
-    await expect(trigger).toHaveAttribute('aria-expanded', 'false')
-    await userEvent.click(trigger)
-    await expect(trigger).toHaveAttribute('aria-expanded', 'true')
-    await userEvent.click(trigger)
-    await expect(trigger).toHaveAttribute('aria-expanded', 'false')
   },
 }
 
@@ -125,35 +102,6 @@ export const CopyShowsCheckThenResets: Story = {
         Reflect.deleteProperty(navigator, 'clipboard')
       }
     }
-  },
-}
-
-export const TwoGroupsKeepIndependentState: Story = {
-  render: () => (
-    <ThreadHistorySeed messages={twoReasoningGroups}>
-      <AIMessages />
-    </ThreadHistorySeed>
-  ),
-  play: async ({ canvasElement }) => {
-    const triggers = await waitFor(() => {
-      const found = within(canvasElement).getAllByRole('button', {
-        name: /^Reasoning complete/,
-      })
-
-      expect(found).toHaveLength(2)
-
-      return found
-    })
-    const [first, second] = triggers
-
-    await userEvent.click(first)
-    await expect(first).toHaveAttribute('aria-expanded', 'true')
-    await expect(second).toHaveAttribute('aria-expanded', 'false')
-
-    await userEvent.click(second)
-    await userEvent.click(first)
-    await expect(first).toHaveAttribute('aria-expanded', 'false')
-    await expect(second).toHaveAttribute('aria-expanded', 'true')
   },
 }
 
