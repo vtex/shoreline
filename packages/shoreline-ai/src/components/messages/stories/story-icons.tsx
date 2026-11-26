@@ -1,3 +1,5 @@
+import { AIMessageAction, useAIMessage } from '../index'
+
 /**
  * Story-only thumbs from the design proposal. They stand in for the app's own
  * icons: the package ships no thumbs.
@@ -60,5 +62,41 @@ export function ThumbIcon(props: {
         fill="currentColor"
       />
     </svg>
+  )
+}
+
+export type ThumbVote = 'up' | 'down'
+
+/**
+ * The app's pair of thumbs for one answer, as an app would write it: the vote
+ * is keyed by the message id from `useAIMessage()`, each thumb toggles, and
+ * the two are mutually exclusive. A pressed thumb sets `aria-pressed` and
+ * shows the filled glyph. Without `onVote` the thumbs are static.
+ */
+export function AppThumbs(props: {
+  votes: Record<string, ThumbVote>
+  onVote?: (messageId: string, vote: ThumbVote | null) => void
+}) {
+  const { votes, onVote } = props
+  const { id } = useAIMessage()
+  const vote = votes[id]
+
+  return (
+    <>
+      <AIMessageAction
+        label="Good response"
+        aria-pressed={vote === 'up'}
+        onClick={() => onVote?.(id, vote === 'up' ? null : 'up')}
+      >
+        <ThumbIcon direction="up" selected={vote === 'up'} />
+      </AIMessageAction>
+      <AIMessageAction
+        label="Bad response"
+        aria-pressed={vote === 'down'}
+        onClick={() => onVote?.(id, vote === 'down' ? null : 'down')}
+      >
+        <ThumbIcon direction="down" selected={vote === 'down'} />
+      </AIMessageAction>
+    </>
   )
 }

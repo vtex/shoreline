@@ -1,5 +1,6 @@
 import { expect, userEvent, waitFor, within } from '@storybook/test'
 import type { Meta, StoryObj } from '@storybook/react'
+import { useState } from 'react'
 
 import '@vtex/shoreline-ai/css'
 
@@ -25,7 +26,7 @@ import {
   reasoningToolText,
   twoReasoningGroups,
 } from './messages-story-shared'
-import { ThumbIcon } from './story-icons'
+import { AppThumbs, ThumbIcon, type ThumbVote } from './story-icons'
 
 const meta: Meta<typeof AIMessages> = {
   title: 'shoreline-ai/messages',
@@ -202,5 +203,75 @@ export const ActionsReachableByKeyboard: Story = {
     await userEvent.tab()
     await expect(copy).toHaveFocus()
     await waitFor(() => expect(getComputedStyle(date).opacity).toBe('1'))
+  },
+}
+
+/**
+ * The app's thumbs are a toggle pair per answer: pressing one presses it and
+ * shows the filled glyph, pressing the other moves the selection, and pressing
+ * the pressed one again clears it.
+ */
+function VotingThumbs() {
+  const [votes, setVotes] = useState<Record<string, ThumbVote>>({})
+
+  function handleVote(messageId: string, vote: ThumbVote | null) {
+    setVotes((current) => {
+      const next = { ...current }
+
+      if (vote) next[messageId] = vote
+      else delete next[messageId]
+
+      return next
+    })
+  }
+
+  return (
+    <ThreadHistorySeed messages={plainAnswer}>
+      <AIMessages>
+        <AIMessageUser />
+        <AIMessageAssistant>
+          <AIMessageParts />
+          <AIMessageActions>
+            <AppThumbs votes={votes} onVote={handleVote} />
+            <AIMessageCopy />
+            <AIMessageDate />
+          </AIMessageActions>
+        </AIMessageAssistant>
+      </AIMessages>
+    </ThreadHistorySeed>
+  )
+}
+
+/** The filled glyph of a pressed thumb is drawn on a 16px grid. */
+function isFilled(button: HTMLElement) {
+  return button.querySelector('svg')?.getAttribute('viewBox') === '0 0 16 16'
+}
+
+export const AppThumbsToggle: Story = {
+  render: () => <VotingThumbs />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const up = await canvas.findByRole('button', { name: 'Good response' })
+    const down = canvas.getByRole('button', { name: 'Bad response' })
+
+    await expect(up).toHaveAttribute('aria-pressed', 'false')
+    await expect(down).toHaveAttribute('aria-pressed', 'false')
+
+    await userEvent.click(down)
+    await expect(down).toHaveAttribute('aria-pressed', 'true')
+    await expect(up).toHaveAttribute('aria-pressed', 'false')
+    await expect(isFilled(down)).toBe(true)
+    await expect(isFilled(up)).toBe(false)
+
+    await userEvent.click(up)
+    await expect(up).toHaveAttribute('aria-pressed', 'true')
+    await expect(down).toHaveAttribute('aria-pressed', 'false')
+    await expect(isFilled(up)).toBe(true)
+    await expect(isFilled(down)).toBe(false)
+
+    await userEvent.click(up)
+    await expect(up).toHaveAttribute('aria-pressed', 'false')
+    await expect(down).toHaveAttribute('aria-pressed', 'false')
+    await expect(isFilled(up)).toBe(false)
   },
 }

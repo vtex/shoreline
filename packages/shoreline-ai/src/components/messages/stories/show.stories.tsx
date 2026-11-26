@@ -12,7 +12,6 @@ import {
   threadStoryShellStyle,
 } from '../../thread/stories/thread-story-shared'
 import {
-  AIMessageAction,
   AIMessageActions,
   AIMessageAssistant,
   AIMessageCopy,
@@ -46,7 +45,7 @@ import {
   reasoningToolText,
   twoReasoningGroups,
 } from './messages-story-shared'
-import { ThumbIcon } from './story-icons'
+import { AppThumbs } from './story-icons'
 
 const meta: Meta<typeof AIMessages> = {
   title: 'shoreline-ai/messages',
@@ -329,24 +328,21 @@ export const ActionsEarlierAnswer: Story = {
 }
 
 /**
- * The app's own thumbs in the bar, in front of copy and date. The first is
- * pressed, so it shows the filled glyph in the same color. Thumb icons belong
- * to the app (these are the proposal's): the package ships none.
+ * The app's own thumbs in the bar, in front of copy and date, on two answers:
+ * the first answer is liked and the second disliked. A pressed thumb shows the
+ * filled glyph in the same color; the dislike glyph is the like glyph
+ * mirrored. Thumb icons belong to the app (these are the proposal's): the
+ * package ships none.
  */
 export const ActionsWithAppThumbs: Story = {
   render: () => (
-    <ThreadHistorySeed messages={plainAnswer}>
+    <ThreadHistorySeed messages={earlierAnswer}>
       <AIMessages>
         <AIMessageUser />
         <AIMessageAssistant>
           <AIMessageParts />
           <AIMessageActions>
-            <AIMessageAction label="Good response" aria-pressed>
-              <ThumbIcon direction="up" selected />
-            </AIMessageAction>
-            <AIMessageAction label="Bad response" aria-pressed={false}>
-              <ThumbIcon direction="down" />
-            </AIMessageAction>
+            <AppThumbs votes={{ 'assistant-5': 'up', 'assistant-6': 'down' }} />
             <AIMessageCopy />
             <AIMessageDate />
           </AIMessageActions>
