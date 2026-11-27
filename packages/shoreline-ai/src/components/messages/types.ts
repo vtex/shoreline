@@ -232,7 +232,7 @@ export type AIMessageCopyProps = AIMessageCopyOptions &
 
 export interface AIMessageDateOptions {
   /**
-   * Date to show, relative to now.
+   * Date to show, formatted for a reader now.
    * @default the creation date of the current message
    */
   date?: Date | string | number

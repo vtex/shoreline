@@ -9,7 +9,7 @@
 </AIReasoningHeader>
 ```
 
-The time counts from the `startedAt` of the panel (see [AIReasoningRoot](/components/ai-reasoning/ai-reasoning-root)) and is formatted with `Intl` in the locale of the `LocaleProvider`: en-US "1m 5s", pt-BR "1 min 5 s". Only this piece re-renders every second.
+The time counts from the `startedAt` of the panel (see [AIReasoningRoot](/components/ai-reasoning/ai-reasoning-root)) and is formatted with `Intl` in the locale of the `LocaleProvider` (en-US "1m 5s"). The pt-BR catalog overrides the unit format to match the design ("1m 5s" instead of "1 min 5 s"). Only this piece re-renders every second.
 
 ## Props
 

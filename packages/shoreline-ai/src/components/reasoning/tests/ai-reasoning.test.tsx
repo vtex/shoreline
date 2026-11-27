@@ -71,14 +71,14 @@ describe('AIReasoning header parts', () => {
     const { container } = renderPanel(<Panel status="running" />)
 
     expect(container.querySelector('[data-sl-ai-reasoning-mark]')).toBeTruthy()
-    expect(screen.getByText('Reasoning…')).toHaveAttribute(
+    expect(screen.getByText('Thinking…')).toHaveAttribute(
       'data-sl-ai-thinking-indicator'
     )
     act(() => vi.advanceTimersByTime(3000))
     expect(
       container.querySelector('[data-sl-ai-reasoning-elapsed]')
     ).toHaveTextContent('3s')
-    expect(screen.getByRole('button', { name: 'Reasoning…' })).toHaveAttribute(
+    expect(screen.getByRole('button', { name: 'Thinking…' })).toHaveAttribute(
       'aria-expanded',
       'false'
     )
@@ -88,7 +88,7 @@ describe('AIReasoning header parts', () => {
     const user = userEvent.setup()
 
     renderPanel(<Panel status="complete" />)
-    await user.click(screen.getByText('Reasoning complete'))
+    await user.click(screen.getByText('Done thinking'))
     expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false')
     await user.click(screen.getByRole('button'))
     expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'true')
@@ -99,7 +99,7 @@ describe('AIReasoning header parts', () => {
       <Panel status="complete" duration={125_000} />
     )
 
-    expect(screen.getByText('Reasoning completed in 2m')).toBeInTheDocument()
+    expect(screen.getByText('Thought for 2m 5s')).toBeInTheDocument()
     expect(container.querySelector('[data-sl-ai-reasoning-mark]')).toBeNull()
     expect(container.querySelector('[data-sl-ai-reasoning-elapsed]')).toBeNull()
   })
@@ -107,7 +107,7 @@ describe('AIReasoning header parts', () => {
   test('complete from history with no duration: plain label (Review Focus 3)', () => {
     const { container } = renderPanel(<Panel status="complete" />)
 
-    expect(screen.getByText('Reasoning complete')).toBeInTheDocument()
+    expect(screen.getByText('Done thinking')).toBeInTheDocument()
     expect(container.querySelector('[data-sl-ai-reasoning-mark]')).toBeNull()
     expect(container.querySelector('[data-sl-ai-reasoning-elapsed]')).toBeNull()
   })
@@ -140,7 +140,7 @@ describe('AIReasoning header parts', () => {
 
     act(() => vi.advanceTimersByTime(40_000))
     rerender(wrap(<Panel status="complete" />))
-    expect(screen.getByText('Reasoning completed in 40s')).toBeInTheDocument()
+    expect(screen.getByText('Thought for 40s')).toBeInTheDocument()
   })
 
   test('unmount while running clears the timer (Review Focus 5)', () => {
@@ -247,9 +247,9 @@ describe('AIReasoning accessible name without a label', () => {
   )
 
   test.each([
-    [{ status: 'running' }, 'Reasoning…'],
-    [{ status: 'complete' }, 'Reasoning complete'],
-    [{ status: 'complete', duration: 5000 }, 'Reasoning completed in 5s'],
+    [{ status: 'running' }, 'Thinking…'],
+    [{ status: 'complete' }, 'Done thinking'],
+    [{ status: 'complete', duration: 5000 }, 'Thought for 5s'],
   ] as const)(
     'the trigger is named by the status text when no label is mounted (%o)',
     (props, name) => {

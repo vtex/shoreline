@@ -22,7 +22,7 @@ export default function Example() {
         <AIMessages
           messages={{
             reasoningStreaming: 'Working on it…',
-            reasoningDone: 'Done thinking',
+            reasoningDone: 'All done',
             copyMessage: 'Copy the answer',
           }}
         >

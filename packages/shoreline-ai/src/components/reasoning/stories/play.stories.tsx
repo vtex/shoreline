@@ -46,7 +46,7 @@ export const ExpandsAndCollapsesReasoning: Story = {
   ),
   play: async ({ canvasElement }) => {
     const trigger = await within(canvasElement).findByRole('button', {
-      name: /^Reasoning complete/,
+      name: /^Done thinking/,
     })
 
     await expect(trigger).toHaveAttribute('aria-expanded', 'false')
@@ -66,7 +66,7 @@ export const TwoGroupsKeepIndependentState: Story = {
   play: async ({ canvasElement }) => {
     const triggers = await waitFor(() => {
       const found = within(canvasElement).getAllByRole('button', {
-        name: /^Reasoning complete/,
+        name: /^Done thinking/,
       })
 
       expect(found).toHaveLength(2)

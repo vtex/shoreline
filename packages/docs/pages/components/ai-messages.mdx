@@ -95,7 +95,7 @@ The reasoning panel that `AIMessageParts` draws is its own family, [AIReasoning]
 | [AIMessageActions](/components/ai-messages/ai-message-actions) | The floating bar under an answer |
 | [AIMessageAction](/components/ai-messages/ai-message-action) | A button of the bar, for thumbs or any action of your app |
 | [AIMessageCopy](/components/ai-messages/ai-message-copy) | The button that copies the text of the message |
-| [AIMessageDate](/components/ai-messages/ai-message-date) | The relative date of the message |
+| [AIMessageDate](/components/ai-messages/ai-message-date) | When the message was sent |
 | [AIMessageResources](/components/ai-messages/ai-message-resources) | The files and images attached to a message |
 | [AIMessagesI18nProvider](/components/ai-messages/ai-messages-i18n-provider) | The labels of message pieces rendered outside `AIMessages` |
 | [Hooks](/components/ai-messages/hooks) | `useAIMessage` and the hooks that read messages and the thread |
@@ -164,15 +164,15 @@ See [AIMessageUser](/components/ai-messages/ai-message-user).
 
 ## Labels and languages
 
-The labels come from a built-in catalog in `en-US` and `pt-BR`, chosen by the `LocaleProvider`. Times, durations and dates follow the same locale (en-US "1m 5s", pt-BR "1 min 5 s"). To change some labels for the whole chat, pass `messages` to `AIMessages`. Unset keys keep the default. To change the text of a single label, pass children to `AIReasoningLabel`:
+The labels come from a built-in catalog in `en-US` and `pt-BR`, chosen by the `LocaleProvider`. Times, durations and dates follow the same locale and come from `Intl` (en-US "1m 5s", "Nov 12, 2:32 PM"). The pt-BR catalog overrides the formats where the `Intl` default does not match the design ("1m 5s", "12 nov, 14:32"). To change some labels for the whole chat, pass `messages` to `AIMessages`. Unset keys keep the default. To change the text of a single label, pass children to `AIReasoningLabel`:
 
 <Preview name="ai-messages-labels" />
 
 | Id | `en-US` | Where it shows |
 |----|---------|----------------|
-| `reasoningStreaming` | Reasoning… | The label while the reasoning is running |
-| `reasoningDone` | Reasoning complete | The label when it is complete and no duration is known |
-| `reasoningDoneIn` | `Reasoning completed in {duration}` | The label when the duration is known. `{duration}` comes from `Intl` |
+| `reasoningStreaming` | Thinking… | The label while the reasoning is running |
+| `reasoningDone` | Done thinking | The label when it is complete and no duration is known |
+| `reasoningDoneIn` | `Thought for {duration}` | The label when the duration is known. `{duration}` comes from `Intl` |
 | `copyMessage` | Copy message | The name of the copy button |
 | `copied` | Copied! | The name of the copy button for 2 seconds after a copy |
 | `messageCopied` | Message copied | Announced to screen readers after a copy |

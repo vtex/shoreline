@@ -1,6 +1,6 @@
 # AIMessageDate
 
-<ComponentDescription>The age of the message, such as "now", "5m ago" or "yesterday". It is in the default actions bar; add it yourself when you pass children to AIMessageActions.</ComponentDescription>
+<ComponentDescription>When the message was sent, such as "now", "5m ago" or "yesterday, 2:32 PM". It is in the default actions bar; add it yourself when you pass children to AIMessageActions.</ComponentDescription>
 
 ```tsx
 <AIMessageActions>
@@ -9,7 +9,7 @@
 </AIMessageActions>
 ```
 
-It reads `createdAt` from the message, or takes a `date` prop, and renders nothing without a valid date. The text is relative and follows the locale of the `LocaleProvider`: under a minute "now", then minutes and hours. From 24 hours it counts calendar days, so "yesterday" is the previous calendar day; older dates read "4d ago", then "1mo ago" and "1y ago". All the dates share one timer that ticks once a minute.
+It reads `createdAt` from the message, or takes a `date` prop, and renders nothing without a valid date. The text follows the locale of the `LocaleProvider` and comes from `Intl`: under a minute "now", under an hour the minutes ("5m ago"), later on the same day the time ("2:32 PM"), the previous calendar day "yesterday, 2:32 PM", and older dates "Nov 12, 2:32 PM", with the year when it is not the current one. In pt-BR the built-in catalog sets the format the design asks for: "há 5 min", "ontem, 14:32", "12 nov, 14:32". All the dates share one timer that ticks once a minute.
 
 With server rendering, the text and the title appear after hydration, in the viewer's timezone.
 

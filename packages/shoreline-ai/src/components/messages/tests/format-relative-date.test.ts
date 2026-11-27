@@ -1,74 +1,102 @@
 import { describe, expect, test } from 'vitest'
 
 import { formatRelativeDate } from '../format-relative-date'
+import { messages } from '../messages'
 
-const now = Date.UTC(2026, 10, 25, 12, 0, 0)
-const at = (msAgo: number) => new Date(now - msAgo)
+/** Reads the built-in catalog the way the message hook does. */
+function catalog(locale: keyof typeof messages) {
+  const strings: Record<string, string> = messages[locale]
 
-describe('formatRelativeDate', () => {
+  return (id: string, variables: Record<string, string | number> = {}) =>
+    Object.entries(variables).reduce(
+      (text, [key, value]) => text.split(`{${key}}`).join(String(value)),
+      strings[id] ?? ''
+    )
+}
+
+// Local-time constructors: the calendar facts hold in any timezone.
+const now = new Date(2026, 10, 25, 16, 0, 0).getTime()
+const local = (day: number, hour = 14, minute = 32, year = 2026) =>
+  new Date(year, 10, day, hour, minute, 0)
+const ago = (ms: number) => new Date(now - ms)
+
+describe('formatRelativeDate in en-US (Intl only)', () => {
+  const format = (date: Date) =>
+    formatRelativeDate(date, now, 'en-US', catalog('en-US'))
+
   test.each([
-    [0, 'pt-BR', 'agora', true],
-    [59_000, 'pt-BR', 'agora', true],
-    [60_000, 'pt-BR', 'há 1 min.', false],
-    [2 * 3_600_000, 'pt-BR', 'há 2 h', false],
-    [24 * 3_600_000, 'pt-BR', 'ontem', false],
-    [4 * 86_400_000, 'pt-BR', 'há 4 dias', false],
-    [60_000, 'en-US', '1m ago', false],
-    [0, 'en-US', 'now', true],
-  ])('%i ms ago in %s -> %s', (ago, locale, text, justNow) => {
-    expect(formatRelativeDate(at(ago), now, locale)).toEqual({ text, justNow })
+    [0, 'now', true],
+    [59_000, 'now', true],
+    [60_000, '1m ago', false],
+    [59 * 60_000, '59m ago', false],
+  ])('%i ms ago -> %s', (ms, text, justNow) => {
+    expect(format(ago(ms))).toEqual({ text, justNow })
   })
 
   test('a future date is "now"', () => {
-    expect(formatRelativeDate(at(-120_000), now, 'en-US')).toEqual({
-      text: 'now',
-      justNow: true,
-    })
+    expect(format(ago(-120_000))).toEqual({ text: 'now', justNow: true })
   })
 
   test('an invalid date is null', () => {
-    expect(formatRelativeDate(new Date('nope'), now, 'en-US')).toBeNull()
+    expect(format(new Date('nope'))).toBeNull()
+  })
+
+  test('same calendar day, an hour or more back: the time', () => {
+    expect(format(local(25))?.text).toBe('2:32 PM')
+  })
+
+  test('one calendar day back: "yesterday" and the time', () => {
+    expect(format(local(24))?.text).toBe('yesterday, 2:32 PM')
+    // 25 hours and 47 hours back are both a matter of the calendar, not of hours.
+    expect(format(local(24, 23, 30))?.text).toBe('yesterday, 11:30 PM')
+  })
+
+  test('older: day, short month and time', () => {
+    expect(format(local(23, 13, 0))?.text).toBe('Nov 23, 1:00 PM')
+    expect(format(local(12))?.text).toBe('Nov 12, 2:32 PM')
+  })
+
+  test('another year: the year is included', () => {
+    expect(format(local(12, 14, 32, 2025))?.text).toBe('Nov 12, 2025, 2:32 PM')
+  })
+
+  test('never emits NBSP or NNBSP', () => {
+    expect(format(local(12))?.text).not.toMatch(/[\u00A0\u202F]/)
   })
 })
 
-describe('formatRelativeDate by calendar day', () => {
-  // Local-time constructors: the calendar facts hold in any timezone.
-  const today = new Date(2026, 10, 25, 12, 0, 0).getTime()
-  const local = (day: number, hour = 12) => new Date(2026, 10, day, hour, 0, 0)
+describe('formatRelativeDate in pt-BR', () => {
+  const format = (date: Date) =>
+    formatRelativeDate(date, now, 'pt-BR', catalog('pt-BR'))
 
-  test('47h ago, two calendar days back, is the 2-days form', () => {
-    expect(formatRelativeDate(local(23, 13), today, 'en-US')?.text).toBe(
-      '2d ago'
-    )
+  test('follows the catalog formats', () => {
+    expect(format(ago(0))?.text).toBe('agora')
+    expect(format(ago(5 * 60_000))?.text).toBe('há 5 min')
+    expect(format(local(25))?.text).toBe('14:32')
+    expect(format(local(24))?.text).toBe('ontem, 14:32')
+    expect(format(local(12))?.text).toBe('12 nov, 14:32')
+    expect(format(local(12, 14, 32, 2025))?.text).toBe('12 nov 2025, 14:32')
   })
 
-  test('25h ago, one calendar day back, is "yesterday"', () => {
-    expect(formatRelativeDate(local(24, 11), today, 'en-US')?.text).toBe(
-      'yesterday'
+  test('without the catalog it is the Intl format of the locale', () => {
+    expect(formatRelativeDate(ago(5 * 60_000), now, 'pt-BR')?.text).toBe(
+      'há 5 min.'
     )
-    expect(formatRelativeDate(local(24, 11), today, 'pt-BR')?.text).toBe(
-      'ontem'
-    )
-  })
-
-  test.each([
-    [45, '1mo ago'],
-    [59, '1mo ago'],
-    [60, '2mo ago'],
-    [400, '1y ago'],
-    [729, '1y ago'],
-  ])('%i calendar days back -> %s', (days, text) => {
-    expect(formatRelativeDate(local(25 - days), today, 'en-US')?.text).toBe(
-      text
+    expect(formatRelativeDate(local(12), now, 'pt-BR')?.text).toBe(
+      '12 de nov., 14:32'
     )
   })
+})
 
-  test('months and years always use numbers in pt-BR too', () => {
-    expect(formatRelativeDate(local(25 - 45), today, 'pt-BR')?.text).toBe(
-      'há 1 mês'
+describe('formatRelativeDate in a locale with no catalog', () => {
+  test('es-ES gets the Intl format through an empty catalog', () => {
+    const empty = () => ''
+
+    expect(formatRelativeDate(local(12), now, 'es-ES', empty)?.text).toBe(
+      '12 nov, 14:32'
     )
-    expect(formatRelativeDate(local(25 - 400), today, 'pt-BR')?.text).toBe(
-      'há 1 ano'
+    expect(formatRelativeDate(local(24), now, 'es-ES', empty)?.text).toBe(
+      'ayer, 14:32'
     )
   })
 })

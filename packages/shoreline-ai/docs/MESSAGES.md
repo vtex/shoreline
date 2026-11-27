@@ -86,7 +86,7 @@ Full message shape and transport details: [RUNTIME.md](./RUNTIME.md). Read threa
 | `AIReasoningRoot` | Owns the panel state. Takes `status`, `duration`, `startedAt`, `defaultExpanded`, `expanded`, `onExpandedChange` |
 | `AIReasoningHeader` | The 20px row: mark, label, elapsed time, chevron. Takes children to compose your own row |
 | `AIReasoningMark` | The working mark, only while running |
-| `AIReasoningLabel` | The status text ("Reasoning…", "Reasoning completed in 2m"). Shimmers while running |
+| `AIReasoningLabel` | The status text ("Thinking…", "Thought for 1m 5s"). Shimmers while running |
 | `AIReasoningElapsed` | Elapsed time while running ("42s", "1m 5s") |
 | `AIReasoningTrigger` | The chevron button that opens and closes the panel. The only toggle in the header |
 | `AIReasoningContent` | Collapsible body. Inside `AIReasoning` it renders the group's parts |
@@ -97,7 +97,7 @@ Full message shape and transport details: [RUNTIME.md](./RUNTIME.md). Read threa
 | `AIMessageActions` | Floating bar under a completed assistant message that has text. Without children: `AIMessageCopy` then `AIMessageDate`. With children: exactly them |
 | `AIMessageAction` | A bar button (20px, 14px icon). `label` is its accessible name. Use it for thumbs or any app action |
 | `AIMessageCopy` | Copies the text parts of the message. `onCopied` runs after a successful copy |
-| `AIMessageDate` | Relative date of the message ("now", "5m ago"). Reads `createdAt`, or takes `date` |
+| `AIMessageDate` | When the message was sent ("now", "5m ago", "yesterday, 2:32 PM"). Reads `createdAt`, or takes `date` |
 | `AIMessageResources` | Container for resource parts |
 | `AIMessageResource` | Auto image or file chip |
 | `AIMessageResourceImage` | Image preview variant |
@@ -211,19 +211,19 @@ Each reasoning group is one 20px header row, with an optional body below it:
 
 | State | Mark | Label | Time | Chevron |
 |-------|------|-------|------|---------|
-| Running | yes | "Reasoning…" with the loading effect | elapsed: "40s", then "1m 5s" | yes |
-| Done, with a duration | no | "Reasoning completed in 2m" ("in 40s" under a minute) | no | yes |
-| Done, no duration | no | "Reasoning complete" | no | yes |
+| Running | yes | "Thinking…" with the loading effect | elapsed: "40s", then "1m 5s" | yes |
+| Done, with a duration | no | "Thought for 1m 5s" ("Thought for 40s" under a minute) | no | yes |
+| Done, no duration | no | "Done thinking" | no | yes |
 
 Only the chevron is a button. It has `aria-expanded` and `aria-controls`, and its accessible name is the label text (`aria-labelledby`). The open body is a `role="group"` named by the same label; with no label mounted it has no role. When no `AIReasoningLabel` is mounted in the header, the chevron gets an `aria-label` with the status text from the catalog instead. Clicking the label or the time does nothing.
 
 The label, the elapsed time and the chevron icon use `--sl-fg-base-soft` (on hover the chevron gets the plain hover background and the `--sl-color-gray-9` color: darker on Horizon, the same gray as at rest on Sunrise, where `--sl-fg-base-soft` is already `--sl-color-gray-9`); a long label wraps and the row grows. The open body sits 8px below the header, with a 3px left bar and 16px of left padding; reasoning text is `caption-2` in the soft foreground color.
 
-Times and durations come from `Intl.NumberFormat` (`unit` style, `narrow`) with the `LocaleProvider` locale: en-US "40s" and "1m 5s", pt-BR "40 s" and "1 min 5 s". While running, the header counts seconds itself; when the group completes it shows the runtime duration if there is one, otherwise the time it counted. A message loaded from history with no duration reads "Reasoning complete". The runtime does not stamp a duration on reasoning yet, so durations appear for groups that you watched run.
+The running counter and the final duration share one format: seconds, minutes and seconds, then hours and minutes. It comes from `Intl.NumberFormat` (`unit` style, `narrow`) with the `LocaleProvider` locale, e.g. en-US "40s" and "1m 5s". pt-BR overrides the unit format in the built-in catalog to match the design ("40s", "1m 5s"; the `Intl` default would be "40 s", "1 min 5 s"). Any other locale gets the `Intl` format. While running, the header counts seconds itself; when the group completes it shows the runtime duration if there is one, otherwise the time it counted. A message loaded from history with no duration reads "Done thinking". The runtime does not stamp a duration on reasoning yet, so durations appear for groups that you watched run.
 
 #### Before the first part
 
-Every answer is assumed to have reasoning. While a message is running and has no text, reasoning or tool call yet, `AIMessageParts` renders the running header with no chevron: mark, "Reasoning…" and the elapsed time. Only the label is a live region (`role="status"`), so screen readers announce "Reasoning…" once and not every tick of the elapsed time. When the first reasoning part arrives it is the same header (the elapsed time does not reset, and the mark does not replay its enter animation: that group's root has `data-continued`) and the chevron appears. If that first group arrives already complete in the same update, its label keeps the time counted so far ("Reasoning completed in 8s") when the runtime gives no duration.
+Every answer is assumed to have reasoning. While a message is running and has no text, reasoning or tool call yet, `AIMessageParts` renders the running header with no chevron: mark, "Thinking…" and the elapsed time. Only the label is a live region (`role="status"`), so screen readers announce "Thinking…" once and not every tick of the elapsed time. When the first reasoning part arrives it is the same header (the elapsed time does not reset, and the mark does not replay its enter animation: that group's root has `data-continued`) and the chevron appears. If that first group arrives already complete in the same update, its label keeps the time counted so far ("Thought for 8s") when the runtime gives no duration.
 
 - If text arrives before any reasoning part, the pending header disappears. It never becomes a "complete" header with no body.
 - If an unregistered tool call arrives first, it opens a running reasoning group: the header stays and now has a chevron.
@@ -346,7 +346,7 @@ Thumbs and their behavior belong to the app; the package ships neither. Use any 
 
 `AIMessageCopy` writes the text parts of the message (joined by a blank line) to the clipboard. It shows Shoreline's copy icon; after a successful copy it shows the check icon for 2 seconds (`data-copied` is set), its accessible name becomes the `copied` string ("Copied!"), `onCopied` is called once, and a visually hidden live region announces `messageCopied`. No toast and no visible text is shown. If the clipboard is unavailable or rejects, nothing changes. An `onClick` that calls `event.preventDefault()` cancels the copy.
 
-`AIMessageDate` is a `time` element with `dateTime` set to the ISO value and `title` set to the exact local date and time. It reads `createdAt` from the message, or takes a `date` prop, and renders nothing when there is no valid date. The text is relative and localized with `Intl.RelativeTimeFormat` (`narrow`, `numeric: 'auto'`): en-US "now", "1m ago", "2h ago", "yesterday", "4d ago"; pt-BR "agora", "há 1 min.", "há 2 h", "ontem", "há 4 dias". Under one minute it reads "now"; under an hour, minutes; under a day, hours. From 24 hours it counts local calendar days, so "yesterday" means the previous calendar day (47 hours ago across two midnights reads "2d ago"). From 30 days it shows whole months, from 365 days whole years, always with a number (`numeric: 'always'`): en-US "1mo ago", "1y ago"; pt-BR "há 1 mês", "há 1 ano". All dates share one clock that ticks once a minute while any date is mounted.
+`AIMessageDate` is a `time` element with `dateTime` set to the ISO value and `title` set to the exact local date and time. It reads `createdAt` from the message, or takes a `date` prop, and renders nothing when there is no valid date. The text follows the locale of the `LocaleProvider` and comes from `Intl`: under a minute "now"; under an hour the elapsed minutes ("5m ago"); later on the same calendar day the time ("2:32 PM"); the previous calendar day "yesterday, 2:32 PM"; older dates the day, short month and time ("Nov 12, 2:32 PM"), with the year when it is not the current one ("Nov 12, 2025, 2:32 PM"). Days are local calendar days, not 24-hour spans. A locale can override a format in the built-in catalog where the `Intl` default does not match the design. Only pt-BR does: "há 5 min", "12 nov, 14:32" and "12 nov 2025, 14:32" (the `Intl` default would be "há 5 min." and "12 de nov., 14:32"). Any other locale gets the `Intl` format with no extra work. All dates share one clock that ticks once a minute while any date is mounted.
 
 On the server and during hydration `AIMessageDate` renders only the `time` element with `dateTime`: no text, no `title`, no `data-just-now`. The relative text and the title appear after mount, in the viewer's locale and timezone, so server and client markup always match.
 
@@ -578,9 +578,9 @@ Built-in locales: `en-US`, `pt-BR`.
 
 | Message id | Default (`en-US`) | Default (`pt-BR`) | Used by |
 |------------|-------------------|-------------------|---------|
-| `reasoningStreaming` | Reasoning… | Raciocinando… | Reasoning label while running |
-| `reasoningDone` | Reasoning complete | Raciocínio concluído | Label when complete with no duration |
-| `reasoningDoneIn` | Reasoning completed in {duration} | Raciocínio concluído em {duration} | Label when complete with a duration (`{duration}` comes from `Intl`) |
+| `reasoningStreaming` | Thinking… | Pensando… | Reasoning label while running |
+| `reasoningDone` | Done thinking | Pensamento concluído | Label when complete with no duration |
+| `reasoningDoneIn` | Thought for {duration} | Pensou por {duration} | Label when complete with a duration (`{duration}` comes from `Intl`) |
 | `copyMessage` | Copy message | Copiar mensagem | `AIMessageCopy` accessible name |
 | `copied` | Copied! | Copiado! | `AIMessageCopy` accessible name for 2 seconds after a copy |
 | `messageCopied` | Message copied | Mensagem copiada | Live-region announcement after a copy |

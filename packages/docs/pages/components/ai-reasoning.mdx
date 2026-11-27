@@ -58,15 +58,15 @@ The mark and the label are drawn with [AIWorkingMark](/components/ai-working-mar
 
 | State | Mark | Label | Time | Chevron |
 |-------|------|-------|------|---------|
-| Running | yes | "Reasoning…", shimmering | "40s", then "1m 5s" | yes |
-| Done, with a duration | no | "Reasoning completed in 2m" ("in 40s" under a minute) | no | yes |
-| Done, no duration | no | "Reasoning complete" | no | yes |
+| Running | yes | "Thinking…", shimmering | "40s", then "1m 5s" | yes |
+| Done, with a duration | no | "Thought for 1m 5s" ("Thought for 40s" under a minute) | no | yes |
+| Done, no duration | no | "Done thinking" | no | yes |
 
-While the group runs, the header counts the seconds itself. When it completes, it shows the runtime duration when there is one, and otherwise the time it counted. A message loaded from history has no duration and reads "Reasoning complete". The runtime does not stamp a duration on reasoning yet, so durations appear for groups that you watched run. Times follow the locale of the `LocaleProvider` (en-US "1m 5s", pt-BR "1 min 5 s").
+While the group runs, the header counts the seconds itself. When it completes, it shows the runtime duration when there is one, and otherwise the time it counted. A message loaded from history has no duration and reads "Done thinking". The runtime does not stamp a duration on reasoning yet, so durations appear for groups that you watched run. The counter and the final duration share one format, from `Intl` in the locale of the `LocaleProvider` (en-US "1m 5s"). The pt-BR catalog overrides it to match the design ("1m 5s" instead of the `Intl` default "1 min 5 s").
 
 ### Before the first part
 
-Every answer is assumed to have reasoning. While a message runs and has no text, reasoning or tool call yet, `AIMessageParts` renders the template once as a running header with no chevron and no body: mark, "Reasoning…" and the elapsed time. When the first reasoning part arrives it is the same header: the elapsed time does not reset, the mark does not replay its enter animation (the root of that group has `data-continued`), and the chevron appears. If that first group arrives already complete and the runtime gives no duration, its label keeps the time counted so far.
+Every answer is assumed to have reasoning. While a message runs and has no text, reasoning or tool call yet, `AIMessageParts` renders the template once as a running header with no chevron and no body: mark, "Thinking…" and the elapsed time. When the first reasoning part arrives it is the same header: the elapsed time does not reset, the mark does not replay its enter animation (the root of that group has `data-continued`), and the chevron appears. If that first group arrives already complete and the runtime gives no duration, its label keeps the time counted so far.
 
 - If text arrives before any reasoning part, the header disappears. It never becomes a complete header with no body.
 - If a tool call with no registered UI arrives first, it opens a running reasoning group: the header stays and now has a chevron.
@@ -141,7 +141,7 @@ function Hint() {
 
 - Only the chevron is a button, named by the label; see [AIReasoningTrigger](/components/ai-reasoning/ai-reasoning-trigger#accessibility).
 - The open body is a group named by the label; see [AIReasoningContent](/components/ai-reasoning/ai-reasoning-content#accessibility).
-- Before the first part, only the label is a live region (`role="status"`), so "Reasoning…" is announced once and the ticking elapsed time is not.
+- Before the first part, only the label is a live region (`role="status"`), so "Thinking…" is announced once and the ticking elapsed time is not.
 
 ## Styling
 

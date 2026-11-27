@@ -120,12 +120,12 @@ describe('AIMessageParts pending header', () => {
 
     // Only the label is the live region: the ticking elapsed stays outside.
     expect(status).toHaveAttribute('data-sl-ai-reasoning-label')
-    expect(status.textContent).toBe('Reasoning…')
+    expect(status.textContent).toBe('Thinking…')
     expect(header).not.toHaveAttribute('role')
     expect(status.contains(elapsed())).toBe(false)
 
     act(() => vi.advanceTimersByTime(3000))
-    expect(status.textContent).toBe('Reasoning…')
+    expect(status.textContent).toBe('Thinking…')
     expect(elapsed()).toHaveTextContent('3s')
 
     expect(status.closest('[data-sl-ai-reasoning]')).toHaveAttribute(
@@ -146,7 +146,7 @@ describe('AIMessageParts pending header', () => {
     renderThread(run.transport, undefined, { locale: 'pt-BR' })
     await send()
 
-    expect(await screen.findByRole('status')).toHaveTextContent('Raciocinando…')
+    expect(await screen.findByRole('status')).toHaveTextContent('Pensando…')
 
     run.finish([{ type: 'text', text: 'Pronto' }])
     await waitFor(() => expect(screen.getByText('Pronto')).toBeInTheDocument())
@@ -203,10 +203,10 @@ describe('AIMessageParts pending header', () => {
     run.finish([reasoningPart('Hmm', 'complete'), { type: 'text', text: 'Ok' }])
     await waitFor(() => expect(screen.getByText('Ok')).toBeInTheDocument())
     expect(screen.queryByRole('status')).toBeNull()
-    expect(screen.getByText('Reasoning completed in 8s')).toBeInTheDocument()
+    expect(screen.getByText('Thought for 8s')).toBeInTheDocument()
 
     act(() => vi.advanceTimersByTime(5000))
-    expect(screen.getByText('Reasoning completed in 8s')).toBeInTheDocument()
+    expect(screen.getByText('Thought for 8s')).toBeInTheDocument()
   })
 
   test('text arrives first: the pending header disappears and no reasoning header is left', async () => {
@@ -219,12 +219,12 @@ describe('AIMessageParts pending header', () => {
     run.push([{ type: 'text', text: 'Partial' }])
     await waitFor(() => expect(screen.getByText('Partial')).toBeInTheDocument())
     expect(screen.queryByRole('status')).toBeNull()
-    expect(screen.queryByText('Reasoning…')).toBeNull()
+    expect(screen.queryByText('Thinking…')).toBeNull()
     expect(document.querySelector('[data-sl-ai-reasoning-header]')).toBeNull()
 
     run.finish([{ type: 'text', text: 'Done' }])
     await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
-    expect(screen.queryByText('Reasoning complete')).toBeNull()
+    expect(screen.queryByText('Done thinking')).toBeNull()
   })
 
   test('an unregistered tool call arrives first: the pending header gives way to a running reasoning group with its chevron', async () => {
@@ -246,13 +246,13 @@ describe('AIMessageParts pending header', () => {
     expect(
       roots[0].querySelector('[data-sl-ai-reasoning-header]')
     ).not.toHaveAttribute('role')
-    expect(screen.getByRole('button', { name: 'Reasoning…' })).toHaveAttribute(
+    expect(screen.getByRole('button', { name: 'Thinking…' })).toHaveAttribute(
       'data-sl-ai-reasoning-trigger'
     )
 
     run.finish([{ type: 'text', text: 'Done' }])
     await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
-    expect(screen.queryByText('Reasoning complete')).toBeNull()
+    expect(screen.queryByText('Done thinking')).toBeNull()
   })
 
   test('text first, then reasoning: the group elapsed starts from the group, not the message', async () => {

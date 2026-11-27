@@ -45,3 +45,11 @@ export function useMessageMessagesContext(): MessageGetMessage {
 
   return context
 }
+
+/**
+ * Same catalog, or `undefined` outside a provider. For pieces that only read
+ * optional format overrides and must keep working on their own.
+ */
+export function useOptionalMessageMessages(): MessageGetMessage | undefined {
+  return useContext(MessageMessagesContext) ?? undefined
+}

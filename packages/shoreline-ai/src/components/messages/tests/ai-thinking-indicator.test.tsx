@@ -140,7 +140,7 @@ describe('AIMessageAssistant thinking indicator', () => {
 
     expect(root).toHaveAttribute('data-status', 'running')
     expect(root?.querySelector('[data-sl-ai-reasoning-mark]')).toBeTruthy()
-    expect(screen.getByRole('button', { name: 'Reasoning…' })).toHaveAttribute(
+    expect(screen.getByRole('button', { name: 'Thinking…' })).toHaveAttribute(
       'data-sl-ai-reasoning-trigger'
     )
 

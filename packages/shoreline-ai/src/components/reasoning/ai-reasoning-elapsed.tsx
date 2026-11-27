@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useAIReasoningRootContext } from './ai-reasoning-root'
 import { formatElapsed } from './format-duration'
 import type { AIReasoningElapsedProps } from './types'
+import { useOptionalMessageMessages } from '../messages/message-messages-context'
 
 const TICK = 1000
 
@@ -25,6 +26,7 @@ export const AIReasoningElapsed = forwardRef<
 >(function AIReasoningElapsed(props, ref) {
   const { state } = useAIReasoningRootContext()
   const locale = useLocale()
+  const getMessage = useOptionalMessageMessages()
   const running = state.status === 'running'
   // The tick lives here, so only this part re-renders every second.
   const [now, setNow] = useState(Date.now)
@@ -42,7 +44,7 @@ export const AIReasoningElapsed = forwardRef<
 
   return (
     <span ref={ref} data-sl-ai-reasoning-elapsed {...props}>
-      {formatElapsed(Math.max(0, now - state.startedAt), locale)}
+      {formatElapsed(Math.max(0, now - state.startedAt), locale, getMessage)}
     </span>
   )
 })

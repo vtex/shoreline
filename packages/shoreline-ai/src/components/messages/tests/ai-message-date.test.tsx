@@ -12,6 +12,7 @@ import { renderToString } from 'react-dom/server'
 import { vi } from 'vitest'
 
 import { AIMessageDate } from '../ai-message-date'
+import { AIMessagesI18nProvider } from '../message-messages-context'
 
 const aui = vi.hoisted(() => ({ createdAt: undefined as unknown }))
 
@@ -93,10 +94,10 @@ describe('AIMessageDate', () => {
 
   it('date prop overrides the message date', () => {
     renderDate(new Date(NOW - 30_000), {
-      date: new Date(NOW - 2 * 3_600_000).toISOString(),
+      date: new Date(NOW - 10 * 60_000).toISOString(),
     })
 
-    expect(getDate()).toHaveTextContent('2h ago')
+    expect(getDate()).toHaveTextContent('10m ago')
   })
 
   it('accepts a date in epoch milliseconds', () => {
@@ -135,10 +136,24 @@ describe('AIMessageDate', () => {
     expect(getDate()).not.toHaveAttribute('data-just-now')
   })
 
-  it('pt-BR locale', () => {
-    renderDate(new Date(NOW - 2 * 3_600_000), {}, 'pt-BR')
+  it('pt-BR outside a provider: the Intl format of the locale', () => {
+    renderDate(new Date(NOW - 5 * 60_000), {}, 'pt-BR')
 
-    expect(getDate()).toHaveTextContent('há 2 h')
+    expect(getDate()?.textContent).toBe('há 5 min.')
+  })
+
+  it('pt-BR inside the provider: the catalog format', () => {
+    aui.createdAt = new Date(NOW - 5 * 60_000)
+
+    render(
+      <LocaleProvider locale="pt-BR">
+        <AIMessagesI18nProvider>
+          <AIMessageDate />
+        </AIMessagesI18nProvider>
+      </LocaleProvider>
+    )
+
+    expect(getDate()?.textContent).toBe('há 5 min')
   })
 
   it('server render: only dateTime, no relative text, title or data-just-now', () => {

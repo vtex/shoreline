@@ -103,7 +103,7 @@ export const ReasoningRunningExpanded: Story = {
   ),
 }
 
-/** Complete with a duration: "Reasoning completed in 2m", no mark. */
+/** Complete with a duration: "Thought for 2m", no mark. */
 export const ReasoningCompleteWithDuration: Story = {
   render: () => (
     <AIMessagesI18nProvider>
@@ -201,7 +201,7 @@ export const TwoReasoningGroups: Story = {
     await waitFor(() =>
       expect(
         within(canvasElement).getAllByRole('button', {
-          name: /^Reasoning complete/,
+          name: /^Done thinking/,
         })
       ).toHaveLength(2)
     )

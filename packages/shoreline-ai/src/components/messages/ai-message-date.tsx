@@ -2,12 +2,14 @@ import { useAuiState } from '@assistant-ui/react'
 import { forwardRef, useLocale } from '@vtex/shoreline'
 
 import { formatRelativeDate } from './format-relative-date'
+import { useOptionalMessageMessages } from './message-messages-context'
 import type { AIMessageDateProps } from './types'
 import { useNow } from './use-now'
 
 /**
- * Date of the message relative to now ("now", "5m ago"), refreshed by the
- * shared one-minute clock. The exact local date and time is its title.
+ * When the message was sent, for a reader now: "now", "5m ago", the time on
+ * the same day, "yesterday, 2:32 PM", then the date and time. Refreshed by
+ * the shared one-minute clock. The exact local date and time is its title.
  * Renders nothing without a valid date. On the server and during hydration
  * it renders only the `time` element with `dateTime`; the text and the title
  * come after mount, in the viewer's locale and timezone.
@@ -24,6 +26,7 @@ export const AIMessageDate = forwardRef<HTMLTimeElement, AIMessageDateProps>(
     const { date, ...rest } = props
     const createdAt = useAuiState((state) => state.message.createdAt)
     const locale = useLocale()
+    const getMessage = useOptionalMessageMessages()
     const now = useNow()
 
     const value = toDate(date ?? createdAt)
@@ -41,7 +44,7 @@ export const AIMessageDate = forwardRef<HTMLTimeElement, AIMessageDateProps>(
       )
     }
 
-    const relative = formatRelativeDate(value, now, locale)
+    const relative = formatRelativeDate(value, now, locale, getMessage)
 
     if (!relative) return null
 

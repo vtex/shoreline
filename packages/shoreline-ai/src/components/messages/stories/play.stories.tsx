@@ -129,7 +129,7 @@ export const ActionsReachableByKeyboard: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const trigger = await canvas.findByRole('button', {
-      name: /^Reasoning complete/,
+      name: /^Done thinking/,
     })
     const up = await canvas.findByRole('button', { name: 'Good response' })
     const down = canvas.getByRole('button', { name: 'Bad response' })

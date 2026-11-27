@@ -23,7 +23,7 @@ export default function Example() {
               <AIReasoningHeader />
             </AIReasoningRoot>
 
-            {/* Complete with a duration: "Reasoning completed in 2m" */}
+            {/* Complete with a duration: "Thought for 2m" */}
             <AIReasoningRoot status="complete" duration={120_000}>
               <AIReasoningHeader />
             </AIReasoningRoot>
