@@ -4,11 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npm run gen:examples && npm run gen:props && npm run gen:ai-css && next dev",
-    "build-docs": "npm --prefix ../../ run build && npm run gen:contributors && npm run gen:examples && npm run gen:props && npm run gen:ai-css && next build",
+    "dev": "npm run gen:examples && npm run gen:props && npm run gen:ai-css && npm run gen:horizon-css && next dev",
+    "build-docs": "npm --prefix ../../ run build && npm run gen:contributors && npm run gen:examples && npm run gen:props && npm run gen:ai-css && npm run gen:horizon-css && next build",
     "start": "next start",
     "gen:examples": "node ./scripts/build-examples.mjs",
     "gen:ai-css": "node ./scripts/build-ai-css.mjs",
+    "gen:horizon-css": "node ./scripts/build-horizon-css.mjs",
     "gen:props": "node ./scripts/build-props.mjs",
     "gen:contributors": "node ./scripts/build-contributors.mjs"
   },

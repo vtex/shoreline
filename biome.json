@@ -10,6 +10,7 @@
     "ignore": [
       "packages/docs/__examples__/*",
       "packages/docs/__props__/*",
+      "packages/docs/__styles__/*",
       ".next",
       "dist",
       "package.json"
