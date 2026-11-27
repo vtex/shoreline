@@ -156,7 +156,7 @@ export const ActionsLastAnswer: Story = {
   ),
 }
 
-/** An earlier answer keeps its bar, floating above the next question. */
+/** An earlier answer keeps its bar, above the next question. */
 export const ActionsEarlierAnswer: Story = {
   render: () => (
     <ThreadHistorySeed messages={earlierAnswer}>

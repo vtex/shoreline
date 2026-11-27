@@ -1,8 +1,7 @@
 @layer sl-components {
   /*
-   * Room between messages, which also holds the actions bar floating under
-   * an assistant message. Override with --sl-ai-messages-gap (default: 2rem).
-   * The same room is kept below the list for the bar of the last answer.
+   * Room between messages. Override with --sl-ai-messages-gap (default:
+   * 0.75rem). The same room is kept below the list.
    *
    * Padding comes from --sl-ai-messages-padding (default: 0). Inside a
    * thread viewport it inherits the thread padding, also through wrappers;
@@ -11,11 +10,11 @@
   [data-sl-ai-messages] {
     display: flex;
     flex-direction: column;
-    gap: var(--sl-ai-messages-gap, var(--sl-space-8));
+    gap: var(--sl-ai-messages-gap, var(--sl-space-3));
     width: 100%;
     box-sizing: border-box;
     padding: var(--sl-ai-messages-padding, 0);
-    padding-block-end: var(--sl-ai-messages-gap, var(--sl-space-8));
+    padding-block-end: var(--sl-ai-messages-gap, var(--sl-space-3));
   }
 
   /*
@@ -32,20 +31,13 @@
    * ring at the very edge of the messages container is still clipped by an
    * ancestor with overflow hidden (such as the thread viewport): give the
    * messages container about 1rem of horizontal padding.
-   *
-   * The actions bar floats out of the message box (4px gap plus the 20px
-   * bar, see [data-sl-ai-message-actions]), so the bottom padding and its
-   * negative margin also add those 24px: the bar and its focus rings paint
-   * inside the box, and the box still takes no extra room in the list.
    */
   [data-sl-ai-message] {
     box-sizing: content-box;
     content-visibility: auto;
     contain-intrinsic-block-size: auto var(--sl-ai-message-intrinsic-size, 5rem);
-    padding: var(--sl-space-2) var(--sl-space-4)
-      calc(var(--sl-space-2) + var(--sl-space-6));
-    margin: calc(var(--sl-space-2) * -1) calc(var(--sl-space-4) * -1)
-      calc((var(--sl-space-2) + var(--sl-space-6)) * -1);
+    padding: var(--sl-space-2) var(--sl-space-4);
+    margin: calc(var(--sl-space-2) * -1) calc(var(--sl-space-4) * -1);
   }
 
   [data-sl-ai-message][data-sl-ai-message-role="user"] {
@@ -257,28 +249,31 @@
     white-space: nowrap;
   }
 
-  /* Containing block of the floating actions bar. */
+  /*
+   * Every block of an answer (reasoning, text, cards and the actions bar)
+   * sits 12px from the next one.
+   */
   [data-sl-ai-message][data-sl-ai-message-role="assistant"]
-    [data-sl-ai-message-content] {
-    position: relative;
+    [data-sl-ai-message-content],
+  [data-sl-ai-message][data-sl-ai-message-role="assistant"]
+    [data-sl-ai-message-parts] {
+    gap: var(--sl-space-3);
   }
 
   /*
-   * 20px bar, 4px under the message, out of the flow. It is shifted left by
-   * the inset of the 14px icon in its 20px button (3px), so the first icon
+   * 24px bar, the last block of the answer, in the flow. It is shifted left
+   * by the inset of the 14px icon in its 24px button (5px), so the first icon
    * lines up with the message text.
    */
   [data-sl-ai-message-actions] {
-    position: absolute;
-    top: calc(100% + var(--sl-space-1));
-    inset-inline-start: calc(
-      (var(--sl-space-5) - var(--sl-space-3) - var(--sl-space-05)) /
-      -2
-    );
     display: flex;
     align-items: center;
     gap: var(--sl-space-05);
-    height: var(--sl-space-5);
+    height: var(--sl-space-6);
+    margin-inline-start: calc(
+      (var(--sl-space-6) - var(--sl-space-3) - var(--sl-space-05)) /
+      -2
+    );
   }
 
   [data-sl-ai-message-action] {
@@ -286,8 +281,8 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    min-width: var(--sl-space-5);
-    height: var(--sl-space-5);
+    min-width: var(--sl-space-6);
+    height: var(--sl-space-6);
     padding: 0;
     border: none;
     border-radius: var(--sl-radius-1);

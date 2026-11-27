@@ -20,6 +20,7 @@ type FakeMessage = {
   role?: 'user' | 'assistant'
   status?: { type: string }
   isLast?: boolean
+  index?: number
   createdAt?: Date
   content: unknown[]
 }
@@ -27,6 +28,7 @@ type FakeMessage = {
 const aui = vi.hoisted(() => ({
   message: null as unknown,
   isRunning: false,
+  previousRole: 'user' as 'user' | 'assistant' | undefined,
 }))
 
 vi.mock('@assistant-ui/react', async (importOriginal) => {
@@ -37,7 +39,11 @@ vi.mock('@assistant-ui/react', async (importOriginal) => {
     useAuiState: ((selector: (state: unknown) => unknown) =>
       selector({
         message: aui.message,
-        thread: { isRunning: aui.isRunning },
+        thread: {
+          isRunning: aui.isRunning,
+          // The message under test sits at index 1, after `previousRole`.
+          messages: aui.previousRole ? [{ role: aui.previousRole }] : [],
+        },
       })) as typeof actual.useAuiState,
   }
 })
@@ -48,6 +54,7 @@ const complete: FakeMessage = {
   role: 'assistant',
   status: { type: 'complete' },
   isLast: false,
+  index: 1,
   createdAt: new Date(),
   content: text,
 }
@@ -70,6 +77,7 @@ function renderActions(
 afterEach(() => {
   aui.message = null
   aui.isRunning = false
+  aui.previousRole = 'user'
 })
 
 describe('AIMessageActions', () => {
@@ -135,6 +143,20 @@ describe('AIMessageActions', () => {
 
   it('renders nothing for a user message', () => {
     renderActions({ ...complete, role: 'user' })
+
+    expect(document.querySelector(ACTIONS)).toBeNull()
+  })
+
+  it('renders nothing for the opening answer of a thread', () => {
+    aui.previousRole = undefined
+    renderActions({ ...complete, index: 0 })
+
+    expect(document.querySelector(ACTIONS)).toBeNull()
+  })
+
+  it('renders nothing for an answer that follows another answer', () => {
+    aui.previousRole = 'assistant'
+    renderActions(complete)
 
     expect(document.querySelector(ACTIONS)).toBeNull()
   })

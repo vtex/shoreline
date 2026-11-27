@@ -178,7 +178,7 @@ Standard `div` props. Sticky at the bottom of the viewport; footer height is use
 
 | Prop | Purpose |
 |------|---------|
-| `children` | Optional custom control content (default: caret icon) |
+| `children` | Optional custom control content (default: the Material `expand_more` icon, 20px) |
 
 Standard `button` props. When the viewport is already at the bottom the button is `disabled` and has `opacity: 0` with `pointer-events: none`, so it only appears after the user scrolls up. It is absolutely positioned above the footer (`bottom: 100%`), so mount it as the **first child** of `AIThreadViewportFooter`. The accessible name comes from the `scrollToBottom` message.
 
@@ -188,21 +188,24 @@ The thread owns its layout, so a raw thread with no app CSS already looks right:
 
 - **The composer sits at the bottom.** `AIThreadViewportFooter` has `margin-top: auto`, so in a short or empty thread the footer stays at the bottom of the viewport instead of floating under the last message.
 - **Empty state.** `AIThreadEmpty` grows to fill the free space (`flex: 1`) and centers its children horizontally and vertically. Its children are still yours to style.
-- **Default spacing.** The messages have `var(--sl-ai-thread-padding, var(--sl-space-4))` (16px) on every side, and the footer has the same value on its sides and bottom (no top padding), so the composer lines up with the message column. The viewport hands that padding to `AIMessages` through `--sl-ai-messages-padding`, so it also applies when `AIMessages` sits inside a wrapper (see [Wrapping `AIMessages`](#wrapping-aimessages)). Apps do not need to pad the list themselves.
-- **Gap between messages.** `var(--sl-ai-messages-gap, var(--sl-space-8))` (32px): the smallest space token that holds the floating actions bar of an answer. The same value is left below the last message, so the last bar floats in that space and the sticky footer never covers it.
+- **Default spacing.** The messages have 24px on the sides (`--sl-ai-thread-padding-inline`, default `var(--sl-space-6)`) and 16px above and below (`--sl-ai-thread-padding-block`, default `var(--sl-space-4)`). The footer has the same values on its sides and bottom (no top padding), so the composer lines up with the message column. `--sl-ai-thread-padding` sets both axes at once. The viewport hands that padding to `AIMessages` through `--sl-ai-messages-padding`, so it also applies when `AIMessages` sits inside a wrapper (see [Wrapping `AIMessages`](#wrapping-aimessages)). Apps do not need to pad the list themselves.
+- **Gap between messages.** `var(--sl-ai-messages-gap, var(--sl-space-3))` (12px), the same distance as between the blocks of an answer. The same value is left below the last message.
+- **Scroll button.** `AIThreadScrollToBottom` is a 28px round button with no border, centered 28px above the footer.
 
 | Custom property | Default | What it changes |
 |-----------------|---------|-----------------|
-| `--sl-ai-thread-padding` | `var(--sl-space-4)` | Padding around the messages, and on the sides and bottom of the composer footer |
-| `--sl-ai-messages-gap` | `var(--sl-space-8)` | Gap between messages, and the space below the last message |
+| `--sl-ai-thread-padding-inline` | `var(--sl-space-6)` | Padding on the sides of the messages and of the composer footer |
+| `--sl-ai-thread-padding-block` | `var(--sl-space-4)` | Padding above and below the messages, and below the composer footer |
+| `--sl-ai-thread-padding` | not set | Shortcut that sets both axes at once. A per-axis property wins over it |
+| `--sl-ai-messages-gap` | `var(--sl-space-3)` | Gap between messages, and the space below the last message |
 | `--sl-ai-messages-padding` | the thread padding inside `AIThreadViewport`, `0` elsewhere | Padding of `AIMessages`; set `0` on a wrapper that pads itself |
 
 Set them on `[data-sl-ai-thread]` (or any ancestor):
 
 ```css
 [data-sl-ai-thread] {
-  --sl-ai-thread-padding: var(--sl-space-6);
-  --sl-ai-messages-gap: var(--sl-space-10);
+  --sl-ai-thread-padding-inline: var(--sl-space-8);
+  --sl-ai-messages-gap: var(--sl-space-4);
 }
 ```
 

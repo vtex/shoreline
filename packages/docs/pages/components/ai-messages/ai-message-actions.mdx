@@ -1,6 +1,6 @@
 # AIMessageActions
 
-<ComponentDescription>The bar of actions under an answer of the assistant. It floats just below the message, takes no height in the list and is always visible. With no children it has AIMessageCopy and then AIMessageDate; with children it renders exactly them, in the order you give.</ComponentDescription>
+<ComponentDescription>The bar of actions under an answer of the assistant. It is the last block of the message, 12px below the one before it, and is always visible. An answer nobody asked for, such as the opening text of a chat, has no bar. With no children it has AIMessageCopy and then AIMessageDate; with children it renders exactly them, in the order you give.</ComponentDescription>
 
 ```tsx
 <AIMessageAssistant>
@@ -35,6 +35,6 @@ The bar renders only for an assistant message that is complete and has text. It 
 
 | Attribute | Region |
 |-----------|--------|
-| `[data-sl-ai-message-actions]` | The 20px bar, 4px below the message and out of the flow. It is shifted so the first icon lines up with the text |
+| `[data-sl-ai-message-actions]` | The 24px bar, in the flow of the message. It is shifted so the first icon lines up with the text |
 
 The room for the bar comes from the gap between messages, `--sl-ai-messages-gap`; see [AIThread](/components/ai-thread#layout-and-spacing).

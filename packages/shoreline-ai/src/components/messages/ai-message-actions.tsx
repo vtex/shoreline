@@ -6,9 +6,11 @@ import { AIMessageDate } from './ai-message-date'
 import type { AIMessageActionsProps } from './types'
 
 /**
- * Bar under a completed assistant message that has text. Renders nothing for
- * any other message, including user messages. Its children replace the
- * default copy button and date.
+ * Bar that closes a completed assistant message that has text. Renders
+ * nothing for any other message: user messages, and an answer nobody asked
+ * for, such as the opening text of a chat (an assistant message that does not
+ * follow a user message). Its children replace the default copy button and
+ * date.
  *
  * @status experimental
  * @example
@@ -33,6 +35,11 @@ export const AIMessageActions = forwardRef<
       : !(state.message.isLast && state.thread.isRunning)
 
     if (!complete) return false
+
+    // An answer nobody asked for has nothing to rate or copy back.
+    const previous = state.thread.messages[state.message.index - 1]
+
+    if (previous?.role !== 'user') return false
 
     return state.message.content.some(
       (part) => part.type === 'text' && part.text.length > 0

@@ -19,8 +19,20 @@
     overflow-x: hidden;
     position: relative;
     box-sizing: border-box;
-    /* The messages list inherits the thread padding, also through wrappers. */
-    --sl-ai-messages-padding: var(--sl-ai-thread-padding, var(--sl-space-4));
+    /*
+     * 16px above and below, 24px on the sides. Override each axis with
+     * --sl-ai-thread-padding-block and --sl-ai-thread-padding-inline, or both
+     * at once with --sl-ai-thread-padding. The messages list inherits the
+     * padding, also through wrappers.
+     */
+    --sl-ai-messages-padding: var(
+        --sl-ai-thread-padding-block,
+        var(--sl-ai-thread-padding, var(--sl-space-4))
+      )
+      var(
+        --sl-ai-thread-padding-inline,
+        var(--sl-ai-thread-padding, var(--sl-space-6))
+      );
   }
 
   [data-sl-ai-thread-viewport-footer] {
@@ -33,8 +45,15 @@
     width: 100%;
     z-index: 1;
     box-sizing: border-box;
-    padding: 0 var(--sl-ai-thread-padding, var(--sl-space-4))
-      var(--sl-ai-thread-padding, var(--sl-space-4));
+    padding: 0
+      var(
+        --sl-ai-thread-padding-inline,
+        var(--sl-ai-thread-padding, var(--sl-space-6))
+      )
+      var(
+        --sl-ai-thread-padding-block,
+        var(--sl-ai-thread-padding, var(--sl-space-4))
+      );
     background: var(--sl-bg-base);
   }
 
@@ -51,20 +70,26 @@
     position: absolute;
     left: 50%;
     bottom: 100%;
-    margin-bottom: var(--sl-space-3);
+    margin-bottom: var(--sl-space-7);
     transform: translateX(-50%);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--sl-space-10);
-    height: var(--sl-space-10);
+    width: var(--sl-space-7);
+    height: var(--sl-space-7);
     padding: 0;
-    border: 1px solid var(--sl-color-gray-4);
+    border: none;
     border-radius: var(--sl-radius-full);
     background: var(--sl-bg-base);
-    color: var(--sl-fg-base);
+    color: var(--sl-color-gray-10);
     cursor: pointer;
-    box-shadow: var(--sl-shadow-1);
+    /* --sl-shadow-5 only exists in Horizon (0 2px 8px, 15% black). */
+    box-shadow: var(--sl-shadow-5, var(--sl-shadow-1));
+  }
+
+  [data-sl-ai-thread-scroll-to-bottom] > svg {
+    width: var(--sl-space-5);
+    height: var(--sl-space-5);
   }
 
   [data-sl-ai-thread-scroll-to-bottom]:hover {

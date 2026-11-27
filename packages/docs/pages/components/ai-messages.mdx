@@ -6,7 +6,7 @@ import { Callout } from 'nextra/components'
   **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
 </Callout>
 
-<ComponentDescription>AIMessages draws every message of a chat: the question of the user in a bubble, and the answer of the assistant with its reasoning, its text, its tool results and its attached files. Under a finished answer it adds a floating bar of actions, and while the assistant has not written anything yet it shows a running reasoning header.</ComponentDescription>
+<ComponentDescription>AIMessages draws every message of a chat: the question of the user in a bubble, and the answer of the assistant with its reasoning, its text, its tool results and its attached files. A finished answer ends with a bar of actions, and while the assistant has not written anything yet it shows a running reasoning header.</ComponentDescription>
 
 `AIMessages` works with no props. When you need more control, the same pieces are available as small components that you put together, like blocks. Each one has its own page in the sidebar.
 
@@ -92,7 +92,7 @@ The reasoning panel that `AIMessageParts` draws is its own family, [AIReasoning]
 | [AIMessageParts](/components/ai-messages/ai-message-parts) | Draws each part of the message and groups the reasoning steps |
 | [AIMessageText](/components/ai-messages/ai-message-text) | A text part, as markdown |
 | [AIMarkdown](/components/ai-messages/ai-markdown) | Markdown on its own, with no message around it |
-| [AIMessageActions](/components/ai-messages/ai-message-actions) | The floating bar under an answer |
+| [AIMessageActions](/components/ai-messages/ai-message-actions) | The bar of actions that closes an answer |
 | [AIMessageAction](/components/ai-messages/ai-message-action) | A button of the bar, for thumbs or any action of your app |
 | [AIMessageCopy](/components/ai-messages/ai-message-copy) | The button that copies the text of the message |
 | [AIMessageDate](/components/ai-messages/ai-message-date) | When the message was sent |
@@ -184,7 +184,7 @@ To give these labels to message pieces rendered outside `AIMessages`, use [AIMes
 
 Each message row (`[data-sl-ai-message]`) uses `content-visibility: auto`, so rows that are off screen cost nothing. How that affects the scroll, and how to tune the placeholder height, is on [AIThread](/components/ai-thread#long-conversations).
 
-Because `content-visibility` clips the painting of a row to its box, the row has padding and a negative margin that cancel each other: the content keeps its width and position, and focus rings, the reasoning chevron and the floating actions bar are not clipped by the row. The row box itself extends about `1rem` past the list on each side, so a focus ring at the very edge would still be clipped by an ancestor with `overflow: hidden`, such as the thread viewport. Inside a thread this does not happen: the viewport gives the list `1rem` of padding through `--sl-ai-messages-padding`, also when you wrap `AIMessages` in your own element. If your wrapper pads itself, set `--sl-ai-messages-padding: 0` on it so the padding is not applied twice, and keep about `1rem` of horizontal padding there. Do not override `padding`, `margin` or `box-sizing` on the message row.
+Because `content-visibility` clips the painting of a row to its box, the row has padding and a negative margin that cancel each other: the content keeps its width and position, and focus rings, such as the ones of the reasoning chevron and of the actions bar, are not clipped by the row. The row box itself extends about `1rem` past the list on each side, so a focus ring at the very edge would still be clipped by an ancestor with `overflow: hidden`, such as the thread viewport. Inside a thread this does not happen: the viewport gives the list `1.5rem` of side padding through `--sl-ai-messages-padding`, also when you wrap `AIMessages` in your own element. If your wrapper pads itself, set `--sl-ai-messages-padding: 0` on it so the padding is not applied twice, and keep about `1rem` of horizontal padding there. Do not override `padding`, `margin` or `box-sizing` on the message row.
 
 ## Optional props
 
@@ -201,7 +201,7 @@ Because `content-visibility` clips the painting of a row to its box, the row has
 | CSS variable | Default | What it changes |
 |--------------|---------|-----------------|
 | `--sl-ai-message-intrinsic-size` | `5rem` | The placeholder height of a message that was not rendered yet |
-| `--sl-ai-messages-gap` | `var(--sl-space-8)` | The gap between messages, and the space below the last one. See [AIThread](/components/ai-thread#layout-and-spacing) |
+| `--sl-ai-messages-gap` | `var(--sl-space-3)` | The gap between messages, and the space below the last one. See [AIThread](/components/ai-thread#layout-and-spacing) |
 | `--sl-ai-messages-padding` | `0`; the thread padding inside a thread viewport | The padding of the list. Set it to `0` on a wrapper that pads itself |
 
 The selectors of each piece are on its page.

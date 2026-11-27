@@ -29,13 +29,29 @@ describe('ai-thread.css layout', () => {
     expect(footer).toContain('position: sticky')
     expect(footer).toContain('margin-top: auto')
     expect(footer).toContain(
-      'padding: 0 var(--sl-ai-thread-padding, var(--sl-space-4)) var(--sl-ai-thread-padding, var(--sl-space-4))'
+      'padding: 0 var( --sl-ai-thread-padding-inline, var(--sl-ai-thread-padding, var(--sl-space-6)) ) var( --sl-ai-thread-padding-block, var(--sl-ai-thread-padding, var(--sl-space-4)) )'
     )
   })
 
   it('hands the thread padding to the messages through a custom property', () => {
     expect(rule('[data-sl-ai-thread-viewport]')).toContain(
-      '--sl-ai-messages-padding: var(--sl-ai-thread-padding, var(--sl-space-4))'
+      '--sl-ai-messages-padding: var( --sl-ai-thread-padding-block, var(--sl-ai-thread-padding, var(--sl-space-4)) ) var( --sl-ai-thread-padding-inline, var(--sl-ai-thread-padding, var(--sl-space-6)) )'
+    )
+  })
+
+  it('draws a 28px borderless scroll button 28px above the composer', () => {
+    const button = rule('[data-sl-ai-thread-scroll-to-bottom]')
+
+    expect(button).toContain('width: var(--sl-space-7)')
+    expect(button).toContain('height: var(--sl-space-7)')
+    expect(button).toContain('margin-bottom: var(--sl-space-7)')
+    expect(button).toContain('border: none')
+    expect(button).toContain('color: var(--sl-color-gray-10)')
+    expect(button).toContain(
+      'box-shadow: var(--sl-shadow-5, var(--sl-shadow-1))'
+    )
+    expect(rule('[data-sl-ai-thread-scroll-to-bottom] > svg')).toContain(
+      'width: var(--sl-space-5)'
     )
   })
 

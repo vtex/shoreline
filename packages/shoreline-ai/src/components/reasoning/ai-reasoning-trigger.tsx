@@ -2,7 +2,7 @@ import { forwardRef } from '@vtex/shoreline'
 import type { MouseEvent } from 'react'
 
 import { useAIReasoningRootContext } from './ai-reasoning-root'
-import { IconExpandLess, IconExpandMore } from './icons'
+import { IconExpandLess, IconExpandMore } from '../icons/icon-expand'
 import { useIsPendingReasoning } from './reasoning-group-context'
 import type { AIReasoningTriggerProps } from './types'
 import { useReasoningStatusText } from './use-reasoning-status-text'

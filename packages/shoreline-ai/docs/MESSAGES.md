@@ -95,7 +95,7 @@ Full message shape and transport details: [RUNTIME.md](./RUNTIME.md). Read threa
 | `AIThinkingIndicator` | The text loading effect: its children with a light band that sweeps across. No default text, no role |
 | `AIWorkingMark` | The small spinning mark (16px box, 14px glyph). Decorative (`aria-hidden`) |
 | `AIMessageActions` | Floating bar under a completed assistant message that has text. Without children: `AIMessageCopy` then `AIMessageDate`. With children: exactly them |
-| `AIMessageAction` | A bar button (20px, 14px icon). `label` is its accessible name. Use it for thumbs or any app action |
+| `AIMessageAction` | A bar button (24px, 14px icon). `label` is its accessible name. Use it for thumbs or any app action |
 | `AIMessageCopy` | Copies the text parts of the message. `onCopied` runs after a successful copy |
 | `AIMessageDate` | When the message was sent ("now", "5m ago", "yesterday, 2:32 PM"). Reads `createdAt`, or takes `date` |
 | `AIMessageResources` | Container for resource parts |
@@ -290,7 +290,7 @@ With `prefers-reduced-motion: reduce` the text effect is plain gray text and the
 
 ### Actions bar
 
-`AIMessageActions` is a 20px bar that floats 4px below a completed assistant message that has text. It takes no height, is always visible, and renders nothing while the message runs, for user messages, or for `incomplete` messages (a cancelled or failed run, or a message waiting for a tool result), so a partial answer cannot be copied. It has no boolean props.
+`AIMessageActions` is a 24px bar, the last block of a completed assistant message that has text: it sits in the flow, 12px below the block before it, and is always visible. It renders nothing while the message runs, for user messages, or for `incomplete` messages (a cancelled or failed run, or a message waiting for a tool result), so a partial answer cannot be copied. It also renders nothing for an answer nobody asked for, such as the opening text of a chat: an assistant message that does not come right after a user message. It has no boolean props.
 
 - No children: `AIMessageCopy` and then `AIMessageDate`.
 - With children: exactly the children, in that order. Include `AIMessageCopy` and `AIMessageDate` to keep them.
@@ -625,7 +625,7 @@ Stable `data-sl-*` hooks for app overrides. Use only `--sl-*` tokens inside `@la
 | `[data-sl-ai-markdown]` | Markdown output |
 | `[data-sl-ai-thinking-indicator]` | The text loading effect |
 | `[data-sl-ai-working-mark]` | The working mark. Its glyph is `[data-sl-ai-working-mark-glyph]` |
-| `[data-sl-ai-message-actions]` | The floating bar under a completed assistant message |
+| `[data-sl-ai-message-actions]` | The bar that closes a completed assistant message |
 | `[data-sl-ai-message-action]` | A bar button. Styled for `:hover` and `:focus-visible`; with `aria-pressed="true"` it keeps its resting color (the app swaps the icon) |
 | `[data-sl-ai-message-copy]` | The copy button (also an action). Has `data-copied` for 2 seconds after a copy |
 | `[data-sl-ai-message-date]` | The date. Has `data-just-now` under a minute, when it is always visible |
@@ -642,13 +642,15 @@ User bubble styling is applied via CSS on `[data-sl-ai-message-role="user"] [dat
 |--------------|---------|---------|
 | `--sl-ai-message-user-max-width` | `33.75rem` | Maximum width of the user bubble |
 | `--sl-ai-message-intrinsic-size` | `5rem` | Placeholder height of a message row that was not rendered yet |
-| `--sl-ai-messages-gap` | `var(--sl-space-8)` | Gap between messages, and the space below the last one for the floating bar (see [THREAD.md](./THREAD.md#layout-and-spacing)) |
-| `--sl-ai-thread-padding` | `var(--sl-space-4)` | Padding around the messages inside `AIThreadViewport` |
+| `--sl-ai-messages-gap` | `var(--sl-space-3)` | Gap between messages, and the space below the last one (see [THREAD.md](./THREAD.md#layout-and-spacing)) |
+| `--sl-ai-thread-padding-inline` | `var(--sl-space-6)` | Padding on the sides of the messages inside `AIThreadViewport` |
+| `--sl-ai-thread-padding-block` | `var(--sl-space-4)` | Padding above and below the messages inside `AIThreadViewport` |
+| `--sl-ai-thread-padding` | not set | Shortcut that sets both axes at once |
 | `--sl-ai-messages-padding` | `0`; inside `AIThreadViewport`, the thread padding | Padding of `[data-sl-ai-messages]`. The viewport sets it and it is inherited, so a wrapper around `AIMessages` keeps the spacing; set it to `0` on a wrapper that pads itself |
 
 ### `content-visibility`
 
-Every `[data-sl-ai-message]` uses `content-visibility: auto` and `contain-intrinsic-block-size: auto var(--sl-ai-message-intrinsic-size, 5rem)`, so off-screen rows skip layout and paint in long threads. Because this clips painting to the row box, the row has padding and a negative margin that cancels it, and `box-sizing: content-box`, so focus rings, the reasoning chevron and the floating actions bar are not cut off. The bottom padding grows to cover the bar. The content keeps the same width and position as without the padding, but the row box itself extends by `--sl-space-4` on each side of the messages container. A focus ring at the very edge of the container is therefore still clipped by an ancestor with `overflow: hidden`, such as `AIThreadViewport`. The default thread spacing covers this: `AIThreadViewport` gives the list `1rem` of padding through `--sl-ai-messages-padding`, which is inherited, so it also applies when your app wraps `AIMessages` in its own element. A wrapper that pads itself sets `--sl-ai-messages-padding: 0` so the padding is not applied twice. See [THREAD.md](./THREAD.md#wrapping-aimessages). Consumers must not override `padding`, `margin` or `box-sizing` on `[data-sl-ai-message]`. Heights of rows that were never on screen are estimates, so the scroll bar can shift slightly in long histories.
+Every `[data-sl-ai-message]` uses `content-visibility: auto` and `contain-intrinsic-block-size: auto var(--sl-ai-message-intrinsic-size, 5rem)`, so off-screen rows skip layout and paint in long threads. Because this clips painting to the row box, the row has padding and a negative margin that cancels it, and `box-sizing: content-box`, so focus rings, such as the ones of the reasoning chevron and of the actions bar, are not cut off. The content keeps the same width and position as without the padding, but the row box itself extends by `--sl-space-4` on each side of the messages container. A focus ring at the very edge of the container is therefore still clipped by an ancestor with `overflow: hidden`, such as `AIThreadViewport`. The default thread spacing covers this: `AIThreadViewport` gives the list `1.5rem` of side padding through `--sl-ai-messages-padding`, which is inherited, so it also applies when your app wraps `AIMessages` in its own element. A wrapper that pads itself sets `--sl-ai-messages-padding: 0` so the padding is not applied twice. See [THREAD.md](./THREAD.md#wrapping-aimessages). Consumers must not override `padding`, `margin` or `box-sizing` on `[data-sl-ai-message]`. Heights of rows that were never on screen are estimates, so the scroll bar can shift slightly in long histories.
 
 ## Best practices
 

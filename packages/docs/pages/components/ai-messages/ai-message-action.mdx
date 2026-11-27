@@ -1,6 +1,6 @@
 # AIMessageAction
 
-<ComponentDescription>A button of the actions bar. It renders its children, usually a 14px icon, in a 20px button named by its label. Use it for thumbs or any other action of your app.</ComponentDescription>
+<ComponentDescription>A button of the actions bar. It renders its children, usually a 14px icon, in a 24px button named by its label. Use it for thumbs or any other action of your app.</ComponentDescription>
 
 ```tsx
 <AIMessageAction label="Share" onClick={share}>
@@ -64,6 +64,6 @@ The icons are your app's. The [actions bar example](/components/ai-messages#acti
 
 | Attribute | Region |
 |-----------|--------|
-| `[data-sl-ai-message-action]` | The 20px button. Styled for `:hover`, `:focus-visible` and `:disabled` |
+| `[data-sl-ai-message-action]` | The 24px button. Styled for `:hover`, `:focus-visible` and `:disabled` |
 
 The icon rests at `--sl-fg-base-soft`. On hover the button gets the plain hover background and the icon `--sl-color-gray-9`: darker on Horizon, and the same gray on Sunrise, where `--sl-fg-base-soft` already is `--sl-color-gray-9`, so there only the background changes. A pressed action (`aria-pressed="true"`) keeps `--sl-fg-base-soft`. A disabled action does not react to hover.

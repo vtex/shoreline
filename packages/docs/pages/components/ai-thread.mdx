@@ -58,17 +58,19 @@ The example at the top of this page is the raw chat: the thread, the messages an
 
 ### Layout and spacing
 
-A thread with no app CSS already looks right. The footer has `margin-top: auto`, so the composer stays at the bottom when the conversation is short or empty. The thread also owns the spacing: the messages have `--sl-ai-thread-padding` (default `var(--sl-space-4)`, 16px) on every side, and the footer has it on its sides and bottom (no top padding), so the composer lines up with the message column. Messages are `--sl-ai-messages-gap` apart (default `var(--sl-space-8)`, 32px, the room the floating actions bar of an answer needs). The same gap is left below the last message, so the last bar is never covered by the footer.
+A thread with no app CSS already looks right. The footer has `margin-top: auto`, so the composer stays at the bottom when the conversation is short or empty. The thread also owns the spacing: the messages have 24px on the sides (`--sl-ai-thread-padding-inline`) and 16px above and below (`--sl-ai-thread-padding-block`), and the footer has the same values on its sides and bottom (no top padding), so the composer lines up with the message column. Messages are `--sl-ai-messages-gap` apart (default `var(--sl-space-3)`, 12px), and the same gap is left below the last message.
 
 | Custom property | Default | What it changes |
 |-----------------|---------|-----------------|
-| `--sl-ai-thread-padding` | `var(--sl-space-4)` | The padding around the messages, and on the sides and bottom of the composer footer |
-| `--sl-ai-messages-gap` | `var(--sl-space-8)` | The gap between messages, and the space below the last one |
+| `--sl-ai-thread-padding-inline` | `var(--sl-space-6)` | The padding on the sides of the messages and of the composer footer |
+| `--sl-ai-thread-padding-block` | `var(--sl-space-4)` | The padding above and below the messages, and below the composer footer |
+| `--sl-ai-thread-padding` | not set | A shortcut that sets both axes at once. A per-axis property wins over it |
+| `--sl-ai-messages-gap` | `var(--sl-space-3)` | The gap between messages, and the space below the last one |
 | `--sl-ai-messages-padding` | the thread padding | The padding of `AIMessages`. Set it to `0` on a wrapper that pads itself |
 
 ```css
 [data-sl-ai-thread] {
-  --sl-ai-thread-padding: var(--sl-space-6);
+  --sl-ai-thread-padding-inline: var(--sl-space-8);
 }
 ```
 

@@ -63,14 +63,14 @@ describe('ai-messages.css reduced motion', () => {
 })
 
 describe('ai-messages.css actions bar', () => {
-  it('floats the bar 4px under the message, 20px high with a 2px gap', () => {
+  it('keeps the bar in the flow, 24px high with a 2px gap', () => {
     const bar = ruleBody([css], '[data-sl-ai-message-actions] ')
 
-    expect(bar).toContain('position: absolute')
-    expect(bar).toContain('top: calc(100% + var(--sl-space-1))')
-    expect(bar).toContain('height: var(--sl-space-5)')
+    expect(bar).not.toContain('position:')
+    expect(bar).not.toContain('top:')
+    expect(bar).toContain('height: var(--sl-space-6)')
     expect(bar).toContain('gap: var(--sl-space-05)')
-    expect(bar).toContain('inset-inline-start:')
+    expect(bar).toContain('margin-inline-start:')
     expect(bar).not.toMatch(/(^|[^-])left:/)
     expect(css).not.toMatch(/\[data-sl-ai-message-actions\][^{]*\{[^}]*opacity/)
   })
@@ -111,13 +111,36 @@ describe('ai-messages.css actions bar', () => {
     expect(css).not.toContain('[data-sl-ai-message-copy][data-copied]')
   })
 
-  it('keeps room for the last bar and takes its padding from the thread', () => {
+  it('sizes the bar buttons to 24px', () => {
+    const action = ruleBody([css], '[data-sl-ai-message-action] ')
+
+    expect(action).toContain('min-width: var(--sl-space-6)')
+    expect(action).toContain('height: var(--sl-space-6)')
+  })
+
+  it('places the blocks of an answer 12px apart', () => {
+    expect(
+      ruleBody(
+        [css],
+        '[data-sl-ai-message][data-sl-ai-message-role="assistant"] [data-sl-ai-message-parts]'
+      )
+    ).toContain('gap: var(--sl-space-3)')
+  })
+
+  it('reserves no room for a floating bar in the message row', () => {
+    const row = ruleBody([css], '[data-sl-ai-message] ')
+
+    expect(row).toContain('padding: var(--sl-space-2) var(--sl-space-4);')
+    expect(row).not.toContain('--sl-space-6')
+  })
+
+  it('keeps room below the list and takes its padding from the thread', () => {
     const list = ruleBody([css], '[data-sl-ai-messages] ')
 
     expect(list).toContain('box-sizing: border-box')
     expect(list).toContain('padding: var(--sl-ai-messages-padding, 0)')
     expect(list).toContain(
-      'padding-block-end: var(--sl-ai-messages-gap, var(--sl-space-8))'
+      'padding-block-end: var(--sl-ai-messages-gap, var(--sl-space-3))'
     )
   })
 
@@ -134,9 +157,9 @@ describe('ai-messages.css actions bar', () => {
     expect(css).not.toMatch(/\[data-sl-ai-message-action\]:hover\s*[,{]/)
   })
 
-  it('raises the gap between messages', () => {
+  it('places messages 12px apart', () => {
     expect(ruleBody([css], '[data-sl-ai-messages] ')).toContain(
-      'gap: var(--sl-ai-messages-gap, var(--sl-space-8))'
+      'gap: var(--sl-ai-messages-gap, var(--sl-space-3))'
     )
   })
 })
