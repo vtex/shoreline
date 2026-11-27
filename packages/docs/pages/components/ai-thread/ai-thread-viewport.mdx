@@ -1,0 +1,30 @@
+# AIThreadViewport
+
+<ComponentDescription>The scrollable area of the thread. It holds the messages, the empty state and the footer, and it scrolls to the end on new messages, when a run starts, when the history loads and when the thread changes.</ComponentDescription>
+
+```tsx
+<AIThread>
+  <AIThreadViewport>
+    <AIMessages />
+    <AIThreadViewportFooter>
+      <AIComposer />
+    </AIThreadViewportFooter>
+  </AIThreadViewport>
+</AIThread>
+```
+
+Each scroll behavior has a prop, `true` by default. Set one to `false` to turn it off, for example `autoScroll={false}` to let people read while the answer streams.
+
+It also hands the thread padding to `AIMessages` through `--sl-ai-messages-padding`; see [Layout and spacing](/components/ai-thread#layout-and-spacing).
+
+## Optional props
+
+<PropsDocs name="ai-thread-viewport" />
+
+`AIThreadViewport` also accepts the props of a `div`.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-thread-viewport]` | The scrollable area: a flex column with `overflow-y: auto` that sets `--sl-ai-messages-padding` |

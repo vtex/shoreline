@@ -1,10 +1,10 @@
-import { createContext, useContext, type ReactNode } from 'react'
+import { createContext, useContext } from 'react'
 import invariant from 'tiny-invariant'
 
 import { createMessageHook } from '@vtex/shoreline'
 
 import { messages } from './messages'
-import type { AIMessageMessages } from './types'
+import type { AIMessagesI18nProviderProps } from './types'
 
 export const useMessageCatalog = createMessageHook(messages)
 
@@ -12,10 +12,20 @@ export type MessageGetMessage = ReturnType<typeof useMessageCatalog>
 
 const MessageMessagesContext = createContext<MessageGetMessage | null>(null)
 
-export function MessageMessagesProvider(props: {
-  messages?: AIMessageMessages
-  children: ReactNode
-}) {
+/**
+ * Gives message pieces their localized strings. `AIMessages` mounts it for
+ * you; mount it yourself to render message pieces outside `AIMessages`, for
+ * example in a test. Renders no element.
+ *
+ * @status experimental
+ * @example
+ * <AIMessagesI18nProvider messages={{ copyMessage: 'Copy answer' }}>
+ *   <AIReasoningRoot status="complete">
+ *     <AIReasoningHeader />
+ *   </AIReasoningRoot>
+ * </AIMessagesI18nProvider>
+ */
+export function AIMessagesI18nProvider(props: AIMessagesI18nProviderProps) {
   const getMessage = useMessageCatalog(props.messages)
 
   return (
@@ -30,8 +40,16 @@ export function useMessageMessagesContext(): MessageGetMessage {
 
   invariant(
     context,
-    'AIMessage* components must be used within <AIMessages> or <MessageMessagesProvider>'
+    'AIMessage* components must be used within <AIMessages> or <AIMessagesI18nProvider>'
   )
 
   return context
+}
+
+/**
+ * Same catalog, or `undefined` outside a provider. For pieces that only read
+ * optional format overrides and must keep working on their own.
+ */
+export function useOptionalMessageMessages(): MessageGetMessage | undefined {
+  return useContext(MessageMessagesContext) ?? undefined
 }

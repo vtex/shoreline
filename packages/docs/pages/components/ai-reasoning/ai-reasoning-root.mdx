@@ -1,0 +1,30 @@
+# AIReasoningRoot
+
+<ComponentDescription>The reasoning panel and its state, for panels you build by hand, outside the grouping rules of AIMessageParts. You set its status, duration and start time with props, and it shares them, with the open state, with the header and the body inside it.</ComponentDescription>
+
+```tsx
+<AIReasoningRoot status="running" startedAt={startedAt}>
+  <AIReasoningHeader />
+  <AIReasoningContent>
+    <Text variant="caption2" color="base-soft">
+      Comparing each order with its promised delivery date.
+    </Text>
+  </AIReasoningContent>
+</AIReasoningRoot>
+```
+
+The [first example on the AIReasoning page](/components/ai-reasoning) builds every state with it. `status` sets the header, `startedAt` is the origin of the elapsed time, and `defaultExpanded` opens the panel from the start. Without `startedAt`, the root counts from its first render with `status="running"`, and without `duration` it shows the time it counted until `status` turned `complete`. For a panel you control, pass `expanded` and `onExpandedChange`; `defaultExpanded` is then ignored.
+
+The reasoning pieces read their labels from `AIMessages`, so mount the root inside a template of `AIMessages`, or wrap it in [AIMessagesI18nProvider](/components/ai-messages/ai-messages-i18n-provider). Every `AIReasoning*` piece must be inside a root.
+
+## Optional props
+
+<PropsDocs name="ai-reasoning-root" />
+
+`AIReasoningRoot` also accepts the props of a `div`.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-reasoning]` | The panel, a column with `--sl-space-2` between the header and the body. It has `data-status` (`running` or `complete`) |

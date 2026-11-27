@@ -88,9 +88,7 @@ describe('AIMessages', () => {
     expect(
       document.querySelector('[data-sl-ai-message-role="user"]')
     ).toBeTruthy()
-    expect(
-      document.querySelector('[data-sl-ai-message-reasoning]')
-    ).toBeTruthy()
+    expect(document.querySelector('[data-sl-ai-reasoning]')).toBeTruthy()
   })
 })
 
@@ -202,3 +200,103 @@ async function findText(text: string) {
     tick()
   })
 }
+
+describe('AIMessageParts reasoning groups', () => {
+  it('renders one reasoning root, each with a header, per reasoning run', async () => {
+    const historyMessages: AIMessage[] = [
+      {
+        id: 'msg-assistant-1',
+        role: 'assistant',
+        createdAt: '2026-05-20T12:00:01.000Z',
+        parts: [
+          { type: 'reasoning', text: 'First', status: 'complete' },
+          { type: 'text', text: 'Middle' },
+          { type: 'reasoning', text: 'Second', status: 'complete' },
+        ],
+      },
+    ]
+
+    render(
+      <MessagesTestShell>
+        <ThreadHistorySeed messages={historyMessages}>
+          <AIMessages />
+        </ThreadHistorySeed>
+      </MessagesTestShell>
+    )
+
+    await findText('Middle')
+    const roots = document.querySelectorAll('[data-sl-ai-reasoning]')
+
+    expect(roots).toHaveLength(2)
+    for (const root of roots) {
+      expect(root).toHaveAttribute('data-status', 'complete')
+      expect(root.querySelector('[data-sl-ai-reasoning-header]')).toBeTruthy()
+    }
+  })
+
+  it('exports the reasoning header parts from the package entry', async () => {
+    const pkg = await import('../../..')
+
+    for (const name of [
+      'AIReasoningHeader',
+      'AIReasoningMark',
+      'AIReasoningLabel',
+      'AIReasoningElapsed',
+      'AIReasoningTrigger',
+      'AIReasoning',
+      'useAIReasoning',
+    ]) {
+      expect(name in pkg).toBe(true)
+    }
+  })
+})
+
+describe('AIMessages workingMark', () => {
+  it('passes the glyph to the reasoning mark of a running message', async () => {
+    let release: () => void = () => {}
+    const gate = new Promise<void>((resolve) => {
+      release = resolve
+    })
+    const transport: StreamTransport = {
+      async *run() {
+        yield {
+          parts: [{ type: 'reasoning', text: 'Hmm', status: 'streaming' }],
+          status: 'streaming',
+        }
+        await gate
+
+        return { parts: [{ type: 'text', text: 'Done' }], status: 'ready' }
+      },
+    }
+
+    function Send() {
+      const { sendMessage } = useAIThread()
+
+      return (
+        <button type="button" onClick={() => sendMessage({ text: 'Hello' })}>
+          Send Hello
+        </button>
+      )
+    }
+
+    const user = userEvent.setup()
+
+    render(
+      <LocaleProvider locale="en-US">
+        <MockRuntimeProvider transport={transport}>
+          <Send />
+          <AIMessages workingMark={<i data-testid="glyph" />} />
+        </MockRuntimeProvider>
+      </LocaleProvider>
+    )
+
+    await user.click(screen.getByRole('button', { name: 'Send Hello' }))
+
+    const glyph = await screen.findByTestId('glyph')
+
+    expect(glyph.closest('[data-sl-ai-reasoning-mark]')).toBeTruthy()
+
+    release()
+    await waitFor(() => expect(screen.getByText('Done')).toBeInTheDocument())
+  })
+})

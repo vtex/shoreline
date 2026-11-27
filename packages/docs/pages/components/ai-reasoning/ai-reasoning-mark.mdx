@@ -1,0 +1,36 @@
+# AIReasoningMark
+
+<ComponentDescription>The spinning mark at the start of the reasoning header. It is an AIWorkingMark that renders only while the reasoning runs.</ComponentDescription>
+
+```tsx
+<AIReasoningHeader>
+  <AIReasoningMark />
+  <AIReasoningLabel />
+</AIReasoningHeader>
+```
+
+Its glyph is, in order: its children, the `workingMark` of `AIMessages`, then the My Assistant mark. To use your glyph in one template only, pass it as children:
+
+```tsx
+<AIReasoningMark>
+  <IconSparkle />
+</AIReasoningMark>
+```
+
+All the ways to change the glyph are on [AIWorkingMark](/components/ai-working-mark#change-the-glyph).
+
+## Optional props
+
+<PropsDocs name="ai-reasoning-mark" />
+
+`AIReasoningMark` also accepts the props of a `span`.
+
+## Accessibility
+
+The mark is decorative and hidden from assistive technology (`aria-hidden`). The state is carried by the label. With `prefers-reduced-motion: reduce` it pulses slowly instead of rotating.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-reasoning-mark]` | The mark, only while running. It also has the [AIWorkingMark selectors](/components/ai-working-mark#styling). It sits 8px from the label |

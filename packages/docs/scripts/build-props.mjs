@@ -160,6 +160,68 @@ const files = [
       '../shoreline-ai/src/components/composer/types.ts'
     ),
   })),
+  ...[
+    'ai-thread',
+    'ai-thread-viewport',
+    'ai-thread-viewport-footer',
+    'ai-thread-empty',
+    'ai-thread-scroll-to-bottom',
+  ].map((file) => ({
+    file: join(
+      dirname(''),
+      `../shoreline-ai/src/components/thread/${file}.tsx`
+    ),
+    types: join(dirname(''), '../shoreline-ai/src/components/thread/types.ts'),
+  })),
+  ...[
+    'ai-messages',
+    'ai-message-user',
+    'ai-message-assistant',
+    'ai-message-root',
+    'ai-message-parts',
+    'ai-message-text',
+    'ai-markdown',
+    'ai-message-actions',
+    'ai-message-action',
+    'ai-message-copy',
+    'ai-message-date',
+    'ai-message-resources',
+    'ai-message-resource',
+    'ai-thinking-indicator',
+    'ai-working-mark',
+    // Exports AIMessagesI18nProvider
+    'message-messages-context',
+  ].map((file) => ({
+    file: join(
+      dirname(''),
+      `../shoreline-ai/src/components/messages/${file}.tsx`
+    ),
+    types: join(
+      dirname(''),
+      '../shoreline-ai/src/components/messages/types.ts'
+    ),
+  })),
+  ...[
+    'ai-reasoning',
+    'ai-reasoning-root',
+    'ai-reasoning-header',
+    'ai-reasoning-mark',
+    'ai-reasoning-label',
+    'ai-reasoning-elapsed',
+    'ai-reasoning-trigger',
+    'ai-reasoning-content',
+    'ai-reasoning-text',
+    'ai-reasoning-tool-step',
+  ].map((file) => ({
+    file: join(
+      dirname(''),
+      `../shoreline-ai/src/components/reasoning/${file}.tsx`
+    ),
+    types: join(
+      dirname(''),
+      '../shoreline-ai/src/components/reasoning/types.ts'
+    ),
+  })),
   /**
    * Date
    */

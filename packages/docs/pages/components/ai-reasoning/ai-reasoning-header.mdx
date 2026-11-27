@@ -1,0 +1,30 @@
+# AIReasoningHeader
+
+<ComponentDescription>The 20px row at the top of the reasoning panel. With no children it renders the mark, the label, the elapsed time and the chevron, in that order. Pass children to compose your own row from the same pieces.</ComponentDescription>
+
+```tsx
+<AIReasoningHeader>
+  <AIReasoningMark />
+  <AIReasoningLabel />
+  <AIReasoningElapsed />
+  <AIReasoningTrigger />
+</AIReasoningHeader>
+```
+
+Use it inside [AIReasoning](/components/ai-reasoning) or [AIReasoningRoot](/components/ai-reasoning/ai-reasoning-root). A long label wraps and the row grows.
+
+## Optional props
+
+<PropsDocs name="ai-reasoning-header" />
+
+`AIReasoningHeader` also accepts the props of a `div`.
+
+## Accessibility
+
+The row itself is not interactive: only the [chevron](/components/ai-reasoning/ai-reasoning-trigger) is a button, so clicking the label or the time does nothing. Before the message has any part, the label is a live region and the elapsed time stays outside it, so the time is not announced every second.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-reasoning-header]` | The row: at least 20px high, with `--sl-space-05` between the pieces |

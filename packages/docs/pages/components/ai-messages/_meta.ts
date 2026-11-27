@@ -1,0 +1,15 @@
+export default {
+  'ai-message-user': 'AIMessageUser',
+  'ai-message-assistant': 'AIMessageAssistant',
+  'ai-message-root': 'AIMessageRoot',
+  'ai-message-parts': 'AIMessageParts',
+  'ai-message-text': 'AIMessageText',
+  'ai-markdown': 'AIMarkdown',
+  'ai-message-actions': 'AIMessageActions',
+  'ai-message-action': 'AIMessageAction',
+  'ai-message-copy': 'AIMessageCopy',
+  'ai-message-date': 'AIMessageDate',
+  'ai-message-resources': 'AIMessageResources',
+  'ai-messages-i18n-provider': 'AIMessagesI18nProvider',
+  hooks: 'Hooks',
+}

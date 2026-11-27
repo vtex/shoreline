@@ -1,0 +1,44 @@
+# AIThinkingIndicator
+
+import { Callout } from 'nextra/components'
+
+<Callout type="warning" emoji="⚠️">
+  **Experimental.** `@vtex/shoreline-ai` is not published yet and its API can change.
+</Callout>
+
+<ComponentDescription>A text loading effect: its children shimmer, with a light band that sweeps across the text. Use it for a short status while something loads. The reasoning label of AIMessages uses it while the assistant reasons.</ComponentDescription>
+
+<Preview name="ai-thinking-indicator" />
+
+## Usage
+
+It needs no provider and no message around it, so you can use it anywhere:
+
+```tsx
+import { AIThinkingIndicator } from '@vtex/shoreline-ai'
+
+<AIThinkingIndicator>Searching orders…</AIThinkingIndicator>
+```
+
+It is a `span` with no default text, no dots and no `role`. Pass the text as children. When the text must be announced, make it a live region yourself, for example with `role="status"` or by placing it in an `output` element. Import the package styles once, as on [AIMessages](/components/ai-messages#setup).
+
+## Reduced motion
+
+With `prefers-reduced-motion: reduce` there is no sweep: the text stays plain, in `--sl-fg-base-soft`.
+
+## Optional props
+
+<PropsDocs name="ai-thinking-indicator" />
+
+`AIThinkingIndicator` also accepts the props of a `span`.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-thinking-indicator]` | The text. A band in `--sl-color-gray-4` sweeps over `--sl-fg-base-soft` text every 2.4 seconds |
+
+## Related
+
+- [AIWorkingMark](/components/ai-working-mark): the spinning mark
+- [AIReasoningLabel](/components/ai-reasoning/ai-reasoning-label): the reasoning label that uses it

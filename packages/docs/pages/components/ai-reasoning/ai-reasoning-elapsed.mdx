@@ -1,0 +1,26 @@
+# AIReasoningElapsed
+
+<ComponentDescription>The time since the reasoning started, such as "40s" and then "1m 5s". It refreshes every second and renders only while the reasoning runs.</ComponentDescription>
+
+```tsx
+<AIReasoningHeader>
+  <AIReasoningLabel />
+  <AIReasoningElapsed />
+</AIReasoningHeader>
+```
+
+The time counts from the `startedAt` of the panel (see [AIReasoningRoot](/components/ai-reasoning/ai-reasoning-root)) and is formatted with `Intl` in the locale of the `LocaleProvider` (en-US "1m 5s"). The pt-BR catalog overrides the unit format to match the design ("1m 5s" instead of "1 min 5 s"). Only this piece re-renders every second.
+
+## Props
+
+`AIReasoningElapsed` has no props of its own. It accepts the props of a `span`.
+
+## Accessibility
+
+The elapsed time is not a live region and stays outside the label, so screen readers do not announce every tick.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-reasoning-elapsed]` | The time, only while running, with tabular numbers |

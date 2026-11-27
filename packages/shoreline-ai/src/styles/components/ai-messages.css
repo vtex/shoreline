@@ -1,14 +1,48 @@
 @layer sl-components {
+  /*
+   * Room between messages. Override with --sl-ai-messages-gap (default:
+   * 0.75rem). The same room is kept below the list.
+   *
+   * Padding comes from --sl-ai-messages-padding (default: 0). Inside a
+   * thread viewport it inherits the thread padding, also through wrappers;
+   * a wrapper that pads itself sets --sl-ai-messages-padding: 0.
+   */
   [data-sl-ai-messages] {
     display: flex;
     flex-direction: column;
-    gap: var(--sl-space-4);
+    gap: var(--sl-ai-messages-gap, var(--sl-space-3));
     width: 100%;
+    box-sizing: border-box;
+    padding: var(--sl-ai-messages-padding, 0);
+    padding-block-end: var(--sl-ai-messages-gap, var(--sl-space-3));
+  }
+
+  /*
+   * Skip layout and paint for off-screen messages in long threads.
+   * Override the placeholder block size used before a message is first
+   * rendered with --sl-ai-message-intrinsic-size (default: 5rem, an
+   * estimate of an average message height).
+   *
+   * content-visibility clips painting to the message box, so the padding
+   * gives focus rings (such as the reasoning chevron's) room to paint. Negative margins cancel the padding, and
+   * content-box keeps max-width: 100% applied to the content, so the
+   * content width and position are the same as without the padding.
+   * The row box itself extends by the padding on each side, so a focus
+   * ring at the very edge of the messages container is still clipped by an
+   * ancestor with overflow hidden (such as the thread viewport): give the
+   * messages container about 1rem of horizontal padding.
+   */
+  [data-sl-ai-message] {
+    box-sizing: content-box;
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto var(--sl-ai-message-intrinsic-size, 5rem);
+    padding: var(--sl-space-2) var(--sl-space-4);
+    margin: calc(var(--sl-space-2) * -1) calc(var(--sl-space-4) * -1);
   }
 
   [data-sl-ai-message][data-sl-ai-message-role="user"] {
     align-self: flex-end;
-    max-width: 85%;
+    max-width: 100%;
   }
 
   [data-sl-ai-message][data-sl-ai-message-role="assistant"] {
@@ -16,11 +50,16 @@
     max-width: 100%;
   }
 
+  /*
+   * User bubble. Override the maximum width with
+   * --sl-ai-message-user-max-width (default: 33.75rem).
+   */
   [data-sl-ai-message][data-sl-ai-message-role="user"]
     [data-sl-ai-message-content] {
-    border-radius: var(--sl-radius-3) 2px var(--sl-radius-3) var(--sl-radius-3);
-    background-color: var(--sl-bg-base-soft);
+    border-radius: var(--sl-radius-3);
+    background-color: var(--sl-bg-muted);
     padding: var(--sl-space-3) var(--sl-space-4);
+    max-width: var(--sl-ai-message-user-max-width, 33.75rem);
     width: fit-content;
   }
 
@@ -38,30 +77,95 @@
     width: 100%;
   }
 
-  [data-sl-ai-message-reasoning] {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sl-space-2);
+  [data-sl-ai-thinking-indicator] {
+    background: linear-gradient(
+        90deg,
+        var(--sl-fg-base-soft) 0%,
+        var(--sl-fg-base-soft) 35%,
+        var(--sl-color-gray-4) 50%,
+        var(--sl-fg-base-soft) 65%,
+        var(--sl-fg-base-soft) 100%
+      )
+      100% 0 / 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: sl-ai-thinking-shimmer 2.4s infinite;
   }
 
-  [data-sl-ai-message-reasoning-header] {
-    gap: var(--sl-space-0);
+  @keyframes sl-ai-thinking-shimmer {
+    0% {
+      background-position: 100% 0;
+      animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    27.5%,
+    100% {
+      background-position: 0% 0;
+    }
   }
 
-  [data-sl-ai-message-reasoning-header] [data-sl-ai-message-reasoning-trigger] {
-    margin-left: calc(var(--sl-space-3) * -1);
-    font: var(--sl-text-caption-1-font);
-    letter-spacing: var(--sl-text-caption-1-letter-spacing);
-    color: var(--sl-fg-base-soft);
+  [data-sl-ai-working-mark] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sl-space-4);
+    height: var(--sl-space-4);
+    animation: sl-ai-working-mark-enter 240ms cubic-bezier(0.2, 0.8, 0.2, 1)
+      both;
   }
 
-  [data-sl-ai-message-reasoning-content] {
-    border-left: var(--sl-border-base);
-    border-left-width: 3px;
-    padding-left: var(--sl-space-4);
-    display: flex;
-    flex-direction: column;
-    gap: var(--sl-space-2);
+  [data-sl-ai-working-mark-glyph] {
+    display: inline-flex;
+    width: calc(var(--sl-space-3) + var(--sl-space-05));
+    height: calc(var(--sl-space-3) + var(--sl-space-05));
+    transform-origin: 50% 50%;
+    animation: sl-ai-working-mark-turn 1.2s infinite;
+    will-change: transform;
+  }
+
+  [data-sl-ai-working-mark-glyph] > svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes sl-ai-working-mark-enter {
+    from {
+      opacity: 0;
+      transform: rotate(-45deg) scale(0.4);
+    }
+  }
+
+  @keyframes sl-ai-working-mark-turn {
+    0% {
+      transform: rotate(0deg);
+      animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    55%,
+    100% {
+      transform: rotate(180deg);
+    }
+  }
+
+  @keyframes sl-ai-working-mark-breathe {
+    50% {
+      opacity: 0.45;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-sl-ai-thinking-indicator] {
+      animation: none;
+      background: none;
+      color: var(--sl-fg-base-soft);
+    }
+
+    [data-sl-ai-working-mark] {
+      animation: none;
+    }
+
+    [data-sl-ai-working-mark-glyph] {
+      animation: sl-ai-working-mark-breathe 1.6s ease-in-out infinite;
+    }
   }
 
   [data-sl-ai-message-text] {
@@ -74,35 +178,6 @@
     display: flex;
     flex-direction: column;
     gap: var(--sl-space-2);
-  }
-
-  [data-sl-ai-dots-loader] {
-    display: flex;
-    justify-content: center;
-  }
-
-  [data-sl-ai-dots-loader] > div {
-    width: 5px;
-    height: 5px;
-    margin: 0 2px;
-    border-radius: 50%;
-    background-color: var(--sl-color-blue-4);
-    animation: sl-ai-dots-loader-bounce 0.6s infinite alternate;
-  }
-
-  @keyframes sl-ai-dots-loader-bounce {
-    to {
-      background-color: var(--sl-color-blue-9);
-      transform: translateY(-2px);
-    }
-  }
-
-  [data-sl-ai-dots-loader] > div:nth-child(2) {
-    animation-delay: 0.3s;
-  }
-
-  [data-sl-ai-dots-loader] > div:nth-child(3) {
-    animation-delay: 0.6s;
   }
 
   [data-sl-ai-message-resources] {
@@ -174,8 +249,118 @@
     white-space: nowrap;
   }
 
-  [data-sl-ai-message-reasoning-tool-step] {
+  /*
+   * Every block of an answer (reasoning, text, cards and the actions bar)
+   * sits 12px from the next one.
+   */
+  [data-sl-ai-message][data-sl-ai-message-role="assistant"]
+    [data-sl-ai-message-content],
+  [data-sl-ai-message][data-sl-ai-message-role="assistant"]
+    [data-sl-ai-message-parts] {
+    gap: var(--sl-space-3);
+  }
+
+  /*
+   * 24px bar, the last block of the answer, in the flow. It is shifted left
+   * by the inset of the 14px icon in its 24px button (5px), so the first icon
+   * lines up with the message text.
+   */
+  [data-sl-ai-message-actions] {
     display: flex;
     align-items: center;
+    gap: var(--sl-space-05);
+    height: var(--sl-space-6);
+    margin-inline-start: calc(
+      (var(--sl-space-6) - var(--sl-space-3) - var(--sl-space-05)) /
+      -2
+    );
+  }
+
+  [data-sl-ai-message-action] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    min-width: var(--sl-space-6);
+    height: var(--sl-space-6);
+    padding: 0;
+    border: none;
+    border-radius: var(--sl-radius-1);
+    background: transparent;
+    color: var(--sl-fg-base-soft);
+    cursor: pointer;
+    transition: color 0.16s ease, background-color 0.16s ease;
+  }
+
+  /* A disabled action keeps its resting look. :where keeps the specificity
+     low, so the pressed color still wins on hover. */
+  [data-sl-ai-message-action]:hover:where(:not(:disabled)) {
+    background: var(--sl-bg-muted-plain-hover);
+    color: var(--sl-color-gray-9);
+    transition: color 0.22s ease 80ms, background-color 0.22s ease 80ms;
+  }
+
+  /* Pressed keeps its color on hover; the hover background still applies. */
+  [data-sl-ai-message-action][aria-pressed="true"] {
+    color: var(--sl-fg-base-soft);
+  }
+
+  /* The focus ring token is a box-shadow, not a color. */
+  [data-sl-ai-message-action]:focus-visible {
+    outline: none;
+    box-shadow: var(--sl-focus-ring-base);
+  }
+
+  [data-sl-ai-message-action]:disabled {
+    cursor: default;
+    background: transparent;
+  }
+
+  /* Shoreline icons (svg[data-sl-icon], 20x20) render at 14px. */
+  [data-sl-ai-message-action] > svg {
+    width: calc(var(--sl-space-3) + var(--sl-space-05));
+    height: calc(var(--sl-space-3) + var(--sl-space-05));
+  }
+
+  /*
+   * Shoreline icons draw a non-scaling 1.5px stroke. At 14px the designer's
+   * icons scale the stroke with the icon (about 1.05px on screen), so the bar
+   * looks lighter.
+   */
+  [data-sl-ai-message-action]
+    > svg
+    :is(path, rect, circle, line, polyline, polygon, ellipse) {
+    vector-effect: none;
+  }
+
+  /* Shown on hover or focus of the message, and while it is "now". */
+  [data-sl-ai-message-date] {
+    margin-inline-start: calc(var(--sl-space-2) + var(--sl-space-05));
+    font: var(--sl-text-caption-2-font);
+    letter-spacing: var(--sl-text-caption-2-letter-spacing);
+    color: var(--sl-color-gray-6);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  [data-sl-ai-message-date][data-just-now],
+  [data-sl-ai-message]:hover [data-sl-ai-message-date],
+  [data-sl-ai-message]:focus-within [data-sl-ai-message-date] {
+    opacity: 1;
+  }
+
+  @media (hover: none) {
+    [data-sl-ai-message-date] {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-sl-ai-message-action],
+    [data-sl-ai-message-action]:hover:where(:not(:disabled)),
+    [data-sl-ai-message-date] {
+      transition: none;
+    }
   }
 }

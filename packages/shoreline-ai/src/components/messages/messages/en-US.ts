@@ -1,6 +1,9 @@
 export default {
-  reasoningStreaming: 'Reasoning',
-  reasoningReady: 'Reasoned',
+  reasoningStreaming: 'Thinking…',
+  reasoningDone: 'Done thinking',
+  reasoningDoneIn: 'Thought for {duration}',
   copyMessage: 'Copy message',
   copyCode: 'Copy code',
+  messageCopied: 'Message copied',
+  copied: 'Copied!',
 }

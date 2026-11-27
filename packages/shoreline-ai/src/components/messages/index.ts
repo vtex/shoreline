@@ -5,20 +5,21 @@ export { AIMessageRoot } from './ai-message-root'
 export { AIMessageParts } from './ai-message-parts'
 export { AIMessageText } from './ai-message-text'
 export { AIMarkdown } from './ai-markdown'
-export { AIMessageReasoningRoot } from './ai-message-reasoning-root'
-export { AIMessageReasoningHeader } from './ai-message-reasoning-header'
-export { AIMessageReasoningTrigger } from './ai-message-reasoning-trigger'
-export { AIMessageReasoningContent } from './ai-message-reasoning-content'
-export { AIMessageReasoningText } from './ai-message-reasoning-text'
-export { AIMessageReasoningToolStep } from './ai-message-reasoning-tool-step'
+export { useAIMessage } from './use-ai-message'
+export { AIMessageActions } from './ai-message-actions'
+export { AIMessageAction } from './ai-message-action'
+export { AIMessageCopy } from './ai-message-copy'
+export { AIMessageDate } from './ai-message-date'
+export { AIThinkingIndicator } from './ai-thinking-indicator'
+export { AIWorkingMark } from './ai-working-mark'
 export { AIMessageResources } from './ai-message-resources'
 export {
   AIMessageResource,
   AIMessageResourceFile,
   AIMessageResourceImage,
 } from './ai-message-resource'
-export { renderDefaultParts } from './default-parts'
-export { MessageMessagesProvider } from './message-messages-context'
+export { defaultMessageGroupBy, renderDefaultParts } from './default-parts'
+export { AIMessagesI18nProvider } from './message-messages-context'
 
 export type {
   AIMessagesProps,
@@ -33,17 +34,25 @@ export type {
   AIMessageTextProps,
   AIMarkdownProps,
   AIMarkdownOptions,
-  AIMessageReasoningRootProps,
-  AIMessageReasoningRootOptions,
-  AIMessageReasoningTriggerProps,
-  AIMessageReasoningTriggerOptions,
-  AIMessageReasoningContentProps,
-  AIMessageReasoningTextProps,
-  AIMessageReasoningToolStepProps,
-  AIMessageReasoningToolStepOptions,
+  AIMessageActionsProps,
+  AIMessageActionsOptions,
+  AIMessageActionProps,
+  AIMessageActionOptions,
+  AIMessageCopyProps,
+  AIMessageCopyOptions,
+  AIMessageDateProps,
+  AIMessageDateOptions,
+  AIThinkingIndicatorProps,
+  AIThinkingIndicatorOptions,
+  AIWorkingMarkProps,
+  AIWorkingMarkOptions,
   AIMessageResourceProps,
   AIMessageResourcesProps,
+  AIMessageState,
+  AIMessageStatus,
   AIMessageMessages,
+  AIMessagesI18nProviderOptions,
+  AIMessagesI18nProviderProps,
   AIMessagePartMeta,
   AIMessagePartRenderer,
   GroupByContext,

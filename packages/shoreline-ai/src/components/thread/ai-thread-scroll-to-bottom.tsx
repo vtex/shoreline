@@ -1,7 +1,7 @@
 import { ThreadPrimitive } from '@assistant-ui/react'
-import { IconCaretDown } from '@vtex/shoreline'
 import { forwardRef } from '@vtex/shoreline'
 
+import { IconExpandMore } from '../icons/icon-expand'
 import { useThreadMessagesContext } from './thread-messages-context'
 import type { AIThreadScrollToBottomProps } from './types'
 
@@ -25,7 +25,7 @@ export const AIThreadScrollToBottom = forwardRef<
       aria-label={getMessage('scrollToBottom')}
       {...buttonProps}
     >
-      {children ?? <IconCaretDown />}
+      {children ?? <IconExpandMore />}
     </ThreadPrimitive.ScrollToBottom>
   )
 })

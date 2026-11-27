@@ -5,8 +5,8 @@ import { useAIContextInternal } from '../provider/ai-context'
 import { AICanvasTrigger } from '../tool-ui/ai-canvas-trigger'
 import { AIToolFallback } from '../tool-ui/ai-tool-fallback'
 import { getToolRegistration, toolRegistry } from '../tool-ui/make-ai-tool-ui'
-import { AIMessageReasoningText } from './ai-message-reasoning-text'
-import { AIMessageReasoningToolStep } from './ai-message-reasoning-tool-step'
+import { AIReasoningText } from '../reasoning/ai-reasoning-text'
+import { AIReasoningToolStep } from '../reasoning/ai-reasoning-tool-step'
 import { AIMessageResource } from './ai-message-resource'
 import { AIMessageResources } from './ai-message-resources'
 import { AIMessageText } from './ai-message-text'
@@ -129,7 +129,7 @@ export function renderDefaultParts(
   }
 
   if (part.type === 'reasoning' && meta.placement === 'cot') {
-    return <AIMessageReasoningText key={meta.index} />
+    return <AIReasoningText key={meta.index} />
   }
 
   if (part.type === 'resource') {
@@ -169,7 +169,7 @@ export function renderDefaultParts(
         return null
       }
 
-      return <AIMessageReasoningToolStep part={part} key={meta.index} />
+      return <AIReasoningToolStep part={part} key={meta.index} />
     }
 
     return (

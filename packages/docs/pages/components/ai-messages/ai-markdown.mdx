@@ -1,0 +1,27 @@
+# AIMarkdown
+
+<ComponentDescription>Draws a markdown string with Shoreline text styles. It supports GitHub-style markdown, such as tables and task lists. The message text and the reasoning text use it, and you can use it alone for static content.</ComponentDescription>
+
+```tsx
+<AIMarkdown>{'# Hello\n\nParagraph with **bold**.'}</AIMarkdown>
+```
+
+Its rendering is documented here as it is today, and may be reworked later.
+
+## Required props
+
+<PropsDocs name="ai-markdown" required />
+
+`AIMarkdown` also accepts the props of a `div`.
+
+## Styling
+
+| Attribute | Region |
+|-----------|--------|
+| `[data-sl-ai-markdown]` | The markdown output, a column with `--sl-space-2` between blocks |
+| `[data-sl-ai-markdown-text]` | A paragraph, in the `body` text style |
+| `[data-sl-ai-markdown-heading]` | A heading: `display3`, `display4` or `action` for levels 1 to 3 |
+| `[data-sl-ai-markdown-list-item]` | A list item |
+| `[data-sl-ai-markdown-code]` | Inline code |
+| `[data-sl-ai-markdown-pre]` | A code block |
+| `[data-sl-ai-markdown-link]` | A link |

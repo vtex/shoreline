@@ -110,6 +110,7 @@ export function Preview(props: Props) {
               className={styles.previewWrapper}
               data-fixed-height={fixedHeight}
               data-theme={theme}
+              data-sl-theme={getShorelineTheme(name)}
             >
               {Preview}
             </div>
@@ -126,6 +127,16 @@ export function Preview(props: Props) {
       </TabProvider>
     </div>
   )
+}
+
+/**
+ * The Shoreline AI components are designed for the Horizon theme, so their
+ * examples (every example named `ai-*`) render inside the scoped Horizon
+ * theme of `__styles__/horizon-scope.css`. Other examples keep the document
+ * theme.
+ */
+function getShorelineTheme(name: string) {
+  return name.startsWith('ai-') ? 'horizon' : undefined
 }
 
 function getIndicatorBackground(theme: Theme) {
