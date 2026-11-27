@@ -61,6 +61,9 @@ export function Show() {
     <div>
       {getGrid('normal')}
       {getGrid('large')}
+      <div className="variants--overflow">
+        <Button variant="primary">Moderately long button label</Button>
+      </div>
     </div>
   )
 }
